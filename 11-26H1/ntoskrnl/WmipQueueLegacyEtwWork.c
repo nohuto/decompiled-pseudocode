@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipQueueLegacyEtwWork @ 0x140B2F424
+ * XREFs of WmipQueueLegacyEtwWork @ 0x140B31204
  * Callers:
- *     WmipRegisterEtwProvider @ 0x140823D44 (WmipRegisterEtwProvider.c)
+ *     WmipRegisterEtwProvider @ 0x140829F90 (WmipRegisterEtwProvider.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     WmipReferenceEntry @ 0x140A0FB50 (WmipReferenceEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     WmipReferenceEntry @ 0x140A0ED40 (WmipReferenceEntry.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void __fastcall WmipQueueLegacyEtwWork(_QWORD *a1, ULONG_PTR a2, __int64 a3)

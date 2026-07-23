@@ -19,7 +19,7 @@ __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 *a2)
   char *v7; // r14
   __int64 v8; // rax
   __int64 result; // rax
-  RTL_SPLAY_LINKS *v10; // rcx
+  _RTL_SPLAY_LINKS *v10; // rcx
   __int64 v11; // rcx
   char **v12; // rax
   char v13; // [rsp+60h] [rbp+8h] BYREF
@@ -39,7 +39,7 @@ __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 *a2)
     v8 = *((_QWORD *)v7 + 2);
     if ( v8 >= v6 && v8 <= v5 )
       break;
-    v10 = (RTL_SPLAY_LINKS *)(v7 - 24);
+    v10 = (_RTL_SPLAY_LINKS *)(v7 - 24);
     if ( v13 )
     {
       *(_QWORD *)(a1 + 56) = RtlDelete(v10);
@@ -63,7 +63,7 @@ __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 *a2)
     result = *(unsigned __int16 *)(a1 + 80);
     if ( (unsigned int)result <= TunnelMaxEntries )
       break;
-    FsRtlRemoveNodeFromTunnel(a1, (RTL_SPLAY_LINKS *)*v3 - 1, (__int64)v2, &v13);
+    FsRtlRemoveNodeFromTunnel(a1, (_RTL_SPLAY_LINKS *)*v3 - 1, (__int64)v2, &v13);
   }
   return result;
 }

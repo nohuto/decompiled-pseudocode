@@ -1,12 +1,12 @@
 /*
- * XREFs of MmQueryPfnList @ 0x1406EF440
+ * XREFs of MmQueryPfnList @ 0x1406EF470
  * Callers:
- *     PfpPfnPrioRequest @ 0x14075DD48 (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x14075DF38 (PfpPfnPrioRequest.c)
  * Callees:
- *     MiIdentifyPfnWrapper @ 0x14023CC40 (MiIdentifyPfnWrapper.c)
- *     MiIsPfn @ 0x14023F0C0 (MiIsPfn.c)
- *     MiLockDynamicMemoryShared @ 0x1403463D4 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x140346780 (MiUnlockDynamicMemoryShared.c)
+ *     MiIdentifyPfnWrapper @ 0x14023CD10 (MiIdentifyPfnWrapper.c)
+ *     MiIsPfn @ 0x14023F190 (MiIsPfn.c)
+ *     MiLockDynamicMemoryShared @ 0x140346664 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x140346A10 (MiUnlockDynamicMemoryShared.c)
  */
 
 __int64 __fastcall MmQueryPfnList(__int64 a1, unsigned __int64 a2)

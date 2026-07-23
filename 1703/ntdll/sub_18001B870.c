@@ -13,37 +13,37 @@
 
 _QWORD *__fastcall sub_18001B870(_QWORD *Buf1)
 {
-  __int64 v2; // rdi
+  unsigned __int64 Root; // rdi
   int v3; // esi
   _QWORD *v4; // rbx
   int v6; // eax
-  __int64 v7; // rax
+  unsigned __int64 v7; // rax
   _QWORD *v8; // rcx
   _QWORD *v9; // rax
   __int64 v10; // rax
 
-  RtlAcquireSRWLockExclusive(&unk_18015C348);
-  v2 = qword_18015C328;
-  v3 = byte_18015C330 & 1;
+  RtlAcquireSRWLockExclusive(&stru_18015C348);
+  Root = (unsigned __int64)stru_18015C328.Root;
+  v3 = (__int64)stru_18015C328.Min & 1;
   v4 = 0LL;
-  while ( v2 )
+  while ( Root )
   {
-    v6 = memcmp(Buf1, (const void *)(v2 + 24), 0x10uLL);
+    v6 = memcmp(Buf1, (const void *)(Root + 24), 0x10uLL);
     if ( v6 >= 0 )
     {
       if ( v6 > 0 )
       {
-        v7 = *(_QWORD *)(v2 + 8);
+        v7 = *(_QWORD *)(Root + 8);
         goto LABEL_11;
       }
-      v4 = (_QWORD *)v2;
+      v4 = (_QWORD *)Root;
     }
-    v7 = *(_QWORD *)v2;
+    v7 = *(_QWORD *)Root;
 LABEL_11:
     if ( v3 && v7 )
-      v2 ^= v7;
+      Root ^= v7;
     else
-      v2 = v7;
+      Root = v7;
   }
   if ( v4 )
   {
@@ -85,6 +85,6 @@ LABEL_11:
 LABEL_4:
     v4 = 0LL;
   }
-  RtlReleaseSRWLockExclusive(&unk_18015C348);
+  RtlReleaseSRWLockExclusive(&stru_18015C348);
   return v4;
 }

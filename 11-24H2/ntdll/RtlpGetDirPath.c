@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpGetDirPath @ 0x180083B58
+ * XREFs of RtlpGetDirPath @ 0x180005A04
  * Callers:
- *     RtlpComputePath @ 0x180084760 (RtlpComputePath.c)
+ *     RtlpComputePath @ 0x180006610 (RtlpComputePath.c)
  * Callees:
- *     wcschr @ 0x1801276A0 (wcschr.c)
- *     wcsrchr @ 0x180127C50 (wcsrchr.c)
+ *     wcschr @ 0x1801258D0 (wcschr.c)
+ *     wcsrchr @ 0x180125E80 (wcsrchr.c)
  */
 
 const wchar_t *__fastcall RtlpGetDirPath(wchar_t *Str, _QWORD *a2)

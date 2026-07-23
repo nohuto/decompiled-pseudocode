@@ -63,7 +63,7 @@ char __fastcall PopDeferDoze(int a1, int a2, _BYTE *a3)
   if ( !v16 )
   {
     v4 = 1;
-    PopPrintEx(3LL, (__int64)"Deferring doze to S4\n");
+    PopPrintEx(3u, (__int64)"Deferring doze to S4\n");
   }
   v17 = v14;
   v18 = P[0];

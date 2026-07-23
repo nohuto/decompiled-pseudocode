@@ -20,38 +20,42 @@
  *     ZwClose @ 0x18009ACA0 (ZwClose.c)
  */
 
-__int64 __fastcall EtwNotificationUnregister(unsigned __int64 a1, _QWORD *a2)
+ULONG __cdecl EtwNotificationUnregister(REGHANDLE RegHandle, PVOID *Context)
 {
-  unsigned __int64 v2; // rdi
-  __int64 v4; // rbx
-  __int64 v5; // rcx
+  REGHANDLE v2; // rdi
+  REGHANDLE v4; // rbx
+  void *v5; // rcx
 
-  v2 = HIWORD(a1);
-  if ( !HIWORD(a1) )
+  v2 = HIWORD(RegHandle);
+  if ( !HIWORD(RegHandle) )
     goto LABEL_13;
-  v4 = a1 & 0xFFFFFFFFFFFFLL;
-  if ( (a1 & 1) != 0 || HIWORD(a1) != *(_WORD *)((a1 & 0xFFFFFFFFFFFFLL) + 0x60) || v4 == qword_18015A418 )
+  v4 = RegHandle & 0xFFFFFFFFFFFFLL;
+  if ( (RegHandle & 1) != 0
+    || HIWORD(RegHandle) != *(_WORD *)((RegHandle & 0xFFFFFFFFFFFFLL) + 0x60)
+    || v4 == qword_18015A418 )
+  {
     goto LABEL_13;
-  RtlAcquireSRWLockExclusive(v4 + 72);
+  }
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v4 + 72));
   if ( (_WORD)v2 != _InterlockedCompareExchange16((volatile signed __int16 *)(v4 + 96), 0, v2) )
   {
-    RtlReleaseSRWLockExclusive(v4 + 72);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v4 + 72));
 LABEL_13:
-    RtlSetLastWin32Error(6LL);
-    return 6LL;
+    RtlSetLastWin32Error(6);
+    return 6;
   }
-  sub_180008170(v4);
-  RtlReleaseSRWLockExclusive(v4 + 72);
+  sub_180008170((PRTL_BALANCED_NODE)v4);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v4 + 72));
   if ( (*(_WORD *)(v4 + 98) & 0x3FFF) != 0xA )
-    ZwClose(*(_QWORD *)(v4 + 88));
-  v5 = *(_QWORD *)(v4 + 248);
+    ZwClose(*(HANDLE *)(v4 + 88));
+  v5 = *(void **)(v4 + 248);
   if ( v5 )
   {
     sub_180005D90(v5);
     *(_QWORD *)(v4 + 248) = 0LL;
   }
-  if ( a2 )
-    *a2 = *(_QWORD *)(v4 + 56);
+  if ( Context )
+    *Context = *(PVOID *)(v4 + 56);
   sub_180008138((PSLIST_ENTRY)v4);
-  return 0LL;
+  return 0;
 }

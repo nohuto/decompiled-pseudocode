@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHpetSetMatchValue @ 0x1404A290C
+ * XREFs of HalpHpetSetMatchValue @ 0x14049D89C
  * Callers:
- *     HalpHpetArmTimer @ 0x1404A28C0 (HalpHpetArmTimer.c)
- *     HalpHpetAcknowledgeInterrupt @ 0x1404AF000 (HalpHpetAcknowledgeInterrupt.c)
+ *     HalpHpetArmTimer @ 0x14049D850 (HalpHpetArmTimer.c)
+ *     HalpHpetAcknowledgeInterrupt @ 0x1404A99E0 (HalpHpetAcknowledgeInterrupt.c)
  * Callees:
- *     HalSetTimerProblem @ 0x1404FAD60 (HalSetTimerProblem.c)
+ *     HalSetTimerProblem @ 0x1404F8640 (HalSetTimerProblem.c)
  */
 
 __int64 __fastcall HalpHpetSetMatchValue(int *a1, int a2, char a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInitializeSegmentInfoForBucket @ 0x180072038
+ * XREFs of RtlpInitializeSegmentInfoForBucket @ 0x1800954EC
  * Callers:
- *     RtlpGetLFHContext @ 0x180071FD4 (RtlpGetLFHContext.c)
+ *     RtlpGetLFHContext @ 0x180095488 (RtlpGetLFHContext.c)
  * Callees:
- *     RtlpExtendLowFragHeapSegment @ 0x180072098 (RtlpExtendLowFragHeapSegment.c)
+ *     RtlpExtendLowFragHeapSegment @ 0x18009554C (RtlpExtendLowFragHeapSegment.c)
  */
 
 __int64 __fastcall RtlpInitializeSegmentInfoForBucket(__int64 a1, unsigned int a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of KiHeteroComputeThreadImportance @ 0x140415600
+ * XREFs of KiHeteroComputeThreadImportance @ 0x140409C30
  * Callers:
- *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x140235418 (KiHeteroScanQueueForPreemptionSwapTarget.c)
- *     KiEvaluatePreemptionSwapTarget @ 0x140415474 (KiEvaluatePreemptionSwapTarget.c)
+ *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x140236D78 (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ *     KiEvaluatePreemptionSwapTarget @ 0x140409AA4 (KiEvaluatePreemptionSwapTarget.c)
  * Callees:
  *     <none>
  */

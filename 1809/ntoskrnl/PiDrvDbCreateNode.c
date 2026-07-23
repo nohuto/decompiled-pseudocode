@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDrvDbCreateNode @ 0x14073AB48
+ * XREFs of PiDrvDbCreateNode @ 0x14073BD38
  * Callers:
- *     PiDrvDbRegisterNode @ 0x14073AA50 (PiDrvDbRegisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x14073BC40 (PiDrvDbRegisterNode.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     ZwCreateEvent @ 0x1401B8A90 (ZwCreateEvent.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     RtlCreateUnicodeString @ 0x14065AA10 (RtlCreateUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
- *     PiDrvDbDestroyNode @ 0x14083D604 (PiDrvDbDestroyNode.c)
+ *     KeInitializeTimerEx @ 0x140089FE0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     ZwCreateEvent @ 0x1401B8BF0 (ZwCreateEvent.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     RtlCreateUnicodeString @ 0x14065BBD0 (RtlCreateUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1406B33A0 (ExpAllocateStringRoutine.c)
+ *     PiDrvDbDestroyNode @ 0x14083E864 (PiDrvDbDestroyNode.c)
  */
 
 __int64 __fastcall PiDrvDbCreateNode(PCWSTR Source, int a2, __int64 a3, const WCHAR *a4, __int64 *a5)
@@ -78,13 +78,13 @@ LABEL_10:
   {
 LABEL_14:
     *(_DWORD *)(v9 + 496) = 259;
-    v16 = (__int64 *)qword_140433168;
-    if ( *(__int64 **)qword_140433168 != &PiDrvDbNodeList )
+    v16 = (__int64 *)qword_140434238;
+    if ( *(__int64 **)qword_140434238 != &PiDrvDbNodeList )
       __fastfail(3u);
-    *(_QWORD *)(v9 + 8) = qword_140433168;
+    *(_QWORD *)(v9 + 8) = qword_140434238;
     *(_QWORD *)v9 = &PiDrvDbNodeList;
     *v16 = v9;
-    qword_140433168 = v9;
+    qword_140434238 = v9;
     *a5 = v9;
     v9 = 0LL;
     goto LABEL_16;

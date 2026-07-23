@@ -1,8 +1,8 @@
 /*
- * XREFs of MiRemoveWakeListEntry @ 0x1401DF35C
+ * XREFs of MiRemoveWakeListEntry @ 0x1401DF188
  * Callers:
- *     MiCleanSection @ 0x140111CAC (MiCleanSection.c)
- *     MiFlushControlArea @ 0x1401DEA98 (MiFlushControlArea.c)
+ *     MiCleanSection @ 0x140112210 (MiCleanSection.c)
+ *     MiFlushControlArea @ 0x1401DE8C4 (MiFlushControlArea.c)
  * Callees:
  *     <none>
  */

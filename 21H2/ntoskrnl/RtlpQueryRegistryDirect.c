@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryRegistryDirect @ 0x14063EC10
+ * XREFs of RtlpQueryRegistryDirect @ 0x140633A20
  * Callers:
- *     RtlpCallQueryRegistryRoutine @ 0x140640F30 (RtlpCallQueryRegistryRoutine.c)
+ *     RtlpCallQueryRegistryRoutine @ 0x140635D40 (RtlpCallQueryRegistryRoutine.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExpAllocateStringRoutine @ 0x1406006F0 (ExpAllocateStringRoutine.c)
  */
 
 __int64 __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, size_t a3, unsigned int *a4)
@@ -12,7 +12,7 @@ __int64 __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, si
   unsigned __int16 v4; // bx
   void *v8; // rcx
   unsigned __int64 v10; // rax
-  void *StringRoutine; // rax
+  PVOID StringRoutine; // rax
   size_t v12; // rbp
 
   v4 = a3;
@@ -49,7 +49,7 @@ LABEL_7:
   }
   if ( (unsigned int)a3 > 0xFFFE )
     v4 = -2;
-  StringRoutine = (void *)*((_QWORD *)a4 + 1);
+  StringRoutine = (PVOID)*((_QWORD *)a4 + 1);
   if ( StringRoutine )
   {
     if ( v4 > *((_WORD *)a4 + 1) )
@@ -61,7 +61,7 @@ LABEL_17:
     return 0LL;
   }
   v12 = v4;
-  StringRoutine = (void *)ExpAllocateStringRoutine(v4);
+  StringRoutine = ExpAllocateStringRoutine(v4);
   *((_QWORD *)a4 + 1) = StringRoutine;
   if ( StringRoutine )
   {

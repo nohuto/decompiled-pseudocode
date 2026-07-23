@@ -1,43 +1,47 @@
 /*
- * XREFs of NtAlpcSetInformation @ 0x140A8D1F0
+ * XREFs of NtAlpcSetInformation @ 0x140A91EC0
  * Callers:
- *     DifNtAlpcSetInformationWrapper @ 0x14066D840 (DifNtAlpcSetInformationWrapper.c)
+ *     DifNtAlpcSetInformationWrapper @ 0x140671420 (DifNtAlpcSetInformationWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     AlpcpInitializeCompletionList @ 0x140A8CBD8 (AlpcpInitializeCompletionList.c)
- *     AlpcpAssociateIoCompletionPort @ 0x140A8D65C (AlpcpAssociateIoCompletionPort.c)
- *     AlpcpAdjustCompletionListConcurrencyCount @ 0x140A8DA38 (AlpcpAdjustCompletionListConcurrencyCount.c)
- *     AlpcpFreeCompletionList @ 0x140B2392C (AlpcpFreeCompletionList.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpInitializeCompletionList @ 0x140A918A8 (AlpcpInitializeCompletionList.c)
+ *     AlpcpAssociateIoCompletionPort @ 0x140A9232C (AlpcpAssociateIoCompletionPort.c)
+ *     AlpcpAdjustCompletionListConcurrencyCount @ 0x140A92708 (AlpcpAdjustCompletionListConcurrencyCount.c)
+ *     AlpcpFreeCompletionList @ 0x140B25D2C (AlpcpFreeCompletionList.c)
  */
 
-__int64 __fastcall NtAlpcSetInformation(void *a1, int a2, void **a3, unsigned int a4)
+NTSTATUS __cdecl NtAlpcSetInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length)
 {
   size_t v4; // r15
   struct _KTHREAD *CurrentThread; // rax
   int v9; // r14d
   KPROCESSOR_MODE PreviousMode; // di
   unsigned int *v11; // r12
-  NTSTATUS v12; // edi
+  signed int v12; // edi
   struct _KLOCK_ENTRIES *v13; // r9
-  int v14; // esi
-  int v15; // esi
+  __int32 v14; // esi
+  __int32 v15; // esi
   signed __int64 *v16; // rsi
-  NTSTATUS v18; // eax
-  int v19; // esi
-  int v20; // esi
+  signed int v18; // eax
+  __int32 v19; // esi
+  __int32 v20; // esi
   int v21; // esi
   int v22; // esi
   volatile signed __int64 *v23; // rbx
@@ -67,20 +71,23 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, void **a3, unsigned in
   __int32 v47; // [rsp+58h] [rbp-90h]
   unsigned __int64 v48; // [rsp+5Ch] [rbp-8Ch]
 
-  v4 = a4;
-  Handle = a1;
+  v4 = Length;
+  Handle = PortHandle;
   memset_0(&v46, 0, 0x48uLL);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v9 = 0;
-  if ( !a1 || !a3 && a2 != 10 && a2 != 7 )
+  if ( !PortHandle
+    || !PortInformation
+    && PortInformationClass != AlpcCompletionListRundownInformation
+    && PortInformationClass != AlpcUnregisterCompletionListInformation )
   {
     v12 = -1073741811;
     goto LABEL_10;
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v43 = PreviousMode;
-  v11 = (unsigned int *)a3;
+  v11 = (unsigned int *)PortInformation;
   if ( (_DWORD)v4 && PreviousMode )
   {
     if ( (unsigned int)v4 > 0x48 )
@@ -88,7 +95,7 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, void **a3, unsigned in
       v12 = -1073741820;
       goto LABEL_10;
     }
-    RtlCopyFromUser(&v46, a3, v4);
+    RtlCopyFromUser(&v46, PortInformation, v4);
     v11 = (unsigned int *)&v46;
     v45 = &v46;
   }
@@ -96,7 +103,7 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, void **a3, unsigned in
   v12 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v12 >= 0 )
   {
-    v14 = a2 - 1;
+    v14 = PortInformationClass - 1;
     if ( !v14 )
     {
       if ( (_DWORD)v4 == 72 )
@@ -249,7 +256,7 @@ LABEL_60:
       }
       if ( v43 )
         goto LABEL_60;
-      PsReferenceSiloContext(*a3);
+      PsReferenceSiloContext(*(void **)PortInformation);
       v16 = (signed __int64 *)Object;
       v33 = (unsigned __int64 *)((char *)Object + 352);
       v35 = (AutoBoost *)KeAbPreAcquire((__int64)Object + 352, 0LL, 0LL, v34);
@@ -263,8 +270,8 @@ LABEL_60:
         else
           *((_BYTE *)v37 + 10) = 1;
       }
-      v16[46] = (signed __int64)*a3;
-      v16[47] = (signed __int64)a3[1];
+      v16[46] = *(_QWORD *)PortInformation;
+      v16[47] = *((_QWORD *)PortInformation + 1);
     }
     else
     {
@@ -294,5 +301,5 @@ LABEL_60:
   }
 LABEL_10:
   KeLeaveCriticalRegion();
-  return (unsigned int)v12;
+  return v12;
 }

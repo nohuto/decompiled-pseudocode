@@ -38,7 +38,7 @@ void __fastcall PnprQuiesceProcessorDpc(
   PVOID v19[14]; // [rsp+20h] [rbp-78h] BYREF
   int v20; // [rsp+90h] [rbp-8h]
   unsigned int v21; // [rsp+A8h] [rbp+10h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+B0h] [rbp+18h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+B0h] [rbp+18h] BYREF
   __int64 v23; // [rsp+B8h] [rbp+20h] BYREF
 
   v4 = (unsigned int)SystemArgument2;

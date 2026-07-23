@@ -1,12 +1,12 @@
 /*
- * XREFs of ExIsMultiSessionSku @ 0x1407D1BA8
+ * XREFs of ExIsMultiSessionSku @ 0x1407D1D18
  * Callers:
- *     PspSiloInitializeIsMultiSessionSku @ 0x140906978 (PspSiloInitializeIsMultiSessionSku.c)
- *     InitSkuSessionParameters @ 0x140A71D04 (InitSkuSessionParameters.c)
+ *     PspSiloInitializeIsMultiSessionSku @ 0x140906AD8 (PspSiloInitializeIsMultiSessionSku.c)
+ *     InitSkuSessionParameters @ 0x140A72D04 (InitSkuSessionParameters.c)
  * Callees:
- *     ApiSetResolveToHost @ 0x140371E5C (ApiSetResolveToHost.c)
- *     PsQueryCurrentApiSetSchema @ 0x14075D914 (PsQueryCurrentApiSetSchema.c)
- *     ExpGetNumberOfInitialSessionsFromRegistry @ 0x1407D1C18 (ExpGetNumberOfInitialSessionsFromRegistry.c)
+ *     ApiSetResolveToHost @ 0x1403719AC (ApiSetResolveToHost.c)
+ *     PsQueryCurrentApiSetSchema @ 0x14075DAD4 (PsQueryCurrentApiSetSchema.c)
+ *     ExpGetNumberOfInitialSessionsFromRegistry @ 0x1407D1D88 (ExpGetNumberOfInitialSessionsFromRegistry.c)
  */
 
 __int64 __fastcall ExIsMultiSessionSku(char *a1)

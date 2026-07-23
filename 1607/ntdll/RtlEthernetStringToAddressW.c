@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlEthernetStringToAddressW @ 0x1800EE2E0
+ * XREFs of RtlEthernetStringToAddressW @ 0x1800EE3A0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     iswctype @ 0x18009A240 (iswctype.c)
  */
 

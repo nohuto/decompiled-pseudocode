@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDevCfgResolveVariableExpression @ 0x140A91630
+ * XREFs of PiDevCfgResolveVariableExpression @ 0x140A8DDE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     PnpMultiSzContainsString @ 0x1404B7A70 (PnpMultiSzContainsString.c)
- *     PnpValidateRegistryMultiSz @ 0x1404D2868 (PnpValidateRegistryMultiSz.c)
- *     PnpStringToDwordValue @ 0x1404D71D0 (PnpStringToDwordValue.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     PiDevCfgCopyVariableData @ 0x1407293B8 (PiDevCfgCopyVariableData.c)
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     PiDevCfgResolveVariable @ 0x140A6A668 (PiDevCfgResolveVariable.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     PnpMultiSzContainsString @ 0x1404B23C0 (PnpMultiSzContainsString.c)
+ *     PnpValidateRegistryMultiSz @ 0x1404CBA24 (PnpValidateRegistryMultiSz.c)
+ *     PnpStringToDwordValue @ 0x1404D0620 (PnpStringToDwordValue.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     PiDevCfgCopyVariableData @ 0x140726FB8 (PiDevCfgCopyVariableData.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     PiDevCfgResolveVariable @ 0x140A63A18 (PiDevCfgResolveVariable.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableExpression(__int64 a1, void *a2, __int64 a3)
@@ -58,7 +58,7 @@ __int64 __fastcall PiDevCfgResolveVariableExpression(__int64 a1, void *a2, __int
   __int64 *v38; // rbx
   __int64 *v39; // r15
   int v40; // ecx
-  unsigned __int64 v41; // r13
+  ULONG_PTR v41; // r13
   _WORD *v42; // r8
   WCHAR *v43; // r12
   int v44; // ecx
@@ -167,7 +167,7 @@ __int64 __fastcall PiDevCfgResolveVariableExpression(__int64 a1, void *a2, __int
   PVOID *v148; // rdi
   __int64 v149; // rsi
   void *v150; // rcx
-  __int16 v152; // [rsp+30h] [rbp-59h]
+  unsigned __int16 v152; // [rsp+30h] [rbp-59h]
   int v153; // [rsp+30h] [rbp-59h]
   unsigned int v154; // [rsp+34h] [rbp-55h]
   __int16 v155; // [rsp+38h] [rbp-51h]
@@ -220,7 +220,7 @@ LABEL_357:
     RegistryValue = -1073741823;
     goto LABEL_358;
   }
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 8LL * v3, 0x63647050u);
   v12 = (__int64 *)Pool2;
   if ( !Pool2 )
   {
@@ -245,10 +245,10 @@ LABEL_357:
     {
       if ( i >= 0x1B )
         goto LABEL_323;
-      if ( *(_DWORD *)v8 == *(_DWORD *)qword_140B410B0[3 * i + 1] )
+      if ( *(_DWORD *)v8 == *(_DWORD *)qword_140B42EB0[3 * i + 1] )
         break;
     }
-    v15 = &qword_140B410B0[3 * i];
+    v15 = &qword_140B42EB0[3 * i];
     if ( !v15 )
     {
 LABEL_323:
@@ -351,7 +351,7 @@ LABEL_343:
             if ( v37 == 1 )
               v27 = (__int64 *)v166;
             else
-              v27 = qword_140B3B0D0;
+              v27 = qword_140B3CE80;
           }
           else
           {
@@ -388,7 +388,7 @@ LABEL_343:
           {
             if ( v32 != 1 )
               goto LABEL_43;
-            v33 = (wchar_t *)ExAllocatePool2(0x100uLL);
+            v33 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x16uLL, 0x63647050u);
             v22 = v33;
             if ( !v33 )
               goto LABEL_328;
@@ -432,7 +432,7 @@ LABEL_54:
       if ( v26 != 1 )
       {
 LABEL_32:
-        v27 = qword_140B3B0D0;
+        v27 = qword_140B3CE80;
         goto LABEL_311;
       }
       LOBYTE(v21) = *v25 == 0;
@@ -452,7 +452,7 @@ LABEL_32:
       goto LABEL_38;
     }
 LABEL_296:
-    v131 = ExAllocatePool2(0x100uLL);
+    v131 = ExAllocatePool2(0x100uLL, 0x30uLL, 0x63647050u);
     v27 = (__int64 *)v131;
     if ( !v131 )
       goto LABEL_331;
@@ -469,7 +469,7 @@ LABEL_296:
     {
       v132 = 4;
       LODWORD(v19) = 4;
-      v136 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      v136 = (_DWORD *)ExAllocatePool2(0x100uLL, 4uLL, 0x63647050u);
       v22 = v136;
       if ( !v136 )
       {
@@ -586,7 +586,7 @@ LABEL_306:
             if ( v40 != 4 || (v66 = **(_DWORD **)(v166 + 40), *(_DWORD *)v15 != 24) )
             {
 LABEL_43:
-              v27 = qword_140B3B0D0;
+              v27 = qword_140B3CE80;
               RegistryValue = v13;
               goto LABEL_311;
             }
@@ -610,14 +610,14 @@ LABEL_43:
             {
 LABEL_146:
               LOWORD(v19) = 0;
-              v27 = qword_140B3B0D0;
+              v27 = qword_140B3CE80;
               goto LABEL_106;
             }
 LABEL_142:
             if ( !*v67 || v68 <= 2 )
               goto LABEL_146;
             v155 = v68;
-            v71 = (void *)ExAllocatePool2(0x100uLL);
+            v71 = (void *)ExAllocatePool2(0x100uLL, (unsigned __int16)v68, 0x63647050u);
             v157 = (__int64)v71;
             if ( !v71 )
               goto LABEL_328;
@@ -660,7 +660,7 @@ LABEL_163:
               goto LABEL_330;
             v152 = v75 + v72;
             v155 = v75 + v72;
-            v81 = (void *)ExAllocatePool2(0x100uLL);
+            v81 = (void *)ExAllocatePool2(0x100uLL, (unsigned __int16)(v75 + v72), 0x63647050u);
             v157 = (__int64)v81;
             if ( !v81 )
               goto LABEL_328;
@@ -674,7 +674,7 @@ LABEL_163:
           if ( !v77 )
             goto LABEL_246;
           v152 = v72 - v75;
-          v78 = (char *)ExAllocatePool2(0x100uLL);
+          v78 = (char *)ExAllocatePool2(0x100uLL, (unsigned __int16)(v72 - v75), 0x63647050u);
           v157 = (__int64)v78;
           if ( !v78 )
             goto LABEL_328;
@@ -779,7 +779,7 @@ LABEL_117:
               if ( !v50 )
               {
                 LOWORD(v153) = 0;
-                v157 = ExAllocatePool2(0x100uLL);
+                v157 = ExAllocatePool2(0x100uLL, v41, 0x63647050u);
                 v50 = v157;
                 if ( !v157 )
                 {
@@ -845,7 +845,7 @@ LABEL_110:
             if ( (unsigned __int64)(unsigned int)(v19 + v41) - 2 > 0xFFFE )
               goto LABEL_330;
             v152 = v19 + v41 - 2;
-            v55 = (char *)ExAllocatePool2(0x100uLL);
+            v55 = (char *)ExAllocatePool2(0x100uLL, v152, 0x63647050u);
             v157 = (__int64)v55;
             v56 = v55;
             if ( !v55 )
@@ -912,7 +912,7 @@ LABEL_92:
                       if ( v102 != 1 )
                       {
 LABEL_203:
-                        v27 = qword_140B3B0D0;
+                        v27 = qword_140B3CE80;
                         RegistryValue = v13;
                         goto LABEL_311;
                       }
@@ -1054,12 +1054,12 @@ LABEL_190:
       }
       else
       {
-        v27 = qword_140B3B0D0;
+        v27 = qword_140B3CE80;
       }
       goto LABEL_228;
     }
 LABEL_227:
-    v27 = qword_140B3B0D0;
+    v27 = qword_140B3CE80;
     goto LABEL_228;
   }
   v27 = (__int64 *)v166;
@@ -1092,7 +1092,7 @@ LABEL_227:
         goto LABEL_330;
       v152 = v113 + v115;
       v155 = v115 + v111;
-      v127 = (char *)ExAllocatePool2(0x100uLL);
+      v127 = (char *)ExAllocatePool2(0x100uLL, (unsigned __int16)(v115 + v111), 0x63647050u);
       v157 = (__int64)v127;
       v128 = v127;
       if ( !v127 )
@@ -1135,7 +1135,7 @@ LABEL_260:
               {
                 if ( v124 != 1 )
                 {
-                  v27 = qword_140B3B0D0;
+                  v27 = qword_140B3CE80;
 LABEL_280:
                   v20 = v152;
                   LOWORD(v19) = v155;
@@ -1204,7 +1204,7 @@ LABEL_269:
     }
     if ( *(_DWORD *)v15 != 9 )
     {
-      v27 = qword_140B3B0D0;
+      v27 = qword_140B3CE80;
       goto LABEL_244;
     }
     if ( !PnpMultiSzContainsString(v107, v108) )
@@ -1213,7 +1213,7 @@ LABEL_238:
       if ( (unsigned int)(v19 + v106) > 0xFFFE )
         goto LABEL_330;
       v152 = v19 + v106;
-      v109 = (char *)ExAllocatePool2(0x100uLL);
+      v109 = (char *)ExAllocatePool2(0x100uLL, (unsigned __int16)(v19 + v106), 0x63647050u);
       v157 = (__int64)v109;
       v110 = v109;
       if ( !v109 )

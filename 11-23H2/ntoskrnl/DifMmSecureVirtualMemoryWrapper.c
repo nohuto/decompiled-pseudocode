@@ -1,12 +1,12 @@
 /*
- * XREFs of DifMmSecureVirtualMemoryWrapper @ 0x1405E79B0
+ * XREFs of DifMmSecureVirtualMemoryWrapper @ 0x1405E7F20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     MmSecureVirtualMemory @ 0x1407BA890 (MmSecureVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     MmSecureVirtualMemory @ 0x1407BAB60 (MmSecureVirtualMemory.c)
  */
 
 HANDLE __fastcall DifMmSecureVirtualMemoryWrapper(PVOID Address, SIZE_T Size, ULONG ProbeMode)

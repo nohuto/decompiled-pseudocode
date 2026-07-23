@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleGuestPreExecute @ 0x14020D7C0
+ * XREFs of PpmIdleGuestPreExecute @ 0x14020D5EC
  * Callers:
  *     <none>
  * Callees:
- *     HvlSetPlatformIdleState @ 0x1401BF508 (HvlSetPlatformIdleState.c)
+ *     HvlSetPlatformIdleState @ 0x1401BF3EC (HvlSetPlatformIdleState.c)
  */
 
 __int64 __fastcall PpmIdleGuestPreExecute(__int64 a1, __int64 a2, int a3)

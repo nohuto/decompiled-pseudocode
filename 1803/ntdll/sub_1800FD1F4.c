@@ -9,9 +9,9 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-__int64 __fastcall sub_1800FD1F4(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+__int64 sub_1800FD1F4()
 {
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D2E0, a2, a3, a4);
+  RtlAcquireSRWLockExclusive(&stru_18015D2E0);
   if ( (dword_18015D2E8 & 1) == 0 )
   {
     dword_18015D2E8 = 3;
@@ -25,6 +25,6 @@ __int64 __fastcall sub_1800FD1F4(__int64 a1, unsigned __int64 a2, unsigned __int
     qword_18015D310 = 0LL;
     qword_18015D330 = 0LL;
   }
-  RtlReleaseSRWLockExclusive(&qword_18015D2E0);
+  RtlReleaseSRWLockExclusive(&stru_18015D2E0);
   return 1LL;
 }

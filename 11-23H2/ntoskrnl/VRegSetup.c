@@ -1,18 +1,18 @@
 /*
- * XREFs of VRegSetup @ 0x1408576F0
+ * XREFs of VRegSetup @ 0x140857930
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C59D0 (RtlpQueryRegistryValues.c)
- *     ObSetSecurityObjectByPointer @ 0x1407366A0 (ObSetSecurityObjectByPointer.c)
- *     IoCreateDevice @ 0x14076AFD0 (IoCreateDevice.c)
- *     PspStorageAllocSlot @ 0x14081EF8C (PspStorageAllocSlot.c)
- *     ObCreateObjectTypeEx @ 0x14081F1F0 (ObCreateObjectTypeEx.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140821DDC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     VrpInitializeLoadedDifferencingHives @ 0x1408578B4 (VrpInitializeLoadedDifferencingHives.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x1406C5A00 (RtlpQueryRegistryValues.c)
+ *     ObSetSecurityObjectByPointer @ 0x140736890 (ObSetSecurityObjectByPointer.c)
+ *     IoCreateDevice @ 0x14076B1C0 (IoCreateDevice.c)
+ *     PspStorageAllocSlot @ 0x14081F28C (PspStorageAllocSlot.c)
+ *     ObCreateObjectTypeEx @ 0x14081F4F0 (ObCreateObjectTypeEx.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408220DC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     VrpInitializeLoadedDifferencingHives @ 0x140857AF4 (VrpInitializeLoadedDifferencingHives.c)
  */
 
 __int64 __fastcall VRegSetup(PDRIVER_OBJECT DriverObject)
@@ -28,7 +28,7 @@ __int64 __fastcall VRegSetup(PDRIVER_OBJECT DriverObject)
 
   DestinationString = 0LL;
   SourceString = 0LL;
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C04460, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C04420, 0LL, 0LL);
   RtlpQueryRegistryValues(2147483650LL, L"Session Manager\\Configuration Manager", VrpRegistryValuesTable, 0LL);
   RtlInitUnicodeString(&DestinationString, L"\\Device\\VRegDriver");
   v2 = IoCreateDevice(DriverObject, 0, &DestinationString, 0x22u, 0x100u, 0, &VrpDeviceObject);

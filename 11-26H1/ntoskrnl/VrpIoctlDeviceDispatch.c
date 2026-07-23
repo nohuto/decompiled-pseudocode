@@ -1,22 +1,22 @@
 /*
- * XREFs of VrpIoctlDeviceDispatch @ 0x140977F10
+ * XREFs of VrpIoctlDeviceDispatch @ 0x140939F20
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x1408A5504 (VrpHandleIoctlLoadDifferencingHiveForHost.c)
- *     VrpHandleIoctlModifyFlags @ 0x1408A5754 (VrpHandleIoctlModifyFlags.c)
- *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x1408A5864 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
- *     VRegEnabledInJob @ 0x14097834C (VRegEnabledInJob.c)
- *     VrpHandleIoctlGetVirtualRootKey @ 0x1409783B8 (VrpHandleIoctlGetVirtualRootKey.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x14097854C (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x140978E48 (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140979150 (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140A3050C (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140AFF5E4 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x1408AB974 (VrpHandleIoctlLoadDifferencingHiveForHost.c)
+ *     VrpHandleIoctlModifyFlags @ 0x1408ABBC4 (VrpHandleIoctlModifyFlags.c)
+ *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x1408ABCD4 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
+ *     VRegEnabledInJob @ 0x14093A35C (VRegEnabledInJob.c)
+ *     VrpHandleIoctlGetVirtualRootKey @ 0x14093A3C8 (VrpHandleIoctlGetVirtualRootKey.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x14093A55C (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x14093AE58 (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14093B160 (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140A4B46C (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140B01274 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
  */
 
 __int64 __fastcall VrpIoctlDeviceDispatch(__int64 a1, __int64 a2)
@@ -62,7 +62,7 @@ __int64 __fastcall VrpIoctlDeviceDispatch(__int64 a1, __int64 a2)
       v27 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E0A5C0,
-        (unsigned __int8 *)&dword_14005A702 + 2,
+        (unsigned __int8 *)&dword_14005B6DC,
         &v23,
         0LL,
         3u,
@@ -79,7 +79,7 @@ __int64 __fastcall VrpIoctlDeviceDispatch(__int64 a1, __int64 a2)
     v27 = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140E0A5C0,
-      (unsigned __int8 *)word_14005A6C2,
+      (unsigned __int8 *)&word_14005B71E,
       &v23,
       &ActivityId,
       3u,
@@ -189,7 +189,7 @@ LABEL_12:
     v22 = *(_DWORD *)(v2 + 24);
     v27 = 4LL;
     v26 = &v22;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A5C0, (unsigned __int8 *)&word_14005A696, &v23, 0LL, 3u, v25);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A5C0, (unsigned __int8 *)byte_14005B689, &v23, 0LL, 3u, v25);
   }
   v17 = -1073741808;
 LABEL_13:
@@ -200,7 +200,7 @@ LABEL_13:
     v22 = v17;
     v26 = &v22;
     v27 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A5C0, (unsigned __int8 *)&word_14005A746, &v23, 0LL, 3u, v25);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E0A5C0, (unsigned __int8 *)byte_14005B6B5, &v23, 0LL, 3u, v25);
   }
   return v17;
 }

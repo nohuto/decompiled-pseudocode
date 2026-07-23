@@ -1,10 +1,10 @@
 /*
- * XREFs of Template_hzr0 @ 0x1401CD52C
+ * XREFs of Template_hzr0 @ 0x1401CD378
  * Callers:
- *     IoRequestDeviceRemovalForReset @ 0x14062C4DC (IoRequestDeviceRemovalForReset.c)
+ *     IoRequestDeviceRemovalForReset @ 0x14062C590 (IoRequestDeviceRemovalForReset.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall Template_hzr0(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, __int64 a5)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceDripsAccountingSnapshot @ 0x140878054
+ * XREFs of PpmEventTraceDripsAccountingSnapshot @ 0x1408792B4
  * Callers:
- *     PpmSnapDripsAccountingSnapshot @ 0x1402D5BE0 (PpmSnapDripsAccountingSnapshot.c)
+ *     PpmSnapDripsAccountingSnapshot @ 0x1402D5DD0 (PpmSnapDripsAccountingSnapshot.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventTraceDripsAccountingSnapshot(__int64 a1, __int64 a2)

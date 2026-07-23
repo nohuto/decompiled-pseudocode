@@ -1,22 +1,22 @@
 /*
- * XREFs of IoRemoveIoCompletion @ 0x1402A9D60
+ * XREFs of IoRemoveIoCompletion @ 0x1402A9FF0
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A91B0 (NtWaitForWorkViaWorkerFactory.c)
- *     NtRemoveIoCompletion @ 0x1407293F0 (NtRemoveIoCompletion.c)
- *     NtRemoveIoCompletionEx @ 0x1407AE2B0 (NtRemoveIoCompletionEx.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A9440 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtRemoveIoCompletion @ 0x1407295F0 (NtRemoveIoCompletion.c)
+ *     NtRemoveIoCompletionEx @ 0x1407AE4A0 (NtRemoveIoCompletionEx.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     IopFreeWaitCompletionPacket @ 0x140250C50 (IopFreeWaitCompletionPacket.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     IopDropIrp @ 0x14028CDC8 (IopDropIrp.c)
- *     KeRemoveQueueEx @ 0x1402AA040 (KeRemoveQueueEx.c)
- *     IopCompleteRequest @ 0x1402AB480 (IopCompleteRequest.c)
- *     IoFreeIrp @ 0x1402AF210 (IoFreeIrp.c)
- *     IopInterlockedAdd @ 0x14035E8E4 (IopInterlockedAdd.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IopFreeMiniCompletionPacket @ 0x140728C00 (IopFreeMiniCompletionPacket.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     IopFreeWaitCompletionPacket @ 0x140250D10 (IopFreeWaitCompletionPacket.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     IopDropIrp @ 0x14028D058 (IopDropIrp.c)
+ *     KeRemoveQueueEx @ 0x1402AA2D0 (KeRemoveQueueEx.c)
+ *     IopCompleteRequest @ 0x1402AB710 (IopCompleteRequest.c)
+ *     IoFreeIrp @ 0x1402AF4A0 (IoFreeIrp.c)
+ *     IopInterlockedAdd @ 0x14035EA84 (IopInterlockedAdd.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IopFreeMiniCompletionPacket @ 0x140728E00 (IopFreeMiniCompletionPacket.c)
  */
 
 __int64 __fastcall IoRemoveIoCompletion(

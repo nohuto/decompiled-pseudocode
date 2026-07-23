@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventTraceHeteroResponse @ 0x14041EC50
+ * XREFs of PpmEventTraceHeteroResponse @ 0x140416490
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041DF08 (PpmCheckComputeMultiClassHeteroResponse.c)
- *     PpmCheckComputeHeteroResponse @ 0x14041E6A0 (PpmCheckComputeHeteroResponse.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041574C (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmCheckComputeHeteroResponse @ 0x140415EE0 (PpmCheckComputeHeteroResponse.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PpmEventTraceHeteroResponse(__int64 a1, ULONGLONG a2, _QWORD *a3, ...)
@@ -55,9 +55,7 @@ void PpmEventTraceHeteroResponse(__int64 a1, ULONGLONG a2, _QWORD *a3, ...)
   v31 = 0;
   v30 = 0;
   v28 = 0;
-  if ( PpmEventPerfCheckData
-    && PpmEtwRegistered
-    && EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, &PPM_ETW_HETERO_RESPONSE) )
+  if ( PpmEventPerfCheckData && PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_HETERO_RESPONSE) )
   {
     v7 = *(unsigned __int16 *)(a1 + 8);
     v8 = *(_BYTE *)(a1 + 1156);
@@ -131,14 +129,6 @@ void PpmEventTraceHeteroResponse(__int64 a1, ULONGLONG a2, _QWORD *a3, ...)
     v19 = v10 + 8;
     UserData[v19].Ptr = (ULONGLONG)va2;
     *(_QWORD *)&UserData[v19].Size = 4LL;
-    EtwWriteEx(
-      (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-      &PPM_ETW_HETERO_RESPONSE,
-      0LL,
-      0,
-      0LL,
-      0LL,
-      v10 + 9,
-      UserData);
+    EtwWriteEx(PpmEtwHandle, &PPM_ETW_HETERO_RESPONSE, 0LL, 0, 0LL, 0LL, v10 + 9, UserData);
   }
 }

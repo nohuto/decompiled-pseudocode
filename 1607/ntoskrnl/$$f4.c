@@ -5,7 +5,7 @@
  *     sub_14024FE34 @ 0x14024FE34 (sub_14024FE34.c)
  *     sub_140778D9C @ 0x140778D9C (sub_140778D9C.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall __f4(__int64 a1, ULONG_PTR a2, _DWORD *a3, __int64 a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViThunkReplaceSharedExports @ 0x1409373BC
+ * XREFs of ViThunkReplaceSharedExports @ 0x1409383BC
  * Callers:
- *     ViThunkReplaceAllSharedExports @ 0x1409370F4 (ViThunkReplaceAllSharedExports.c)
+ *     ViThunkReplaceAllSharedExports @ 0x1409380F4 (ViThunkReplaceAllSharedExports.c)
  * Callees:
- *     MmReplaceImportEntry @ 0x1402AB1CC (MmReplaceImportEntry.c)
+ *     MmReplaceImportEntry @ 0x1402AB3BC (MmReplaceImportEntry.c)
  */
 
 __int64 __fastcall ViThunkReplaceSharedExports(ULONG_PTR *a1, unsigned int a2)

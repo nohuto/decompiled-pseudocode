@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlGetExePath @ 0x18009AED0
+ * XREFs of RtlGetExePath @ 0x18009A000
  * Callers:
  *     <none>
  * Callees:
- *     RtlpNeedCurrentDirectoryForExePath @ 0x18009AF28 (RtlpNeedCurrentDirectoryForExePath.c)
- *     RtlpGetCachedPath @ 0x18009BDD0 (RtlpGetCachedPath.c)
+ *     RtlpNeedCurrentDirectoryForExePath @ 0x18009A058 (RtlpNeedCurrentDirectoryForExePath.c)
+ *     RtlpGetCachedPath @ 0x18009AF00 (RtlpGetCachedPath.c)
  */
 
-__int64 __fastcall RtlGetExePath(__int64 a1, _QWORD *a2)
+NTSTATUS __cdecl RtlGetExePath(PCWSTR DosPathName, PWSTR *SearchPathA)
 {
   char v3; // al
   __int64 CachedPath; // rax
 
-  v3 = RtlpNeedCurrentDirectoryForExePath();
+  v3 = RtlpNeedCurrentDirectoryForExePath(DosPathName);
   CachedPath = RtlpGetCachedPath(&RtlpExeSearchPath, RtlpComputeExePath, v3 == 0, 0LL);
   if ( CachedPath )
   {
-    *a2 = CachedPath + 128;
-    return 0LL;
+    *SearchPathA = (PWSTR)(CachedPath + 128);
+    return 0;
   }
   else
   {
-    *a2 = 0LL;
-    return 3221225495LL;
+    *SearchPathA = 0LL;
+    return -1073741801;
   }
 }

@@ -7,21 +7,21 @@
  *     RtlpValidateContextFlags @ 0x18005212C (RtlpValidateContextFlags.c)
  */
 
-__int64 __fastcall RtlGetExtendedContextLength(__int64 a1)
+NTSTATUS __cdecl RtlGetExtendedContextLength(ULONG ContextFlags, PULONG ContextLength)
 {
-  __int64 result; // rax
-  unsigned int v2; // r10d
-  __int64 v3; // r11
-  __int64 v4; // r8
-  char v5; // [rsp+40h] [rbp+18h] BYREF
+  NTSTATUS result; // eax
+  ULONG v3; // r10d
+  ULONG *v4; // r11
+  ULONG64 v5; // r8
+  char v6; // [rsp+40h] [rbp+18h] BYREF
 
-  result = RtlpValidateContextFlags(a1, &v5);
-  v4 = 0LL;
-  if ( (int)result >= 0 )
+  result = RtlpValidateContextFlags(ContextFlags, &v6);
+  v5 = 0LL;
+  if ( result >= 0 )
   {
-    if ( (v5 & 2) != 0 )
-      v4 = MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8];
-    return RtlGetExtendedContextLength2(v2, v3, v4);
+    if ( (v6 & 2) != 0 )
+      v5 = MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8];
+    return RtlGetExtendedContextLength2(v3, v4, v5);
   }
   return result;
 }

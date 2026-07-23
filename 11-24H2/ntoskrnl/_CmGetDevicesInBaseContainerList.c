@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmGetDevicesInBaseContainerList @ 0x14081A14C
+ * XREFs of _CmGetDevicesInBaseContainerList @ 0x14081A88C
  * Callers:
- *     _CmMoveBaseContainer @ 0x14081A53C (_CmMoveBaseContainer.c)
+ *     _CmMoveBaseContainer @ 0x14081AC7C (_CmMoveBaseContainer.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumValue @ 0x14099359C (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140993F58 (_PnpCtxRegQueryInfoKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumValue @ 0x14097E5DC (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x14097EF98 (_PnpCtxRegQueryInfoKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetDevicesInBaseContainerList(__int64 a1, int a2, int a3, __int64 *a4)
@@ -18,7 +18,7 @@ __int64 __fastcall CmGetDevicesInBaseContainerList(__int64 a1, int a2, int a3, _
   _WORD *v8; // rdi
   int CachedContextBaseKey; // ebx
   int v10; // ecx
-  int v11; // r14d
+  unsigned int v11; // r14d
   _WORD *Pool2; // rax
   __int64 v13; // rcx
   unsigned int i; // r15d
@@ -29,7 +29,7 @@ __int64 __fastcall CmGetDevicesInBaseContainerList(__int64 a1, int a2, int a3, _
   HANDLE v20; // [rsp+50h] [rbp-20h] BYREF
   HANDLE v21; // [rsp+58h] [rbp-18h] BYREF
   __int64 v22; // [rsp+60h] [rbp-10h] BYREF
-  int v23; // [rsp+B8h] [rbp+48h] BYREF
+  unsigned int v23; // [rsp+B8h] [rbp+48h] BYREF
 
   v22 = 0LL;
   v21 = 0LL;
@@ -56,7 +56,7 @@ __int64 __fastcall CmGetDevicesInBaseContainerList(__int64 a1, int a2, int a3, _
           if ( CachedContextBaseKey >= 0 )
           {
             v11 = v18 * (v23 + 1) + 1;
-            Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+            Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, 2LL * v11, 0x52504E50u);
             *a4 = (__int64)Pool2;
             v8 = Pool2;
             if ( !Pool2 )
@@ -79,7 +79,7 @@ LABEL_21:
                 break;
               if ( v15 < 0 )
                 goto LABEL_12;
-              v13 = (unsigned int)(v23 + 1);
+              v13 = v23 + 1;
               v11 -= v13;
               v8 += v13;
             }
@@ -106,7 +106,7 @@ LABEL_18:
     *v8 = 0;
     goto LABEL_23;
   }
-  v16 = ExAllocatePool2(0x100uLL);
+  v16 = ExAllocatePool2(0x100uLL, 2uLL, 0x52504E50u);
   *a4 = v16;
   if ( v16 )
     goto LABEL_21;

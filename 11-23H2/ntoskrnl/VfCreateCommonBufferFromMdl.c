@@ -1,11 +1,11 @@
 /*
- * XREFs of VfCreateCommonBufferFromMdl @ 0x140AC5D70
+ * XREFs of VfCreateCommonBufferFromMdl @ 0x140AC5D60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ViGetAdapterInformationInternal @ 0x140AC8E74 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140AC9188 (ViGetRealDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ViGetAdapterInformationInternal @ 0x140AC8E64 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140AC9178 (ViGetRealDmaAdapter.c)
  */
 
 __int64 __fastcall VfCreateCommonBufferFromMdl(int a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)

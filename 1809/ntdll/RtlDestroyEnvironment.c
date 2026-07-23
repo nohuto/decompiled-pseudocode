@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlDestroyEnvironment @ 0x1800841C0
+ * XREFs of RtlDestroyEnvironment @ 0x1800841D0
  * Callers:
  *     <none>
  * Callees:
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlDestroyEnvironment(unsigned __int64 a1)
+NTSTATUS __cdecl RtlDestroyEnvironment(PVOID Environment)
 {
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
-  return 0LL;
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Environment);
+  return 0;
 }

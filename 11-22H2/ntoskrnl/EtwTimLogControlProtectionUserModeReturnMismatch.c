@@ -230,7 +230,7 @@ LABEL_8:
   if ( ZwQueryVirtualMemory(
          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
          BaseAddress,
-         (MEMORY_INFORMATION_CLASS)2,
+         MemoryMappedFilenameInformation,
          Pool2,
          0x200uLL,
          0LL) < 0 )
@@ -263,7 +263,7 @@ LABEL_21:
   v25 = v24;
   if ( !v24 )
     goto LABEL_27;
-  if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v67, (MEMORY_INFORMATION_CLASS)2, v24, 0x200uLL, 0LL) < 0 )
+  if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v67, MemoryMappedFilenameInformation, v24, 0x200uLL, 0LL) < 0 )
     *v25 = 0;
   if ( *v25 )
   {

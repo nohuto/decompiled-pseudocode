@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpSendPccCommand @ 0x140935BD0
+ * XREFs of HalpSendPccCommand @ 0x140935DD0
  * Callers:
- *     HalpChannelPowerRequest @ 0x14093595C (HalpChannelPowerRequest.c)
+ *     HalpChannelPowerRequest @ 0x140935B5C (HalpChannelPowerRequest.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpStartPccCommand @ 0x140935C3C (HalpStartPccCommand.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpStartPccCommand @ 0x140935E3C (HalpStartPccCommand.c)
  */
 
 __int64 __fastcall HalpSendPccCommand(unsigned __int16 a1, __int64 a2)

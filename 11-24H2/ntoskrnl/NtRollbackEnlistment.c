@@ -1,5 +1,5 @@
 /*
- * XREFs of NtRollbackEnlistment @ 0x1404FC270
+ * XREFs of NtRollbackEnlistment @ 0x1404F9B30
  * Callers:
  *     <none>
  * Callees:

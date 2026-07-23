@@ -14,9 +14,7 @@
 
 NTSTATUS __stdcall ZwFlushBuffersFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock, v2);
+  return KiServiceInternal(FileHandle);
 }

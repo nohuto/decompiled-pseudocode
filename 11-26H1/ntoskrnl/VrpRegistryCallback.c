@@ -1,23 +1,23 @@
 /*
- * XREFs of VrpRegistryCallback @ 0x140973A30
+ * XREFs of VrpRegistryCallback @ 0x140935A40
  * Callers:
  *     <none>
  * Callees:
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     VrpPostOpenOrCreate @ 0x1408A5A98 (VrpPostOpenOrCreate.c)
- *     VrpPreRenameKey @ 0x1408A5E90 (VrpPreRenameKey.c)
- *     VrpPreOpenOrCreate @ 0x140975760 (VrpPreOpenOrCreate.c)
- *     VrpPostEnumerateKey @ 0x140976950 (VrpPostEnumerateKey.c)
- *     VrpPostQueryKey @ 0x140976F10 (VrpPostQueryKey.c)
- *     VrpShouldOperateOnCall @ 0x140978140 (VrpShouldOperateOnCall.c)
- *     VrpFreeKeyContext @ 0x140A7F588 (VrpFreeKeyContext.c)
- *     VrpDecommissionKeyContext @ 0x140A7F5C0 (VrpDecommissionKeyContext.c)
- *     VrpPreQueryKeyName @ 0x140AA9B60 (VrpPreQueryKeyName.c)
- *     VrpPreLoadKey @ 0x140B1B118 (VrpPreLoadKey.c)
- *     VrpPreUnloadKey @ 0x140B27FF4 (VrpPreUnloadKey.c)
- *     VrpPostUnloadKey @ 0x140B60EDC (VrpPostUnloadKey.c)
- *     VrpPreFlushKey @ 0x140B60F54 (VrpPreFlushKey.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     VrpPostOpenOrCreate @ 0x1408ABF08 (VrpPostOpenOrCreate.c)
+ *     VrpPreRenameKey @ 0x1408AC300 (VrpPreRenameKey.c)
+ *     VrpPreOpenOrCreate @ 0x140937770 (VrpPreOpenOrCreate.c)
+ *     VrpPostEnumerateKey @ 0x140938960 (VrpPostEnumerateKey.c)
+ *     VrpPostQueryKey @ 0x140938F20 (VrpPostQueryKey.c)
+ *     VrpShouldOperateOnCall @ 0x14093A150 (VrpShouldOperateOnCall.c)
+ *     VrpFreeKeyContext @ 0x140A853F8 (VrpFreeKeyContext.c)
+ *     VrpDecommissionKeyContext @ 0x140A85430 (VrpDecommissionKeyContext.c)
+ *     VrpPreQueryKeyName @ 0x140AA5E64 (VrpPreQueryKeyName.c)
+ *     VrpPreLoadKey @ 0x140B1D3C8 (VrpPreLoadKey.c)
+ *     VrpPreUnloadKey @ 0x140B29C84 (VrpPreUnloadKey.c)
+ *     VrpPostUnloadKey @ 0x140B63F7C (VrpPostUnloadKey.c)
+ *     VrpPreFlushKey @ 0x140B63FF4 (VrpPreFlushKey.c)
  */
 
 __int64 __fastcall VrpRegistryCallback(__int64 a1, int a2, __int64 a3)

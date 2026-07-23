@@ -20,7 +20,7 @@
  *     ExpWnfDeletePermanentStateData @ 0x140762A7C (ExpWnfDeletePermanentStateData.c)
  */
 
-__int64 __fastcall NtDeleteWnfStateName(__int64 a1)
+NTSTATUS __cdecl NtDeleteWnfStateName(PCWNF_STATE_NAME StateName)
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _EX_RUNDOWN_REF *v2; // r14
@@ -29,13 +29,13 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 a1)
   unsigned __int64 v5; // rbx
   unsigned __int64 v6; // r13
   unsigned __int64 v7; // r15
-  BOOL v8; // r12d
+  _BOOL8 v8; // r12
   _KPROCESS *Process; // rax
   __int64 v10; // r8
   void *Ptr; // rdi
   void *v13; // rdi
   struct _EX_RUNDOWN_REF *v14; // [rsp+58h] [rbp-C0h] BYREF
-  unsigned int v15; // [rsp+60h] [rbp-B8h]
+  NTSTATUS v15; // [rsp+60h] [rbp-B8h]
   unsigned __int64 v16; // [rsp+68h] [rbp-B0h] BYREF
   int v17[2]; // [rsp+70h] [rbp-A8h] BYREF
   NTSTATUS AccessStatus; // [rsp+78h] [rbp-A0h] BYREF
@@ -56,7 +56,7 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 a1)
   v2 = 0LL;
   *(_QWORD *)v17 = 0LL;
   v14 = 0LL;
-  v3 = ExpCaptureWnfStateName(a1, &v16);
+  v3 = ExpCaptureWnfStateName(StateName, &v16);
   v15 = v3;
   if ( v3 >= 0 )
   {
@@ -93,7 +93,7 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 a1)
         v3 = (int)v26;
         if ( (int)v26 < 0 )
           goto LABEL_19;
-        v8 = 1;
+        LODWORD(v8) = 1;
       }
       v3 = ExpWnfDeletePermanentName(v5);
       if ( v3 < 0 )
@@ -150,7 +150,7 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 a1)
             v3 = AccessStatus;
             if ( AccessStatus < 0 )
               goto LABEL_19;
-            v8 = 1;
+            LODWORD(v8) = 1;
           }
           if ( v16 == 3 && (_KPROCESS *)v14[19].Count != v26 )
           {

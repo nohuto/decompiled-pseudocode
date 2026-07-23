@@ -1,11 +1,11 @@
 /*
- * XREFs of PiSwInit @ 0x1409C7524
+ * XREFs of PiSwInit @ 0x1409C8524
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
  *     RtlInitializeGenericTableAvl @ 0x140006820 (RtlInitializeGenericTableAvl.c)
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     IoCreateDriver @ 0x14073A090 (IoCreateDriver.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     IoCreateDriver @ 0x14073B280 (IoCreateDriver.c)
  */
 
 NTSTATUS PiSwInit()
@@ -25,7 +25,7 @@ NTSTATUS PiSwInit()
     (PRTL_AVL_ALLOCATE_ROUTINE)PiSwAllocateGenericTableEntry,
     (PRTL_AVL_FREE_ROUTINE)PiSwFreeGenericTableEntry,
     0LL);
-  qword_140433398 = (__int64)&PiSwGlobalPdoAssociationList;
+  qword_1404344D8 = (__int64)&PiSwGlobalPdoAssociationList;
   PiSwGlobalPdoAssociationList = (__int64)&PiSwGlobalPdoAssociationList;
   result = ExInitializeResourceLite(&PiSwLockObj);
   if ( result >= 0 )

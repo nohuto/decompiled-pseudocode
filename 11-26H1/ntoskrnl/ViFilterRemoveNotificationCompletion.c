@@ -1,9 +1,9 @@
 /*
- * XREFs of ViFilterRemoveNotificationCompletion @ 0x140C3C500
+ * XREFs of ViFilterRemoveNotificationCompletion @ 0x140C42510
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 __int64 __fastcall ViFilterRemoveNotificationCompletion(__int64 a1, __int64 a2)

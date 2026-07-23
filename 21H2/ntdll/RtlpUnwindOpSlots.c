@@ -3,9 +3,9 @@
  * Callers:
  *     RtlpxVirtualUnwind @ 0x180030EB0 (RtlpxVirtualUnwind.c)
  *     RtlpUnwindPrologue @ 0x1800314A0 (RtlpUnwindPrologue.c)
- *     RtlpUnwindEpilogue @ 0x1801030C4 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindEpilogue @ 0x180103084 (RtlpUnwindEpilogue.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1801026C0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x180102680 (RtlRaiseStatus.c)
  */
 
 __int64 __fastcall RtlpUnwindOpSlots(unsigned __int16 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall RtlpUnwindOpSlots(unsigned __int16 a1)
 
   v1 = HIBYTE(a1) & 0xF;
   if ( (unsigned int)v1 >= 0xB )
-    RtlRaiseStatus(3221225727LL);
+    RtlRaiseStatus(-1073741569);
   result = RtlpUnwindOpSlotTable[v1];
   if ( (_DWORD)v1 == 1 && (a1 & 0xF000u) != 0 )
     return (unsigned int)(result + 1);

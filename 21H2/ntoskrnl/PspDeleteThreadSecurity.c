@@ -1,9 +1,9 @@
 /*
- * XREFs of PspDeleteThreadSecurity @ 0x140619D24
+ * XREFs of PspDeleteThreadSecurity @ 0x140683984
  * Callers:
- *     PspThreadDelete @ 0x140619920 (PspThreadDelete.c)
+ *     PspThreadDelete @ 0x140683580 (PspThreadDelete.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
  */
 
 void __fastcall PspDeleteThreadSecurity(__int64 a1)

@@ -1,26 +1,26 @@
 /*
- * XREFs of IopInitializeSystemDrivers @ 0x140C629DC
+ * XREFs of IopInitializeSystemDrivers @ 0x140C64B58
  * Callers:
- *     IoInitSystem @ 0x140C1A988 (IoInitSystem.c)
+ *     IoInitSystem @ 0x140C1C9C8 (IoInitSystem.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PnpDiagnosticTrace @ 0x14043B7C4 (PnpDiagnosticTrace.c)
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     IopReferenceDriverObjectByName @ 0x1409C711C (IopReferenceDriverObjectByName.c)
- *     IopLoadDriver @ 0x1409C90C0 (IopLoadDriver.c)
- *     IopGetDriverNameFromKeyNode @ 0x1409CA314 (IopGetDriverNameFromKeyNode.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     IopOpenRegistryKeyEx @ 0x140A43B04 (IopOpenRegistryKeyEx.c)
- *     ExIsManufacturingModeEnabled @ 0x140AAE140 (ExIsManufacturingModeEnabled.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     InbvIndicateProgress @ 0x140C1A2A0 (InbvIndicateProgress.c)
- *     PipFreeGroupTree @ 0x140C207A4 (PipFreeGroupTree.c)
- *     PipLookupGroupName @ 0x140C21358 (PipLookupGroupName.c)
- *     PnpWaitForDevicesToStart @ 0x140C22720 (PnpWaitForDevicesToStart.c)
- *     CmGetSystemDriverList @ 0x140C62C58 (CmGetSystemDriverList.c)
- *     PipCheckDependencies @ 0x140C67CF0 (PipCheckDependencies.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PnpDiagnosticTrace @ 0x1402F0A44 (PnpDiagnosticTrace.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     IopGetDriverNameFromKeyNode @ 0x1409B6410 (IopGetDriverNameFromKeyNode.c)
+ *     IopLoadDriver @ 0x1409B6EEC (IopLoadDriver.c)
+ *     IopReferenceDriverObjectByName @ 0x1409BA838 (IopReferenceDriverObjectByName.c)
+ *     IopOpenRegistryKeyEx @ 0x140A39394 (IopOpenRegistryKeyEx.c)
+ *     ExIsManufacturingModeEnabled @ 0x140AA91C0 (ExIsManufacturingModeEnabled.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     InbvIndicateProgress @ 0x140C1C2E0 (InbvIndicateProgress.c)
+ *     PipFreeGroupTree @ 0x140C227E4 (PipFreeGroupTree.c)
+ *     PipLookupGroupName @ 0x140C23398 (PipLookupGroupName.c)
+ *     PnpWaitForDevicesToStart @ 0x140C24750 (PnpWaitForDevicesToStart.c)
+ *     CmGetSystemDriverList @ 0x140C64DD4 (CmGetSystemDriverList.c)
+ *     PipCheckDependencies @ 0x140C69E6C (PipCheckDependencies.c)
  */
 
 __int64 IopInitializeSystemDrivers()
@@ -33,29 +33,27 @@ __int64 IopInitializeSystemDrivers()
   PVOID v5; // rdi
   int v6; // edi
   PVOID v7; // rsi
-  ULONG_PTR v8; // rdi
+  __int64 v8; // rdi
   int v9; // eax
   void *v10; // rcx
   __int64 v11; // rdx
   __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  UNICODE_STRING v16; // [rsp+40h] [rbp-30h] BYREF
+  UNICODE_STRING v14; // [rsp+40h] [rbp-30h] BYREF
   UNICODE_STRING String1; // [rsp+50h] [rbp-20h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+60h] [rbp-10h] BYREF
-  int v19; // [rsp+A0h] [rbp+30h] BYREF
+  int v17; // [rsp+A0h] [rbp+30h] BYREF
   PVOID P; // [rsp+A8h] [rbp+38h] BYREF
   HANDLE Handle; // [rsp+B0h] [rbp+40h] BYREF
 
-  v19 = 0;
+  v17 = 0;
   Handle = 0LL;
   P = 0LL;
   String1 = 0LL;
-  v16 = 0LL;
+  v14 = 0LL;
   UnicodeString = 0LL;
   PnpDiagnosticTrace(&KMPnPEvt_SystemStart_Start, 0, 0LL);
   IsManufacturingModeEnabled = ExIsManufacturingModeEnabled();
-  SystemDriverList = (void **)CmGetSystemDriverList((unsigned __int64)qword_140EFEB10 & -(__int64)(IsManufacturingModeEnabled != 0));
+  SystemDriverList = (void **)CmGetSystemDriverList((unsigned __int64)Data & -(__int64)(IsManufacturingModeEnabled != 0));
   v2 = SystemDriverList;
   if ( SystemDriverList )
   {
@@ -72,9 +70,9 @@ __int64 IopInitializeSystemDrivers()
         }
         else
         {
-          *(_DWORD *)&v16.Length = 655368;
-          v16.Buffer = L"Enum";
-          if ( IopOpenRegistryKeyEx(&Handle, *v2, &v16, 0x20019u) < 0 )
+          *(_DWORD *)&v14.Length = 655368;
+          v14.Buffer = L"Enum";
+          if ( IopOpenRegistryKeyEx(&Handle, *v2, &v14, 0x20019u) < 0 )
             goto LABEL_13;
           v6 = 0;
           if ( IopGetRegistryValue(Handle, L"INITSTARTFAILED", 0, &P) >= 0 )
@@ -111,14 +109,14 @@ LABEL_13:
             v10 = *v2;
             if ( v9 )
             {
-              if ( (int)IopLoadDriver(v10, 1, 0, &v19) >= 0 && v8 )
+              if ( (int)IopLoadDriver(v10, 1, 0, &v17) >= 0 && v8 )
                 ++*(_DWORD *)(v8 + 28);
             }
             else
             {
               ZwClose(v10);
             }
-            InbvIndicateProgress(v12, v11, v13, v14);
+            InbvIndicateProgress(v12, v11);
             goto LABEL_25;
           }
         }

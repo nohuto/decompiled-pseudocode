@@ -1,22 +1,22 @@
 /*
- * XREFs of SepIsParentOfChildAppContainer @ 0x1408A451C
+ * XREFs of SepIsParentOfChildAppContainer @ 0x1408A577C
  * Callers:
- *     SeIsParentOfChildAppContainer @ 0x14089BD50 (SeIsParentOfChildAppContainer.c)
+ *     SeIsParentOfChildAppContainer @ 0x14089CFB0 (SeIsParentOfChildAppContainer.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     SepGetTokenSessionMapEntry @ 0x1403008A8 (SepGetTokenSessionMapEntry.c)
- *     RtlIsParentOfChildAppContainer @ 0x140654C34 (RtlIsParentOfChildAppContainer.c)
- *     SepFindMatchingLowBoxNumberEntries @ 0x1408A419C (SepFindMatchingLowBoxNumberEntries.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     SepGetTokenSessionMapEntry @ 0x140300A98 (SepGetTokenSessionMapEntry.c)
+ *     RtlIsParentOfChildAppContainer @ 0x140655DF4 (RtlIsParentOfChildAppContainer.c)
+ *     SepFindMatchingLowBoxNumberEntries @ 0x1408A53FC (SepFindMatchingLowBoxNumberEntries.c)
  */
 
-char __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3)
+BOOLEAN __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3)
 {
-  char IsParentOfChildAppContainer; // r15
+  BOOLEAN IsParentOfChildAppContainer; // r15
   char v7; // r12
   struct _KTHREAD *CurrentThread; // rax
   struct _KTHREAD *v9; // rax

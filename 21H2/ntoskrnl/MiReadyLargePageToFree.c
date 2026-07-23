@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReadyLargePageToFree @ 0x140329D30
+ * XREFs of MiReadyLargePageToFree @ 0x140334A80
  * Callers:
- *     MiFreeLargePageMemory @ 0x1402FE654 (MiFreeLargePageMemory.c)
+ *     MiFreeLargePageMemory @ 0x1403093A4 (MiFreeLargePageMemory.c)
  * Callees:
- *     MiClearPfnImageVerified @ 0x1402A3214 (MiClearPfnImageVerified.c)
- *     MiUnlockPage @ 0x1402AF34C (MiUnlockPage.c)
+ *     MiClearPfnImageVerified @ 0x140220654 (MiClearPfnImageVerified.c)
+ *     MiUnlockPage @ 0x14022D6AC (MiUnlockPage.c)
  *     MiBadRefCount @ 0x1403F48DC (MiBadRefCount.c)
- *     MiLockPage @ 0x14054F904 (MiLockPage.c)
+ *     MiLockPage @ 0x14054FB44 (MiLockPage.c)
  */
 
 __int64 __fastcall MiReadyLargePageToFree(unsigned __int64 a1, int a2, char a3)
@@ -21,10 +21,9 @@ __int64 __fastcall MiReadyLargePageToFree(unsigned __int64 a1, int a2, char a3)
   unsigned __int8 v11; // dl
   unsigned __int64 v12; // rcx
   unsigned __int8 v13; // di
-  __int64 v14; // r8
+  unsigned __int8 v14; // al
   unsigned __int8 v15; // al
-  unsigned __int8 v16; // al
-  __int64 v17; // rbx
+  __int64 v16; // rbx
 
   v4 = a1;
   v5 = 0LL;
@@ -56,15 +55,15 @@ __int64 __fastcall MiReadyLargePageToFree(unsigned __int64 a1, int a2, char a3)
     if ( ((v12 >> 60) & 7) == 3 )
     {
       v13 = MiLockPage(v8);
-      MiClearPfnImageVerified(v8, 12LL, v14);
+      MiClearPfnImageVerified(v8, 12);
       MiUnlockPage(v8, v13);
       v12 = *(_QWORD *)(v8 + 40);
     }
     if ( ((v12 >> 60) & 7) == 1 )
     {
-      v15 = MiLockPage(v8);
+      v14 = MiLockPage(v8);
       *(_QWORD *)(v8 + 40) &= 0x8FFFFFFFFFFFFFFFuLL;
-      MiUnlockPage(v8, v15);
+      MiUnlockPage(v8, v14);
     }
     ++v5;
 LABEL_12:
@@ -76,11 +75,11 @@ LABEL_12:
   {
     if ( v5 == v6 )
       return 1LL;
-    v16 = MiLockPage(v7);
-    v17 = (*v7 & 0xFFFFFFFFFLL) - v5;
-    *v7 ^= (v17 ^ *v7) & 0xFFFFFFFFFLL;
-    MiUnlockPage((__int64)v7, v16);
-    if ( !v17 )
+    v15 = MiLockPage(v7);
+    v16 = (*v7 & 0xFFFFFFFFFLL) - v5;
+    *v7 ^= (v16 ^ *v7) & 0xFFFFFFFFFLL;
+    MiUnlockPage((__int64)v7, v15);
+    if ( !v16 )
       return 1LL;
   }
   return 0LL;

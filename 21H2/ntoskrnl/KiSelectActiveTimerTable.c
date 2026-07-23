@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSelectActiveTimerTable @ 0x140247A60
+ * XREFs of KiSelectActiveTimerTable @ 0x1402EC2B0
  * Callers:
- *     KiRetireDpcList @ 0x1402466B0 (KiRetireDpcList.c)
- *     KiTimerExpiration @ 0x1403892F0 (KiTimerExpiration.c)
- *     KiSetSystemTimeDpc @ 0x14039DFB0 (KiSetSystemTimeDpc.c)
- *     KiCalibrateTimeAdjustment @ 0x140994B90 (KiCalibrateTimeAdjustment.c)
+ *     KiRetireDpcList @ 0x1402EAF00 (KiRetireDpcList.c)
+ *     KiTimerExpiration @ 0x140389440 (KiTimerExpiration.c)
+ *     KiSetSystemTimeDpc @ 0x14039E100 (KiSetSystemTimeDpc.c)
+ *     KiCalibrateTimeAdjustment @ 0x140995B90 (KiCalibrateTimeAdjustment.c)
  * Callees:
  *     <none>
  */

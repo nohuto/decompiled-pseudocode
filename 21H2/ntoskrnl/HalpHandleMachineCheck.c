@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpHandleMachineCheck @ 0x1404BA1EC
+ * XREFs of HalpHandleMachineCheck @ 0x1404BA42C
  * Callers:
- *     HalHandleMcheck @ 0x1404BCA60 (HalHandleMcheck.c)
+ *     HalHandleMcheck @ 0x1404BCCA0 (HalHandleMcheck.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpMceHandler @ 0x1404BACB0 (HalpMceHandler.c)
- *     HalpMceHandlerWithRendezvous @ 0x1404BAF18 (HalpMceHandlerWithRendezvous.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpMceHandler @ 0x1404BAEF0 (HalpMceHandler.c)
+ *     HalpMceHandlerWithRendezvous @ 0x1404BB158 (HalpMceHandlerWithRendezvous.c)
  */
 
 __int64 __fastcall HalpHandleMachineCheck(__int64 a1)

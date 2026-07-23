@@ -14,18 +14,14 @@
  *     RtlpFreeDebugInfo @ 0x180059E48 (RtlpFreeDebugInfo.c)
  */
 
-signed __int64 __fastcall RtlpAddDebugInfoToCriticalSection(__int64 a1)
+void __fastcall RtlpAddDebugInfoToCriticalSection(__int64 a1)
 {
   __int64 DebugInfo; // rax
   signed __int64 v3; // rbx
   int v4; // eax
-  char *v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  volatile signed __int64 v8; // rbx
-  signed __int64 *v9; // rax
-  signed __int64 v10; // rbx
-  signed __int64 result; // rax
+  volatile signed __int64 v5; // rbx
+  signed __int64 *v6; // rax
+  signed __int64 v7; // rbx
 
   DebugInfo = RtlpAllocateDebugInfo();
   v3 = DebugInfo;
@@ -42,27 +38,25 @@ signed __int64 __fastcall RtlpAddDebugInfoToCriticalSection(__int64 a1)
     *(_WORD *)(v3 + 44) = HIWORD(v4);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)a1, v3, -1LL) == -1 )
     {
-      v8 = *(_QWORD *)a1;
-      RtlAcquireSRWLockExclusive((unsigned __int64)&RtlCriticalSectionLock, v5, v6, v7);
-      v9 = (signed __int64 *)off_180142250;
-      v10 = v8 + 16;
-      *(_QWORD *)(v10 + 8) = off_180142250;
-      *(_QWORD *)v10 = &RtlCriticalSectionList;
-      if ( (_UNKNOWN **)*v9 != &RtlCriticalSectionList )
+      v5 = *(_QWORD *)a1;
+      RtlAcquireSRWLockExclusive(&RtlCriticalSectionLock);
+      v6 = (signed __int64 *)off_180142250;
+      v7 = v5 + 16;
+      *(_QWORD *)(v7 + 8) = off_180142250;
+      *(_QWORD *)v7 = &RtlCriticalSectionList;
+      if ( (_UNKNOWN **)*v6 != &RtlCriticalSectionList )
         __fastfail(3u);
-      *v9 = v10;
-      off_180142250 = (_UNKNOWN **)v10;
-      return RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
+      *v6 = v7;
+      off_180142250 = (_UNKNOWN **)v7;
+      RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
     }
     else
     {
-      return RtlpFreeDebugInfo(v3);
+      RtlpFreeDebugInfo(v3);
     }
   }
   else
   {
-    result = 1LL;
     _InterlockedAdd(&RtlFailedCriticalDebugAllocations, 1u);
   }
-  return result;
 }

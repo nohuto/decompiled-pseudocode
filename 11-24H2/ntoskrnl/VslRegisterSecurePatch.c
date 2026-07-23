@@ -1,13 +1,13 @@
 /*
- * XREFs of VslRegisterSecurePatch @ 0x14058DDCC
+ * XREFs of VslRegisterSecurePatch @ 0x14058B124
  * Callers:
- *     MiLoadHotPatch @ 0x140A9F9D4 (MiLoadHotPatch.c)
+ *     MiLoadHotPatch @ 0x140A9ADA4 (MiLoadHotPatch.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslRegisterSecurePatch(unsigned int *a1, struct _MDL **a2)
@@ -32,7 +32,7 @@ __int64 __fastcall VslRegisterSecurePatch(unsigned int *a1, struct _MDL **a2)
     v10 = a1[6];
     v11 = v6[0];
     v12 = v6[7];
-    v5 = VslpEnterIumSecureMode(2u, 72LL, 0, (__int64)v7);
+    v5 = VslpEnterIumSecureMode(2u, 0x48u, 0, (__int64)v7);
     VslpUnlockPagesForTransfer(v6);
     return v5;
   }

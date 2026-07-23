@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeUnmappedPageTables @ 0x1400E39D0
+ * XREFs of MiFreeUnmappedPageTables @ 0x1400E1870
  * Callers:
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     MiDeletePteRange @ 0x1401007D0 (MiDeletePteRange.c)
- *     MiDeleteSessionPdes @ 0x140125CE8 (MiDeleteSessionPdes.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     MiDeletePteRange @ 0x1400FE550 (MiDeletePteRange.c)
+ *     MiDeleteSessionPdes @ 0x140126258 (MiDeleteSessionPdes.c)
  * Callees:
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
  */
 
 void __fastcall MiFreeUnmappedPageTables(__int64 a1, _QWORD *a2)

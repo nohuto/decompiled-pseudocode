@@ -1,10 +1,10 @@
 /*
- * XREFs of PiPnpFreePdoDeviceList @ 0x1407CD1D8
+ * XREFs of PiPnpFreePdoDeviceList @ 0x1407CD4A8
  * Callers:
- *     PnpGetSystemPdoList @ 0x1407CCF60 (PnpGetSystemPdoList.c)
- *     PnpFreeSystemPdoList @ 0x1407CD1C0 (PnpFreeSystemPdoList.c)
+ *     PnpGetSystemPdoList @ 0x1407CD230 (PnpGetSystemPdoList.c)
+ *     PnpFreeSystemPdoList @ 0x1407CD490 (PnpFreeSystemPdoList.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

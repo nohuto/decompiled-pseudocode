@@ -1,7 +1,7 @@
 /*
- * XREFs of MmStoreFlushAllHintedPages @ 0x140661810
+ * XREFs of MmStoreFlushAllHintedPages @ 0x1406618F4
  * Callers:
- *     ?SmpFlushStorePages@@YAXPEAX@Z @ 0x14021D5E4 (-SmpFlushStorePages@@YAXPEAX@Z.c)
+ *     ?SmpFlushStorePages@@YAXPEAX@Z @ 0x14021D410 (-SmpFlushStorePages@@YAXPEAX@Z.c)
  * Callees:
  *     <none>
  */

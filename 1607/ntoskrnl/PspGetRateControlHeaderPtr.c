@@ -1,9 +1,9 @@
 /*
- * XREFs of PspGetRateControlHeaderPtr @ 0x1404693C8
+ * XREFs of PspGetRateControlHeaderPtr @ 0x140468298
  * Callers:
- *     PspQueryRateControlHistory @ 0x14046917C (PspQueryRateControlHistory.c)
- *     PspRemoveRateControl @ 0x1406807A8 (PspRemoveRateControl.c)
- *     PspSetJobRateControl @ 0x140680A28 (PspSetJobRateControl.c)
+ *     PspQueryRateControlHistory @ 0x14046804C (PspQueryRateControlHistory.c)
+ *     PspRemoveRateControl @ 0x14068088C (PspRemoveRateControl.c)
+ *     PspSetJobRateControl @ 0x140680B0C (PspSetJobRateControl.c)
  * Callees:
  *     <none>
  */

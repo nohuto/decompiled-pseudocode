@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpNodeInitialize @ 0x14083F9C0
+ * XREFs of ExpNodeInitialize @ 0x140845C00
  * Callers:
- *     ExpWorkerInitialization @ 0x140CE6768 (ExpWorkerInitialization.c)
+ *     ExpWorkerInitialization @ 0x140CECB08 (ExpWorkerInitialization.c)
  * Callees:
- *     KeQueryNodeActiveAffinityEx @ 0x140476C00 (KeQueryNodeActiveAffinityEx.c)
- *     KeQueryActiveGroupCount @ 0x1404BB3D0 (KeQueryActiveGroupCount.c)
- *     ExpNodeUpdateProcessorSubQueueIndex @ 0x1406D0C64 (ExpNodeUpdateProcessorSubQueueIndex.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x140470380 (KeQueryNodeActiveAffinityEx.c)
+ *     KeQueryActiveGroupCount @ 0x1404B4BB0 (KeQueryActiveGroupCount.c)
+ *     ExpNodeUpdateProcessorSubQueueIndex @ 0x1406D4C94 (ExpNodeUpdateProcessorSubQueueIndex.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpNodeInitialize(__int64 a1)
@@ -43,10 +43,10 @@ __int64 __fastcall ExpNodeInitialize(__int64 a1)
     v7 = (ExpMaximumProcessorsPerWorkQueue + v10 - 1) / ExpMaximumProcessorsPerWorkQueue;
     if ( !v7 )
       v7 = 1;
-    v8 = v7 <= *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32];
+    v8 = v7 <= *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72];
     *(_DWORD *)(a1 + 120) = v7;
     if ( !v8 )
-      *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32] = v7;
+      *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72] = v7;
     *(_DWORD *)(a1 + 124) = 0;
     ExpNodeUpdateProcessorSubQueueIndex(a1, (__int64)v5, v6);
     ExFreePoolWithTag(v5, 0);

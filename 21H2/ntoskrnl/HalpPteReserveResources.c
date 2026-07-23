@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpPteReserveResources @ 0x1403BBBE0
+ * XREFs of HalpPteReserveResources @ 0x1403BBD50
  * Callers:
- *     HalpMmInitSystem @ 0x1409A05D0 (HalpMmInitSystem.c)
+ *     HalpMmInitSystem @ 0x1409A1500 (HalpMmInitSystem.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A2374 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A24C4 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 unsigned __int64 HalpPteReserveResources()

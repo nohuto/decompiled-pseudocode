@@ -38,7 +38,7 @@ __int64 __fastcall sub_18010D034(__int64 a1)
   {
     v4 = 0;
   }
-  RtlEnterCriticalSection(a1 + 88);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 88));
   for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 204); i = (unsigned int)(i + 1) )
   {
     v6 = *(_QWORD *)(a1 + 8 * i + 576);
@@ -56,7 +56,7 @@ __int64 __fastcall sub_18010D034(__int64 a1)
       _InterlockedIncrement((volatile signed __int32 *)(a1 + 228));
     }
   }
-  RtlLeaveCriticalSection(a1 + 88);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 88));
   v8 = *(_QWORD *)(a1 + 416);
   for ( j = sub_18010D318(a1, v8); j; j = sub_18010D318(a1, --v8) )
   {
@@ -67,7 +67,7 @@ __int64 __fastcall sub_18010D034(__int64 a1)
       break;
   }
   sub_180087200(a1, 0);
-  ZwClose();
+  ZwClose(*(HANDLE *)(a1 + 144));
   *(_QWORD *)(a1 + 144) = 0LL;
   return v4;
 }

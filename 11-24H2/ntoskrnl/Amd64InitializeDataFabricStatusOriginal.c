@@ -1,12 +1,12 @@
 /*
- * XREFs of Amd64InitializeDataFabricStatusOriginal @ 0x14056BA4C
+ * XREFs of Amd64InitializeDataFabricStatusOriginal @ 0x140568EDC
  * Callers:
- *     Amd64InitializeUncoreProfilingOriginal @ 0x14056BCE8 (Amd64InitializeUncoreProfilingOriginal.c)
+ *     Amd64InitializeUncoreProfilingOriginal @ 0x140569178 (Amd64InitializeUncoreProfilingOriginal.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     Amd64FreeCounter @ 0x14056B1A4 (Amd64FreeCounter.c)
- *     Amd64InitializeUncoreStatusOriginal @ 0x14056BE94 (Amd64InitializeUncoreStatusOriginal.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     Amd64FreeCounter @ 0x140568634 (Amd64FreeCounter.c)
+ *     Amd64InitializeUncoreStatusOriginal @ 0x140569324 (Amd64InitializeUncoreStatusOriginal.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall Amd64InitializeDataFabricStatusOriginal()

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerRequestDebounceTimerCallback @ 0x140583B70
+ * XREFs of PopPowerRequestDebounceTimerCallback @ 0x140584060
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x14032CCE4 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x14032CF74 (PopQueueWorkItem.c)
  */
 
 char PopPowerRequestDebounceTimerCallback()
 {
-  return PopQueueWorkItem((__int64)&unk_140C3F4A8, DelayedWorkQueue);
+  return PopQueueWorkItem((__int64)&unk_140C3F4E8, DelayedWorkQueue);
 }

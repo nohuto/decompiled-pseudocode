@@ -1,17 +1,17 @@
 /*
- * XREFs of PipProcessPendingObjects @ 0x140A910E0
+ * XREFs of PipProcessPendingObjects @ 0x140A920E0
  * Callers:
- *     PipProcessPendingOsExtensionResources @ 0x140A53388 (PipProcessPendingOsExtensionResources.c)
- *     PipProcessPendingServices @ 0x140A53414 (PipProcessPendingServices.c)
+ *     PipProcessPendingOsExtensionResources @ 0x140A54388 (PipProcessPendingOsExtensionResources.c)
+ *     PipProcessPendingServices @ 0x140A54414 (PipProcessPendingServices.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegQueryValue @ 0x1406BADC4 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegEnumKey @ 0x1407C3C44 (_PnpCtxRegEnumKey.c)
- *     PnpCheckDriverDependencies @ 0x1408A1A48 (PnpCheckDriverDependencies.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     _PnpCtxRegQueryValue @ 0x14061A094 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegOpenKey @ 0x14063562C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x1407C4164 (_PnpCtxRegEnumKey.c)
+ *     PnpCheckDriverDependencies @ 0x1408A1BA8 (PnpCheckDriverDependencies.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PipProcessPendingObjects(
@@ -63,10 +63,10 @@ LABEL_8:
         Value = PnpCtxRegQueryValue(
                   v11,
                   v20,
-                  L"DependOnFirmware",
-                  (_DWORD *)&NumberOfBytes + 1,
-                  PoolWithTag,
-                  (unsigned int *)&NumberOfBytes);
+                  (__int64)L"DependOnFirmware",
+                  (__int64)&NumberOfBytes + 4,
+                  (__int64)PoolWithTag,
+                  (__int64)&NumberOfBytes);
         if ( Value == -1073741789 || Value == -2147483643 )
         {
           if ( PoolWithTag )
@@ -78,10 +78,10 @@ LABEL_8:
           Value = PnpCtxRegQueryValue(
                     v15,
                     v20,
-                    L"DependOnFirmware",
-                    (_DWORD *)&NumberOfBytes + 1,
-                    PoolWithTag,
-                    (unsigned int *)&NumberOfBytes);
+                    (__int64)L"DependOnFirmware",
+                    (__int64)&NumberOfBytes + 4,
+                    (__int64)PoolWithTag,
+                    (__int64)&NumberOfBytes);
         }
         if ( Value == -1073741772 )
         {

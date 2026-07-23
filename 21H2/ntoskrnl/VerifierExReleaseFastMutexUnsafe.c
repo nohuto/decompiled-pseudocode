@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierExReleaseFastMutexUnsafe @ 0x1409E4990
+ * XREFs of VerifierExReleaseFastMutexUnsafe @ 0x1409E5990
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfDeadlockReleaseResource @ 0x1409DE338 (VfDeadlockReleaseResource.c)
- *     ViExCheckAPCsDisabled @ 0x1409E4DC4 (ViExCheckAPCsDisabled.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfDeadlockReleaseResource @ 0x1409DF338 (VfDeadlockReleaseResource.c)
+ *     ViExCheckAPCsDisabled @ 0x1409E5DC4 (ViExCheckAPCsDisabled.c)
  */
 
 __int64 __fastcall VerifierExReleaseFastMutexUnsafe(const void *a1)

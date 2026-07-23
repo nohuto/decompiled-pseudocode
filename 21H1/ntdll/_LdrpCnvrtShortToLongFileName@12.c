@@ -16,19 +16,22 @@
 NTSTATUS __fastcall LdrpCnvrtShortToLongFileName(PCWSTR SourceString, const WCHAR *a2, _DWORD *a3)
 {
   wchar_t *Buffer; // ebx
-  NTSTATUS DirectoryFile; // esi
-  volatile signed __int32 *v5; // edi
-  int Heap; // edi
+  NTSTATUS v4; // esi
+  HANDLE *v5; // edi
+  _DWORD *Heap; // edi
   unsigned int v7; // eax
-  void *v8; // ebx
+  PVOID v8; // ebx
+  SIZE_T v10; // [esp-4h] [ebp-5Ch]
+  SIZE_T v11; // [esp-4h] [ebp-5Ch]
+  size_t v12; // [esp-4h] [ebp-5Ch]
   HANDLE FileHandle; // [esp+10h] [ebp-48h] BYREF
   PCWSTR SourceStringa; // [esp+14h] [ebp-44h]
-  UNICODE_STRING DestinationString; // [esp+18h] [ebp-40h] BYREF
-  UNICODE_STRING v13; // [esp+20h] [ebp-38h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [esp+28h] [ebp-30h] BYREF
-  UNICODE_STRING v15; // [esp+30h] [ebp-28h] BYREF
-  volatile signed __int32 *v16; // [esp+3Ch] [ebp-1Ch]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [esp+40h] [ebp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+18h] [ebp-40h] BYREF
+  _UNICODE_STRING FileName; // [esp+20h] [ebp-38h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+28h] [ebp-30h] BYREF
+  _UNICODE_STRING v18; // [esp+30h] [ebp-28h] BYREF
+  PVOID BaseAddress; // [esp+3Ch] [ebp-1Ch]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+40h] [ebp-18h] BYREF
 
   FileHandle = 0;
   Buffer = 0;
@@ -45,72 +48,75 @@ LABEL_9:
     ObjectAttributes.ObjectName = &DestinationString;
     ObjectAttributes.Length = 24;
     ObjectAttributes.Attributes = 64;
-    DirectoryFile = NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 7u, 0x4021u);
+    v4 = NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 7u, 0x4021u);
     if ( Buffer )
     {
-      v5 = v16;
-      if ( v16 && !_InterlockedExchangeAdd(v16, 0xFFFFFFFF) )
+      v5 = (HANDLE *)BaseAddress;
+      if ( BaseAddress && !_InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress, 0xFFFFFFFF) )
       {
-        NtClose(*((HANDLE *)v5 + 1));
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v5);
+        NtClose(v5[1]);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
       }
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Buffer);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
     }
-    if ( DirectoryFile >= 0 )
+    if ( v4 >= 0 )
     {
-      Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 1040);
+      LODWORD(v10) = 1040;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v10);
       if ( Heap )
       {
-        RtlInitUnicodeString(&v13, SourceStringa);
-        DirectoryFile = ZwQueryDirectoryFile(
-                          (int)FileHandle,
-                          0,
-                          0,
-                          0,
-                          (int)&IoStatusBlock,
-                          Heap,
-                          1040,
-                          3,
-                          1,
-                          (int)&v13,
-                          0);
-        if ( DirectoryFile >= 0 )
+        RtlInitUnicodeString(&FileName, SourceStringa);
+        v4 = ZwQueryDirectoryFile(
+               FileHandle,
+               0,
+               0,
+               0,
+               &IoStatusBlock,
+               Heap,
+               0x410u,
+               FileBothDirectoryInformation,
+               1u,
+               &FileName,
+               0);
+        if ( v4 >= 0 )
         {
-          v7 = *(_DWORD *)(Heap + 60);
+          v7 = Heap[15];
           if ( v7 <= 0x104 )
           {
-            v8 = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, v7 + 4);
+            LODWORD(v11) = v7 + 4;
+            v8 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v11);
             if ( v8 )
             {
-              memcpy(v8, (const void *)(Heap + 94), *(_DWORD *)(Heap + 60));
-              *((_WORD *)v8 + (*(_DWORD *)(Heap + 60) >> 1)) = 0;
+              LODWORD(v12) = Heap[15];
+              memcpy(v8, (char *)Heap + 94, v12);
+              *((_WORD *)v8 + (Heap[15] >> 1)) = 0;
               *a3 = v8;
             }
             else
             {
-              DirectoryFile = -1073741801;
+              v4 = -1073741801;
             }
           }
         }
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       }
       else
       {
-        DirectoryFile = -1073741801;
+        v4 = -1073741801;
       }
     }
     goto LABEL_23;
   }
-  DirectoryFile = RtlpDosPathNameToRelativeNtPathName_U(2, (int)SourceString, &DestinationString.Length, 0, &v15);
-  if ( DirectoryFile >= 0 )
+  v4 = RtlpDosPathNameToRelativeNtPathName_U(2, SourceString, &DestinationString, 0, &v18);
+  if ( v4 >= 0 )
   {
     Buffer = DestinationString.Buffer;
-    if ( v15.Length )
-      DestinationString = v15;
+    if ( v18.Length )
+      DestinationString = v18;
     goto LABEL_9;
   }
 LABEL_23:
   if ( FileHandle )
     NtClose(FileHandle);
-  return DirectoryFile;
+  return v4;
 }

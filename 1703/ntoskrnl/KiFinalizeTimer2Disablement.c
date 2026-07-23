@@ -45,7 +45,7 @@ void *__fastcall KiFinalizeTimer2Disablement(unsigned __int64 a1)
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( v3 )
-      EtwGetKernelTraceTimestamp(v11, (char *)0x40020000);
+      EtwGetKernelTraceTimestamp(v11, 0x40020000u);
     v7(v4);
     result = (void *)CurrentIrql;
     __writecr8(CurrentIrql);
@@ -59,7 +59,7 @@ void *__fastcall KiFinalizeTimer2Disablement(unsigned __int64 a1)
     v10[0] = 0x7E35C6C7F3DD7277LL
            * (v5 ^ __ROR8__(v6 ^ _byteswap_uint64(a1 ^ v6) ^ _byteswap_uint64(a1 ^ __ROL8__(v1 ^ v5, v5)), v5));
     if ( !v7 )
-      EtwGetKernelTraceTimestamp(v11, (char *)0x40020000);
+      EtwGetKernelTraceTimestamp(v11, 0x40020000u);
     return EtwTraceTimedEvent(3948, 0x40020000u, (__int64)v10, 24, 4197890, (__int64)v11);
   }
   return result;

@@ -10,5 +10,5 @@
 void __fastcall CcFreeSharedCacheMapIgnoreNull(PVOID Entry)
 {
   if ( Entry )
-    ExFreeToLookasideListEx(&CcSharedCacheMapLookasideList, Entry);
+    ExFreeToLookasideListEx((PLOOKASIDE_LIST_EX)&CcSharedCacheMapLookasideList, Entry);
 }

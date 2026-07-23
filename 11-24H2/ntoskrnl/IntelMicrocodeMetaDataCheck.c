@@ -1,9 +1,9 @@
 /*
- * XREFs of IntelMicrocodeMetaDataCheck @ 0x140664E30
+ * XREFs of IntelMicrocodeMetaDataCheck @ 0x140663720
  * Callers:
- *     MicrocodeGetRecord @ 0x1406644E0 (MicrocodeGetRecord.c)
+ *     MicrocodeGetRecord @ 0x140662DD0 (MicrocodeGetRecord.c)
  * Callees:
- *     IntelUpdateMicrocodeGetProcessorFlags @ 0x140664EDC (IntelUpdateMicrocodeGetProcessorFlags.c)
+ *     IntelUpdateMicrocodeGetProcessorFlags @ 0x1406637CC (IntelUpdateMicrocodeGetProcessorFlags.c)
  */
 
 __int64 __fastcall IntelMicrocodeMetaDataCheck(__int64 a1, int a2)

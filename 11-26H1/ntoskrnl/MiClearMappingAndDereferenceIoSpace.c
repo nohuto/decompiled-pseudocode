@@ -1,21 +1,21 @@
 /*
- * XREFs of MiClearMappingAndDereferenceIoSpace @ 0x140282A34
+ * XREFs of MiClearMappingAndDereferenceIoSpace @ 0x140281FA4
  * Callers:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     MiFillSystemPtes @ 0x14035F448 (MiFillSystemPtes.c)
- *     MmMapMdl @ 0x1404E1360 (MmMapMdl.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     MiFillSystemPtes @ 0x1403611E8 (MiFillSystemPtes.c)
+ *     MmMapMdl @ 0x1404DAA40 (MmMapMdl.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiDereferenceIoPages @ 0x1403132CC (MiDereferenceIoPages.c)
- *     MiVaIsUltra @ 0x1403385D0 (MiVaIsUltra.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     MiZeroAndFlushGoodCitizen @ 0x1404F9384 (MiZeroAndFlushGoodCitizen.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiDereferenceIoPages @ 0x1403152FC (MiDereferenceIoPages.c)
+ *     MiVaIsUltra @ 0x14033A650 (MiVaIsUltra.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiZeroAndFlushGoodCitizen @ 0x1404F2994 (MiZeroAndFlushGoodCitizen.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall MiClearMappingAndDereferenceIoSpace(unsigned __int64 a1, unsigned __int64 a2)
@@ -67,7 +67,7 @@ unsigned __int64 __fastcall MiClearMappingAndDereferenceIoSpace(unsigned __int64
   LODWORD(v8) = 0;
   v9 = 0LL;
   if ( !(unsigned int)MiVaIsUltra(a1) )
-    v9 = &unk_140E371C0;
+    v9 = &unk_140E37340;
   DemandZeroPte = MiMakeDemandZeroPte(16LL);
   while ( 1 )
   {
@@ -125,7 +125,7 @@ LABEL_11:
           {
             *(_QWORD *)v4 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
           }
-          if ( v17 > qword_140E2D7A0
+          if ( v17 > qword_140E2D920
             || (result = *(_QWORD *)(48 * v17 - 0x21FFFFFFFFD8LL) >> 54,
                 (*(_QWORD *)(48 * v17 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0) )
           {

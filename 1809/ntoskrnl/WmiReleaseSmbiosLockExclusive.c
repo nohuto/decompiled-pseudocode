@@ -1,10 +1,10 @@
 /*
- * XREFs of WmiReleaseSmbiosLockExclusive @ 0x1406DDD74
+ * XREFs of WmiReleaseSmbiosLockExclusive @ 0x1406DF014
  * Callers:
- *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x1405691E0 (PoBroadcastSystemState.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 _QWORD *WmiReleaseSmbiosLockExclusive()

@@ -1,7 +1,7 @@
 /*
  * XREFs of ExQueryPoolUsage @ 0x14021E568
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x1406B1F04 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x1406B1F34 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     ExHeapQueryPoolUsage @ 0x14021E5AC (ExHeapQueryPoolUsage.c)
  */

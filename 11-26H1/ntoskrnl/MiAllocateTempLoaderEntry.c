@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllocateTempLoaderEntry @ 0x140AEBF68
+ * XREFs of MiAllocateTempLoaderEntry @ 0x140AEEE74
  * Callers:
- *     MiObtainSectionForDriver @ 0x140AEB960 (MiObtainSectionForDriver.c)
+ *     MiObtainSectionForDriver @ 0x140AEE86C (MiObtainSectionForDriver.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
  */
 
 __int64 MiAllocateTempLoaderEntry()

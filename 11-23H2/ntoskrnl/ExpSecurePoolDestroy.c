@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpSecurePoolDestroy @ 0x14060CF54
+ * XREFs of ExpSecurePoolDestroy @ 0x14060D4A4
  * Callers:
- *     ExDestroyPool @ 0x140606E60 (ExDestroyPool.c)
+ *     ExDestroyPool @ 0x1406073B0 (ExDestroyPool.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall ExpSecurePoolDestroy(ULONG_PTR BugCheckParameter2)

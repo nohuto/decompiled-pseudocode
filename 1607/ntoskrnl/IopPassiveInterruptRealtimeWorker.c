@@ -1,9 +1,9 @@
 /*
- * XREFs of IopPassiveInterruptRealtimeWorker @ 0x14014C2B4
+ * XREFs of IopPassiveInterruptRealtimeWorker @ 0x14014C824
  * Callers:
  *     <none>
  * Callees:
- *     KeRemoveQueue @ 0x1400A86B8 (KeRemoveQueue.c)
+ *     KeRemoveQueue @ 0x1400A6C30 (KeRemoveQueue.c)
  */
 
 void __fastcall __noreturn IopPassiveInterruptRealtimeWorker(struct _KQUEUE *StartContext)

@@ -1,22 +1,22 @@
 /*
- * XREFs of HalReturnToFirmware @ 0x14057F640
+ * XREFs of HalReturnToFirmware @ 0x140581B60
  * Callers:
- *     HalpLegacyShutdown @ 0x14057F7F0 (HalpLegacyShutdown.c)
- *     HalpShutdownReset @ 0x14057FCB0 (HalpShutdownReset.c)
- *     HaliAcpiSleep @ 0x1405A2710 (HaliAcpiSleep.c)
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
- *     KiDeferredBugcheckRecoveryWorker @ 0x1405F9FE0 (KiDeferredBugcheckRecoveryWorker.c)
- *     ExRebootSystemForRecovery @ 0x1406CB54C (ExRebootSystemForRecovery.c)
- *     PopSaveHiberContext @ 0x140BFBD50 (PopSaveHiberContext.c)
- *     PopShutdownSystem @ 0x140BFDFD4 (PopShutdownSystem.c)
- *     KdpSendWaitContinue @ 0x140C17038 (KdpSendWaitContinue.c)
- *     HdlspBugCheckProcessing @ 0x140C4C1F8 (HdlspBugCheckProcessing.c)
+ *     HalpLegacyShutdown @ 0x140581D10 (HalpLegacyShutdown.c)
+ *     HalpShutdownReset @ 0x1405821D0 (HalpShutdownReset.c)
+ *     HaliAcpiSleep @ 0x1405A4F20 (HaliAcpiSleep.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
+ *     KiDeferredBugcheckRecoveryWorker @ 0x1405FCA00 (KiDeferredBugcheckRecoveryWorker.c)
+ *     ExRebootSystemForRecovery @ 0x1406CF57C (ExRebootSystemForRecovery.c)
+ *     PopSaveHiberContext @ 0x140C01D50 (PopSaveHiberContext.c)
+ *     PopShutdownSystem @ 0x140C04024 (PopShutdownSystem.c)
+ *     KdpSendWaitContinue @ 0x140C1D038 (KdpSendWaitContinue.c)
+ *     HdlspBugCheckProcessing @ 0x140C521F8 (HdlspBugCheckProcessing.c)
  * Callees:
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     KdPowerTransitionEx @ 0x14050A220 (KdPowerTransitionEx.c)
- *     HalpReboot @ 0x14057F954 (HalpReboot.c)
- *     HalpShutdown @ 0x14057FA90 (HalpShutdown.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     KdPowerTransitionEx @ 0x140503C90 (KdPowerTransitionEx.c)
+ *     HalpReboot @ 0x140581E74 (HalpReboot.c)
+ *     HalpShutdown @ 0x140581FB0 (HalpShutdown.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall __noreturn HalReturnToFirmware(int a1)

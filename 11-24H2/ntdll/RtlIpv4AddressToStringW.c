@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlIpv4AddressToStringW @ 0x1800B9DB0
+ * XREFs of RtlIpv4AddressToStringW @ 0x1800B1B70
  * Callers:
- *     RtlIpv4AddressToStringExW @ 0x1800B9B30 (RtlIpv4AddressToStringExW.c)
- *     RtlCanonicalizeDomainName @ 0x1800BA3D0 (RtlCanonicalizeDomainName.c)
+ *     RtlIpv4AddressToStringExW @ 0x1800B18F0 (RtlIpv4AddressToStringExW.c)
+ *     RtlCanonicalizeDomainName @ 0x1800B2190 (RtlCanonicalizeDomainName.c)
  * Callees:
- *     swprintf_s @ 0x18012DDD0 (swprintf_s.c)
+ *     swprintf_s @ 0x18012C000 (swprintf_s.c)
  */
 
 PWSTR __stdcall RtlIpv4AddressToStringW(const struct in_addr *Addr, PWSTR S)
 {
-  int s_b2; // [rsp+20h] [rbp-28h]
-  int s_b3; // [rsp+28h] [rbp-20h]
-  int s_b4; // [rsp+30h] [rbp-18h]
+  int v3; // [rsp+20h] [rbp-28h]
+  int v4; // [rsp+28h] [rbp-20h]
+  int v5; // [rsp+30h] [rbp-18h]
 
-  s_b4 = Addr->S_un.S_un_b.s_b4;
-  s_b3 = Addr->S_un.S_un_b.s_b3;
-  s_b2 = Addr->S_un.S_un_b.s_b2;
-  return &S[swprintf_s(S, 0x10uLL, L"%u.%u.%u.%u", Addr->S_un.S_un_b.s_b1, s_b2, s_b3, s_b4)];
+  v5 = *((unsigned __int8 *)Addr + 3);
+  v4 = *((unsigned __int8 *)Addr + 2);
+  v3 = *((unsigned __int8 *)Addr + 1);
+  return &S[swprintf_s(S, 0x10uLL, L"%u.%u.%u.%u", *(unsigned __int8 *)Addr, v3, v4, v5)];
 }

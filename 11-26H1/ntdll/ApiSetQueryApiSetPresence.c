@@ -1,10 +1,10 @@
 /*
- * XREFs of ApiSetQueryApiSetPresence @ 0x180082670
+ * XREFs of ApiSetQueryApiSetPresence @ 0x180079A10
  * Callers:
  *     <none>
  * Callees:
- *     LdrpLogDllState @ 0x1800832E0 (LdrpLogDllState.c)
- *     ApiSetResolveToHost @ 0x1800E6E14 (ApiSetResolveToHost.c)
+ *     LdrpLogDllState @ 0x18007A680 (LdrpLogDllState.c)
+ *     ApiSetResolveToHost @ 0x1800E5874 (ApiSetResolveToHost.c)
  */
 
 __int64 __fastcall ApiSetQueryApiSetPresence(__int64 a1, _BYTE *a2)

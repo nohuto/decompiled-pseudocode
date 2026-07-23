@@ -19,19 +19,16 @@ void __fastcall RtlCompleteProcessCloning(unsigned int a1)
   unsigned int v2; // edi
   void *UniqueThread; // rdx
   __int64 v4; // rcx
-  unsigned __int64 v5; // rdx
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // r9
 
   if ( a1 )
   {
-    RtlCriticalSectionLock = 1LL;
+    RtlCriticalSectionLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
     v2 = 1;
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_180179D38 = 0LL;
-    qword_180179D30 = (__int64)UniqueThread;
-    dword_180179D28 = -2;
-    dword_180179D2C = 1;
+    FastPebLock.LockSemaphore = 0LL;
+    FastPebLock.OwningThread = UniqueThread;
+    FastPebLock.LockCount = -2;
+    FastPebLock.RecursionCount = 1;
   }
   else
   {
@@ -42,18 +39,18 @@ void __fastcall RtlCompleteProcessCloning(unsigned int a1)
   RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
   LdrForkMrdata(v2);
   if ( v2 == 1 )
-    RtlpProtectedPoliciesSRWLock = 1LL;
+    RtlpProtectedPoliciesSRWLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
   else
     RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
   RtlUnlockHeapManagerForCloning(a1);
   LdrpUnlockTlsDelayedReclaimTable(a1);
-  RtlLeaveCriticalSection((__int64)&FastPebLock);
+  RtlLeaveCriticalSection(&FastPebLock);
   RtlpFlsCloneComplete(v4, a1);
   LdrpCompleteProcessCloning(a1);
   if ( a1 )
   {
     LdrpForkInProgress = 0;
-    RtlAcquireReleaseSRWLockExclusive(&LdrpForkActiveLock, v5, v6, v7);
+    RtlAcquireReleaseSRWLockExclusive(&LdrpForkActiveLock);
     RtlWakeAllConditionVariable(&LdrpForkConditionVariable);
   }
 }

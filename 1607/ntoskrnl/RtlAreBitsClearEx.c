@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlAreBitsClearEx @ 0x140211FBC
+ * XREFs of RtlAreBitsClearEx @ 0x140211DE8
  * Callers:
- *     MiHotAddPartitionMemory @ 0x1406605D8 (MiHotAddPartitionMemory.c)
+ *     MiHotAddPartitionMemory @ 0x1406606BC (MiHotAddPartitionMemory.c)
  * Callees:
  *     <none>
  */

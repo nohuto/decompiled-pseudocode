@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_CvmMasterAdapterBounceFix__private_IsEnabledDeviceUsageNoInline @ 0x14054ED98
+ * XREFs of Feature_CvmMasterAdapterBounceFix__private_IsEnabledDeviceUsageNoInline @ 0x14054C6D8
  * Callers:
- *     HalpDmaInit @ 0x140C10654 (HalpDmaInit.c)
+ *     HalpDmaInit @ 0x140C12654 (HalpDmaInit.c)
  * Callees:
- *     Feature_CvmMasterAdapterBounceFix__private_IsEnabledFallback @ 0x14054EDD0 (Feature_CvmMasterAdapterBounceFix__private_IsEnabledFallback.c)
+ *     Feature_CvmMasterAdapterBounceFix__private_IsEnabledFallback @ 0x14054C710 (Feature_CvmMasterAdapterBounceFix__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_CvmMasterAdapterBounceFix__private_IsEnabledDeviceUsageNoInline()

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerSetDestination @ 0x1402C367C
+ * XREFs of KiIntSteerSetDestination @ 0x140241BFC
  * Callers:
- *     KiIntSteerDistributeInterrupts @ 0x140229CB0 (KiIntSteerDistributeInterrupts.c)
- *     KiIntSteerConnect @ 0x140377C24 (KiIntSteerConnect.c)
+ *     KiIntSteerDistributeInterrupts @ 0x1402CE560 (KiIntSteerDistributeInterrupts.c)
+ *     KiIntSteerConnect @ 0x140377774 (KiIntSteerConnect.c)
  * Callees:
- *     KiIntSteerVerifyDestination @ 0x1402C370C (KiIntSteerVerifyDestination.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KiIntSteerVerifyDestination @ 0x140241C8C (KiIntSteerVerifyDestination.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiIntSteerSetDestination(__int64 a1, __int64 a2, __int64 a3)

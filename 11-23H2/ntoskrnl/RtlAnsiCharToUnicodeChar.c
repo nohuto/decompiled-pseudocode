@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlAnsiCharToUnicodeChar @ 0x1406DA400
+ * XREFs of RtlAnsiCharToUnicodeChar @ 0x1406DA430
  * Callers:
- *     _safecrt_mbtowc @ 0x1403DA2B0 (_safecrt_mbtowc.c)
- *     toupper @ 0x1403DB730 (toupper.c)
- *     _mbstrlen @ 0x1403DD774 (_mbstrlen.c)
+ *     _safecrt_mbtowc @ 0x1403DA490 (_safecrt_mbtowc.c)
+ *     toupper @ 0x1403DB910 (toupper.c)
+ *     _mbstrlen @ 0x1403DD954 (_mbstrlen.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1406DA530 (RtlpIsUtf8Process.c)
- *     RtlUTF8ToUnicodeN @ 0x1406DA5D0 (RtlUTF8ToUnicodeN.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x1406DA560 (RtlpIsUtf8Process.c)
+ *     RtlUTF8ToUnicodeN @ 0x1406DA600 (RtlUTF8ToUnicodeN.c)
  */
 
-__int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
+WCHAR __cdecl RtlAnsiCharToUnicodeChar(PUCHAR *SourceCharacter)
 {
   int v2; // ebp
   _QWORD *CurrentServerSiloGlobals; // rax
@@ -25,7 +25,7 @@ __int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
   __int64 v12; // r8
   WCHAR *v13; // rdx
   __int64 v14; // rax
-  CHAR v16; // al
+  UCHAR v16; // al
   __int64 v17; // r11
   __int64 v18; // rcx
   signed __int32 v19[8]; // [rsp+0h] [rbp-48h] BYREF
@@ -36,16 +36,16 @@ __int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
   v2 = 1;
   if ( (unsigned __int8)RtlpIsUtf8Process(0LL) )
   {
-    v4 = *a1;
-    v16 = **a1;
-    if ( (unsigned __int8)v16 < 0xC0u )
+    v4 = (const CHAR *)*SourceCharacter;
+    v16 = **SourceCharacter;
+    if ( v16 < 0xC0u )
       goto LABEL_3;
-    if ( (unsigned __int8)v16 >= 0xE0u )
+    if ( v16 >= 0xE0u )
     {
-      if ( (unsigned __int8)v16 >= 0xF0u )
+      if ( v16 >= 0xF0u )
       {
         UTF8StringByteCount = 1;
-        if ( (unsigned __int8)v16 < 0xF8u )
+        if ( v16 < 0xF8u )
           UTF8StringByteCount = 4;
       }
       else
@@ -62,8 +62,8 @@ __int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
   {
     _InterlockedOr(v19, 0);
     CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v4 = *a1;
-    if ( !*(_WORD *)(CurrentServerSiloGlobals[151] + 2LL * *(unsigned __int8 *)*a1) )
+    v4 = (const CHAR *)*SourceCharacter;
+    if ( !*(_WORD *)(CurrentServerSiloGlobals[151] + 2LL * **SourceCharacter) )
     {
 LABEL_3:
       UTF8StringByteCount = 1;
@@ -146,6 +146,6 @@ LABEL_15:
     while ( v12 );
   }
 LABEL_11:
-  *a1 += UTF8StringByteCount;
+  *SourceCharacter += UTF8StringByteCount;
   return UnicodeStringDestination;
 }

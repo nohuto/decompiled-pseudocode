@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMarkLargePageRanges @ 0x140CF3BAC
+ * XREFs of MiMarkLargePageRanges @ 0x140CF9F2C
  * Callers:
- *     MiInitializePhysicalMemoryBlocks @ 0x140CF36E4 (MiInitializePhysicalMemoryBlocks.c)
+ *     MiInitializePhysicalMemoryBlocks @ 0x140CF9A64 (MiInitializePhysicalMemoryBlocks.c)
  * Callees:
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
- *     MiMarkLargePageMappings @ 0x140CF3A74 (MiMarkLargePageMappings.c)
- *     MxFindDescriptorByPfn @ 0x140CF69B8 (MxFindDescriptorByPfn.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
+ *     MiMarkLargePageMappings @ 0x140CF9DF4 (MiMarkLargePageMappings.c)
+ *     MxFindDescriptorByPfn @ 0x140CFCD38 (MxFindDescriptorByPfn.c)
  */
 
 void __fastcall MiMarkLargePageRanges(__int64 a1)

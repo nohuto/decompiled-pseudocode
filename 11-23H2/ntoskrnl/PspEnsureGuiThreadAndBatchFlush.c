@@ -1,10 +1,10 @@
 /*
- * XREFs of PspEnsureGuiThreadAndBatchFlush @ 0x1409B4BA8
+ * XREFs of PspEnsureGuiThreadAndBatchFlush @ 0x1409B4DA8
  * Callers:
- *     PsSyscallProviderDispatch @ 0x1409B46A0 (PsSyscallProviderDispatch.c)
+ *     PsSyscallProviderDispatch @ 0x1409B48A0 (PsSyscallProviderDispatch.c)
  * Callees:
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
- *     PsConvertToGuiThread @ 0x1407C6290 (PsConvertToGuiThread.c)
+ *     PsInvokeWin32Callout @ 0x1406AF880 (PsInvokeWin32Callout.c)
+ *     PsConvertToGuiThread @ 0x1407C6560 (PsConvertToGuiThread.c)
  */
 
 __int64 __fastcall PspEnsureGuiThreadAndBatchFlush(__int64 a1)

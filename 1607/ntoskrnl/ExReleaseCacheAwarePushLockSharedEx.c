@@ -1,17 +1,17 @@
 /*
- * XREFs of ExReleaseCacheAwarePushLockSharedEx @ 0x1400139A0
+ * XREFs of ExReleaseCacheAwarePushLockSharedEx @ 0x140013520
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KiAbThreadClearAcquiredLockEntry @ 0x140013BB0 (KiAbThreadClearAcquiredLockEntry.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     KiAbEntryRemoveFromTree @ 0x140031030 (KiAbEntryRemoveFromTree.c)
- *     KiAbThreadUnboostCpuPriority @ 0x1400A13E8 (KiAbThreadUnboostCpuPriority.c)
- *     KiAbThreadUnboostIoPriority @ 0x1400B2E3C (KiAbThreadUnboostIoPriority.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostClearFloor @ 0x140225908 (EtwTraceAutoBoostClearFloor.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KiAbThreadClearAcquiredLockEntry @ 0x140013730 (KiAbThreadClearAcquiredLockEntry.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x140030BB0 (KiAbEntryRemoveFromTree.c)
+ *     KiAbThreadUnboostCpuPriority @ 0x14009FD10 (KiAbThreadUnboostCpuPriority.c)
+ *     KiAbThreadUnboostIoPriority @ 0x1400B0D88 (KiAbThreadUnboostIoPriority.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostClearFloor @ 0x140225734 (EtwTraceAutoBoostClearFloor.c)
  */
 
 unsigned __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(
@@ -42,7 +42,7 @@ unsigned __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(
     CurrentThread = KeGetCurrentThread();
     v6 = *(_QWORD *)(BugCheckParameter2 + 16);
     v7 = 0;
-    if ( v6 < qword_140326910 || v6 >= qword_140326910 + 0x8000000000LL )
+    if ( v6 < qword_140326950 || v6 >= qword_140326950 + 0x8000000000LL )
       SessionId = 0xFFFFFFFFLL;
     else
       SessionId = (unsigned int)MmGetSessionIdEx(CurrentThread->ApcState.Process);
@@ -57,7 +57,7 @@ unsigned __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(
     {
       *(_BYTE *)(v9 + 32) |= 2u;
       if ( *(__int64 *)(v9 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v9);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v9);
       v12 = *(_DWORD *)(v11 + 88);
       if ( (v12 & 0x1FFFF) != 0 )
       {

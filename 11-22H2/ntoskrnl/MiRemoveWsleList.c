@@ -129,7 +129,8 @@ __int64 __fastcall MiRemoveWsleList(__int64 a1, __int64 a2, _BYTE *a3, unsigned 
       if ( (*(_BYTE *)(v9 + 184) & 7) == 4 )
       {
         if ( PsNtosImageBase
-          && (v21 < PsNtosImageEnd && v21 >= PsNtosImageBase || v21 < PsHalImageEnd && v21 >= PsHalImageBase) )
+          && (v21 < PsNtosImageEnd && v21 >= (unsigned __int64)PsNtosImageBase
+           || v21 < PsHalImageEnd && v21 >= (unsigned __int64)PsHalImageBase) )
         {
           v62 = ++v14;
         }

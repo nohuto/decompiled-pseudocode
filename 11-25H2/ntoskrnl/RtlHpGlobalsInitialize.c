@@ -9,7 +9,7 @@
  *     memset_0 @ 0x1406B4D40 (memset_0.c)
  */
 
-unsigned __int8 RtlHpGlobalsInitialize()
+BOOLEAN RtlHpGlobalsInitialize()
 {
   unsigned int v0; // ebx
   __int64 v1; // rax
@@ -20,7 +20,7 @@ unsigned __int8 RtlHpGlobalsInitialize()
   unsigned __int64 v6; // rax
   signed __int64 v7; // rdx
   unsigned __int64 v8; // rtt
-  unsigned __int8 result; // al
+  BOOLEAN result; // al
 
   memset_0(&RtlpHpHeapGlobals, 0, 0x80uLL);
   v0 = ExGenRandom(1) & 0x7FFFFFFF;

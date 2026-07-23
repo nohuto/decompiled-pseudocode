@@ -1,7 +1,7 @@
 /*
  * XREFs of __C_specific_handler @ 0x18008F7F0
  * Callers:
- *     __GSHandlerCheck_SEH @ 0x1800A0980 (__GSHandlerCheck_SEH.c)
+ *     __GSHandlerCheck_SEH @ 0x1800A097C (__GSHandlerCheck_SEH.c)
  * Callees:
  *     RtlUnwindEx @ 0x18001FF80 (RtlUnwindEx.c)
  *     _NLG_Notify @ 0x1800958D0 (_NLG_Notify.c)

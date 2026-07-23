@@ -16,11 +16,11 @@ int __thiscall RXactpCommit(_DWORD *this)
   _DWORD *v1; // eax
   char v2; // bh
   unsigned int v3; // edx
-  HANDLE *v4; // esi
+  _UNICODE_STRING *v4; // esi
   HANDLE v5; // ecx
   char v6; // bl
   int result; // eax
-  int v8; // eax
+  NTSTATUS v8; // eax
   HANDLE v9; // eax
   int v10; // edi
   HANDLE Handle[2]; // [esp+Ch] [ebp-14h] BYREF
@@ -34,21 +34,21 @@ int __thiscall RXactpCommit(_DWORD *this)
   v3 = *v1;
   v14 = v1;
   v13 = v3;
-  v4 = (HANDLE *)(v1 + 3);
+  v4 = (_UNICODE_STRING *)(v1 + 3);
   Handle[1] = *(HANDLE *)this;
   if ( v3 )
   {
     while ( 1 )
     {
-      v4[3] = (char *)v4[3] + (_DWORD)v1;
-      v4[5] = (char *)v4[5] + (_DWORD)v1;
-      v4[9] = (char *)v4[9] + (_DWORD)v1;
-      if ( v4[1] == HANDLE_FLAG_INHERIT )
+      v4[1].Buffer = (wchar_t *)((char *)v4[1].Buffer + (unsigned int)v1);
+      v4[2].Buffer = (wchar_t *)((char *)v4[2].Buffer + (unsigned int)v1);
+      v4[4].Buffer = (wchar_t *)((char *)v4[4].Buffer + (unsigned int)v1);
+      if ( v4->Buffer == (wchar_t *)1 )
       {
-        v9 = v4[6];
+        v9 = *(HANDLE *)&v4[3].Length;
         if ( v9 == (HANDLE)-1 || !v2 )
         {
-          result = RXactpOpenTargetKey(v4 + 2, Handle);
+          result = RXactpOpenTargetKey((int)&v4[1], Handle);
           if ( result < 0 )
           {
             if ( result != -1073741772 )
@@ -60,19 +60,19 @@ int __thiscall RXactpCommit(_DWORD *this)
         }
         else
         {
-          Handle[0] = v4[6];
+          Handle[0] = *(HANDLE *)&v4[3].Length;
           v6 = 0;
         }
-        v8 = ZwDeleteKey((int)v9);
+        v8 = ZwDeleteKey(v9);
       }
       else
       {
-        if ( v4[1] != HANDLE_FLAG_PROTECT_FROM_CLOSE )
+        if ( v4->Buffer != (wchar_t *)2 )
           return -1073741811;
-        v5 = v4[6];
+        v5 = *(HANDLE *)&v4[3].Length;
         if ( v5 == (HANDLE)-1 || !v2 )
         {
-          result = RXactpOpenTargetKey(v4 + 2, Handle);
+          result = RXactpOpenTargetKey((int)&v4[1], Handle);
           if ( result < 0 )
             return result;
           v5 = Handle[0];
@@ -80,10 +80,10 @@ int __thiscall RXactpCommit(_DWORD *this)
         }
         else
         {
-          Handle[0] = v4[6];
+          Handle[0] = *(HANDLE *)&v4[3].Length;
           v6 = 0;
         }
-        v8 = ZwSetValueKey((int)v5, (int)(v4 + 4), 0, (int)v4[7], (int)v4[9], (int)v4[8]);
+        v8 = ZwSetValueKey(v5, v4 + 2, 0, (ULONG)v4[3].Buffer, v4[4].Buffer, *(_DWORD *)&v4[4].Length);
       }
       v10 = v8;
       if ( v6 )
@@ -91,7 +91,7 @@ int __thiscall RXactpCommit(_DWORD *this)
       if ( v10 < 0 )
         return v10;
 LABEL_21:
-      v4 = (HANDLE *)((char *)v4 + (_DWORD)*v4);
+      v4 = (_UNICODE_STRING *)((char *)v4 + *(_DWORD *)&v4->Length);
       if ( ++v12 >= v13 )
         return 0;
       v1 = v14;

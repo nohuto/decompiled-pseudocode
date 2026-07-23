@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlStringCchPrintfA @ 0x140595C68
+ * XREFs of RtlStringCchPrintfA @ 0x140592C98
  * Callers:
- *     IopCopyBootLogRegistryToFile @ 0x140711E7C (IopCopyBootLogRegistryToFile.c)
- *     IopCreateArcName @ 0x140A75840 (IopCreateArcName.c)
- *     IopCreateArcNames @ 0x140C1BCEC (IopCreateArcNames.c)
- *     IopCreateArcNamesCd @ 0x140C1BE30 (IopCreateArcNamesCd.c)
- *     IopMarkBootPartition @ 0x140C1CD70 (IopMarkBootPartition.c)
- *     IopGetBootDiskInformation @ 0x140C1D87C (IopGetBootDiskInformation.c)
- *     IopApplySystemPartitionProt @ 0x140C1E168 (IopApplySystemPartitionProt.c)
- *     PipCriticalDeviceWaitCallback @ 0x140C20670 (PipCriticalDeviceWaitCallback.c)
+ *     IopCopyBootLogRegistryToFile @ 0x14070FA0C (IopCopyBootLogRegistryToFile.c)
+ *     IopCreateArcName @ 0x140A6FCE0 (IopCreateArcName.c)
+ *     IopCreateArcNames @ 0x140C1DD2C (IopCreateArcNames.c)
+ *     IopCreateArcNamesCd @ 0x140C1DE70 (IopCreateArcNamesCd.c)
+ *     IopMarkBootPartition @ 0x140C1EDB0 (IopMarkBootPartition.c)
+ *     IopGetBootDiskInformation @ 0x140C1F8BC (IopGetBootDiskInformation.c)
+ *     IopApplySystemPartitionProt @ 0x140C201A8 (IopApplySystemPartitionProt.c)
+ *     PipCriticalDeviceWaitCallback @ 0x140C226B0 (PipCriticalDeviceWaitCallback.c)
  * Callees:
- *     _vsnprintf @ 0x1404FD380 (_vsnprintf.c)
+ *     _vsnprintf @ 0x1404FAC40 (_vsnprintf.c)
  */
 
 NTSTATUS RtlStringCchPrintfA(NTSTRSAFE_PSTR pszDest, size_t cchDest, NTSTRSAFE_PCSTR pszFormat, ...)

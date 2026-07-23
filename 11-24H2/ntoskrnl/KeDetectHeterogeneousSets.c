@@ -1,8 +1,8 @@
 /*
- * XREFs of KeDetectHeterogeneousSets @ 0x14073AD58
+ * XREFs of KeDetectHeterogeneousSets @ 0x140738C88
  * Callers:
- *     KiAssignSubNodeSharedReadyQueues @ 0x1405B6308 (KiAssignSubNodeSharedReadyQueues.c)
- *     PopInitializeHeteroProcessors @ 0x140A2A138 (PopInitializeHeteroProcessors.c)
+ *     KiAssignSubNodeSharedReadyQueues @ 0x1405B35D0 (KiAssignSubNodeSharedReadyQueues.c)
+ *     PopInitializeHeteroProcessors @ 0x140AC57E0 (PopInitializeHeteroProcessors.c)
  * Callees:
  *     <none>
  */
@@ -31,7 +31,7 @@ __int64 __fastcall KeDetectHeterogeneousSets(__int64 a1)
   v4 = v3;
   if ( (unsigned int)KeNumberProcessors_0 <= 1 )
     return 0LL;
-  v5 = &qword_140FC7C08;
+  v5 = &qword_140FC8C88;
   v6 = (unsigned int)(KeNumberProcessors_0 - 1);
   do
   {

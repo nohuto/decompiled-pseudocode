@@ -1,8 +1,8 @@
 /*
- * XREFs of FindLabelEnd @ 0x14058D128
+ * XREFs of FindLabelEnd @ 0x14058D358
  * Callers:
- *     punycode_decode @ 0x1409168DC (punycode_decode.c)
- *     punycode_encode @ 0x140916F24 (punycode_encode.c)
+ *     punycode_decode @ 0x140916A3C (punycode_decode.c)
+ *     punycode_encode @ 0x140917084 (punycode_encode.c)
  * Callees:
  *     <none>
  */

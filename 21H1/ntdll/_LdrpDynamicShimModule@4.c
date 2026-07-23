@@ -41,10 +41,10 @@ int __thiscall LdrpDynamicShimModule(int *this)
       }
       v8 = MEMORY[0x7FFE0330];
       v6 = __ROR4__(g_pfnSE_DllLoaded, 32 - (MEMORY[0x7FFE0330] & 0x1F));
-      RtlEnterCriticalSection((int)&LdrpDllNotificationLock);
+      RtlEnterCriticalSection(&LdrpDllNotificationLock);
       if ( LdrInitState < 3 && (*(_DWORD *)(*this - 32) & 0x800) == 0 )
         LdrpSendShimEngineInitialNotifications(this, (int (__thiscall *)(_DWORD, _DWORD))(v8 ^ v6));
-      RtlLeaveCriticalSection((int)&LdrpDllNotificationLock);
+      RtlLeaveCriticalSection(&LdrpDllNotificationLock);
     }
     else
     {
@@ -68,7 +68,7 @@ int __thiscall LdrpDynamicShimModule(int *this)
 LABEL_3:
   if ( v1 == 1 && g_pShimmedModuleList )
   {
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)g_pShimmedModuleList);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
     g_pShimmedModuleList = 0;
     g_pShimmedModuleListLength = 0;
   }

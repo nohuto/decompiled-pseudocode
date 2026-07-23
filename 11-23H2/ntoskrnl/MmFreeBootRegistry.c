@@ -1,13 +1,13 @@
 /*
- * XREFs of MmFreeBootRegistry @ 0x1408272CC
+ * XREFs of MmFreeBootRegistry @ 0x1408275CC
  * Callers:
- *     CmpFreeBootRegistry @ 0x140617778 (CmpFreeBootRegistry.c)
- *     HvpDropPagedBins @ 0x140827034 (HvpDropPagedBins.c)
+ *     CmpFreeBootRegistry @ 0x140617CC8 (CmpFreeBootRegistry.c)
+ *     HvpDropPagedBins @ 0x140827334 (HvpDropPagedBins.c)
  *     MmFreeLoaderBlock @ 0x140B5B894 (MmFreeLoaderBlock.c)
  * Callees:
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiDeleteBootRange @ 0x14038FEF8 (MiDeleteBootRange.c)
- *     qsort @ 0x1403DA430 (qsort.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiDeleteBootRange @ 0x1403900D8 (MiDeleteBootRange.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

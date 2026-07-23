@@ -53,8 +53,8 @@ char __fastcall sub_180046728(unsigned __int64 a1, __int64 a2, __int64 a3, char 
   int v41; // eax
   int v42; // eax
   char v43; // al
-  unsigned __int64 v44; // rbp
-  __int64 v45; // r12
+  SIZE_T v44; // rbp
+  SIZE_T v45; // r12
   _DWORD *v46; // r8
   unsigned __int64 v47; // rdx
   __int64 *v48; // rdi
@@ -294,7 +294,7 @@ LABEL_25:
       }
       *v16 = v18;
       *(_QWORD *)(v18 + 8) = v16;
-      if ( (*(_BYTE *)(v11 + 10) & 8) == 0 || (unsigned __int8)sub_180047214(a1, a3 + 16 * a7) )
+      if ( (*(_BYTE *)(v11 + 10) & 8) == 0 || (unsigned __int8)sub_180047214(a1) )
       {
         if ( a5 )
         {
@@ -304,7 +304,7 @@ LABEL_25:
             v44 = 16LL * *(unsigned __int16 *)(v11 + 8) - 32;
             if ( (v43 & 2) != 0 && v44 > 4 )
               v44 = 16LL * *(unsigned __int16 *)(v11 + 8) - 36;
-            v45 = RtlCompareMemoryUlong(v11 + 32, v44, 4277075694LL);
+            v45 = RtlCompareMemoryUlong((PVOID)(v11 + 32), v44, 0xFEEEFEEE);
             if ( v45 != v44 )
             {
               if ( NtCurrentPeb()->Ldr )

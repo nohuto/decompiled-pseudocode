@@ -1,33 +1,33 @@
 /*
- * XREFs of MiSwapStackPage @ 0x140415804
+ * XREFs of MiSwapStackPage @ 0x140409E34
  * Callers:
- *     MiTradePage @ 0x140291970 (MiTradePage.c)
+ *     MiTradePage @ 0x140290ED0 (MiTradePage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeExpandKernelStackAndCalloutInternal @ 0x1402638C0 (KeExpandKernelStackAndCalloutInternal.c)
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x14028DF90 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiFinalizePageAttribute @ 0x1402D85E0 (MiFinalizePageAttribute.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402E8BF0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiAddLockedPageCharge @ 0x1402F5D30 (MiAddLockedPageCharge.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiSetPfnTbFlushStamp @ 0x14036BAE0 (MiSetPfnTbFlushStamp.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     KeGenericCallDpcEx @ 0x1403C2284 (KeGenericCallDpcEx.c)
- *     MiCanStealKernelStack @ 0x140415D64 (MiCanStealKernelStack.c)
- *     MiTryLockPageTableUnordered @ 0x140415E30 (MiTryLockPageTableUnordered.c)
- *     MiCheckSameSlabType @ 0x140415E50 (MiCheckSameSlabType.c)
- *     MiTradeStackPageFast @ 0x140415F18 (MiTradeStackPageFast.c)
- *     MiGetLeafPfnBuddy @ 0x140416870 (MiGetLeafPfnBuddy.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiTradeIsolatedThreadStackPage @ 0x1406F3688 (MiTradeIsolatedThreadStackPage.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x140262E30 (KeExpandKernelStackAndCalloutInternal.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x14028D4F0 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiFinalizePageAttribute @ 0x1402BA3A0 (MiFinalizePageAttribute.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402CAC30 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiAddLockedPageCharge @ 0x1402D7DB0 (MiAddLockedPageCharge.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiTryLockPageTableUnordered @ 0x1402FCF54 (MiTryLockPageTableUnordered.c)
+ *     MiSetPfnTbFlushStamp @ 0x14036D880 (MiSetPfnTbFlushStamp.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     KeGenericCallDpcEx @ 0x1403CC184 (KeGenericCallDpcEx.c)
+ *     MiCanStealKernelStack @ 0x14040A394 (MiCanStealKernelStack.c)
+ *     MiCheckSameSlabType @ 0x14040A460 (MiCheckSameSlabType.c)
+ *     MiTradeStackPageFast @ 0x14040A528 (MiTradeStackPageFast.c)
+ *     MiGetLeafPfnBuddy @ 0x14040AE80 (MiGetLeafPfnBuddy.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiTradeIsolatedThreadStackPage @ 0x1406F82F8 (MiTradeIsolatedThreadStackPage.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiSwapStackPage(_WORD *a1, __int64 a2, int a3, unsigned int a4, __int64 *a5, _DWORD *a6)
@@ -73,21 +73,21 @@ __int64 __fastcall MiSwapStackPage(_WORD *a1, __int64 a2, int a3, unsigned int a
   ULONG_PTR v49; // [rsp+48h] [rbp-40h]
   struct _KTHREAD *v50; // [rsp+50h] [rbp-38h]
 
-  if ( !LOBYTE(stru_140E36558.ReadyTime) )
+  if ( !LOBYTE(stru_140E366D8.ReadyTime) )
     return 0LL;
-  v44 = byte_140E2D689 & 1;
+  v44 = byte_140E2D809 & 1;
   v10 = *(_QWORD *)(a2 + 8) | 0x8000000000000000uLL;
   SystemRegionType = MiGetSystemRegionType((__int64)(v10 << 25) >> 16);
   v47 = SystemRegionType;
   if ( SystemRegionType == 13 )
   {
-    v12 = &unk_140E37300;
+    v12 = &unk_140E37480;
   }
   else
   {
     if ( SystemRegionType != 11 )
       return 0LL;
-    v12 = &unk_140E36E00;
+    v12 = &unk_140E36F80;
   }
   v48 = (__int64)v12;
   PoolMm = (_QWORD *)ExAllocatePoolMm(

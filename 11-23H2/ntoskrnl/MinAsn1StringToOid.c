@@ -1,10 +1,10 @@
 /*
- * XREFs of MinAsn1StringToOid @ 0x140A71AB4
+ * XREFs of MinAsn1StringToOid @ 0x140A71D64
  * Callers:
- *     I_MinCryptCheckEKURequirements @ 0x140A70910 (I_MinCryptCheckEKURequirements.c)
+ *     I_MinCryptCheckEKURequirements @ 0x140A70BC0 (I_MinCryptCheckEKURequirements.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall MinAsn1StringToOid(_BYTE *a1, _BYTE **a2)

@@ -22,7 +22,7 @@
  *     _RtlpCreateIFEOKeyFilterKey@16 @ 0x4B342064 (_RtlpCreateIFEOKeyFilterKey@16.c)
  */
 
-int __fastcall RtlpOpenImageFileOptionsKeyEx(unsigned __int16 *a1, int a2, char a3, _DWORD *a4)
+int __fastcall RtlpOpenImageFileOptionsKeyEx(unsigned __int16 *a1, ACCESS_MASK a2, int a3, _DWORD *a4)
 {
   int v5; // esi
   int v6; // edi
@@ -30,32 +30,32 @@ int __fastcall RtlpOpenImageFileOptionsKeyEx(unsigned __int16 *a1, int a2, char 
   _WORD *v8; // esi
   int v9; // edi
   int result; // eax
-  HANDLE v11; // edi
-  int v12; // eax
-  int inited; // esi
-  int v14; // eax
+  void *v11; // edi
+  NTSTATUS v12; // eax
+  NTSTATUS inited; // esi
+  NTSTATUS v14; // eax
   int v15; // ecx
-  HANDLE v16; // edi
+  void *v16; // edi
   int IFEOKeyFilterKey; // eax
   char v18; // [esp+Eh] [ebp-32h]
   char v19; // [esp+Fh] [ebp-31h]
-  HANDLE v20; // [esp+10h] [ebp-30h] BYREF
-  HANDLE Handle[2]; // [esp+14h] [ebp-2Ch] BYREF
-  int v22; // [esp+1Ch] [ebp-24h] BYREF
+  HANDLE KeyHandle; // [esp+10h] [ebp-30h] BYREF
+  _UNICODE_STRING Handle; // [esp+14h] [ebp-2Ch] BYREF
+  int Data; // [esp+1Ch] [ebp-24h] BYREF
   __int16 v23; // [esp+20h] [ebp-20h] BYREF
   _WORD *v24; // [esp+24h] [ebp-1Ch]
-  _DWORD v25[6]; // [esp+28h] [ebp-18h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+28h] [ebp-18h] BYREF
 
-  v22 = (int)a1;
+  Data = (int)a1;
   *a4 = 0;
   v5 = *((_DWORD *)a1 + 1);
   v6 = *a1;
-  Handle[0] = 0;
-  v20 = 0;
+  *(_DWORD *)&Handle.Length = 0;
+  KeyHandle = 0;
   v19 = 0;
   v7 = v6;
   v8 = (_WORD *)(v6 + v5);
-  if ( a3 && (v6 + 2 > (unsigned int)a1[1] || *v8) )
+  if ( (_BYTE)a3 && (v6 + 2 > (unsigned int)a1[1] || *v8) )
     return -1073741811;
   if ( v6 )
   {
@@ -74,59 +74,59 @@ LABEL_7:
   v23 = v9;
   if ( (unsigned __int16)v9 != v9 )
     return -1073741789;
-  if ( a3 )
+  if ( (_BYTE)a3 )
   {
     v18 = 1;
-    result = RtlpOpenBaseImageFileOptionsKeyEx(a3);
+    result = RtlpOpenBaseImageFileOptionsKeyEx(&Handle, a2, a3);
   }
   else
   {
     v18 = 0;
-    result = RtlpOpenBaseImageFileOptionsKey(Handle);
+    result = RtlpOpenBaseImageFileOptionsKey(&Handle);
   }
   if ( result >= 0 )
   {
-    v11 = Handle[0];
-    v25[2] = &v23;
-    v25[0] = 24;
-    v25[1] = Handle[0];
-    v25[3] = 576;
-    v25[4] = 0;
-    v25[5] = 0;
-    if ( a3 )
-      v12 = ZwCreateKey(&v20, a2, v25, 0, 0, 0, 0);
+    v11 = *(void **)&Handle.Length;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v23;
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.RootDirectory = *(HANDLE *)&Handle.Length;
+    ObjectAttributes.Attributes = 576;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    if ( (_BYTE)a3 )
+      v12 = ZwCreateKey(&KeyHandle, a2, &ObjectAttributes, 0, 0, 0, 0);
     else
-      v12 = ZwOpenKey(&v20, a2, v25);
+      v12 = ZwOpenKey(&KeyHandle, a2, &ObjectAttributes);
     inited = v12;
     if ( v18 )
       NtClose(v11);
     if ( inited >= 0 )
     {
-      Handle[0] = v20;
-      v14 = RtlpProcessIFEOKeyFilter(Handle, a2, (int *)v22);
-      v16 = Handle[0];
+      *(_DWORD *)&Handle.Length = KeyHandle;
+      v14 = RtlpProcessIFEOKeyFilter((HANDLE *)&Handle, a2, (_DWORD *)Data);
+      v16 = *(void **)&Handle.Length;
       inited = v14;
       if ( v14 < 0 )
         goto LABEL_24;
-      if ( a3 && v19 && Handle[0] == v20 )
+      if ( (_BYTE)a3 && v19 && *(HANDLE *)&Handle.Length == KeyHandle )
       {
-        Handle[0] = 0;
+        *(_DWORD *)&Handle.Length = 0;
         IFEOKeyFilterKey = RtlpCreateIFEOKeyFilterKey(a2 | 0x10000, v15);
-        v16 = Handle[0];
+        v16 = *(void **)&Handle.Length;
         inited = IFEOKeyFilterKey;
         if ( IFEOKeyFilterKey >= 0 )
         {
-          inited = RtlInitUnicodeStringEx((int)Handle, L"FilterFullPath");
+          inited = RtlInitUnicodeStringEx(&Handle, L"FilterFullPath");
           if ( inited < 0
-            || (inited = ZwSetValueKey(v16, Handle, 0, 1, *(_DWORD *)(v22 + 4), *(unsigned __int16 *)(v22 + 2)),
+            || (inited = ZwSetValueKey(v16, &Handle, 0, 1u, *(PVOID *)(Data + 4), *(unsigned __int16 *)(Data + 2)),
                 inited < 0)
-            || (v22 = 1, inited = RtlInitUnicodeStringEx((int)Handle, L"UseFilter"), inited < 0)
-            || (inited = ZwSetValueKey(v20, Handle, 0, 4, &v22, 4), inited < 0) )
+            || (Data = 1, inited = RtlInitUnicodeStringEx(&Handle, L"UseFilter"), inited < 0)
+            || (inited = ZwSetValueKey(KeyHandle, &Handle, 0, 4u, &Data, 4u), inited < 0) )
           {
             ZwDeleteKey(v16);
           }
         }
-        NtClose(v20);
+        NtClose(KeyHandle);
       }
       if ( inited < 0 )
       {

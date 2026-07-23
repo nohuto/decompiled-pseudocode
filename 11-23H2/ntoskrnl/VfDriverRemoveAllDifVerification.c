@@ -1,14 +1,14 @@
 /*
- * XREFs of VfDriverRemoveAllDifVerification @ 0x1405CEEA0
+ * XREFs of VfDriverRemoveAllDifVerification @ 0x1405CF410
  * Callers:
- *     VfDriverProcessUnload @ 0x1405CEE20 (VfDriverProcessUnload.c)
+ *     VfDriverProcessUnload @ 0x1405CF390 (VfDriverProcessUnload.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     VfDriverUnlock @ 0x140ACA890 (VfDriverUnlock.c)
- *     VfSuspectRemoveDifVolatileVerification @ 0x140ADACA4 (VfSuspectRemoveDifVolatileVerification.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     VfDriverUnlock @ 0x140ACA880 (VfDriverUnlock.c)
+ *     VfSuspectRemoveDifVolatileVerification @ 0x140ADAC94 (VfSuspectRemoveDifVolatileVerification.c)
  */
 
 __int64 VfDriverRemoveAllDifVerification()

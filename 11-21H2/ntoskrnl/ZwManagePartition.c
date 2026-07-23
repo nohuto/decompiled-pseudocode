@@ -1,14 +1,19 @@
 /*
  * XREFs of ZwManagePartition @ 0x14041DA60
  * Callers:
- *     ExpAddNonMirroredRanges @ 0x140B5439C (ExpAddNonMirroredRanges.c)
+ *     sub_140B5439C @ 0x140B5439C (sub_140B5439C.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwManagePartition(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwManagePartition(
+        HANDLE TargetHandle,
+        HANDLE SourceHandle,
+        PARTITION_INFORMATION_CLASS PartitionInformationClass,
+        PVOID PartitionInformation,
+        ULONG PartitionInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(TargetHandle, SourceHandle);
 }

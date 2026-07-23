@@ -2,9 +2,9 @@
  * XREFs of RtlInitAnsiStringEx @ 0x180016530
  * Callers:
  *     RtlCreateUnicodeStringFromAsciiz @ 0x180016570 (RtlCreateUnicodeStringFromAsciiz.c)
- *     LdrpEnclaveAddDelayloadModules @ 0x1800CD4BC (LdrpEnclaveAddDelayloadModules.c)
- *     LdrpAddRedirectedFunction @ 0x1800D4C94 (LdrpAddRedirectedFunction.c)
- *     RtlInitUTF8StringEx @ 0x1800EB7F0 (RtlInitUTF8StringEx.c)
+ *     LdrpEnclaveAddDelayloadModules @ 0x1800CD47C (LdrpEnclaveAddDelayloadModules.c)
+ *     LdrpAddRedirectedFunction @ 0x1800D4C54 (LdrpAddRedirectedFunction.c)
+ *     RtlInitUTF8StringEx @ 0x1800EB7B0 (RtlInitUTF8StringEx.c)
  * Callees:
  *     <none>
  */

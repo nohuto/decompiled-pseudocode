@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpUsbLegacyStopOhciInterrupt @ 0x140562470
+ * XREFs of HalpUsbLegacyStopOhciInterrupt @ 0x1405600A0
  * Callers:
- *     HalpStopLegacyUsbInterruptsInternal @ 0x140B505F0 (HalpStopLegacyUsbInterruptsInternal.c)
+ *     HalpStopLegacyUsbInterruptsInternal @ 0x140B52640 (HalpStopLegacyUsbInterruptsInternal.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14033A030 (KeStallExecutionProcessor.c)
- *     HalpUnmapVirtualAddress @ 0x140478B90 (HalpUnmapVirtualAddress.c)
- *     HalpMap @ 0x140478C5C (HalpMap.c)
- *     HalpUsbLegacyReadPCIConfig @ 0x140562258 (HalpUsbLegacyReadPCIConfig.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeStallExecutionProcessor @ 0x140319510 (KeStallExecutionProcessor.c)
+ *     HalpMap @ 0x140460358 (HalpMap.c)
+ *     HalpUnmapVirtualAddress @ 0x1404605A0 (HalpUnmapVirtualAddress.c)
+ *     HalpUsbLegacyReadPCIConfig @ 0x14055FE88 (HalpUsbLegacyReadPCIConfig.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 __fastcall HalpUsbLegacyStopOhciInterrupt(__int64 a1, unsigned int a2, unsigned int a3)
@@ -22,7 +22,7 @@ unsigned __int64 __fastcall HalpUsbLegacyStopOhciInterrupt(__int64 a1, unsigned 
 
   memset_0(v9, 0, 0x40uLL);
   v5 = 0;
-  result = HalpUsbLegacyReadPCIConfig(v6, a2, a3, (__int64)v9, 0);
+  result = HalpUsbLegacyReadPCIConfig(v6, a2, a3);
   if ( (v9[4] & 2) != 0 )
   {
     result = v10 & 0xFFFFFFF0;

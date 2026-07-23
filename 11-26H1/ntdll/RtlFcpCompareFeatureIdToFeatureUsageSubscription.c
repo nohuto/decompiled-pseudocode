@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFcpCompareFeatureIdToFeatureUsageSubscription @ 0x18016F660
+ * XREFs of RtlFcpCompareFeatureIdToFeatureUsageSubscription @ 0x18016E660
  * Callers:
- *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x18016F488 (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
+ *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x18016E488 (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlIcCompletionContextSize @ 0x140BB70D8
+ * XREFs of RtlIcCompletionContextSize @ 0x140BB90D8
  * Callers:
- *     KiTpCompletionContextSize @ 0x14073E0BC (KiTpCompletionContextSize.c)
+ *     KiTpCompletionContextSize @ 0x14073BFEC (KiTpCompletionContextSize.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of SeQuerySecureBootPlatformManifest @ 0x140793C70
+ * XREFs of SeQuerySecureBootPlatformManifest @ 0x140793D10
  * Callers:
  *     <none>
  * Callees:
- *     bsearch_s @ 0x1404FE870 (bsearch_s.c)
+ *     bsearch_s @ 0x1404FC130 (bsearch_s.c)
  */
 
 __int64 __fastcall SeQuerySecureBootPlatformManifest(const void *a1, int a2)

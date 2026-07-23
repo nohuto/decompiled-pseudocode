@@ -11,40 +11,30 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall sub_18005D1A4(_QWORD *a1, _DWORD *a2, __int64 a3)
+__int64 __fastcall sub_18005D1A4(PHANDLE KeyHandle, _DWORD *a2, __int64 a3)
 {
   unsigned int v6; // ebx
-  int v7; // eax
-  _BYTE v9[16]; // [rsp+20h] [rbp-E0h] BYREF
-  int v10; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v11; // [rsp+38h] [rbp-C8h]
-  _BYTE *v12; // [rsp+40h] [rbp-C0h]
-  int v13; // [rsp+48h] [rbp-B8h]
-  __int128 v14; // [rsp+50h] [rbp-B0h]
-  _OWORD v15[2]; // [rsp+60h] [rbp-A0h] BYREF
-  int v16; // [rsp+80h] [rbp-80h]
-  __int16 v17; // [rsp+84h] [rbp-7Ch]
-  _BYTE v18[484]; // [rsp+86h] [rbp-7Ah] BYREF
+  NTSTATUS v7; // eax
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-E0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-D0h] BYREF
+  WCHAR SourceString[264]; // [rsp+60h] [rbp-A0h] BYREF
 
-  v16 = 6029413;
-  v15[0] = xmmword_180119D50;
-  v15[1] = xmmword_180119D60;
-  v17 = 0;
+  wcscpy(SourceString, L"\\Registry\\Machine\\");
   v6 = 0;
-  memset(v18, 0, sizeof(v18));
-  if ( a1
+  memset(&SourceString[19], 0, 0x1E4uLL);
+  if ( KeyHandle
     && a2
     && a3
-    && (int)sub_18005DE38(v15, 261LL, a3) >= 0
-    && (int)RtlInitUnicodeStringEx((__int64)v9, (__int64)v15) >= 0 )
+    && (int)sub_18005DE38(SourceString, 261LL, a3) >= 0
+    && RtlInitUnicodeStringEx(&DestinationString, SourceString) >= 0 )
   {
-    v10 = 48;
-    v12 = v9;
-    v11 = 0LL;
-    v13 = 64;
-    *a1 = 0LL;
-    v14 = 0LL;
-    v7 = ZwOpenKey(a1, 131097LL, &v10);
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    *KeyHandle = 0LL;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v7 = ZwOpenKey(KeyHandle, 0x20019u, &ObjectAttributes);
     *a2 = 2;
     return v7 >= 0;
   }

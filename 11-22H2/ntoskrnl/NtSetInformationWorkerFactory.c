@@ -36,16 +36,20 @@
  *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtSetInformationWorkerFactory(void *a1, int a2, unsigned __int64 a3, unsigned int a4)
+NTSTATUS __cdecl NtSetInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength)
 {
   KPROCESSOR_MODE PreviousMode; // si
-  int v8; // r12d
+  ULONG v8; // r12d
   __int64 v9; // r13
   NTSTATUS result; // eax
   __int64 v11; // rcx
   unsigned int v12; // edi
   PVOID v13; // rcx
-  int Thread; // r14d
+  NTSTATUS Thread; // r14d
   char v15; // r11
   char *v16; // rsi
   unsigned __int64 *v17; // r8
@@ -98,68 +102,68 @@ NTSTATUS __fastcall NtSetInformationWorkerFactory(void *a1, int a2, unsigned __i
   _QWORD v64[35]; // [rsp+78h] [rbp-160h] BYREF
   void *retaddr; // [rsp+1D8h] [rbp+0h]
 
-  LODWORD(v62) = a2;
-  Handle = a1;
+  LODWORD(v62) = WorkerFactoryInformationClass;
+  Handle = WorkerFactoryHandle;
   memset(&LockHandle, 0, sizeof(LockHandle));
   *(_OWORD *)v64 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   memset(&v64[3], 0, 0x100uLL);
-  switch ( a2 )
+  switch ( WorkerFactoryInformationClass )
   {
-    case 2:
+    case WorkerFactoryIdleTimeout:
       v8 = 8;
       goto LABEL_9;
-    case 3:
-    case 4:
-    case 5:
-    case 8:
-    case 9:
-    case 11:
-    case 12:
-    case 13:
-    case 14:
+    case WorkerFactoryBindingCount:
+    case WorkerFactoryThreadMinimum:
+    case WorkerFactoryThreadMaximum:
+    case WorkerFactoryAdjustThreadGoal:
+    case WorkerFactoryCallbackType:
+    case WorkerFactoryThreadBasePriority:
+    case WorkerFactoryTimeoutWaiters:
+    case WorkerFactoryFlags:
+    case WorkerFactoryThreadSoftMaximum:
       LODWORD(v9) = 4;
       v8 = 4;
       goto LABEL_10;
-    case 6:
+    case WorkerFactoryPaused:
       return -1073741822;
-    case 10:
+    case WorkerFactoryStackInformation:
       v8 = 16;
 LABEL_9:
       LODWORD(v9) = 4;
       goto LABEL_10;
-    case 15:
+    case WorkerFactoryThreadCpuSets:
       LODWORD(v9) = 4;
-      if ( a4 >= 0x100 )
+      if ( WorkerFactoryInformationLength >= 0x100 )
         v8 = 256;
       else
-        v8 = a4 + (a4 & 7);
+        v8 = WorkerFactoryInformationLength + (WorkerFactoryInformationLength & 7);
 LABEL_10:
-      if ( a4 != v8 )
+      if ( WorkerFactoryInformationLength != v8 )
         return -1073741820;
-      switch ( a2 )
+      switch ( WorkerFactoryInformationClass )
       {
-        case 2:
-          if ( PreviousMode && (a3 & 3) != 0 )
+        case WorkerFactoryIdleTimeout:
+          if ( PreviousMode && ((unsigned __int8)WorkerFactoryInformation & 3) != 0 )
             ExRaiseDatatypeMisalignment();
-          v64[3] = *(_QWORD *)a3;
+          v64[3] = *(_QWORD *)WorkerFactoryInformation;
           v12 = v64[3];
           break;
-        case 3:
-        case 4:
-        case 5:
+        case WorkerFactoryBindingCount:
+        case WorkerFactoryThreadMinimum:
+        case WorkerFactoryThreadMaximum:
           if ( PreviousMode )
           {
             v11 = 0x7FFFFFFF0000LL;
-            if ( a3 < 0x7FFFFFFF0000LL )
-              v11 = a3;
+            if ( (unsigned __int64)WorkerFactoryInformation < 0x7FFFFFFF0000LL )
+              v11 = (__int64)WorkerFactoryInformation;
             v12 = *(_DWORD *)v11;
             LODWORD(v64[3]) = *(_DWORD *)v11;
           }
           else
           {
-            v12 = *(_DWORD *)a3;
-            LODWORD(v64[3]) = *(_DWORD *)a3;
+            v12 = *(_DWORD *)WorkerFactoryInformation;
+            LODWORD(v64[3]) = *(_DWORD *)WorkerFactoryInformation;
           }
           break;
         default:
@@ -169,7 +173,7 @@ LABEL_10:
       result = ObReferenceObjectByHandle(Handle, 4u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
       if ( result < 0 )
         return result;
-      if ( a2 == 8 )
+      if ( WorkerFactoryInformationClass == WorkerFactoryAdjustThreadGoal )
       {
         v13 = Object;
         if ( !v12 )
@@ -194,7 +198,7 @@ LABEL_10:
       LockHandle.LockQueue.Next = 0LL;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql != 2 )
@@ -350,10 +354,10 @@ LABEL_41:
         ++*v26;
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         OldIrql = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v28 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v30 = CurrentPrcb->SchedulerAssist;
@@ -401,10 +405,10 @@ LABEL_100:
             ++*((_DWORD *)v16 + 100);
             KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
             v37 = LockHandle.OldIrql;
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v38 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && LockHandle.OldIrql <= 0xFu && v38 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && LockHandle.OldIrql <= 0xFu && v38 >= 2u )
               {
                 v39 = KeGetCurrentPrcb();
                 v40 = v39->SchedulerAssist;
@@ -466,10 +470,10 @@ LABEL_127:
       v16 = (char *)Object;
 LABEL_130:
       v44 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v45 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v45 <= 0xFu && LockHandle.OldIrql <= 0xFu && v45 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v45 <= 0xFu && LockHandle.OldIrql <= 0xFu && v45 >= 2u )
         {
           v46 = KeGetCurrentPrcb();
           v47 = v46->SchedulerAssist;

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerRegisterBuiltinPluginsCommon @ 0x1403A4318
+ * XREFs of HalpTimerRegisterBuiltinPluginsCommon @ 0x1403A44F8
  * Callers:
- *     HalpTimerInitializeEarlyStallSource @ 0x1403A4044 (HalpTimerInitializeEarlyStallSource.c)
- *     HalpInitializeTimers @ 0x1403A4134 (HalpInitializeTimers.c)
+ *     HalpTimerInitializeEarlyStallSource @ 0x1403A4224 (HalpTimerInitializeEarlyStallSource.c)
+ *     HalpInitializeTimers @ 0x1403A4314 (HalpInitializeTimers.c)
  * Callees:
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403A434C (HalpTimerRegisterBuiltinPlugins.c)
- *     HalpHvDiscover @ 0x1403A442C (HalpHvDiscover.c)
- *     HalpWdatDiscover @ 0x1403A4AE8 (HalpWdatDiscover.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403A452C (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpHvDiscover @ 0x1403A460C (HalpHvDiscover.c)
+ *     HalpWdatDiscover @ 0x1403A4CC8 (HalpWdatDiscover.c)
  */
 
 __int64 __fastcall HalpTimerRegisterBuiltinPluginsCommon(int a1)

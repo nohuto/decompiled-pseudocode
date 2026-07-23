@@ -14,16 +14,20 @@
 int __stdcall A_SHAFinal(_DWORD *a1, int a2)
 {
   unsigned int v2; // esi
+  size_t v4; // [esp-4h] [ebp-68h]
+  size_t v5; // [esp-4h] [ebp-68h]
   _BYTE Src[72]; // [esp+18h] [ebp-4Ch] BYREF
 
   v2 = 64 - (a1[22] & 0x3F);
   if ( v2 <= 8 )
     v2 += 64;
-  memset(Src, 0, v2 - 8);
+  LODWORD(v4) = v2 - 8;
+  memset(Src, 0, v4);
   Src[0] = 0x80;
   DWORDToBigEndian(2);
   A_SHAUpdate((int)a1, Src, v2);
   DWORDToBigEndian(5);
-  memset(a1, 0, 0x40u);
+  LODWORD(v5) = 64;
+  memset(a1, 0, v5);
   return A_SHAInit(a1);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of IpmiLibpKcsRequestAndReceive @ 0x1406783E0
+ * XREFs of IpmiLibpKcsRequestAndReceive @ 0x140678930
  * Callers:
- *     IpmiLibAddSelRecord @ 0x140677EB8 (IpmiLibAddSelRecord.c)
+ *     IpmiLibAddSelRecord @ 0x140678408 (IpmiLibAddSelRecord.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IpmiLibpKcsBmcTransact @ 0x140678074 (IpmiLibpKcsBmcTransact.c)
- *     IpmiLibKcsIpmiMessageUnpack @ 0x1406789A8 (IpmiLibKcsIpmiMessageUnpack.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IpmiLibpKcsBmcTransact @ 0x1406785C4 (IpmiLibpKcsBmcTransact.c)
+ *     IpmiLibKcsIpmiMessageUnpack @ 0x140678EF8 (IpmiLibKcsIpmiMessageUnpack.c)
  */
 
 __int64 __fastcall IpmiLibpKcsRequestAndReceive(__int64 a1, __int64 a2, __int64 a3)
@@ -23,7 +23,7 @@ __int64 __fastcall IpmiLibpKcsRequestAndReceive(__int64 a1, __int64 a2, __int64 
   unsigned __int16 v12[264]; // [rsp+30h] [rbp-238h] BYREF
 
   memset(&v12[2], 0, 0x202uLL);
-  v5 = (unsigned int)dword_140C2CC60;
+  v5 = (unsigned int)dword_140C2CC20;
   PerformanceFrequency.QuadPart = 0LL;
   v6 = KeQueryPerformanceCounter(&PerformanceFrequency);
   v7 = *(_WORD *)(a2 + 1) + 2;

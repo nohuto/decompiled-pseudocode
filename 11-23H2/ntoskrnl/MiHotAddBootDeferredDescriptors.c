@@ -1,9 +1,9 @@
 /*
- * XREFs of MiHotAddBootDeferredDescriptors @ 0x1408506A0
+ * XREFs of MiHotAddBootDeferredDescriptors @ 0x1408509A0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
  *     MiHotAddBootDeferredDescriptorsDiscardable @ 0x140B68BDC (MiHotAddBootDeferredDescriptorsDiscardable.c)
  */
 

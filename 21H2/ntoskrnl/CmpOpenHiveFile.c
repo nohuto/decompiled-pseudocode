@@ -1,33 +1,33 @@
 /*
- * XREFs of CmpOpenHiveFile @ 0x1406718C8
+ * XREFs of CmpOpenHiveFile @ 0x1406A3938
  * Callers:
- *     CmLoadAppKey @ 0x14066FEEC (CmLoadAppKey.c)
- *     CmpInitHiveFromFile @ 0x140670FA8 (CmpInitHiveFromFile.c)
- *     CmLoadKey @ 0x1406BA714 (CmLoadKey.c)
- *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1407AABF4 (CmpMountPreloadedHives.c)
+ *     CmLoadKey @ 0x140619944 (CmLoadKey.c)
+ *     CmLoadAppKey @ 0x1406663CC (CmLoadAppKey.c)
+ *     CmpInitHiveFromFile @ 0x1406A3018 (CmpInitHiveFromFile.c)
+ *     CmpLoadHiveThread @ 0x14079EF50 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407AADF4 (CmpMountPreloadedHives.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x1403FA880 (ZwSetInformationFile.c)
- *     ZwFsControlFile @ 0x1403FAAC0 (ZwFsControlFile.c)
- *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     PsReferenceImpersonationTokenEx @ 0x140656960 (PsReferenceImpersonationTokenEx.c)
- *     PsImpersonateClient @ 0x14065AEA0 (PsImpersonateClient.c)
- *     CmpCreateEvent @ 0x140671E70 (CmpCreateEvent.c)
- *     CmpQueryFileSecurityDescriptor @ 0x140672000 (CmpQueryFileSecurityDescriptor.c)
- *     CmpLogHiveFileInaccessible @ 0x1406772F4 (CmpLogHiveFileInaccessible.c)
- *     CmpGetVolumeLogFileSizeCap @ 0x1406BB76C (CmpGetVolumeLogFileSizeCap.c)
- *     CmpGetVolumeClusterSize @ 0x14071DDD8 (CmpGetVolumeClusterSize.c)
- *     CmpOpenFileWithExtremePrejudice @ 0x140872FE8 (CmpOpenFileWithExtremePrejudice.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1403FA7A0 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1403FAA60 (ZwSetInformationFile.c)
+ *     ZwFsControlFile @ 0x1403FACA0 (ZwFsControlFile.c)
+ *     ZwCreateFile @ 0x1403FB020 (ZwCreateFile.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CmpGetVolumeLogFileSizeCap @ 0x14061A6F8 (CmpGetVolumeLogFileSizeCap.c)
+ *     PsReferenceImpersonationTokenEx @ 0x14064B780 (PsReferenceImpersonationTokenEx.c)
+ *     PsImpersonateClient @ 0x14064FCC0 (PsImpersonateClient.c)
+ *     CmpLogHiveFileInaccessible @ 0x14066A9C4 (CmpLogHiveFileInaccessible.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x14066AB70 (CmpQueryFileSecurityDescriptor.c)
+ *     CmpCreateEvent @ 0x1406A3EE0 (CmpCreateEvent.c)
+ *     CmpGetVolumeClusterSize @ 0x1406FA368 (CmpGetVolumeClusterSize.c)
+ *     CmpOpenFileWithExtremePrejudice @ 0x140873148 (CmpOpenFileWithExtremePrejudice.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpOpenHiveFile(
@@ -39,14 +39,14 @@ __int64 __fastcall CmpOpenHiveFile(
         void *a6,
         __int64 a7,
         void *a8,
-        __int64 a9)
+        _QWORD *a9)
 {
   ULONG ShareAccess; // edi
   char v10; // si
   struct _DMA_ADAPTER *v12; // r12
   __int64 v13; // r15
   __int64 result; // rax
-  NTSTATUS Status; // ebx
+  int Status; // ebx
   const WCHAR *v16; // r14
   int v17; // r14d
   ACCESS_MASK v18; // r13d
@@ -75,7 +75,7 @@ __int64 __fastcall CmpOpenHiveFile(
   PACCESS_TOKEN Token; // [rsp+B8h] [rbp-48h]
   void *v42; // [rsp+C0h] [rbp-40h]
   __int64 v43; // [rsp+C8h] [rbp-38h]
-  __int64 v44; // [rsp+D0h] [rbp-30h]
+  _QWORD *v44; // [rsp+D0h] [rbp-30h]
   HANDLE *v45; // [rsp+D8h] [rbp-28h]
   int *v46; // [rsp+E0h] [rbp-20h]
   UNICODE_STRING *v47; // [rsp+E8h] [rbp-18h]
@@ -228,7 +228,7 @@ LABEL_34:
     }
     if ( Status < 0 )
     {
-      CmpLogHiveFileInaccessible(&Destination, (unsigned int)Status, CreateOptions, ShareAccess);
+      CmpLogHiveFileInaccessible(&Destination, Status, CreateOptions, ShareAccess);
       goto LABEL_29;
     }
     Information = IoStatusBlock.Information;
@@ -279,7 +279,7 @@ LABEL_29:
         }
         *(_DWORD *)(v22 + 4) = CmpGetVolumeLogFileSizeCap(FileHandle);
       }
-      if ( !v44 || (Status = CmpQueryFileSecurityDescriptor(FileHandle), Status >= 0) )
+      if ( !v44 || (Status = CmpQueryFileSecurityDescriptor(FileHandle, v44), Status >= 0) )
       {
 LABEL_28:
         Status = 0;

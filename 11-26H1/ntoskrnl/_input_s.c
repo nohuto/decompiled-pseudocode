@@ -1,13 +1,13 @@
 /*
- * XREFs of _input_s @ 0x14053E6FC
+ * XREFs of _input_s @ 0x140540B80
  * Callers:
- *     _sinput_s @ 0x14053EFDC (_sinput_s.c)
+ *     _sinput_s @ 0x140541460 (_sinput_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
- *     ReadString @ 0x14053E3C0 (ReadString.c)
- *     ReadStringDelimited @ 0x14053E568 (ReadStringDelimited.c)
- *     _inc @ 0x14053E6CC (_inc.c)
- *     _ungetc_nolock @ 0x14053FEA4 (_ungetc_nolock.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
+ *     ReadString @ 0x140540840 (ReadString.c)
+ *     ReadStringDelimited @ 0x1405409E8 (ReadStringDelimited.c)
+ *     _inc @ 0x140540B50 (_inc.c)
+ *     _ungetc_nolock @ 0x140542328 (_ungetc_nolock.c)
  */
 
 __int64 __fastcall input_s(FILE *a1, unsigned __int8 *a2, unsigned int *a3)

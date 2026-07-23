@@ -1,31 +1,30 @@
 /*
- * XREFs of BiModifyBootEntry @ 0x14089408C
+ * XREFs of BiModifyBootEntry @ 0x14089A48C
  * Callers:
- *     BiUpdateBcdObject @ 0x1409D0B64 (BiUpdateBcdObject.c)
- *     BiUpdateEfiEntry @ 0x1409D298C (BiUpdateEfiEntry.c)
+ *     BiUpdateBcdObject @ 0x1409A1B44 (BiUpdateBcdObject.c)
+ *     BiUpdateEfiEntry @ 0x1409A396C (BiUpdateEfiEntry.c)
  * Callees:
- *     ZwModifyBootEntry @ 0x1407257F0 (ZwModifyBootEntry.c)
- *     BiAcquirePrivilege @ 0x1409D1D68 (BiAcquirePrivilege.c)
- *     BiReleasePrivilege @ 0x1409D1E1C (BiReleasePrivilege.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
+ *     ZwModifyBootEntry @ 0x14072A3C0 (ZwModifyBootEntry.c)
+ *     BiAcquirePrivilege @ 0x1409A2D48 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x1409A2DFC (BiReleasePrivilege.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
  */
 
-__int64 __fastcall BiModifyBootEntry(__int64 a1)
+__int64 __fastcall BiModifyBootEntry(PBOOT_ENTRY BootEntry)
 {
-  __int64 v2; // rdx
-  int v3; // ebx
-  int v4; // eax
-  __int64 v6; // [rsp+38h] [rbp+10h] BYREF
+  int v2; // ebx
+  NTSTATUS v3; // eax
+  __int64 v5; // [rsp+38h] [rbp+10h] BYREF
 
-  v6 = 0LL;
-  v3 = BiAcquirePrivilege(22LL, &v6);
-  if ( v3 >= 0 )
+  v5 = 0LL;
+  v2 = BiAcquirePrivilege(22LL, &v5);
+  if ( v2 >= 0 )
   {
-    v4 = ZwModifyBootEntry(a1, v2);
-    v3 = v4;
-    if ( v4 < 0 )
-      BiLogMessage(4LL, L"Failed to modify boot entry 0x%x. Status: %x", *(unsigned int *)(a1 + 8), (unsigned int)v4);
-    BiReleasePrivilege(&v6);
+    v3 = ZwModifyBootEntry(BootEntry);
+    v2 = v3;
+    if ( v3 < 0 )
+      BiLogMessage(4LL, L"Failed to modify boot entry 0x%x. Status: %x", BootEntry->Id, (unsigned int)v3);
+    BiReleasePrivilege(&v5);
   }
-  return (unsigned int)v3;
+  return (unsigned int)v2;
 }

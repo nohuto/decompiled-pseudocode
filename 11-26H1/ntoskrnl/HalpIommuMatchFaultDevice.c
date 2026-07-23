@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpIommuMatchFaultDevice @ 0x1405A0268
+ * XREFs of HalpIommuMatchFaultDevice @ 0x1405A2A58
  * Callers:
- *     HalpIommuReportIommuFault @ 0x1405A02C0 (HalpIommuReportIommuFault.c)
+ *     HalpIommuReportIommuFault @ 0x1405A2AB0 (HalpIommuReportIommuFault.c)
  * Callees:
  *     <none>
  */

@@ -1,20 +1,20 @@
 /*
- * XREFs of HalRequestIpiSpecifyVector @ 0x1403EC570
+ * XREFs of HalRequestIpiSpecifyVector @ 0x1402F95B0
  * Callers:
- *     KiIntRedirectQueueRequestOnProcessor @ 0x1403EADB0 (KiIntRedirectQueueRequestOnProcessor.c)
- *     HalRequestClockInterrupt @ 0x1403EC4D0 (HalRequestClockInterrupt.c)
- *     HalRequestIpi @ 0x1403EC520 (HalRequestIpi.c)
- *     HalpReboot @ 0x14057F954 (HalpReboot.c)
+ *     KiIntRedirectQueueRequestOnProcessor @ 0x1402F8398 (KiIntRedirectQueueRequestOnProcessor.c)
+ *     HalRequestClockInterrupt @ 0x1402F9510 (HalRequestClockInterrupt.c)
+ *     HalRequestIpi @ 0x1402F9560 (HalRequestIpi.c)
+ *     HalpReboot @ 0x140581E74 (HalpReboot.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x140230DF0 (HalpInterruptSendIpi.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403EF310 (KeRemoveProcessorAffinityEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     PoInitiateProcessorWake @ 0x1406014A0 (PoInitiateProcessorWake.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpInterruptSendIpi @ 0x140232750 (HalpInterruptSendIpi.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140453E40 (KeRemoveProcessorAffinityEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     PoInitiateProcessorWake @ 0x140603F50 (PoInitiateProcessorWake.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalRequestIpiSpecifyVector(int a1, unsigned __int16 *a2, unsigned int a3)
@@ -134,12 +134,12 @@ LABEL_9:
   v25 = Number;
   if ( a1 == 1 )
   {
-    RtlpCopyAffinityEx(&v31, v31.Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
+    RtlpCopyAffinityEx(&v31, v31.Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
     KeRemoveProcessorAffinityEx(&v31, Number);
   }
   else if ( a1 == 2 )
   {
-    RtlpCopyAffinityEx(&v31, v31.Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
+    RtlpCopyAffinityEx(&v31, v31.Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
   }
   v11 = v31.Bitmap[0];
   v12 = 0;
@@ -152,13 +152,12 @@ LABEL_9:
     {
       _BitScanForward64(&v16, v11);
       v11 &= ~(1LL << v16);
-      v17 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-            + 64 * (unsigned __int16)v15
+      v17 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v15].Flink
             + (unsigned __int8)v16);
       v26 = v17;
       if ( (_DWORD)v17 == v13 )
         goto LABEL_44;
-      if ( (*(_DWORD *)(*((_QWORD *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink->Flink + v17) + 228LL) & 1) != 0 )
+      if ( (*(_DWORD *)(*((_QWORD *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Flink->Flink + v17) + 228LL) & 1) != 0 )
       {
         if ( (unsigned __int8)PoInitiateProcessorWake((unsigned int)v17) )
         {

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiTryDeleteTransitionPte @ 0x140094F2C
+ * XREFs of MiTryDeleteTransitionPte @ 0x140094E6C
  * Callers:
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiRemoveMappedPtes @ 0x1400855D0 (MiRemoveMappedPtes.c)
- *     MiDeleteMergedPte @ 0x14011FC20 (MiDeleteMergedPte.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
+ *     MiRemoveMappedPtes @ 0x1400855C0 (MiRemoveMappedPtes.c)
+ *     MiDeleteMergedPte @ 0x14011FC90 (MiDeleteMergedPte.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiDeleteTransitionPte @ 0x140095430 (MiDeleteTransitionPte.c)
- *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
+ *     MiDeleteTransitionPte @ 0x140095370 (MiDeleteTransitionPte.c)
+ *     MiLockTransitionLeafPage @ 0x140095684 (MiLockTransitionLeafPage.c)
  */
 
 __int64 __fastcall MiTryDeleteTransitionPte(ULONG_PTR BugCheckParameter2)

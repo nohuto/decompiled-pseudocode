@@ -1,12 +1,12 @@
 /*
- * XREFs of IopReplaceSymlinkPath @ 0x140624A98
+ * XREFs of IopReplaceSymlinkPath @ 0x140624B4C
  * Callers:
- *     IopSymlinkApplyToOpenedName @ 0x140624DAC (IopSymlinkApplyToOpenedName.c)
+ *     IopSymlinkApplyToOpenedName @ 0x140624E60 (IopSymlinkApplyToOpenedName.c)
  * Callees:
- *     _wcsnicmp @ 0x14014D8A0 (_wcsnicmp.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     _wcsnicmp @ 0x14014DE10 (_wcsnicmp.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     FsRtlRemoveDotsFromPath @ 0x14054A6F0 (FsRtlRemoveDotsFromPath.c)
+ *     FsRtlRemoveDotsFromPath @ 0x14054AC30 (FsRtlRemoveDotsFromPath.c)
  */
 
 NTSTATUS __fastcall IopReplaceSymlinkPath(

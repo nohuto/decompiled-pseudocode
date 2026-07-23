@@ -1,28 +1,28 @@
 /*
- * XREFs of MiLockStealUserVm @ 0x14045EF90
+ * XREFs of MiLockStealUserVm @ 0x140458690
  * Callers:
- *     MiInitializePageTradePacket @ 0x140293510 (MiInitializePageTradePacket.c)
+ *     MiInitializePageTradePacket @ 0x140292A70 (MiInitializePageTradePacket.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockStealVm @ 0x140294D10 (MiUnlockStealVm.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiFastLockLeafPageTable @ 0x1402ED250 (MiFastLockLeafPageTable.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiLockLowestValidPageTableEx @ 0x140300610 (MiLockLowestValidPageTableEx.c)
- *     MiRotatedToFrameBuffer @ 0x1403125B4 (MiRotatedToFrameBuffer.c)
- *     MiSmallVaStillMapsFrame @ 0x1403147CC (MiSmallVaStillMapsFrame.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiGetTopLevelPfn @ 0x140404690 (MiGetTopLevelPfn.c)
- *     MiGetPageTablePfnBuddyRaw @ 0x140404850 (MiGetPageTablePfnBuddyRaw.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140416FD0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockStealVm @ 0x140294270 (MiUnlockStealVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFastLockLeafPageTable @ 0x1402CF2D0 (MiFastLockLeafPageTable.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402E2690 (MiLockLowestValidPageTableEx.c)
+ *     MiRotatedToFrameBuffer @ 0x1403145E4 (MiRotatedToFrameBuffer.c)
+ *     MiSmallVaStillMapsFrame @ 0x1403167FC (MiSmallVaStillMapsFrame.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiGetTopLevelPfn @ 0x1403FD790 (MiGetTopLevelPfn.c)
+ *     MiGetPageTablePfnBuddyRaw @ 0x1403FD950 (MiGetPageTablePfnBuddyRaw.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14040B5E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLockStealUserVm(__int64 a1, ULONG_PTR a2, unsigned __int8 a3, unsigned __int64 a4, __int64 a5)
@@ -87,7 +87,7 @@ __int64 __fastcall MiLockStealUserVm(__int64 a1, ULONG_PTR a2, unsigned __int8 a
   v9 = (__int64)(a2 + 0x220000000000LL) / 48;
   v48 = *(_QWORD *)(a2 + 40) & 0xFFFFFFFFFFLL;
   if ( v48 == v9 )
-    _InterlockedIncrement(&dword_140EF8CA4);
+    _InterlockedIncrement(&dword_140EF9004);
   TopLevelPfn = MiGetTopLevelPfn(a2);
   PageTablePfnBuddyRaw = MiGetPageTablePfnBuddyRaw(TopLevelPfn);
   v14 = (ULONG_PTR)PageTablePfnBuddyRaw;
@@ -98,7 +98,7 @@ __int64 __fastcall MiLockStealUserVm(__int64 a1, ULONG_PTR a2, unsigned __int8 a
   {
     if ( v48 == v9 && (PageTablePfnBuddyRaw[3].ActiveGroupsMask.Masks[1] & 0x100000000000LL) != 0 )
     {
-      _InterlockedIncrement(&dword_140EF8CF8);
+      _InterlockedIncrement(&dword_140EF9058);
       _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       goto LABEL_21;
     }
@@ -106,7 +106,7 @@ __int64 __fastcall MiLockStealUserVm(__int64 a1, ULONG_PTR a2, unsigned __int8 a
     {
       if ( !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v47 + 21384)) )
       {
-        _InterlockedIncrement(&dword_140EF8D04);
+        _InterlockedIncrement(&dword_140EF9064);
         _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         goto LABEL_21;
       }
@@ -129,7 +129,7 @@ __int64 __fastcall MiLockStealUserVm(__int64 a1, ULONG_PTR a2, unsigned __int8 a
       __writecr8(v6);
       if ( !(_DWORD)v45 )
       {
-        _InterlockedIncrement(&dword_140EF8D08);
+        _InterlockedIncrement(&dword_140EF9068);
         return 1LL;
       }
       *(_QWORD *)(a5 + 56) = p_Blink;
@@ -183,7 +183,7 @@ __int64 __fastcall MiLockStealUserVm(__int64 a1, ULONG_PTR a2, unsigned __int8 a
     MiLockVadTree(1u, v23, v24);
     Address = MiLocateAddress(v7);
     ActiveProcessors = KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors;
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd((volatile signed __int32 *)&ActiveProcessors[4].StaticBitmap[8] + 1, 0xBFFFFFFF);
       _InterlockedDecrement((volatile signed __int32 *)&ActiveProcessors[4].StaticBitmap[8] + 1);
@@ -196,7 +196,7 @@ __int64 __fastcall MiLockStealUserVm(__int64 a1, ULONG_PTR a2, unsigned __int8 a
     }
     if ( !Address )
     {
-      _InterlockedIncrement(&dword_140EF8D0C);
+      _InterlockedIncrement(&dword_140EF906C);
       goto LABEL_68;
     }
     Flink = (int)Address[3].Flink;
@@ -218,10 +218,10 @@ LABEL_45:
     {
       if ( !(unsigned int)MiSmallVaStillMapsFrame(v7, (__int64)(a2 + 0x220000000000LL) / 48) )
       {
-        v26 = (volatile signed __int32 *)&unk_140EF8D1C;
+        v26 = (volatile signed __int32 *)&unk_140EF907C;
         v21 = (v48 != (__int64)(a2 + 0x220000000000LL) / 48) + 1;
         if ( v48 != v9 )
-          v26 = (volatile signed __int32 *)&unk_140EF8D18;
+          v26 = (volatile signed __int32 *)&unk_140EF9078;
         _InterlockedIncrement(v26);
         goto LABEL_68;
       }
@@ -263,7 +263,7 @@ LABEL_73:
       if ( (PteShadow & 1) == 0 || ((PteShadow >> 12) & 0xFFFFFFFFFFLL) != v9 )
         goto LABEL_68;
     }
-    if ( v9 <= qword_140E2D7A0
+    if ( v9 <= qword_140E2D920
       && ((*(_QWORD *)(48 * v9 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0
       && ((*(_QWORD *)(a2 + 40) >> 43) & 0x3FF) == *(_WORD *)v47
       && *(__int64 *)(a2 + 40) >= 0
@@ -309,7 +309,7 @@ LABEL_73:
                 }
                 if ( v8 )
                 {
-                  _InterlockedIncrement(&dword_140EF8D10);
+                  _InterlockedIncrement(&dword_140EF9070);
                   goto LABEL_67;
                 }
                 *(_QWORD *)(a5 + 120) = (unsigned __int16)v39 >> 12;
@@ -321,17 +321,17 @@ LABEL_106:
         if ( (*(_DWORD *)(a5 + 8) & 0x400) == 0 || !MiRotatedToFrameBuffer(v33) )
           return 0LL;
 LABEL_66:
-        _InterlockedIncrement(&dword_140EF8D0C);
+        _InterlockedIncrement(&dword_140EF906C);
 LABEL_67:
         v21 = 1;
       }
     }
 LABEL_68:
     MiUnlockStealVm(a5);
-    _InterlockedIncrement(&dword_140EF8CBC);
+    _InterlockedIncrement(&dword_140EF901C);
     return v21;
   }
-  _InterlockedIncrement(&dword_140EF8CFC);
+  _InterlockedIncrement(&dword_140EF905C);
   _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
 LABEL_21:
   if ( (unsigned __int8)v6 < 2u )

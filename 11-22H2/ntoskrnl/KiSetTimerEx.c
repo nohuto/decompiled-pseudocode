@@ -78,7 +78,7 @@ __int64 __fastcall KiSetTimerEx(__int64 a1, __int64 a2, int a3, char a4, __int64
   CurrentIrql = KeGetCurrentIrql();
   v23 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -133,6 +133,6 @@ LABEL_20:
   else
     _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
 LABEL_10:
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, v23);
+  KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, v23);
   return v15;
 }

@@ -9,7 +9,7 @@
  *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall EtwpInitializeTimeStamp(__int64 a1)
+LARGE_INTEGER __fastcall EtwpInitializeTimeStamp(__int64 a1)
 {
   __int64 v2; // rax
   _QWORD *v3; // rdi
@@ -17,18 +17,12 @@ __int64 __fastcall EtwpInitializeTimeStamp(__int64 a1)
   __int64 v5; // rsi
   __int64 v6; // r14
   __int64 v7; // rcx
-  __int64 result; // rax
+  LARGE_INTEGER result; // rax
   int v9; // edx
   __int64 v10; // rcx
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int128 v17; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v18; // [rsp+30h] [rbp-28h]
-  __int64 v19; // [rsp+60h] [rbp+8h] BYREF
+  __int128 v11; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v12; // [rsp+30h] [rbp-28h]
+  __int64 v13; // [rsp+60h] [rbp+8h] BYREF
 
   switch ( *(_DWORD *)(a1 + 216) )
   {
@@ -39,8 +33,8 @@ __int64 __fastcall EtwpInitializeTimeStamp(__int64 a1)
       v2 = 3LL;
       break;
     case 4:
-      v19 = 0LL;
-      if ( ((int (__fastcall *)(__int64 *))off_140C009E0[0])(&v19) < 0 )
+      v13 = 0LL;
+      if ( ((int (__fastcall *)(__int64 *))off_140C009E0[0])(&v13) < 0 )
       {
         *(_DWORD *)(a1 + 216) = 1;
         goto LABEL_5;
@@ -60,33 +54,33 @@ LABEL_5:
     if ( *(_DWORD *)(a1 + 216) == 3 )
     {
       *(LARGE_INTEGER *)(a1 + 328) = EtwpGetLoggerTimeStamp(a1);
-      result = KeQuerySystemTimePrecise((__int64 *)(a1 + 320), v11, v12, v13);
+      result = KeQuerySystemTimePrecise((LARGE_INTEGER *)(a1 + 320));
       goto LABEL_14;
     }
-    LODWORD(v19) = 0;
-    v18 = 0LL;
-    v17 = 0LL;
-    RtlGetMultiTimePrecise((LARGE_INTEGER *)&v17, 7, (int *)&v19);
-    v4 = v19;
-    v5 = *((_QWORD *)&v17 + 1);
-    v6 = v17;
-    if ( (v19 & 5) == 5 )
+    LODWORD(v13) = 0;
+    v12 = 0LL;
+    v11 = 0LL;
+    RtlGetMultiTimePrecise((LARGE_INTEGER *)&v11, 7, (int *)&v13);
+    v4 = v13;
+    v5 = *((_QWORD *)&v11 + 1);
+    v6 = v11;
+    if ( (v13 & 5) == 5 )
     {
-      v7 = v18;
-      result = *(unsigned int *)(a1 + 216);
-      *v3 = v18;
-      switch ( (_DWORD)result )
+      v7 = v12;
+      result.QuadPart = *(unsigned int *)(a1 + 216);
+      *v3 = v12;
+      switch ( result.LowPart )
       {
-        case 2:
+        case 2u:
           *(_QWORD *)(a1 + 328) = v7;
           break;
-        case 1:
+        case 1u:
           *(_QWORD *)(a1 + 328) = v6;
           break;
-        case 4:
+        case 4u:
           *(_QWORD *)(a1 + 328) = v5;
 LABEL_30:
-          if ( (_DWORD)result == 4 )
+          if ( result.LowPart == 4 )
             goto LABEL_14;
           break;
       }
@@ -95,18 +89,18 @@ LABEL_30:
       goto LABEL_14;
     }
     *(LARGE_INTEGER *)(a1 + 328) = EtwpGetLoggerTimeStamp(a1);
-    KeQuerySystemTimePrecise((__int64 *)(a1 + 320), v14, v15, v16);
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)(a1 + 320));
     *(_DWORD *)(a1 + 832) &= ~0x8000000u;
-    result = *(unsigned int *)(a1 + 216);
+    result.QuadPart = *(unsigned int *)(a1 + 216);
     goto LABEL_30;
   }
   v9 = *(_DWORD *)(a1 + 216);
   *v3 = EtwpRefTimeSystem;
-  result = EtwpRefQpcDelta;
+  result.QuadPart = EtwpRefQpcDelta;
   *(_QWORD *)(a1 + 1264) = EtwpRefQpcDelta;
   if ( v9 == 3 )
   {
-    result = EtwpRefTimeCycle;
+    result.QuadPart = EtwpRefTimeCycle;
     *(_QWORD *)(a1 + 328) = EtwpRefTimeCycle;
   }
   else

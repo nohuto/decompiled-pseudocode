@@ -26,9 +26,9 @@ __int64 __fastcall PspUnlockQuotaExpansion(__int64 a1, unsigned __int8 a2)
   struct _KTHREAD *CurrentThread; // r14
   char v6; // al
   struct _KTHREAD *v7; // rbx
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v9; // r15
-  __int64 v10; // r8
+  unsigned int v10; // r8d
   bool v11; // zf
   __int64 v12; // rcx
   __int64 v13; // rdi
@@ -77,23 +77,23 @@ __int64 __fastcall PspUnlockQuotaExpansion(__int64 a1, unsigned __int8 a2)
     v23 = 0;
     v7 = KeGetCurrentThread();
     if ( (unsigned int)MiGetSystemRegionType(v2) == 1 )
-      SessionId = (unsigned int)MmGetSessionIdEx((__int64)v7->ApcState.Process);
+      SessionId = MmGetSessionIdEx((__int64)v7->ApcState.Process);
     else
-      SessionId = 0xFFFFFFFFLL;
+      SessionId = -1;
     --v7->SpecialApcDisable;
     v9 = ++v7->AbAllocationRegionCount;
-    LODWORD(v10) = ((char)v7->AbEntrySummary | (char)v7->AbOrphanedEntrySummary) ^ 0x3F;
+    v10 = ((char)v7->AbEntrySummary | (char)v7->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
       v11 = !_BitScanReverse((unsigned int *)&v12, v10);
       if ( v11 )
         break;
       v13 = (__int64)&v7->LockEntries[v12];
-      v10 = ~(1 << v12) & (unsigned int)v10;
+      v10 &= ~(1 << v12);
       if ( (*(_BYTE *)(v13 + 26) & 1) != 0
         && (*(_DWORD *)(v13 + 32) & 1) == 0
         && (*(_QWORD *)(v13 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v2 & 0x7FFFFFFFFFFFFFFCLL)
-        && *(_DWORD *)(v13 + 40) == (_DWORD)SessionId )
+        && *(_DWORD *)(v13 + 40) == SessionId )
       {
         *(_BYTE *)(v13 + 26) &= ~1u;
         if ( *(_QWORD *)(v13 + 32) )
@@ -102,7 +102,7 @@ __int64 __fastcall PspUnlockQuotaExpansion(__int64 a1, unsigned __int8 a2)
           {
             *(_BYTE *)(v13 + 32) |= 2u;
             if ( *(__int64 *)(v13 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v13, SessionId, v10);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v13);
             v14 = *(_DWORD *)(v13 + 88) & 0x1FFFF;
             v15 = *(_DWORD *)(v13 + 88) & 0xFFFE0000;
             *(_BYTE *)(v13 + 25) &= ~1u;
@@ -121,7 +121,7 @@ __int64 __fastcall PspUnlockQuotaExpansion(__int64 a1, unsigned __int8 a2)
       }
     }
     if ( (*((_DWORD *)&v7->0 + 1) & 0x10000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)v7, v2, (unsigned int)SessionId, 0LL);
+      KeBugCheckEx(0x162u, (ULONG_PTR)v7, v2, SessionId, 0LL);
 LABEL_19:
     --v7->AbAllocationRegionCount;
     KiAbThreadRemoveBoosts((ULONG_PTR)v7, v2, &v23);

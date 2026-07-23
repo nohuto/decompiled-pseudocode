@@ -1,10 +1,10 @@
 /*
- * XREFs of DelistKeyBodyFromKCB @ 0x1405FF918
+ * XREFs of DelistKeyBodyFromKCB @ 0x1405FF9CC
  * Callers:
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
  * Callees:
- *     CmpLockKcbExclusive @ 0x140422050 (CmpLockKcbExclusive.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
+ *     CmpLockKcbExclusive @ 0x140420F10 (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
  */
 
 void __fastcall DelistKeyBodyFromKCB(__int64 *a1, char a2)

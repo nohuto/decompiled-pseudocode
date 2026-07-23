@@ -16,12 +16,12 @@ char __fastcall LdrpLogMapAndVerifyResourceFileFailure(
         int a4,
         unsigned __int16 *a5)
 {
-  int v7; // eax
+  NTSTATUS v7; // eax
   char v9; // [esp+Fh] [ebp-B9h] BYREF
   int v10; // [esp+10h] [ebp-B8h] BYREF
   int v11; // [esp+14h] [ebp-B4h] BYREF
   _DWORD v12[2]; // [esp+18h] [ebp-B0h] BYREF
-  _BYTE v13[32]; // [esp+20h] [ebp-A8h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+20h] [ebp-A8h] BYREF
   _DWORD *v14; // [esp+40h] [ebp-88h]
   int v15; // [esp+44h] [ebp-84h]
   int v16; // [esp+48h] [ebp-80h]
@@ -39,11 +39,7 @@ char __fastcall LdrpLogMapAndVerifyResourceFileFailure(
   _DWORD v28[16]; // [esp+78h] [ebp-50h] BYREF
   _DWORD v29[3]; // [esp+B8h] [ebp-10h] BYREF
 
-  v7 = RtlRunOnceExecuteOnce(
-         (int)&unk_4B3A6670,
-         (int (__stdcall *)(int, int, int))LdrpResReportResourceAccessInternalInitOnce,
-         0,
-         0);
+  v7 = RtlRunOnceExecuteOnce(&stru_4B3A6670, (PRTL_RUN_ONCE_INIT_FN)LdrpResReportResourceAccessInternalInitOnce, 0, 0);
   if ( v7 >= 0 && (unsigned int)dword_4B3A3318 > 5 )
   {
     LOBYTE(v7) = _tlgKeywordOn(&dword_4B3A3318, 0x200000000000LL);
@@ -86,7 +82,7 @@ char __fastcall LdrpLogMapAndVerifyResourceFileFailure(
       v28[13] = 0;
       v28[15] = 0;
       v29[1] = 0;
-      LOBYTE(v7) = _tlgWriteTransfer_EtwEventWriteTransfer(2, 2, 10, v13);
+      LOBYTE(v7) = _tlgWriteTransfer_EtwEventWriteTransfer(2, 2, 0xAu, &UserData);
     }
   }
   return v7;

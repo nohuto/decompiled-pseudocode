@@ -1,16 +1,16 @@
 /*
- * XREFs of MmInsertSecureImageActivePatch @ 0x1407F6080
+ * XREFs of MmInsertSecureImageActivePatch @ 0x1407F67F4
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     MmReleaseLoadLock @ 0x1404C9960 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404D2990 (MmAcquireLoadLock.c)
- *     MiAllocateSecureImageActivePatch @ 0x1407F0C00 (MiAllocateSecureImageActivePatch.c)
- *     MiInsertSecureImageActivePatch @ 0x1407F35F8 (MiInsertSecureImageActivePatch.c)
- *     MiLogInsertSecureImageActivePatch @ 0x1407F5020 (MiLogInsertSecureImageActivePatch.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     MiFindHotPatchRecord @ 0x140A570A8 (MiFindHotPatchRecord.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     MmReleaseLoadLock @ 0x1404C2E10 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404CBB50 (MmAcquireLoadLock.c)
+ *     MiAllocateSecureImageActivePatch @ 0x1407F11D0 (MiAllocateSecureImageActivePatch.c)
+ *     MiInsertSecureImageActivePatch @ 0x1407F3BEC (MiInsertSecureImageActivePatch.c)
+ *     MiLogInsertSecureImageActivePatch @ 0x1407F5714 (MiLogInsertSecureImageActivePatch.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     MiFindHotPatchRecord @ 0x140A4EF38 (MiFindHotPatchRecord.c)
  */
 
 void __fastcall MmInsertSecureImageActivePatch(int a1, unsigned int a2, int a3, unsigned int a4, unsigned int a5)
@@ -24,7 +24,7 @@ void __fastcall MmInsertSecureImageActivePatch(int a1, unsigned int a2, int a3, 
 
   UnicodeString = 0LL;
   RtlInitUnicodeString(&UnicodeString, 0LL);
-  HotPatchRecord = MiFindHotPatchRecord((int)&qword_140E37478, 0, a1, a2, 34404, (__int64)&v13, &UnicodeString);
+  HotPatchRecord = MiFindHotPatchRecord((int)&qword_140E375B8, 0, a1, a2, 34404, (__int64)&v13, &UnicodeString);
   if ( HotPatchRecord >= 0 )
   {
     v10 = MiAllocateSecureImageActivePatch(&UnicodeString);

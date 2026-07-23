@@ -1,15 +1,15 @@
 /*
- * XREFs of MmGrowKernelStackEx @ 0x140477D50
+ * XREFs of MmGrowKernelStackEx @ 0x140474350
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14027D900 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     MmGrowKernelStack @ 0x1406755B0 (MmGrowKernelStack.c)
- *     KxSwitchKernelStackCallout @ 0x1406AB9C0 (KxSwitchKernelStackCallout.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x140232E90 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     MmGrowKernelStack @ 0x140676780 (MmGrowKernelStack.c)
+ *     KxSwitchKernelStackCallout @ 0x1406AC960 (KxSwitchKernelStackCallout.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiAllocateKernelStackPages @ 0x14039F96C (MiAllocateKernelStackPages.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiAllocateKernelStackPages @ 0x14021639C (MiAllocateKernelStackPages.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
@@ -49,7 +49,7 @@ __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
     return 3221225659LL;
   v8 = 0;
   Blink_high = HIWORD(CurrentThread->Process[2].ProcessListEntry.Blink);
-  v10 = *((_QWORD *)qword_140E2FF88 + Blink_high);
+  v10 = *((_QWORD *)qword_140E300C8 + Blink_high);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags )
@@ -65,7 +65,7 @@ __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
   {
     if ( v14 < ((*((_QWORD *)CurrentThread->InitialStack + 1) >> 9) & 0x7FFFFFFFF8uLL) - 0x98000000000LL )
     {
-      ++dword_140E35EA0;
+      ++dword_140E35FE0;
       v8 = -1073741571;
     }
     else

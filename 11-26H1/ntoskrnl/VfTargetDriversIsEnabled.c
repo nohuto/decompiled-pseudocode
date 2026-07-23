@@ -1,14 +1,14 @@
 /*
- * XREFs of VfTargetDriversIsEnabled @ 0x140C46C9C
+ * XREFs of VfTargetDriversIsEnabled @ 0x140C4CCAC
  * Callers:
- *     IoAllocateIrpEx @ 0x14026C530 (IoAllocateIrpEx.c)
- *     PipDmgIsDmaVerifierEnabled @ 0x1407A7A40 (PipDmgIsDmaVerifierEnabled.c)
- *     IovCheckAddressForIrp @ 0x140C2A8E0 (IovCheckAddressForIrp.c)
- *     VfPendingShouldForce @ 0x140C3004C (VfPendingShouldForce.c)
- *     ViWdBeforeCallDriver @ 0x140C3A0C8 (ViWdBeforeCallDriver.c)
- *     VfCheckUserHandle @ 0x140C47C38 (VfCheckUserHandle.c)
+ *     IoAllocateIrpEx @ 0x14026BAA0 (IoAllocateIrpEx.c)
+ *     PipDmgIsDmaVerifierEnabled @ 0x1407AA5F0 (PipDmgIsDmaVerifierEnabled.c)
+ *     IovCheckAddressForIrp @ 0x140C308F0 (IovCheckAddressForIrp.c)
+ *     VfPendingShouldForce @ 0x140C3605C (VfPendingShouldForce.c)
+ *     ViWdBeforeCallDriver @ 0x140C400D8 (ViWdBeforeCallDriver.c)
+ *     VfCheckUserHandle @ 0x140C4DC48 (VfCheckUserHandle.c)
  * Callees:
- *     VfTargetDriversGetVerifierData @ 0x140C46B58 (VfTargetDriversGetVerifierData.c)
+ *     VfTargetDriversGetVerifierData @ 0x140C4CB68 (VfTargetDriversGetVerifierData.c)
  */
 
 __int64 __fastcall VfTargetDriversIsEnabled(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopBatteryUpdateCurrentState @ 0x140547C48
+ * XREFs of PopBatteryUpdateCurrentState @ 0x140548188
  * Callers:
- *     PopCurrentPowerStatePrecise @ 0x140547C2C (PopCurrentPowerStatePrecise.c)
- *     PopConnectedStandbySettingCallback @ 0x140547F5C (PopConnectedStandbySettingCallback.c)
+ *     PopCurrentPowerStatePrecise @ 0x14054816C (PopCurrentPowerStatePrecise.c)
+ *     PopConnectedStandbySettingCallback @ 0x14054849C (PopConnectedStandbySettingCallback.c)
  * Callees:
- *     ExBlockOnAddressPushLock @ 0x1400872BC (ExBlockOnAddressPushLock.c)
- *     PopBatteryQueueWork @ 0x140131898 (PopBatteryQueueWork.c)
+ *     ExBlockOnAddressPushLock @ 0x14009DC4C (ExBlockOnAddressPushLock.c)
+ *     PopBatteryQueueWork @ 0x140131E08 (PopBatteryQueueWork.c)
  */
 
 __int64 PopBatteryUpdateCurrentState()
@@ -17,12 +17,12 @@ __int64 PopBatteryUpdateCurrentState()
   v0 = MEMORY[0xFFFFF78000000008];
   while ( 1 )
   {
-    v2 = qword_1403037F8;
-    result = qword_1403037F8 + 50000000;
-    if ( qword_1403037F8 + 50000000 > v0 )
+    v2 = qword_140303738;
+    result = qword_140303738 + 50000000;
+    if ( qword_140303738 + 50000000 > v0 )
       break;
     PopBatteryQueueWork(1u);
-    ExBlockOnAddressPushLock((__int64)&qword_140303800, &qword_1403037F8, &v2, 8uLL, 0LL);
+    ExBlockOnAddressPushLock((__int64)&qword_140303740, &qword_140303738, &v2, 8uLL, 0LL);
   }
   return result;
 }

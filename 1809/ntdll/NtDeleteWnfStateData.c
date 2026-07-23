@@ -1,16 +1,16 @@
 /*
- * XREFs of NtDeleteWnfStateData @ 0x1800A1D10
+ * XREFs of NtDeleteWnfStateData @ 0x1800A1D30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtDeleteWnfStateData()
+NTSTATUS __cdecl NtDeleteWnfStateData(PCWNF_STATE_NAME StateName, const void *ExplicitScope)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 210LL;
+  result = 210;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

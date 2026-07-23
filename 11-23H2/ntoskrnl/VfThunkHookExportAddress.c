@@ -1,9 +1,9 @@
 /*
- * XREFs of VfThunkHookExportAddress @ 0x140ADB55C
+ * XREFs of VfThunkHookExportAddress @ 0x140ADB54C
  * Callers:
- *     VerifierMmGetSystemRoutineAddress @ 0x140AE2FE0 (VerifierMmGetSystemRoutineAddress.c)
+ *     VerifierMmGetSystemRoutineAddress @ 0x140AE2FD0 (VerifierMmGetSystemRoutineAddress.c)
  * Callees:
- *     ViThunkHookExportAddress @ 0x140ADBC78 (ViThunkHookExportAddress.c)
+ *     ViThunkHookExportAddress @ 0x140ADBC68 (ViThunkHookExportAddress.c)
  */
 
 __int64 __fastcall VfThunkHookExportAddress(__int64 a1, __int64 a2)

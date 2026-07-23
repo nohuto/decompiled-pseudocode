@@ -6,60 +6,62 @@
  *     <none>
  */
 
-_QWORD *__fastcall RtlStronglyEnumerateEntryHashTable(__int64 a1, __int64 a2)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlStronglyEnumerateEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  unsigned int v2; // r8d
+  unsigned int BucketIndex; // r8d
   unsigned int i; // r10d
-  __int64 v6; // r11
+  _QWORD *Directory; // r11
   unsigned int v7; // ecx
   unsigned int v8; // edx
-  _QWORD *v9; // rcx
-  _QWORD *v10; // rdx
-  _QWORD *v11; // rdx
-  _QWORD *result; // rax
+  _LIST_ENTRY *ChainHead; // rcx
+  _LIST_ENTRY *Flink; // rdx
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v11; // rdx
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY result; // rax
 
-  v2 = *(_DWORD *)(a2 + 32);
-  if ( v2 >= *(_DWORD *)(a1 + 8) )
+  BucketIndex = Enumerator->BucketIndex;
+  if ( BucketIndex >= HashTable->TableSize )
     return 0LL;
-  for ( i = v2 + 128; ; ++i )
+  for ( i = BucketIndex + 128; ; ++i )
   {
-    if ( v2 == *(_DWORD *)(a2 + 32) )
+    if ( BucketIndex == Enumerator->BucketIndex )
     {
-      v10 = *(_QWORD **)a2;
-      v9 = *(_QWORD **)(a2 + 24);
+      Flink = Enumerator->HashEntry.Linkage.Flink;
+      ChainHead = Enumerator->ChainHead;
     }
     else
     {
-      v6 = *(_QWORD *)(a1 + 32);
-      if ( *(_DWORD *)(a1 + 8) <= 0x80u )
+      Directory = HashTable->Directory;
+      if ( HashTable->TableSize <= 0x80 )
       {
-        v8 = v2;
+        v8 = BucketIndex;
       }
       else
       {
         _BitScanReverse(&v7, i);
         v8 = i ^ (1 << v7);
-        v6 = *(_QWORD *)(v6 + 8LL * (v7 - 7));
+        Directory = (_QWORD *)Directory[v7 - 7];
       }
-      v9 = (_QWORD *)(v6 + 16LL * v8);
-      v10 = v9;
+      ChainHead = (_LIST_ENTRY *)&Directory[2 * v8];
+      Flink = ChainHead;
     }
-    v11 = (_QWORD *)*v10;
-    if ( v11 != v9 )
+    v11 = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)Flink->Flink;
+    if ( v11 != (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ChainHead )
       break;
 LABEL_8:
-    if ( ++v2 >= *(_DWORD *)(a1 + 8) )
+    if ( ++BucketIndex >= HashTable->TableSize )
       return 0LL;
   }
-  while ( !v11[2] )
+  while ( !v11->Signature )
   {
-    v11 = (_QWORD *)*v11;
-    if ( v11 == v9 )
+    v11 = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)v11->Linkage.Flink;
+    if ( v11 == (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ChainHead )
       goto LABEL_8;
   }
-  *(_DWORD *)(a2 + 32) = v2;
+  Enumerator->BucketIndex = BucketIndex;
   result = v11;
-  *(_QWORD *)(a2 + 24) = v9;
-  *(_QWORD *)a2 = v11;
+  Enumerator->ChainHead = ChainHead;
+  Enumerator->HashEntry.Linkage.Flink = &v11->Linkage;
   return result;
 }

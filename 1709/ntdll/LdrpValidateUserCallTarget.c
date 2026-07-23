@@ -12,7 +12,7 @@ void __fastcall LdrpValidateUserCallTarget(unsigned __int64 a1)
   __int64 v1; // rdx
   unsigned __int64 v2; // rax
 
-  v1 = *(_QWORD *)(qword_18016F370 + 8 * (a1 >> 9));
+  v1 = *(_QWORD *)(LdrSystemDllInitBlock.CfgBitMap + 8 * (a1 >> 9));
   v2 = a1 >> 3;
   if ( (a1 & 0xF) != 0 )
   {

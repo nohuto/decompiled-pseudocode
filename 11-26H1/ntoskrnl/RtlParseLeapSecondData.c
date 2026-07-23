@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlParseLeapSecondData @ 0x1408A7624
+ * XREFs of RtlParseLeapSecondData @ 0x1408ADA94
  * Callers:
- *     ExpParseAndUpdateLeapSecondData @ 0x140835E60 (ExpParseAndUpdateLeapSecondData.c)
+ *     ExpParseAndUpdateLeapSecondData @ 0x14083C0A0 (ExpParseAndUpdateLeapSecondData.c)
  * Callees:
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14045239C (RtlpTimeFieldsToTimeNoLeapSeconds.c)
- *     RtlLongLongAdd @ 0x14053230C (RtlLongLongAdd.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14044A4CC (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     RtlLongLongAdd @ 0x1405347AC (RtlLongLongAdd.c)
  */
 
 __int64 __fastcall RtlParseLeapSecondData(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

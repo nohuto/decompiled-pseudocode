@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlQueryStartedProcessors @ 0x140540470
+ * XREFs of HvlQueryStartedProcessors @ 0x140540B30
  * Callers:
- *     EtwpQueryUsedProcessorCount @ 0x140228124 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140228234 (EtwpQueryUsedProcessorCount.c)
  * Callees:
  *     <none>
  */

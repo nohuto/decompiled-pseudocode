@@ -1,21 +1,21 @@
 /*
- * XREFs of KeResumeClockTimerFromIdle @ 0x1400DCA70
+ * XREFs of KeResumeClockTimerFromIdle @ 0x1400DA910
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1400DA540 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1400D83E0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     KiUpdateTimeAssist @ 0x140083350 (KiUpdateTimeAssist.c)
- *     KiSendClockInterruptToClockOwner @ 0x14009DE7C (KiSendClockInterruptToClockOwner.c)
- *     KiEventClockStateChange @ 0x14009E0BC (KiEventClockStateChange.c)
- *     KiSetPendingTick @ 0x14009E0F8 (KiSetPendingTick.c)
- *     KeQuerySystemAllowedCpuSetAffinity @ 0x14009F890 (KeQuerySystemAllowedCpuSetAffinity.c)
- *     KiGetPendingTick @ 0x1400ACC70 (KiGetPendingTick.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     xHalUnmaskInterrupt @ 0x14014CC60 (xHalUnmaskInterrupt.c)
- *     ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator @ 0x140159290 (ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator.c)
- *     KiAdjustTimersAfterDripsExit @ 0x1401D25A4 (KiAdjustTimersAfterDripsExit.c)
- *     KeFindFirstSetRightAffinityEx @ 0x1401D3E8C (KeFindFirstSetRightAffinityEx.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     KiUpdateTimeAssist @ 0x140083FD0 (KiUpdateTimeAssist.c)
+ *     KiSendClockInterruptToClockOwner @ 0x14009D67C (KiSendClockInterruptToClockOwner.c)
+ *     KiEventClockStateChange @ 0x14009D8BC (KiEventClockStateChange.c)
+ *     KiSetPendingTick @ 0x14009D8F8 (KiSetPendingTick.c)
+ *     KeQuerySystemAllowedCpuSetAffinity @ 0x14009E1B8 (KeQuerySystemAllowedCpuSetAffinity.c)
+ *     KiGetPendingTick @ 0x1400AB1D8 (KiGetPendingTick.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     xHalUnmaskInterrupt @ 0x14014D1D0 (xHalUnmaskInterrupt.c)
+ *     ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator @ 0x140159800 (ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator.c)
+ *     KiAdjustTimersAfterDripsExit @ 0x1401D23D0 (KiAdjustTimersAfterDripsExit.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x1401D3CB8 (KeFindFirstSetRightAffinityEx.c)
  */
 
 char __fastcall KeResumeClockTimerFromIdle(_DWORD *a1)
@@ -80,10 +80,10 @@ char __fastcall KeResumeClockTimerFromIdle(_DWORD *a1)
     *a1 = v6 - KiClockTimerNextTickTime;
   }
   KiClockLatencyMeasurementEnabled = 0;
-  if ( KiClockTimerOneShotEndTime - KiClockTimerOneShotStartTime < (unsigned __int64)qword_14030DDA8 )
-    qword_14030DDA8 = KiClockTimerOneShotEndTime - KiClockTimerOneShotStartTime;
-  if ( KiClockTimerOneShotEndTime - KiClockTimerOneShotStartTime > (unsigned __int64)qword_14030DDA0 )
-    qword_14030DDA0 = KiClockTimerOneShotEndTime - KiClockTimerOneShotStartTime;
+  if ( KiClockTimerOneShotEndTime - KiClockTimerOneShotStartTime < (unsigned __int64)qword_14030DDE8 )
+    qword_14030DDE8 = KiClockTimerOneShotEndTime - KiClockTimerOneShotStartTime;
+  if ( KiClockTimerOneShotEndTime - KiClockTimerOneShotStartTime > (unsigned __int64)qword_14030DDE0 )
+    qword_14030DDE0 = KiClockTimerOneShotEndTime - KiClockTimerOneShotStartTime;
   if ( KiConsiderTimerRebasing )
   {
     KiAdjustTimersAfterDripsExit(CurrentPrcb);
@@ -136,7 +136,7 @@ char __fastcall KeResumeClockTimerFromIdle(_DWORD *a1)
   {
     v4 = 1;
   }
-  ++qword_14030DD98;
+  ++qword_14030DDD8;
   v11 = 2;
   KiEventClockStateChange(2, 1, 0LL, 0LL);
   if ( v4 )

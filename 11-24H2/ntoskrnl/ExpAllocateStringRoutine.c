@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpAllocateStringRoutine @ 0x1409F6D00
+ * XREFs of ExpAllocateStringRoutine @ 0x1409EAC50
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 ExpAllocateStringRoutine()
+__int64 __fastcall ExpAllocateStringRoutine(ULONG_PTR a1)
 {
-  return ExAllocatePool2(0x100uLL);
+  return ExAllocatePool2(0x100uLL, a1, 0x67727453u);
 }

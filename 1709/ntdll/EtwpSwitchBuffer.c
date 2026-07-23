@@ -13,23 +13,21 @@
 
 char __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, unsigned int a3)
 {
-  __int64 v3; // r13
+  _RTL_CRITICAL_SECTION *v3; // r13
   __int64 v4; // rbx
   char v6; // r12
   char v8; // bp
   __int64 v9; // r14
   __int64 v10; // r15
   __int64 v11; // rbx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  int v15; // [rsp+60h] [rbp+18h]
+  int v13; // [rsp+60h] [rbp+18h]
 
-  v3 = a1 + 88;
+  v3 = (_RTL_CRITICAL_SECTION *)(a1 + 88);
   v4 = a3;
-  v15 = *(_DWORD *)(a1 + 324) & 0x400;
+  v13 = *(_DWORD *)(a1 + 324) & 0x400;
   v6 = 0;
   v8 = 1;
-  RtlEnterCriticalSection(a1 + 88);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 88));
   v9 = *(_QWORD *)(a1 + 8 * v4 + 560);
   v10 = (unsigned int)v4;
   while ( !v9 || a2 == v9 )
@@ -54,7 +52,7 @@ LABEL_4:
         *(_QWORD *)(a1 + 8 * v10 + 560) = v11;
         if ( a2 && a2 == v9 )
         {
-          if ( v15 )
+          if ( v13 )
           {
             *(_DWORD *)(a2 + 44) = 0;
             *(_QWORD *)(a2 + 32) = 0LL;
@@ -79,7 +77,7 @@ LABEL_4:
       v8 = 0;
       break;
     }
-    RtlSleepConditionVariableCS((signed __int64 *)(a1 + 80), v3, 0LL);
+    RtlSleepConditionVariableCS((PRTL_CONDITION_VARIABLE)(a1 + 80), v3, 0LL);
     v9 = *(_QWORD *)(a1 + 8 * v10 + 560);
   }
   RtlLeaveCriticalSection(v3);
@@ -89,7 +87,7 @@ LABEL_4:
     && (!*(_DWORD *)(a1 + 368)
      || (unsigned int)(*(_DWORD *)(a1 + 224) - *(_DWORD *)(a1 + 204) - *(_DWORD *)(a1 + 228)) >= *(_DWORD *)(a1 + 368)) )
   {
-    ZwSetEvent(*(_QWORD *)(a1 + 128), 0LL, v12, v13);
+    ZwSetEvent(*(HANDLE *)(a1 + 128), 0LL);
   }
   return v8;
 }

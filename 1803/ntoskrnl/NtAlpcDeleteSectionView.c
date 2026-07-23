@@ -14,32 +14,32 @@
  *     ObReferenceObjectByHandle @ 0x1405A4730 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtAlpcDeleteSectionView(HANDLE PortHandle, ULONG Flags, PVOID ViewBase)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v5; // ebx
+  signed int v5; // ebx
   PVOID v6; // rdi
   signed __int64 *v7; // rbx
   __int64 v8; // rdx
   __int64 v9; // r8
   int v10; // edi
   ULONG_PTR v11; // rdi
-  __int64 v13; // [rsp+38h] [rbp-20h] BYREF
+  PVOID v13; // [rsp+38h] [rbp-20h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+40h] [rbp-18h]
   PVOID Object; // [rsp+78h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
     v5 = -1073741811;
   }
   else
   {
-    v5 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+    v5 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
     if ( v5 >= 0 )
     {
-      v13 = a3;
+      v13 = ViewBase;
       v6 = Object;
       BugCheckParameter2 = 0LL;
       v7 = (signed __int64 *)((char *)Object + 352);
@@ -68,5 +68,5 @@ __int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, __int64 a3)
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  return v5;
 }

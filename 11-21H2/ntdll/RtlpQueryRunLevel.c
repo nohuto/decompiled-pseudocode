@@ -36,7 +36,7 @@ LABEL_9:
     if ( (_DWORD)v9 == v7 )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
         "SXS: %s() found activation context data at %p with assembly roster that has no root\n",
         "RtlpQueryRunLevel",
@@ -58,7 +58,7 @@ LABEL_9:
   v11 = *(unsigned int *)(v8 + 24 * v9 + 16);
   if ( *(_DWORD *)(v11 + a2) != 108 )
   {
-    DbgPrintEx(51, 0, "SXS: %s() found activation context data at %p with wrong format\n", "RtlpQueryRunLevel", a2);
+    DbgPrintEx(0x33u, 0, "SXS: %s() found activation context data at %p with wrong format\n", "RtlpQueryRunLevel", a2);
     return (unsigned int)-1072365565;
   }
   *a3 = 0;

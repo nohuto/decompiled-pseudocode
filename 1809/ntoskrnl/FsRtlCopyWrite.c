@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlCopyWrite @ 0x1408140D0
+ * XREFs of FsRtlCopyWrite @ 0x1408152D0
  * Callers:
  *     <none>
  * Callees:
@@ -8,13 +8,13 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     CcZeroData @ 0x1400E0C20 (CcZeroData.c)
- *     CcCanIWrite @ 0x140104D20 (CcCanIWrite.c)
- *     CcCopyWriteWontFlush @ 0x14010F510 (CcCopyWriteWontFlush.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CcCopyWrite @ 0x140269750 (CcCopyWrite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CcZeroData @ 0x1400E0CA0 (CcZeroData.c)
+ *     CcCanIWrite @ 0x140104DA0 (CcCanIWrite.c)
+ *     CcCopyWriteWontFlush @ 0x14010F590 (CcCopyWriteWontFlush.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F320 (FsRtlIsNtstatusExpected.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CcCopyWrite @ 0x140269940 (CcCopyWrite.c)
  */
 
 BOOLEAN __stdcall FsRtlCopyWrite(

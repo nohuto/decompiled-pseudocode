@@ -3,11 +3,11 @@
  * Callers:
  *     SeSecureBootRegisterPolicy @ 0x140B4D884 (SeSecureBootRegisterPolicy.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
  *     RtlStringFromGUID @ 0x140685290 (RtlStringFromGUID.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  */
 
 __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
   Handle = 0LL;
   memset(&ObjectAttributes, 0, 44);
   UnicodeString = 0LL;
-  if ( (dword_140C70F94 & 8) != 0 || a1 )
+  if ( (dword_140C70F84 & 8) != 0 || a1 )
   {
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.ObjectName = (PUNICODE_STRING)L"z|";
@@ -42,9 +42,9 @@ __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
       v2 = ZwCreateKey(&Handle, 0x20006u, &ObjectAttributes, 0, 0LL, 1u, 0LL);
       if ( v2 >= 0 )
       {
-        if ( (dword_140C70F94 & 8) != 0 )
+        if ( (dword_140C70F84 & 8) != 0 )
         {
-          Data = dword_140C70F94 & 1;
+          Data = dword_140C70F84 & 1;
           v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_1400023E8, 0, 4u, &Data, 4u);
           if ( v2 < 0 )
             goto LABEL_9;
@@ -58,13 +58,13 @@ __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
           {
             v2 = ZwSetValueKey(
                    Handle,
-                   (PUNICODE_STRING)&stru_14000ACC0,
+                   (PUNICODE_STRING)&stru_14000ACD0,
                    0,
                    1u,
                    UnicodeString.Buffer,
                    UnicodeString.Length + 2);
             if ( v2 >= 0 )
-              v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_14000ACD0, 0, 4u, (PVOID)(a1 + 20), 4u);
+              v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_14000ACC0, 0, 4u, (PVOID)(a1 + 20), 4u);
           }
         }
       }

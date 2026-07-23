@@ -45,7 +45,7 @@ void __fastcall ExpFastResourceLegacyRelease(
     CurrentThread = KeGetCurrentThread();
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v7 = 4;
@@ -59,7 +59,7 @@ void __fastcall ExpFastResourceLegacyRelease(
     if ( !FastOwnerEntryForThread )
       KeBugCheckEx(0xE3u, BugCheckParameter1, v11, 0LL, 0LL);
     *(_BYTE *)(FastOwnerEntryForThread + 17) &= ~2u;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v13 = KeGetCurrentIrql();
       if ( ((unsigned __int8)KiIrqlFlags & v9) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )

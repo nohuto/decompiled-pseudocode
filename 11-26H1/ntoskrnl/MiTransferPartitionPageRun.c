@@ -1,24 +1,24 @@
 /*
- * XREFs of MiTransferPartitionPageRun @ 0x140709A80
+ * XREFs of MiTransferPartitionPageRun @ 0x14070E734
  * Callers:
- *     MiActOnPartitionNodePages @ 0x140707C4C (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x14070C91C (MiActOnPartitionNodePages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiIsPageOnBadList @ 0x14028F9D0 (MiIsPageOnBadList.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInvalidPteConforms @ 0x1402F4430 (MiInvalidPteConforms.c)
- *     MiInsertPossiblyBadPage @ 0x1403C65E0 (MiInsertPossiblyBadPage.c)
- *     MiDrainZeroLookasides @ 0x14045E180 (MiDrainZeroLookasides.c)
- *     MiUnlockPartitionPair @ 0x140525764 (MiUnlockPartitionPair.c)
- *     MiLockPartitionPair @ 0x14052E350 (MiLockPartitionPair.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiMoveBadPagePartition @ 0x1407093D4 (MiMoveBadPagePartition.c)
- *     MiUpdatePartitionChildPageCounts @ 0x140709E5C (MiUpdatePartitionChildPageCounts.c)
- *     MiUpdatePhysicalPages @ 0x140709FC0 (MiUpdatePhysicalPages.c)
- *     MiMoveBadPageChargesCrossPartition @ 0x14070D17C (MiMoveBadPageChargesCrossPartition.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiIsPageOnBadList @ 0x14028EF30 (MiIsPageOnBadList.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInvalidPteConforms @ 0x1402D64B0 (MiInvalidPteConforms.c)
+ *     MiInsertPossiblyBadPage @ 0x1403D04D4 (MiInsertPossiblyBadPage.c)
+ *     MiDrainZeroLookasides @ 0x140457D20 (MiDrainZeroLookasides.c)
+ *     MiUnlockPartitionPair @ 0x140527DD4 (MiUnlockPartitionPair.c)
+ *     MiLockPartitionPair @ 0x140530870 (MiLockPartitionPair.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiMoveBadPagePartition @ 0x14070E088 (MiMoveBadPagePartition.c)
+ *     MiUpdatePartitionChildPageCounts @ 0x14070EB10 (MiUpdatePartitionChildPageCounts.c)
+ *     MiUpdatePhysicalPages @ 0x14070EC74 (MiUpdatePhysicalPages.c)
+ *     MiMoveBadPageChargesCrossPartition @ 0x140711E2C (MiMoveBadPageChargesCrossPartition.c)
  */
 
 __int64 __fastcall MiTransferPartitionPageRun(unsigned __int64 a1, ULONG *a2, ULONG_PTR a3, __int64 a4)
@@ -93,8 +93,8 @@ __int64 __fastcall MiTransferPartitionPageRun(unsigned __int64 a1, ULONG *a2, UL
         {
           if ( !MiInvalidPteConforms(*(_QWORD *)(v12 + 16)) )
             goto LABEL_44;
-          if ( qword_140E2D740 && (v14 & 0x10) == 0 )
-            v15 &= HIDWORD(qword_140E2D748);
+          if ( qword_140E2D8C0 && (v14 & 0x10) == 0 )
+            v15 &= HIDWORD(qword_140E2D8C8);
           if ( v15 != -2 )
           {
 LABEL_44:

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializeVsmEnclave @ 0x140A3DFA0
+ * XREFs of MiInitializeVsmEnclave @ 0x140A3E250
  * Callers:
- *     MiInitializeEnclave @ 0x140A3DE98 (MiInitializeEnclave.c)
+ *     MiInitializeEnclave @ 0x140A3E148 (MiInitializeEnclave.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     MiUnlockVad @ 0x140289CA0 (MiUnlockVad.c)
- *     MiLockVad @ 0x14029C7D0 (MiLockVad.c)
- *     PsDereferenceVsmEnclave @ 0x1408A5CC4 (PsDereferenceVsmEnclave.c)
- *     PsInitializeVsmEnclave @ 0x1409B7554 (PsInitializeVsmEnclave.c)
- *     MiMapImageForEnclaveUse @ 0x140A3E748 (MiMapImageForEnclaveUse.c)
- *     MiUnmapImageForEnclaveUse @ 0x140A3E994 (MiUnmapImageForEnclaveUse.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     MiUnlockVad @ 0x140289F30 (MiUnlockVad.c)
+ *     MiLockVad @ 0x14029CA60 (MiLockVad.c)
+ *     PsDereferenceVsmEnclave @ 0x1408A5F14 (PsDereferenceVsmEnclave.c)
+ *     PsInitializeVsmEnclave @ 0x1409B7754 (PsInitializeVsmEnclave.c)
+ *     MiMapImageForEnclaveUse @ 0x140A3E9F8 (MiMapImageForEnclaveUse.c)
+ *     MiUnmapImageForEnclaveUse @ 0x140A3EC44 (MiUnmapImageForEnclaveUse.c)
  */
 
 __int64 __fastcall MiInitializeVsmEnclave(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

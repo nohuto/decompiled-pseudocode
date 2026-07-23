@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetRepurposedSlabStandbyPage @ 0x1403A18E8
+ * XREFs of MiGetRepurposedSlabStandbyPage @ 0x140218448
  * Callers:
- *     MiGetPageFromSlabAllocator @ 0x1403A2ED0 (MiGetPageFromSlabAllocator.c)
+ *     MiGetPageFromSlabAllocator @ 0x14021D5AC (MiGetPageFromSlabAllocator.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiReleasePageListLock @ 0x1402262E0 (MiReleasePageListLock.c)
- *     MiLockPageListAndFirstPage @ 0x1403A1A7C (MiLockPageListAndFirstPage.c)
- *     MiReInitializeFreeSlabPfn @ 0x1403A1C18 (MiReInitializeFreeSlabPfn.c)
- *     MiDiscardTransitionPteEx @ 0x1403A1C98 (MiDiscardTransitionPteEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiLockPageListAndFirstPage @ 0x1402185DC (MiLockPageListAndFirstPage.c)
+ *     MiReInitializeFreeSlabPfn @ 0x140218778 (MiReInitializeFreeSlabPfn.c)
+ *     MiReleasePageListLock @ 0x140218800 (MiReleasePageListLock.c)
+ *     MiDiscardTransitionPteEx @ 0x1402188CC (MiDiscardTransitionPteEx.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiGetRepurposedSlabStandbyPage(__int64 a1)
@@ -53,8 +53,8 @@ __int64 __fastcall MiGetRepurposedSlabStandbyPage(__int64 a1)
     return -1LL;
   }
   v9 = 48 * Page - 0x220000000000LL;
-  MiUnlinkPageFromListEx(v9, (v13[0] != 0) + 1);
-  MiReleasePageListLock(v1, (__int64)v13);
+  MiUnlinkPageFromListEx(v9);
+  MiReleasePageListLock(v1, v13);
   MiDiscardTransitionPteEx(v9, 2048LL);
   v12 = *(_DWORD *)(v9 + 32);
   BYTE2(v12) = BYTE2(v12) & 0xF8 | 1;

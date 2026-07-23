@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpTimerScaleCounter @ 0x1403962F0
+ * XREFs of HalpTimerScaleCounter @ 0x140396440
  * Callers:
- *     PpmSnapPerformanceAccumulation @ 0x140221190 (PpmSnapPerformanceAccumulation.c)
- *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
- *     KiUpdateTime @ 0x140227730 (KiUpdateTime.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     KiRetireDpcList @ 0x1402466B0 (KiRetireDpcList.c)
- *     HalpSetTimer @ 0x14024E37C (HalpSetTimer.c)
- *     HalCalibratePerformanceCounter @ 0x140383F60 (HalCalibratePerformanceCounter.c)
- *     HalpTimerGetSavedPerformanceCounter @ 0x140386AE0 (HalpTimerGetSavedPerformanceCounter.c)
- *     HalpTimerPropagateQpcBiasUpdate @ 0x1403A5D6C (HalpTimerPropagateQpcBiasUpdate.c)
- *     HalpTimerMeasureFrequencies @ 0x1403A98D8 (HalpTimerMeasureFrequencies.c)
- *     HalpTimerDelayedQueryCounter @ 0x1404BFAF0 (HalpTimerDelayedQueryCounter.c)
- *     HalpTimerPerformanceCounterPowerChange @ 0x1404BFCA0 (HalpTimerPerformanceCounterPowerChange.c)
- *     HalpVpptArmTimer @ 0x1404C08C0 (HalpVpptArmTimer.c)
- *     HalpTimerMeasureProcessorsWorker @ 0x1404C35C0 (HalpTimerMeasureProcessorsWorker.c)
+ *     PpmSnapPerformanceAccumulation @ 0x1402C5A90 (PpmSnapPerformanceAccumulation.c)
+ *     PpmIdleExecuteTransition @ 0x1402C6DB0 (PpmIdleExecuteTransition.c)
+ *     KiUpdateTime @ 0x1402CC030 (KiUpdateTime.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     KiRetireDpcList @ 0x1402EAF00 (KiRetireDpcList.c)
+ *     HalpSetTimer @ 0x1402F2BCC (HalpSetTimer.c)
+ *     HalCalibratePerformanceCounter @ 0x1403840B0 (HalCalibratePerformanceCounter.c)
+ *     HalpTimerGetSavedPerformanceCounter @ 0x140386C30 (HalpTimerGetSavedPerformanceCounter.c)
+ *     HalpTimerPropagateQpcBiasUpdate @ 0x1403A5EBC (HalpTimerPropagateQpcBiasUpdate.c)
+ *     HalpTimerMeasureFrequencies @ 0x1403AA668 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerDelayedQueryCounter @ 0x1404BFD30 (HalpTimerDelayedQueryCounter.c)
+ *     HalpTimerPerformanceCounterPowerChange @ 0x1404BFEE0 (HalpTimerPerformanceCounterPowerChange.c)
+ *     HalpVpptArmTimer @ 0x1404C0B00 (HalpVpptArmTimer.c)
+ *     HalpTimerMeasureProcessorsWorker @ 0x1404C3800 (HalpTimerMeasureProcessorsWorker.c)
  * Callees:
  *     <none>
  */

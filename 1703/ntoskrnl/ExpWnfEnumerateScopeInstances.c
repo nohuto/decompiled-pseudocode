@@ -23,7 +23,7 @@ struct _EX_RUNDOWN_REF *__fastcall ExpWnfEnumerateScopeInstances(unsigned int a1
   __int64 v7; // r14
   signed __int64 *v8; // rbx
   struct _EX_RUNDOWN_REF **v9; // r14
-  __int64 v10; // rbp
+  PRTL_BALANCED_NODE v10; // rbp
   struct _EX_RUNDOWN_REF *Count; // rax
   __int64 HostSilo; // rax
 
@@ -44,11 +44,11 @@ struct _EX_RUNDOWN_REF *__fastcall ExpWnfEnumerateScopeInstances(unsigned int a1
   v7 = 3 * v2 + 4;
   v8 = (signed __int64 *)(v6 + 8 * (3 * v2 + 3));
   v9 = (struct _EX_RUNDOWN_REF **)(v6 + 8 * v7);
-  v10 = KeAbPreAcquire((ULONG_PTR)v8, 0LL, 0LL);
+  v10 = KeAbPreAcquire((ULONG_PTR)v8, 0LL, 0);
   if ( _InterlockedCompareExchange64(v8, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v8, v10, (ULONG_PTR)v8);
   if ( v10 )
-    *(_BYTE *)(v10 + 26) |= 1u;
+    BYTE2(v10[1].Left) |= 1u;
   if ( a2 )
     Count = (struct _EX_RUNDOWN_REF *)a2[4].Count;
   else

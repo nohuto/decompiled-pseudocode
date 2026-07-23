@@ -1,14 +1,14 @@
 /*
- * XREFs of PipProcessStartPhase1 @ 0x1404C7974
+ * XREFs of PipProcessStartPhase1 @ 0x1404846CC
  * Callers:
- *     PipProcessDevNodeTree @ 0x1403F41E0 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1403F30A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     Template_qz @ 0x1401D0DAC (Template_qz.c)
- *     PnpStartDeviceNode @ 0x1403F10D4 (PnpStartDeviceNode.c)
- *     IopUncacheInterfaceInformation @ 0x1404C7A00 (IopUncacheInterfaceInformation.c)
- *     PpProfileBeginHardwareProfileTransition @ 0x1406422A4 (PpProfileBeginHardwareProfileTransition.c)
- *     PpProfileIncludeInHardwareProfileTransition @ 0x140642534 (PpProfileIncludeInHardwareProfileTransition.c)
- *     PpProfileQueryHardwareProfileChange @ 0x140642630 (PpProfileQueryHardwareProfileChange.c)
+ *     Template_qz @ 0x1401D0BD8 (Template_qz.c)
+ *     PnpStartDeviceNode @ 0x1403EFF98 (PnpStartDeviceNode.c)
+ *     IopUncacheInterfaceInformation @ 0x140484758 (IopUncacheInterfaceInformation.c)
+ *     PpProfileBeginHardwareProfileTransition @ 0x140642388 (PpProfileBeginHardwareProfileTransition.c)
+ *     PpProfileIncludeInHardwareProfileTransition @ 0x140642618 (PpProfileIncludeInHardwareProfileTransition.c)
+ *     PpProfileQueryHardwareProfileChange @ 0x140642714 (PpProfileQueryHardwareProfileChange.c)
  */
 
 __int64 __fastcall PipProcessStartPhase1(__int64 a1, int a2, __int64 a3)

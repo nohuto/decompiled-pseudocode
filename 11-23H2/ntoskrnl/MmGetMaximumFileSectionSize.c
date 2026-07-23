@@ -1,5 +1,5 @@
 /*
- * XREFs of MmGetMaximumFileSectionSize @ 0x140885C10
+ * XREFs of MmGetMaximumFileSectionSize @ 0x140885E50
  * Callers:
  *     <none>
  * Callees:

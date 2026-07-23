@@ -8,25 +8,25 @@
  *     _ZwCreateKey@28 @ 0x4B2F2B50 (_ZwCreateKey@28.c)
  */
 
-int __fastcall RtlpOpenBaseImageFileOptionsKeyEx(_DWORD *a1, int a2, char a3)
+NTSTATUS __fastcall RtlpOpenBaseImageFileOptionsKeyEx(HANDLE *a1, ACCESS_MASK a2, char a3)
 {
-  int result; // eax
-  _DWORD v5[6]; // [esp+4h] [ebp-20h] BYREF
-  _DWORD v6[2]; // [esp+1Ch] [ebp-8h] BYREF
+  NTSTATUS result; // eax
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+4h] [ebp-20h] BYREF
+  HANDLE KeyHandle[2]; // [esp+1Ch] [ebp-8h] BYREF
 
-  v5[0] = 24;
-  v5[1] = 0;
-  v5[3] = 576;
-  v5[2] = &dword_4B281360;
-  v5[4] = 0;
-  v5[5] = 0;
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 576;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&dword_4B281360;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
   if ( a3 )
-    result = ZwCreateKey(v6, a2, v5, 0, 0, 0, 0);
+    result = ZwCreateKey(KeyHandle, a2, &ObjectAttributes, 0, 0, 0, 0);
   else
-    result = ZwOpenKey(v6, a2, v5);
+    result = ZwOpenKey(KeyHandle, a2, &ObjectAttributes);
   if ( result >= 0 )
   {
-    *a1 = v6[0];
+    *a1 = KeyHandle[0];
     return 0;
   }
   return result;

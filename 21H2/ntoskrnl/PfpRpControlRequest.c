@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpRpControlRequest @ 0x1406DC9F0
+ * XREFs of PfpRpControlRequest @ 0x1406B3CD0
  * Callers:
- *     PfSetSuperfetchInformation @ 0x1406DBD54 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x1406B3034 (PfSetSuperfetchInformation.c)
  * Callees:
- *     PfpRpControlRequestVerify @ 0x1402ECF34 (PfpRpControlRequestVerify.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PfpRpControlRequestPerform @ 0x1406DCABC (PfpRpControlRequestPerform.c)
- *     PfpRpControlRequestCopy @ 0x1406DCB38 (PfpRpControlRequestCopy.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PfpRpControlRequestVerify @ 0x14029E284 (PfpRpControlRequestVerify.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PfpRpControlRequestPerform @ 0x1406B3D9C (PfpRpControlRequestPerform.c)
+ *     PfpRpControlRequestCopy @ 0x1406B3E18 (PfpRpControlRequestCopy.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpControlRequest(__int64 a1, char a2)
@@ -20,7 +20,7 @@ __int64 __fastcall PfpRpControlRequest(__int64 a1, char a2)
   v4 = 0LL;
   v5 = 0LL;
   v6 = 0LL;
-  if ( (dword_140C503F0 & 1) != 0 )
+  if ( (dword_140C50430 & 1) != 0 )
   {
     if ( *(_DWORD *)(a1 + 24) < 0x18u )
     {
@@ -34,7 +34,7 @@ __int64 __fastcall PfpRpControlRequest(__int64 a1, char a2)
         if ( (unsigned int)PfpRpControlRequestVerify(0LL) )
           return (unsigned int)-1073741701;
         else
-          return (unsigned int)PfpRpControlRequestPerform(&unk_140C50358, 0LL);
+          return (unsigned int)PfpRpControlRequestPerform(&unk_140C50398, 0LL);
       }
     }
   }

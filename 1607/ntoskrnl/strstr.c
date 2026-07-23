@@ -1,12 +1,12 @@
 /*
- * XREFs of strstr @ 0x14014CF38
+ * XREFs of strstr @ 0x14014D4A8
  * Callers:
- *     InbvDetermineFunction @ 0x1401411B0 (InbvDetermineFunction.c)
- *     HvlDebuggerSupportInitialize @ 0x14014C958 (HvlDebuggerSupportInitialize.c)
+ *     InbvDetermineFunction @ 0x140141720 (InbvDetermineFunction.c)
+ *     HvlDebuggerSupportInitialize @ 0x14014CEC8 (HvlDebuggerSupportInitialize.c)
  *     KiInitializeBootStructures @ 0x1403D4E7C (KiInitializeBootStructures.c)
  *     KiMatchLoadOption @ 0x1403D688C (KiMatchLoadOption.c)
- *     SepIsOptionPresent @ 0x1405539A4 (SepIsOptionPresent.c)
- *     HvlPhase0Initialize @ 0x14057D5D4 (HvlPhase0Initialize.c)
+ *     SepIsOptionPresent @ 0x140553EE4 (SepIsOptionPresent.c)
+ *     HvlPhase0Initialize @ 0x14057DA80 (HvlPhase0Initialize.c)
  *     KdInitSystem @ 0x1406F3740 (KdInitSystem.c)
  *     CcInitializeBcbProfiler @ 0x140777304 (CcInitializeBcbProfiler.c)
  *     MiInitializeBootDefaults @ 0x14078E68C (MiInitializeBootDefaults.c)

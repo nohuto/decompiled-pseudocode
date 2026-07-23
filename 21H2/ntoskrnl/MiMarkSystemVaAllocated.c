@@ -1,24 +1,24 @@
 /*
- * XREFs of MiMarkSystemVaAllocated @ 0x14053DC70
+ * XREFs of MiMarkSystemVaAllocated @ 0x14053DEB0
  * Callers:
- *     MiReservePoolMemory @ 0x1402B2E74 (MiReservePoolMemory.c)
+ *     MiReservePoolMemory @ 0x140231024 (MiReservePoolMemory.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     MiSystemVaToDynamicBitmap @ 0x1402B407C (MiSystemVaToDynamicBitmap.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
- *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     MiExtendDynamicBitMap @ 0x1403C984C (MiExtendDynamicBitMap.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     MiSystemVaToDynamicBitmap @ 0x14023222C (MiSystemVaToDynamicBitmap.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
+ *     RtlSetBitsEx @ 0x140321750 (RtlSetBitsEx.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     MiExtendDynamicBitMap @ 0x1403C99EC (MiExtendDynamicBitMap.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiMarkSystemVaAllocated(int a1, __int64 a2, __int64 a3, int a4, int a5)
@@ -43,18 +43,16 @@ __int64 __fastcall MiMarkSystemVaAllocated(int a1, __int64 a2, __int64 a3, int a
   struct _KTHREAD *v22; // rbx
   unsigned int SessionId; // edx
   unsigned __int8 v24; // r15
-  _DWORD *v25; // r9
-  unsigned int v26; // r8d
-  __int64 v27; // rdi
-  __int64 v28; // rcx
-  __int64 v29; // rdx
-  __int64 v30; // rcx
+  unsigned int v25; // r8d
+  __int64 v26; // rdi
+  __int64 v27; // rcx
+  __int64 v28; // rdx
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v35; // edx
-  int v37; // [rsp+30h] [rbp-38h] BYREF
+  int v33; // edx
+  int v35; // [rsp+30h] [rbp-38h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+38h] [rbp-30h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-28h] BYREF
 
@@ -66,7 +64,7 @@ __int64 __fastcall MiMarkSystemVaAllocated(int a1, __int64 a2, __int64 a3, int a
   if ( a1 == 1 )
   {
     v8 = 0LL;
-    v9 = qword_140C4CDA0;
+    v9 = qword_140C4CDE0;
     CurrentThread = KeGetCurrentThread();
     v5 = CurrentThread->ApcState.Process[1].AffinityPadding[5];
     --CurrentThread->SpecialApcDisable;
@@ -165,7 +163,7 @@ LABEL_33:
     v21 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5] + 824;
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v21, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v21);
-    v37 = 0;
+    v35 = 0;
     v22 = KeGetCurrentThread();
     if ( (unsigned int)MiGetSystemRegionType(v21) == 1 )
       SessionId = MmGetSessionIdEx((__int64)v22->ApcState.Process);
@@ -173,50 +171,49 @@ LABEL_33:
       SessionId = -1;
     --v22->SpecialApcDisable;
     v24 = ++v22->AbAllocationRegionCount;
-    v25 = (_DWORD *)(v21 & 0x7FFFFFFFFFFFFFFCLL);
-    v26 = ((char)v22->AbEntrySummary | (char)v22->AbOrphanedEntrySummary) ^ 0x3F;
+    v25 = ((char)v22->AbEntrySummary | (char)v22->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
-      v19 = !_BitScanReverse((unsigned int *)&v28, v26);
+      v19 = !_BitScanReverse((unsigned int *)&v27, v25);
       if ( v19 )
         goto LABEL_46;
-      v27 = (__int64)&v22->LockEntries[v28];
-      v26 &= ~(1 << v28);
-      if ( (*(_BYTE *)(v27 + 26) & 1) != 0
-        && (*(_DWORD *)(v27 + 32) & 1) == 0
-        && (_DWORD *)(*(_QWORD *)(v27 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v25
-        && *(_DWORD *)(v27 + 40) == SessionId )
+      v26 = (__int64)&v22->LockEntries[v27];
+      v25 &= ~(1 << v27);
+      if ( (*(_BYTE *)(v26 + 26) & 1) != 0
+        && (*(_DWORD *)(v26 + 32) & 1) == 0
+        && (*(_QWORD *)(v26 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v21 & 0x7FFFFFFFFFFFFFFCLL)
+        && *(_DWORD *)(v26 + 40) == SessionId )
       {
-        *(_BYTE *)(v27 + 26) &= ~1u;
-        if ( *(_QWORD *)(v27 + 32) )
+        *(_BYTE *)(v26 + 26) &= ~1u;
+        if ( *(_QWORD *)(v26 + 32) )
           break;
       }
     }
-    if ( !v27 )
+    if ( !v26 )
     {
 LABEL_46:
       if ( (*((_DWORD *)&v22->0 + 1) & 0x10000) == 0 )
         KeBugCheckEx(0x162u, (ULONG_PTR)v22, v21, SessionId, 0LL);
       goto LABEL_53;
     }
-    *(_BYTE *)(v27 + 32) |= 2u;
-    if ( *(__int64 *)(v27 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v27);
-    v37 = *(_DWORD *)(v27 + 88) & 0x1FFFF;
-    *(_DWORD *)(v27 + 88) &= 0xFFFE0000;
-    *(_BYTE *)(v27 + 25) &= ~1u;
-    *(_QWORD *)(v27 + 32) = 0LL;
-    v29 = (signed __int64)(v27 - (unsigned __int64)v22->LockEntries) / 96;
+    *(_BYTE *)(v26 + 32) |= 2u;
+    if ( *(__int64 *)(v26 + 32) < 0 )
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v26);
+    v35 = *(_DWORD *)(v26 + 88) & 0x1FFFF;
+    *(_DWORD *)(v26 + 88) &= 0xFFFE0000;
+    *(_BYTE *)(v26 + 25) &= ~1u;
+    *(_QWORD *)(v26 + 32) = 0LL;
+    v28 = (signed __int64)(v26 - (unsigned __int64)v22->LockEntries) / 96;
     if ( v24 == 1 )
-      v22->AbEntrySummary |= 1 << v29;
+      v22->AbEntrySummary |= 1 << v28;
     else
-      _InterlockedOr8((volatile signed __int8 *)&v22->AbOrphanedEntrySummary, 1 << v29);
+      _InterlockedOr8((volatile signed __int8 *)&v22->AbOrphanedEntrySummary, 1 << v28);
 LABEL_53:
     --v22->AbAllocationRegionCount;
-    KiAbThreadRemoveBoosts((ULONG_PTR)v22, v21, (__int64)&v37, v25);
+    KiAbThreadRemoveBoosts((ULONG_PTR)v22, v21, (unsigned int *)&v35);
     v19 = v22->SpecialApcDisable++ == -1;
     if ( v19 && ($C459BD0D405E8E46662177FB3D0A143F *)v22->ApcState.ApcListHead[0].Flink != &v22->152 )
-      KiCheckForKernelApcDelivery(v30);
+      KiCheckForKernelApcDelivery();
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   }
   else
@@ -232,9 +229,9 @@ LABEL_53:
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v35 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v19 = (v35 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v35;
+          v33 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v19 = (v33 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v33;
           if ( v19 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }

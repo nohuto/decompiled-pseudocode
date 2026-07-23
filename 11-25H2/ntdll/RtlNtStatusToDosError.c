@@ -38,9 +38,9 @@ ULONG __stdcall RtlNtStatusToDosError(NTSTATUS Status)
 {
   NTSTATUS v1; // edx
   struct _TEB *v2; // rax
-  unsigned int v3; // eax
-  unsigned int v4; // ecx
-  unsigned int v5; // r11d
+  unsigned __int32 v3; // eax
+  unsigned __int32 v4; // ecx
+  unsigned __int32 v5; // r11d
   unsigned int v6; // ecx
   unsigned int v7; // r10d
   __int64 v8; // rdx

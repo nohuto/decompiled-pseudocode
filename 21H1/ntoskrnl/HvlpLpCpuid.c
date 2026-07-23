@@ -12,20 +12,12 @@
 char __fastcall HvlpLpCpuid(int a1, unsigned int a2, int a3, _DWORD *a4)
 {
   _DWORD *v13; // rbx
-  _QWORD *v14; // rax
-  __int64 v15; // r8
-  _DWORD *v16; // rdi
-  __int64 v17; // rdx
-  __int64 v18; // r9
-  __int128 v20; // [rsp+28h] [rbp-48h] BYREF
-  __int128 v21; // [rsp+38h] [rbp-38h]
-  __int128 v22; // [rsp+48h] [rbp-28h] BYREF
-  __int128 v23; // [rsp+58h] [rbp-18h]
+  _DWORD *v14; // rdi
+  _OWORD v16[2]; // [rsp+28h] [rbp-48h] BYREF
+  _OWORD v17[2]; // [rsp+48h] [rbp-28h] BYREF
 
-  v22 = 0LL;
-  v23 = 0LL;
-  v20 = 0LL;
-  v21 = 0LL;
+  memset(v17, 0, sizeof(v17));
+  memset(v16, 0, sizeof(v16));
   if ( a1 == -1 )
   {
     _RAX = a2;
@@ -37,22 +29,19 @@ char __fastcall HvlpLpCpuid(int a1, unsigned int a2, int a3, _DWORD *a4)
   }
   else
   {
-    v13 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v22, 1, 0LL, 16LL);
-    v14 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v20, 2, 0LL, 16LL);
-    v15 = *((_QWORD *)&v21 + 1);
-    v16 = v14;
-    v17 = *((_QWORD *)&v23 + 1);
+    v13 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v17, 1, 0LL, 16LL);
+    v14 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v16, 2, 0LL, 16LL);
     *v13 = a1;
     v13[1] = 0x10000;
     v13[2] = a2;
     v13[3] = a3;
-    HvcallInitiateHypercall(136, v17, v15, v18);
-    *a4 = *v16;
-    a4[1] = v16[1];
-    a4[2] = v16[2];
-    a4[3] = v16[3];
-    HvlpReleaseHypercallPage((__int64)&v20);
-    LOBYTE(_RAX) = HvlpReleaseHypercallPage((__int64)&v22);
+    HvcallInitiateHypercall(136);
+    *a4 = *v14;
+    a4[1] = v14[1];
+    a4[2] = v14[2];
+    a4[3] = v14[3];
+    HvlpReleaseHypercallPage((__int64)v16);
+    LOBYTE(_RAX) = HvlpReleaseHypercallPage((__int64)v17);
   }
   return _RAX;
 }

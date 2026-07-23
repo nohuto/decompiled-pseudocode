@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDrvDbMountNode @ 0x140970050
+ * XREFs of PiDrvDbMountNode @ 0x140970250
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x1406D64B0 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1406D64E0 (PiPnpRtlObjectActionCallback.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     PiDrvDbFindNode @ 0x140565040 (PiDrvDbFindNode.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1407C6F90 (ExpAllocateStringRoutine.c)
- *     PiDrvDbRegisterNode @ 0x14081173C (PiDrvDbRegisterNode.c)
- *     PiDrvDbQueryHiveFileName @ 0x140970B64 (PiDrvDbQueryHiveFileName.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     PiDrvDbFindNode @ 0x140565700 (PiDrvDbFindNode.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1407C7260 (ExpAllocateStringRoutine.c)
+ *     PiDrvDbRegisterNode @ 0x140811A0C (PiDrvDbRegisterNode.c)
+ *     PiDrvDbQueryHiveFileName @ 0x140970D64 (PiDrvDbQueryHiveFileName.c)
  */
 
 __int64 __fastcall PiDrvDbMountNode(PCWSTR SourceString)

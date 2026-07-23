@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwWaitForAlertByThreadId @ 0x140727070
+ * XREFs of ZwWaitForAlertByThreadId @ 0x14072BC40
  * Callers:
- *     DifZwWaitForAlertByThreadIdWrapper @ 0x1406BF010 (DifZwWaitForAlertByThreadIdWrapper.c)
+ *     DifZwWaitForAlertByThreadIdWrapper @ 0x1406C2BF0 (DifZwWaitForAlertByThreadIdWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwWaitForAlertByThreadId(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwWaitForAlertByThreadId(PVOID Address, PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Address);
 }

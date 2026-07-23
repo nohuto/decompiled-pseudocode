@@ -11,7 +11,7 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwUnloadKeyWrapper(__int64 a1)
+__int64 __fastcall DifZwUnloadKeyWrapper(POBJECT_ATTRIBUTES TargetKey)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v3; // rsi
@@ -41,7 +41,7 @@ __int64 __fastcall DifZwUnloadKeyWrapper(__int64 a1)
       *(_QWORD *)&v11 = DifGetReturnAddressForWrappers();
     }
     v5 = 0;
-    *((_QWORD *)&v11 + 1) = a1;
+    *((_QWORD *)&v11 + 1) = TargetKey;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v5 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -54,7 +54,7 @@ __int64 __fastcall DifZwUnloadKeyWrapper(__int64 a1)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v12) = ZwUnloadKey(a1);
+  LODWORD(v12) = ZwUnloadKey(TargetKey);
   if ( v3 )
   {
     if ( (v7 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

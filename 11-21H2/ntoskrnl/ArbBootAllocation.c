@@ -4,10 +4,10 @@
  *     <none>
  * Callees:
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  *     memset @ 0x140435E00 (memset.c)
  *     RtlFreeRangeList @ 0x1408397E0 (RtlFreeRangeList.c)
- *     ArbpBuildAlternative @ 0x140839D70 (ArbpBuildAlternative.c)
+ *     sub_140839D70 @ 0x140839D70 (sub_140839D70.c)
  *     RtlCopyRangeList @ 0x14083A400 (RtlCopyRangeList.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
@@ -47,18 +47,18 @@ LABEL_11:
   while ( 1 )
   {
     v10[4] = v6;
-    ArbpBuildAlternative(a1, v6[3], v11);
+    sub_140839D70(a1, v6[3], v11);
     v10[9] = 0LL;
     v10[0] = v11[0];
     v10[1] = v11[1];
     BYTE3(v10[8]) = 0;
     if ( !v11[2] || !v11[3] || v11[1] < v11[0] || v11[0] % v11[3] || v11[1] - v11[0] + 1LL != v11[2] )
       goto LABEL_10;
-    v7 = (*(__int64 (__fastcall **)(__int64, _QWORD *))(a1 + 224))(a1, v10);
+    v7 = sub_14042A5E0(a1, v10);
     if ( v7 < 0 )
       break;
-    (*(void (__fastcall **)(__int64, _QWORD *))(a1 + 256))(a1, v10);
-    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(a1 + 128))(*(_QWORD *)(v10[5] + 40LL), v10[0], v6[9]);
+    sub_14042A5E0(a1, v10);
+    sub_14042A5E0(*(_QWORD *)(v10[5] + 40LL), v10[0]);
     if ( (v10[8] & 0x10) != 0 )
     {
       ExFreePoolWithTag((PVOID)v10[9], 0);

@@ -1,14 +1,16 @@
 /*
- * XREFs of ZwThawRegistry @ 0x1406A9E90
+ * XREFs of ZwThawRegistry @ 0x1406AAE30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwThawRegistry(__int64 a1, __int64 a2)
+NTSTATUS ZwThawRegistry(void)
 {
+  __int64 v0; // rcx
+
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(v0);
 }

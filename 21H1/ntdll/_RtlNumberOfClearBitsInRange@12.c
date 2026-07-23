@@ -6,12 +6,12 @@
  *     _RtlNumberOfSetBitsInRange@12 @ 0x4B34F810 (_RtlNumberOfSetBitsInRange@12.c)
  */
 
-int __stdcall RtlNumberOfClearBitsInRange(int a1, int a2, int a3)
+ULONG __cdecl RtlNumberOfClearBitsInRange(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG Length)
 {
-  int result; // eax
+  ULONG result; // eax
 
-  result = RtlNumberOfSetBitsInRange(a1, a2, a3);
+  result = RtlNumberOfSetBitsInRange(BitMapHeader, StartingIndex, Length);
   if ( result != -1 )
-    return a3 - result;
+    return Length - result;
   return result;
 }

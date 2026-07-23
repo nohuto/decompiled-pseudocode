@@ -15,110 +15,102 @@
  *     LdrpEventAddUnicodeString @ 0x1800CED2C (LdrpEventAddUnicodeString.c)
  */
 
-struct _PEB *__fastcall LdrpLogDelayLoadTrigger(__int64 a1, __int64 a2, __int64 a3, int a4)
+int __fastcall LdrpLogDelayLoadTrigger(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  __int64 v8; // rdx
-  __int64 v9; // rdi
-  __int64 v10; // rcx
-  __int64 v11; // rbx
-  struct _PEB *result; // rax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  char *v15; // rdx
-  __int64 v16; // r13
-  unsigned int v17; // esi
-  unsigned int v18; // r15d
-  struct _PEB *v19; // r14
-  unsigned int v20; // esi
-  __int64 v21; // rbx
-  unsigned int v22; // esi
-  __int64 v23; // rbx
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  unsigned int v26; // [rsp+30h] [rbp-39h] BYREF
-  int v27; // [rsp+34h] [rbp-35h] BYREF
-  char *v28; // [rsp+38h] [rbp-31h] BYREF
-  STRING DestinationString; // [rsp+40h] [rbp-29h] BYREF
-  STRING v30; // [rsp+50h] [rbp-19h] BYREF
+  __int64 v8; // rdi
+  __int64 v9; // rcx
+  __int64 v10; // rbx
+  struct _PEB *Heap; // rax
+  __int64 v12; // rcx
+  char *v13; // rcx
+  char *v14; // rdx
+  __int64 v15; // r13
+  unsigned int v16; // esi
+  unsigned int v17; // r15d
+  struct _PEB *v18; // r14
+  unsigned int v19; // esi
+  __int64 v20; // rbx
+  unsigned int v21; // esi
+  __int64 v22; // rbx
+  unsigned int v24; // [rsp+30h] [rbp-39h] BYREF
+  int v25; // [rsp+34h] [rbp-35h] BYREF
+  CHAR *v26; // [rsp+38h] [rbp-31h] BYREF
+  _STRING DestinationString; // [rsp+40h] [rbp-29h] BYREF
+  _STRING v28; // [rsp+50h] [rbp-19h] BYREF
   char Buffer[16]; // [rsp+60h] [rbp-9h] BYREF
 
-  v9 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2) )
-    v10 = (__int64)NtCurrentPeb()->SharedData + 554;
+  v8 = 2147353476LL;
+  if ( RtlGetCurrentServiceSessionId() )
+    v9 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
-    v10 = 2147353476LL;
-  v11 = 2147353477LL;
-  if ( *(_BYTE *)v10 )
+    v9 = 2147353476LL;
+  v10 = 2147353477LL;
+  if ( *(_BYTE *)v9 )
   {
-    v10 = (unsigned int)RtlGetCurrentServiceSessionId(v10, v8)
-        ? (__int64)NtCurrentPeb()->SharedData + 555
-        : 2147353477LL;
-    if ( (*(_BYTE *)v10 & 0x10) != 0 )
+    v13 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    if ( (*v13 & 0x10) != 0 )
       goto LABEL_19;
   }
-  result = (struct _PEB *)RtlGetCurrentServiceSessionId(v10, v8);
-  if ( (_DWORD)result )
+  LODWORD(Heap) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)Heap )
   {
-    result = NtCurrentPeb();
-    v14 = (__int64)result->SharedData + 554;
+    Heap = NtCurrentPeb();
+    v12 = (__int64)Heap->SharedData + 554;
   }
   else
   {
-    v14 = 2147353476LL;
+    v12 = 2147353476LL;
   }
-  if ( *(_BYTE *)v14 )
+  if ( *(_BYTE *)v12 )
   {
-    result = NtCurrentPeb();
-    if ( (result->TracingFlags & 4) != 0 )
+    Heap = NtCurrentPeb();
+    if ( (Heap->TracingFlags & 4) != 0 )
     {
-      result = (struct _PEB *)RtlGetCurrentServiceSessionId(v14, v13);
-      if ( (_DWORD)result )
+      LODWORD(Heap) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)Heap )
       {
-        result = NtCurrentPeb();
-        v11 = (__int64)result->SharedData + 555;
+        Heap = NtCurrentPeb();
+        v10 = (__int64)Heap->SharedData + 555;
       }
-      if ( (*(_BYTE *)v11 & 0x20) != 0 )
+      if ( (*(_BYTE *)v10 & 0x20) != 0 )
       {
 LABEL_19:
-        v28 = (char *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 4));
-        RtlInitAnsiString(&DestinationString, v28);
-        LdrpGetDelayloadAPIInfo(a1, a2, a4, (unsigned int)&v28, (__int64)&v27);
-        v15 = v28;
-        if ( !v28 )
+        v26 = (CHAR *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 4));
+        RtlInitAnsiString(&DestinationString, v26);
+        LdrpGetDelayloadAPIInfo(a1, a2, a4, (unsigned int)&v26, (__int64)&v25);
+        v14 = v26;
+        if ( !v26 )
         {
-          sprintf_s(Buffer, 0xCuLL, "#%u", v27);
-          v15 = Buffer;
+          sprintf_s(Buffer, 0xCuLL, "#%u", v25);
+          v14 = Buffer;
         }
-        RtlInitAnsiString(&v30, v15);
-        v16 = a1 + 72;
-        v17 = *(unsigned __int16 *)(a1 + 72)
+        RtlInitAnsiString(&v28, v14);
+        v15 = a1 + 72;
+        v16 = *(unsigned __int16 *)(a1 + 72)
             + *(unsigned __int16 *)(a3 + 72)
-            + 2 * (DestinationString.Length + v30.Length + 4);
-        v18 = v17 + 36;
-        result = (struct _PEB *)RtlAllocateHeap(
-                                  NtCurrentPeb()->ProcessHeap,
-                                  (unsigned int)(NtdllBaseTag + 1572864),
-                                  v17 + 36);
-        v19 = result;
-        if ( result )
+            + 2 * (DestinationString.Length + v28.Length + 4);
+        v17 = v16 + 36;
+        Heap = (struct _PEB *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v16 + 36);
+        v18 = Heap;
+        if ( Heap )
         {
-          LODWORD(result->ProcessParameters) = 3;
-          *(_WORD *)&result->Padding0[2] = 5334;
-          LdrpEventAddUnicodeString(v16, (char *)&result->ProcessParameters + 4, v17, &v26);
-          v20 = v17 - v26;
-          v21 = (__int64)&v19->ProcessParameters + v26 + 4;
-          LdrpEventAddUnicodeString(a3 + 72, v21, v20, &v26);
-          v22 = v20 - v26;
-          v23 = v26 + v21;
-          LdrpEventAddAnsiString(&DestinationString, v23, v22, &v26);
-          LdrpEventAddAnsiString(&v30, v23 + v26, v22 - v26, &v26);
-          if ( (unsigned int)RtlGetCurrentServiceSessionId(v25, v24) )
-            v9 = (__int64)NtCurrentPeb()->SharedData + 554;
-          NtTraceEvent(*(unsigned __int8 *)v9, 1026LL, v18 - 32, v19);
-          return (struct _PEB *)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v19);
+          LODWORD(Heap->ProcessParameters) = 3;
+          *(_WORD *)&Heap->Padding0[2] = 5334;
+          LdrpEventAddUnicodeString(v15, (char *)&Heap->ProcessParameters + 4, v16, &v24);
+          v19 = v16 - v24;
+          v20 = (__int64)&v18->ProcessParameters + v24 + 4;
+          LdrpEventAddUnicodeString(a3 + 72, v20, v19, &v24);
+          v21 = v19 - v24;
+          v22 = v24 + v20;
+          LdrpEventAddAnsiString(&DestinationString, v22, v21, &v24);
+          LdrpEventAddAnsiString(&v28, v22 + v24, v21 - v24, &v24);
+          if ( RtlGetCurrentServiceSessionId() )
+            v8 = (__int64)NtCurrentPeb()->SharedData + 554;
+          NtTraceEvent((HANDLE)*(unsigned __int8 *)v8, 0x402u, v17 - 32, v18);
+          LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v18);
         }
       }
     }
   }
-  return result;
+  return (int)Heap;
 }

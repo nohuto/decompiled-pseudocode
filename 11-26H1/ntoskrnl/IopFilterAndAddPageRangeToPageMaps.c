@@ -1,9 +1,9 @@
 /*
- * XREFs of IopFilterAndAddPageRangeToPageMaps @ 0x1405D55E0
+ * XREFs of IopFilterAndAddPageRangeToPageMaps @ 0x1405D7DD0
  * Callers:
- *     IopAddPageToPageMap @ 0x1404E8F3C (IopAddPageToPageMap.c)
+ *     IopAddPageToPageMap @ 0x1404E236C (IopAddPageToPageMap.c)
  * Callees:
- *     IopSearchAndAddPageRangeToPageMaps @ 0x1404E8FD8 (IopSearchAndAddPageRangeToPageMaps.c)
+ *     IopSearchAndAddPageRangeToPageMaps @ 0x1404E2408 (IopSearchAndAddPageRangeToPageMaps.c)
  */
 
 __int64 __fastcall IopFilterAndAddPageRangeToPageMaps(

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAddLoaderHalIoPte @ 0x140CF1510
+ * XREFs of MiAddLoaderHalIoPte @ 0x140CF7890
  * Callers:
  *     <none>
  * Callees:
- *     MiReferenceIoPages @ 0x1402EFF98 (MiReferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x1402D2018 (MiReferenceIoPages.c)
  */
 
 __int64 __fastcall MiAddLoaderHalIoPte(__int64 a1, unsigned __int64 *a2, int a3)
@@ -18,7 +18,7 @@ __int64 __fastcall MiAddLoaderHalIoPte(__int64 a1, unsigned __int64 *a2, int a3)
   if ( (*a2 & 1) != 0 )
   {
     v5 = (v3 >> 12) & 0xFFFFFFFFFFLL;
-    if ( v5 > qword_140E2D7A0 || ((*(_QWORD *)(48 * v5 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
+    if ( v5 > qword_140E2D920 || ((*(_QWORD *)(48 * v5 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
     {
       if ( (v3 & 0x80u) == 0LL )
       {

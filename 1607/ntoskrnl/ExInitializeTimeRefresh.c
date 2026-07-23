@@ -1,13 +1,13 @@
 /*
  * XREFs of ExInitializeTimeRefresh @ 0x1407AE678
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x14055EB0C (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x14055F04C (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     KeInitializeTimer2 @ 0x14007DD48 (KeInitializeTimer2.c)
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
- *     ZwLockProductActivationKeys @ 0x14015BC60 (ZwLockProductActivationKeys.c)
- *     ExGetExpirationDate @ 0x14052DAA8 (ExGetExpirationDate.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     KeInitializeTimer2 @ 0x14007DDC8 (KeInitializeTimer2.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
+ *     ZwLockProductActivationKeys @ 0x14015C1D0 (ZwLockProductActivationKeys.c)
+ *     ExGetExpirationDate @ 0x14052DFE8 (ExGetExpirationDate.c)
  */
 
 __int64 *ExInitializeTimeRefresh()
@@ -32,10 +32,10 @@ __int64 *ExInitializeTimeRefresh()
     ExpShuttingDown = 0;
   }
   LODWORD(ExpTimeRefreshDpc) = 275;
-  qword_1402FCCF8 = (__int64)ExpTimeRefreshDpcRoutine;
-  qword_1402FCD18 = 0LL;
-  qword_1402FCD00 = (__int64)&ExpOkToTimeRefresh;
-  qword_1402FCCF0 = 0LL;
+  qword_1402FCCD8 = (__int64)ExpTimeRefreshDpcRoutine;
+  qword_1402FCCF8 = 0LL;
+  qword_1402FCCE0 = (__int64)&ExpOkToTimeRefresh;
+  qword_1402FCCD0 = 0LL;
   ExpTimeRefreshWorkItem.WorkerRoutine = (void (__fastcall *)(void *))ExpTimeRefreshWork;
   ExpTimeRefreshWorkItem.Parameter = 0LL;
   ExpTimeRefreshWorkItem.List.Flink = 0LL;

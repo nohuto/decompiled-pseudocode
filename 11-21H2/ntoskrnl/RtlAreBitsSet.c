@@ -1,19 +1,19 @@
 /*
  * XREFs of RtlAreBitsSet @ 0x1402DC360
  * Callers:
- *     MiReleaseDriverPtes @ 0x14076200C (MiReleaseDriverPtes.c)
- *     MiCheckUnsupportedSections @ 0x140972BD4 (MiCheckUnsupportedSections.c)
+ *     sub_14076200C @ 0x14076200C (sub_14076200C.c)
+ *     sub_140972BD4 @ 0x140972BD4 (sub_140972BD4.c)
  * Callees:
  *     <none>
  */
 
 BOOLEAN __stdcall RtlAreBitsSet(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG Length)
 {
-  unsigned int *Buffer; // rcx
+  PULONG Buffer; // rcx
   char v6; // bl
-  unsigned int *v7; // rdx
-  unsigned int v8; // r10d
-  unsigned int *v9; // r11
+  ULONG *v7; // rdx
+  ULONG v8; // r10d
+  ULONG *v9; // r11
   bool i; // zf
 
   if ( StartingIndex >= BitMapHeader->SizeOfBitMap )

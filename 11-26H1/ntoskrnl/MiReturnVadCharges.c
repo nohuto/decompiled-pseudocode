@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReturnVadCharges @ 0x1409C6974
+ * XREFs of MiReturnVadCharges @ 0x140997954
  * Callers:
- *     MiDeleteNewlyCreatedPartialVads @ 0x14087EFD4 (MiDeleteNewlyCreatedPartialVads.c)
- *     MiInsertVadCharges @ 0x1409C5DC0 (MiInsertVadCharges.c)
+ *     MiDeleteNewlyCreatedPartialVads @ 0x1408853D4 (MiDeleteNewlyCreatedPartialVads.c)
+ *     MiInsertVadCharges @ 0x140996DA0 (MiInsertVadCharges.c)
  * Callees:
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiConfirmQuotaAmount @ 0x1403BCDC0 (MiConfirmQuotaAmount.c)
- *     MiConfirmQuotaProcess @ 0x1403BCE04 (MiConfirmQuotaProcess.c)
- *     PsReturnProcessPagedPoolQuota @ 0x1403BCF90 (PsReturnProcessPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403BD130 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiConfirmQuotaAmount @ 0x1403C6C30 (MiConfirmQuotaAmount.c)
+ *     MiConfirmQuotaProcess @ 0x1403C6C74 (MiConfirmQuotaProcess.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1403C6E00 (PsReturnProcessPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403C6FA0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
  */
 
 void __fastcall MiReturnVadCharges(__int64 a1, _QWORD *a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBatteryTracePercentageRemaining @ 0x14086D5AC
+ * XREFs of PopBatteryTracePercentageRemaining @ 0x14086E80C
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14071B3E8 (PopBatteryApplyCompositeState.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a4)
@@ -106,7 +106,7 @@ char __fastcall PopBatteryTracePercentageRemaining(int a1, int a2, int a3, int a
       v31 = 4;
       v34 = 4;
       v37 = 4;
-      LOBYTE(v4) = TlgWrite(&pCallbackContext, &unk_14036F0CD, 0LL, 0LL, 6u, &pData);
+      LOBYTE(v4) = TlgWrite(&pCallbackContext, &unk_140370009, 0LL, 0LL, 6u, &pData);
     }
   }
   return (char)v4;

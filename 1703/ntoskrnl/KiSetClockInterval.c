@@ -10,26 +10,26 @@
  *     KiSetClockIntervalToMinimumRequested @ 0x140067EE0 (KiSetClockIntervalToMinimumRequested.c)
  */
 
-__int64 __fastcall KiSetClockInterval(unsigned int a1, char a2, unsigned __int64 a3)
+__int64 __fastcall KiSetClockInterval(unsigned int a1, char a2, __int64 a3)
 {
-  bool v6; // r8
-  unsigned __int64 v7; // rdx
-  unsigned __int64 v8; // rax
+  BOOLEAN v6; // r8
+  _RTL_BALANCED_NODE *Root; // rdx
+  _RTL_BALANCED_NODE *v8; // rax
   __int64 result; // rax
 
   if ( *(_BYTE *)(a3 + 24) )
-    RtlRbRemoveNode((__int64)&KiClockIntervalRequests, (unsigned __int64 *)a3);
+    RtlRbRemoveNode(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)a3);
   *(_DWORD *)(a3 + 28) = a1;
   v6 = 0;
-  v7 = KiClockIntervalRequests;
-  if ( KiClockIntervalRequests )
+  Root = KiClockIntervalRequests.Root;
+  if ( KiClockIntervalRequests.Root )
   {
     while ( 1 )
     {
-      if ( a1 >= *(_DWORD *)(v7 + 28) )
+      if ( a1 >= HIDWORD(Root[1].Left) )
       {
-        v8 = *(_QWORD *)(v7 + 8);
-        if ( (qword_140384FB0 & 1) != 0 )
+        v8 = Root->Children[1];
+        if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
         {
           if ( !v8 )
           {
@@ -37,15 +37,15 @@ LABEL_13:
             v6 = 1;
             break;
           }
-          v8 ^= v7;
+          v8 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v8);
         }
         if ( !v8 )
           goto LABEL_13;
       }
       else
       {
-        v8 = *(_QWORD *)v7;
-        if ( (qword_140384FB0 & 1) != 0 )
+        v8 = Root->Children[0];
+        if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
         {
           if ( !v8 )
           {
@@ -53,15 +53,15 @@ LABEL_7:
             v6 = 0;
             break;
           }
-          v8 ^= v7;
+          v8 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v8);
         }
         if ( !v8 )
           goto LABEL_7;
       }
-      v7 = v8;
+      Root = v8;
     }
   }
-  RtlRbInsertNodeEx((__int64)&KiClockIntervalRequests, v7, v6, a3);
+  RtlRbInsertNodeEx(&KiClockIntervalRequests, Root, v6, (PRTL_BALANCED_NODE)a3);
   *(_BYTE *)(a3 + 24) = 1;
   result = KiSetClockIntervalToMinimumRequested();
   if ( a2 )

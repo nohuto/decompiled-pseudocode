@@ -1,21 +1,21 @@
 /*
- * XREFs of PpmEventHgsHardwareTableResonChanged @ 0x140502714
+ * XREFs of PpmEventHgsHardwareTableResonChanged @ 0x1404FBFE4
  * Callers:
- *     PpmHeteroUpdateHgsConfiguration @ 0x14025B888 (PpmHeteroUpdateHgsConfiguration.c)
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x140517458 (PpmHeteroUpdateHgsConfiguration.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PpmEventHgsHardwareTableResonChanged(char a1)
 {
   const EVENT_DESCRIPTOR *v1; // rbx
   _BYTE *Pool2; // rdi
-  _BYTE *KernelStack; // r8
+  _BYTE *v3; // r8
   __int64 v4; // r9
   __int64 v5; // rdx
   char v6; // al
@@ -33,15 +33,15 @@ void __fastcall PpmEventHgsHardwareTableResonChanged(char a1)
     v1 = &PPM_ETW_WPS_DYNAMIC_UPDATE_REASON;
   if ( PpmEtwRegistered )
   {
-    if ( EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v1) )
+    if ( EtwEventEnabled(PpmEtwHandle, v1) )
     {
       v7 = PpmHeteroWorkloadClasses;
       v8 = PpmHeteroWorkloadClasses;
       Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL);
       if ( Pool2 )
       {
-        KernelStack = PopSleepstudySessionLock.KernelStack;
-        if ( PopSleepstudySessionLock.KernelStack && *(_QWORD *)&PopSleepstudySessionLock.CurrentRunTime )
+        v3 = PpmHeteroHgsOldUpdateReason;
+        if ( PpmHeteroHgsOldUpdateReason && PpmHeteroHgsNewUpdateReason )
         {
           *(_QWORD *)&UserData.Size = 4LL;
           UserData.Ptr = (ULONGLONG)&v7;
@@ -51,22 +51,14 @@ void __fastcall PpmEventHgsHardwareTableResonChanged(char a1)
           {
             v5 = 3 * v4;
             *(_DWORD *)&Pool2[2 * v5] = v4;
-            Pool2[2 * v5 + 4] = KernelStack[2 * v4];
-            v6 = KernelStack[2 * v4 + 1];
+            Pool2[2 * v5 + 4] = v3[2 * v4];
+            v6 = v3[2 * v4 + 1];
             v4 = (unsigned int)(v4 + 1);
           }
           v12 = Pool2;
           v14 = 0;
           v13 = 6 * v8;
-          EtwWriteEx(
-            (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-            v1,
-            0LL,
-            0,
-            0LL,
-            0LL,
-            3u,
-            &UserData);
+          EtwWriteEx(PpmEtwHandle, v1, 0LL, 0, 0LL, 0LL, 3u, &UserData);
         }
         ExFreePoolWithTag(Pool2, 0x654D5050u);
       }

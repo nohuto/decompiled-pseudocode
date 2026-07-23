@@ -1,24 +1,24 @@
 /*
- * XREFs of PiProcessQueryDeviceState @ 0x1408BB868
+ * XREFs of PiProcessQueryDeviceState @ 0x1408B91C4
  * Callers:
- *     PiProcessRequeryDeviceState @ 0x1408BB67C (PiProcessRequeryDeviceState.c)
- *     PipProcessStartPhase3 @ 0x14099006C (PipProcessStartPhase3.c)
+ *     PiProcessRequeryDeviceState @ 0x1408B902C (PiProcessRequeryDeviceState.c)
+ *     PipProcessStartPhase3 @ 0x14097B0A4 (PipProcessStartPhase3.c)
  * Callees:
- *     PoFxIdleDevice @ 0x1403D76E4 (PoFxIdleDevice.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopDecDisableableDepends @ 0x1407339E8 (IopDecDisableableDepends.c)
- *     PiUpdateDeviceResourceLists @ 0x14073646C (PiUpdateDeviceResourceLists.c)
- *     PnpPoFxActivateDevice @ 0x1408BB7C0 (PnpPoFxActivateDevice.c)
- *     IopSynchronousCall @ 0x1408BBC08 (IopSynchronousCall.c)
- *     PiPnpRtlBeginOperation @ 0x1408CBF78 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1408CC158 (PiPnpRtlEndOperation.c)
- *     PipClearDevNodeUserFlags @ 0x14098E9D4 (PipClearDevNodeUserFlags.c)
- *     PnpCheckForActiveDependencies @ 0x140A0F7A4 (PnpCheckForActiveDependencies.c)
- *     PnpRequestDeviceRemoval @ 0x140A1132C (PnpRequestDeviceRemoval.c)
- *     PiUpdateGuestAssignedState @ 0x140A63048 (PiUpdateGuestAssignedState.c)
- *     IopIncDisableableDepends @ 0x140A89FB4 (IopIncDisableableDepends.c)
- *     IopResourceRequirementsChanged @ 0x140AC25FC (IopResourceRequirementsChanged.c)
- *     PipSetDevNodeUserFlags @ 0x140AC3794 (PipSetDevNodeUserFlags.c)
+ *     PoFxIdleDevice @ 0x1402F11C4 (PoFxIdleDevice.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopDecDisableableDepends @ 0x14073191C (IopDecDisableableDepends.c)
+ *     PiUpdateDeviceResourceLists @ 0x14073439C (PiUpdateDeviceResourceLists.c)
+ *     PnpPoFxActivateDevice @ 0x1408B9170 (PnpPoFxActivateDevice.c)
+ *     IopSynchronousCall @ 0x1408B9564 (IopSynchronousCall.c)
+ *     PiPnpRtlBeginOperation @ 0x1408C99A8 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x1408C9B88 (PiPnpRtlEndOperation.c)
+ *     PipClearDevNodeUserFlags @ 0x140979A0C (PipClearDevNodeUserFlags.c)
+ *     PnpCheckForActiveDependencies @ 0x1409BDBB4 (PnpCheckForActiveDependencies.c)
+ *     PnpRequestDeviceRemoval @ 0x1409BF73C (PnpRequestDeviceRemoval.c)
+ *     PiUpdateGuestAssignedState @ 0x140A5B948 (PiUpdateGuestAssignedState.c)
+ *     IopIncDisableableDepends @ 0x140A863B4 (IopIncDisableableDepends.c)
+ *     IopResourceRequirementsChanged @ 0x140ABD8E4 (IopResourceRequirementsChanged.c)
+ *     PipSetDevNodeUserFlags @ 0x140ABF118 (PipSetDevNodeUserFlags.c)
  */
 
 __int64 __fastcall PiProcessQueryDeviceState(__int64 a1, __int64 a2, __int64 a3)
@@ -106,7 +106,7 @@ LABEL_13:
         goto LABEL_13;
       }
       if ( (v6 & 0x80u) != 0 )
-        updated = PiUpdateDeviceResourceLists((_QWORD *)v5);
+        updated = PiUpdateDeviceResourceLists(v5);
     }
   }
 LABEL_19:

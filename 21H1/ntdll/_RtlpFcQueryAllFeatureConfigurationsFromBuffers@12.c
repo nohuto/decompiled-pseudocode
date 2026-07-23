@@ -12,6 +12,7 @@ int __fastcall RtlpFcQueryAllFeatureConfigurationsFromBuffers(int a1, void *a2, 
   int v5; // ecx
   unsigned int v6; // edx
   unsigned int v7; // ecx
+  size_t v9; // [esp-4h] [ebp-Ch]
 
   v3 = *(unsigned int **)(a1 + 8);
   if ( v3 )
@@ -21,7 +22,8 @@ int __fastcall RtlpFcQueryAllFeatureConfigurationsFromBuffers(int a1, void *a2, 
     *a3 = *v3;
     if ( v6 <= v7 )
     {
-      memcpy(a2, v3 + 1, 12 * *v3);
+      LODWORD(v9) = 12 * *v3;
+      memcpy(a2, v3 + 1, v9);
       return 0;
     }
     else

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopTraceZoneCr3Tripped @ 0x1405D69D8
+ * XREFs of PopTraceZoneCr3Tripped @ 0x1405D3FEC
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x14049EC88 (PopCheckAndHandleThermalConditions.c)
+ *     PopCheckAndHandleThermalConditions @ 0x140499AC0 (PopCheckAndHandleThermalConditions.c)
  * Callees:
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x1402D4B68 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140355DE8 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void *__fastcall PopTraceZoneCr3Tripped(int a1, __int64 a2)
@@ -54,8 +54,8 @@ void *__fastcall PopTraceZoneCr3Tripped(int a1, __int64 a2)
   if ( result )
   {
     if ( *(_QWORD *)(*((_QWORD *)result + 39) + 40LL)
-      && (unsigned int)dword_140E076F0 > 5
-      && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+      && (unsigned int)dword_140E07680 > 5
+      && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
     {
       v8 = *(_BYTE *)(a2 + 65);
       v21 = 0;
@@ -87,8 +87,8 @@ void *__fastcall PopTraceZoneCr3Tripped(int a1, __int64 a2)
       tlgCreate1Sz_wchar_t((__int64)v37, v10);
       tlgCreate1Sz_wchar_t((__int64)v38, v11);
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E076F0,
-        (unsigned __int8 *)byte_140049C01,
+        (__int64)&dword_140E07680,
+        (unsigned __int8 *)byte_14004A335,
         0LL,
         0LL,
         0xAu,

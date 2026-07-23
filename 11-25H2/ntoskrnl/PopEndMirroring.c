@@ -31,7 +31,7 @@ __int64 __fastcall PopEndMirroring(ULONG_PTR BugCheckParameter3)
   int v10; // esi
   __int64 v11; // rcx
   __int64 v12; // rcx
-  struct _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-29h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-29h] BYREF
   __int128 v14; // [rsp+40h] [rbp-19h]
   __int64 v15; // [rsp+50h] [rbp-9h]
   struct _KDPC Dpc; // [rsp+60h] [rbp+7h] BYREF

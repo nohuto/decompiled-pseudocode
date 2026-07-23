@@ -1,11 +1,11 @@
 /*
- * XREFs of PopRemoveReasonRecordByReasonCode @ 0x1403F3E6C
+ * XREFs of PopRemoveReasonRecordByReasonCode @ 0x1403F2D30
  * Callers:
- *     PopLogDisabledSleepReason @ 0x1403F3C04 (PopLogDisabledSleepReason.c)
- *     PopFilterCapabilities @ 0x1403F3CF4 (PopFilterCapabilities.c)
- *     PopEnableHiberFile @ 0x14056C7F8 (PopEnableHiberFile.c)
+ *     PopLogDisabledSleepReason @ 0x1403F2AC8 (PopLogDisabledSleepReason.c)
+ *     PopFilterCapabilities @ 0x1403F2BB8 (PopFilterCapabilities.c)
+ *     PopEnableHiberFile @ 0x14056CD38 (PopEnableHiberFile.c)
  * Callees:
- *     PopGetReasonListByReasonCode @ 0x1403F3EB0 (PopGetReasonListByReasonCode.c)
+ *     PopGetReasonListByReasonCode @ 0x1403F2D74 (PopGetReasonListByReasonCode.c)
  */
 
 void PopRemoveReasonRecordByReasonCode()

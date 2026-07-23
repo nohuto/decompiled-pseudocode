@@ -16,11 +16,11 @@
  *     RtlCreateAcl @ 0x1404D058C (RtlCreateAcl.c)
  */
 
-_QWORD *PiUEventInitClientRegistrationContext()
+_WNF_STATE_NAME *PiUEventInitClientRegistrationContext()
 {
   ACL *v0; // rbx
-  _QWORD *PoolWithTag; // rax
-  _QWORD *v2; // rdi
+  _WNF_STATE_NAME *PoolWithTag; // rax
+  _WNF_STATE_NAME *v2; // rdi
   struct _FAST_MUTEX *v3; // rax
   PSID v4; // rsi
   ULONG v5; // ebx
@@ -32,22 +32,22 @@ _QWORD *PiUEventInitClientRegistrationContext()
   _BYTE SecurityDescriptor[48]; // [rsp+40h] [rbp-48h] BYREF
 
   v0 = 0LL;
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x90uLL, 0x59706E50u);
+  PoolWithTag = (_WNF_STATE_NAME *)ExAllocatePoolWithTag(PagedPool, 0x90uLL, 0x59706E50u);
   v2 = PoolWithTag;
   if ( PoolWithTag )
   {
     memset(PoolWithTag, 0, 0x90uLL);
     v3 = (struct _FAST_MUTEX *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x59706E50u);
-    v2[2] = v3;
+    v2[2] = (_WNF_STATE_NAME)v3;
     if ( !v3 )
       goto LABEL_16;
     KeInitializeGuardedMutex(v3);
-    v2[15] = v2 + 14;
-    v2[14] = v2 + 14;
-    v2[13] = v2 + 12;
-    v2[12] = v2 + 12;
-    *((_DWORD *)v2 + 33) = 4;
-    *((_BYTE *)v2 + 140) = 1;
+    v2[15] = (_WNF_STATE_NAME)&v2[14];
+    v2[14] = (_WNF_STATE_NAME)&v2[14];
+    v2[13] = (_WNF_STATE_NAME)&v2[12];
+    v2[12] = (_WNF_STATE_NAME)&v2[12];
+    v2[16].Data[1] = 4;
+    LOBYTE(v2[17].Data[1]) = 1;
     if ( RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) < 0
       || (v4 = SeLocalSystemSid, RtlSetOwnerSecurityDescriptor(SecurityDescriptor, SeLocalSystemSid, 1u) < 0)
       || (v5 = RtlLengthSid(*(PSID *)&SeLowMandatorySid),
@@ -62,7 +62,7 @@ _QWORD *PiUEventInitClientRegistrationContext()
       || (int)RtlpAddKnownAce((int)v0, 2, 2, 1, SeAllAppPackagesSid, 0) < 0
       || (int)RtlpAddKnownAce((int)v0, 2, 2, 1, *(void **)&SeLowMandatorySid, 0) < 0
       || RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v0, 0) < 0
-      || (int)ZwCreateWnfStateName((__int64)(v2 + 11), 3LL, 0LL) < 0 )
+      || ZwCreateWnfStateName(v2 + 11, WnfTemporaryStateName, WnfDataScopeSystem, 0, 0LL, 4u, SecurityDescriptor) < 0 )
     {
 LABEL_16:
       v11 = (void *)v2[2];

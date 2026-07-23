@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpComputeLogFillLevel @ 0x140A05A68
+ * XREFs of CmpComputeLogFillLevel @ 0x140A01F98
  * Callers:
- *     CmpTransWriteLog @ 0x140A0592C (CmpTransWriteLog.c)
+ *     CmpTransWriteLog @ 0x140A01E5C (CmpTransWriteLog.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpComputeLogFillLevel(
@@ -32,7 +32,7 @@ __int64 __fastcall CmpComputeLogFillLevel(
   if ( !ClfsLsnInvalid(plsnStart) && !ClfsLsnInvalid(plsnFinish) && !ClfsLsnEqual(plsnStart, plsnFinish) )
     LogFileInformation = ClfsLsnDifference(plsnStart, plsnFinish, cbContainer, 0x1000u, &pcbDifference);
   pcbInfoBuffer = 120;
-  Pool2 = (CLFS_INFORMATION *)ExAllocatePool2(0x100uLL);
+  Pool2 = (CLFS_INFORMATION *)ExAllocatePool2(0x100uLL, 0x78uLL, 0x20204D43u);
   v12 = Pool2;
   if ( Pool2 )
   {

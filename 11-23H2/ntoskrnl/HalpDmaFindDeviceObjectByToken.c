@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaFindDeviceObjectByToken @ 0x140390904
+ * XREFs of HalpDmaFindDeviceObjectByToken @ 0x140390AE4
  * Callers:
- *     HalPnpGetDmaAdapter @ 0x1403908C0 (HalPnpGetDmaAdapter.c)
- *     HalpDmaCheckAdapterToken @ 0x1405014B0 (HalpDmaCheckAdapterToken.c)
- *     HaliGetDmaAdapter @ 0x140504FC0 (HaliGetDmaAdapter.c)
- *     HalpDmaLinkDeviceObjectByToken @ 0x1408278B0 (HalpDmaLinkDeviceObjectByToken.c)
+ *     HalPnpGetDmaAdapter @ 0x140390AA0 (HalPnpGetDmaAdapter.c)
+ *     HalpDmaCheckAdapterToken @ 0x140501A00 (HalpDmaCheckAdapterToken.c)
+ *     HaliGetDmaAdapter @ 0x140505510 (HaliGetDmaAdapter.c)
+ *     HalpDmaLinkDeviceObjectByToken @ 0x140827BB0 (HalpDmaLinkDeviceObjectByToken.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -62,10 +62,13 @@ __int64 __fastcall HalpDmaFindDeviceObjectByToken(__int64 a1, char a2, char a3)
     v10 = (__int64 *)*v10;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&HalpDmaPdoListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v11 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

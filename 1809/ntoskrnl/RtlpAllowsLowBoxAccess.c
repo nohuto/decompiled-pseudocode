@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpAllowsLowBoxAccess @ 0x1401330C0
+ * XREFs of RtlpAllowsLowBoxAccess @ 0x140133190
  * Callers:
- *     RtlpLookupLowBox @ 0x1400892B0 (RtlpLookupLowBox.c)
+ *     RtlpLookupLowBox @ 0x1400892A0 (RtlpLookupLowBox.c)
  * Callees:
  *     RtlStringCbCopyW @ 0x1400073A0 (RtlStringCbCopyW.c)
  *     SeAccessCheckWithHint @ 0x1400157C0 (SeAccessCheckWithHint.c)
  *     SeSetLearningModeObjectInformation @ 0x14004E020 (SeSetLearningModeObjectInformation.c)
  *     SeClearLearningModeObjectInformation @ 0x14004E050 (SeClearLearningModeObjectInformation.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsReferenceEffectiveToken @ 0x1406492B0 (PsReferenceEffectiveToken.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PsReferenceEffectiveToken @ 0x14064A470 (PsReferenceEffectiveToken.c)
  */
 
 char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
@@ -44,7 +44,7 @@ char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
   memset(v18, 0, sizeof(v18));
   if ( (*(_BYTE *)(a1 + 38) & 2) != 0 )
     return 1;
-  if ( !byte_1404400A4 )
+  if ( !byte_14044116C )
     return 0;
   RtlInitUnicodeString(&DestinationString, L"Global Atom Table Entry");
   v3 = 1;

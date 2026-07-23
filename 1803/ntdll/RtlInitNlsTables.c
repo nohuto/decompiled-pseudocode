@@ -6,16 +6,17 @@
  *     RtlInitCodePageTable @ 0x1800DEE70 (RtlInitCodePageTable.c)
  */
 
-__int64 __fastcall RtlInitNlsTables(unsigned __int16 *a1, unsigned __int16 *a2, __int64 a3, __int64 a4)
+void __cdecl RtlInitNlsTables(
+        PUSHORT AnsiNlsBase,
+        PUSHORT OemNlsBase,
+        PUSHORT LanguageNlsBase,
+        PNLSTABLEINFO TableInfo)
 {
-  __int64 result; // rax
-  __int64 v8; // rcx
+  __int64 v7; // rcx
 
-  RtlInitCodePageTable(a1, a4 + 64);
-  RtlInitCodePageTable(a2, a4);
-  result = a3 + 4;
-  v8 = (unsigned __int16)(*(_WORD *)(a3 + 2) + 1);
-  *(_QWORD *)(a4 + 128) = a3 + 4;
-  *(_QWORD *)(a4 + 136) = a3 + 2 + 2 * v8;
-  return result;
+  RtlInitCodePageTable(AnsiNlsBase, &TableInfo->AnsiTableInfo);
+  RtlInitCodePageTable(OemNlsBase, &TableInfo->OemTableInfo);
+  v7 = (unsigned __int16)(LanguageNlsBase[1] + 1);
+  TableInfo->UpperCaseTable = LanguageNlsBase + 2;
+  TableInfo->LowerCaseTable = &LanguageNlsBase[v7 + 1];
 }

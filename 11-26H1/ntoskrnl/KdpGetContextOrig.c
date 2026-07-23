@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpGetContextOrig @ 0x140C141C8
+ * XREFs of KdpGetContextOrig @ 0x140C1A1C8
  * Callers:
- *     KdpSendWaitContinue @ 0x140C17038 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140C1D038 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpGetContext @ 0x140C140B8 (KdpGetContext.c)
+ *     KdpGetContext @ 0x140C1A0B8 (KdpGetContext.c)
  */
 
 __int64 __fastcall KdpGetContextOrig(__int64 a1, __int64 a2, __int64 a3)

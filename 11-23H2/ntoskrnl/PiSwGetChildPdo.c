@@ -1,24 +1,24 @@
 /*
- * XREFs of PiSwGetChildPdo @ 0x140848320
+ * XREFs of PiSwGetChildPdo @ 0x140848620
  * Callers:
- *     PipEnumerateCompleted @ 0x140795400 (PipEnumerateCompleted.c)
+ *     PipEnumerateCompleted @ 0x1407955F0 (PipEnumerateCompleted.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
- *     IoInvalidateDeviceRelations @ 0x140358F90 (IoInvalidateDeviceRelations.c)
- *     McTemplateK0zzq_EtwWriteTransfer @ 0x14056398C (McTemplateK0zzq_EtwWriteTransfer.c)
- *     McTemplateK0zztt_EtwWriteTransfer @ 0x140563B68 (McTemplateK0zztt_EtwWriteTransfer.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140563D88 (McTemplateK0zzzd_EtwWriteTransfer.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBEA4 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     ObSetSecurityObjectByPointer @ 0x1407366A0 (ObSetSecurityObjectByPointer.c)
- *     IoCreateDevice @ 0x14076AFD0 (IoCreateDevice.c)
- *     PnpConcatPWSTR @ 0x1407FA9A8 (PnpConcatPWSTR.c)
- *     PiSwFindPdoAssociation @ 0x140848540 (PiSwFindPdoAssociation.c)
- *     PiSwAddPdoAssociation @ 0x140848588 (PiSwAddPdoAssociation.c)
- *     PiSwMakePdoInactive @ 0x1409675EC (PiSwMakePdoInactive.c)
- *     PiSwProcessRemove @ 0x1409676D0 (PiSwProcessRemove.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     IoDeleteDevice @ 0x1403050A0 (IoDeleteDevice.c)
+ *     IoInvalidateDeviceRelations @ 0x140359130 (IoInvalidateDeviceRelations.c)
+ *     McTemplateK0zzq_EtwWriteTransfer @ 0x14056404C (McTemplateK0zzq_EtwWriteTransfer.c)
+ *     McTemplateK0zztt_EtwWriteTransfer @ 0x140564228 (McTemplateK0zztt_EtwWriteTransfer.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140564448 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBED4 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     ObSetSecurityObjectByPointer @ 0x140736890 (ObSetSecurityObjectByPointer.c)
+ *     IoCreateDevice @ 0x14076B1C0 (IoCreateDevice.c)
+ *     PnpConcatPWSTR @ 0x1407FAC78 (PnpConcatPWSTR.c)
+ *     PiSwFindPdoAssociation @ 0x140848840 (PiSwFindPdoAssociation.c)
+ *     PiSwAddPdoAssociation @ 0x140848888 (PiSwAddPdoAssociation.c)
+ *     PiSwMakePdoInactive @ 0x1409677EC (PiSwMakePdoInactive.c)
+ *     PiSwProcessRemove @ 0x1409678D0 (PiSwProcessRemove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,28 +1,28 @@
 /*
- * XREFs of MmCreateSectionEx @ 0x140940C6C
+ * XREFs of MmCreateSectionEx @ 0x14098AECC
  * Callers:
- *     FsRtlCreateSectionForDataScan @ 0x14044C520 (FsRtlCreateSectionForDataScan.c)
- *     AlpcpCreateSection @ 0x14093EF54 (AlpcpCreateSection.c)
- *     MmCreateSection @ 0x140940B50 (MmCreateSection.c)
- *     PspSchedulerSharedDataRegionCreate @ 0x140946D5C (PspSchedulerSharedDataRegionCreate.c)
+ *     FsRtlCreateSectionForDataScan @ 0x140443420 (FsRtlCreateSectionForDataScan.c)
+ *     AlpcpCreateSection @ 0x140893594 (AlpcpCreateSection.c)
+ *     PspSchedulerSharedDataRegionCreate @ 0x1408EB67C (PspSchedulerSharedDataRegionCreate.c)
+ *     MmCreateSection @ 0x14098ADB0 (MmCreateSection.c)
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiLogSectionObjectEvent @ 0x1407EC298 (MiLogSectionObjectEvent.c)
- *     MiCaptureSectionCreateExtendedParameters @ 0x140940BF8 (MiCaptureSectionCreateExtendedParameters.c)
- *     MiInitializeCreateSectionPacket @ 0x1409413D0 (MiInitializeCreateSectionPacket.c)
- *     MiFinishCreateSection @ 0x140941784 (MiFinishCreateSection.c)
- *     MiCreateImageOrDataSection @ 0x140941B00 (MiCreateImageOrDataSection.c)
- *     MiCreatePagingFileMap @ 0x140942908 (MiCreatePagingFileMap.c)
- *     MmExtendSection @ 0x140946018 (MmExtendSection.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiLogSectionObjectEvent @ 0x1407EC868 (MiLogSectionObjectEvent.c)
+ *     MmExtendSection @ 0x14098A134 (MmExtendSection.c)
+ *     MiCaptureSectionCreateExtendedParameters @ 0x14098AE58 (MiCaptureSectionCreateExtendedParameters.c)
+ *     MiInitializeCreateSectionPacket @ 0x14098B630 (MiInitializeCreateSectionPacket.c)
+ *     MiFinishCreateSection @ 0x14098B9F0 (MiFinishCreateSection.c)
+ *     MiCreateImageOrDataSection @ 0x14098BD70 (MiCreateImageOrDataSection.c)
+ *     MiCreatePagingFileMap @ 0x14098CB78 (MiCreatePagingFileMap.c)
  */
 
 __int64 __fastcall MmCreateSectionEx(
-        unsigned __int64 **a1,
+        LARGE_INTEGER **a1,
         int a2,
         __int64 a3,
         int a4,
@@ -47,15 +47,15 @@ __int64 __fastcall MmCreateSectionEx(
   int SectionPacket; // edi
   int ImageOrDataSection; // eax
   __int64 v24; // r14
-  unsigned __int64 *v25; // rbx
+  LARGE_INTEGER *v25; // rbx
   unsigned __int64 v26; // rax
-  unsigned __int64 *v27; // r8
+  LARGE_INTEGER *v27; // r8
   unsigned __int64 v28; // r9
-  unsigned __int64 v29; // rax
+  LARGE_INTEGER v29; // rax
   __int64 v30[2]; // [rsp+70h] [rbp-90h] BYREF
   int v31; // [rsp+80h] [rbp-80h]
   char v32; // [rsp+84h] [rbp-7Ch]
-  unsigned __int64 v33; // [rsp+88h] [rbp-78h] BYREF
+  LARGE_INTEGER v33; // [rsp+88h] [rbp-78h] BYREF
   _DWORD v34[10]; // [rsp+90h] [rbp-70h] BYREF
   __int64 v35; // [rsp+B8h] [rbp-48h]
   __int64 v36; // [rsp+C0h] [rbp-40h]
@@ -124,15 +124,15 @@ LABEL_13:
           if ( SectionPacket >= 0 )
           {
             v24 = v37;
-            v25 = (unsigned __int64 *)Object;
+            v25 = (LARGE_INTEGER *)Object;
             v26 = _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v37 + 24LL), -1LL, -1LL);
             v27 = v25 + 6;
             v28 = v26;
-            if ( ((v34[0] & 9) == 0 && (*(_DWORD *)(v24 + 56) & 0x8000) != 0 || *v27 > v26)
+            if ( ((v34[0] & 9) == 0 && (*(_DWORD *)(v24 + 56) & 0x8000) != 0 || v27->QuadPart > v26)
               && (v29 = *v27,
-                  *v27 = v28,
+                  v27->QuadPart = v28,
                   v33 = v29,
-                  SectionPacket = MmExtendSection(v25, &v33, v34[0] & 1),
+                  SectionPacket = MmExtendSection((__int64)v25, &v33, v34[0] & 1),
                   SectionPacket < 0) )
             {
               ObfDereferenceObjectWithTag(v25, 0x43536D4Du);

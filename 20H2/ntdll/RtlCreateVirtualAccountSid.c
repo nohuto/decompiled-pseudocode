@@ -11,23 +11,23 @@
  *     __security_check_cookie @ 0x18008C340 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlCreateVirtualAccountSid(unsigned __int16 *a1, int a2, _DWORD *a3, unsigned int *a4)
+NTSTATUS __cdecl RtlCreateVirtualAccountSid(PUNICODE_STRING Name, ULONG BaseSubAuthority, PSID Sid, PULONG SidLength)
 {
-  unsigned int v6; // eax
-  __int64 result; // rax
+  ULONG v6; // eax
+  NTSTATUS result; // eax
   int v8; // eax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-49h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-49h] BYREF
   _DWORD v10[24]; // [rsp+30h] [rbp-39h] BYREF
   _DWORD v11[6]; // [rsp+90h] [rbp+27h] BYREF
 
-  if ( !a1 || !a4 || (unsigned int)(a2 - 80) > 0x1F )
-    return 3221225485LL;
-  v6 = *a4;
-  *a4 = 32;
+  if ( !Name || !SidLength || BaseSubAuthority - 80 > 0x1F )
+    return -1073741811;
+  v6 = *SidLength;
+  *SidLength = 32;
   if ( v6 < 0x20 )
-    return 3221225507LL;
-  result = RtlUpcaseUnicodeString((__int64)&UnicodeString, a1, 1);
-  if ( (int)result >= 0 )
+    return -1073741789;
+  result = RtlUpcaseUnicodeString(&DestinationString, Name, 1u);
+  if ( result >= 0 )
   {
     v10[21] = 0;
     v10[22] = 0;
@@ -36,18 +36,18 @@ __int64 __fastcall RtlCreateVirtualAccountSid(unsigned __int16 *a1, int a2, _DWO
     v10[18] = -1732584194;
     v10[19] = 271733878;
     v10[20] = -1009589776;
-    A_SHAUpdate((__int64)v10, (char *)UnicodeString.Buffer, UnicodeString.Length);
+    A_SHAUpdate((__int64)v10, (char *)DestinationString.Buffer, DestinationString.Length);
     A_SHAFinal(v10, (__int64)v11);
-    RtlFreeAnsiString(&UnicodeString);
-    RtlInitializeSid((__int64)a3, (__int64)&RtlpNtAuthority, 6u);
+    RtlFreeAnsiString(&DestinationString);
+    RtlInitializeSid(Sid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 6u);
     v8 = v11[0];
-    a3[2] = a2;
-    a3[3] = v8;
-    a3[4] = v11[1];
-    a3[5] = v11[2];
-    a3[6] = v11[3];
-    a3[7] = v11[4];
-    return 0LL;
+    *((_DWORD *)Sid + 2) = BaseSubAuthority;
+    *((_DWORD *)Sid + 3) = v8;
+    *((_DWORD *)Sid + 4) = v11[1];
+    *((_DWORD *)Sid + 5) = v11[2];
+    *((_DWORD *)Sid + 6) = v11[3];
+    *((_DWORD *)Sid + 7) = v11[4];
+    return 0;
   }
   return result;
 }

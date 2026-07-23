@@ -1,9 +1,9 @@
 /*
- * XREFs of VfFaultsInitPhase1 @ 0x140AD5ED0
+ * XREFs of VfFaultsInitPhase1 @ 0x140AD5EC0
  * Callers:
  *     ViInitSystemPhase1 @ 0x140B532E4 (ViInitSystemPhase1.c)
  * Callees:
- *     PsSetCreateProcessNotifyRoutine @ 0x140842F20 (PsSetCreateProcessNotifyRoutine.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x140843220 (PsSetCreateProcessNotifyRoutine.c)
  */
 
 NTSTATUS VfFaultsInitPhase1()

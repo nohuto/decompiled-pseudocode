@@ -100,7 +100,7 @@ LABEL_13:
   else
   {
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)BugCheckParameter2, v2, BugCheckParameter2);
+      ExfAcquirePushLockSharedEx((signed __int64 *)BugCheckParameter2, (_RTL_BALANCED_NODE *)v2, BugCheckParameter2);
     v11 = BugCheckParameter2 | 1;
   }
   if ( !v4 )

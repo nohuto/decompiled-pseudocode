@@ -1,26 +1,26 @@
 /*
- * XREFs of MiAllocateContiguousMemory @ 0x1400E651C
+ * XREFs of MiAllocateContiguousMemory @ 0x1400E659C
  * Callers:
- *     MmAllocateContiguousNodeMemory @ 0x1400E6480 (MmAllocateContiguousNodeMemory.c)
- *     MmAllocateContiguousMemory @ 0x1402A93E0 (MmAllocateContiguousMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1400E6500 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousMemory @ 0x1402A95D0 (MmAllocateContiguousMemory.c)
  * Callees:
  *     TraceLoggingProviderEnabled @ 0x1400129D8 (TraceLoggingProviderEnabled.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     MiProtectionToCacheAttribute @ 0x14002BD80 (MiProtectionToCacheAttribute.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiMapContiguousMemory @ 0x1400E5DA4 (MiMapContiguousMemory.c)
- *     ExInsertPoolTag @ 0x1400E69B4 (ExInsertPoolTag.c)
- *     ExAllocateContiguousHeapPool @ 0x1400E7418 (ExAllocateContiguousHeapPool.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     MiFreeContiguousPages @ 0x1401230F4 (MiFreeContiguousPages.c)
- *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
- *     MiFreePoolPages @ 0x140161100 (MiFreePoolPages.c)
- *     MiFindContiguousMemoryInPool @ 0x1401625D4 (MiFindContiguousMemoryInPool.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogGetDurationSince @ 0x1402A92AC (MiLogGetDurationSince.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1402A9318 (MiLogPerfMemoryRangeEvent.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
+ *     MiMapContiguousMemory @ 0x1400E5E24 (MiMapContiguousMemory.c)
+ *     ExInsertPoolTag @ 0x1400E6A34 (ExInsertPoolTag.c)
+ *     ExAllocateContiguousHeapPool @ 0x1400E7498 (ExAllocateContiguousHeapPool.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     MiFreeContiguousPages @ 0x1401231C4 (MiFreeContiguousPages.c)
+ *     MmUnmapIoSpace @ 0x1401232F0 (MmUnmapIoSpace.c)
+ *     MiFreePoolPages @ 0x140161200 (MiFreePoolPages.c)
+ *     MiFindContiguousMemoryInPool @ 0x1401626D4 (MiFindContiguousMemoryInPool.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLogGetDurationSince @ 0x1402A949C (MiLogGetDurationSince.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1402A9508 (MiLogPerfMemoryRangeEvent.c)
  */
 
 unsigned __int64 __fastcall MiAllocateContiguousMemory(
@@ -138,7 +138,7 @@ unsigned __int64 __fastcall MiAllocateContiguousMemory(
   else
     v18 = v16;
   v54 = v18;
-  v19 = (unsigned __int16 *)((char *)qword_14043A050 + 2 * v18 * (unsigned __int16)KeNumberNodes);
+  v19 = (unsigned __int16 *)((char *)qword_14043B110 + 2 * v18 * (unsigned __int16)KeNumberNodes);
   if ( v16 == 0x80000000 )
     v20 = (unsigned __int16)KeNumberNodes;
   else
@@ -178,7 +178,7 @@ unsigned __int64 __fastcall MiAllocateContiguousMemory(
   }
 LABEL_22:
   v23 = 135266304;
-  v24 = (unsigned __int16 *)((char *)qword_14043A050 + 2 * v54 * (unsigned __int16)KeNumberNodes);
+  v24 = (unsigned __int16 *)((char *)qword_14043B110 + 2 * v54 * (unsigned __int16)KeNumberNodes);
   for ( i = MiFindContiguousPages(
               (__int64)&MiSystemPartition,
               v48,
@@ -302,7 +302,7 @@ LABEL_38:
           v76 = 1LL;
           v78 = 4LL;
           v80 = 8LL;
-          TlgWriteEx(v39, &unk_14036DBCB, v38, (ULONG)v39, pActivityId, pRelatedActivityId, 0xAu, &pData);
+          TlgWriteEx(v39, &unk_14036EB5B, v38, (ULONG)v39, pActivityId, pRelatedActivityId, 0xAu, &pData);
         }
       }
     }

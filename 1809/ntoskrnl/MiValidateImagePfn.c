@@ -1,9 +1,9 @@
 /*
- * XREFs of MiValidateImagePfn @ 0x1405A8854
+ * XREFs of MiValidateImagePfn @ 0x1405A9854
  * Callers:
  *     MiValidateInPage @ 0x14002EC10 (MiValidateInPage.c)
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
- *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
+ *     MiMakeImagePageOk @ 0x1402C47EC (MiMakeImagePageOk.c)
  * Callees:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
@@ -11,12 +11,12 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeValidateImageData @ 0x1405A8A20 (SeValidateImageData.c)
- *     MiRevertRelocatedImagePfn @ 0x1405A8A60 (MiRevertRelocatedImagePfn.c)
- *     MiGetSectionStrongImageReference @ 0x14085C2F8 (MiGetSectionStrongImageReference.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeValidateImageData @ 0x1405A9A20 (SeValidateImageData.c)
+ *     MiRevertRelocatedImagePfn @ 0x1405A9A60 (MiRevertRelocatedImagePfn.c)
+ *     MiGetSectionStrongImageReference @ 0x14085D558 (MiGetSectionStrongImageReference.c)
  */
 
 __int64 __fastcall MiValidateImagePfn(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char a6, __int64 a7)
@@ -50,7 +50,7 @@ __int64 __fastcall MiValidateImagePfn(__int64 a1, __int64 a2, __int64 a3, __int6
     if ( (int)result < 0 )
       return result;
   }
-  v11 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)1);
+  v11 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)1);
   v12 = (_QWORD *)v11;
   if ( !v11 )
     return 3221225626LL;
@@ -62,7 +62,7 @@ __int64 __fastcall MiValidateImagePfn(__int64 a1, __int64 a2, __int64 a3, __int6
   if ( (unsigned int)MiPteHasShadow() )
   {
     v16 = 1;
-    if ( HIBYTE(word_14043A1AC) )
+    if ( HIBYTE(word_14043B26C) )
       goto LABEL_4;
   }
   else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )
@@ -100,14 +100,14 @@ LABEL_10:
       LODWORD(v13) = v19;
       goto LABEL_10;
     }
-    MiReleasePtes((__int64)&qword_14043AFA0, (unsigned __int64)v12, 1u);
+    MiReleasePtes((__int64)&qword_14043C060, (unsigned __int64)v12, 1u);
     return 3221225626LL;
   }
 LABEL_11:
   v20 = SeValidateImageData(v10, v13, 4096, v23, v18, a3);
   if ( v20 < 0 )
   {
-    _InterlockedIncrement(&dword_140438E70);
+    _InterlockedIncrement(&dword_140439F30);
   }
   else
   {
@@ -117,7 +117,7 @@ LABEL_11:
     if ( (*(_DWORD *)(v9 + 16) & 0x400LL) != 0 )
       MiMarkPfnVerified(v9, v21);
   }
-  MiReleasePtes((__int64)&qword_14043AFA0, (unsigned __int64)v12, 1u);
+  MiReleasePtes((__int64)&qword_14043C060, (unsigned __int64)v12, 1u);
   if ( v17 )
     ExFreePoolWithTag(v17, 0);
   return (unsigned int)v20;

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDbgReleaseAddress @ 0x1402BAE0C
+ * XREFs of MiDbgReleaseAddress @ 0x1402BAFFC
  * Callers:
- *     MiDbgCopyMemory @ 0x1402BA750 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x1402BA940 (MiDbgCopyMemory.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeFlushSingleCurrentTb @ 0x140156ED8 (KeFlushSingleCurrentTb.c)
- *     MiRealVaToFlushType @ 0x14016A848 (MiRealVaToFlushType.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeFlushSingleCurrentTb @ 0x140156FD8 (KeFlushSingleCurrentTb.c)
+ *     MiRealVaToFlushType @ 0x14016A948 (MiRealVaToFlushType.c)
  */
 
 void __fastcall MiDbgReleaseAddress(unsigned __int64 a1, _QWORD *a2, char a3)
@@ -25,13 +25,13 @@ void __fastcall MiDbgReleaseAddress(unsigned __int64 a1, _QWORD *a2, char a3)
 
   if ( !*a2 )
     return;
-  _InterlockedAdd(&dword_14043A954, 1u);
+  _InterlockedAdd(&dword_14043BA14, 1u);
   if ( MiPteInShadowRange(((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) )
   {
     if ( (unsigned int)MiPteHasShadow() )
     {
       v5 = v8;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
 LABEL_7:
         if ( ((unsigned __int8)v4 & (unsigned __int8)v8) != 0 )
@@ -46,7 +46,7 @@ LABEL_7:
   *v6 = v4;
   if ( v5 )
     MiWritePteShadow((__int64)v6, v4);
-  _InterlockedDecrement(&dword_14043A954);
+  _InterlockedDecrement(&dword_14043BA14);
   LeafVa = MiGetLeafVa(v7);
   v10 = MiRealVaToFlushType(LeafVa);
   if ( (a3 & 4) != 0 )

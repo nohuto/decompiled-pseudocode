@@ -8,49 +8,49 @@
  *     ComputeNameLength @ 0x1800D6920 (ComputeNameLength.c)
  */
 
-__int64 __fastcall PfxFindPrefix(__int64 a1, unsigned __int16 *a2)
+PPREFIX_TABLE_ENTRY __cdecl PfxFindPrefix(PPREFIX_TABLE PrefixTable, PSTRING FullName)
 {
-  __int16 v4; // ax
-  __int64 i; // rdi
-  __int64 j; // rbx
-  __int64 v7; // rsi
+  CSHORT v4; // ax
+  _PREFIX_TABLE *i; // rdi
+  _PREFIX_TABLE *j; // rbx
+  _PREFIX_TABLE_ENTRY *p_LeftChild; // rsi
   int v8; // eax
-  __int64 v10; // rbx
+  _PREFIX_TABLE_ENTRY *NextPrefixTree; // rbx
 
-  v4 = ComputeNameLength(a2);
-  for ( i = *(_QWORD *)(a1 + 8); *(__int16 *)(i + 2) > v4; i = *(_QWORD *)(i + 8) )
-    a1 = i;
+  v4 = ComputeNameLength(&FullName->Length);
+  for ( i = (_PREFIX_TABLE *)PrefixTable->NextPrefixTree; i->NameLength > v4; i = (_PREFIX_TABLE *)i->NextPrefixTree )
+    PrefixTable = i;
 LABEL_12:
-  if ( *(__int16 *)(i + 2) <= 0 )
+  if ( i->NameLength <= 0 )
     return 0LL;
-  for ( j = i + 16; ; j = *(_QWORD *)(j + 16) )
+  for ( j = i + 1; ; j = *(_PREFIX_TABLE **)&j[1].NodeTypeCode )
   {
     while ( 1 )
     {
       if ( !j )
       {
-        a1 = i;
-        i = *(_QWORD *)(i + 8);
+        PrefixTable = i;
+        i = (_PREFIX_TABLE *)i->NextPrefixTree;
         goto LABEL_12;
       }
-      v7 = j - 16;
-      v8 = CompareNamesCaseSensitive(*(unsigned __int16 **)(j - 16 + 40), a2);
+      p_LeftChild = (_PREFIX_TABLE_ENTRY *)&j[-1];
+      v8 = CompareNamesCaseSensitive((unsigned __int16 *)j[1].NextPrefixTree, &FullName->Length);
       if ( v8 != 3 )
         break;
-      j = *(_QWORD *)(j + 8);
+      j = (_PREFIX_TABLE *)j->NextPrefixTree;
     }
     if ( v8 )
       break;
   }
-  if ( *(_WORD *)v7 == 514 )
+  if ( p_LeftChild->NodeTypeCode == 514 )
   {
-    v10 = *(_QWORD *)(i + 8);
-    *(_QWORD *)(i + 8) = 0LL;
-    *(_WORD *)i = 514;
-    v7 = RtlSplay(v7 + 16) - 16;
-    *(_WORD *)v7 = 513;
-    *(_QWORD *)(a1 + 8) = v7;
-    *(_QWORD *)(v7 + 8) = v10;
+    NextPrefixTree = i->NextPrefixTree;
+    i->NextPrefixTree = 0LL;
+    i->NodeTypeCode = 514;
+    p_LeftChild = (_PREFIX_TABLE_ENTRY *)&RtlSplay(&p_LeftChild->Links)[-1].LeftChild;
+    p_LeftChild->NodeTypeCode = 513;
+    PrefixTable->NextPrefixTree = p_LeftChild;
+    p_LeftChild->NextPrefixTree = NextPrefixTree;
   }
-  return v7;
+  return p_LeftChild;
 }

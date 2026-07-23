@@ -1,151 +1,149 @@
 /*
- * XREFs of NtDeleteKey @ 0x140AB2390
+ * XREFs of NtDeleteKey @ 0x140AB0060
  * Callers:
  *     <none>
  * Callees:
- *     CmpIsRegistryLockAcquired @ 0x140262890 (CmpIsRegistryLockAcquired.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     EtwGetKernelTraceTimestamp @ 0x14032D2B0 (EtwGetKernelTraceTimestamp.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CmDeleteKey @ 0x1408BAD90 (CmDeleteKey.c)
- *     CmpCallCallBacksEx @ 0x1408C9E40 (CmpCallCallBacksEx.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x1408ECB1C (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpIsSystemEntity @ 0x1408F4110 (CmpIsSystemEntity.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     SeDeleteObjectAuditAlarmWithTransaction @ 0x1409FA110 (SeDeleteObjectAuditAlarmWithTransaction.c)
- *     CmKeyBodyNeedsVirtualImage @ 0x140AB2878 (CmKeyBodyNeedsVirtualImage.c)
- *     CmKeyBodyRemapToVirtual @ 0x140B4BD9C (CmKeyBodyRemapToVirtual.c)
- *     CmObReferenceObjectByHandle @ 0x140C58340 (CmObReferenceObjectByHandle.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ *     CmpIsRegistryLockAcquired @ 0x140261E00 (CmpIsRegistryLockAcquired.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14032F2E0 (EtwGetKernelTraceTimestamp.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CmDeleteKey @ 0x1408C1360 (CmDeleteKey.c)
+ *     CmpCallCallBacksEx @ 0x1408D03F0 (CmpCallCallBacksEx.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1408F30DC (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpIsSystemEntity @ 0x1408FA6D0 (CmpIsSystemEntity.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     SeDeleteObjectAuditAlarmWithTransaction @ 0x14091ED10 (SeDeleteObjectAuditAlarmWithTransaction.c)
+ *     CmKeyBodyNeedsVirtualImage @ 0x140AB0548 (CmKeyBodyNeedsVirtualImage.c)
+ *     CmKeyBodyRemapToVirtual @ 0x140B4DB2C (CmKeyBodyRemapToVirtual.c)
+ *     CmObReferenceObjectByHandle @ 0x140C5E340 (CmObReferenceObjectByHandle.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
  */
 
-__int64 __fastcall NtDeleteKey(HANDLE Handle, __int64 a2, __int64 a3)
+NTSTATUS __cdecl NtDeleteKey(HANDLE KeyHandle)
 {
-  char v4; // r13
-  char v5; // r12
-  char v6; // si
+  __int64 v1; // r8
+  char v3; // r13
+  char v4; // r12
+  char v5; // si
   char PreviousMode; // r15
-  __int64 v8; // rdx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
   __int64 v9; // rcx
-  __int64 v10; // rcx
-  int v11; // r8d
-  int v12; // r9d
-  char v13; // di
-  int v14; // eax
-  struct _KLOCK_ENTRIES *v15; // r9
-  SECURITY_IMPERSONATION_LEVEL ProcessAuditId; // ebx
-  _QWORD *v17; // rdi
+  int v10; // r8d
+  int v11; // r9d
+  char v12; // di
+  int v13; // eax
+  struct _KLOCK_ENTRIES *v14; // r9
+  int ProcessAuditId; // ebx
+  _QWORD *v16; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  int v19; // eax
-  LegacyAutoBoost *v20; // rbx
-  signed __int64 v21; // rdx
-  int v22; // edx
-  __int64 v23; // rax
-  __int64 v25; // rcx
-  int v26; // r8d
-  int v27; // r9d
+  int v18; // eax
+  LegacyAutoBoost *v19; // rbx
+  signed __int64 v20; // rdx
+  int v21; // edx
+  __int64 v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // r8
+  __int64 v25; // r9
+  __int64 v27; // rcx
+  int v28; // r8d
+  int v29; // r9d
   GUID *p_TransactionId; // r8
-  __int64 v29; // rcx
-  char v30; // [rsp+49h] [rbp-BFh]
+  __int64 v31; // rcx
+  char v32; // [rsp+49h] [rbp-BFh]
   PVOID Object; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v32; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v33; // [rsp+60h] [rbp-A8h] BYREF
-  _QWORD v34[2]; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v35; // [rsp+78h] [rbp-90h] BYREF
-  __int64 v36; // [rsp+80h] [rbp-88h]
+  __int64 v34; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v35; // [rsp+60h] [rbp-A8h] BYREF
+  _QWORD v36[2]; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 v37; // [rsp+78h] [rbp-90h] BYREF
+  __int64 v38; // [rsp+80h] [rbp-88h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+88h] [rbp-80h] BYREF
-  __int128 v38; // [rsp+A8h] [rbp-60h]
-  __int64 v39; // [rsp+B8h] [rbp-50h]
-  __int128 v40; // [rsp+C0h] [rbp-48h] BYREF
-  __int64 v41; // [rsp+D0h] [rbp-38h]
-  GUID v42[2]; // [rsp+D8h] [rbp-30h] BYREF
+  __int128 v40; // [rsp+A8h] [rbp-60h]
+  __int64 v41; // [rsp+B8h] [rbp-50h]
+  __int128 v42; // [rsp+C0h] [rbp-48h] BYREF
+  __int64 v43; // [rsp+D0h] [rbp-38h]
+  GUID v44[2]; // [rsp+D8h] [rbp-30h] BYREF
   GUID TransactionId; // [rsp+F8h] [rbp-10h] BYREF
-  _OWORD v44[2]; // [rsp+108h] [rbp+0h] BYREF
+  _OWORD v46[2]; // [rsp+108h] [rbp+0h] BYREF
 
-  v33 = 0LL;
-  v41 = 0LL;
-  v40 = 0LL;
-  LODWORD(v32) = 0;
-  v4 = 0;
-  memset(v42, 0, sizeof(v42));
   v35 = 0LL;
-  v36 = 0LL;
+  v43 = 0LL;
+  v42 = 0LL;
+  LODWORD(v34) = 0;
+  v3 = 0;
   memset(v44, 0, sizeof(v44));
+  v37 = 0LL;
+  v38 = 0LL;
+  memset(v46, 0, sizeof(v46));
   if ( CmpTraceRoutine )
   {
-    EtwGetKernelTraceTimestamp((unsigned __int64)v44, 0x20000uLL, a3);
-    v4 = 1;
+    EtwGetKernelTraceTimestamp((unsigned __int64)v46, 0x20000uLL, v1);
+    v3 = 1;
   }
-  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v40);
+  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v42);
   Object = 0LL;
+  v4 = 0;
+  v36[1] = v36;
   v5 = 0;
-  v34[1] = v34;
-  v6 = 0;
-  v34[0] = v34;
+  v36[0] = v36;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v30 = CmpAcquireShutdownRundown(v9, v8);
-  v13 = v30;
-  if ( !v30 )
+  v32 = CmpAcquireShutdownRundown(v8, v7);
+  v12 = v32;
+  if ( !v32 )
   {
     ProcessAuditId = -1073741431;
     goto LABEL_40;
   }
-  LOBYTE(v12) = PreviousMode;
-  v14 = CmObReferenceObjectByHandle((_DWORD)Handle, 0x10000, v11, v12, (__int64)&Object, (__int64)&v33);
-  ProcessAuditId = v14;
-  if ( v14 == -1073741790 )
+  LOBYTE(v11) = PreviousMode;
+  v13 = CmObReferenceObjectByHandle((_DWORD)KeyHandle, 0x10000, v10, v11, (__int64)&Object, (__int64)&v35);
+  ProcessAuditId = v13;
+  if ( v13 == -1073741790 )
   {
     SeCaptureSubjectContext(&SubjectContext);
-    if ( CmpVEEnabled && !CmpIsSystemEntity(KeGetCurrentThread()->PreviousMode, &SubjectContext, (int *)&v32) )
+    if ( CmpVEEnabled && !CmpIsSystemEntity(KeGetCurrentThread()->PreviousMode, &SubjectContext, (int *)&v34) )
     {
-      LOBYTE(v27) = PreviousMode;
-      ProcessAuditId = (unsigned int)CmObReferenceObjectByHandle(
-                                       (_DWORD)Handle,
-                                       131097,
-                                       v26,
-                                       v27,
-                                       (__int64)&Object,
-                                       (__int64)&v33);
-      if ( ProcessAuditId < SecurityAnonymous )
+      LOBYTE(v29) = PreviousMode;
+      ProcessAuditId = CmObReferenceObjectByHandle((_DWORD)KeyHandle, 131097, v28, v29, (__int64)&Object, (__int64)&v35);
+      if ( ProcessAuditId < 0 )
         goto LABEL_76;
-      v17 = Object;
+      v16 = Object;
       if ( (unsigned __int8)CmKeyBodyNeedsVirtualImage(Object) )
       {
-        v6 = 1;
+        v5 = 1;
 LABEL_6:
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
-        if ( WheapPfaLock.ExpectedRunTime && !(unsigned int)CmpIsRegistryLockAcquired() )
+        if ( HIDWORD(WheapPfaLock.StateSaveArea) && !(unsigned int)CmpIsRegistryLockAcquired() )
         {
-          *(_QWORD *)&v42[0].Data1 = v17;
-          v19 = CmpCallCallBacksEx(0, (__int64)v42, 0LL, 1, 0xFu, (__int64)v17, (__int64)v34);
-          if ( v19 < 0 )
+          *(_QWORD *)&v44[0].Data1 = v16;
+          v18 = CmpCallCallBacksEx(0, (__int64)v44, 0LL, 1, 0xFu, (__int64)v16, (__int64)v36);
+          if ( v18 < 0 )
           {
-            ProcessAuditId = SecurityAnonymous;
-            if ( v19 != -1073740541 )
-              ProcessAuditId = v19;
+            ProcessAuditId = 0;
+            if ( v18 != -1073740541 )
+              ProcessAuditId = v18;
             goto LABEL_28;
           }
-          v5 = 1;
+          v4 = 1;
         }
-        if ( CmpTraceRoutine && v17 )
-          v36 = v17[1];
-        v20 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&ExpSysDbgLock.ApcState.ApcListHead[1].Blink, 0LL, 0LL, v15);
-        v21 = 17LL;
+        if ( CmpTraceRoutine && v16 )
+          v38 = v16[1];
+        v19 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&ExpSysDbgLock.ApcState.ApcListHead[1].Blink, 0LL, 0LL, v14);
+        v20 = 17LL;
         if ( _InterlockedCompareExchange64(
                (volatile signed __int64 *)&ExpSysDbgLock.ApcState.ApcListHead[1].Blink,
                17LL,
@@ -154,99 +152,98 @@ LABEL_6:
           ExfAcquirePushLockSharedEx(
             (signed __int64 *)&ExpSysDbgLock.ApcState.ApcListHead[1].Blink,
             0,
-            v20,
+            v19,
             (struct _KTHREAD *)&ExpSysDbgLock.ApcStateFill[24]);
-          v21 = 17LL;
+          v20 = 17LL;
         }
-        if ( v20 )
+        if ( v19 )
         {
           if ( (KiAbpGlobalState & 1) != 0 )
-            AutoBoost::KiAbpPostAcquire(v20, (void *)0x11);
+            AutoBoost::KiAbpPostAcquire(v19, (void *)0x11);
           else
-            *((_BYTE *)v20 + 10) = 1;
+            *((_BYTE *)v19 + 10) = 1;
         }
-        ProcessAuditId = SecurityAnonymous;
-        if ( ExpSysDbgLock.ApcState.ApcListHead[0].Flink
-          && (struct _LIST_ENTRY *)v17[1] == ExpSysDbgLock.ApcState.ApcListHead[0].Flink->Blink
-          || ExpSysDbgLock.ApcState.ApcListHead[0].Blink
-          && (struct _LIST_ENTRY *)v17[1] == ExpSysDbgLock.ApcState.ApcListHead[0].Blink->Blink )
+        ProcessAuditId = 0;
+        if ( *(_QWORD *)&ExpSysDbgLock.ApcStateFill[40]
+          && v16[1] == *(_QWORD *)(*(_QWORD *)&ExpSysDbgLock.ApcStateFill[40] + 8LL)
+          || ExpSysDbgLock.WaitStatus && v16[1] == *(_QWORD *)(ExpSysDbgLock.WaitStatus + 8) )
         {
-          if ( v21 != _InterlockedCompareExchange64(
+          if ( v20 != _InterlockedCompareExchange64(
                         (volatile signed __int64 *)&ExpSysDbgLock.ApcState.ApcListHead[1].Blink,
                         0LL,
-                        v21) )
+                        v20) )
             ExfReleasePushLockShared((signed __int64 *)&ExpSysDbgLock.ApcState.ApcListHead[1].Blink);
           KeAbPostRelease((unsigned __int64)&ExpSysDbgLock.ApcState.ApcListHead[1].Blink);
           goto LABEL_28;
         }
-        if ( v21 != _InterlockedCompareExchange64(
+        if ( v20 != _InterlockedCompareExchange64(
                       (volatile signed __int64 *)&ExpSysDbgLock.ApcState.ApcListHead[1].Blink,
                       0LL,
-                      v21) )
+                      v20) )
           ExfReleasePushLockShared((signed __int64 *)&ExpSysDbgLock.ApcState.ApcListHead[1].Blink);
         KeAbPostRelease((unsigned __int64)&ExpSysDbgLock.ApcState.ApcListHead[1].Blink);
-        v10 = v17[1];
-        if ( (*(_DWORD *)(v10 + 8) & 0x80u) != 0
-          || (v23 = *(_QWORD *)(v10 + 72)) != 0 && (*(_DWORD *)(v23 + 8) & 0x80u) != 0 )
+        v9 = v16[1];
+        if ( (*(_DWORD *)(v9 + 8) & 0x80u) != 0
+          || (v22 = *(_QWORD *)(v9 + 72)) != 0 && (*(_DWORD *)(v22 + 8) & 0x80u) != 0 )
         {
           ProcessAuditId = -1073741790;
           goto LABEL_28;
         }
-        if ( !v6 )
+        if ( !v5 )
         {
 LABEL_26:
-          ProcessAuditId = (unsigned int)CmDeleteKey(v17);
-          if ( ProcessAuditId >= SecurityAnonymous && (v33 & 4) != 0 )
+          ProcessAuditId = CmDeleteKey(v16);
+          if ( ProcessAuditId >= 0 && (v35 & 4) != 0 )
           {
-            if ( v17[7] || v17[8] )
+            if ( v16[7] || v16[8] )
             {
               TransactionId = 0LL;
-              CmpLockRegistry(v10);
-              if ( (int)CmpTransSearchAddTransFromKeyBody(v17, &v35) < 0 )
+              CmpLockRegistry(v9, v23, v24, v25);
+              if ( (int)CmpTransSearchAddTransFromKeyBody(v16, &v37) < 0 )
               {
-                CmpUnlockRegistry(v29);
+                CmpUnlockRegistry(v31);
                 goto LABEL_28;
               }
-              TransactionId = *(GUID *)(v35 + 88);
-              CmpUnlockRegistry(v29);
+              TransactionId = *(GUID *)(v37 + 88);
+              CmpUnlockRegistry(v31);
               p_TransactionId = &TransactionId;
             }
             else
             {
               p_TransactionId = 0LL;
             }
-            SeDeleteObjectAuditAlarmWithTransaction(v17, Handle, p_TransactionId);
+            SeDeleteObjectAuditAlarmWithTransaction(v16, KeyHandle, p_TransactionId);
           }
 LABEL_28:
-          if ( !v6 )
+          if ( !v5 )
           {
-            v6 = 1;
+            v5 = 1;
             goto LABEL_30;
           }
           goto LABEL_69;
         }
-        LOBYTE(v22) = PreviousMode;
-        ProcessAuditId = (unsigned int)CmKeyBodyRemapToVirtual(
-                                         (unsigned int)&Object,
-                                         v22,
-                                         0x10000,
-                                         (unsigned int)&SubjectContext,
-                                         (__int64)&v32);
-        if ( ProcessAuditId >= SecurityAnonymous )
+        LOBYTE(v21) = PreviousMode;
+        ProcessAuditId = CmKeyBodyRemapToVirtual(
+                           (unsigned int)&Object,
+                           v21,
+                           0x10000,
+                           (unsigned int)&SubjectContext,
+                           (__int64)&v34);
+        if ( ProcessAuditId >= 0 )
         {
-          v17 = Object;
+          v16 = Object;
           if ( !CmpVEEnabled || (*(_DWORD *)(*((_QWORD *)Object + 1) + 184LL) & 0x1000000) == 0 )
           {
             ProcessAuditId = -1073741790;
 LABEL_69:
-            v6 = 1;
+            v5 = 1;
             goto LABEL_57;
           }
           goto LABEL_26;
         }
-        v6 = 1;
+        v5 = 1;
 LABEL_76:
-        v17 = Object;
+        v16 = Object;
         goto LABEL_57;
       }
       ProcessAuditId = -1073741790;
@@ -254,43 +251,46 @@ LABEL_76:
     else
     {
       ProcessAuditId = -1073741790;
-      v17 = Object;
+      v16 = Object;
     }
 LABEL_57:
     SeReleaseSubjectContext(&SubjectContext);
 LABEL_30:
-    if ( v5 && WheapPfaLock.ExpectedRunTime && !(unsigned int)CmpIsRegistryLockAcquired() && (_QWORD *)v34[0] != v34 )
+    if ( v4
+      && HIDWORD(WheapPfaLock.StateSaveArea)
+      && !(unsigned int)CmpIsRegistryLockAcquired()
+      && (_QWORD *)v36[0] != v36 )
     {
-      v39 = 0LL;
-      SubjectContext.PrimaryToken = v42;
+      v41 = 0LL;
+      SubjectContext.PrimaryToken = v44;
       SubjectContext.ProcessAuditId = (PVOID)(unsigned int)ProcessAuditId;
       *((_DWORD *)&SubjectContext.ImpersonationLevel + 1) = 0;
-      v38 = 0LL;
-      SubjectContext.ClientToken = v17;
+      v40 = 0LL;
+      SubjectContext.ClientToken = v16;
       SubjectContext.ImpersonationLevel = ProcessAuditId;
-      CmpCallCallBacksEx(0xFu, (__int64)&SubjectContext, 0LL, 0, 0xFu, (__int64)v17, (__int64)v34);
-      ProcessAuditId = (SECURITY_IMPERSONATION_LEVEL)SubjectContext.ProcessAuditId;
+      CmpCallCallBacksEx(0xFu, (__int64)&SubjectContext, 0LL, 0, 0xFu, (__int64)v16, (__int64)v36);
+      ProcessAuditId = (int)SubjectContext.ProcessAuditId;
     }
-    if ( v6 )
+    if ( v5 )
       KeLeaveCriticalRegion();
     goto LABEL_37;
   }
-  v17 = Object;
-  if ( v14 >= 0 )
+  v16 = Object;
+  if ( v13 >= 0 )
     goto LABEL_6;
 LABEL_37:
-  if ( v17 )
-    ObfDereferenceObject(v17);
-  v13 = v30;
+  if ( v16 )
+    ObfDereferenceObject(v16);
+  v12 = v32;
 LABEL_40:
-  if ( v4 && CmpTraceRoutine )
+  if ( v3 && CmpTraceRoutine )
   {
-    v25 = v36;
-    LOBYTE(v25) = 12;
-    guard_dispatch_icall_no_overrides(v25, (__int64)v44);
+    v27 = v38;
+    LOBYTE(v27) = 12;
+    guard_dispatch_icall_no_overrides(v27, (__int64)v46);
   }
-  if ( v13 )
-    CmpReleaseShutdownRundown(v10);
-  CmCleanupThreadInfo((_KAFFINITY_EX **)&v40);
-  return (unsigned int)ProcessAuditId;
+  if ( v12 )
+    CmpReleaseShutdownRundown(v9);
+  CmCleanupThreadInfo((_KAFFINITY_EX **)&v42);
+  return ProcessAuditId;
 }

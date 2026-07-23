@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpTraceLostEvent @ 0x140257138
+ * XREFs of EtwpTraceLostEvent @ 0x140258AC8
  * Callers:
- *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
- *     EtwpFailLogging @ 0x140256DF0 (EtwpFailLogging.c)
- *     EtwpWriteUserEvent @ 0x140B7D098 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14021344C (EtwpEventWriteFull.c)
+ *     EtwpFailLogging @ 0x140258780 (EtwpFailLogging.c)
+ *     EtwpWriteUserEvent @ 0x140B85DAC (EtwpWriteUserEvent.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwpGetEventNameFromEventMetadata @ 0x14041C880 (EtwpGetEventNameFromEventMetadata.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwpGetEventNameFromEventMetadata @ 0x1404140D0 (EtwpGetEventNameFromEventMetadata.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpTraceLostEvent(
@@ -201,7 +201,15 @@ void __fastcall EtwpTraceLostEvent(
     v28 = &ETW_EVENT_LOST_EVENT;
     if ( v11 )
       v28 = &ETW_EVENT_LOST_TLG_EVENT;
-    EtwWriteEx(EtwpEventTracingProvRegHandle, v28, 0LL, v23 | 1, 0LL, 0LL, UserDataCount, &UserData);
+    EtwWriteEx(
+      (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+      v28,
+      0LL,
+      v23 | 1,
+      0LL,
+      0LL,
+      UserDataCount,
+      &UserData);
     if ( v29[0] )
       ExFreePoolWithTag(Pool2, 0);
   }

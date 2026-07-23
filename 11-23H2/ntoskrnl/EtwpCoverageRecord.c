@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpCoverageRecord @ 0x1407DD580
+ * XREFs of EtwpCoverageRecord @ 0x1407DD850
  * Callers:
- *     EtwTelemetryCoverageReport @ 0x140365240 (EtwTelemetryCoverageReport.c)
- *     EtwpCoverageHighIrqlCPWorkItemCallback @ 0x1405FF790 (EtwpCoverageHighIrqlCPWorkItemCallback.c)
- *     EtwSetProcessTelemetryCoverage @ 0x140873E68 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwTelemetryCoverageReport @ 0x1403653E0 (EtwTelemetryCoverageReport.c)
+ *     EtwpCoverageHighIrqlCPWorkItemCallback @ 0x1405FFD00 (EtwpCoverageHighIrqlCPWorkItemCallback.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1408740A8 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     TelemetryCoverageTableLocateInternal @ 0x140365318 (TelemetryCoverageTableLocateInternal.c)
- *     EtwpCoverageValidateCP @ 0x14036536C (EtwpCoverageValidateCP.c)
- *     EtwpCoverageAddToStringBuffer @ 0x1403C33EC (EtwpCoverageAddToStringBuffer.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpCoverageFlushPending @ 0x1407E8894 (EtwpCoverageFlushPending.c)
- *     EtwpCoverageEnsureStringBuffer @ 0x140856ED8 (EtwpCoverageEnsureStringBuffer.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     TelemetryCoverageTableLocateInternal @ 0x1403654B8 (TelemetryCoverageTableLocateInternal.c)
+ *     EtwpCoverageValidateCP @ 0x14036550C (EtwpCoverageValidateCP.c)
+ *     EtwpCoverageAddToStringBuffer @ 0x1403C35CC (EtwpCoverageAddToStringBuffer.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpCoverageFlushPending @ 0x1407E8B64 (EtwpCoverageFlushPending.c)
+ *     EtwpCoverageEnsureStringBuffer @ 0x140857118 (EtwpCoverageEnsureStringBuffer.c)
  */
 
 void __fastcall EtwpCoverageRecord(int **a1, __int64 a2)
@@ -153,7 +153,7 @@ LABEL_8:
     KeAbPostRelease((ULONG_PTR)&EtwpCoverageLock);
     KeLeaveCriticalRegion();
   }
-  if ( !v4 && v5 && (unsigned int)dword_140C04358 > 5 && tlgKeywordOn((__int64)&dword_140C04358, 2LL) )
+  if ( !v4 && v5 && (unsigned int)dword_140C04320 > 5 && tlgKeywordOn((__int64)&dword_140C04320, 2LL) )
   {
     v17 = *a1;
     v18 = *(const CHAR **)a2;
@@ -170,11 +170,11 @@ LABEL_8:
     v57 = &v28;
     v58 = 4LL;
     tlgCreate1Sz_char((__int64)v59, v18);
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04358, (unsigned __int8 *)byte_1400355D5, 0LL, 0LL, 7u, &v50);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04320, (unsigned __int8 *)byte_1400355D5, 0LL, 0LL, 7u, &v50);
   }
-  if ( EtwpCoverageCoreTracingEnabled && (unsigned int)dword_140C04358 > 5 )
+  if ( EtwpCoverageCoreTracingEnabled && (unsigned int)dword_140C04320 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C04358, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C04320, 1LL) )
     {
       v19 = *a1;
       v20 = *(const CHAR **)a2;
@@ -199,8 +199,8 @@ LABEL_8:
       v48 = 4LL;
       tlgCreate1Sz_char((__int64)v49, v20);
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C04358,
-        (unsigned __int8 *)byte_140035561,
+        (__int64)&dword_140C04320,
+        (unsigned __int8 *)&dword_140035694,
         0LL,
         0LL,
         9u,

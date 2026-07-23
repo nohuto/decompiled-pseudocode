@@ -1,19 +1,19 @@
 /*
- * XREFs of PsspCaptureVaSpaceInformation2 @ 0x1800C536C
+ * XREFs of PsspCaptureVaSpaceInformation2 @ 0x1800BCF2C
  * Callers:
- *     PsspCaptureVaSpaceInformation @ 0x1800C5268 (PsspCaptureVaSpaceInformation.c)
+ *     PsspCaptureVaSpaceInformation @ 0x1800BCE28 (PsspCaptureVaSpaceInformation.c)
  * Callees:
- *     PsspCaptureImageInformation @ 0x1800C590C (PsspCaptureImageInformation.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwMapViewOfSection @ 0x180162190 (ZwMapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x1801621D0 (NtUnmapViewOfSection.c)
- *     NtCreateSection @ 0x1801625D0 (NtCreateSection.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     PsspCaptureImageInformation @ 0x1800BD4CC (PsspCaptureImageInformation.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwMapViewOfSection @ 0x180160550 (ZwMapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x180160590 (NtUnmapViewOfSection.c)
+ *     NtCreateSection @ 0x180160990 (NtCreateSection.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall PsspCaptureVaSpaceInformation2(
+NTSTATUS __fastcall PsspCaptureVaSpaceInformation2(
         __int64 a1,
         __int64 a2,
         __int64 (__fastcall *a3)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD),
@@ -31,11 +31,11 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
   unsigned __int64 v13; // rcx
   int v14; // edx
   unsigned __int64 v15; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v17; // eax
   unsigned int v18; // edx
   unsigned int v19; // edx
-  int v20; // edi
+  NTSTATUS v20; // edi
   unsigned int v21; // esi
   __int64 v22; // r14
   _OWORD *v23; // rdi
@@ -54,25 +54,25 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
   int v36; // [rsp+60h] [rbp-69h]
   int v37; // [rsp+64h] [rbp-65h]
   unsigned int v38; // [rsp+68h] [rbp-61h]
-  void *v39; // [rsp+70h] [rbp-59h] BYREF
-  HANDLE Handle; // [rsp+78h] [rbp-51h] BYREF
+  PVOID BaseAddress; // [rsp+70h] [rbp-59h] BYREF
+  HANDLE SectionHandle; // [rsp+78h] [rbp-51h] BYREF
   __int128 v41; // [rsp+80h] [rbp-49h] BYREF
   __int128 v42; // [rsp+90h] [rbp-39h]
   __int128 v43; // [rsp+A0h] [rbp-29h]
-  __int64 v44; // [rsp+B0h] [rbp-19h] BYREF
-  __int64 v45; // [rsp+B8h] [rbp-11h] BYREF
+  ULONG_PTR ViewSize; // [rsp+B0h] [rbp-19h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+B8h] [rbp-11h] BYREF
   _OWORD v46[5]; // [rsp+C0h] [rbp-9h] BYREF
 
   v5 = (int (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))a3;
   v35 = 0LL;
   v6 = 0LL;
-  Handle = 0LL;
+  SectionHandle = 0LL;
   v7 = 0;
-  v45 = 0LL;
+  MaximumSize.QuadPart = 0LL;
   v8 = 0;
-  v39 = 0LL;
+  BaseAddress = 0LL;
   LODWORD(v9) = 0;
-  v44 = 0LL;
+  ViewSize = 0LL;
   v10 = 0;
   v11 = a5 & 0x1000;
   v12 = a4;
@@ -87,7 +87,7 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
       break;
     v13 = v41;
     if ( (_QWORD)v41 != v6 )
-      return 3221225793LL;
+      return -1073741503;
     if ( DWORD2(v43) == 0x1000000 || (v14 = 0, DWORD2(v43) == 0x40000) )
       v14 = 1;
     v8 += v14;
@@ -136,42 +136,59 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
   }
   v15 = 72LL * v7;
   if ( v15 > 0xFFFFFFFF )
-    return 3221225621LL;
+    return -1073741675;
   if ( v10 )
   {
     v9 = 8LL * v8;
     if ( v9 > 0xFFFFFFFF )
-      return 3221225621LL;
+      return -1073741675;
   }
   else if ( v11 )
   {
     if ( (int)v9 + 16 < (unsigned int)v9 )
-      return 3221225621LL;
+      return -1073741675;
     LODWORD(v9) = v9 + 16;
   }
   if ( (_DWORD)v9 )
   {
     if ( (int)v9 + (int)v15 < (unsigned int)v15 )
-      return 3221225621LL;
+      return -1073741675;
     LODWORD(v15) = v9 + v15;
   }
-  v45 = (unsigned int)v15;
-  result = NtCreateSection(&Handle, 983047LL, L"0", &v45);
-  if ( (int)result >= 0 )
+  MaximumSize.QuadPart = (unsigned int)v15;
+  result = NtCreateSection(
+             &SectionHandle,
+             0xF0007u,
+             (POBJECT_ATTRIBUTES)&stru_18017DC90,
+             &MaximumSize,
+             4u,
+             0x8000000u,
+             0LL);
+  if ( result >= 0 )
   {
-    v39 = 0LL;
-    v44 = 0LL;
-    v20 = ZwMapViewOfSection(Handle, -1LL, &v39, 0LL, 0LL, 0LL, &v44, 1, 0, 4);
+    BaseAddress = 0LL;
+    ViewSize = 0LL;
+    v20 = ZwMapViewOfSection(
+            SectionHandle,
+            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+            &BaseAddress,
+            0LL,
+            0LL,
+            0LL,
+            &ViewSize,
+            ViewShare,
+            0,
+            4u);
     if ( v20 < 0 )
     {
-      NtClose(Handle);
-      return (unsigned int)v20;
+      NtClose(SectionHandle);
+      return v20;
     }
-    v21 = v44;
+    v21 = ViewSize;
     v22 = 0LL;
-    v23 = v39;
+    v23 = BaseAddress;
     v24 = 0;
-    v38 = v44;
+    v38 = ViewSize;
     v36 = 0;
     while ( 1 )
     {
@@ -180,15 +197,15 @@ __int64 __fastcall PsspCaptureVaSpaceInformation2(
         || (v41 = 0LL, v42 = 0LL, v43 = 0LL, (int)a3(v12, v22, 0LL, &v41, 48LL, 0LL) < 0) )
       {
 LABEL_20:
-        NtUnmapViewOfSection(-1LL);
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
         *(_DWORD *)(a1 + 912) = v36;
-        *(_QWORD *)(a1 + 920) = Handle;
+        *(_QWORD *)(a1 + 920) = SectionHandle;
         *(_DWORD *)(a1 + 916) = v24;
         *(_QWORD *)(a1 + 928) = MEMORY[0x7FFE0014];
-        return 0LL;
+        return 0;
       }
       if ( (_QWORD)v41 != v22 )
-        return 3221225793LL;
+        return -1073741503;
       memset_thunk_772440563353939046(v23, 0, 0x48uLL);
       v25 = 72;
       *v23 = v41;

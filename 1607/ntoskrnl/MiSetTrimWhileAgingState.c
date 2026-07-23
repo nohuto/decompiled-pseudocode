@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSetTrimWhileAgingState @ 0x1400B5314
+ * XREFs of MiSetTrimWhileAgingState @ 0x1400B314C
  * Callers:
- *     MmSetTrimWhileAgingState @ 0x1400B52FC (MmSetTrimWhileAgingState.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x14014AC3C (MiInitializeWorkingSetManagerParameters.c)
+ *     MmSetTrimWhileAgingState @ 0x1400B3134 (MmSetTrimWhileAgingState.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x14014B1AC (MiInitializeWorkingSetManagerParameters.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiSetTrimWhileAgingState(__int64 a1, int a2)

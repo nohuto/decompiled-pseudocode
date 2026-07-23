@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_DisallowSharedLockImplicitUpgrade__private_IsEnabledDeviceUsageNoInline @ 0x140656128
+ * XREFs of Feature_Servicing_DisallowSharedLockImplicitUpgrade__private_IsEnabledDeviceUsageNoInline @ 0x140654828
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140C40A64 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140C42BB4 (ExpInitSystemPhase1.c)
  * Callees:
- *     Feature_Servicing_DisallowSharedLockImplicitUpgrade__private_IsEnabledFallback @ 0x140656160 (Feature_Servicing_DisallowSharedLockImplicitUpgrade__private_IsEnabledFallback.c)
+ *     Feature_Servicing_DisallowSharedLockImplicitUpgrade__private_IsEnabledFallback @ 0x140654860 (Feature_Servicing_DisallowSharedLockImplicitUpgrade__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_DisallowSharedLockImplicitUpgrade__private_IsEnabledDeviceUsageNoInline()

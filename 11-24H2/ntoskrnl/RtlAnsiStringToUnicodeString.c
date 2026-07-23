@@ -1,63 +1,63 @@
 /*
- * XREFs of RtlAnsiStringToUnicodeString @ 0x1408ADC70
+ * XREFs of RtlAnsiStringToUnicodeString @ 0x140903ED0
  * Callers:
- *     HvlDebuggerSupportInitialize @ 0x140582420 (HvlDebuggerSupportInitialize.c)
- *     IopCreateUnicodeFromAnsiBuffer @ 0x140595B8C (IopCreateUnicodeFromAnsiBuffer.c)
- *     PopEmModuleAddressMatchCallback @ 0x1405D8C80 (PopEmModuleAddressMatchCallback.c)
- *     PopEmUpdateDeviceConstraintCallback @ 0x1405DB750 (PopEmUpdateDeviceConstraintCallback.c)
- *     DifRtlAnsiStringToUnicodeStringWrapper @ 0x1406391F0 (DifRtlAnsiStringToUnicodeStringWrapper.c)
- *     CmpInitializeLoadOptions @ 0x1406676C8 (CmpInitializeLoadOptions.c)
- *     ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x14069D260 (-ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z.c)
- *     IopCopyBootLogRegistryToFile @ 0x140711E7C (IopCopyBootLogRegistryToFile.c)
- *     IopInitializeBootLogging @ 0x140712428 (IopInitializeBootLogging.c)
- *     KsepStringAnsiToUnicode @ 0x14074021C (KsepStringAnsiToUnicode.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x14077E300 (RtlCreateUnicodeStringFromAsciiz.c)
- *     SepInitializationPhase1 @ 0x14078EEE0 (SepInitializationPhase1.c)
- *     WmipCheckSMBiosSysInfoString @ 0x1407A40CC (WmipCheckSMBiosSysInfoString.c)
- *     WmipGetSMBiosString @ 0x1407A4560 (WmipGetSMBiosString.c)
- *     WmipQueryWmiRegInfo @ 0x1407A6270 (WmipQueryWmiRegInfo.c)
- *     EtwWmitraceWorker @ 0x1407AC83C (EtwWmitraceWorker.c)
- *     NtQuerySystemEnvironmentValue @ 0x1407BE5B0 (NtQuerySystemEnvironmentValue.c)
- *     CmpCreateHwProfileFriendlyName @ 0x1407D3860 (CmpCreateHwProfileFriendlyName.c)
- *     CmpAddProcessorConfigurationEntry @ 0x1407D4D18 (CmpAddProcessorConfigurationEntry.c)
- *     CmpSetVersionData @ 0x1407D7920 (CmpSetVersionData.c)
- *     CmpInitializeRegistryNode @ 0x1407DEA4C (CmpInitializeRegistryNode.c)
- *     CmpFindControlSet @ 0x1407E16C4 (CmpFindControlSet.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x1407E639C (CmpAddRemoveContainerToCLFSLog.c)
- *     AslStringAnsiToUnicode @ 0x140808394 (AslStringAnsiToUnicode.c)
- *     RtlInt64ToUnicodeString @ 0x14085B170 (RtlInt64ToUnicodeString.c)
- *     ExpWnfWriteStateData @ 0x1408AD580 (ExpWnfWriteStateData.c)
- *     RtlIntegerToUnicodeString @ 0x1408EF170 (RtlIntegerToUnicodeString.c)
- *     PiGetDefaultMessageString @ 0x1409C8444 (PiGetDefaultMessageString.c)
- *     MiResolveImageReferences @ 0x140A17C94 (MiResolveImageReferences.c)
- *     MiSnapThunk @ 0x140A180B4 (MiSnapThunk.c)
- *     MiLogFailedDriverLoad @ 0x140A18B7C (MiLogFailedDriverLoad.c)
- *     ObCheckRefTraceProcess @ 0x140A53078 (ObCheckRefTraceProcess.c)
- *     PopAnsiStringToUnicodeString @ 0x140A63150 (PopAnsiStringToUnicodeString.c)
- *     PiUEventHandleVetoEvent @ 0x140A8B24C (PiUEventHandleVetoEvent.c)
- *     PnpLogVetoInformation @ 0x140A9F1B4 (PnpLogVetoInformation.c)
- *     ExpSystemErrorHandler2 @ 0x140B61470 (ExpSystemErrorHandler2.c)
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
- *     EmpInfParseGetGuidFromName @ 0x140C16244 (EmpInfParseGetGuidFromName.c)
- *     EmpParseEntryTypes @ 0x140C16644 (EmpParseEntryTypes.c)
- *     IopCreateArcNames @ 0x140C1BCEC (IopCreateArcNames.c)
- *     IopCreateArcNamesCd @ 0x140C1BE30 (IopCreateArcNamesCd.c)
- *     IopMarkBootPartition @ 0x140C1CD70 (IopMarkBootPartition.c)
- *     IopGetBootDiskInformation @ 0x140C1D87C (IopGetBootDiskInformation.c)
- *     IopApplySystemPartitionProt @ 0x140C1E168 (IopApplySystemPartitionProt.c)
- *     PipCriticalDeviceWaitCallback @ 0x140C20670 (PipCriticalDeviceWaitCallback.c)
- *     PipSmBiosGetString @ 0x140C2237C (PipSmBiosGetString.c)
- *     WmipDriverEntry @ 0x140C3C9C0 (WmipDriverEntry.c)
- *     CmpInitializeDriverStores @ 0x140C471E0 (CmpInitializeDriverStores.c)
- *     CmpSetSystemBiosInformation @ 0x140C49AE0 (CmpSetSystemBiosInformation.c)
- *     CmpSetVideoBiosInformation @ 0x140C49E80 (CmpSetVideoBiosInformation.c)
- *     RamdiskCreateSymbolicLink @ 0x140C5E4D8 (RamdiskCreateSymbolicLink.c)
+ *     HvlDebuggerSupportInitialize @ 0x14057F7A0 (HvlDebuggerSupportInitialize.c)
+ *     IopCreateUnicodeFromAnsiBuffer @ 0x140592BBC (IopCreateUnicodeFromAnsiBuffer.c)
+ *     PopEmModuleAddressMatchCallback @ 0x1405D6120 (PopEmModuleAddressMatchCallback.c)
+ *     PopEmUpdateDeviceConstraintCallback @ 0x1405D8620 (PopEmUpdateDeviceConstraintCallback.c)
+ *     DifRtlAnsiStringToUnicodeStringWrapper @ 0x1406377B0 (DifRtlAnsiStringToUnicodeStringWrapper.c)
+ *     CmpInitializeLoadOptions @ 0x140665FB8 (CmpInitializeLoadOptions.c)
+ *     ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x14069E2F0 (-ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z.c)
+ *     IopCopyBootLogRegistryToFile @ 0x14070FA0C (IopCopyBootLogRegistryToFile.c)
+ *     IopInitializeBootLogging @ 0x14070FFB8 (IopInitializeBootLogging.c)
+ *     KsepStringAnsiToUnicode @ 0x14073E14C (KsepStringAnsiToUnicode.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x14077E230 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     SepInitializationPhase1 @ 0x14078EEB0 (SepInitializationPhase1.c)
+ *     WmipCheckSMBiosSysInfoString @ 0x1407A41DC (WmipCheckSMBiosSysInfoString.c)
+ *     WmipGetSMBiosString @ 0x1407A4670 (WmipGetSMBiosString.c)
+ *     WmipQueryWmiRegInfo @ 0x1407A63B0 (WmipQueryWmiRegInfo.c)
+ *     EtwWmitraceWorker @ 0x1407ACD0C (EtwWmitraceWorker.c)
+ *     NtQuerySystemEnvironmentValue @ 0x1407BEA00 (NtQuerySystemEnvironmentValue.c)
+ *     CmpCreateHwProfileFriendlyName @ 0x1407D3D50 (CmpCreateHwProfileFriendlyName.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x1407D5208 (CmpAddProcessorConfigurationEntry.c)
+ *     CmpSetVersionData @ 0x1407D7E74 (CmpSetVersionData.c)
+ *     CmpInitializeRegistryNode @ 0x1407DEF9C (CmpInitializeRegistryNode.c)
+ *     CmpFindControlSet @ 0x1407E1C14 (CmpFindControlSet.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x1407E696C (CmpAddRemoveContainerToCLFSLog.c)
+ *     AslStringAnsiToUnicode @ 0x140808AD4 (AslStringAnsiToUnicode.c)
+ *     RtlInt64ToUnicodeString @ 0x140833BE0 (RtlInt64ToUnicodeString.c)
+ *     RtlIntegerToUnicodeString @ 0x140860970 (RtlIntegerToUnicodeString.c)
+ *     ExpWnfWriteStateData @ 0x1409037E0 (ExpWnfWriteStateData.c)
+ *     PiGetDefaultMessageString @ 0x1409B8860 (PiGetDefaultMessageString.c)
+ *     MiResolveImageReferences @ 0x140A10E04 (MiResolveImageReferences.c)
+ *     MiSnapThunk @ 0x140A11224 (MiSnapThunk.c)
+ *     MiLogFailedDriverLoad @ 0x140A11CEC (MiLogFailedDriverLoad.c)
+ *     ObCheckRefTraceProcess @ 0x140A4B068 (ObCheckRefTraceProcess.c)
+ *     PopAnsiStringToUnicodeString @ 0x140A5BA50 (PopAnsiStringToUnicodeString.c)
+ *     PiUEventHandleVetoEvent @ 0x140A8758C (PiUEventHandleVetoEvent.c)
+ *     PnpLogVetoInformation @ 0x140A9A584 (PnpLogVetoInformation.c)
+ *     ExpSystemErrorHandler2 @ 0x140B63540 (ExpSystemErrorHandler2.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
+ *     EmpInfParseGetGuidFromName @ 0x140C18244 (EmpInfParseGetGuidFromName.c)
+ *     EmpParseEntryTypes @ 0x140C18644 (EmpParseEntryTypes.c)
+ *     IopCreateArcNames @ 0x140C1DD2C (IopCreateArcNames.c)
+ *     IopCreateArcNamesCd @ 0x140C1DE70 (IopCreateArcNamesCd.c)
+ *     IopMarkBootPartition @ 0x140C1EDB0 (IopMarkBootPartition.c)
+ *     IopGetBootDiskInformation @ 0x140C1F8BC (IopGetBootDiskInformation.c)
+ *     IopApplySystemPartitionProt @ 0x140C201A8 (IopApplySystemPartitionProt.c)
+ *     PipCriticalDeviceWaitCallback @ 0x140C226B0 (PipCriticalDeviceWaitCallback.c)
+ *     PipSmBiosGetString @ 0x140C243BC (PipSmBiosGetString.c)
+ *     WmipDriverEntry @ 0x140C3EB10 (WmipDriverEntry.c)
+ *     CmpInitializeDriverStores @ 0x140C49330 (CmpInitializeDriverStores.c)
+ *     CmpSetSystemBiosInformation @ 0x140C4BC04 (CmpSetSystemBiosInformation.c)
+ *     CmpSetVideoBiosInformation @ 0x140C4BFA4 (CmpSetVideoBiosInformation.c)
+ *     RamdiskCreateSymbolicLink @ 0x140C60628 (RamdiskCreateSymbolicLink.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     AllocateOrValidateUnicodeStringBuffer @ 0x140430E00 (AllocateOrValidateUnicodeStringBuffer.c)
- *     RtlpIsUtf8Process @ 0x1408AF8F0 (RtlpIsUtf8Process.c)
- *     RtlUTF8ToUnicodeN @ 0x1408AFDF0 (RtlUTF8ToUnicodeN.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     AllocateOrValidateUnicodeStringBuffer @ 0x140423340 (AllocateOrValidateUnicodeStringBuffer.c)
+ *     RtlpIsUtf8Process @ 0x140905B50 (RtlpIsUtf8Process.c)
+ *     RtlUTF8ToUnicodeN @ 0x140906050 (RtlUTF8ToUnicodeN.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
@@ -76,7 +76,7 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
   char *v14; // r14
   ULONG MaximumLength; // esi
   WCHAR *v16; // rbx
-  struct _CPTABLEINFO *p_Blink; // rdx
+  _CPTABLEINFO *p_Blink; // rdx
   ULONG v18; // esi
   ULONG v19; // r8d
   unsigned __int16 *MultiByteTable; // r10
@@ -165,7 +165,7 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
     else
     {
       _InterlockedOr(v30, 0);
-      p_Blink = (struct _CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
+      p_Blink = (_CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
     }
     v33 = UTF8StringByteCount;
     v37 = v14;

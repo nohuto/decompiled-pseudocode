@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlInitializeBaseMcbEx @ 0x1400924D0
+ * XREFs of FsRtlInitializeBaseMcbEx @ 0x140092410
  * Callers:
- *     FsRtlInitializeBaseMcb @ 0x1400924B0 (FsRtlInitializeBaseMcb.c)
- *     FsRtlInitializeLargeMcb @ 0x1401333D0 (FsRtlInitializeLargeMcb.c)
+ *     FsRtlInitializeBaseMcb @ 0x1400923F0 (FsRtlInitializeBaseMcb.c)
+ *     FsRtlInitializeLargeMcb @ 0x1401334A0 (FsRtlInitializeLargeMcb.c)
  * Callees:
  *     ExAllocateFromNPagedLookasideList @ 0x140018B38 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 BOOLEAN __stdcall FsRtlInitializeBaseMcbEx(PBASE_MCB Mcb, POOL_TYPE PoolType, USHORT Flags)

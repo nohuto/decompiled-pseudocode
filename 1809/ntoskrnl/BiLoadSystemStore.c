@@ -1,25 +1,25 @@
 /*
- * XREFs of BiLoadSystemStore @ 0x140710E28
+ * XREFs of BiLoadSystemStore @ 0x1407120C8
  * Callers:
- *     BiOpenSystemStore @ 0x140712C04 (BiOpenSystemStore.c)
+ *     BiOpenSystemStore @ 0x140713EA4 (BiOpenSystemStore.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     BiLogFileOwnerProcess @ 0x1403273F0 (BiLogFileOwnerProcess.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiAddStoreFromFile @ 0x14071101C (BiAddStoreFromFile.c)
- *     BiMarkTreatAsSystemStore @ 0x140711164 (BiMarkTreatAsSystemStore.c)
- *     BcdCloseStore @ 0x140711A08 (BcdCloseStore.c)
- *     BcdGetSystemStorePath @ 0x140711AA4 (BcdGetSystemStorePath.c)
- *     BiIsSystemStore @ 0x1407127A8 (BiIsSystemStore.c)
- *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     BiLogFileOwnerProcess @ 0x1403275E0 (BiLogFileOwnerProcess.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BiAddStoreFromFile @ 0x1407122BC (BiAddStoreFromFile.c)
+ *     BiMarkTreatAsSystemStore @ 0x140712404 (BiMarkTreatAsSystemStore.c)
+ *     BcdCloseStore @ 0x140712CA8 (BcdCloseStore.c)
+ *     BcdGetSystemStorePath @ 0x140712D44 (BcdGetSystemStorePath.c)
+ *     BiIsSystemStore @ 0x140713A48 (BiIsSystemStore.c)
+ *     BiLogMessage @ 0x140715354 (BiLogMessage.c)
  */
 
 __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
 {
   void *v2; // rdi
-  int SystemStorePath; // eax
+  NTSTATUS SystemStorePath; // eax
   void *v4; // rsi
   unsigned int v5; // ebx
   __int64 v6; // rbx
@@ -39,7 +39,7 @@ __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
 
   Src = 0LL;
   v2 = 0LL;
-  SystemStorePath = BcdGetSystemStorePath(&Src);
+  SystemStorePath = BcdGetSystemStorePath((PWSTR *)&Src);
   v4 = Src;
   v5 = SystemStorePath;
   if ( SystemStorePath >= 0 )

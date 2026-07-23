@@ -12,49 +12,51 @@
 int __fastcall RtlpAffinitizeSegmentInfoForBucket(int a1, int a2)
 {
   int v4; // edi
-  int v5; // ecx
-  int v6; // eax
-  int v7; // ecx
-  int v8; // edx
-  int v10; // [esp+10h] [ebp-8h] BYREF
-  int v11; // [esp+14h] [ebp-4h]
+  int v5; // edi
+  int v6; // ecx
+  int v7; // eax
+  int v8; // ecx
+  int v9; // edx
+  int v11; // [esp+10h] [ebp-8h] BYREF
+  int v12; // [esp+14h] [ebp-4h]
 
   if ( (*(_BYTE *)(a1 + 440) & 1) != 0 )
     return -1073741823;
-  v11 = RtlpAffinityState;
+  v4 = RtlpAffinityState;
+  v12 = RtlpAffinityState;
   if ( (unsigned int)RtlpAffinityState <= 1 )
     return -1073741823;
-  RtlEnterCriticalSection(*(_DWORD *)(*(_DWORD *)(a1 + 12) + 200));
+  RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(*(_DWORD *)(a1 + 12) + 200));
   if ( *(_DWORD *)(a1 + 4 * a2 + 1476) )
   {
-    v4 = -1073741302;
+    v5 = -1073741302;
   }
   else
   {
-    v4 = RtlpExtendLowFragHeapSegment(&v10);
-    if ( v4 >= 0 )
+    v5 = RtlpExtendLowFragHeapSegment(a1, 104 * (v4 - 1), &v11);
+    if ( v5 >= 0 )
     {
-      v5 = v11;
-      v6 = v10;
-      v11 = v10;
-      v7 = v5 - 1;
-      if ( v7 )
+      v6 = v12;
+      v7 = v11;
+      v12 = v11;
+      v8 = v6 - 1;
+      if ( v8 )
       {
-        v8 = a1 + 2024;
+        v9 = a1 + 2024;
         do
         {
-          *(_DWORD *)v6 = v8;
-          v8 += 24;
-          *(_WORD *)(v6 + 92) = a2;
-          v6 += 104;
-          --v7;
+          *(_DWORD *)v7 = v9;
+          v9 += 24;
+          *(_WORD *)(v7 + 92) = a2;
+          v7 += 104;
+          --v8;
         }
-        while ( v7 );
-        v6 = v11;
+        while ( v8 );
+        v7 = v12;
       }
-      *(_DWORD *)(a1 + 4 * a2 + 1476) = v6;
+      *(_DWORD *)(a1 + 4 * a2 + 1476) = v7;
     }
   }
-  RtlLeaveCriticalSection(*(_DWORD *)(*(_DWORD *)(a1 + 12) + 200));
-  return v4;
+  RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(*(_DWORD *)(a1 + 12) + 200));
+  return v5;
 }

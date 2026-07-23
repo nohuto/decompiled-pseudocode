@@ -1,8 +1,8 @@
 /*
- * XREFs of SepIdAssignableAsOwner @ 0x140AB06D8
+ * XREFs of SepIdAssignableAsOwner @ 0x140AAE6BC
  * Callers:
- *     NtSetInformationToken @ 0x140810BD0 (NtSetInformationToken.c)
- *     SepValidOwnerSubjectContext @ 0x140AB05C8 (SepValidOwnerSubjectContext.c)
+ *     NtSetInformationToken @ 0x140816660 (NtSetInformationToken.c)
+ *     SepValidOwnerSubjectContext @ 0x140AAE5AC (SepValidOwnerSubjectContext.c)
  * Callees:
  *     <none>
  */

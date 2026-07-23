@@ -1,13 +1,13 @@
 /*
- * XREFs of CcSetAdditionalCacheAttributes @ 0x1402AA420
+ * XREFs of CcSetAdditionalCacheAttributes @ 0x140228560
  * Callers:
- *     CcSetAdditionalCacheAttributesEx @ 0x1402AA2F0 (CcSetAdditionalCacheAttributesEx.c)
+ *     CcSetAdditionalCacheAttributesEx @ 0x140228430 (CcSetAdditionalCacheAttributesEx.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcGetPartition @ 0x14031E550 (CcGetPartition.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 void __stdcall CcSetAdditionalCacheAttributes(
@@ -34,7 +34,7 @@ void __stdcall CcSetAdditionalCacheAttributes(
   SharedCacheMap = SectionObjectPointer->SharedCacheMap;
   if ( !SharedCacheMap[1] )
     KeBugCheckEx(0x34u, 0x5FuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-  Partition = CcGetPartition(SectionObjectPointer->SharedCacheMap);
+  Partition = CcGetPartition(SectionObjectPointer->SharedCacheMap, DisableReadAhead, DisableWriteBehind);
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(Partition + 128), &LockHandle);
   v8 = SharedCacheMap[38];
   if ( DisableReadAhead )

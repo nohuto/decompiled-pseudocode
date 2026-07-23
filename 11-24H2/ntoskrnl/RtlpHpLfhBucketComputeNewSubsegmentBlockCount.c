@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x1402B54E0
+ * XREFs of RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x140494388
  * Callers:
- *     RtlpHpLfhSubsegmentCreate @ 0x1402B52CC (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x1404E751C (RtlpHpLfhSubsegmentCreate.c)
  * Callees:
  *     <none>
  */

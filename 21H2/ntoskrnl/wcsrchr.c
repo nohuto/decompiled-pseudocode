@@ -1,21 +1,21 @@
 /*
- * XREFs of wcsrchr @ 0x1403D4100
+ * XREFs of wcsrchr @ 0x1403D4270
  * Callers:
- *     EtwpGenerateFileName @ 0x1406ABAFC (EtwpGenerateFileName.c)
- *     _CmDeleteDeviceRegKeyWorker @ 0x14072D04C (_CmDeleteDeviceRegKeyWorker.c)
- *     PiDqDeleteUserObject @ 0x14072D748 (PiDqDeleteUserObject.c)
- *     PiLookupInDDBCache @ 0x14073DBC0 (PiLookupInDDBCache.c)
- *     SdbGetDatabaseMatchEx @ 0x140759A08 (SdbGetDatabaseMatchEx.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x14076C27C (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiIsDriverBlocked @ 0x14077E304 (PiIsDriverBlocked.c)
- *     PiUpdateDriverDBCache @ 0x14077E48C (PiUpdateDriverDBCache.c)
- *     AslPathSplit @ 0x14077F6C8 (AslPathSplit.c)
- *     PopBcdSetDefaultResumeObjectElements @ 0x140782EF4 (PopBcdSetDefaultResumeObjectElements.c)
- *     BiTranslateSymbolicLinkFile @ 0x14096FFCC (BiTranslateSymbolicLinkFile.c)
- *     _CmDeleteDevicePanelRegKeyWorker @ 0x140977EBC (_CmDeleteDevicePanelRegKeyWorker.c)
- *     _RegRtlDeletePathInternal @ 0x14097C99C (_RegRtlDeletePathInternal.c)
- *     DrvDbDeleteObjectSubKey @ 0x14097CDAC (DrvDbDeleteObjectSubKey.c)
- *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x140A8E850 (CmpGetSystemRelativeRegistryHiveFilePath.c)
+ *     EtwpGenerateFileName @ 0x14060A1EC (EtwpGenerateFileName.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x14072D4FC (_CmDeleteDeviceRegKeyWorker.c)
+ *     PiDqDeleteUserObject @ 0x14072DBF8 (PiDqDeleteUserObject.c)
+ *     PiLookupInDDBCache @ 0x14073DD80 (PiLookupInDDBCache.c)
+ *     SdbGetDatabaseMatchEx @ 0x140759BC8 (SdbGetDatabaseMatchEx.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x14076C43C (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiIsDriverBlocked @ 0x14077E4C4 (PiIsDriverBlocked.c)
+ *     PiUpdateDriverDBCache @ 0x14077E64C (PiUpdateDriverDBCache.c)
+ *     AslPathSplit @ 0x14077F888 (AslPathSplit.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x1407830B4 (PopBcdSetDefaultResumeObjectElements.c)
+ *     BiTranslateSymbolicLinkFile @ 0x1409701AC (BiTranslateSymbolicLinkFile.c)
+ *     _CmDeleteDevicePanelRegKeyWorker @ 0x14097809C (_CmDeleteDevicePanelRegKeyWorker.c)
+ *     _RegRtlDeletePathInternal @ 0x14097CB7C (_RegRtlDeletePathInternal.c)
+ *     DrvDbDeleteObjectSubKey @ 0x14097CF8C (DrvDbDeleteObjectSubKey.c)
+ *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x140A8F850 (CmpGetSystemRelativeRegistryHiveFilePath.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of XmCmpsOp @ 0x1405769E0
+ * XREFs of XmCmpsOp @ 0x140573E70
  * Callers:
  *     <none>
  * Callees:
- *     XmSetDestinationValue @ 0x14046908C (XmSetDestinationValue.c)
- *     XmSetSourceValue @ 0x140469348 (XmSetSourceValue.c)
- *     XmCompareOperands @ 0x140576A88 (XmCompareOperands.c)
- *     XmGetStringAddress @ 0x1405778DC (XmGetStringAddress.c)
+ *     XmSetDestinationValue @ 0x140461A3C (XmSetDestinationValue.c)
+ *     XmSetSourceValue @ 0x140461CF8 (XmSetSourceValue.c)
+ *     XmCompareOperands @ 0x140573F18 (XmCompareOperands.c)
+ *     XmGetStringAddress @ 0x140574D6C (XmGetStringAddress.c)
  */
 
 void __fastcall XmCmpsOp(__int64 a1)

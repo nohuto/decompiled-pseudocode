@@ -1,7 +1,7 @@
 /*
- * XREFs of HeapCommitFailAvoidTriageRules @ 0x180107E90
+ * XREFs of HeapCommitFailAvoidTriageRules @ 0x180107E50
  * Callers:
- *     RtlpHpHeapHandleError @ 0x180108500 (RtlpHpHeapHandleError.c)
+ *     RtlpHpHeapHandleError @ 0x1801084C0 (RtlpHpHeapHandleError.c)
  * Callees:
  *     <none>
  */

@@ -91,10 +91,13 @@ LABEL_17:
   RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C67348, (unsigned __int64)v17, v16, (unsigned __int64)(a2 + 2));
 LABEL_7:
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C67340);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmQueryDevicePanelPldProperty @ 0x1406E902C
+ * XREFs of _CmQueryDevicePanelPldProperty @ 0x1406EA2CC
  * Callers:
- *     _CmUpdateDevicePanel @ 0x1406E85D8 (_CmUpdateDevicePanel.c)
+ *     _CmUpdateDevicePanel @ 0x1406E9878 (_CmUpdateDevicePanel.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     _PnpGetObjectProperty @ 0x14059B008 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall CmQueryDevicePanelPldProperty(

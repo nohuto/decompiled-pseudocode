@@ -1,58 +1,63 @@
 /*
- * XREFs of NtQueryTimer @ 0x14094F210
+ * XREFs of NtQueryTimer @ 0x14094F3E0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeQueryTimerDueTime @ 0x140515E08 (KeQueryTimerDueTime.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeQueryTimerDueTime @ 0x140516048 (KeQueryTimerDueTime.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQueryTimer(HANDLE Handle, int a2, unsigned __int64 a3, int a4, unsigned __int64 a5)
+NTSTATUS __cdecl NtQueryTimer(
+        HANDLE TimerHandle,
+        TIMER_INFORMATION_CLASS TimerInformationClass,
+        PVOID TimerInformation,
+        ULONG TimerInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // r13
   __int64 v9; // rdx
   __int64 v10; // rcx
-  _DWORD *v11; // rsi
+  PULONG v11; // rsi
   __int64 v12; // rdx
   __int64 v13; // r8
   _DWORD *v14; // r9
-  NTSTATUS v15; // r15d
+  int v15; // r15d
   int v16; // r12d
   __int64 v17; // rbx
   __int64 v18; // rdi
   PVOID Object; // [rsp+30h] [rbp-38h] BYREF
 
-  if ( a2 )
-    return 3221225475LL;
-  if ( a4 != 16 )
-    return 3221225476LL;
+  if ( TimerInformationClass )
+    return -1073741821;
+  if ( TimerInformationLength != 16 )
+    return -1073741820;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)TimerInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v9 = 0x7FFFFFFF0000LL;
     v10 = 0x7FFFFFFF0000LL;
-    if ( a3 < 0x7FFFFFFF0000LL )
-      v10 = a3;
+    if ( (unsigned __int64)TimerInformation < 0x7FFFFFFF0000LL )
+      v10 = (__int64)TimerInformation;
     *(_BYTE *)v10 = *(_BYTE *)v10;
     *(_BYTE *)(v10 + 15) = *(_BYTE *)(v10 + 15);
-    v11 = (_DWORD *)a5;
-    if ( a5 )
+    v11 = ReturnLength;
+    if ( ReturnLength )
     {
-      if ( a5 < 0x7FFFFFFF0000LL )
-        v9 = a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v9 = (__int64)ReturnLength;
       *(_DWORD *)v9 = *(_DWORD *)v9;
     }
   }
   else
   {
-    v11 = (_DWORD *)a5;
+    v11 = ReturnLength;
   }
   Object = 0LL;
-  v15 = ObReferenceObjectByHandle(Handle, 1u, ExTimerObjectType, PreviousMode, &Object, 0LL);
+  v15 = ObReferenceObjectByHandle(TimerHandle, 1u, ExTimerObjectType, PreviousMode, &Object, 0LL);
   if ( v15 >= 0 )
   {
     v16 = *((_DWORD *)Object + 1);
@@ -61,18 +66,18 @@ __int64 __fastcall NtQueryTimer(HANDLE Handle, int a2, unsigned __int64 a3, int 
     HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     if ( PreviousMode )
     {
-      *(_BYTE *)(a3 + 8) = v16;
-      *(_QWORD *)a3 = v18;
+      *((_BYTE *)TimerInformation + 8) = v16;
+      *(_QWORD *)TimerInformation = v18;
       if ( v11 )
         *v11 = 16;
     }
     else
     {
-      *(_BYTE *)(a3 + 8) = v16;
-      *(_QWORD *)a3 = v18;
+      *((_BYTE *)TimerInformation + 8) = v16;
+      *(_QWORD *)TimerInformation = v18;
       if ( v11 )
         *v11 = 16;
     }
   }
-  return (unsigned int)v15;
+  return v15;
 }

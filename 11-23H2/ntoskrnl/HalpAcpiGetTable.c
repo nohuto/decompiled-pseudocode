@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpAcpiGetTable @ 0x140336FF0
+ * XREFs of HalpAcpiGetTable @ 0x140337280
  * Callers:
- *     HalAcpiGetTableDispatch @ 0x140336FD0 (HalAcpiGetTableDispatch.c)
- *     HalpInterruptParseAcpiTables @ 0x140379D7C (HalpInterruptParseAcpiTables.c)
- *     HalAcpiGetTable @ 0x1403968E0 (HalAcpiGetTable.c)
- *     HalMatchAcpiOemId @ 0x140398D90 (HalMatchAcpiOemId.c)
- *     HalMatchAcpiOemTableId @ 0x1403A0F80 (HalMatchAcpiOemTableId.c)
- *     HalMatchAcpiFADTBootArch @ 0x1403A2C30 (HalMatchAcpiFADTBootArch.c)
- *     HalSocGetAcpiTable @ 0x1403A4BDC (HalSocGetAcpiTable.c)
- *     HalAcpiGetTableEx @ 0x140500DA0 (HalAcpiGetTableEx.c)
- *     HalMatchAcpiCreatorRevision @ 0x140500DC0 (HalMatchAcpiCreatorRevision.c)
- *     HalMatchAcpiOemRevision @ 0x140500E40 (HalMatchAcpiOemRevision.c)
- *     HalMatchAcpiRevision @ 0x140500EC0 (HalMatchAcpiRevision.c)
- *     HalpExtGetAcpiTable @ 0x14050D970 (HalpExtGetAcpiTable.c)
+ *     HalAcpiGetTableDispatch @ 0x140337260 (HalAcpiGetTableDispatch.c)
+ *     HalpInterruptParseAcpiTables @ 0x140379F1C (HalpInterruptParseAcpiTables.c)
+ *     HalAcpiGetTable @ 0x140396AC0 (HalAcpiGetTable.c)
+ *     HalMatchAcpiOemId @ 0x140398F70 (HalMatchAcpiOemId.c)
+ *     HalMatchAcpiOemTableId @ 0x1403A1160 (HalMatchAcpiOemTableId.c)
+ *     HalMatchAcpiFADTBootArch @ 0x1403A2E10 (HalMatchAcpiFADTBootArch.c)
+ *     HalSocGetAcpiTable @ 0x1403A4DBC (HalSocGetAcpiTable.c)
+ *     HalAcpiGetTableEx @ 0x1405012F0 (HalAcpiGetTableEx.c)
+ *     HalMatchAcpiCreatorRevision @ 0x140501310 (HalMatchAcpiCreatorRevision.c)
+ *     HalMatchAcpiOemRevision @ 0x140501390 (HalMatchAcpiOemRevision.c)
+ *     HalMatchAcpiRevision @ 0x140501410 (HalMatchAcpiRevision.c)
+ *     HalpExtGetAcpiTable @ 0x14050DEC0 (HalpExtGetAcpiTable.c)
  *     CmpInitializeMachineDependentConfiguration @ 0x140B36E28 (CmpInitializeMachineDependentConfiguration.c)
  *     KsepMatchInitAcpiOemInfo @ 0x140B614DC (KsepMatchInitAcpiOemInfo.c)
  *     HalpPowerInitFwPerformanceTableMappings @ 0x140B61F18 (HalpPowerInitFwPerformanceTableMappings.c)
@@ -27,9 +27,9 @@
  *     HalpExtInitExtensions @ 0x140B6DD3C (HalpExtInitExtensions.c)
  *     CmpGetAcpiBiosVersion @ 0x140B983F0 (CmpGetAcpiBiosVersion.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     HalpAcpiGetTableWork @ 0x140337070 (HalpAcpiGetTableWork.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     HalpAcpiGetTableWork @ 0x140337300 (HalpAcpiGetTableWork.c)
  *     HalpAcpiTableCacheInit @ 0x140B48D28 (HalpAcpiTableCacheInit.c)
  */
 

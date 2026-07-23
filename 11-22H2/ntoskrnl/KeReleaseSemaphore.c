@@ -62,7 +62,7 @@ LONG __stdcall KeReleaseSemaphore(PRKSEMAPHORE Semaphore, KPRIORITY Increment, L
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -80,10 +80,10 @@ LONG __stdcall KeReleaseSemaphore(PRKSEMAPHORE Semaphore, KPRIORITY Increment, L
   if ( SignalState + Adjustment > Semaphore->Limit || v11 < SignalState )
   {
     _InterlockedAnd(&Semaphore->Header.Lock, 0xFFFFFF7F);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v29 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && CurrentIrql <= 0xFu && v29 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && CurrentIrql <= 0xFu && v29 >= 2u )
       {
         v30 = KeGetCurrentPrcb();
         v31 = v30->SchedulerAssist;
@@ -95,7 +95,7 @@ LONG __stdcall KeReleaseSemaphore(PRKSEMAPHORE Semaphore, KPRIORITY Increment, L
       }
     }
     __writecr8(CurrentIrql);
-    RtlRaiseStatus(3221225543LL);
+    RtlRaiseStatus(-1073741753);
   }
   Semaphore->Header.SignalState = v11;
   if ( !SignalState )
@@ -130,7 +130,7 @@ LABEL_45:
           v20 = (_QWORD *)(v19 + 8);
           v21 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
           {
             v22 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v21 == 2 )
@@ -187,6 +187,6 @@ LABEL_45:
   }
 LABEL_17:
   _InterlockedAnd(&Semaphore->Header.Lock, 0xFFFFFF7F);
-  KiExitDispatcher(v33, Wait != 0 ? 3 : 0, (struct _PROCESSOR_NUMBER)1, Increment, CurrentIrql);
+  KiExitDispatcher(v33, Wait != 0 ? 3 : 0, (_PROCESSOR_NUMBER)1, Increment, CurrentIrql);
   return v35;
 }

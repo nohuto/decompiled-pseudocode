@@ -1,11 +1,11 @@
 /*
  * XREFs of ExEnterCriticalRegionAndAcquireResourceShared @ 0x140224140
  * Callers:
- *     DifExEnterCriticalRegionAndAcquireResourceSharedWrapper @ 0x140608180 (DifExEnterCriticalRegionAndAcquireResourceSharedWrapper.c)
+ *     sub_140608180 @ 0x140608180 (sub_140608180.c)
  * Callees:
- *     ExpAcquireResourceSharedLite @ 0x1402B1170 (ExpAcquireResourceSharedLite.c)
+ *     sub_1402B1170 @ 0x1402B1170 (sub_1402B1170.c)
  *     ExAcquireFastResourceShared @ 0x14039B6B0 (ExAcquireFastResourceShared.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x14039C618 (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     sub_14039C618 @ 0x14039C618 (sub_14039C618.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
@@ -17,10 +17,10 @@ PVOID __stdcall ExEnterCriticalRegionAndAcquireResourceShared(PERESOURCE Resourc
   __int64 v4; // rdx
   unsigned __int8 CurrentIrql; // cl
   struct _KTHREAD *v7; // rdx
-  void *OwnerEntryForLegacyShim; // rdi
+  void *v8; // rdi
 
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   Flag = Resource->Flag;
   v4 = (unsigned __int8)Flag;
   if ( (Flag & 0x41) == 1 )
@@ -31,18 +31,18 @@ PVOID __stdcall ExEnterCriticalRegionAndAcquireResourceShared(PERESOURCE Resourc
     v7 = KeGetCurrentThread();
     if ( CurrentIrql > 1u )
       KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 1uLL, 0LL);
-    if ( (v7->ApcState.InProgressFlags & 2) != 0 )
+    if ( (*((_BYTE *)v7 + 192) & 2) != 0 )
       KeBugCheckEx(0x1C6u, 6uLL, 0LL, 0LL, 0LL);
-    if ( !CurrentIrql && (v7->MiscFlags & 0x400) == 0 && !v7->WaitBlock[3].SpareLong )
+    if ( !CurrentIrql && (*((_DWORD *)v7 + 29) & 0x400) == 0 && !*((_DWORD *)v7 + 121) )
       KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
-    OwnerEntryForLegacyShim = (void *)ExpAllocateOwnerEntryForLegacyShim();
-    if ( !(unsigned __int8)ExAcquireFastResourceShared((ULONG_PTR)Resource, (ULONG_PTR)OwnerEntryForLegacyShim) )
-      ExFreePoolWithTag(OwnerEntryForLegacyShim, 0);
+    v8 = (void *)sub_14039C618();
+    if ( !(unsigned __int8)ExAcquireFastResourceShared((ULONG_PTR)Resource, (ULONG_PTR)v8) )
+      ExFreePoolWithTag(v8, 0);
   }
   else
   {
     LOBYTE(v4) = 1;
-    ExpAcquireResourceSharedLite(Resource, v4);
+    sub_1402B1170(Resource, v4);
   }
-  return KeGetCurrentThread()->WaitBlock[2].SparePtr;
+  return (PVOID)*((_QWORD *)KeGetCurrentThread() + 57);
 }

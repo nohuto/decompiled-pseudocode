@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwRollforwardTransactionManager(HANDLE TransactionManagerHand
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TransactionManagerHandle, TmVirtualClock);
+  return KiServiceInternal(TransactionManagerHandle);
 }

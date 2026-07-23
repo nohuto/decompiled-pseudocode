@@ -9,22 +9,22 @@
  *     <none>
  */
 
-ULONG_PTR VfDisableHalVerifier()
+struct _LIST_ENTRY *VfDisableHalVerifier()
 {
-  ULONG_PTR *i; // rcx
-  ULONG_PTR v1; // rdx
-  ULONG_PTR result; // rax
+  struct _LIST_ENTRY *i; // rcx
+  struct _LIST_ENTRY *Flink; // rdx
+  struct _LIST_ENTRY *result; // rax
 
   if ( ViVerifyDma )
   {
     ViVerifyDma = 0;
-    for ( i = (ULONG_PTR *)ViAdapterList; &ViAdapterList != i; i = (ULONG_PTR *)*i )
+    for ( i = ViAdapterList.Flink; &ViAdapterList != i; i = i->Flink )
     {
-      v1 = i[2];
-      if ( v1 )
+      Flink = i[1].Flink;
+      if ( Flink )
       {
-        result = i[6];
-        *(_QWORD *)(v1 + 8) = result;
+        result = i[3].Flink;
+        Flink->Blink = result;
       }
     }
   }

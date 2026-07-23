@@ -1,15 +1,15 @@
 /*
- * XREFs of PiSwQueuedCreateInfoFree @ 0x1409FB784
+ * XREFs of PiSwQueuedCreateInfoFree @ 0x1409F40F4
  * Callers:
- *     PiSwQueuedCreateInfoCreate @ 0x140730E8C (PiSwQueuedCreateInfoCreate.c)
- *     PiSwDeviceFree @ 0x1409F819C (PiSwDeviceFree.c)
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
- *     PiSwProcessRemove @ 0x1409FB008 (PiSwProcessRemove.c)
- *     PiSwCloseDevice @ 0x140A93D94 (PiSwCloseDevice.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x14072EE9C (PiSwQueuedCreateInfoCreate.c)
+ *     PiSwDeviceFree @ 0x1409F0B0C (PiSwDeviceFree.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
+ *     PiSwProcessRemove @ 0x1409F3978 (PiSwProcessRemove.c)
+ *     PiSwCloseDevice @ 0x140A90544 (PiSwCloseDevice.c)
  * Callees:
- *     PnpFreeDevPropertyArray @ 0x1408D3F3C (PnpFreeDevPropertyArray.c)
- *     PiSwPnPInfoFree @ 0x1409F8258 (PiSwPnPInfoFree.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PnpFreeDevPropertyArray @ 0x1408D192C (PnpFreeDevPropertyArray.c)
+ *     PiSwPnPInfoFree @ 0x1409F0BC8 (PiSwPnPInfoFree.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiSwQueuedCreateInfoFree(PVOID P)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpParseAndUpdateLeapSecondData @ 0x140835E60
+ * XREFs of ExpParseAndUpdateLeapSecondData @ 0x14083C0A0
  * Callers:
- *     ExpReadLeapSecondData @ 0x140835F5C (ExpReadLeapSecondData.c)
+ *     ExpReadLeapSecondData @ 0x14083C19C (ExpReadLeapSecondData.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlParseLeapSecondData @ 0x1408A7624 (RtlParseLeapSecondData.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlParseLeapSecondData @ 0x1408ADA94 (RtlParseLeapSecondData.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpParseAndUpdateLeapSecondData(__int64 a1, __int64 a2)

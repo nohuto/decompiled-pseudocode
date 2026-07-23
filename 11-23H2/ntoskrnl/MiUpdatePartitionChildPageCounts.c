@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdatePartitionChildPageCounts @ 0x14065BD04
+ * XREFs of MiUpdatePartitionChildPageCounts @ 0x14065C254
  * Callers:
- *     MiInitializeDynamicPfns @ 0x14061AEF8 (MiInitializeDynamicPfns.c)
- *     MiMoveLargeFreePage @ 0x14064F7F4 (MiMoveLargeFreePage.c)
- *     MiActOnPartitionNodePages @ 0x140658080 (MiActOnPartitionNodePages.c)
- *     MiTransferPartitionPageRun @ 0x14065B604 (MiTransferPartitionPageRun.c)
+ *     MiInitializeDynamicPfns @ 0x14061B448 (MiInitializeDynamicPfns.c)
+ *     MiMoveLargeFreePage @ 0x14064FD44 (MiMoveLargeFreePage.c)
+ *     MiActOnPartitionNodePages @ 0x1406585D0 (MiActOnPartitionNodePages.c)
+ *     MiTransferPartitionPageRun @ 0x14065BB54 (MiTransferPartitionPageRun.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiRestrictRangeToNode @ 0x140375714 (MiRestrictRangeToNode.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiRestrictRangeToNode @ 0x1403758B4 (MiRestrictRangeToNode.c)
  */
 
 _QWORD *__fastcall MiUpdatePartitionChildPageCounts(__int64 a1, __int64 a2, ULONG_PTR a3, ULONG_PTR a4)

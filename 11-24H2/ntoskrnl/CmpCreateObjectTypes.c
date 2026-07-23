@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCreateObjectTypes @ 0x140C46C74
+ * XREFs of CmpCreateObjectTypes @ 0x140C48DC4
  * Callers:
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
  */
 
 __int64 CmpCreateObjectTypes()
@@ -27,7 +27,7 @@ __int64 CmpCreateObjectTypes()
   _KAFFINITY_EX *(__fastcall *v15)(__int64, __int64, __int64, unsigned __int64); // [rsp+60h] [rbp+7h]
   _KAFFINITY_EX *(__fastcall *v16)(__int64); // [rsp+68h] [rbp+Fh]
   __int64 (__fastcall *v17)(__int64, POBJECT_TYPE *, struct _ACCESS_STATE *, unsigned __int8, int, const UNICODE_STRING *, __m128i *, __int64, __int64, __int64, __int64 *); // [rsp+70h] [rbp+17h]
-  __int64 (__fastcall *v18)(ULONG_PTR *, int, ULONG *, void *, ULONG *, __int64, int, __int64); // [rsp+78h] [rbp+1Fh]
+  __int64 (__fastcall *v18)(ULONG_PTR *, int, DWORD *, void *, ULONG *, __int64, int, __int64); // [rsp+78h] [rbp+1Fh]
   __int64 (__fastcall *v19)(__int64, __int64, __int64, unsigned int, _DWORD *); // [rsp+80h] [rbp+27h]
 
   memset_0(&v1, 0, 0x78uLL);

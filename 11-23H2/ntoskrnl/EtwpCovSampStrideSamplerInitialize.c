@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCovSampStrideSamplerInitialize @ 0x1409F2E14
+ * XREFs of EtwpCovSampStrideSamplerInitialize @ 0x1409F30A4
  * Callers:
- *     EtwpCovSampCaptureContextStart @ 0x1409F09FC (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409F0C8C (EtwpCovSampCaptureContextStart.c)
  * Callees:
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
  */
 
 __int64 __fastcall EtwpCovSampStrideSamplerInitialize(__int64 a1, unsigned int a2, unsigned int a3)
 {
   __int64 v3; // rbx
-  unsigned int v6; // eax
+  ULONG v6; // eax
   bool v7; // zf
   unsigned __int64 v8; // rcx
   __int64 result; // rax
@@ -27,7 +27,7 @@ __int64 __fastcall EtwpCovSampStrideSamplerInitialize(__int64 a1, unsigned int a
   {
     if ( a2 )
     {
-      v8 = v3 * (KeMaximumIncrement / 0xAu / a2);
+      v8 = v3 * (KeMaximumIncrement / 0xA / a2);
       LODWORD(v3) = 0x10000000;
       if ( v8 < 0x10000000 )
         LODWORD(v3) = v8;

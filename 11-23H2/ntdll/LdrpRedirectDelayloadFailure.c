@@ -18,7 +18,7 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
         __int64 (__fastcall *a4)(__int64, int *),
         __int64 (__fastcall *a5)(__int64, const char *),
         __int64 a6,
-        unsigned int a7)
+        NTSTATUS Status)
 {
   __int64 v7; // r12
   __int64 v10; // rdi
@@ -35,7 +35,7 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
   int v22; // [rsp+70h] [rbp-21h]
   const char *v23; // [rsp+78h] [rbp-19h]
   __int64 v24; // [rsp+80h] [rbp-11h]
-  int v25; // [rsp+90h] [rbp-1h]
+  ULONG v25; // [rsp+90h] [rbp-1h]
   unsigned int v26; // [rsp+E0h] [rbp+4Fh] BYREF
   const char *v27; // [rsp+E8h] [rbp+57h] BYREF
   __int64 v28; // [rsp+F0h] [rbp+5Fh]
@@ -51,15 +51,15 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
     v13 = v27;
   LdrpLogInternal(
     (unsigned int)"minkernel\\ntdll\\ldrdload.c",
-    459LL,
+    459,
     (__int64)"LdrpRedirectDelayloadFailure",
-    0LL,
+    0,
     "Failed to find export %s!%s (Ordinal:%d) in \"%wZ\"  0x%08lx\n",
     v7,
     v13,
     v26,
     v11 + 88,
-    a7);
+    Status);
   if ( a2 )
   {
     v15 = *(_QWORD *)(a2 + 48);
@@ -83,7 +83,7 @@ LABEL_6:
   v18 = 72;
   v21 = v7;
   v24 = v15;
-  v25 = RtlNtStatusToDosErrorNoTeb(a7);
+  v25 = RtlNtStatusToDosErrorNoTeb(Status);
   if ( v12 )
   {
     v22 = 1;

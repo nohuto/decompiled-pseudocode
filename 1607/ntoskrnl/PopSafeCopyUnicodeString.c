@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSafeCopyUnicodeString @ 0x1400FC55C
+ * XREFs of PopSafeCopyUnicodeString @ 0x1400FA2DC
  * Callers:
- *     PopCaptureReasonContext @ 0x1400FC2D4 (PopCaptureReasonContext.c)
+ *     PopCaptureReasonContext @ 0x1400FA054 (PopCaptureReasonContext.c)
  * Callees:
- *     RtlStringCbCopyUnicodeString @ 0x1400FC610 (RtlStringCbCopyUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     RtlStringCbCopyUnicodeString @ 0x1400FA390 (RtlStringCbCopyUnicodeString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PopSafeCopyUnicodeString(PCUNICODE_STRING SourceString, wchar_t **a2, __int64 a3, char a4)

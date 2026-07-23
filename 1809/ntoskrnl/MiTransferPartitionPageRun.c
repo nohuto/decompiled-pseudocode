@@ -1,22 +1,22 @@
 /*
- * XREFs of MiTransferPartitionPageRun @ 0x1402D26F8
+ * XREFs of MiTransferPartitionPageRun @ 0x1402D28E8
  * Callers:
- *     MiActOnPartitionNodePages @ 0x1402D0118 (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x1402D0308 (MiActOnPartitionNodePages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiUnlinkFreeOrZeroedPage @ 0x140039AD0 (MiUnlinkFreeOrZeroedPage.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
- *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiAcquireNonPagedResourcesForce @ 0x1402A61F0 (MiAcquireNonPagedResourcesForce.c)
- *     MiUnlinkPageFromBadList @ 0x1402BFE00 (MiUnlinkPageFromBadList.c)
- *     MiMoveLargeFreePage @ 0x1402CC944 (MiMoveLargeFreePage.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14009B3EC (MiFreeZeroPageSizeIndex.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReleaseNonPagedResources @ 0x1400E1968 (MiReleaseNonPagedResources.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiAcquireNonPagedResourcesForce @ 0x1402A63E0 (MiAcquireNonPagedResourcesForce.c)
+ *     MiUnlinkPageFromBadList @ 0x1402BFFF0 (MiUnlinkPageFromBadList.c)
+ *     MiMoveLargeFreePage @ 0x1402CCB34 (MiMoveLargeFreePage.c)
  */
 
 __int64 __fastcall MiTransferPartitionPageRun(__int64 a1, unsigned __int16 *a2, ULONG_PTR a3, __int64 a4, KIRQL a5)
@@ -45,7 +45,7 @@ __int64 __fastcall MiTransferPartitionPageRun(__int64 a1, unsigned __int16 *a2, 
 
   v5 = a3;
   if ( a2 == (unsigned __int16 *)&MiSystemPartition )
-    _InterlockedExchangeAdd64(&qword_14043A750, -a4);
+    _InterlockedExchangeAdd64(&qword_14043B810, -a4);
   v8 = *(_WORD *)a1;
   v9 = 0LL;
   v10 = *a2;

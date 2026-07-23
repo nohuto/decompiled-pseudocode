@@ -1,34 +1,34 @@
 /*
- * XREFs of ExpSetDriverEntry @ 0x14083C5DC
+ * XREFs of ExpSetDriverEntry @ 0x14084281C
  * Callers:
- *     NtAddDriverEntry @ 0x14083D0C0 (NtAddDriverEntry.c)
- *     NtModifyDriverEntry @ 0x14083DB40 (NtModifyDriverEntry.c)
+ *     NtAddDriverEntry @ 0x140843300 (NtAddDriverEntry.c)
+ *     NtModifyDriverEntry @ 0x140843D80 (NtModifyDriverEntry.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403FC2F0 (ExAcquireFastMutexUnsafe.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwTranslateFilePath @ 0x140726EF0 (ZwTranslateFilePath.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     IoSetEnvironmentVariableEx @ 0x140906830 (IoSetEnvironmentVariableEx.c)
- *     IoGetEnvironmentVariableEx @ 0x140908318 (IoGetEnvironmentVariableEx.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     ExpSafeWcslen @ 0x140A94B34 (ExpSafeWcslen.c)
- *     ExpVerifyFilePath @ 0x140A94FDC (ExpVerifyFilePath.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403F8AE0 (ExAcquireFastMutexUnsafe.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwTranslateFilePath @ 0x14072BAC0 (ZwTranslateFilePath.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ExpSafeWcslen @ 0x140A2D384 (ExpSafeWcslen.c)
+ *     ExpVerifyFilePath @ 0x140A2D82C (ExpVerifyFilePath.c)
+ *     IoSetEnvironmentVariableEx @ 0x140A2EB60 (IoSetEnvironmentVariableEx.c)
+ *     IoGetEnvironmentVariableEx @ 0x140A30478 (IoGetEnvironmentVariableEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpSetDriverEntry(int a1, unsigned int *a2, unsigned int *a3)
 {
   unsigned int i; // esi
-  unsigned __int64 v6; // r13
-  __int64 v7; // r12
+  _FILE_PATH *v6; // r13
+  _FILE_PATH *v7; // r12
   KPROCESSOR_MODE PreviousMode; // di
   unsigned int ULongFromUser; // ebx
   int v11; // eax
@@ -38,14 +38,14 @@ __int64 __fastcall ExpSetDriverEntry(int a1, unsigned int *a2, unsigned int *a3)
   int v15; // eax
   __int64 v16; // r8
   unsigned int v17; // r14d
-  int EnvironmentVariable; // ebx
+  NTSTATUS EnvironmentVariable; // ebx
   void *v19; // rbx
-  unsigned int v20; // eax
+  ULONG Length; // eax
   char *v21; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v23; // [rsp+30h] [rbp-98h] BYREF
-  unsigned int Size; // [rsp+38h] [rbp-90h]
-  int Size_4; // [rsp+3Ch] [rbp-8Ch]
+  ULONG v23; // [rsp+30h] [rbp-98h] BYREF
+  ULONG OutputFilePathLength; // [rsp+38h] [rbp-90h] BYREF
+  int v25; // [rsp+3Ch] [rbp-8Ch]
   void *Src; // [rsp+40h] [rbp-88h]
   PVOID P; // [rsp+48h] [rbp-80h]
   unsigned int v28; // [rsp+50h] [rbp-78h]
@@ -54,13 +54,13 @@ __int64 __fastcall ExpSetDriverEntry(int a1, unsigned int *a2, unsigned int *a3)
   wchar_t Dst[12]; // [rsp+80h] [rbp-48h] BYREF
 
   v30 = a3;
-  Size_4 = a1;
+  v25 = a1;
   v29 = 0LL;
   i = 0;
   v6 = 0LL;
   v7 = 0LL;
   P = 0LL;
-  Size = 0;
+  OutputFilePathLength = 0;
   v23 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
@@ -89,7 +89,7 @@ __int64 __fastcall ExpSetDriverEntry(int a1, unsigned int *a2, unsigned int *a3)
   if ( !Pool2 )
     return 3221225626LL;
   memmove(Pool2, a2, ULongFromUser);
-  if ( *v13 != 1 || !Size_4 && v13[2] > 0xFFFFu )
+  if ( *v13 != 1 || !v25 && v13[2] > 0xFFFFu )
     goto LABEL_50;
   v14 = (unsigned int)v13[3];
   if ( (v14 & 1) != 0 )
@@ -101,53 +101,53 @@ __int64 __fastcall ExpSetDriverEntry(int a1, unsigned int *a2, unsigned int *a3)
   if ( v15 == -1 )
     goto LABEL_50;
   v17 = 2 * v15 + 2;
-  v6 = (unsigned __int64)v13 + v16;
+  v6 = (_FILE_PATH *)((char *)v13 + v16);
   EnvironmentVariable = ExpVerifyFilePath((char *)v13 + v16);
   if ( EnvironmentVariable < 0 )
     goto LABEL_51;
   v19 = Src;
-  if ( (unsigned __int64)Src + v17 > v6 )
+  if ( (char *)Src + v17 > (char *)v6 )
   {
 LABEL_50:
     EnvironmentVariable = -1073741811;
     goto LABEL_51;
   }
-  if ( *(_DWORD *)(v6 + 8) == 4 )
+  if ( v6->Type == 4 )
   {
-    v20 = *(_DWORD *)(v6 + 4);
+    Length = v6->Length;
     v7 = v6;
     goto LABEL_30;
   }
-  EnvironmentVariable = ZwTranslateFilePath(v6, 4LL);
+  EnvironmentVariable = ZwTranslateFilePath(v6, 4u, 0LL, &OutputFilePathLength);
   if ( EnvironmentVariable == -1073741789 )
   {
-    v7 = ExAllocatePool2(0x40uLL);
+    v7 = (_FILE_PATH *)ExAllocatePool2(0x40uLL);
     if ( !v7 )
     {
 LABEL_26:
       EnvironmentVariable = -1073741670;
       goto LABEL_51;
     }
-    v23 = Size;
-    EnvironmentVariable = ZwTranslateFilePath(v6, 4LL);
+    v23 = OutputFilePathLength;
+    EnvironmentVariable = ZwTranslateFilePath(v6, 4u, v7, &v23);
     if ( EnvironmentVariable < 0 )
       goto LABEL_51;
-    v20 = Size;
+    Length = OutputFilePathLength;
     v19 = Src;
 LABEL_30:
-    Size = v20 - 12;
-    LODWORD(Src) = v17 + v20 - 12 + 6;
+    OutputFilePathLength = Length - 12;
+    LODWORD(Src) = v17 + Length - 12 + 6;
     P = (PVOID)ExAllocatePool2(0x40uLL);
     if ( P )
     {
       v21 = (char *)P;
-      *((_WORD *)P + 2) = Size;
+      *((_WORD *)P + 2) = OutputFilePathLength;
       memmove(v21 + 6, v19, v17);
-      memmove(&v21[v17 + 6], (const void *)(v7 + 12), Size);
+      memmove(&v21[v17 + 6], v7->FilePath, OutputFilePathLength);
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      ExAcquireFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.WriteOperationCount);
-      if ( Size_4 )
+      ExAcquireFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.QueuedScb);
+      if ( v25 )
       {
         for ( i = 0; i <= 0xFFFF; ++i )
         {
@@ -209,7 +209,7 @@ LABEL_48:
                                   1);
       }
 LABEL_49:
-      ExReleaseFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.WriteOperationCount);
+      ExReleaseFastMutexUnsafe((PFAST_MUTEX)&ExSaPageGroupDescriptorArrayLock.QueuedScb);
       KeLeaveCriticalRegion();
       goto LABEL_51;
     }
@@ -219,9 +219,9 @@ LABEL_51:
   if ( P )
     ExFreePoolWithTag(P, 0);
   if ( v7 && v7 != v6 )
-    ExFreePoolWithTag((PVOID)v7, 0);
+    ExFreePoolWithTag(v7, 0);
   ExFreePoolWithTag(v13, 0);
-  if ( Size_4 && v30 && EnvironmentVariable >= 0 )
+  if ( v25 && v30 && EnvironmentVariable >= 0 )
     *v30 = i;
   return (unsigned int)EnvironmentVariable;
 }

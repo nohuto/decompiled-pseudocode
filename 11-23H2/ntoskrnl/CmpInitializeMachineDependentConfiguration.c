@@ -3,18 +3,18 @@
  * Callers:
  *     CmInitSystem1 @ 0x140B3626C (CmInitSystem1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     HalpAcpiGetTable @ 0x140336FF0 (HalpAcpiGetTable.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     ZwOpenSection @ 0x14041B440 (ZwOpenSection.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     __report_rangecheckfailure @ 0x1404FE0EC (__report_rangecheckfailure.c)
- *     CmpAddProcessorConfigurationEntry @ 0x14080C91C (CmpAddProcessorConfigurationEntry.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpAcpiGetTable @ 0x140337280 (HalpAcpiGetTable.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     ZwOpenSection @ 0x14041B7D0 (ZwOpenSection.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     __report_rangecheckfailure @ 0x1404FE63C (__report_rangecheckfailure.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x14080CBEC (CmpAddProcessorConfigurationEntry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     CmpInitializeSystemBiosInformation @ 0x140B7007C (CmpInitializeSystemBiosInformation.c)
@@ -47,13 +47,13 @@ NTSTATUS __fastcall CmpInitializeMachineDependentConfiguration(__int64 a1)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-D8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp-A8h] BYREF
   int Data; // [rsp+A0h] [rbp-98h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+A8h] [rbp-90h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+A8h] [rbp-90h] BYREF
   __int64 v25; // [rsp+B8h] [rbp-80h]
   UNICODE_STRING v26; // [rsp+C0h] [rbp-78h] BYREF
   UNICODE_STRING v27; // [rsp+D0h] [rbp-68h] BYREF
   __int64 v28; // [rsp+E0h] [rbp-58h] BYREF
   int v29; // [rsp+E8h] [rbp-50h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+F0h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+F0h] [rbp-48h] BYREF
 
   v1 = 0LL;
   v25 = a1;
@@ -187,8 +187,8 @@ LABEL_21:
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     if ( ZwOpenSection(&SectionHandle, 0xF001Fu, &ObjectAttributes) >= 0 )
     {
-      v15 = dword_140C31B10;
-      if ( dword_140C31B10 == 1 )
+      v15 = dword_140C31AB0;
+      if ( dword_140C31AB0 == 1 )
         CmpSetSystemBiosInformation(v2, SectionHandle, Handle);
       else
         CmpInitializeSystemBiosInformation(v2);

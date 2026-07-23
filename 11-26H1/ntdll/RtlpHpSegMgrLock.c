@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpSegMgrLock @ 0x18010FAC8
+ * XREFs of RtlpHpSegMgrLock @ 0x18010F658
  * Callers:
- *     RtlpHpSegMgrVaCtxAlloc @ 0x18008B7D0 (RtlpHpSegMgrVaCtxAlloc.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x180158414 (RtlpHpSegMgrVaCtxFree.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x180158580 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrVaCtxAlloc @ 0x18006EC08 (RtlpHpSegMgrVaCtxAlloc.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x1801582E4 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x180158450 (RtlpHpSegMgrVaCtxInsert.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall RtlpHpSegMgrLock(__int64 a1, __int64 a2)
+char __fastcall RtlpHpSegMgrLock(_RTL_SRWLOCK *a1)
 {
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 120), a2);
+  RtlAcquireSRWLockExclusive(a1 + 15);
   return -1;
 }

@@ -18,7 +18,9 @@ __int64 __fastcall RtlpHpLfhCacheAddSubsegment(__int64 a1, unsigned __int64 a2, 
   unsigned int v9; // eax
   __int64 v10; // rdi
   _WORD *v12; // rbp
-  int v14; // eax
+  __int64 v13; // r8
+  __int64 v14; // r9
+  int v16; // eax
 
   v4 = *(_BYTE *)(a3 + 45);
   v5 = *(_BYTE *)(a3 + 44);
@@ -29,11 +31,11 @@ __int64 __fastcall RtlpHpLfhCacheAddSubsegment(__int64 a1, unsigned __int64 a2, 
   v12 = (_WORD *)(a1 + 16LL * (v9 - 12));
   if ( *v12 )
   {
-    v14 = RtlpHpLfhSubsegmentCountEmptyUnits(a3);
-    if ( v14 && v4 > 1u )
+    v16 = RtlpHpLfhSubsegmentCountEmptyUnits(a3);
+    if ( v16 && v4 > 1u )
       _InterlockedExchangeAdd64(
         (volatile signed __int64 *)(*(_QWORD *)(a2 + 64) + 24LL),
-        -(__int64)((unsigned __int64)(unsigned int)(v14 << v5) >> 12));
+        -(__int64)((unsigned __int64)(unsigned int)(v16 << v5) >> 12));
     ((void (__fastcall *)(_QWORD, __int64, _QWORD, _QWORD))(a2 ^ RtlpHeapKey ^ *(_QWORD *)(a2 + 16)))(
       *(_QWORD *)a2,
       v10,
@@ -44,7 +46,7 @@ __int64 __fastcall RtlpHpLfhCacheAddSubsegment(__int64 a1, unsigned __int64 a2, 
   else
   {
     RtlpHpLfhSubsegmentDecommitPages(a2, a3, -2, 1, a4);
-    RtlpInterlockedPushEntrySList(v12, v10);
+    RtlpInterlockedPushEntrySList(v12, v10, v13, v14);
   }
   LOBYTE(v6) = v10 != 0;
   return v6;

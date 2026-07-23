@@ -1,24 +1,24 @@
 /*
- * XREFs of PopScreenOff @ 0x140998234
+ * XREFs of PopScreenOff @ 0x140998434
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
- *     PopIssueActionRequest @ 0x140989CA4 (PopIssueActionRequest.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
+ *     PopIssueActionRequest @ 0x140989EA4 (PopIssueActionRequest.c)
  * Callees:
- *     PopBlockSessionSwitch @ 0x140997CF0 (PopBlockSessionSwitch.c)
- *     PopControlMonitor @ 0x140997D70 (PopControlMonitor.c)
+ *     PopBlockSessionSwitch @ 0x140997EF0 (PopBlockSessionSwitch.c)
+ *     PopControlMonitor @ 0x140997F70 (PopControlMonitor.c)
  */
 
-__int64 __fastcall PopScreenOff(int a1)
+ULONG __fastcall PopScreenOff(int a1)
 {
-  unsigned int v3; // [rsp+30h] [rbp+8h] BYREF
+  ULONG v3; // [rsp+30h] [rbp+8h] BYREF
   unsigned int v4; // [rsp+38h] [rbp+10h] BYREF
   int v5; // [rsp+3Ch] [rbp+14h]
 
   v3 = -1;
-  PopBlockSessionSwitch(1, (int *)&v3);
+  PopBlockSessionSwitch(1, &v3);
   v4 = 0;
   v5 = a1;
   PopControlMonitor(&v4, v3);
-  return PopBlockSessionSwitch(0, (int *)&v3);
+  return PopBlockSessionSwitch(0, &v3);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiWriteControlAreaFlags2 @ 0x1404B65F0
+ * XREFs of MiWriteControlAreaFlags2 @ 0x1404AFA40
  * Callers:
- *     MiImageUnused @ 0x1404BE770 (MiImageUnused.c)
- *     MiStrongCodeImage @ 0x14050554C (MiStrongCodeImage.c)
- *     MiAllocateAweInfo @ 0x140877584 (MiAllocateAweInfo.c)
- *     MiCreatePagingFileFinish @ 0x1409B7E0C (MiCreatePagingFileFinish.c)
- *     MiSelectImageBase @ 0x1409CACA8 (MiSelectImageBase.c)
- *     MiValidateImageHeader @ 0x1409CBC24 (MiValidateImageHeader.c)
- *     MiMarkImageActive @ 0x140AFF5C4 (MiMarkImageActive.c)
+ *     MiImageUnused @ 0x1404B7FC0 (MiImageUnused.c)
+ *     MiStrongCodeImage @ 0x140521118 (MiStrongCodeImage.c)
+ *     MiAllocateAweInfo @ 0x14087D964 (MiAllocateAweInfo.c)
+ *     MiCreatePagingFileFinish @ 0x140988DEC (MiCreatePagingFileFinish.c)
+ *     MiSelectImageBase @ 0x14099BC88 (MiSelectImageBase.c)
+ *     MiValidateImageHeader @ 0x14099CC04 (MiValidateImageHeader.c)
+ *     MiMarkImageActive @ 0x140B01254 (MiMarkImageActive.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall MiWriteControlAreaFlags2(__int64 a1, int a2, int a3, int a4)

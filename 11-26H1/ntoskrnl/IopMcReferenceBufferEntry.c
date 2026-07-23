@@ -1,10 +1,10 @@
 /*
- * XREFs of IopMcReferenceBufferEntry @ 0x1404FDCA8
+ * XREFs of IopMcReferenceBufferEntry @ 0x1404F71E8
  * Callers:
- *     IoTryReleasePages @ 0x140411820 (IoTryReleasePages.c)
- *     IopMcGetBuffer @ 0x140B0106C (IopMcGetBuffer.c)
+ *     IoTryReleasePages @ 0x140410F40 (IoTryReleasePages.c)
+ *     IopMcGetBuffer @ 0x140B02D9C (IopMcGetBuffer.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IopMcReferenceBufferEntry(ULONG_PTR BugCheckParameter2)

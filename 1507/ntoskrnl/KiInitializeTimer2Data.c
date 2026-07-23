@@ -18,7 +18,7 @@ __int64 *KiInitializeTimer2Data()
     *result = -1LL;
     result += 3;
   }
-  while ( (__int64)result < (__int64)&unk_140338E08 );
+  while ( (__int64)result < (__int64)&KiHighResolutionTimerClockIntervalRequest.Children[1] );
   KiNextTimer2DueTime = -1LL;
   return result;
 }

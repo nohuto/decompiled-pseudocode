@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpTraceMirroringStart @ 0x14055B280
+ * XREFs of IopLiveDumpTraceMirroringStart @ 0x14055B940
  * Callers:
- *     IopLiveDumpStartMirroringCallback @ 0x140A9C5F0 (IopLiveDumpStartMirroringCallback.c)
+ *     IopLiveDumpStartMirroringCallback @ 0x140A9C460 (IopLiveDumpStartMirroringCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140559D90 (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x14055A450 (IopLiveDumpIsTracingEnabled.c)
  */
 
 char IopLiveDumpTraceMirroringStart()

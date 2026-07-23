@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFanReadFanNoiseInfo @ 0x140A78D98
+ * XREFs of PopFanReadFanNoiseInfo @ 0x140A73098
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PopFanUpdateStatistics @ 0x140A94448 (PopFanUpdateStatistics.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PopFanUpdateStatistics @ 0x140A90BF8 (PopFanUpdateStatistics.c)
  */
 
 __int64 __fastcall PopFanReadFanNoiseInfo(int a1, __int64 a2, int a3)
@@ -27,7 +27,7 @@ __int64 __fastcall PopFanReadFanNoiseInfo(int a1, __int64 a2, int a3)
 
   v4 = 0;
   v5 = 0;
-  PopAcquireRwLockShared((volatile signed __int64 *)&PopPolicyDeviceLock);
+  PopAcquireRwLockShared(&PopPolicyDeviceLock);
   for ( i = PopFans; (__int64 *)i != &PopFans; i = *(_QWORD *)i )
   {
     PopAcquireRwLockExclusive((unsigned __int64 *)(i + 400));
@@ -62,10 +62,10 @@ __int64 __fastcall PopFanReadFanNoiseInfo(int a1, __int64 a2, int a3)
     }
     PopReleaseRwLock((signed __int64 *)(i + 400));
   }
-  PopReleaseRwLock((signed __int64 *)&PopPolicyDeviceLock);
+  PopReleaseRwLock(&PopPolicyDeviceLock);
   if ( v5 != 1 )
   {
-    if ( (unsigned int)dword_140E076F0 > 2 )
+    if ( (unsigned int)dword_140E07680 > 2 )
     {
       v10 = a1;
       v14 = 4LL;
@@ -74,8 +74,8 @@ __int64 __fastcall PopFanReadFanNoiseInfo(int a1, __int64 a2, int a3)
       v15 = &v11;
       v11 = v5;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E076F0,
-        (unsigned __int8 *)byte_14004CEB7,
+        (__int64)&dword_140E07680,
+        (unsigned __int8 *)byte_14004D6B5,
         0LL,
         0LL,
         4u,

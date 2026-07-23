@@ -1,22 +1,22 @@
 /*
- * XREFs of CcAsyncCopyRead @ 0x1403877D0
+ * XREFs of CcAsyncCopyRead @ 0x140389580
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     CcScheduleReadAheadNuma @ 0x14021D0F8 (CcScheduleReadAheadNuma.c)
- *     IoReferenceIoAttributionFromThread @ 0x14026CAD0 (IoReferenceIoAttributionFromThread.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     PsGetPagePriorityThread @ 0x1403825F0 (PsGetPagePriorityThread.c)
- *     CcGetNodeForReadAhead @ 0x140387B00 (CcGetNodeForReadAhead.c)
- *     CcAllocateWorkQueueEntry @ 0x140387B50 (CcAllocateWorkQueueEntry.c)
- *     CcPostWorkQueueAsyncRead @ 0x140387C88 (CcPostWorkQueueAsyncRead.c)
- *     ExAllocatePoolWithTagFromNode @ 0x140398280 (ExAllocatePoolWithTagFromNode.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140B5F268 (CcSetTelemetryPeriodicTimer.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     CcScheduleReadAheadNuma @ 0x14021EA88 (CcScheduleReadAheadNuma.c)
+ *     IoReferenceIoAttributionFromThread @ 0x14026C040 (IoReferenceIoAttributionFromThread.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     PsGetPagePriorityThread @ 0x1403843A0 (PsGetPagePriorityThread.c)
+ *     CcGetNodeForReadAhead @ 0x1403898B0 (CcGetNodeForReadAhead.c)
+ *     CcAllocateWorkQueueEntry @ 0x140389900 (CcAllocateWorkQueueEntry.c)
+ *     CcPostWorkQueueAsyncRead @ 0x140389A38 (CcPostWorkQueueAsyncRead.c)
+ *     ExAllocatePoolWithTagFromNode @ 0x140399FE0 (ExAllocatePoolWithTagFromNode.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140B623E8 (CcSetTelemetryPeriodicTimer.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall CcAsyncCopyRead(
@@ -41,7 +41,7 @@ char __fastcall CcAsyncCopyRead(
   __int64 v20; // r9
   _SLIST_ENTRY *PoolWithTagFromNode; // rax
   _SLIST_ENTRY *v22; // r15
-  int v23; // r14d
+  NTSTATUS v23; // r14d
   volatile signed __int64 *v24; // rcx
   PSLIST_ENTRY v25; // r14
   PSLIST_ENTRY ListEntry; // [rsp+30h] [rbp-58h] BYREF
@@ -63,13 +63,13 @@ char __fastcall CcAsyncCopyRead(
   CurrentThread = a7;
   if ( CcEnableReadAheadInAsyncRead && (*v16 & 0x20000) != 0 )
     CcScheduleReadAheadNuma(Object, a2, a3, a7, Ahead);
-  ++EmpParseLock.WaitBlock[0].WaitListEntry.Flink;
-  if ( !HIDWORD(EmpParseLock.AffinityVersion)
-    && !BYTE1(EmpParseLock.Timer.DueTime.LowPart)
-    && LOBYTE(EmpParseLock.WaitListEntry.Flink)
-    && !LODWORD(EmpParseLock.AffinityVersion) )
+  ++EmpParseLock.WaitBlock[0].WaitListEntry.Blink;
+  if ( !HIDWORD(EmpParseLock.Affinity)
+    && !BYTE1(EmpParseLock.Timer.TimerListEntry.Flink)
+    && *((_BYTE *)&EmpParseLock.SwapListEntry + 8)
+    && !LODWORD(EmpParseLock.Affinity) )
   {
-    CcSetTelemetryPeriodicTimer((LARGE_INTEGER)EmpParseLock.RelativeTimerBias);
+    CcSetTelemetryPeriodicTimer(*(LARGE_INTEGER *)&EmpParseLock.Timer.Header.Lock);
   }
   v20 = *(unsigned int *)(v17 + 24);
   LODWORD(v20) = v20 | 0x80000000;
@@ -116,7 +116,7 @@ char __fastcall CcAsyncCopyRead(
   *((LARGE_INTEGER *)&v25[7].Next + 1) = PerformanceCounter;
   *((_QWORD *)&v25[6].Next + 1) = 0LL;
   IoReferenceIoAttributionFromThread(CurrentThread, (_QWORD *)&v25[6].Next + 1);
-  if ( *(_DWORD *)(a8 + 28) > LODWORD(EmpParseLock.WriteOperationCount) )
+  if ( *(_DWORD *)(a8 + 28) > HIDWORD(EmpParseLock.OtherOperationCount) )
     KeBugCheckEx(0x34u, 0x4ADuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   CcPostWorkQueueAsyncRead(v25);
   return 1;

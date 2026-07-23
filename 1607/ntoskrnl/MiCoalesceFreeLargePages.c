@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCoalesceFreeLargePages @ 0x1401FCC90
+ * XREFs of MiCoalesceFreeLargePages @ 0x1401FCABC
  * Callers:
- *     MiProcessLargeCoalesceList @ 0x1401FD56C (MiProcessLargeCoalesceList.c)
+ *     MiProcessLargeCoalesceList @ 0x1401FD398 (MiProcessLargeCoalesceList.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1400671B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiUnlinkNodeLargePageHelper @ 0x14008AA80 (MiUnlinkNodeLargePageHelper.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     MiUnlockDynamicMemoryShared @ 0x1401E2268 (MiUnlockDynamicMemoryShared.c)
- *     MiConstructNewLargeFreePage @ 0x1401FD0F0 (MiConstructNewLargeFreePage.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140066D30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x14008A180 (MiUnlinkNodeLargePageHelper.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1401E2094 (MiUnlockDynamicMemoryShared.c)
+ *     MiConstructNewLargeFreePage @ 0x1401FCF1C (MiConstructNewLargeFreePage.c)
  */
 
 __int64 __fastcall MiCoalesceFreeLargePages(__int64 a1, unsigned __int64 a2, unsigned int a3)

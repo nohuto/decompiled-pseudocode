@@ -6,20 +6,20 @@
  *     <none>
  */
 
-signed __int64 __fastcall sub_180007658(volatile signed __int64 *a1)
+int __fastcall sub_180007658(volatile signed __int64 *a1)
 {
-  signed __int64 result; // rax
+  signed __int64 v1; // rax
   _QWORD *v3; // rdx
   _QWORD *v4; // rcx
   char v5; // dl
   unsigned __int64 v6; // rcx
   signed __int64 v7; // rtt
 
-  result = *a1;
+  v1 = *a1;
   do
   {
-    v3 = (_QWORD *)(result & 0xFFFFFFFFFFFFFFFCuLL);
-    if ( !*(_QWORD *)((result & 0xFFFFFFFFFFFFFFFCuLL) + 32) )
+    v3 = (_QWORD *)(v1 & 0xFFFFFFFFFFFFFFFCuLL);
+    if ( !*(_QWORD *)((v1 & 0xFFFFFFFFFFFFFFFCuLL) + 32) )
     {
       do
       {
@@ -29,16 +29,16 @@ signed __int64 __fastcall sub_180007658(volatile signed __int64 *a1)
       }
       while ( !v3[4] );
     }
-    *(_QWORD *)((result & 0xFFFFFFFFFFFFFFFCuLL) + 32) = v3[4];
-    v5 = result & 1;
+    *(_QWORD *)((v1 & 0xFFFFFFFFFFFFFFFCuLL) + 32) = v3[4];
+    v5 = v1 & 1;
     v6 = 0LL;
-    if ( (result & 1) == 0 )
-      v6 = result & 0xFFFFFFFFFFFFFFFCuLL;
-    v7 = result;
-    result = _InterlockedCompareExchange64(a1, v6, result);
+    if ( (v1 & 1) == 0 )
+      v6 = v1 & 0xFFFFFFFFFFFFFFFCuLL;
+    v7 = v1;
+    v1 = _InterlockedCompareExchange64(a1, v6, v1);
   }
-  while ( v7 != result );
+  while ( v7 != v1 );
   if ( v5 )
-    return sub_180006358(result);
-  return result;
+    LODWORD(v1) = sub_180006358(v1);
+  return v1;
 }

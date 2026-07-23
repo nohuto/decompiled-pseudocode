@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpEnvAcquireGlobalLockSharedContended @ 0x1801212E4
+ * XREFs of RtlpHpEnvAcquireGlobalLockSharedContended @ 0x180121080
  * Callers:
- *     RtlpHpHeapCompact @ 0x180016180 (RtlpHpHeapCompact.c)
- *     RtlpHpTagFreeHeap @ 0x1800195A0 (RtlpHpTagFreeHeap.c)
- *     RtlpHpFreeHeap @ 0x180019C00 (RtlpHpFreeHeap.c)
- *     RtlpHpAllocateHeap @ 0x180071440 (RtlpHpAllocateHeap.c)
- *     RtlpHpFreeHeapSlow @ 0x180089330 (RtlpHpFreeHeapSlow.c)
- *     RtlpHpSegTlsCleanup @ 0x1800976A0 (RtlpHpSegTlsCleanup.c)
- *     RtlpHpAllocateHeapSlow @ 0x180097E10 (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpReAllocateHeapSlow @ 0x1800B0E90 (RtlpHpReAllocateHeapSlow.c)
- *     RtlpHpReAllocateHeap @ 0x1800B11E4 (RtlpHpReAllocateHeap.c)
+ *     RtlpHpTagFreeHeap @ 0x180004680 (RtlpHpTagFreeHeap.c)
+ *     RtlpHpFreeHeap @ 0x180004CE0 (RtlpHpFreeHeap.c)
+ *     RtlpHpHeapCompact @ 0x1800618B0 (RtlpHpHeapCompact.c)
+ *     RtlpHpSegTlsCleanup @ 0x180064560 (RtlpHpSegTlsCleanup.c)
+ *     RtlpHpFreeHeapSlow @ 0x180080730 (RtlpHpFreeHeapSlow.c)
+ *     RtlpHpReAllocateHeapSlow @ 0x180080A04 (RtlpHpReAllocateHeapSlow.c)
+ *     RtlpHpReAllocateHeap @ 0x180080D58 (RtlpHpReAllocateHeap.c)
+ *     RtlpHpAllocateHeap @ 0x180091890 (RtlpHpAllocateHeap.c)
+ *     RtlpHpAllocateHeapSlow @ 0x180096F60 (RtlpHpAllocateHeapSlow.c)
  * Callees:
- *     RtlpWaitOnAddress @ 0x18007B580 (RtlpWaitOnAddress.c)
+ *     RtlpWaitOnAddress @ 0x180069DA0 (RtlpWaitOnAddress.c)
  */
 
 __int64 __fastcall RtlpHpEnvAcquireGlobalLockSharedContended(unsigned int *a1, int a2)

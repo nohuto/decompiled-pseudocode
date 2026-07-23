@@ -1,27 +1,27 @@
 /*
- * XREFs of ExpAcquireFastMutexContended @ 0x1402F2BC0
+ * XREFs of ExpAcquireFastMutexContended @ 0x1402FD910
  * Callers:
- *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlAcquireEofLock @ 0x1402907F0 (FsRtlAcquireEofLock.c)
- *     ExEnterCriticalRegionAndAcquireFastMutexUnsafe @ 0x14029E0D0 (ExEnterCriticalRegionAndAcquireFastMutexUnsafe.c)
- *     FsRtlReleaseEofLock @ 0x1402EEC80 (FsRtlReleaseEofLock.c)
- *     KeAcquireGuardedMutex @ 0x1402EF360 (KeAcquireGuardedMutex.c)
- *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
- *     CcSetDirtyPinnedData @ 0x1402F9310 (CcSetDirtyPinnedData.c)
- *     CcPinFileData @ 0x14031F630 (CcPinFileData.c)
- *     CcSetDirtyInMask @ 0x140336470 (CcSetDirtyInMask.c)
- *     FsRtlAcquireHeaderMutex @ 0x140349070 (FsRtlAcquireHeaderMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     FsRtlCheckOplockEx2 @ 0x140353D20 (FsRtlCheckOplockEx2.c)
- *     CmpPerformSingleKcbCacheLookup @ 0x1406F2EB0 (CmpPerformSingleKcbCacheLookup.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
+ *     FsRtlAcquireEofLock @ 0x14020E760 (FsRtlAcquireEofLock.c)
+ *     ExEnterCriticalRegionAndAcquireFastMutexUnsafe @ 0x14021B630 (ExEnterCriticalRegionAndAcquireFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402AB110 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlReleaseEofLock @ 0x1402F99D0 (FsRtlReleaseEofLock.c)
+ *     KeAcquireGuardedMutex @ 0x1402FA0B0 (KeAcquireGuardedMutex.c)
+ *     CcUnpinFileDataEx @ 0x1402FF380 (CcUnpinFileDataEx.c)
+ *     CcSetDirtyPinnedData @ 0x140304060 (CcSetDirtyPinnedData.c)
+ *     CcPinFileData @ 0x14032A380 (CcPinFileData.c)
+ *     CcSetDirtyInMask @ 0x1403411C0 (CcSetDirtyInMask.c)
+ *     FsRtlAcquireHeaderMutex @ 0x140353DC0 (FsRtlAcquireHeaderMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     FsRtlCheckOplockEx2 @ 0x14035EA70 (FsRtlCheckOplockEx2.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x14070A290 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1407129F0 (CmpDereferenceKeyControlBlock.c)
  * Callees:
- *     KeAbPreWait @ 0x1402F30C0 (KeAbPreWait.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     KeAbPreWait @ 0x1402FDE10 (KeAbPreWait.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
  */
 
-__int64 __fastcall ExpAcquireFastMutexContended(ULONG_PTR BugCheckParameter2, __int64 a2)
+__int64 __fastcall ExpAcquireFastMutexContended(ULONG_PTR BugCheckParameter2, PRTL_BALANCED_NODE Node)
 {
   int v2; // ebp
   int v5; // esi
@@ -42,14 +42,14 @@ LABEL_2:
       LODWORD(result) = _InterlockedCompareExchange((volatile signed __int32 *)BugCheckParameter2, v5 + result, result);
       if ( v8 == (_DWORD)result )
       {
-        if ( a2 )
-          KeAbPreWait(a2);
+        if ( Node )
+          KeAbPreWait(Node);
         KeWaitForSingleObject((PVOID)(BugCheckParameter2 + 24), WrFastMutex, 0, 0, 0LL);
         _m_prefetchw((const void *)BugCheckParameter2);
         v2 = 3;
         v5 = 2;
-        if ( a2 )
-          a2 = KeAbPreAcquire(BugCheckParameter2);
+        if ( Node )
+          Node = (PRTL_BALANCED_NODE)KeAbPreAcquire(BugCheckParameter2, Node);
         goto LABEL_2;
       }
     }

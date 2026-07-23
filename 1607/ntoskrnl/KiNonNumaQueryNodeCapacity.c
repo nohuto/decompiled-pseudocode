@@ -1,5 +1,5 @@
 /*
- * XREFs of KiNonNumaQueryNodeCapacity @ 0x1401D3540
+ * XREFs of KiNonNumaQueryNodeCapacity @ 0x1401D336C
  * Callers:
  *     KiPerformGroupConfiguration @ 0x140793198 (KiPerformGroupConfiguration.c)
  * Callees:

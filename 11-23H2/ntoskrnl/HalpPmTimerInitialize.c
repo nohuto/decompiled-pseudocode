@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPmTimerInitialize @ 0x1403B6AF0
+ * XREFs of HalpPmTimerInitialize @ 0x1403B6CD0
  * Callers:
  *     <none>
  * Callees:
- *     HalMapIoSpace @ 0x14037E130 (HalMapIoSpace.c)
+ *     HalMapIoSpace @ 0x14037E2D0 (HalMapIoSpace.c)
  */
 
 __int64 __fastcall HalpPmTimerInitialize(__int64 a1)

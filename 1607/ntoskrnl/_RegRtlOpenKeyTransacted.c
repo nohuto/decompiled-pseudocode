@@ -1,20 +1,20 @@
 /*
- * XREFs of _RegRtlOpenKeyTransacted @ 0x1404FDBD4
+ * XREFs of _RegRtlOpenKeyTransacted @ 0x1404E0B64
  * Callers:
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _RegRtlDeleteTreeInternal @ 0x1405620CC (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140562208 (_RegRtlDeleteKeyTransacted.c)
- *     _SysCtxOpenMachine @ 0x140579704 (_SysCtxOpenMachine.c)
- *     _SysCtxOpenControlSet @ 0x1405798B4 (_SysCtxOpenControlSet.c)
- *     _RegRtlOpenPredefinedKey @ 0x14057BC28 (_RegRtlOpenPredefinedKey.c)
- *     _RegRtlCopyTreeInternal @ 0x1406E0128 (_RegRtlCopyTreeInternal.c)
- *     _RegRtlDeletePathInternal @ 0x1406E06D0 (_RegRtlDeletePathInternal.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14056260C (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140562748 (_RegRtlDeleteKeyTransacted.c)
+ *     _SysCtxOpenMachine @ 0x140579C44 (_SysCtxOpenMachine.c)
+ *     _SysCtxOpenControlSet @ 0x140579DF4 (_SysCtxOpenControlSet.c)
+ *     _RegRtlOpenPredefinedKey @ 0x14057C0D4 (_RegRtlOpenPredefinedKey.c)
+ *     _RegRtlCopyTreeInternal @ 0x1406E0260 (_RegRtlCopyTreeInternal.c)
+ *     _RegRtlDeletePathInternal @ 0x1406E0808 (_RegRtlDeletePathInternal.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwOpenKeyTransacted @ 0x14015BEC0 (ZwOpenKeyTransacted.c)
- *     _RegRtlOpenPredefinedKey @ 0x14057BC28 (_RegRtlOpenPredefinedKey.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwOpenKeyTransacted @ 0x14015C430 (ZwOpenKeyTransacted.c)
+ *     _RegRtlOpenPredefinedKey @ 0x14057C0D4 (_RegRtlOpenPredefinedKey.c)
  */
 
 __int64 __fastcall RegRtlOpenKeyTransacted(

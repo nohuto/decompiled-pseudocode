@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpAccessFaultBatch @ 0x140466546
+ * XREFs of VmpAccessFaultBatch @ 0x140466946
  * Callers:
- *     VmAccessFault @ 0x1409DBFF0 (VmAccessFault.c)
+ *     VmAccessFault @ 0x1409DC1F0 (VmAccessFault.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     VmpFaultEntryInsert @ 0x140466838 (VmpFaultEntryInsert.c)
- *     VmpFaultEntryRemove @ 0x1404669F6 (VmpFaultEntryRemove.c)
- *     VmpProcessContextLockShared @ 0x140466D94 (VmpProcessContextLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpProcessUpdateSlat @ 0x1405FAB5C (VmpProcessUpdateSlat.c)
- *     VmpAccessFaultBatchResolve @ 0x1409DCD38 (VmpAccessFaultBatchResolve.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpFaultEntryInsert @ 0x140466C38 (VmpFaultEntryInsert.c)
+ *     VmpFaultEntryRemove @ 0x140466DF6 (VmpFaultEntryRemove.c)
+ *     VmpProcessContextLockShared @ 0x140467194 (VmpProcessContextLockShared.c)
+ *     VmpProcessUpdateSlat @ 0x1405FB0CC (VmpProcessUpdateSlat.c)
+ *     VmpAccessFaultBatchResolve @ 0x1409DCF38 (VmpAccessFaultBatchResolve.c)
  */
 
 __int64 __fastcall VmpAccessFaultBatch(
@@ -64,10 +64,13 @@ LABEL_31:
       if ( v14 != -1 )
       {
         ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v14 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -75,7 +78,7 @@ LABEL_31:
             v24 = (v31 & SchedulerAssist[5]) == 0;
             SchedulerAssist[5] &= v31;
             if ( v24 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
         __writecr8((unsigned __int8)v14);
@@ -108,10 +111,10 @@ LABEL_31:
         goto LABEL_31;
     }
     ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v20 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v20 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v20 >= 2u )
       {
         v21 = KeGetCurrentPrcb();
         v22 = v21->SchedulerAssist;
@@ -119,7 +122,7 @@ LABEL_31:
         v24 = (v23 & v22[5]) == 0;
         v22[5] &= v23;
         if ( v24 )
-          KiRemoveSystemWorkPriorityKick(v21);
+          KiRemoveSystemWorkPriorityKick((__int64)v21);
       }
     }
     __writecr8((unsigned __int8)v14);

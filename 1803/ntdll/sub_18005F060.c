@@ -8,36 +8,57 @@
  *     ZwAllocateVirtualMemoryEx @ 0x18009B930 (ZwAllocateVirtualMemoryEx.c)
  */
 
-__int64 __fastcall sub_18005F060(
-        __int64 a1,
-        __int64 a2,
+NTSTATUS __fastcall sub_18005F060(
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
         __int64 a3,
         int a4,
-        int a5,
-        __int64 a6,
-        __int64 a7,
+        ULONG PageProtection,
+        int a6,
+        int a7,
         __int64 a8)
 {
-  unsigned int v8; // r9d
-  __int64 v9; // rax
-  _QWORD v11[8]; // [rsp+40h] [rbp-40h] BYREF
+  ULONG v8; // r9d
+  ULONG ExtendedParameterCount; // r10d
+  __int64 v10; // rax
+  unsigned int v11; // eax
+  MEM_EXTENDED_PARAMETER *ExtendedParameters; // rax
+  _QWORD v14[3]; // [rsp+40h] [rbp-40h] BYREF
+  _QWORD v15[5]; // [rsp+58h] [rbp-28h] BYREF
 
   v8 = a4 & 0xBFFFFFFF;
+  ExtendedParameterCount = 0;
   if ( (v8 & 0x2000) != 0 )
   {
-    v9 = 0LL;
-    v11[2] = a3;
-    v11[1] = 0LL;
-    v11[4] = v11;
-    v11[3] = 1LL;
+    v10 = 0LL;
+    v14[2] = a3;
+    v14[1] = 0LL;
+    ExtendedParameterCount = 1;
+    v15[1] = v14;
+    v15[0] = 1LL;
     if ( (v8 & 0x40000) != 0 )
-      v9 = 0x100000000LL;
-    v11[0] = v9;
+      v10 = 0x100000000LL;
+    v14[0] = v10;
+    v11 = v8 & 0xFFFBFFFF;
+    if ( (v8 & 0x40000) == 0 )
+      v11 = v8;
+    v8 = v11;
     if ( a8 )
     {
-      v11[6] = a8;
-      v11[5] = 3LL;
+      v15[3] = a8;
+      v15[2] = 3LL;
+      ExtendedParameterCount = 2;
     }
   }
-  return ZwAllocateVirtualMemoryEx(-1LL, a1, a2);
+  ExtendedParameters = (MEM_EXTENDED_PARAMETER *)v15;
+  if ( !ExtendedParameterCount )
+    ExtendedParameters = 0LL;
+  return ZwAllocateVirtualMemoryEx(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           BaseAddress,
+           RegionSize,
+           v8,
+           PageProtection,
+           ExtendedParameters,
+           ExtendedParameterCount);
 }

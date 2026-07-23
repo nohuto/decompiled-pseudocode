@@ -1,15 +1,15 @@
 /*
  * XREFs of KeFirstGroupAffinityEx @ 0x14035C9C0
  * Callers:
- *     KiSetAffinityThread @ 0x14020EC24 (KiSetAffinityThread.c)
+ *     sub_14020EC24 @ 0x14020EC24 (sub_14020EC24.c)
  *     KeQueryLogicalProcessorRelationship @ 0x140263790 (KeQueryLogicalProcessorRelationship.c)
- *     KiComputeThreadAffinity @ 0x140292884 (KiComputeThreadAffinity.c)
+ *     sub_140292884 @ 0x140292884 (sub_140292884.c)
  *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     KeSetSystemMultipleGroupAffinityThread @ 0x14056B9FC (KeSetSystemMultipleGroupAffinityThread.c)
- *     PpmIdleInstallNewVetoList @ 0x1405C8024 (PpmIdleInstallNewVetoList.c)
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
- *     PpmRegisterPerfStates @ 0x140848C18 (PpmRegisterPerfStates.c)
- *     PpmIdleInitializeConcurrency @ 0x140849A30 (PpmIdleInitializeConcurrency.c)
+ *     sub_14056B9FC @ 0x14056B9FC (sub_14056B9FC.c)
+ *     sub_1405C8024 @ 0x1405C8024 (sub_1405C8024.c)
+ *     sub_140685A20 @ 0x140685A20 (sub_140685A20.c)
+ *     sub_140848C18 @ 0x140848C18 (sub_140848C18.c)
+ *     sub_140849A30 @ 0x140849A30 (sub_140849A30.c)
  * Callees:
  *     <none>
  */

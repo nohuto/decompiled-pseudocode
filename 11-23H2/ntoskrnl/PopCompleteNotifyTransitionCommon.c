@@ -1,18 +1,18 @@
 /*
- * XREFs of PopCompleteNotifyTransitionCommon @ 0x14059049C
+ * XREFs of PopCompleteNotifyTransitionCommon @ 0x14059098C
  * Callers:
- *     PopCompleteDirectedPowerTransitionCallback @ 0x140590414 (PopCompleteDirectedPowerTransitionCallback.c)
- *     PopSystemIrpCompletion @ 0x140AA75C0 (PopSystemIrpCompletion.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x140590904 (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopSystemIrpCompletion @ 0x140AA7430 (PopSystemIrpCompletion.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopPrepChildWake @ 0x140590894 (PopPrepChildWake.c)
- *     PopReadyChildWake @ 0x140590904 (PopReadyChildWake.c)
- *     PopReadyParentSleep @ 0x140590990 (PopReadyParentSleep.c)
- *     PopDiagTraceDriverVeto @ 0x140AA7A40 (PopDiagTraceDriverVeto.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPrepChildWake @ 0x140590D84 (PopPrepChildWake.c)
+ *     PopReadyChildWake @ 0x140590DF4 (PopReadyChildWake.c)
+ *     PopReadyParentSleep @ 0x140590E80 (PopReadyParentSleep.c)
+ *     PopDiagTraceDriverVeto @ 0x140AA78B0 (PopDiagTraceDriverVeto.c)
  */
 
 LONG __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a3, __int64 a4)
@@ -55,7 +55,7 @@ LONG __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a
     v6 = *(a2 - 18);
   v9 = 0;
   v10 = 0;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C3CD70 + 1, v32);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C3CD10 + 1, v32);
   v13 = v5 + 48;
   v14 = (__int64 *)*a2;
   v15 = 9LL * *((unsigned __int8 *)a2 + 56);
@@ -162,10 +162,10 @@ LABEL_49:
 LABEL_17:
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)v32);
   OldIrql = v32[0].OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v32[0].OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlUnicodeStringValidateSrcWorker @ 0x18006CAA8
+ * XREFs of RtlUnicodeStringValidateSrcWorker @ 0x18006CA98
  * Callers:
- *     RtlUnicodeStringCat @ 0x18006C92C (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCopy @ 0x18006C9BC (RtlUnicodeStringCopy.c)
+ *     RtlUnicodeStringCat @ 0x18006C91C (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCopy @ 0x18006C9AC (RtlUnicodeStringCopy.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker @ 0x18006CB54 (RtlUnicodeStringValidateWorker.c)
+ *     RtlUnicodeStringValidateWorker @ 0x18006CB44 (RtlUnicodeStringValidateWorker.c)
  */
 
 __int64 __fastcall RtlUnicodeStringValidateSrcWorker(__int64 a1, _QWORD *a2, _QWORD *a3)

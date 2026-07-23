@@ -1,10 +1,10 @@
 /*
- * XREFs of SdbpCloseLocalDatabaseEx @ 0x140806194
+ * XREFs of SdbpCloseLocalDatabaseEx @ 0x1408068D4
  * Callers:
- *     SdbpOpenLocalDatabaseEx @ 0x14080627C (SdbpOpenLocalDatabaseEx.c)
- *     SdbpCleanupLocalDatabaseSupport @ 0x14095CD88 (SdbpCleanupLocalDatabaseSupport.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x1408069BC (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpCleanupLocalDatabaseSupport @ 0x140944848 (SdbpCleanupLocalDatabaseSupport.c)
  * Callees:
- *     SdbCloseDatabaseRead @ 0x14095BDD8 (SdbCloseDatabaseRead.c)
+ *     SdbCloseDatabaseRead @ 0x140943898 (SdbCloseDatabaseRead.c)
  */
 
 __int64 __fastcall SdbpCloseLocalDatabaseEx(__int64 a1, __int64 a2, unsigned int a3)

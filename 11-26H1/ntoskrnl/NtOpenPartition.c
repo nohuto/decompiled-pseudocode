@@ -1,45 +1,55 @@
 /*
- * XREFs of NtOpenPartition @ 0x1407FD970
+ * XREFs of NtOpenPartition @ 0x1408033A0
  * Callers:
- *     DifNtOpenPartitionWrapper @ 0x14067E1C0 (DifNtOpenPartitionWrapper.c)
+ *     DifNtOpenPartitionWrapper @ 0x140681DA0 (DifNtOpenPartitionWrapper.c)
  * Callees:
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObOpenObjectByName @ 0x1408FC870 (ObOpenObjectByName.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ObOpenObjectByName @ 0x14092C800 (ObOpenObjectByName.c)
  */
 
-__int64 __fastcall NtOpenPartition(HANDLE *a1, int a2, int a3)
+NTSTATUS __cdecl NtOpenPartition(
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   int v3; // ebx
   KPROCESSOR_MODE PreviousMode; // si
   __int64 ULong64FromUser; // rax
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v9; // edi
   HANDLE v10; // rbx
   HANDLE Handle[2]; // [rsp+48h] [rbp-10h] BYREF
 
-  v3 = a3;
+  v3 = (int)ObjectAttributes;
   Handle[0] = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
+    ULong64FromUser = RtlReadULong64FromUser(PartitionHandle);
+    RtlWriteULong64ToUser(PartitionHandle, ULong64FromUser);
   }
-  LOBYTE(a3) = PreviousMode;
-  result = ObOpenObjectByName(v3, (_DWORD)PsPartitionType, a3, 0, a2, 0LL, (__int64)Handle);
+  LOBYTE(ObjectAttributes) = PreviousMode;
+  result = ObOpenObjectByName(
+             v3,
+             (_DWORD)PsPartitionType,
+             (_DWORD)ObjectAttributes,
+             0,
+             DesiredAccess,
+             0LL,
+             (__int64)Handle);
   v9 = result;
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v10 = Handle[0];
     if ( PreviousMode )
-      RtlWriteULong64ToUser(a1, (__int64)Handle[0]);
+      RtlWriteULong64ToUser(PartitionHandle, (__int64)Handle[0]);
     else
-      *a1 = Handle[0];
+      *PartitionHandle = Handle[0];
     if ( v9 < 0 )
       ObCloseHandle(v10, PreviousMode);
-    return (unsigned int)v9;
+    return v9;
   }
   return result;
 }

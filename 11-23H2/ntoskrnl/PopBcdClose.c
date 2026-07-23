@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBcdClose @ 0x140801E5C
+ * XREFs of PopBcdClose @ 0x14080212C
  * Callers:
- *     PopAdaptivePersistSystemInitatedRebootState @ 0x14059DE68 (PopAdaptivePersistSystemInitatedRebootState.c)
+ *     PopAdaptivePersistSystemInitatedRebootState @ 0x14059E358 (PopAdaptivePersistSystemInitatedRebootState.c)
  *     PopAdaptiveInitializeBootContext @ 0x140B35F44 (PopAdaptiveInitializeBootContext.c)
  * Callees:
- *     BcdCloseStore @ 0x140802DF4 (BcdCloseStore.c)
+ *     BcdCloseStore @ 0x1408030C4 (BcdCloseStore.c)
  */
 
-__int64 __fastcall PopBcdClose(__int64 a1)
+NTSTATUS __fastcall PopBcdClose(void *a1)
 {
   return BcdCloseStore(a1);
 }

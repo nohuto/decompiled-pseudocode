@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpQueryAccessedState @ 0x140464934
+ * XREFs of VmpQueryAccessedState @ 0x14045D8F4
  * Callers:
- *     MiQueryVpabAccessedState @ 0x1404646AC (MiQueryVpabAccessedState.c)
+ *     MiQueryVpabAccessedState @ 0x14045D66C (MiQueryVpabAccessedState.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x140251D40 (VmpConvertPortionVpnRangeToGpnRange.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     VmpProcessAccessedBatch @ 0x1406C1788 (VmpProcessAccessedBatch.c)
- *     VmpLogQueryAccessedState @ 0x1406C2F38 (VmpLogQueryAccessedState.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x1402536A0 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     VmpProcessAccessedBatch @ 0x1406C5368 (VmpProcessAccessedBatch.c)
+ *     VmpLogQueryAccessedState @ 0x1406C6B18 (VmpLogQueryAccessedState.c)
  */
 
 void __fastcall VmpQueryAccessedState(volatile LONG *SpinLock, _QWORD *a2, int a3, int a4)
@@ -57,9 +57,9 @@ void __fastcall VmpQueryAccessedState(volatile LONG *SpinLock, _QWORD *a2, int a
   v8 = 0;
   v25 = 0LL;
   v28 = 0LL;
-  if ( stru_140F066E8.QuantumTarget
-    && *(_DWORD *)stru_140F066E8.QuantumTarget
-    && tlgKeywordOn(stru_140F066E8.QuantumTarget, 512LL) )
+  if ( stru_140F06A28.InitialStack
+    && *(_DWORD *)stru_140F06A28.InitialStack
+    && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 512LL) )
   {
     v9 = KeQueryUnbiasedInterruptTimePrecise(&QpcTimeStamp);
   }
@@ -162,11 +162,11 @@ LABEL_21:
   if ( v9 )
   {
     KeQueryUnbiasedInterruptTimePrecise(&v30);
-    if ( stru_140F066E8.QuantumTarget )
+    if ( stru_140F06A28.InitialStack )
     {
-      if ( *(_DWORD *)stru_140F066E8.QuantumTarget )
+      if ( *(_DWORD *)stru_140F06A28.InitialStack )
       {
-        if ( tlgKeywordOn(stru_140F066E8.QuantumTarget, 512LL) )
+        if ( tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 512LL) )
           VmpLogQueryAccessedState(v16, v31, v15, v19, v8, v20, v17, *((_QWORD *)SpinLock + 15));
       }
     }

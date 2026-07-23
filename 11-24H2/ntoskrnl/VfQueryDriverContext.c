@@ -1,10 +1,10 @@
 /*
- * XREFs of VfQueryDriverContext @ 0x140610900
+ * XREFs of VfQueryDriverContext @ 0x14060EEC0
  * Callers:
  *     <none>
  * Callees:
- *     ViIsContextIdValid @ 0x140B84944 (ViIsContextIdValid.c)
- *     ViQueryObjectContext @ 0x140B849AC (ViQueryObjectContext.c)
+ *     ViIsContextIdValid @ 0x140B86944 (ViIsContextIdValid.c)
+ *     ViQueryObjectContext @ 0x140B869AC (ViQueryObjectContext.c)
  */
 
 __int64 __fastcall VfQueryDriverContext(__int64 a1, __int64 a2)

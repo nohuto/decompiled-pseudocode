@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpAcpiIsCachedTableCompromised @ 0x140342D10
+ * XREFs of HalpAcpiIsCachedTableCompromised @ 0x140344D90
  * Callers:
- *     HalpAcpiGetTableWork @ 0x140342B6C (HalpAcpiGetTableWork.c)
+ *     HalpAcpiGetTableWork @ 0x140344BEC (HalpAcpiGetTableWork.c)
  * Callees:
- *     HalpAcpiGetTableFromBios @ 0x1403431A4 (HalpAcpiGetTableFromBios.c)
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     HalpFlushTLB @ 0x140522658 (HalpFlushTLB.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpAcpiGetTableFromBios @ 0x140345224 (HalpAcpiGetTableFromBios.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     HalpFlushTLB @ 0x140524CC4 (HalpFlushTLB.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall HalpAcpiIsCachedTableCompromised(__int64 a1, int a2, char *a3, char *a4, void *Buf2)

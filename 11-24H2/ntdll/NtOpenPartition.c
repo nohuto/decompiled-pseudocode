@@ -1,16 +1,19 @@
 /*
- * XREFs of NtOpenPartition @ 0x1801642A0
+ * XREFs of NtOpenPartition @ 0x180162660
  * Callers:
- *     LdrpInitializeProcessHeap @ 0x1800A5FB8 (LdrpInitializeProcessHeap.c)
+ *     LdrpInitializeProcessHeap @ 0x18002385C (LdrpInitializeProcessHeap.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtOpenPartition()
+NTSTATUS __cdecl NtOpenPartition(
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 305LL;
+  result = 305;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

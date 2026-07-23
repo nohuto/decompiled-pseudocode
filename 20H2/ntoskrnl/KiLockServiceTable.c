@@ -20,7 +20,7 @@ __int64 __fastcall KiLockServiceTable(ULONG_PTR BugCheckParameter1, __int64 a2, 
   __int64 result; // rax
   __int64 CallersAddress; // r8
   __int64 v8; // r11
-  unsigned int v9; // r9d
+  ULONG v9; // r9d
   unsigned __int64 v10; // r8
   unsigned int *v11; // rcx
   int v12; // edx
@@ -31,8 +31,8 @@ __int64 __fastcall KiLockServiceTable(ULONG_PTR BugCheckParameter1, __int64 a2, 
   int v17; // eax
   __int64 v18; // r8
   unsigned int i; // ecx
-  __int64 v20[2]; // [rsp+48h] [rbp-10h] BYREF
-  unsigned int v21; // [rsp+78h] [rbp+20h] BYREF
+  _QWORD v20[2]; // [rsp+48h] [rbp-10h] BYREF
+  ULONG v21; // [rsp+78h] [rbp+20h] BYREF
 
   if ( a4 )
     KeExitRetpoline();
@@ -42,7 +42,7 @@ __int64 __fastcall KiLockServiceTable(ULONG_PTR BugCheckParameter1, __int64 a2, 
   if ( !a4 )
   {
     _mm_lfence();
-    RtlCaptureImageExceptionValues(0x40000000, v20, &v21);
+    RtlCaptureImageExceptionValues((void *)0x140000000LL, v20, &v21);
     if ( !v20[0] )
       KeBugCheck(0x31u);
     CallersAddress = KiFastGetCallersAddress();
@@ -92,7 +92,7 @@ LABEL_31:
     }
     if ( (_DWORD)v18 == 1 )
       KeBugCheck(0x31u);
-    return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, __int64))(0x140000000LL + (unsigned int)v18))(
+    return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD))(0x140000000LL + (unsigned int)v18))(
              0LL,
              0LL,
              v18,

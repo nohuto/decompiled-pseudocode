@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpTraceDatabaseAcquireLock @ 0x1405EE200 (RtlpTraceDatabaseAcquireLock.c)
- *     RtlpTraceDatabaseReleaseLock @ 0x1405EE4E0 (RtlpTraceDatabaseReleaseLock.c)
+ *     sub_1405EE200 @ 0x1405EE200 (sub_1405EE200.c)
+ *     sub_1405EE4E0 @ 0x1405EE4E0 (sub_1405EE4E0.c)
  */
 
 char __fastcall RtlTraceDatabaseValidate(__int64 a1)
@@ -13,7 +13,7 @@ char __fastcall RtlTraceDatabaseValidate(__int64 a1)
   __int64 v3; // rdx
   __int64 v4; // r8
 
-  RtlpTraceDatabaseAcquireLock();
+  sub_1405EE200();
   v2 = *(_DWORD *)(a1 + 112);
   if ( v2 )
   {
@@ -26,6 +26,6 @@ char __fastcall RtlTraceDatabaseValidate(__int64 a1)
     }
     while ( v4 );
   }
-  RtlpTraceDatabaseReleaseLock(a1);
+  sub_1405EE4E0(a1);
   return 1;
 }

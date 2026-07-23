@@ -1,9 +1,9 @@
 /*
- * XREFs of KiUpdateHgsScores @ 0x140439BDC
+ * XREFs of KiUpdateHgsScores @ 0x14042C79C
  * Callers:
- *     KeConfigureHeteroProcessors @ 0x140438880 (KeConfigureHeteroProcessors.c)
+ *     KeConfigureHeteroProcessors @ 0x14042B440 (KeConfigureHeteroProcessors.c)
  * Callees:
- *     KiComputeHgsScore @ 0x140439E24 (KiComputeHgsScore.c)
+ *     KiComputeHgsScore @ 0x14042C9E4 (KiComputeHgsScore.c)
  */
 
 __int64 __fastcall KiUpdateHgsScores(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -55,7 +55,7 @@ __int64 __fastcall KiUpdateHgsScores(__int64 a1, __int64 a2, __int64 a3, __int64
   v45 = KiHeteroConfig;
   v5 = 0;
   v6 = 0;
-  for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v4 + 24); word_140FC442C[v28] = v26 )
+  for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v4 + 24); word_140FC543C[v28] = v26 )
   {
     v8 = 0;
     v9 = 0;
@@ -116,10 +116,10 @@ __int64 __fastcall KiUpdateHgsScores(__int64 a1, __int64 a2, __int64 a3, __int64
     }
     LOBYTE(a2) = v8;
     LOBYTE(a1) = v9;
-    byte_140FC440C[(unsigned int)i] = v8;
-    byte_140FC440C[(unsigned int)i + 8] = v10;
+    byte_140FC541C[(unsigned int)i] = v8;
+    byte_140FC541C[(unsigned int)i + 8] = v10;
     v19 = KiComputeHgsScore(a1, a2, i, a4);
-    word_140FC441C[v25] = v19;
+    word_140FC542C[v25] = v19;
     if ( v19 > v5 )
     {
       v5 = v19;
@@ -130,7 +130,7 @@ __int64 __fastcall KiUpdateHgsScores(__int64 a1, __int64 a2, __int64 a3, __int64
     v26 = KiComputeHgsScore(v21, v20, v22, v23);
     i = (unsigned int)(v27 + 1);
   }
-  byte_140FC443C = v6;
+  byte_140FC544C = v6;
   v29 = 0;
   for ( result = (unsigned int)KeNumberProcessors_0; v29 < (unsigned int)KeNumberProcessors_0; ++v29 )
   {
@@ -146,9 +146,9 @@ __int64 __fastcall KiUpdateHgsScores(__int64 a1, __int64 a2, __int64 a3, __int64
         v35 = *(_BYTE *)(v33 + 4LL * (unsigned __int8)v31 + 7);
       else
         v35 = 0;
-      LOBYTE(i) = byte_140FC440C[(unsigned int)v31 + 8];
+      LOBYTE(i) = byte_140FC541C[(unsigned int)v31 + 8];
       LOBYTE(v33) = v34;
-      LOBYTE(a2) = byte_140FC440C[(unsigned int)v31];
+      LOBYTE(a2) = byte_140FC541C[(unsigned int)v31];
       v36 = KiComputeHgsScore(v33, a2, i, v31);
       LOBYTE(v38) = v37;
       *(_WORD *)(j + 2 * v39 + 34492) = v36;

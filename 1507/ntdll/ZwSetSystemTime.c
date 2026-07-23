@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwSetSystemTime()
+NTSTATUS __cdecl ZwSetSystemTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER PreviousTime)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 400LL;
+  result = 400;
   __asm { syscall; Low latency system call }
   return result;
 }

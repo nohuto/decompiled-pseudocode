@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmpCalloutArmWatchdog @ 0x14087DBB0
+ * XREFs of TtmpCalloutArmWatchdog @ 0x14087EE10
  * Callers:
- *     TtmpStartCallout @ 0x14087E5E0 (TtmpStartCallout.c)
+ *     TtmpStartCallout @ 0x14087F840 (TtmpStartCallout.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  */
 
 int __fastcall TtmpCalloutArmWatchdog(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)
@@ -31,7 +31,7 @@ int __fastcall TtmpCalloutArmWatchdog(__int64 a1, unsigned int a2, unsigned int 
       InputBuffer[10] = InputBuffer;
       InputBuffer[9] = &TtmpCalloutWatchdogCallback;
       InputBuffer[7] = a4;
-      LODWORD(v4) = NtPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x60u, 0LL, 0);
+      LODWORD(v4) = NtPowerInformation(PowerInformationInternal, InputBuffer, 0x60u, 0LL, 0);
     }
   }
   return (int)v4;

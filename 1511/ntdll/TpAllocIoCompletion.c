@@ -13,73 +13,87 @@
  *     TppRaiseInvalidParameter @ 0x1800F5658 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpAllocIoCompletion(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl TpAllocIoCompletion(
+        PTP_IO *IoReturn,
+        HANDLE File,
+        PTP_IO_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
-  _PEB_LDR_DATA *v8; // r13
-  int v9; // edi
-  __int64 Heap; // rax
-  __int64 v11; // rbx
-  int v12; // edi
+  PTP_IO *v8; // r13
+  unsigned int Flags; // edi
+  char *Heap; // rax
+  char *v11; // rbx
+  NTSTATUS v12; // edi
   __int64 v13; // rcx
-  _BYTE *v14; // r14
+  char *v14; // r14
   _DWORD *v15; // r15
   int v17; // [rsp+30h] [rbp-38h]
   _UNKNOWN *retaddr; // [rsp+68h] [rbp+0h]
-  unsigned __int64 v19; // [rsp+70h] [rbp+8h]
+  char *BaseAddress; // [rsp+70h] [rbp+8h]
 
-  v8 = Ldr;
-  if ( a5 )
-    v9 = *(_DWORD *)(a5 + 56);
+  v8 = IoReturn;
+  if ( CallbackEnviron )
+    Flags = CallbackEnviron->u.Flags;
   else
-    v9 = 0;
-  if ( Ldr && a2 && a3 && (v9 & 0xFFFFFFFC) == 0 && (Ldr = NtCurrentPeb()->Ldr, !Ldr->ShutdownInProgress) )
+    Flags = 0;
+  if ( IoReturn
+    && File
+    && Callback
+    && (Flags & 0xFFFFFFFC) == 0
+    && (IoReturn = (PTP_IO *)NtCurrentPeb()->Ldr, !*((_BYTE *)IoReturn + 72)) )
   {
-    *(_QWORD *)&v8->Length = 0LL;
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x40000) | 8u, 280LL);
+    *v8 = 0LL;
+    Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x40000) | 8, 0x118uLL);
     v11 = Heap;
-    v19 = Heap;
+    BaseAddress = Heap;
     if ( Heap )
     {
-      *(_QWORD *)(Heap + 168) = retaddr;
-      v12 = TppCleanupGroupMemberInitialize(Heap, a4, a5, v9, (__int64)TppIopCleanupGroupMemberVFuncs);
+      *((_QWORD *)Heap + 21) = retaddr;
+      v12 = TppCleanupGroupMemberInitialize(
+              (__int64)Heap,
+              (__int64)Context,
+              (__int64)CallbackEnviron,
+              Flags,
+              (__int64)&TppIopCleanupGroupMemberVFuncs);
       v17 = v12;
       if ( v12 >= 0 )
       {
-        *(_QWORD *)(v11 + 80) = a3;
-        *(_QWORD *)(v11 + 264) = a2;
-        *(_DWORD *)(v11 + 272) = 0;
-        v13 = *(_QWORD *)(v11 + 136);
-        *(_QWORD *)(v11 + 248) = TppIopExecuteCallback;
-        v14 = (_BYTE *)(v11 + 260);
-        v15 = (_DWORD *)(v11 + 256);
+        *((_QWORD *)v11 + 10) = Callback;
+        *((_QWORD *)v11 + 33) = File;
+        *((_DWORD *)v11 + 68) = 0;
+        v13 = *((_QWORD *)v11 + 17);
+        *((_QWORD *)v11 + 31) = TppIopExecuteCallback;
+        v14 = v11 + 260;
+        v15 = v11 + 256;
         if ( v13 )
         {
-          TppGetCurrentThreadNumaNode(v13, (_DWORD *)(v11 + 256), (unsigned __int8 *)(v11 + 260));
+          TppGetCurrentThreadNumaNode(v13, (_DWORD *)v11 + 64, (unsigned __int8 *)v11 + 260);
         }
         else
         {
           *v15 = 0;
           *v14 = 0;
         }
-        *(_QWORD *)(v11 + 224) = 0LL;
-        *(_QWORD *)(v11 + 240) = v11 + 232;
-        *(_QWORD *)(v11 + 232) = v11 + 232;
-        *(_QWORD *)(v11 + 192) = TppDirectTaskVFuncs;
-        *(_DWORD *)(v11 + 200) = *v15;
-        *(_BYTE *)(v11 + 204) = *v14;
-        v12 = TpBindFileToDirect(a2, v11 + 192, *(_QWORD *)(v11 + 136));
+        *((_QWORD *)v11 + 28) = 0LL;
+        *((_QWORD *)v11 + 30) = v11 + 232;
+        *((_QWORD *)v11 + 29) = v11 + 232;
+        *((_QWORD *)v11 + 24) = TppDirectTaskVFuncs;
+        *((_DWORD *)v11 + 50) = *v15;
+        v11[204] = *v14;
+        v12 = TpBindFileToDirect(File, v11 + 192, *((_QWORD *)v11 + 17));
         v17 = v12;
         if ( v12 >= 0 )
         {
           v12 = 0;
           v17 = 0;
-          if ( a5 )
-            *(_QWORD *)(v11 + 32) = *(_QWORD *)(a5 + 48);
-          if ( *(_QWORD *)(v11 + 16) )
+          if ( CallbackEnviron )
+            *((_QWORD *)v11 + 4) = CallbackEnviron->FinalizationCallback;
+          if ( *((_QWORD *)v11 + 2) )
             TppCleanupGroupAddMember(v11);
         }
         if ( v12 < 0 )
-          TppCleanupGroupMemberDestroy((_QWORD *)v11);
+          TppCleanupGroupMemberDestroy(v11);
       }
     }
     else
@@ -91,18 +105,18 @@ __int64 __fastcall TpAllocIoCompletion(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 a
       goto LABEL_23;
     if ( v11 )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x40000, v19);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x40000, BaseAddress);
       v11 = 0LL;
       v12 = v17;
     }
     if ( v12 >= 0 )
 LABEL_23:
-      *(_QWORD *)&v8->Length = v11;
-    return (unsigned int)v12;
+      *v8 = (PTP_IO)v11;
+    return v12;
   }
   else
   {
-    TppRaiseInvalidParameter(Ldr, a2, a3, a4);
-    return 3221225485LL;
+    TppRaiseInvalidParameter(IoReturn);
+    return -1073741811;
   }
 }

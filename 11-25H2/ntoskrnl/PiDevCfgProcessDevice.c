@@ -175,7 +175,7 @@ LABEL_8:
         }
         else
         {
-          v11 = PiDevCfgConfigureDevice(a1, (unsigned int)&v55, v46, (unsigned int)&v41, (__int64)&v45);
+          v11 = PiDevCfgConfigureDevice(a1, &v55, v46, &v41, &v45);
           inited = v11;
           if ( v11 >= 0 )
             v6 = v41;
@@ -211,7 +211,7 @@ LABEL_15:
             goto LABEL_21;
           v8 = *(_DWORD *)(v46 + 444);
 LABEL_118:
-          v32 = PiDevCfgConfigureDevice(a1, (unsigned int)&v55, 0, (unsigned int)&v41, (__int64)&v45);
+          v32 = PiDevCfgConfigureDevice(a1, &v55, 0LL, &v41, &v45);
           inited = v32;
           if ( v32 < 0 )
           {

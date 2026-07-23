@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMakeSpecialPoolPaged @ 0x1401EB7D0
+ * XREFs of MiMakeSpecialPoolPaged @ 0x1401EB5FC
  * Callers:
- *     MmAllocateSpecialPool @ 0x1401EBAE0 (MmAllocateSpecialPool.c)
+ *     MmAllocateSpecialPool @ 0x1401EB90C (MmAllocateSpecialPool.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiMakeSpecialPoolPaged(__int64 a1, unsigned __int64 *a2)
@@ -29,7 +29,7 @@ __int64 __fastcall MiMakeSpecialPoolPaged(__int64 a1, unsigned __int64 *a2)
 
   v15 = MI_READ_PTE_LOCK_FREE(a2);
   v3 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v15) >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL;
-  if ( v4 == &qword_1403277C0 )
+  if ( v4 == &qword_140327800 )
   {
     v5 = 0LL;
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(2);

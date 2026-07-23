@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFindLongestRunClearEx @ 0x140212B0C
+ * XREFs of RtlFindLongestRunClearEx @ 0x140212938
  * Callers:
- *     MiGetSystemPteStatistics @ 0x14066156C (MiGetSystemPteStatistics.c)
+ *     MiGetSystemPteStatistics @ 0x140661650 (MiGetSystemPteStatistics.c)
  * Callees:
- *     RtlFindClearRunsEx @ 0x140212600 (RtlFindClearRunsEx.c)
+ *     RtlFindClearRunsEx @ 0x14021242C (RtlFindClearRunsEx.c)
  */
 
 __int64 __fastcall RtlFindLongestRunClearEx(unsigned __int64 *a1, _QWORD *a2)

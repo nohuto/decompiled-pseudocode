@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInsertLargePageInFreeOrZeroList @ 0x140064EF0
+ * XREFs of MiInsertLargePageInFreeOrZeroList @ 0x140064A70
  * Callers:
- *     MiGetFreeOrZeroPage @ 0x14003DC80 (MiGetFreeOrZeroPage.c)
- *     MiDemoteLargeFreePage @ 0x14008A280 (MiDemoteLargeFreePage.c)
- *     MiTryUnlinkNodeLargePage @ 0x14008A2E0 (MiTryUnlinkNodeLargePage.c)
- *     MiUnlinkNodeLargePage @ 0x14008A830 (MiUnlinkNodeLargePage.c)
- *     MiGetLargePageDemoteAsNeeded @ 0x1401FD350 (MiGetLargePageDemoteAsNeeded.c)
+ *     MiGetFreeOrZeroPage @ 0x14003D800 (MiGetFreeOrZeroPage.c)
+ *     MiDemoteLargeFreePage @ 0x140089980 (MiDemoteLargeFreePage.c)
+ *     MiTryUnlinkNodeLargePage @ 0x1400899E0 (MiTryUnlinkNodeLargePage.c)
+ *     MiUnlinkNodeLargePage @ 0x140089F30 (MiUnlinkNodeLargePage.c)
+ *     MiGetLargePageDemoteAsNeeded @ 0x1401FD17C (MiGetLargePageDemoteAsNeeded.c)
  * Callees:
- *     MiInsertLargePageInNodeListHelper @ 0x14001B760 (MiInsertLargePageInNodeListHelper.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14001B2E0 (MiInsertLargePageInNodeListHelper.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
  */
 
 __int64 __fastcall MiInsertLargePageInFreeOrZeroList(__int64 a1, int a2, int a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwIsSystemResumeAutomatic @ 0x180163DE0
+ * XREFs of ZwIsSystemResumeAutomatic @ 0x1801621A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwIsSystemResumeAutomatic()
+BOOLEAN ZwIsSystemResumeAutomatic(void)
 {
-  __int64 result; // rax
+  BOOLEAN result; // al
 
-  result = 267LL;
+  result = 11;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

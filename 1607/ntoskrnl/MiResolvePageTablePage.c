@@ -1,25 +1,25 @@
 /*
- * XREFs of MiResolvePageTablePage @ 0x14003FD10
+ * XREFs of MiResolvePageTablePage @ 0x14003F890
  * Callers:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiLockPageTableRange @ 0x14012350C (MiLockPageTableRange.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiLockPageTableRange @ 0x140123A7C (MiLockPageTableRange.c)
  * Callees:
  *     MiWaitForForkToComplete @ 0x1400018F0 (MiWaitForForkToComplete.c)
- *     MiCheckUserVirtualAddress @ 0x14001EED0 (MiCheckUserVirtualAddress.c)
- *     MiIssueHardFault @ 0x140024930 (MiIssueHardFault.c)
- *     MiIncreaseUsedPtesCount @ 0x1400374B0 (MiIncreaseUsedPtesCount.c)
- *     MiDispatchFault @ 0x1400403C0 (MiDispatchFault.c)
- *     MiAdvanceFaultList @ 0x1400C01B0 (MiAdvanceFaultList.c)
- *     MiDeletePageTableHierarchy @ 0x1400E4D40 (MiDeletePageTableHierarchy.c)
- *     MiDecreaseUsedPtesCount @ 0x1400E681C (MiDecreaseUsedPtesCount.c)
- *     MiIsStoreProcess @ 0x14010CE84 (MiIsStoreProcess.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiLeapPrefetch @ 0x1401E8460 (MiLeapPrefetch.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiGetUsedPtesHandle @ 0x1401EF7E0 (MiGetUsedPtesHandle.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     MiCheckUserVirtualAddress @ 0x14001EA50 (MiCheckUserVirtualAddress.c)
+ *     MiIssueHardFault @ 0x1400244B0 (MiIssueHardFault.c)
+ *     MiIncreaseUsedPtesCount @ 0x140037030 (MiIncreaseUsedPtesCount.c)
+ *     MiDispatchFault @ 0x14003FF40 (MiDispatchFault.c)
+ *     MiAdvanceFaultList @ 0x1400BE040 (MiAdvanceFaultList.c)
+ *     MiDeletePageTableHierarchy @ 0x1400E2BE0 (MiDeletePageTableHierarchy.c)
+ *     MiDecreaseUsedPtesCount @ 0x1400E46BC (MiDecreaseUsedPtesCount.c)
+ *     MiIsStoreProcess @ 0x14010AC04 (MiIsStoreProcess.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiLeapPrefetch @ 0x1401E828C (MiLeapPrefetch.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiGetUsedPtesHandle @ 0x1401EF60C (MiGetUsedPtesHandle.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  */
 
 __int64 __fastcall MiResolvePageTablePage(
@@ -187,7 +187,7 @@ LABEL_62:
             }
             return 3221226548LL;
           }
-          if ( v21 == qword_140326998 && v21 )
+          if ( v21 == qword_1403269D8 && v21 )
           {
             v51 = 1;
             goto LABEL_50;

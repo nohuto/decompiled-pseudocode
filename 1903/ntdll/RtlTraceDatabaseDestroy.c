@@ -15,7 +15,7 @@ char __fastcall RtlTraceDatabaseDestroy(__int64 a1)
   _QWORD *v4; // rdi
   _QWORD *v5; // rsi
 
-  RtlDeleteCriticalSection((__int64 *)(a1 + 48));
+  RtlDeleteCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   v2 = *(_QWORD **)(a1 + 16);
   if ( !v2 )
     goto LABEL_9;

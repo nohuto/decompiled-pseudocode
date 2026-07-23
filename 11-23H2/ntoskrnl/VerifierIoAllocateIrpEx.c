@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierIoAllocateIrpEx @ 0x140ACAE20
+ * XREFs of VerifierIoAllocateIrpEx @ 0x140ACAE10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VerifierIoAllocateIrpEx(__int64 a1, __int64 a2, __int64 a3)

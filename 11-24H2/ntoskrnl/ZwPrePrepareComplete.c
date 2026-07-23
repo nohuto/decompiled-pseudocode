@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwPrePrepareComplete @ 0x1406A8BD0
+ * XREFs of ZwPrePrepareComplete @ 0x1406A9B70
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwPrePrepareComplete(HANDLE EnlistmentHandle, PLARGE_INTEGER 
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, TmVirtualClock);
+  return KiServiceInternal(EnlistmentHandle);
 }

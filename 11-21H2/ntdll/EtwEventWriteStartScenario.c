@@ -11,45 +11,41 @@
  *     NtTraceControl @ 0x1800A7A40 (NtTraceControl.c)
  */
 
-__int64 __fastcall EtwEventWriteStartScenario(__int64 a1, _OWORD *a2, unsigned int a3, __int64 a4)
+ULONG __cdecl EtwEventWriteStartScenario(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  unsigned int KmRegHandle; // ebx
-  _OWORD v10[3]; // [rsp+38h] [rbp-38h] BYREF
+  ULONG KmRegHandle; // ebx
+  ULONG ReturnLength; // [rsp+30h] [rbp-40h] BYREF
+  _OWORD InputBuffer[3]; // [rsp+38h] [rbp-38h] BYREF
 
-  if ( a2 )
-  {
-    if ( (unsigned __int8)EtwEventEnabled() )
-    {
-      memset(v10, 0, sizeof(v10));
-      KmRegHandle = EtwpGetKmRegHandle(a1, v10);
-      if ( !KmRegHandle )
-      {
-        *(_OWORD *)((char *)v10 + 8) = *a2;
-        *(_GUID *)((char *)&v10[1] + 8) = NtCurrentTeb()->ActivityId;
-        if ( _mm_cvtsi128_si32(*(__m128i *)((char *)&v10[1] + 8))
-          || HIDWORD(v10[1])
-          || LOBYTE(v10[2])
-          || __PAIR16__(BYTE1(v10[2]), 0) != BYTE2(v10[2])
-          || *(_WORD *)((char *)&v10[2] + 3)
-          || __PAIR16__(BYTE5(v10[2]), 0) != BYTE6(v10[2])
-          || BYTE7(v10[2])
-          || (KmRegHandle = EtwEventActivityIdControl(3LL, (char *)&v10[1] + 8)) == 0
-          && (KmRegHandle = EtwEventActivityIdControl(2LL, (char *)&v10[1] + 8)) == 0 )
-        {
-          DWORD2(v10[2]) = 10;
-          KmRegHandle = EtwEventWrite(a1, a2, a3, a4);
-          NtTraceControl(13LL, v10, 48LL);
-        }
-      }
-    }
-    else
-    {
-      return 6;
-    }
-  }
-  else
-  {
+  ReturnLength = 0;
+  if ( !EventDescriptor )
     return 87;
+  if ( !EtwEventEnabled(RegHandle, EventDescriptor) )
+    return 6;
+  memset(InputBuffer, 0, sizeof(InputBuffer));
+  KmRegHandle = EtwpGetKmRegHandle(RegHandle, InputBuffer);
+  if ( !KmRegHandle )
+  {
+    *(EVENT_DESCRIPTOR *)((char *)InputBuffer + 8) = *EventDescriptor;
+    *(_GUID *)((char *)&InputBuffer[1] + 8) = NtCurrentTeb()->ActivityId;
+    if ( _mm_cvtsi128_si32(*(__m128i *)((char *)&InputBuffer[1] + 8))
+      || HIDWORD(InputBuffer[1])
+      || LOBYTE(InputBuffer[2])
+      || __PAIR16__(BYTE1(InputBuffer[2]), 0) != BYTE2(InputBuffer[2])
+      || *(_WORD *)((char *)&InputBuffer[2] + 3)
+      || __PAIR16__(BYTE5(InputBuffer[2]), 0) != BYTE6(InputBuffer[2])
+      || BYTE7(InputBuffer[2])
+      || (KmRegHandle = EtwEventActivityIdControl(3u, (LPGUID)((char *)&InputBuffer[1] + 8))) == 0
+      && (KmRegHandle = EtwEventActivityIdControl(2u, (LPGUID)((char *)&InputBuffer[1] + 8))) == 0 )
+    {
+      DWORD2(InputBuffer[2]) = 10;
+      KmRegHandle = EtwEventWrite(RegHandle, EventDescriptor, UserDataCount, UserData);
+      NtTraceControl(EtwWdiScenarioCode, InputBuffer, 0x30u, 0LL, 0, &ReturnLength);
+    }
   }
   return KmRegHandle;
 }

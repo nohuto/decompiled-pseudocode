@@ -39,9 +39,9 @@ __int64 __fastcall ObpCreateDefaultObjectTypeSD(__int64 *a1)
     memset((void *)(Pool2 + 20), 0, v6);
     Acl = RtlCreateAcl((PACL)(v8 + 20), v5, 2u);
     if ( Acl < 0
-      || (Acl = RtlpAddKnownAce(v8 + 20, 2u, 0, 983041, (unsigned __int8 *)SeWorldSid, 0), Acl < 0)
-      || (Acl = RtlpAddKnownAce(v8 + 20, 2u, 0, 983041, (unsigned __int8 *)SeAliasAdminsSid, 0), Acl < 0)
-      || (Acl = RtlpAddKnownAce(v8 + 20, 2u, 0, 983041, (unsigned __int8 *)SeLocalSystemSid, 0), Acl < 0) )
+      || (Acl = RtlpAddKnownAce((ACL *)(v8 + 20), 2u, 0, 983041, (unsigned __int8 *)SeWorldSid, 0), Acl < 0)
+      || (Acl = RtlpAddKnownAce((ACL *)(v8 + 20), 2u, 0, 983041, (unsigned __int8 *)SeAliasAdminsSid, 0), Acl < 0)
+      || (Acl = RtlpAddKnownAce((ACL *)(v8 + 20), 2u, 0, 983041, (unsigned __int8 *)SeLocalSystemSid, 0), Acl < 0) )
     {
       ExFreePoolWithTag((PVOID)v8, 0);
     }

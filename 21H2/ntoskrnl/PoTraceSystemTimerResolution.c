@@ -1,12 +1,12 @@
 /*
- * XREFs of PoTraceSystemTimerResolution @ 0x1406DC934
+ * XREFs of PoTraceSystemTimerResolution @ 0x1406B3C14
  * Callers:
- *     ExTraceTimerResolution @ 0x14067E874 (ExTraceTimerResolution.c)
- *     NtSetTimerResolution @ 0x1406DC720 (NtSetTimerResolution.c)
+ *     ExTraceTimerResolution @ 0x140672724 (ExTraceTimerResolution.c)
+ *     NtSetTimerResolution @ 0x1406B3A00 (NtSetTimerResolution.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PoTraceSystemTimerResolution(char a1, __int64 a2)

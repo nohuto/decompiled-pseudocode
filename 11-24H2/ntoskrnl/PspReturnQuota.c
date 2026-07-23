@@ -1,21 +1,21 @@
 /*
- * XREFs of PspReturnQuota @ 0x14024C640
+ * XREFs of PspReturnQuota @ 0x14027CC50
  * Callers:
- *     PsReturnProcessQuota @ 0x1403CD728 (PsReturnProcessQuota.c)
- *     ObpFreeObject @ 0x1408469C0 (ObpFreeObject.c)
- *     ObpIncrementHandleCountEx @ 0x14084FB60 (ObpIncrementHandleCountEx.c)
- *     PsReturnSharedPoolQuota @ 0x14085A690 (PsReturnSharedPoolQuota.c)
- *     ObpChargeQuotaForObject @ 0x1409857D0 (ObpChargeQuotaForObject.c)
- *     PsChargeSharedPoolQuota @ 0x14098D090 (PsChargeSharedPoolQuota.c)
- *     PsReturnProcessPageFileQuota @ 0x1409E5710 (PsReturnProcessPageFileQuota.c)
+ *     PsReturnProcessQuota @ 0x14046CF18 (PsReturnProcessQuota.c)
+ *     ObpFreeObject @ 0x140842C80 (ObpFreeObject.c)
+ *     ObpIncrementHandleCountEx @ 0x14084BE20 (ObpIncrementHandleCountEx.c)
+ *     PsReturnSharedPoolQuota @ 0x140856970 (PsReturnSharedPoolQuota.c)
+ *     ObpChargeQuotaForObject @ 0x14096DFE0 (ObpChargeQuotaForObject.c)
+ *     PsChargeSharedPoolQuota @ 0x1409779B0 (PsChargeSharedPoolQuota.c)
+ *     PsReturnProcessPageFileQuota @ 0x1409DFFA0 (PsReturnProcessPageFileQuota.c)
  * Callees:
- *     PspUnlockQuotaExpansion @ 0x14024C868 (PspUnlockQuotaExpansion.c)
- *     MmReturnPoolQuota @ 0x14024C8E0 (MmReturnPoolQuota.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PspUnlockQuotaExpansion @ 0x14027CE78 (PspUnlockQuotaExpansion.c)
+ *     MmReturnPoolQuota @ 0x14027CEF0 (MmReturnPoolQuota.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 signed __int64 __fastcall PspReturnQuota(__int64 *a1, ULONG_PTR a2, int a3, ULONG_PTR a4)
@@ -60,13 +60,13 @@ signed __int64 __fastcall PspReturnQuota(__int64 *a1, ULONG_PTR a2, int a3, ULON
     v13 = 56LL * a3;
     if ( v12 > v11 )
     {
-      v14 = qword_140F05848[v13 / 8];
+      v14 = qword_140F05B28[v13 / 8];
       if ( v12 - v11 > v14 )
       {
         if ( v14 > a4 )
           v14 = a4;
         if ( v12 == _InterlockedCompareExchange64(v10 + 8, v12 - v14, v12)
-          && _InterlockedExchangeAdd64(v10 + 9, v14) + v14 > qword_140F05848[v13 / 8] )
+          && _InterlockedExchangeAdd64(v10 + 9, v14) + v14 > qword_140F05B28[v13 / 8] )
         {
           v25 = _InterlockedExchange64(v10 + 9, 0LL);
           if ( v25 )

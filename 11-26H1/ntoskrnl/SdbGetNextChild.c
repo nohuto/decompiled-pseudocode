@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbGetNextChild @ 0x1409E86F4
+ * XREFs of SdbGetNextChild @ 0x1409D5104
  * Callers:
- *     SdbpMatchList @ 0x1408850CC (SdbpMatchList.c)
- *     SdbpFindNextNamedTagHelper @ 0x1408858D4 (SdbpFindNextNamedTagHelper.c)
- *     SdbFindNextTag @ 0x1409E783C (SdbFindNextTag.c)
- *     SdbFindFirstTag @ 0x1409E8510 (SdbFindFirstTag.c)
- *     SdbpFindFirstNamedTagHelper @ 0x140A9287C (SdbpFindFirstNamedTagHelper.c)
+ *     SdbpMatchList @ 0x14088B4CC (SdbpMatchList.c)
+ *     SdbpFindNextNamedTagHelper @ 0x14088BCD4 (SdbpFindNextNamedTagHelper.c)
+ *     SdbFindNextTag @ 0x1409D4254 (SdbFindNextTag.c)
+ *     SdbFindFirstTag @ 0x1409D4F20 (SdbFindFirstTag.c)
+ *     SdbpFindFirstNamedTagHelper @ 0x140A973CC (SdbpFindFirstNamedTagHelper.c)
  * Callees:
- *     Feature_SdbValidateRootTagsOnOpen__private_IsEnabledDeviceUsageNoInline @ 0x1404B9F54 (Feature_SdbValidateRootTagsOnOpen__private_IsEnabledDeviceUsageNoInline.c)
- *     SdbpGetNextTagId @ 0x1409E79BC (SdbpGetNextTagId.c)
- *     SdbGetTagFromTagID @ 0x1409E8584 (SdbGetTagFromTagID.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     Feature_SdbValidateRootTagsOnOpen__private_IsEnabledDeviceUsageNoInline @ 0x1404B37E4 (Feature_SdbValidateRootTagsOnOpen__private_IsEnabledDeviceUsageNoInline.c)
+ *     SdbpGetNextTagId @ 0x1409D43D4 (SdbpGetNextTagId.c)
+ *     SdbGetTagFromTagID @ 0x1409D4F94 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbGetNextChild(__int64 a1, __int64 a2, unsigned int a3)

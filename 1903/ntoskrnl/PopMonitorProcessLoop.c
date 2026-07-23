@@ -13,38 +13,48 @@
  *     PopSetPowerSettingValueAcDc @ 0x1406A09DC (PopSetPowerSettingValueAcDc.c)
  */
 
-__int64 PopMonitorProcessLoop()
+NTSTATUS PopMonitorProcessLoop()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   GUID *v1; // rcx
-  _OWORD v2[4]; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v2; // [rsp+58h] [rbp-B0h] BYREF
+  ULONG_PTR BufferLength; // [rsp+60h] [rbp-A8h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-A0h] BYREF
   _DWORD Src[20]; // [rsp+98h] [rbp-70h] BYREF
-  _QWORD v4[9]; // [rsp+E8h] [rbp-20h] BYREF
-  __int16 v5; // [rsp+13Ch] [rbp+34h]
-  int v6; // [rsp+160h] [rbp+58h]
-  int v7; // [rsp+164h] [rbp+5Ch]
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+E8h] [rbp-20h] BYREF
+  _PORT_MESSAGE ConnectionRequest; // [rsp+138h] [rbp+30h] BYREF
+  int v8; // [rsp+160h] [rbp+58h]
+  int v9; // [rsp+164h] [rbp+5Ch]
 
-  memset(&v2[1], 0, 0x30uLL);
-  memset(v4, 0, sizeof(v4));
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  memset(&PortAttributes, 0, sizeof(PortAttributes));
   while ( 1 )
   {
-    *((_QWORD *)&v2[0] + 1) = 48LL;
-    result = ZwAlpcSendWaitReceivePort((__int64)PopAlpcMonitorServerPort, 0LL, 0LL);
-    if ( (_DWORD)result )
+    BufferLength = 48LL;
+    result = ZwAlpcSendWaitReceivePort(
+               PopAlpcMonitorServerPort,
+               0,
+               0LL,
+               0LL,
+               &ConnectionRequest,
+               &BufferLength,
+               0LL,
+               0LL);
+    if ( result )
       return result;
-    if ( (unsigned __int8)v5 == 3 )
+    if ( LOBYTE(ConnectionRequest.u2.ZeroInit) == 3 )
     {
-      LODWORD(v2[0]) = v7;
-      if ( v6 )
+      LODWORD(v2) = v9;
+      if ( v8 )
       {
-        if ( v6 == 2 )
+        if ( v8 == 2 )
         {
           memset(Src, 0, 0x48uLL);
           Src[0] = 11;
-          Src[2] = v7;
+          Src[2] = v9;
           PopUmpoSendPowerMessage(Src, 0x48uLL, 0);
         }
-        else if ( v6 == 3 )
+        else if ( v8 == 3 )
         {
           v1 = &GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS;
           goto LABEL_18;
@@ -54,33 +64,51 @@ __int64 PopMonitorProcessLoop()
       {
         v1 = &GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS;
 LABEL_18:
-        PopSetPowerSettingValueAcDc(v1, 4LL, v2);
+        PopSetPowerSettingValueAcDc(v1, 4LL, &v2);
       }
     }
-    else if ( (unsigned __int8)v5 > 4u )
+    else if ( LOBYTE(ConnectionRequest.u2.ZeroInit) > 4u )
     {
-      if ( (unsigned __int8)v5 <= 6u )
+      if ( LOBYTE(ConnectionRequest.u2.ZeroInit) <= 6u )
       {
         ZwClose(PopAlpcMonitorClientPort);
         PopAlpcMonitorClientPort = 0LL;
       }
-      else if ( (unsigned __int8)v5 == 10 )
+      else if ( LOBYTE(ConnectionRequest.u2.ZeroInit) == 10 )
       {
         if ( PopAlpcMonitorClientPort )
         {
           ZwClose(PopAlpcMonitorClientPort);
           PopAlpcMonitorClientPort = 0LL;
         }
-        memset(v4, 0, sizeof(v4));
-        LODWORD(v4[0]) = 0x100000;
-        v4[2] = 256LL;
-        LODWORD(v2[1]) = 48;
-        *((_QWORD *)&v2[1] + 1) = 0LL;
-        DWORD2(v2[2]) = 512;
-        *(_QWORD *)&v2[2] = 0LL;
-        v2[3] = 0LL;
-        if ( (int)ZwAlpcAcceptConnectPort((__int64)&PopAlpcMonitorClientPort, (__int64)PopAlpcMonitorServerPort, 0LL) < 0 )
-          ZwAlpcAcceptConnectPort((__int64)&PopAlpcMonitorClientPort, (__int64)PopAlpcMonitorServerPort, 0LL);
+        memset(&PortAttributes, 0, sizeof(PortAttributes));
+        PortAttributes.Flags = 0x100000;
+        PortAttributes.MaxMessageLength = 256LL;
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.RootDirectory = 0LL;
+        ObjectAttributes.Attributes = 512;
+        ObjectAttributes.ObjectName = 0LL;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        if ( ZwAlpcAcceptConnectPort(
+               &PopAlpcMonitorClientPort,
+               PopAlpcMonitorServerPort,
+               0,
+               &ObjectAttributes,
+               &PortAttributes,
+               0LL,
+               &ConnectionRequest,
+               0LL,
+               1u) < 0 )
+          ZwAlpcAcceptConnectPort(
+            &PopAlpcMonitorClientPort,
+            PopAlpcMonitorServerPort,
+            0,
+            &ObjectAttributes,
+            &PortAttributes,
+            0LL,
+            &ConnectionRequest,
+            0LL,
+            0);
       }
     }
   }

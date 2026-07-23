@@ -1,11 +1,11 @@
 /*
- * XREFs of PsPerfLogSessionRundown @ 0x14077B980
+ * XREFs of PsPerfLogSessionRundown @ 0x14077B830
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140A15E44 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140A0F024 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwTraceSiloDcEvent @ 0x140480320 (EtwTraceSiloDcEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PsGetNextSession @ 0x140AA4550 (PsGetNextSession.c)
+ *     EtwTraceSiloDcEvent @ 0x14047AF60 (EtwTraceSiloDcEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PsGetNextSession @ 0x140A9F8E0 (PsGetNextSession.c)
  */
 
 __int64 __fastcall PsPerfLogSessionRundown(__int64 a1, unsigned int a2, int a3)

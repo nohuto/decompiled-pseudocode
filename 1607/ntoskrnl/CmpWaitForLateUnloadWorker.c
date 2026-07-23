@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpWaitForLateUnloadWorker @ 0x140087264
+ * XREFs of CmpWaitForLateUnloadWorker @ 0x14009DBF4
  * Callers:
- *     CmpDeleteKeyObject @ 0x14043C400 (CmpDeleteKeyObject.c)
+ *     CmpDeleteKeyObject @ 0x14043B2D0 (CmpDeleteKeyObject.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     ExBlockOnAddressPushLock @ 0x1400872BC (ExBlockOnAddressPushLock.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     ExBlockOnAddressPushLock @ 0x14009DC4C (ExBlockOnAddressPushLock.c)
  */
 
 void CmpWaitForLateUnloadWorker()

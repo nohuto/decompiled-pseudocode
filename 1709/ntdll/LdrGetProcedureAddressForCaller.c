@@ -35,106 +35,106 @@
  *     AVrfCallAPILookupCallback @ 0x1800D9A3C (AVrfCallAPILookupCallback.c)
  */
 
-__int64 __fastcall LdrGetProcedureAddressForCaller(
-        __int64 a1,
-        unsigned __int16 *a2,
-        int a3,
-        __int64 *a4,
-        char a5,
-        __int64 a6)
+NTSTATUS __cdecl LdrGetProcedureAddressForCaller(
+        PVOID DllHandle,
+        PANSI_STRING ProcedureName,
+        ULONG ProcedureNumber,
+        PVOID *ProcedureAddress,
+        ULONG Flags,
+        PVOID *Callback)
 {
   bool v6; // zf
-  const void **v7; // rbx
+  PANSI_STRING v7; // rbx
   int v9; // r14d
-  size_t v10; // rdi
+  size_t Length; // rdi
   unsigned int v11; // esi
-  __int64 Heap; // r13
-  __int64 v13; // r12
+  char *Heap; // r13
+  void *v13; // r12
   __int64 locked; // rax
   __int64 v15; // rdx
   __int64 v16; // r8
-  __int64 v17; // rdi
+  _QWORD *v17; // rdi
   __int64 v18; // rcx
   __int64 v19; // rdi
-  __int64 v20; // rbx
+  unsigned __int64 Root; // rbx
   int v21; // esi
   int v22; // eax
-  __int64 v23; // rax
-  __int64 v24; // rax
-  int v25; // ebx
+  unsigned __int64 v23; // rax
+  _RTL_BALANCED_NODE *v24; // rax
+  NTSTATUS v25; // ebx
   char v26; // si
   char v27; // r9
-  unsigned int v28; // esi
-  __int64 v29; // r14
+  ULONG v28; // esi
+  PVOID *v29; // r14
   __int64 v31; // rdi
   __int64 v32; // rcx
-  __int64 v33; // rcx
+  _RTL_CRITICAL_SECTION *v33; // rcx
   char v34; // [rsp+30h] [rbp-D0h]
   char v35[7]; // [rsp+31h] [rbp-CFh] BYREF
   __int64 v36; // [rsp+38h] [rbp-C8h] BYREF
   int v37; // [rsp+40h] [rbp-C0h]
   int v38; // [rsp+44h] [rbp-BCh]
-  int v39; // [rsp+48h] [rbp-B8h]
+  ULONG v39; // [rsp+48h] [rbp-B8h]
   int v40; // [rsp+4Ch] [rbp-B4h] BYREF
-  __int64 v41; // [rsp+50h] [rbp-B0h]
+  PVOID *v41; // [rsp+50h] [rbp-B0h]
   __int64 v42; // [rsp+58h] [rbp-A8h] BYREF
   int v43; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 *v44; // [rsp+68h] [rbp-98h]
+  PVOID *v44; // [rsp+68h] [rbp-98h]
   char v45; // [rsp+70h] [rbp-90h] BYREF
-  int v46; // [rsp+170h] [rbp+70h]
+  ULONG Flagsa; // [rsp+170h] [rbp+70h]
 
-  v6 = (a5 & 1) == 0;
-  v46 = a5 & 1;
-  v7 = (const void **)a2;
-  v41 = a6;
+  v6 = (Flags & 1) == 0;
+  Flagsa = Flags & 1;
+  v7 = ProcedureName;
+  v41 = Callback;
   v9 = 9;
-  v44 = a4;
-  v39 = a3;
+  v44 = ProcedureAddress;
+  v39 = ProcedureNumber;
   v36 = 0LL;
   v34 = 0;
-  if ( v6 || (void *)qword_1801595D0 != NtCurrentTeb()->ClientId.UniqueThread )
+  if ( v6 || LdrpDllNotificationLock.OwningThread != NtCurrentTeb()->ClientId.UniqueThread )
     v38 = 9;
   else
     v38 = 6;
-  if ( a2 )
+  if ( ProcedureName )
   {
-    v10 = *a2;
-    v11 = v10 + 1;
-    if ( a2[1] < (unsigned int)(v10 + 1) || (Heap = *((_QWORD *)a2 + 1), *(_BYTE *)(v10 + Heap)) )
+    Length = ProcedureName->Length;
+    v11 = Length + 1;
+    if ( ProcedureName->MaximumLength < (unsigned int)(Length + 1) || (Heap = ProcedureName->Buffer, Heap[Length]) )
     {
       if ( v11 <= 0x80 )
       {
-        Heap = (__int64)&v45;
+        Heap = &v45;
       }
       else
       {
-        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(NtdllBaseTag + 1572864), v11);
+        Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v11);
         if ( !Heap )
-          return 3221225626LL;
+          return -1073741670;
         v34 = 1;
       }
-      memmove((void *)Heap, v7[1], v10);
-      *(_BYTE *)((unsigned int)v10 + Heap) = 0;
+      memmove(Heap, v7->Buffer, Length);
+      Heap[(unsigned int)Length] = 0;
     }
   }
   else
   {
     Heap = 0LL;
   }
-  LOBYTE(a2) = 1;
+  LOBYTE(ProcedureName) = 1;
   v13 = 0LL;
-  locked = LdrpObtainLockedEnclave(a1, a2);
-  v17 = locked;
+  locked = LdrpObtainLockedEnclave(DllHandle, ProcedureName);
+  v17 = (_QWORD *)locked;
   v18 = 4096LL;
   if ( locked )
   {
-    v33 = locked + 16;
+    v33 = (_RTL_CRITICAL_SECTION *)(locked + 16);
     if ( *(_DWORD *)(locked + 60) == 2 )
     {
       RtlLeaveCriticalSection(v33);
       v25 = 0;
       v13 = v17;
-      v19 = *(_QWORD *)(v17 + 104);
+      v19 = v17[13];
       v26 = 3;
       goto LABEL_29;
     }
@@ -146,9 +146,9 @@ __int64 __fastcall LdrGetProcedureAddressForCaller(
   while ( 2 )
   {
     v19 = 0LL;
-    if ( !a1 )
+    if ( !DllHandle )
       goto LABEL_25;
-    if ( a1 == LdrpSystemDllBase )
+    if ( DllHandle == (PVOID)LdrpSystemDllBase )
     {
       v19 = LdrpNtDllDataTableEntry;
       v9 = *(_DWORD *)(*(_QWORD *)(LdrpNtDllDataTableEntry + 152) + 56LL);
@@ -156,40 +156,40 @@ __int64 __fastcall LdrGetProcedureAddressForCaller(
       goto LABEL_25;
     }
     RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-    v20 = LdrpModuleBaseAddressIndex;
-    v21 = byte_1801602C0 & 1;
-    if ( !LdrpModuleBaseAddressIndex )
+    Root = (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+    v21 = *(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1;
+    if ( !LdrpModuleBaseAddressIndex.Root )
       goto LABEL_24;
     while ( 1 )
     {
-      v22 = LdrpCompareModuleBaseAddresses(a1, v20);
+      v22 = LdrpCompareModuleBaseAddresses(DllHandle, Root);
       if ( v22 >= 0 )
         break;
-      v23 = *(_QWORD *)v20;
+      v23 = *(_QWORD *)Root;
       if ( v21 && v23 )
       {
 LABEL_77:
-        v20 ^= v23;
+        Root ^= v23;
         goto LABEL_17;
       }
 LABEL_16:
-      v20 = v23;
+      Root = v23;
 LABEL_17:
-      if ( !v20 )
+      if ( !Root )
         goto LABEL_24;
     }
     if ( v22 > 0 )
     {
-      v23 = *(_QWORD *)(v20 + 8);
+      v23 = *(_QWORD *)(Root + 8);
       if ( v21 && v23 )
         goto LABEL_77;
       goto LABEL_16;
     }
-    if ( v20 )
+    if ( Root )
     {
-      v24 = *(_QWORD *)(v20 - 48);
-      v19 = v20 - 200;
-      if ( *(_DWORD *)(v24 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v24 - 56LL) & 0x20) == 0 )
+      v24 = *(_RTL_BALANCED_NODE **)(Root - 48);
+      v19 = Root - 200;
+      if ( LODWORD(v24[1].Children[0]) != -1 && (*(_BYTE *)&v24->Children[0][-3].0 & 0x20) == 0 )
         _InterlockedIncrement((volatile signed __int32 *)(v19 + 276));
       v9 = *(_DWORD *)(*(_QWORD *)(v19 + 152) + 56LL);
       v37 = v9;
@@ -204,7 +204,7 @@ LABEL_25:
       v9 = v37;
       if ( (NtCurrentTeb()->SameTebFlags & 0x1000) == 0 && v37 < v38 )
       {
-        LdrpDereferenceModule(v19);
+        LdrpDereferenceModule((PVOID)v19);
         LdrpDrainWorkQueue(0LL);
         LdrpDropLastInProgressCount();
         v18 = 4096LL;
@@ -223,13 +223,13 @@ LABEL_29:
   {
     v27 = v26;
     v28 = v39;
-    v25 = LdrpResolveProcedureAddress(v19, (const char *)Heap, v39, v27, (unsigned __int64 *)&v36);
+    v25 = LdrpResolveProcedureAddress((_QWORD *)v19, Heap, v39, v27, (unsigned __int64 *)&v36);
     if ( v25 >= 0 )
     {
       if ( v9 == 7
-        && !v46
+        && !Flagsa
         && (NtCurrentTeb()->SameTebFlags & 0x1000) != 0
-        && (void *)qword_1801595D0 != NtCurrentTeb()->ClientId.UniqueThread )
+        && LdrpDllNotificationLock.OwningThread != NtCurrentTeb()->ClientId.UniqueThread )
       {
         v32 = *(_QWORD *)(v19 + 152);
         v35[0] = 0;
@@ -243,11 +243,11 @@ LABEL_29:
       {
         v29 = v41;
         if ( AvrfpAPILookupCallbacksEnabled )
-          AVrfCallAPILookupCallback(v41, *(_QWORD *)(v19 + 48), v36, 0, (__int64)&v36);
+          AVrfCallAPILookupCallback((_DWORD)v41, *(_QWORD *)(v19 + 48), v36, 0, (__int64)&v36);
         if ( g_ShimsEnabled )
         {
           v42 = 0LL;
-          ((void (__fastcall *)(__int64 *, __int64, __int64, _QWORD, __int64))(MEMORY[0x7FFE0330] ^ __ROR8__(g_pfnSE_GetProcAddressForCaller, 64 - (MEMORY[0x7FFE0330] & 0x3Fu))))(
+          ((void (__fastcall *)(__int64 *, __int64, __int64, _QWORD, PVOID *))(MEMORY[0x7FFE0330] ^ __ROR8__(g_pfnSE_GetProcAddressForCaller, 64 - (MEMORY[0x7FFE0330] & 0x3Fu))))(
             &v42,
             v19,
             v36,
@@ -262,7 +262,7 @@ LABEL_29:
       v25 = -1073741702;
     if ( !v13 )
     {
-      LdrpDereferenceModule(v19);
+      LdrpDereferenceModule((PVOID)v19);
       goto LABEL_41;
     }
     LdrpDereferenceEnclave(v13);
@@ -283,12 +283,12 @@ LABEL_41:
     else
     {
       v25 = -1073741512;
-      Heap = v28;
+      Heap = (char *)v28;
     }
     LdrpReportError(0LL, Heap, (unsigned int)v25);
   }
   if ( v34 )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   if ( !UseWOW64 && v25 >= 0 )
   {
     if ( (unsigned int)LdrControlFlowGuardEnforcedWithExportSuppression(v18, v15, v16) )
@@ -302,6 +302,6 @@ LABEL_41:
       }
     }
   }
-  *v44 = v36;
-  return (unsigned int)v25;
+  *v44 = (PVOID)v36;
+  return v25;
 }

@@ -24,19 +24,19 @@
  *     BiAcquireBcdSyncMutant @ 0x14058BDB8 (BiAcquireBcdSyncMutant.c)
  */
 
-__int64 __fastcall BcdCloseObject(HANDLE Handle)
+NTSTATUS __cdecl BcdCloseObject(HANDLE BcdObjectHandle)
 {
   __int64 v2; // rcx
   char v3; // di
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v5; // rcx
 
-  LOBYTE(v2) = BiIsOfflineHandle((char)Handle);
+  LOBYTE(v2) = BiIsOfflineHandle((char)BcdObjectHandle);
   v3 = v2;
   result = BiAcquireBcdSyncMutant(v2);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    BiCloseKey(Handle);
+    BiCloseKey(BcdObjectHandle);
     LOBYTE(v5) = v3;
     return BiReleaseBcdSyncMutant(v5);
   }

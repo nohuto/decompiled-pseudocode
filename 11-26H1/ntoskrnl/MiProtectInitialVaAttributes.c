@@ -1,12 +1,12 @@
 /*
- * XREFs of MiProtectInitialVaAttributes @ 0x14031162C
+ * XREFs of MiProtectInitialVaAttributes @ 0x140313660
  * Callers:
- *     MiProtectPrivateMemory @ 0x1403116B4 (MiProtectPrivateMemory.c)
+ *     MiProtectPrivateMemory @ 0x1403136E8 (MiProtectPrivateMemory.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiGetPageProtection @ 0x1403061E4 (MiGetPageProtection.c)
- *     MiFaultInPagedPool @ 0x140306688 (MiFaultInPagedPool.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiGetPageProtection @ 0x1402E8264 (MiGetPageProtection.c)
+ *     MiFaultInPagedPool @ 0x1402E8708 (MiFaultInPagedPool.c)
  */
 
 __int64 __fastcall MiProtectInitialVaAttributes(__int64 a1, __int64 *a2)

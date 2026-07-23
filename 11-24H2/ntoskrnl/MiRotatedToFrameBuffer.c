@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRotatedToFrameBuffer @ 0x140238E74
+ * XREFs of MiRotatedToFrameBuffer @ 0x140213AD4
  * Callers:
- *     MiLockStealUserVm @ 0x140227A3C (MiLockStealUserVm.c)
- *     NtUnlockVirtualMemory @ 0x1402333D0 (NtUnlockVirtualMemory.c)
- *     MiProtectPrivateMemory @ 0x140237480 (MiProtectPrivateMemory.c)
- *     MiRevertValidPte @ 0x140237FA0 (MiRevertValidPte.c)
- *     MiActOnPte @ 0x14028B7E0 (MiActOnPte.c)
- *     MiGetPageProtection @ 0x1403019B0 (MiGetPageProtection.c)
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
- *     MiDeleteRotateVa @ 0x1403CDA5C (MiDeleteRotateVa.c)
- *     MiMakeVaRangeNoAccess @ 0x140498B94 (MiMakeVaRangeNoAccess.c)
- *     MiValidFault @ 0x1404F2C70 (MiValidFault.c)
- *     MiCheckCommitReleaseFromVad @ 0x140669880 (MiCheckCommitReleaseFromVad.c)
+ *     MiProtectPrivateMemory @ 0x140211610 (MiProtectPrivateMemory.c)
+ *     MiRevertValidPte @ 0x140212130 (MiRevertValidPte.c)
+ *     NtUnlockVirtualMemory @ 0x140213FA0 (NtUnlockVirtualMemory.c)
+ *     MiLockStealUserVm @ 0x14025539C (MiLockStealUserVm.c)
+ *     MiActOnPte @ 0x14029B3E0 (MiActOnPte.c)
+ *     MiGetPageProtection @ 0x14030C130 (MiGetPageProtection.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
+ *     MiDeleteRotateVa @ 0x14038DD68 (MiDeleteRotateVa.c)
+ *     MiMakeVaRangeNoAccess @ 0x14049351C (MiMakeVaRangeNoAccess.c)
+ *     MiValidFault @ 0x1404F0710 (MiValidFault.c)
+ *     MiCheckCommitReleaseFromVad @ 0x14066AA50 (MiCheckCommitReleaseFromVad.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ __int64 __fastcall MiRotatedToFrameBuffer(unsigned __int64 a1)
   if ( (*(_QWORD *)a1 & 1) == 0 )
     return 0LL;
   v2 = (*(_QWORD *)a1 >> 12) & 0xFFFFFFFFFFLL;
-  if ( v2 <= qword_140E2DBE0 && ((*(_QWORD *)(48 * v2 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+  if ( v2 <= qword_140E2DD20 && ((*(_QWORD *)(48 * v2 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
   {
     v3 = *(_QWORD *)(((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
     v4 = 48 * v2 - 0x220000000000LL;

@@ -1,54 +1,54 @@
 /*
- * XREFs of MiLockNestedPageAtDpcInline @ 0x14026AF90
+ * XREFs of MiLockNestedPageAtDpcInline @ 0x140258F30
  * Callers:
- *     MiMigratePfn @ 0x1402185F0 (MiMigratePfn.c)
- *     MiDeleteBatch @ 0x140238450 (MiDeleteBatch.c)
- *     MiAllocateKernelStackPages @ 0x14023E800 (MiAllocateKernelStackPages.c)
- *     MiReplacePageOfProtoPool @ 0x140268F5C (MiReplacePageOfProtoPool.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x1402696C0 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiLockLeafPage @ 0x140269CD0 (MiLockLeafPage.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x140269EA8 (MiRewriteTrimPteAsDemandZero.c)
- *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
- *     MiReplaceTransitionPage @ 0x14026D370 (MiReplaceTransitionPage.c)
- *     MiInitializeTransitionPfn @ 0x14026E22C (MiInitializeTransitionPfn.c)
- *     MiHandleCollidedFault @ 0x14028BEFC (MiHandleCollidedFault.c)
- *     MiWaitForCollidedFaultComplete @ 0x14028C1F0 (MiWaitForCollidedFaultComplete.c)
- *     MiRestoreTransitionPte @ 0x1402A2DD0 (MiRestoreTransitionPte.c)
- *     MiTradeActivePage @ 0x1402B65F0 (MiTradeActivePage.c)
- *     MiSwapStackPage @ 0x1402C605C (MiSwapStackPage.c)
- *     MiSwapStackPageNoDpc @ 0x1402C6830 (MiSwapStackPageNoDpc.c)
- *     MiUnlockNestedProtoPoolPage @ 0x1402C817C (MiUnlockNestedProtoPoolPage.c)
- *     MiDeleteClusterSection @ 0x1403003E0 (MiDeleteClusterSection.c)
- *     MiObtainProtoReference @ 0x14031A00C (MiObtainProtoReference.c)
- *     MiReplacePageTablePage @ 0x140363DF0 (MiReplacePageTablePage.c)
- *     MiConvertStandbyToProto @ 0x140366F78 (MiConvertStandbyToProto.c)
- *     MiConvertPrivateToProto @ 0x14036A050 (MiConvertPrivateToProto.c)
- *     MiBuildReservationCluster @ 0x140386DF0 (MiBuildReservationCluster.c)
+ *     MiHandleCollidedFault @ 0x14020909C (MiHandleCollidedFault.c)
+ *     MiWaitForCollidedFaultComplete @ 0x140209390 (MiWaitForCollidedFaultComplete.c)
+ *     MiRestoreTransitionPte @ 0x140220210 (MiRestoreTransitionPte.c)
+ *     MiReplacePageTablePage @ 0x140224260 (MiReplacePageTablePage.c)
+ *     MiTradeActivePage @ 0x1402347D0 (MiTradeActivePage.c)
+ *     MiSwapStackPage @ 0x14024483C (MiSwapStackPage.c)
+ *     MiSwapStackPageNoDpc @ 0x140245010 (MiSwapStackPageNoDpc.c)
+ *     MiUnlockNestedProtoPoolPage @ 0x1402469DC (MiUnlockNestedProtoPoolPage.c)
+ *     MiReplacePageOfProtoPool @ 0x140256EFC (MiReplacePageOfProtoPool.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x140257660 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiLockLeafPage @ 0x140257C70 (MiLockLeafPage.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x140257E48 (MiRewriteTrimPteAsDemandZero.c)
+ *     MiStealPage @ 0x140259C44 (MiStealPage.c)
+ *     MiReplaceTransitionPage @ 0x14025B310 (MiReplaceTransitionPage.c)
+ *     MiInitializeTransitionPfn @ 0x14025C1CC (MiInitializeTransitionPfn.c)
+ *     MiMigratePfn @ 0x1402BCEF0 (MiMigratePfn.c)
+ *     MiDeleteBatch @ 0x1402DCCA0 (MiDeleteBatch.c)
+ *     MiAllocateKernelStackPages @ 0x1402E3050 (MiAllocateKernelStackPages.c)
+ *     MiDeleteClusterSection @ 0x14030B130 (MiDeleteClusterSection.c)
+ *     MiObtainProtoReference @ 0x140324D5C (MiObtainProtoReference.c)
+ *     MiConvertStandbyToProto @ 0x140367128 (MiConvertStandbyToProto.c)
+ *     MiConvertPrivateToProto @ 0x14036A200 (MiConvertPrivateToProto.c)
+ *     MiBuildReservationCluster @ 0x140386F40 (MiBuildReservationCluster.c)
  *     MiGetBaseResidentPage @ 0x1403F6734 (MiGetBaseResidentPage.c)
- *     MiStackTheftFreezeProcessors @ 0x14053632C (MiStackTheftFreezeProcessors.c)
- *     MiClearDriverHotPatchPtes @ 0x14053E428 (MiClearDriverHotPatchPtes.c)
- *     MmMapHotPatchTablePage @ 0x14053F4B0 (MmMapHotPatchTablePage.c)
- *     MiSplitDirectMapPage @ 0x14054213C (MiSplitDirectMapPage.c)
- *     MiDuplicateCloneLeaf @ 0x14055A234 (MiDuplicateCloneLeaf.c)
- *     MiHandleForkTransitionPte @ 0x14055AA64 (MiHandleForkTransitionPte.c)
- *     MiSwapHardFaultPage @ 0x140563770 (MiSwapHardFaultPage.c)
- *     MiTradeBootImagePage @ 0x140A4FE60 (MiTradeBootImagePage.c)
- *     MxSwapPages @ 0x140A57120 (MxSwapPages.c)
+ *     MiStackTheftFreezeProcessors @ 0x14053656C (MiStackTheftFreezeProcessors.c)
+ *     MiClearDriverHotPatchPtes @ 0x14053E668 (MiClearDriverHotPatchPtes.c)
+ *     MmMapHotPatchTablePage @ 0x14053F6F0 (MmMapHotPatchTablePage.c)
+ *     MiSplitDirectMapPage @ 0x14054237C (MiSplitDirectMapPage.c)
+ *     MiDuplicateCloneLeaf @ 0x14055A474 (MiDuplicateCloneLeaf.c)
+ *     MiHandleForkTransitionPte @ 0x14055ACA4 (MiHandleForkTransitionPte.c)
+ *     MiSwapHardFaultPage @ 0x1405639B0 (MiSwapHardFaultPage.c)
+ *     MiTradeBootImagePage @ 0x140A50E60 (MiTradeBootImagePage.c)
+ *     MxSwapPages @ 0x140A58120 (MxSwapPages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  */
 
-__int64 __fastcall MiLockNestedPageAtDpcInline(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MiLockNestedPageAtDpcInline(__int64 a1)
 {
   __int64 result; // rax
-  int v6; // [rsp+30h] [rbp+8h] BYREF
+  int v3; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = 0;
+  v3 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 24), 0x3FuLL) )
   {
     do
     {
-      KeYieldProcessorEx(&v6, a2, a3, a4);
+      KeYieldProcessorEx(&v3);
       result = *(_QWORD *)(a1 + 24);
     }
     while ( result < 0 );

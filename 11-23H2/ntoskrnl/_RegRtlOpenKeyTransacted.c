@@ -1,22 +1,22 @@
 /*
- * XREFs of _RegRtlOpenKeyTransacted @ 0x1406CED70
+ * XREFs of _RegRtlOpenKeyTransacted @ 0x1406CEDA0
  * Callers:
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     _SysCtxOpenMachine @ 0x140854FF0 (_SysCtxOpenMachine.c)
- *     _SysCtxOpenControlSet @ 0x140855228 (_SysCtxOpenControlSet.c)
- *     _RegRtlOpenPredefinedKey @ 0x14085C2FC (_RegRtlOpenPredefinedKey.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140862E48 (_RegRtlDeleteKeyTransacted.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B268 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlCopyTreeInternal @ 0x140A6A698 (_RegRtlCopyTreeInternal.c)
- *     _RegRtlDeletePathInternal @ 0x140A6AB9C (_RegRtlDeletePathInternal.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     _SysCtxOpenMachine @ 0x1408552F0 (_SysCtxOpenMachine.c)
+ *     _SysCtxOpenControlSet @ 0x140855528 (_SysCtxOpenControlSet.c)
+ *     _RegRtlOpenPredefinedKey @ 0x14085C53C (_RegRtlOpenPredefinedKey.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140863088 (_RegRtlDeleteKeyTransacted.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14086B4A8 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlCopyTreeInternal @ 0x140A6A948 (_RegRtlCopyTreeInternal.c)
+ *     _RegRtlDeletePathInternal @ 0x140A6AE4C (_RegRtlDeletePathInternal.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKeyEx @ 0x14041D280 (ZwOpenKeyEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     _RegRtlIsPredefinedKey @ 0x1406CEE8C (_RegRtlIsPredefinedKey.c)
- *     _RegRtlOpenPredefinedKey @ 0x14085C2FC (_RegRtlOpenPredefinedKey.c)
- *     NtOpenKeyTransactedEx_Stub @ 0x140A6ADE8 (NtOpenKeyTransactedEx_Stub.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKeyEx @ 0x14041D610 (ZwOpenKeyEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     _RegRtlIsPredefinedKey @ 0x1406CEEBC (_RegRtlIsPredefinedKey.c)
+ *     _RegRtlOpenPredefinedKey @ 0x14085C53C (_RegRtlOpenPredefinedKey.c)
+ *     NtOpenKeyTransactedEx_Stub @ 0x140A6B098 (NtOpenKeyTransactedEx_Stub.c)
  */
 
 __int64 __fastcall RegRtlOpenKeyTransacted(
@@ -61,15 +61,15 @@ __int64 __fastcall RegRtlOpenKeyTransacted(
     inited = NtOpenKeyTransactedEx_Stub((_DWORD)KeyHandle, a4, (unsigned int)&ObjectAttributes, a3, a6);
     if ( inited == -1073741702 )
     {
-      if ( byte_140D1C221 )
+      if ( byte_140D1C238 )
       {
-        v14 = (NTSTATUS (__stdcall *)(PHANDLE, ACCESS_MASK, POBJECT_ATTRIBUTES, HANDLE))qword_140D1C248;
+        v14 = (NTSTATUS (__stdcall *)(PHANDLE, ACCESS_MASK, POBJECT_ATTRIBUTES, HANDLE))qword_140D1C230;
       }
       else
       {
         v14 = ZwOpenKeyTransacted;
-        byte_140D1C221 = 1;
-        qword_140D1C248 = (__int64)ZwOpenKeyTransacted;
+        byte_140D1C238 = 1;
+        qword_140D1C230 = (__int64)ZwOpenKeyTransacted;
       }
       if ( !v14
         || (inited = ((__int64 (__fastcall *)(HANDLE *, _QWORD, OBJECT_ATTRIBUTES *, __int64))v14)(

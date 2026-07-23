@@ -6,11 +6,8 @@
  *     _RtlReleasePath@4 @ 0x4B2DE7B0 (_RtlReleasePath@4.c)
  */
 
-int __thiscall LdrpReleaseDllPath(_BYTE *this)
+void __thiscall LdrpReleaseDllPath(int this)
 {
-  int result; // eax
-
-  if ( this[76] )
-    return RtlReleasePath(*(_DWORD *)this);
-  return result;
+  if ( *(_BYTE *)(this + 76) )
+    RtlReleasePath(*(PWSTR *)this);
 }

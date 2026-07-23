@@ -29,96 +29,98 @@
  *     __SEH_prolog4_GS @ 0x4B307B20 (__SEH_prolog4_GS.c)
  */
 
-int __thiscall TppCleanupGroupMemberDestroy(_DWORD *this)
+void __thiscall TppCleanupGroupMemberDestroy(int this)
 {
-  int v2; // eax
+  _RTL_SRWLOCK *v2; // eax
   _DWORD *v3; // eax
   int v4; // edx
   _DWORD *v5; // ecx
   volatile signed __int32 *v6; // ecx
-  void *v7; // edx
+  _RTL_SRWLOCK *v7; // edx
   int *v8; // ecx
-  void (__thiscall *v9)(_DWORD, _DWORD *, int); // edi
+  void (__thiscall *v9)(_DWORD, _DWORD, _DWORD); // edi
   int v10; // esi
-  volatile signed __int32 *v11; // ecx
-  int result; // eax
-  _DWORD *v13; // eax
-  int v14; // edx
-  _DWORD *v15; // ecx
-  _DWORD v16[39]; // [esp+14h] [ebp-B4h] BYREF
+  void *v11; // ecx
+  _DWORD *v12; // eax
+  int v13; // edx
+  _DWORD *v14; // ecx
+  size_t v15; // [esp-4h] [ebp-CCh]
+  _BYTE v16[48]; // [esp+14h] [ebp-B4h] BYREF
+  void (__thiscall *v17)(_DWORD, _DWORD, _DWORD); // [esp+44h] [ebp-84h]
+  int v18; // [esp+48h] [ebp-80h]
   CPPEH_RECORD ms_exc; // [esp+B0h] [ebp-18h]
 
-  if ( this[2] )
+  if ( *(_DWORD *)(this + 8) )
   {
     TppCleanupGroupRemoveMember();
-    v11 = (volatile signed __int32 *)this[2];
-    if ( !_InterlockedExchangeAdd(v11, 0xFFFFFFFF) )
+    v11 = *(void **)(this + 8);
+    if ( !_InterlockedExchangeAdd((volatile signed __int32 *)v11, 0xFFFFFFFF) )
       RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag, v11);
   }
-  if ( this[14] != -1 )
-    RtlReleaseActivationContext(this[14]);
-  v2 = this[23];
+  if ( *(_DWORD *)(this + 56) != -1 )
+    RtlReleaseActivationContext(*(PACTIVATION_CONTEXT *)(this + 56));
+  v2 = *(_RTL_SRWLOCK **)(this + 92);
   if ( !v2 )
   {
     RtlAcquireSRWLockExclusive(&TppCleanupGroupMemberpNoPoolListLock);
     ms_exc.registration.TryLevel = 1;
-    v13 = this + 24;
-    v14 = this[24];
-    v15 = (_DWORD *)this[25];
-    if ( *(_DWORD **)(v14 + 4) == this + 24 && (_DWORD *)*v15 == v13 )
+    v12 = (_DWORD *)(this + 96);
+    v13 = *(_DWORD *)(this + 96);
+    v14 = *(_DWORD **)(this + 100);
+    if ( *(_DWORD *)(v13 + 4) == this + 96 && (_DWORD *)*v14 == v12 )
     {
-      *v15 = v14;
-      *(_DWORD *)(v14 + 4) = v15;
-      this[25] = this + 24;
-      *v13 = v13;
+      *v14 = v13;
+      *(_DWORD *)(v13 + 4) = v14;
+      *(_DWORD *)(this + 100) = this + 96;
+      *v12 = v12;
       ms_exc.registration.TryLevel = -2;
-      result = RtlReleaseSRWLockExclusive(&TppCleanupGroupMemberpNoPoolListLock);
+      RtlReleaseSRWLockExclusive(&TppCleanupGroupMemberpNoPoolListLock);
       goto LABEL_10;
     }
 LABEL_19:
     __fastfail(3u);
   }
-  RtlAcquireSRWLockExclusive(v2 + 44);
+  RtlAcquireSRWLockExclusive(v2 + 11);
   ms_exc.registration.TryLevel = 0;
-  v3 = this + 24;
-  v4 = this[24];
-  v5 = (_DWORD *)this[25];
-  if ( *(_DWORD **)(v4 + 4) != this + 24 || (_DWORD *)*v5 != v3 )
+  v3 = (_DWORD *)(this + 96);
+  v4 = *(_DWORD *)(this + 96);
+  v5 = *(_DWORD **)(this + 100);
+  if ( *(_DWORD *)(v4 + 4) != this + 96 || (_DWORD *)*v5 != v3 )
     goto LABEL_19;
   *v5 = v4;
   *(_DWORD *)(v4 + 4) = v5;
-  this[25] = this + 24;
+  *(_DWORD *)(this + 100) = this + 96;
   *v3 = v3;
   ms_exc.registration.TryLevel = -2;
-  result = RtlReleaseSRWLockExclusive(this[23] + 44);
-  v6 = (volatile signed __int32 *)this[23];
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(*(_DWORD *)(this + 92) + 44));
+  v6 = *(volatile signed __int32 **)(this + 92);
   if ( v6 == (volatile signed __int32 *)TppPoolpGlobalPool )
   {
     v7 = &TppPoolpGlobalPoolLock;
     v8 = &TppPoolpGlobalPool;
 LABEL_9:
-    result = TppPoolpDereferenceGlobalPool(v8, v7);
+    TppPoolpDereferenceGlobalPool(v8, v7);
     goto LABEL_10;
   }
   if ( v6 == (volatile signed __int32 *)TppPoolpSerializedPool )
   {
-    v7 = &TppPoolpSerializedPoolLock;
+    v7 = (_RTL_SRWLOCK *)&TppPoolpSerializedPoolLock;
     v8 = &TppPoolpSerializedPool;
     goto LABEL_9;
   }
   if ( !_InterlockedDecrement(v6) )
-    result = TppPoolpFree((int)v6);
+    TppPoolpFree((int)v6);
 LABEL_10:
-  v9 = (void (__thiscall *)(_DWORD, _DWORD *, int))this[4];
+  v9 = *(void (__thiscall **)(_DWORD, _DWORD, _DWORD))(this + 16);
   if ( v9 )
   {
-    memset(v16, 0, 0x98u);
-    v16[12] = v9;
-    v10 = this[13];
-    v16[13] = v10;
+    LODWORD(v15) = 152;
+    memset(v16, 0, v15);
+    v17 = v9;
+    v10 = *(_DWORD *)(this + 52);
+    v18 = v10;
     TppCallbackCheckThreadBeforeCallback(v16);
     v9(v9, v16, v10);
-    return TppCallbackEpilog(v16);
+    TppCallbackEpilog(v16);
   }
-  return result;
 }

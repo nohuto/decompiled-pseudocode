@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeEnclavePfn @ 0x1401F059C
+ * XREFs of MiInitializeEnclavePfn @ 0x1401F03C8
  * Callers:
- *     MiAddPagesToEnclave @ 0x14065E1EC (MiAddPagesToEnclave.c)
- *     MiCopyPagesIntoEnclave @ 0x14065E84C (MiCopyPagesIntoEnclave.c)
- *     MiCreateEnclave @ 0x14065EF30 (MiCreateEnclave.c)
+ *     MiAddPagesToEnclave @ 0x14065E2D0 (MiAddPagesToEnclave.c)
+ *     MiCopyPagesIntoEnclave @ 0x14065E930 (MiCopyPagesIntoEnclave.c)
+ *     MiCreateEnclave @ 0x14065F014 (MiCreateEnclave.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  */
 
 __int64 __fastcall MiInitializeEnclavePfn(__int64 a1, __int64 a2, unsigned int a3)

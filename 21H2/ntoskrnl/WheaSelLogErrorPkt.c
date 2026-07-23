@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaSelLogErrorPkt @ 0x1405BE09C
+ * XREFs of WheaSelLogErrorPkt @ 0x1405BE2CC
  * Callers:
- *     WheaSelLogEvent @ 0x1405BE188 (WheaSelLogEvent.c)
+ *     WheaSelLogEvent @ 0x1405BE3B8 (WheaSelLogEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     WheapLogIpmiSELEvent @ 0x1405BD538 (WheapLogIpmiSELEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     WheapLogIpmiSELEvent @ 0x1405BD768 (WheapLogIpmiSELEvent.c)
  */
 
 __int64 __fastcall WheaSelLogErrorPkt(__int64 a1)

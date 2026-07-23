@@ -6,15 +6,15 @@
  *     <none>
  */
 
-__int64 __fastcall ExGetCurrentProcessorCounts(ULONG *a1, _DWORD *a2, _DWORD *a3)
+__int64 __fastcall ExGetCurrentProcessorCounts(_DWORD *a1, _DWORD *a2, _DWORD *a3)
 {
   struct _KPRCB *CurrentPrcb; // r10
   __int64 result; // rax
 
   CurrentPrcb = KeGetCurrentPrcb();
-  *a1 = CurrentPrcb->IdleThread->SchedulerApc.SpareLong0;
-  *a2 = CurrentPrcb->KernelTime + CurrentPrcb->UserTime;
-  result = CurrentPrcb->Number;
+  *a1 = *(_DWORD *)(*((_QWORD *)CurrentPrcb + 3) + 652LL);
+  *a2 = *((_DWORD *)CurrentPrcb + 8273) + *((_DWORD *)CurrentPrcb + 8274);
+  result = *((unsigned int *)CurrentPrcb + 9);
   *a3 = result;
   return result;
 }

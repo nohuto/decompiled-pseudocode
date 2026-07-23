@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlFindClearBitsEx @ 0x14035F9A0
+ * XREFs of RtlFindClearBitsEx @ 0x140361740
  * Callers:
- *     MiObtainDynamicVa @ 0x1402A4DF8 (MiObtainDynamicVa.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiCheckProcessorPteCache @ 0x14035EA80 (MiCheckProcessorPteCache.c)
- *     RtlFindClearBitsAndSetEx @ 0x140499760 (RtlFindClearBitsAndSetEx.c)
- *     RtlpHpFixedVsAllocate @ 0x1404D8460 (RtlpHpFixedVsAllocate.c)
- *     MiFindEmptyAddressRange @ 0x1409C537C (MiFindEmptyAddressRange.c)
- *     MiSelectImageBase @ 0x1409CACA8 (MiSelectImageBase.c)
- *     MiSelectRelocationStartHint @ 0x140AECDF0 (MiSelectRelocationStartHint.c)
+ *     MiObtainDynamicVa @ 0x1402A4348 (MiObtainDynamicVa.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiCheckProcessorPteCache @ 0x140360820 (MiCheckProcessorPteCache.c)
+ *     RtlFindClearBitsAndSetEx @ 0x1404932B0 (RtlFindClearBitsAndSetEx.c)
+ *     RtlpHpFixedVsAllocate @ 0x1404D1C30 (RtlpHpFixedVsAllocate.c)
+ *     MiFindEmptyAddressRange @ 0x14099635C (MiFindEmptyAddressRange.c)
+ *     MiSelectImageBase @ 0x14099BC88 (MiSelectImageBase.c)
+ *     MiSelectRelocationStartHint @ 0x140AEFE00 (MiSelectRelocationStartHint.c)
  * Callees:
  *     <none>
  */

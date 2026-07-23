@@ -1,10 +1,10 @@
 /*
- * XREFs of KeFindFirstSetRightGroupAffinity @ 0x14000C2B8
+ * XREFs of KeFindFirstSetRightGroupAffinity @ 0x14000BE38
  * Callers:
- *     KiCallInterruptServiceRoutine @ 0x14000C2E0 (KiCallInterruptServiceRoutine.c)
- *     KiIntSteerChooseInitialTargetProcessors @ 0x14012D790 (KiIntSteerChooseInitialTargetProcessors.c)
- *     ExProcessorCounterSetCallback @ 0x140407468 (ExProcessorCounterSetCallback.c)
- *     PpmRegisterPerfStates @ 0x140569588 (PpmRegisterPerfStates.c)
+ *     KiCallInterruptServiceRoutine @ 0x14000BE60 (KiCallInterruptServiceRoutine.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x14012DD00 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     ExProcessorCounterSetCallback @ 0x140406328 (ExProcessorCounterSetCallback.c)
+ *     PpmRegisterPerfStates @ 0x140569AC8 (PpmRegisterPerfStates.c)
  * Callees:
  *     <none>
  */

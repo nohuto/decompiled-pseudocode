@@ -15,7 +15,7 @@
  *     sub_18009A63C @ 0x18009A63C (sub_18009A63C.c)
  */
 
-__int64 __fastcall sub_180023AAC(__int64 a1, __int64 a2, unsigned int a3, int a4)
+void __fastcall sub_180023AAC(__int64 a1, __int64 a2, unsigned int a3, int a4)
 {
   int v4; // r10d
   unsigned int v5; // r14d
@@ -27,7 +27,7 @@ __int64 __fastcall sub_180023AAC(__int64 a1, __int64 a2, unsigned int a3, int a4
   char v14; // cl
   int v15; // esi
   __int64 v16; // rax
-  __int64 result; // rax
+  __int64 v17; // rax
   __int64 v18; // rbx
   char v19; // [rsp+80h] [rbp+18h] BYREF
   int v20; // [rsp+88h] [rbp+20h]
@@ -51,7 +51,7 @@ __int64 __fastcall sub_180023AAC(__int64 a1, __int64 a2, unsigned int a3, int a4
   v12 = a4 & 1;
   if ( (a4 & 1) == 0 )
   {
-    RtlAcquireSRWLockExclusive(a1 + 24);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
     v4 = v20;
   }
   v13 = *(_DWORD *)(a2 + 28);
@@ -76,13 +76,12 @@ __int64 __fastcall sub_180023AAC(__int64 a1, __int64 a2, unsigned int a3, int a4
   *(_DWORD *)v7 = -857879331;
   *(_BYTE *)(v7 + 24) &= 0xF3u;
   v16 = sub_180023C10(a1, v7, v4, 0, (__int64)&v19);
-  result = sub_18001F734(a1, v16, 0LL);
-  v18 = result;
-  if ( result )
-    result = sub_18009A63C(a1, result);
+  v17 = sub_18001F734(a1, v16, 0);
+  v18 = v17;
+  if ( v17 )
+    sub_18009A63C(a1, v17);
   if ( !v12 )
-    result = RtlReleaseSRWLockExclusive(a1 + 24);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
   if ( v18 )
-    return sub_180062960(a1, v18, 1LL);
-  return result;
+    sub_180062960(a1, v18, 1LL);
 }

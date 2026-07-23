@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpCoverageSamplerSetBloomFilter @ 0x1407B2B70
+ * XREFs of EtwpCoverageSamplerSetBloomFilter @ 0x1407B2FC0
  * Callers:
- *     EtwpSetCoverageSamplerInformation @ 0x1407B3064 (EtwpSetCoverageSamplerInformation.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x1407B34B4 (EtwpSetCoverageSamplerInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     MiRemoveFromSystemSpace @ 0x14026086C (MiRemoveFromSystemSpace.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     MmMapViewInSessionSpace @ 0x140946C00 (MmMapViewInSessionSpace.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     MiRemoveFromSystemSpace @ 0x140290E7C (MiRemoveFromSystemSpace.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     MmMapViewInSessionSpace @ 0x1408EB520 (MmMapViewInSessionSpace.c)
  */
 
 __int64 __fastcall EtwpCoverageSamplerSetBloomFilter(ULONG_PTR BugCheckParameter2, __int64 a2, KPROCESSOR_MODE a3)
@@ -24,8 +24,8 @@ __int64 __fastcall EtwpCoverageSamplerSetBloomFilter(ULONG_PTR BugCheckParameter
   __int64 v10; // rax
   int v11; // r15d
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v13; // rax
-  _QWORD *v14; // r14
+  char *v13; // rax
+  char *v14; // r14
   void *v15; // rcx
   PVOID MappedBase; // [rsp+60h] [rbp+8h] BYREF
   PVOID Section; // [rsp+68h] [rbp+10h] BYREF
@@ -65,12 +65,12 @@ __int64 __fastcall EtwpCoverageSamplerSetBloomFilter(ULONG_PTR BugCheckParameter
 LABEL_15:
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v13 = KeAbPreAcquire(BugCheckParameter2, 0LL);
+      v13 = (char *)KeAbPreAcquire(BugCheckParameter2, 0LL);
       v14 = v13;
       if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, (__int64)v13, BugCheckParameter2);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v13, BugCheckParameter2);
       if ( v14 )
-        *((_BYTE *)v14 + 10) = 1;
+        v14[10] = 1;
       v15 = *(void **)(BugCheckParameter2 + 1704);
       *(_QWORD *)(BugCheckParameter2 + 8) = KeGetCurrentThread();
       *(_QWORD *)(BugCheckParameter2 + 1704) = MappedBase;

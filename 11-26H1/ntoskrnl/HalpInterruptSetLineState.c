@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpInterruptSetLineState @ 0x1404294DC
+ * XREFs of HalpInterruptSetLineState @ 0x140435168
  * Callers:
- *     HalEnableInterrupt @ 0x1404252A0 (HalEnableInterrupt.c)
- *     HalpInterruptEnablePerformanceEvents @ 0x1404298AC (HalpInterruptEnablePerformanceEvents.c)
- *     HalpInterruptEnableNmi @ 0x140429E90 (HalpInterruptEnableNmi.c)
- *     HalpTimerEnableHypervisorTimer @ 0x14050827C (HalpTimerEnableHypervisorTimer.c)
- *     HalpTimerConfigureInterrupt @ 0x1405819FC (HalpTimerConfigureInterrupt.c)
+ *     HalEnableInterrupt @ 0x140432390 (HalEnableInterrupt.c)
+ *     HalpInterruptEnableNmi @ 0x140435DF0 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x1404360DC (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpTimerEnableHypervisorTimer @ 0x140501D24 (HalpTimerEnableHypervisorTimer.c)
+ *     HalpTimerConfigureInterrupt @ 0x140583F1C (HalpTimerConfigureInterrupt.c)
  * Callees:
- *     HalpInterruptSetLineStateInternal @ 0x14032DC5C (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptApplyOverrides @ 0x140426138 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptLookupController @ 0x140426C98 (HalpInterruptLookupController.c)
- *     HalpInterruptDestinationToTarget @ 0x140427E00 (HalpInterruptDestinationToTarget.c)
- *     HalpInterruptFindBestRouting @ 0x140429194 (HalpInterruptFindBestRouting.c)
- *     HalpInterruptGetPriority @ 0x1404299E4 (HalpInterruptGetPriority.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14032FC8C (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptApplyOverrides @ 0x140433248 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptLookupController @ 0x140433DA8 (HalpInterruptLookupController.c)
+ *     HalpInterruptDestinationToTarget @ 0x140434F10 (HalpInterruptDestinationToTarget.c)
+ *     HalpInterruptFindBestRouting @ 0x1404357AC (HalpInterruptFindBestRouting.c)
+ *     HalpInterruptGetPriority @ 0x140436214 (HalpInterruptGetPriority.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpInterruptSetLineState(
@@ -166,7 +166,7 @@ LABEL_37:
         return (unsigned int)v27;
       }
       v26 = (_DWORD *)(v21 + 16);
-      BestRouting = HalpInterruptFindBestRouting((int *)&v36, *(_QWORD *)a7);
+      BestRouting = HalpInterruptFindBestRouting(&v36, *(_QWORD *)a7, v21 + 16);
       v27 = BestRouting;
       if ( BestRouting < 0 )
         goto LABEL_37;

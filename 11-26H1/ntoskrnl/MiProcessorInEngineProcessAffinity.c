@@ -1,10 +1,10 @@
 /*
- * XREFs of MiProcessorInEngineProcessAffinity @ 0x14070E9B8
+ * XREFs of MiProcessorInEngineProcessAffinity @ 0x1407136B8
  * Callers:
- *     MiZeroRemainOnProcessor @ 0x1403E8CEC (MiZeroRemainOnProcessor.c)
- *     MiGetIdleProcessorCount @ 0x1403E987C (MiGetIdleProcessorCount.c)
+ *     MiZeroRemainOnProcessor @ 0x1402F5BCC (MiZeroRemainOnProcessor.c)
+ *     MiGetIdleProcessorCount @ 0x1402F675C (MiGetIdleProcessorCount.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
  */
 
 __int64 __fastcall MiProcessorInEngineProcessAffinity(__int64 a1, __int64 a2)

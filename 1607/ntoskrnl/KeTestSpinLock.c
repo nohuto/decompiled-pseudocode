@@ -1,7 +1,7 @@
 /*
- * XREFs of KeTestSpinLock @ 0x140092A30
+ * XREFs of KeTestSpinLock @ 0x140092230
  * Callers:
- *     KiDecodeMcaFault @ 0x140156830 (KiDecodeMcaFault.c)
+ *     KiDecodeMcaFault @ 0x140156DA0 (KiDecodeMcaFault.c)
  * Callees:
  *     <none>
  */

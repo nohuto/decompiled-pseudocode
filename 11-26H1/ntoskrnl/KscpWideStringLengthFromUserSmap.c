@@ -1,9 +1,9 @@
 /*
- * XREFs of KscpWideStringLengthFromUserSmap @ 0x140C5EE60
+ * XREFs of KscpWideStringLengthFromUserSmap @ 0x140C64E60
  * Callers:
  *     <none>
  * Callees:
- *     KscpWideStringLengthFromUser @ 0x140C5EE20 (KscpWideStringLengthFromUser.c)
+ *     KscpWideStringLengthFromUser @ 0x140C64E20 (KscpWideStringLengthFromUser.c)
  */
 
 unsigned __int64 __fastcall KscpWideStringLengthFromUserSmap(unsigned __int64 a1)

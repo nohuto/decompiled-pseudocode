@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryEnvironmentVariableInfoEx @ 0x1406B4C80
+ * XREFs of NtQueryEnvironmentVariableInfoEx @ 0x1406B4DB8
  * Callers:
- *     PopIssueActionRequest @ 0x140530068 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1405305A8 (PopIssueActionRequest.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     IoQueryEnvironmentVariableInfoEx @ 0x1406281D4 (IoQueryEnvironmentVariableInfoEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     IoQueryEnvironmentVariableInfoEx @ 0x140628288 (IoQueryEnvironmentVariableInfoEx.c)
  */
 
 __int64 __fastcall NtQueryEnvironmentVariableInfoEx(unsigned int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -17,7 +17,7 @@ __int64 __fastcall NtQueryEnvironmentVariableInfoEx(unsigned int a1, __int64 a2,
   __int64 v12; // r8
   __int64 v13; // r9
 
-  if ( dword_1402FD0D0 != 2 )
+  if ( dword_1402FD030 != 2 )
     return 3221225474LL;
   if ( KeGetCurrentThread()->PreviousMode )
     return 3221225569LL;

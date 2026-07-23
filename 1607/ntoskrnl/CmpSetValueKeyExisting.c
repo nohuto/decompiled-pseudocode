@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpSetValueKeyExisting @ 0x1403FFF64
+ * XREFs of CmpSetValueKeyExisting @ 0x1403FEE24
  * Callers:
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
- *     CmpPreserveSystemHiveData @ 0x140609150 (CmpPreserveSystemHiveData.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
+ *     CmpPreserveSystemHiveData @ 0x140609204 (CmpPreserveSystemHiveData.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     CmpSetValueDataNew @ 0x1403FF934 (CmpSetValueDataNew.c)
- *     HvReallocateCell @ 0x1403FFDEC (HvReallocateCell.c)
- *     CmpMarkValueDataDirty @ 0x140400474 (CmpMarkValueDataDirty.c)
- *     HvFreeCell @ 0x1404016EC (HvFreeCell.c)
- *     CmpFreeValueData @ 0x140401A0C (CmpFreeValueData.c)
- *     HvAllocateCell @ 0x140401D3C (HvAllocateCell.c)
- *     CmpSetValueDataExisting @ 0x1404ECA34 (CmpSetValueDataExisting.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     CmpSetValueDataNew @ 0x1403FE7F4 (CmpSetValueDataNew.c)
+ *     HvReallocateCell @ 0x1403FECAC (HvReallocateCell.c)
+ *     CmpMarkValueDataDirty @ 0x1403FF334 (CmpMarkValueDataDirty.c)
+ *     HvFreeCell @ 0x1404005AC (HvFreeCell.c)
+ *     CmpFreeValueData @ 0x1404008CC (CmpFreeValueData.c)
+ *     HvAllocateCell @ 0x140400BFC (HvAllocateCell.c)
+ *     CmpSetValueDataExisting @ 0x1404CEBA0 (CmpSetValueDataExisting.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpSetValueKeyExisting(

@@ -1,15 +1,15 @@
 /*
- * XREFs of SpcIsHyperVCr3RspErrataPresent @ 0x14071E2B0
+ * XREFs of SpcIsHyperVCr3RspErrataPresent @ 0x140722F40
  * Callers:
- *     KiIsBranchConfusionMitigationSupported @ 0x1405F2198 (KiIsBranchConfusionMitigationSupported.c)
- *     KiIsTsaMitigationSupported @ 0x1405F23BC (KiIsTsaMitigationSupported.c)
- *     SpcDetectKvaLeakage @ 0x140C01E7C (SpcDetectKvaLeakage.c)
+ *     KiIsBranchConfusionMitigationSupported @ 0x1405F4B58 (KiIsBranchConfusionMitigationSupported.c)
+ *     KiIsTsaMitigationSupported @ 0x1405F4D7C (KiIsTsaMitigationSupported.c)
+ *     SpcDetectKvaLeakage @ 0x140C0808C (SpcDetectKvaLeakage.c)
  * Callees:
- *     HviGetHypervisorFeatures @ 0x1406DC730 (HviGetHypervisorFeatures.c)
- *     HviGetHypervisorVersion @ 0x1406DC7C0 (HviGetHypervisorVersion.c)
- *     HviIsHypervisorVendorMicrosoft @ 0x1406DC990 (HviIsHypervisorVendorMicrosoft.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlGetCpuVendor @ 0x140BFEDD8 (RtlGetCpuVendor.c)
+ *     HviGetHypervisorFeatures @ 0x1406E09D0 (HviGetHypervisorFeatures.c)
+ *     HviGetHypervisorVersion @ 0x1406E0A60 (HviGetHypervisorVersion.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x1406E0C30 (HviIsHypervisorVendorMicrosoft.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlGetCpuVendor @ 0x140C04FE0 (RtlGetCpuVendor.c)
  */
 
 __int64 SpcIsHyperVCr3RspErrataPresent()

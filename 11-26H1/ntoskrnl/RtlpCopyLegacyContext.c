@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpCopyLegacyContext @ 0x14043C2E0
+ * XREFs of RtlpCopyLegacyContext @ 0x14042EB90
  * Callers:
- *     RtlCopyContext @ 0x140A32A50 (RtlCopyContext.c)
+ *     RtlCopyContext @ 0x140A4D9B0 (RtlCopyContext.c)
  * Callees:
- *     RtlpCopyLegacyContextArm @ 0x14061AB10 (RtlpCopyLegacyContextArm.c)
- *     RtlpCopyLegacyContextArm64 @ 0x14061AC74 (RtlpCopyLegacyContextArm64.c)
+ *     RtlpCopyLegacyContextArm @ 0x14061DB60 (RtlpCopyLegacyContextArm.c)
+ *     RtlpCopyLegacyContextArm64 @ 0x14061DCC4 (RtlpCopyLegacyContextArm64.c)
  */
 
 void __fastcall RtlpCopyLegacyContext(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

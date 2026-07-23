@@ -11,32 +11,30 @@
  *     memmove @ 0x180098200 (memmove.c)
  */
 
-void *__fastcall LdrpLogFatalLdrEtwEvent(const void **a1, __int128 *a2)
+int __fastcall LdrpLogFatalLdrEtwEvent(const void **a1, const EVENT_DESCRIPTOR *a2)
 {
   unsigned __int64 v3; // rcx
-  unsigned __int64 v5; // rbx
-  void *result; // rax
-  int v7; // eax
-  unsigned __int64 v8; // [rsp+20h] [rbp-38h] BYREF
-  int v9; // [rsp+28h] [rbp-30h]
-  int v10; // [rsp+2Ch] [rbp-2Ch]
+  _WORD *v5; // rbx
+  _WORD *Heap; // rax
+  unsigned int v7; // eax
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+20h] [rbp-38h] BYREF
 
   v3 = *(unsigned __int16 *)a1;
-  if ( v3 + 2 > *((unsigned __int16 *)a1 + 1) || (v5 = (unsigned __int64)a1[1], *(_WORD *)(v5 + 2 * (v3 >> 1))) )
+  if ( v3 + 2 > *((unsigned __int16 *)a1 + 1) || (v5 = a1[1], v5[v3 >> 1]) )
   {
-    result = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v3 + 2);
-    v5 = (unsigned __int64)result;
-    if ( !result )
-      return result;
-    memmove(result, a1[1], *(unsigned __int16 *)a1);
-    *(_WORD *)(v5 + 2 * ((unsigned __int64)*(unsigned __int16 *)a1 >> 1)) = 0;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v3 + 2);
+    v5 = Heap;
+    if ( !Heap )
+      return (int)Heap;
+    memmove(Heap, a1[1], *(unsigned __int16 *)a1);
+    v5[(unsigned __int64)*(unsigned __int16 *)a1 >> 1] = 0;
   }
   v7 = *(unsigned __int16 *)a1 + 2;
-  v8 = v5;
-  v9 = v7;
-  v10 = 0;
-  result = (void *)EtwEventWriteNoRegistration((__int64)&UserLoaderGuid, a2, 1, (__int64)&v8);
-  if ( (const void *)v5 != a1[1] )
-    return (void *)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
-  return result;
+  UserData.Ptr = (unsigned __int64)v5;
+  UserData.Size = v7;
+  UserData.Reserved = 0;
+  LODWORD(Heap) = EtwEventWriteNoRegistration(&UserLoaderGuid, a2, 1u, &UserData);
+  if ( v5 != a1[1] )
+    LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
+  return (int)Heap;
 }

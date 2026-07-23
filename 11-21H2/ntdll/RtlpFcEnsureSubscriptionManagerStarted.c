@@ -10,11 +10,11 @@
 
 __int64 RtlpFcEnsureSubscriptionManagerStarted()
 {
-  unsigned int v0; // ebx
+  unsigned __int32 v0; // ebx
   int started; // eax
-  unsigned int v3; // edx
+  ULONG v3; // edx
 
-  v0 = RtlRunOnceBeginInitialize(&qword_180178C20, 0LL, 0LL);
+  v0 = RtlRunOnceBeginInitialize(&RunOnce, 0, 0LL);
   if ( v0 )
   {
     started = RtlpFcStartSubscriptionManager();
@@ -22,7 +22,7 @@ __int64 RtlpFcEnsureSubscriptionManagerStarted()
     v0 = started;
     if ( started >= 0 )
       v3 = 0;
-    RtlRunOnceComplete(&qword_180178C20, v3, 0LL);
+    RtlRunOnceComplete(&RunOnce, v3, 0LL);
   }
   return v0;
 }

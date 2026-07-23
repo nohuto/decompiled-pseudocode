@@ -148,7 +148,7 @@ __int64 __fastcall IopParseDevice(
   int v52; // edi
   struct _DEVICE_OBJECT *v53; // r14
   int v54; // eax
-  int ActiveConsoleId; // ebx
+  ULONG ActiveConsoleId; // ebx
   __int64 v56; // rax
   int v57; // ebx
   bool v58; // di
@@ -1326,10 +1326,10 @@ LABEL_446:
           {
             break;
           }
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v119 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v119 <= 0xFu && CurrentIrql <= 0xFu && v119 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v119 <= 0xFu && CurrentIrql <= 0xFu && v119 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -1346,10 +1346,10 @@ LABEL_446:
           if ( AccessStatus != 257 )
             goto LABEL_321;
         }
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v123 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v123 <= 0xFu && CurrentIrql <= 0xFu && v123 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v123 <= 0xFu && CurrentIrql <= 0xFu && v123 >= 2u )
           {
             v124 = KeGetCurrentPrcb();
             v125 = v124->SchedulerAssist;

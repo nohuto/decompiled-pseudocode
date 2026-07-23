@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFcQueryAllInternalFeatureConfigurationsFromBuffers @ 0x1800A069C
+ * XREFs of RtlpFcQueryAllInternalFeatureConfigurationsFromBuffers @ 0x1800A065C
  * Callers:
- *     RtlQueryAllInternalFeatureConfigurations @ 0x1800A0370 (RtlQueryAllInternalFeatureConfigurations.c)
+ *     RtlQueryAllInternalFeatureConfigurations @ 0x1800A0330 (RtlQueryAllInternalFeatureConfigurations.c)
  * Callees:
  *     memmove @ 0x1800A7A40 (memmove.c)
  */

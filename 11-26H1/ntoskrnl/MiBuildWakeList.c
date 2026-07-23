@@ -1,10 +1,10 @@
 /*
- * XREFs of MiBuildWakeList @ 0x140477360
+ * XREFs of MiBuildWakeList @ 0x140470AE0
  * Callers:
- *     MiComputeDataFlushRange @ 0x1404866EC (MiComputeDataFlushRange.c)
- *     MiUnlockControlAreaSectionExtend @ 0x1404AF310 (MiUnlockControlAreaSectionExtend.c)
- *     MiDecrementLargeSubsections @ 0x140505D08 (MiDecrementLargeSubsections.c)
- *     MiIncrementLargeSubsections @ 0x1406FA404 (MiIncrementLargeSubsections.c)
+ *     MiComputeDataFlushRange @ 0x140480064 (MiComputeDataFlushRange.c)
+ *     MiUnlockControlAreaSectionExtend @ 0x1404A89A0 (MiUnlockControlAreaSectionExtend.c)
+ *     MiDecrementLargeSubsections @ 0x1404FF5B8 (MiDecrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x1406FF0D4 (MiIncrementLargeSubsections.c)
  * Callees:
  *     <none>
  */

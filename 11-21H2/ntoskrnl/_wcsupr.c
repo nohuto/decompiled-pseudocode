@@ -2,9 +2,9 @@
  * XREFs of _wcsupr @ 0x1403E17B0
  * Callers:
  *     PfFileInfoNotify @ 0x1402CCCF0 (PfFileInfoNotify.c)
- *     PfSnParametersRead @ 0x14084FF94 (PfSnParametersRead.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x140A202A4 (BiGetObjectReferenceFromEfiEntry.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x140A212A0 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     sub_14084FF94 @ 0x14084FF94 (sub_14084FF94.c)
+ *     sub_140A202A4 @ 0x140A202A4 (sub_140A202A4.c)
+ *     sub_140A212A0 @ 0x140A212A0 (sub_140A212A0.c)
  * Callees:
  *     <none>
  */

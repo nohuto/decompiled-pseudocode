@@ -1,12 +1,12 @@
 /*
- * XREFs of BvgaAcquireLock @ 0x14027DED0
+ * XREFs of BvgaAcquireLock @ 0x14027E0C0
  * Callers:
- *     BvgaBitBlt @ 0x14027DF50 (BvgaBitBlt.c)
- *     BvgaDisplayString @ 0x14027DFD0 (BvgaDisplayString.c)
- *     BvgaEnableBootDriver @ 0x14027E040 (BvgaEnableBootDriver.c)
- *     BvgaNotifyDisplayOwnershipLost @ 0x14027E120 (BvgaNotifyDisplayOwnershipLost.c)
- *     BvgaSolidColorFill @ 0x14027E2C0 (BvgaSolidColorFill.c)
- *     BvgaUpdateProgressBar @ 0x14027E380 (BvgaUpdateProgressBar.c)
+ *     BvgaBitBlt @ 0x14027E140 (BvgaBitBlt.c)
+ *     BvgaDisplayString @ 0x14027E1C0 (BvgaDisplayString.c)
+ *     BvgaEnableBootDriver @ 0x14027E230 (BvgaEnableBootDriver.c)
+ *     BvgaNotifyDisplayOwnershipLost @ 0x14027E310 (BvgaNotifyDisplayOwnershipLost.c)
+ *     BvgaSolidColorFill @ 0x14027E4B0 (BvgaSolidColorFill.c)
+ *     BvgaUpdateProgressBar @ 0x14027E570 (BvgaUpdateProgressBar.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  */

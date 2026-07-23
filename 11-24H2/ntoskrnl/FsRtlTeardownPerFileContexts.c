@@ -1,59 +1,55 @@
 /*
- * XREFs of FsRtlTeardownPerFileContexts @ 0x1409FD780
+ * XREFs of FsRtlTeardownPerFileContexts @ 0x1409F64C0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403C576C (FsRtlAcquireAutoExpandPushLockExclusive.c)
- *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1403C58E4 (FsRtlReleaseAutoExpandPushLockExclusive.c)
- *     ExCleanupAutoExpandPushLock @ 0x14043A400 (ExCleanupAutoExpandPushLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExCleanupAutoExpandPushLock @ 0x1402B9C50 (ExCleanupAutoExpandPushLock.c)
+ *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403B432C (FsRtlAcquireAutoExpandPushLockExclusive.c)
+ *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1403B44A4 (FsRtlReleaseAutoExpandPushLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlTeardownPerFileContexts(PVOID *PerFileContextPointer)
 {
   __int64 v1; // rdx
-  __int64 v2; // r8
-  __int64 v3; // r9
-  __int64 v4; // rbx
-  __int64 v5; // rcx
-  __int64 **v6; // rdi
-  __int64 *v7; // rsi
-  __int64 v8; // rax
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
+  __int64 v2; // rbx
+  __int64 v3; // rcx
+  __int64 **v4; // rdi
+  __int64 *v5; // rsi
+  __int64 v6; // rax
+  __int64 v7; // rdx
 
-  v4 = _InterlockedExchange64((volatile __int64 *)PerFileContextPointer, 0LL);
-  if ( v4 )
+  v2 = _InterlockedExchange64((volatile __int64 *)PerFileContextPointer, 0LL);
+  if ( v2 )
   {
-    v5 = *(_QWORD *)(v4 + 32);
-    if ( v5 )
+    v3 = *(_QWORD *)(v2 + 32);
+    if ( v3 )
     {
-      guard_dispatch_icall_no_overrides(v5, v1, v2, v3);
-      *(_QWORD *)(v4 + 32) = 0LL;
+      guard_dispatch_icall_no_overrides(v3, v1);
+      *(_QWORD *)(v2 + 32) = 0LL;
     }
-    v6 = (__int64 **)(v4 + 16);
-    if ( *v6 != (__int64 *)v6 )
+    v4 = (__int64 **)(v2 + 16);
+    if ( *v4 != (__int64 *)v4 )
     {
-      FsRtlAcquireAutoExpandPushLockExclusive(v4);
+      FsRtlAcquireAutoExpandPushLockExclusive(v2);
       while ( 1 )
       {
-        v7 = *v6;
-        if ( *v6 == (__int64 *)v6 )
+        v5 = *v4;
+        if ( *v4 == (__int64 *)v4 )
           break;
-        v8 = *v7;
-        if ( (__int64 **)v7[1] != v6 || *(__int64 **)(v8 + 8) != v7 )
+        v6 = *v5;
+        if ( (__int64 **)v5[1] != v4 || *(__int64 **)(v6 + 8) != v5 )
           __fastfail(3u);
-        *v6 = (__int64 *)v8;
-        *(_QWORD *)(v8 + 8) = v6;
-        FsRtlReleaseAutoExpandPushLockExclusive((_DWORD *)v4);
-        guard_dispatch_icall_no_overrides(v7, v9, v10, v11);
-        FsRtlAcquireAutoExpandPushLockExclusive(v4);
+        *v4 = (__int64 *)v6;
+        *(_QWORD *)(v6 + 8) = v4;
+        FsRtlReleaseAutoExpandPushLockExclusive((_DWORD *)v2);
+        guard_dispatch_icall_no_overrides(v5, v7);
+        FsRtlAcquireAutoExpandPushLockExclusive(v2);
       }
-      FsRtlReleaseAutoExpandPushLockExclusive((_DWORD *)v4);
+      FsRtlReleaseAutoExpandPushLockExclusive((_DWORD *)v2);
     }
-    ExCleanupAutoExpandPushLock(v4);
-    ExFreePoolWithTag((PVOID)v4, 0x63665346u);
+    ExCleanupAutoExpandPushLock(v2);
+    ExFreePoolWithTag((PVOID)v2, 0x63665346u);
   }
 }

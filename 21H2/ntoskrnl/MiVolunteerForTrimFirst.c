@@ -1,11 +1,11 @@
 /*
- * XREFs of MiVolunteerForTrimFirst @ 0x140337230
+ * XREFs of MiVolunteerForTrimFirst @ 0x140341F80
  * Callers:
- *     MiSetVaAgeList @ 0x14032D6B0 (MiSetVaAgeList.c)
- *     MiRemoveWsle @ 0x140338FE0 (MiRemoveWsle.c)
+ *     MiSetVaAgeList @ 0x140338400 (MiSetVaAgeList.c)
+ *     MiRemoveWsle @ 0x140343D30 (MiRemoveWsle.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  */
 
 void __fastcall MiVolunteerForTrimFirst(__int64 a1, __int64 a2)
@@ -24,7 +24,7 @@ void __fastcall MiVolunteerForTrimFirst(__int64 a1, __int64 a2)
 
   v2 = *(unsigned __int16 *)(a1 + 174);
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
-  v3 = *(_QWORD **)(qword_140C4E648 + 8 * v2);
+  v3 = *(_QWORD **)(qword_140C4E688 + 8 * v2);
   v4 = v3[856];
   if ( *(_QWORD *)(a1 + 96) < *(_QWORD *)(v4 + 56) )
   {
@@ -37,7 +37,7 @@ void __fastcall MiVolunteerForTrimFirst(__int64 a1, __int64 a2)
 LABEL_11:
     LockHandle.LockQueue.Next = 0LL;
     LockHandle.LockQueue.Lock = &SpinLock;
-    KxAcquireQueuedSpinLock(&LockHandle, &SpinLock, v2);
+    KxAcquireQueuedSpinLock(&LockHandle, &SpinLock, v2, 0LL);
     if ( *(_BYTE *)(v4 + 53) || (v7 = *v5) == 0 )
     {
       *(_BYTE *)(v4 + 54) = 1;

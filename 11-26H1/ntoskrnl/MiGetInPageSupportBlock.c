@@ -1,21 +1,21 @@
 /*
- * XREFs of MiGetInPageSupportBlock @ 0x140396FF0
+ * XREFs of MiGetInPageSupportBlock @ 0x140398D70
  * Callers:
- *     MiMigratePfn @ 0x1402F6990 (MiMigratePfn.c)
- *     MiAllocateInPageSupport @ 0x140371500 (MiAllocateInPageSupport.c)
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiPrivateFixup @ 0x14051D784 (MiPrivateFixup.c)
- *     MiCreateRotateView @ 0x1409CF99C (MiCreateRotateView.c)
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140A51E30 (MiPfPrepareReadList.c)
- *     MiPfAllocateMdls @ 0x140A526F0 (MiPfAllocateMdls.c)
- *     MiGetReadyInPageBlock @ 0x140B3C89C (MiGetReadyInPageBlock.c)
+ *     MiMigratePfn @ 0x1402D8A10 (MiMigratePfn.c)
+ *     MiAllocateInPageSupport @ 0x1403732B0 (MiAllocateInPageSupport.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiPrivateFixup @ 0x14051FCB0 (MiPrivateFixup.c)
+ *     MiCreateRotateView @ 0x1409A097C (MiCreateRotateView.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140A5B120 (MiPfPrepareReadList.c)
+ *     MiPfAllocateMdls @ 0x140A5B9E0 (MiPfAllocateMdls.c)
+ *     MiGetReadyInPageBlock @ 0x140B3EB1C (MiGetReadyInPageBlock.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     MiInitializeInPageSupport @ 0x140397270 (MiInitializeInPageSupport.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     MiInitializeInPageSupport @ 0x140398FF0 (MiInitializeInPageSupport.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 PSLIST_ENTRY __fastcall MiGetInPageSupportBlock(char a1, volatile signed __int64 *a2)

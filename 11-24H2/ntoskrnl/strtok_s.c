@@ -1,11 +1,11 @@
 /*
- * XREFs of strtok_s @ 0x140504570
+ * XREFs of strtok_s @ 0x140501E30
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140493990 (xHalTimerWatchdogStop.c)
- *     __report_rangecheckfailure @ 0x1404F51BC (__report_rangecheckfailure.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     xHalTimerWatchdogStop @ 0x14048E2E0 (xHalTimerWatchdogStop.c)
+ *     __report_rangecheckfailure @ 0x1404F2ABC (__report_rangecheckfailure.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char *__cdecl strtok_s(char *Str, const char *Delim, char **Context)

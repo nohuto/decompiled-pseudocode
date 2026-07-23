@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegLfhVsCommit @ 0x1800E0280
+ * XREFs of RtlpHpSegLfhVsCommit @ 0x1800DB380
  * Callers:
- *     RtlpHpVsSubsegmentCommitPages @ 0x18004F198 (RtlpHpVsSubsegmentCommitPages.c)
- *     RtlpHpLfhSubsegmentReformatAsSingle @ 0x1800DFFC4 (RtlpHpLfhSubsegmentReformatAsSingle.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x180064D78 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpLfhSubsegmentReformatAsSingle @ 0x1800DB0C4 (RtlpHpLfhSubsegmentReformatAsSingle.c)
  * Callees:
- *     RtlpHpSegPageRangeCommit @ 0x180056980 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegPageRangeCommit @ 0x18006C560 (RtlpHpSegPageRangeCommit.c)
  */
 
 __int64 __fastcall RtlpHpSegLfhVsCommit(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)

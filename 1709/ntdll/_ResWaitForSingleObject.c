@@ -12,7 +12,7 @@ __int64 __fastcall ResWaitForSingleObject(void *a1)
 {
   int v2; // eax
   unsigned int v3; // ebx
-  ULONG v4; // eax
+  LONG v4; // eax
   LARGE_INTEGER Timeout; // [rsp+30h] [rbp+8h] BYREF
 
   if ( ((unsigned int)a1 & 0x10000003) == 3LL )

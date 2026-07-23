@@ -1,12 +1,12 @@
 /*
- * XREFs of SSHSupportEtwWrite @ 0x1404A3E6C
+ * XREFs of SSHSupportEtwWrite @ 0x14049EA8C
  * Callers:
- *     SshpSessionManagerFlushControlEventBuffer @ 0x140767304 (SshpSessionManagerFlushControlEventBuffer.c)
- *     SshpFlushBlockerDataCache @ 0x140A4B850 (SshpFlushBlockerDataCache.c)
- *     SshpTracingRundownCollectionState @ 0x140A76764 (SshpTracingRundownCollectionState.c)
- *     SshpTracingWriteCollectionStateChange @ 0x140A9561C (SshpTracingWriteCollectionStateChange.c)
+ *     SshpSessionManagerFlushControlEventBuffer @ 0x140766D64 (SshpSessionManagerFlushControlEventBuffer.c)
+ *     SshpFlushBlockerDataCache @ 0x140A425B0 (SshpFlushBlockerDataCache.c)
+ *     SshpTracingRundownCollectionState @ 0x140A70884 (SshpTracingRundownCollectionState.c)
+ *     SshpTracingWriteCollectionStateChange @ 0x140A91E4C (SshpTracingWriteCollectionStateChange.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
  */
 
 NTSTATUS __fastcall SSHSupportEtwWrite(

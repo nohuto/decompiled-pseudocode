@@ -1,13 +1,13 @@
 /*
- * XREFs of PspClearProcessThreadCidRefs @ 0x1405F6DAC
+ * XREFs of PspClearProcessThreadCidRefs @ 0x1405F7DAC
  * Callers:
- *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
- *     PspRundownSingleProcess @ 0x140603A48 (PspRundownSingleProcess.c)
+ *     PspExitThread @ 0x1405F85E0 (PspExitThread.c)
+ *     PspRundownSingleProcess @ 0x140604A48 (PspRundownSingleProcess.c)
  * Callees:
  *     ObDereferenceObjectEx @ 0x14001CD54 (ObDereferenceObjectEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
- *     ExMapHandleToPointer @ 0x1405F56A0 (ExMapHandleToPointer.c)
+ *     ExfUnblockPushLock @ 0x1401B75B0 (ExfUnblockPushLock.c)
+ *     ExMapHandleToPointer @ 0x1405F66A0 (ExMapHandleToPointer.c)
  */
 
 __int64 __fastcall PspClearProcessThreadCidRefs(__int64 a1, __int64 a2, ULONG_PTR a3)

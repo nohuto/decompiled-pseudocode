@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogDelayFaultingThread @ 0x140680434
+ * XREFs of MiLogDelayFaultingThread @ 0x140681634
  * Callers:
- *     MiDelayFaultingThread @ 0x14048F028 (MiDelayFaultingThread.c)
+ *     MiDelayFaultingThread @ 0x140260C98 (MiDelayFaultingThread.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void MiLogDelayFaultingThread()
@@ -43,9 +43,9 @@ void MiLogDelayFaultingThread()
   int v30; // [rsp+D8h] [rbp+3Fh]
   int v31; // [rsp+DCh] [rbp+43h]
 
-  if ( *(_QWORD *)&qword_140E37518
-    && **(_DWORD **)&qword_140E37518 > 5u
-    && tlgKeywordOn(*(__int64 *)&qword_140E37518, 1LL) )
+  if ( *(_QWORD *)&qword_140E37658
+    && **(_DWORD **)&qword_140E37658 > 5u
+    && tlgKeywordOn(*(__int64 *)&qword_140E37658, 1LL) )
   {
     v16 = 0;
     v19 = 0;
@@ -72,6 +72,6 @@ void MiLogDelayFaultingThread()
     v30 = 4;
     v12 = v3;
     v11 = v0;
-    tlgWriteEx_EtwWriteEx(v2, (unsigned __int8 *)&word_140057802, v0, 1u, v5, v6, 8u, &v13);
+    tlgWriteEx_EtwWriteEx(v2, (unsigned __int8 *)&byte_1400583A7, v0, 1u, v5, v6, 8u, &v13);
   }
 }

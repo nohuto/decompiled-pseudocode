@@ -30,19 +30,19 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
   unsigned __int64 CurrentServerSilo; // rsi
   __int64 v6; // r15
   __int64 v7; // rcx
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER v8; // rax
   PEPROCESS NextProcess; // rbx
-  __int64 v10; // r12
+  LARGE_INTEGER v10; // r12
   int v11; // edi
   __int128 v12; // xmm0
   unsigned __int16 v13; // cx
   unsigned __int16 i; // r8
   __int16 v15; // ax
   bool v17; // sf
-  __int128 *LastRebalanceQpc; // rax
+  __int128 *QuadPart; // rax
   _QWORD **v19; // [rsp+28h] [rbp-E0h]
   __int128 v20; // [rsp+38h] [rbp-D0h] BYREF
-  __int128 *String; // [rsp+48h] [rbp-C0h] BYREF
+  LARGE_INTEGER String; // [rsp+48h] [rbp-C0h] BYREF
   UNICODE_STRING String_8; // [rsp+50h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString_8; // [rsp+60h] [rbp-A8h] BYREF
   _QWORD *v24; // [rsp+70h] [rbp-98h] BYREF
@@ -97,7 +97,7 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
   __int64 v73; // [rsp+2B0h] [rbp+1A8h]
   __int64 v74; // [rsp+2B8h] [rbp+1B0h]
   __int64 v75; // [rsp+2C0h] [rbp+1B8h]
-  __int64 v76; // [rsp+2C8h] [rbp+1C0h]
+  LARGE_INTEGER v76; // [rsp+2C8h] [rbp+1C0h]
   char v77; // [rsp+2D8h] [rbp+1D0h] BYREF
   char v78; // [rsp+2F8h] [rbp+1F0h] BYREF
 
@@ -109,9 +109,9 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
   ExIsRestrictedCaller(v4, 0LL);
   LOBYTE(v7) = 1;
   KeFlushProcessWriteBuffers(v7);
-  InterruptTimePrecise = KeQueryInterruptTimePrecise((__int64)&String);
+  v8 = KeQueryInterruptTimePrecise(&String);
   NextProcess = (PEPROCESS)PsIdleProcess;
-  v10 = InterruptTimePrecise;
+  v10 = v8;
   v11 = 0;
   if ( PsIdleProcess )
   {
@@ -120,7 +120,7 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
       memset_0(v51, 0, 0xD8uLL);
       memset_0(v26, 0, 0x100uLL);
       memset_0(v50, 0, 0x68uLL);
-      String = 0LL;
+      String.QuadPart = 0LL;
       v20 = 0LL;
       String_8 = 0LL;
       DestinationString_8 = 0LL;
@@ -160,7 +160,7 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
         v74 = v27;
         v75 = 10000000LL;
         v76 = v10;
-        String = 0LL;
+        String.QuadPart = 0LL;
         if ( NextProcess == PsIdleProcess )
         {
           v12 = *(_OWORD *)L"\b\n";
@@ -183,10 +183,10 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
         else
         {
           v17 = (int)PsGetAllocatedFullProcessImageNameEx(NextProcess, &String) < 0;
-          LastRebalanceQpc = String;
+          QuadPart = (__int128 *)String.QuadPart;
           if ( v17 )
-            LastRebalanceQpc = (__int128 *)NextProcess[1].LastRebalanceQpc;
-          v12 = *LastRebalanceQpc;
+            QuadPart = (__int128 *)NextProcess[1].LastRebalanceQpc;
+          v12 = *QuadPart;
         }
         v20 = v12;
         v13 = (unsigned __int16)v12 >> 1;
@@ -228,8 +228,8 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
         {
           v11 = ExpPcwDisabledStatus();
         }
-        if ( String )
-          ExFreePoolWithTag(String, 0);
+        if ( String.QuadPart )
+          ExFreePoolWithTag((PVOID)String.QuadPart, 0);
         if ( v11 < 0 )
           break;
       }

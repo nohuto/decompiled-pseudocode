@@ -1,18 +1,18 @@
 /*
- * XREFs of ViMiscValidateSynchronizationObject @ 0x140C20518
+ * XREFs of ViMiscValidateSynchronizationObject @ 0x140C26524
  * Callers:
- *     VfMiscExInitializeLookasideListEx_Entry @ 0x140C3C910 (VfMiscExInitializeLookasideListEx_Entry.c)
- *     VfMiscExInitializeNPagedLookasideList_Entry @ 0x140C3C9A0 (VfMiscExInitializeNPagedLookasideList_Entry.c)
- *     VfMiscExInitializeResourceLite_Entry @ 0x140C3CA10 (VfMiscExInitializeResourceLite_Entry.c)
- *     VfMiscKeInitializeMutant_Entry @ 0x140C3CD50 (VfMiscKeInitializeMutant_Entry.c)
- *     VfMiscKeInitializeSemaphore_Entry @ 0x140C3CD80 (VfMiscKeInitializeSemaphore_Entry.c)
- *     VfMiscKeInitializeTimerEx_Entry @ 0x140C3CDB0 (VfMiscKeInitializeTimerEx_Entry.c)
- *     ViMiscValidateKeWaitUsage @ 0x140C46EAC (ViMiscValidateKeWaitUsage.c)
- *     VfMiscKeInitializeEvent_Entry @ 0x140C480A0 (VfMiscKeInitializeEvent_Entry.c)
+ *     VfMiscExInitializeLookasideListEx_Entry @ 0x140C42920 (VfMiscExInitializeLookasideListEx_Entry.c)
+ *     VfMiscExInitializeNPagedLookasideList_Entry @ 0x140C429B0 (VfMiscExInitializeNPagedLookasideList_Entry.c)
+ *     VfMiscExInitializeResourceLite_Entry @ 0x140C42A20 (VfMiscExInitializeResourceLite_Entry.c)
+ *     VfMiscKeInitializeMutant_Entry @ 0x140C42D60 (VfMiscKeInitializeMutant_Entry.c)
+ *     VfMiscKeInitializeSemaphore_Entry @ 0x140C42D90 (VfMiscKeInitializeSemaphore_Entry.c)
+ *     VfMiscKeInitializeTimerEx_Entry @ 0x140C42DC0 (VfMiscKeInitializeTimerEx_Entry.c)
+ *     ViMiscValidateKeWaitUsage @ 0x140C4CEBC (ViMiscValidateKeWaitUsage.c)
+ *     VfMiscKeInitializeEvent_Entry @ 0x140C4E0B0 (VfMiscKeInitializeEvent_Entry.c)
  * Callees:
- *     MmIsNonPagedSystemAddressValid @ 0x1404F7010 (MmIsNonPagedSystemAddressValid.c)
- *     VfMiscCheckKernelAddress @ 0x1404FD268 (VfMiscCheckKernelAddress.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x1404F0620 (MmIsNonPagedSystemAddressValid.c)
+ *     VfMiscCheckKernelAddress @ 0x1404F67A8 (VfMiscCheckKernelAddress.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 BOOLEAN __fastcall ViMiscValidateSynchronizationObject(PVOID VirtualAddress, ULONG_PTR a2, __int64 a3)

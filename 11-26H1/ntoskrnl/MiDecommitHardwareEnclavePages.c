@@ -1,31 +1,31 @@
 /*
- * XREFs of MiDecommitHardwareEnclavePages @ 0x140340E34
+ * XREFs of MiDecommitHardwareEnclavePages @ 0x140342EB4
  * Callers:
- *     MiDecommitEnclavePages @ 0x14095FD48 (MiDecommitEnclavePages.c)
- *     MiTerminateHardwareEnclave @ 0x140C01E04 (MiTerminateHardwareEnclave.c)
+ *     MiDecommitEnclavePages @ 0x140A05608 (MiDecommitEnclavePages.c)
+ *     MiTerminateHardwareEnclave @ 0x140C08014 (MiTerminateHardwareEnclave.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiDeleteEnclavePage @ 0x140340600 (MiDeleteEnclavePage.c)
- *     MiDecommitRemoveEnclaveAcquireLocks @ 0x140341128 (MiDecommitRemoveEnclaveAcquireLocks.c)
- *     KeRemoveEnclavePage @ 0x140341200 (KeRemoveEnclavePage.c)
- *     MiDecommitRemoveEnclavePageForce @ 0x140341DE0 (MiDecommitRemoveEnclavePageForce.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     KeBlockEnclavePage @ 0x1405EE6F8 (KeBlockEnclavePage.c)
- *     KeTrackEnclaveTbFlush @ 0x1405EE93C (KeTrackEnclaveTbFlush.c)
- *     MiDecommitGetMetadataSlot @ 0x1406FFEA0 (MiDecommitGetMetadataSlot.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiDeleteEnclavePage @ 0x140342680 (MiDeleteEnclavePage.c)
+ *     MiDecommitRemoveEnclaveAcquireLocks @ 0x1403431A8 (MiDecommitRemoveEnclaveAcquireLocks.c)
+ *     KeRemoveEnclavePage @ 0x140343280 (KeRemoveEnclavePage.c)
+ *     MiDecommitRemoveEnclavePageForce @ 0x140343E60 (MiDecommitRemoveEnclavePageForce.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     KeBlockEnclavePage @ 0x1405F1068 (KeBlockEnclavePage.c)
+ *     KeTrackEnclaveTbFlush @ 0x1405F12AC (KeTrackEnclaveTbFlush.c)
+ *     MiDecommitGetMetadataSlot @ 0x140704B70 (MiDecommitGetMetadataSlot.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiDecommitHardwareEnclavePages(
@@ -132,7 +132,7 @@ void __fastcall MiDecommitHardwareEnclavePages(
                   MetadataSlot = MiDecommitGetMetadataSlot(&v36, v16);
                   v18 = v46;
                   v38 = MetadataSlot;
-                  v39 = (char *)stru_140E36558.StackLimit + 8 * MetadataSlot;
+                  v39 = (char *)stru_140E366D8.StackLimit + 8 * MetadataSlot;
                   v37 = 3;
                 }
                 KeBlockEnclavePage(v18);
@@ -193,7 +193,7 @@ void __fastcall MiDecommitHardwareEnclavePages(
     if ( v38 )
     {
       LOBYTE(v32) = 1;
-      v33 = (volatile signed __int32 *)(*((_QWORD *)stru_140E36558.StackBase + 1) + 4 * ((unsigned __int64)v38 >> 5));
+      v33 = (volatile signed __int32 *)(*((_QWORD *)stru_140E366D8.StackBase + 1) + 4 * ((unsigned __int64)v38 >> 5));
       if ( (unsigned __int64)(v38 & 0x1F) + 1 > 0x20 )
       {
         v34 = v38 & 0x1F;
@@ -225,12 +225,12 @@ LABEL_45:
     }
     else
     {
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E36558.ThreadLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E36558.ThreadLock);
-      KeAbPostRelease((unsigned __int64)&stru_140E36558.ThreadLock);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E366D8.ThreadLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E366D8.ThreadLock);
+      KeAbPostRelease((unsigned __int64)&stru_140E366D8.ThreadLock);
       CurrentThread = KeGetCurrentThread();
       if ( CurrentThread->SpecialApcDisable++ == -1
-        && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+        && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
         KiCheckForKernelApcDelivery((__int64)CurrentThread, v29);
       }

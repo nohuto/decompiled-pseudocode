@@ -72,7 +72,7 @@ LABEL_28:
           result = ZwQueryVirtualMemory(
                      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                      (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL),
-                     MemoryBasicVlmInformation,
+                     MemoryRegionInformation,
                      MemoryInformation,
                      0x20uLL,
                      0LL);

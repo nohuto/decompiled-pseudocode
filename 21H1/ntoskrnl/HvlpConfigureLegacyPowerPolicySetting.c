@@ -11,18 +11,13 @@
 __int64 __fastcall HvlpConfigureLegacyPowerPolicySetting(_QWORD *a1)
 {
   _QWORD *v2; // rax
-  __int64 v3; // rdx
-  __int64 v4; // r9
-  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
-  __int128 v7; // [rsp+30h] [rbp-18h]
+  _OWORD v4[2]; // [rsp+20h] [rbp-28h] BYREF
 
-  v6 = 0LL;
-  v7 = 0LL;
-  v2 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v6, 1, 0LL, 40LL);
-  v3 = *((_QWORD *)&v7 + 1);
+  memset(v4, 0, sizeof(v4));
+  v2 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v4, 1, 0LL, 40LL);
   v2[1] = *a1;
   *(_DWORD *)v2 = 2;
-  LODWORD(a1) = (unsigned __int16)HvcallInitiateHypercall(111, v3, 0LL, v4) != 0 ? 0xC0000001 : 0;
-  HvlpReleaseHypercallPage((__int64)&v6);
+  LODWORD(a1) = (unsigned __int16)HvcallInitiateHypercall(111) != 0 ? 0xC0000001 : 0;
+  HvlpReleaseHypercallPage((__int64)v4);
   return (unsigned int)a1;
 }

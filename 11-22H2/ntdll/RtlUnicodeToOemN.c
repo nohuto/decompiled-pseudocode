@@ -8,14 +8,19 @@
  *     RtlpGetCodePageData @ 0x180059188 (RtlpGetCodePageData.c)
  */
 
-__int64 __fastcall RtlUnicodeToOemN(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
+NTSTATUS __cdecl RtlUnicodeToOemN(
+        PCHAR OemString,
+        ULONG MaxBytesInOemString,
+        PULONG BytesInOemString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  __int64 CodePageData; // rax
-  unsigned int v6; // edx
-  unsigned int *v7; // r8
-  unsigned __int16 *v8; // r9
-  _BYTE *v9; // r10
+  _CPTABLEINFO *CodePageData; // rax
+  ULONG v6; // edx
+  PULONG v7; // r8
+  PWCH v8; // r9
+  PCH v9; // r10
 
-  CodePageData = RtlpGetCodePageData();
-  return RtlUnicodeToCustomCPN(CodePageData, v9, v6, v7, v8, a5);
+  CodePageData = (_CPTABLEINFO *)RtlpGetCodePageData(OemString, MaxBytesInOemString, BytesInOemString, UnicodeString);
+  return RtlUnicodeToCustomCPN(CodePageData, v9, v6, v7, v8, BytesInUnicodeString);
 }

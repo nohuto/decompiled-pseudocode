@@ -12,18 +12,18 @@ __int64 __fastcall LdrpEnclaveAddDelayloadModules(__int64 a1)
 {
   NTSTATUS inited; // esi
   unsigned __int64 v3; // r15
-  int v4; // eax
+  NTSTATUS v4; // eax
   __int64 v5; // rbp
   unsigned int v6; // ebx
   unsigned int i; // edi
   __int64 v8; // rcx
-  STRING DestinationString; // [rsp+30h] [rbp-38h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-38h] BYREF
   unsigned int v11; // [rsp+70h] [rbp+8h] BYREF
   __int64 v12; // [rsp+78h] [rbp+10h] BYREF
 
   inited = 0;
   v3 = *(_QWORD *)(*(_QWORD *)(a1 + 56) + 48LL);
-  v4 = RtlpImageDirectoryEntryToDataEx(v3, 1, 0xDu, &v11, (__int64)&v12);
+  v4 = RtlpImageDirectoryEntryToDataEx(v3, 1, 0xDu, &v11, (PIMAGE_NT_HEADERS)&v12);
   v5 = v12;
   if ( v4 < 0 )
     v5 = 0LL;

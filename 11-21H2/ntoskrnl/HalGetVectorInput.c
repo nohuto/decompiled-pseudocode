@@ -1,12 +1,12 @@
 /*
  * XREFs of HalGetVectorInput @ 0x1403D8FC0
  * Callers:
- *     IopConnectInterruptFullySpecified @ 0x1408590B0 (IopConnectInterruptFullySpecified.c)
+ *     sub_1408590B0 @ 0x1408590B0 (sub_1408590B0.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
-__int64 __fastcall HalGetVectorInput(__int64 a1)
+__int64 __fastcall HalGetVectorInput(__int64 a1, __int64 a2)
 {
-  return ((__int64 (__fastcall *)(__int64))off_140C01C98[0])(a1);
+  return sub_14042A5E0(a1, a2);
 }

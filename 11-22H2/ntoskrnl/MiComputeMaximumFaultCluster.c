@@ -59,7 +59,7 @@ __int64 __fastcall MiComputeMaximumFaultCluster(__int64 a1, unsigned __int64 a2)
       {
         v9 = &ExpInterlockedPopEntrySListFault;
         v8 = KiDynamicTraceEnabled
-          && (v20 = *(_QWORD *)(v2 + 360), v20 >= qword_140D1F2A8)
+          && (v20 = *(_QWORD *)(v2 + 360), v20 >= ControlPc)
           && v20 < qword_140D1F2B0
           && KeGetCurrentIrql() == 15;
 LABEL_7:

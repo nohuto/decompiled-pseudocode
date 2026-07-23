@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpCorralDpc @ 0x140A9AE40
+ * XREFs of IopLiveDumpCorralDpc @ 0x140A9ACB0
  * Callers:
  *     <none>
  * Callees:
- *     KiSaveProcessorControlState @ 0x14041EDA0 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x140428FD0 (RtlCaptureContext.c)
- *     IopLiveDumpProcessCorralStateChange @ 0x140A9C300 (IopLiveDumpProcessCorralStateChange.c)
+ *     KiSaveProcessorControlState @ 0x14041F130 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x140429360 (RtlCaptureContext.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x140A9C170 (IopLiveDumpProcessCorralStateChange.c)
  */
 
 void __fastcall IopLiveDumpCorralDpc(

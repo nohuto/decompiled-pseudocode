@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateExtendSubsections @ 0x140A58514
+ * XREFs of MiAllocateExtendSubsections @ 0x140A65A94
  * Callers:
- *     MiExtendSection @ 0x140A5838C (MiExtendSection.c)
+ *     MiExtendSection @ 0x140A6590C (MiExtendSection.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     Mi4KStartForSubsection @ 0x1404937B0 (Mi4KStartForSubsection.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     Mi4KStartForSubsection @ 0x14048D2FC (Mi4KStartForSubsection.c)
  */
 
 __int64 __fastcall MiAllocateExtendSubsections(

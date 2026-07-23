@@ -1,23 +1,23 @@
 /*
- * XREFs of PsGetCurrentSilo @ 0x140406380
+ * XREFs of PsGetCurrentSilo @ 0x140405240
  * Callers:
- *     PsGetThreadProperty @ 0x1400EE530 (PsGetThreadProperty.c)
- *     IoRevokeHandlesForProcess @ 0x1401C9AC0 (IoRevokeHandlesForProcess.c)
- *     NtQueryFullAttributesFile @ 0x140405988 (NtQueryFullAttributesFile.c)
- *     ObReferenceObjectByName @ 0x140405BE0 (ObReferenceObjectByName.c)
- *     NtOpenSection @ 0x140405E24 (NtOpenSection.c)
- *     ObpInsertOrLocateNamedObject @ 0x140405EE0 (ObpInsertOrLocateNamedObject.c)
- *     ObQueryNameStringMode @ 0x140434B90 (ObQueryNameStringMode.c)
- *     ObReferenceObjectByNameEx @ 0x140499E04 (ObReferenceObjectByNameEx.c)
- *     ObpCreateSymbolicLinkName @ 0x1404B8FE8 (ObpCreateSymbolicLinkName.c)
- *     VRegEnabledInJob @ 0x1404E9244 (VRegEnabledInJob.c)
- *     EtwpWriteAppStateChangeSummary @ 0x14054A9D8 (EtwpWriteAppStateChangeSummary.c)
- *     PsRegisterSiloMonitor @ 0x140551E98 (PsRegisterSiloMonitor.c)
- *     NtDeleteFile @ 0x14057D42C (NtDeleteFile.c)
- *     PsGetSiloIdentifier @ 0x140581118 (PsGetSiloIdentifier.c)
- *     IopFastQueryNetworkAttributes @ 0x140623EB8 (IopFastQueryNetworkAttributes.c)
- *     PsRootSiloInformation @ 0x14067E078 (PsRootSiloInformation.c)
- *     ObGetSiloRootDirectoryPath @ 0x1406E6284 (ObGetSiloRootDirectoryPath.c)
+ *     PsGetThreadProperty @ 0x1400EC3B0 (PsGetThreadProperty.c)
+ *     IoRevokeHandlesForProcess @ 0x1401C9960 (IoRevokeHandlesForProcess.c)
+ *     ObReferenceObjectByNameEx @ 0x1403E4434 (ObReferenceObjectByNameEx.c)
+ *     NtQueryFullAttributesFile @ 0x140404848 (NtQueryFullAttributesFile.c)
+ *     ObReferenceObjectByName @ 0x140404AA0 (ObReferenceObjectByName.c)
+ *     NtOpenSection @ 0x140404CE4 (NtOpenSection.c)
+ *     ObpInsertOrLocateNamedObject @ 0x140404DA0 (ObpInsertOrLocateNamedObject.c)
+ *     ObQueryNameStringMode @ 0x140433A60 (ObQueryNameStringMode.c)
+ *     ObpCreateSymbolicLinkName @ 0x1404A33C8 (ObpCreateSymbolicLinkName.c)
+ *     VRegEnabledInJob @ 0x1404CB334 (VRegEnabledInJob.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x14054AF18 (EtwpWriteAppStateChangeSummary.c)
+ *     PsRegisterSiloMonitor @ 0x1405523D8 (PsRegisterSiloMonitor.c)
+ *     NtDeleteFile @ 0x14057D8D8 (NtDeleteFile.c)
+ *     PsGetSiloIdentifier @ 0x1405815C4 (PsGetSiloIdentifier.c)
+ *     IopFastQueryNetworkAttributes @ 0x140623F6C (IopFastQueryNetworkAttributes.c)
+ *     PsRootSiloInformation @ 0x14067E15C (PsRootSiloInformation.c)
+ *     ObGetSiloRootDirectoryPath @ 0x1406E63BC (ObGetSiloRootDirectoryPath.c)
  * Callees:
  *     <none>
  */

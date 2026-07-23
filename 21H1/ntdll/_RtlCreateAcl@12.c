@@ -16,14 +16,14 @@
  *     <none>
  */
 
-int __stdcall RtlCreateAcl(int a1, unsigned int a2, unsigned int a3)
+NTSTATUS __cdecl RtlCreateAcl(PACL Acl, ULONG AclLength, ULONG AclRevision)
 {
-  if ( a2 < 8 )
+  if ( AclLength < 8 )
     return -1073741789;
-  if ( a3 < 2 || a3 > 4 || a2 > 0xFFFC )
+  if ( AclRevision < 2 || AclRevision > 4 || AclLength > 0xFFFC )
     return -1073741811;
-  *(_WORD *)(a1 + 2) = a2 & 0xFFFC;
-  *(_WORD *)a1 = (unsigned __int8)a3;
-  *(_DWORD *)(a1 + 4) = 0;
+  Acl->AclSize = AclLength & 0xFFFC;
+  *(_WORD *)&Acl->AclRevision = (unsigned __int8)AclRevision;
+  *(_DWORD *)&Acl->AceCount = 0;
   return 0;
 }

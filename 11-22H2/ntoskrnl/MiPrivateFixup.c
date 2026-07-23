@@ -168,7 +168,9 @@ LABEL_7:
     {
       LOBYTE(v18) = 1;
       v65 = (volatile signed __int64 *)MiReleaseFaultState(a1 + 7, v18, &v73);
-      if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags
+        && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+        && CurrentIrql <= 0xFu )
       {
         v51 = v73;
         if ( v73 <= 0xFu && CurrentIrql >= 2u )
@@ -233,7 +235,7 @@ LABEL_56:
       v31 = MiReleaseFaultState(a1 + 7, v30, &v73);
       CurrentThread->SpecialApcDisable -= v28;
       v68 = v31;
-      if ( KiIrqlFlags
+      if ( (_DWORD)KiIrqlFlags
         && (v55 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v28) != 0)
         && v55 <= 0xFu )
       {
@@ -294,10 +296,10 @@ LABEL_24:
         }
         MiRemoveLockedPageChargeAndDecRef(v23);
         _InterlockedAnd64((volatile signed __int64 *)(v23 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v59 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v59 <= 0xFu && (unsigned __int8)v46 <= 0xFu && v59 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v59 <= 0xFu && (unsigned __int8)v46 <= 0xFu && v59 >= 2u )
           {
             v60 = KeGetCurrentPrcb();
             v61 = v60->SchedulerAssist;

@@ -81,30 +81,29 @@
  *     sub_180095EB0 @ 0x180095EB0 (sub_180095EB0.c)
  */
 
-struct _TEB *__fastcall RtlSetLastWin32Error(unsigned int a1)
+void __cdecl RtlSetLastWin32Error(LONG Win32Error)
 {
-  struct _TEB *result; // rax
+  struct _TEB *v1; // rax
   bool v2; // zf
   _QWORD v3[2]; // [rsp+20h] [rbp-28h] BYREF
-  unsigned int v4; // [rsp+50h] [rbp+8h] BYREF
+  LONG v4; // [rsp+50h] [rbp+8h] BYREF
 
-  v4 = a1;
-  result = NtCurrentTeb();
-  if ( dword_18015C77C && a1 == dword_18015C77C )
+  v4 = Win32Error;
+  v1 = NtCurrentTeb();
+  if ( dword_18015C77C && Win32Error == dword_18015C77C )
     __debugbreak();
-  if ( result->LastErrorValue != a1 )
+  if ( v1->LastErrorValue != Win32Error )
   {
     v2 = byte_18015C3E1 == 0;
-    result->LastErrorValue = a1;
+    v1->LastErrorValue = Win32Error;
     if ( !v2 )
     {
       if ( v4 )
       {
         v3[0] = &v4;
         v3[1] = 4LL;
-        return (struct _TEB *)EtwEventWrite(qword_180159A20, &unk_1801246C0, 1LL, v3);
+        EtwEventWrite(qword_180159A20, &stru_1801246C0, 1u, (PEVENT_DATA_DESCRIPTOR)v3);
       }
     }
   }
-  return result;
 }

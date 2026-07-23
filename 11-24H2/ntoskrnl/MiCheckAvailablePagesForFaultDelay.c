@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckAvailablePagesForFaultDelay @ 0x1403FC0A0
+ * XREFs of MiCheckAvailablePagesForFaultDelay @ 0x140260E00
  * Callers:
- *     MiConvertFaultStatus @ 0x1402163C0 (MiConvertFaultStatus.c)
+ *     MiConvertFaultStatus @ 0x140260910 (MiConvertFaultStatus.c)
  * Callees:
- *     MiGetCurrentSlabIdentity @ 0x1403FC210 (MiGetCurrentSlabIdentity.c)
+ *     MiGetCurrentSlabIdentity @ 0x1402619D0 (MiGetCurrentSlabIdentity.c)
  */
 
 __int64 __fastcall MiCheckAvailablePagesForFaultDelay(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned __int64 *a5)

@@ -1,12 +1,12 @@
 /*
- * XREFs of SepCaptureOctetStringArray @ 0x1407922BC
+ * XREFs of SepCaptureOctetStringArray @ 0x14079228C
  * Callers:
- *     SepCaptureTokenSecurityAttributesInformation @ 0x1408880F8 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x14088BFA8 (SepCaptureTokenSecurityAttributesInformation.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureOctetStringArray(void *Src, unsigned int a2, __int64 a3, _QWORD *a4)
@@ -37,7 +37,7 @@ __int64 __fastcall SepCaptureOctetStringArray(void *Src, unsigned int a2, __int6
   result = v6 > 0xFFFFFFFF ? 0xC0000095 : 0;
   if ( v6 <= 0xFFFFFFFF )
   {
-    Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL);
+    Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, v7, 0x74416553u);
     if ( Pool2 )
     {
       if ( v7 && ((unsigned __int8)Src & 3) != 0 )
@@ -57,7 +57,7 @@ __int64 __fastcall SepCaptureOctetStringArray(void *Src, unsigned int a2, __int6
         if ( v12 < v11 )
           goto LABEL_17;
       }
-      v15 = (_QWORD *)ExAllocatePool2(0x100uLL);
+      v15 = (_QWORD *)ExAllocatePool2(0x100uLL, v7, 0x74416553u);
       v16 = v15;
       if ( !v15 )
       {

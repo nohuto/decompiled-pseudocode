@@ -9,33 +9,33 @@
  *     memmove @ 0x1800AAB40 (memmove.c)
  */
 
-__int64 __fastcall RtlRemovePropertyStore(void *Key, _QWORD *a2, unsigned __int64 a3, unsigned __int64 a4)
+NTSTATUS __cdecl RtlRemovePropertyStore(ULONG_PTR Key, PULONG_PTR Context)
 {
-  unsigned int v6; // edi
-  char *v7; // rax
-  unsigned int v8; // ebx
-  __int64 v9; // rcx
+  NTSTATUS v4; // edi
+  unsigned __int64 *v5; // rax
+  unsigned int v6; // ebx
+  __int64 v7; // rcx
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpPropStoreLock, (unsigned __int64)a2, a3, a4);
-  v6 = 0;
+  RtlAcquireSRWLockExclusive(&RtlpPropStoreLock);
+  v4 = 0;
   if ( RtlpPropStoreEntries
-    && (v7 = (char *)bsearch(
-                       Key,
-                       RtlpPropStoreEntries,
-                       (unsigned int)RtlpPropStoreEntriesActiveCount,
-                       0x18uLL,
-                       (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareProtectedPolicyEntry)) != 0LL )
+    && (v5 = (unsigned __int64 *)bsearch(
+                                   (const void *)Key,
+                                   RtlpPropStoreEntries,
+                                   (unsigned int)RtlpPropStoreEntriesActiveCount,
+                                   0x18uLL,
+                                   (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareProtectedPolicyEntry)) != 0LL )
   {
-    v8 = RtlpPropStoreEntriesActiveCount;
-    v9 = v7 - (_BYTE *)RtlpPropStoreEntries;
-    *a2 = *((_QWORD *)v7 + 2);
-    memmove(v7, v7 + 24, 24 * (v8 - 0xAAAAAAAAAAAAAAABuLL * (v9 >> 3)) - 24);
-    LODWORD(RtlpPropStoreEntriesActiveCount) = v8 - 1;
+    v6 = RtlpPropStoreEntriesActiveCount;
+    v7 = (char *)v5 - (_BYTE *)RtlpPropStoreEntries;
+    *Context = v5[2];
+    memmove(v5, v5 + 3, 24 * (v6 - 0xAAAAAAAAAAAAAAABuLL * (v7 >> 3)) - 24);
+    LODWORD(RtlpPropStoreEntriesActiveCount) = v6 - 1;
   }
   else
   {
-    v6 = -1073741275;
+    v4 = -1073741275;
   }
   RtlReleaseSRWLockExclusive(&RtlpPropStoreLock);
-  return v6;
+  return v4;
 }

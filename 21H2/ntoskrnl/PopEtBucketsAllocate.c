@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEtBucketsAllocate @ 0x140773B2C
+ * XREFs of PopEtBucketsAllocate @ 0x140773CEC
  * Callers:
- *     PopEtAggregateGet @ 0x140619EA8 (PopEtAggregateGet.c)
- *     PopEtProcessSnapshotCreate @ 0x14069905C (PopEtProcessSnapshotCreate.c)
+ *     PopEtProcessSnapshotCreate @ 0x1405F7D4C (PopEtProcessSnapshotCreate.c)
+ *     PopEtAggregateGet @ 0x140683B08 (PopEtAggregateGet.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall PopEtBucketsAllocate(SIZE_T NumberOfBytes)

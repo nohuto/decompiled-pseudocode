@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpVolumeManagerCreateContextsForWellKnownVolumes @ 0x1406F9250
+ * XREFs of CmpVolumeManagerCreateContextsForWellKnownVolumes @ 0x1406F6E90
  * Callers:
- *     CmInitSystem2 @ 0x140C5F4F8 (CmInitSystem2.c)
+ *     CmInitSystem2 @ 0x140C61648 (CmInitSystem2.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmpVolumeContextLockExclusive @ 0x1407D88A8 (CmpVolumeContextLockExclusive.c)
- *     CmpVolumeContextUnlockExclusive @ 0x1407D8B50 (CmpVolumeContextUnlockExclusive.c)
- *     CmpVolumeManagerGetContextForFilePath @ 0x1407D8B88 (CmpVolumeManagerGetContextForFilePath.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmpVolumeContextLockExclusive @ 0x1407D8DF8 (CmpVolumeContextLockExclusive.c)
+ *     CmpVolumeContextUnlockExclusive @ 0x1407D90A0 (CmpVolumeContextUnlockExclusive.c)
+ *     CmpVolumeManagerGetContextForFilePath @ 0x1407D90D8 (CmpVolumeManagerGetContextForFilePath.c)
  */
 
 _KAFFINITY_EX *CmpVolumeManagerCreateContextsForWellKnownVolumes()

@@ -1,13 +1,13 @@
 /*
- * XREFs of SbpTraceContextUpdate @ 0x1800B8ED4
+ * XREFs of SbpTraceContextUpdate @ 0x1800A2F94
  * Callers:
- *     SbUpdateSwitchContextBasedOnDll @ 0x180070DD0 (SbUpdateSwitchContextBasedOnDll.c)
- *     SbSelectProcedure @ 0x1800A9EF0 (SbSelectProcedure.c)
- *     SbObtainTraceHandle @ 0x1800B8D90 (SbObtainTraceHandle.c)
+ *     SbSelectProcedure @ 0x18000B080 (SbSelectProcedure.c)
+ *     SbUpdateSwitchContextBasedOnDll @ 0x18008D6B0 (SbUpdateSwitchContextBasedOnDll.c)
+ *     SbObtainTraceHandle @ 0x1800A2E50 (SbObtainTraceHandle.c)
  * Callees:
- *     EtwpEventWriteFull @ 0x18003B0D0 (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     EtwpEventWriteFull @ 0x18001B350 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall SbpTraceContextUpdate(__int64 a1, __int64 a2, __int16 a3, unsigned __int16 a4, __int64 a5)

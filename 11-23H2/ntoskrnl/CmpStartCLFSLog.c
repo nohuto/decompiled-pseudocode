@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpStartCLFSLog @ 0x140873038
+ * XREFs of CmpStartCLFSLog @ 0x140873278
  * Callers:
- *     CmpStartRMLog @ 0x140872B98 (CmpStartRMLog.c)
+ *     CmpStartRMLog @ 0x140872DD8 (CmpStartRMLog.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PsDisableImpersonation @ 0x14071E3F0 (PsDisableImpersonation.c)
- *     PsRestoreImpersonation @ 0x14071E530 (PsRestoreImpersonation.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x140873344 (CmpAddRemoveContainerToCLFSLog.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PsDisableImpersonation @ 0x14071E5F0 (PsDisableImpersonation.c)
+ *     PsRestoreImpersonation @ 0x14071E730 (PsRestoreImpersonation.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x140873584 (CmpAddRemoveContainerToCLFSLog.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -37,7 +37,7 @@ __int64 __fastcall CmpStartCLFSLog(
   UNICODE_STRING Destination; // [rsp+78h] [rbp-61h] BYREF
   PVOID ppvMarshalContext; // [rsp+88h] [rbp-51h] BYREF
   PULONGLONG pcbContainer; // [rsp+90h] [rbp-49h]
-  struct _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+98h] [rbp-41h] BYREF
+  _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+98h] [rbp-41h] BYREF
   $115DCDF994C6370D29323EAB0E0C9502 v26; // [rsp+A8h] [rbp-31h] BYREF
 
   pcbContainer = a6;

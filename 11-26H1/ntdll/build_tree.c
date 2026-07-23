@@ -1,10 +1,10 @@
 /*
- * XREFs of build_tree @ 0x18011EAD0
+ * XREFs of build_tree @ 0x18011E880
  * Callers:
- *     _tr_flush_block @ 0x1801569B4 (_tr_flush_block.c)
+ *     _tr_flush_block @ 0x180156884 (_tr_flush_block.c)
  * Callees:
- *     pqdownheap @ 0x18011ED38 (pqdownheap.c)
- *     gen_bitlen @ 0x18011EDF0 (gen_bitlen.c)
+ *     pqdownheap @ 0x18011EAE8 (pqdownheap.c)
+ *     gen_bitlen @ 0x18011EBA0 (gen_bitlen.c)
  */
 
 __int64 __fastcall build_tree(int *a1, __int64 a2)

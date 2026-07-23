@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_RSIdleRevoke__private_IsEnabledDeviceUsageNoInline @ 0x14060B988
+ * XREFs of Feature_RSIdleRevoke__private_IsEnabledDeviceUsageNoInline @ 0x14060E904
  * Callers:
- *     PopPowerAggregatorEnterScreenOff @ 0x140A38AE8 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x1409F46A8 (PopPowerAggregatorEnterScreenOff.c)
  * Callees:
- *     Feature_RSIdleRevoke__private_IsEnabledFallback @ 0x14060B9C4 (Feature_RSIdleRevoke__private_IsEnabledFallback.c)
+ *     Feature_RSIdleRevoke__private_IsEnabledFallback @ 0x14060E940 (Feature_RSIdleRevoke__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_RSIdleRevoke__private_IsEnabledDeviceUsageNoInline()

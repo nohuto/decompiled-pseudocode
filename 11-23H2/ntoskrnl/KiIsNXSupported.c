@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIsNXSupported @ 0x140A91F98
+ * XREFs of KiIsNXSupported @ 0x140A91E18
  * Callers:
  *     KiInitializeNxSupportDiscard @ 0x140B7313C (KiInitializeNxSupportDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     KiGetCpuVendor @ 0x140A888A0 (KiGetCpuVendor.c)
  */
 

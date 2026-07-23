@@ -1,24 +1,24 @@
 /*
- * XREFs of PopPepInitializeVetoMasks @ 0x1402065A8
+ * XREFs of PopPepInitializeVetoMasks @ 0x1402063D4
  * Callers:
- *     PoFxStartDevicePowerManagement @ 0x140141B30 (PoFxStartDevicePowerManagement.c)
- *     PopPepPlatformStateRegistered @ 0x1402069C8 (PopPepPlatformStateRegistered.c)
+ *     PoFxStartDevicePowerManagement @ 0x1401420A0 (PoFxStartDevicePowerManagement.c)
+ *     PopPepPlatformStateRegistered @ 0x1402067F4 (PopPepPlatformStateRegistered.c)
  * Callees:
- *     PopFxActivateDevice @ 0x140008088 (PopFxActivateDevice.c)
- *     PoFxIdleDevice @ 0x14000842C (PoFxIdleDevice.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     PopPepUpdateIdleStateRefCount @ 0x140130868 (PopPepUpdateIdleStateRefCount.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
- *     PopPluginRequestDeviceIdleConstraints @ 0x1402049D8 (PopPluginRequestDeviceIdleConstraints.c)
- *     PopFxEnableEnhancedAccounting @ 0x140205DB0 (PopFxEnableEnhancedAccounting.c)
- *     PopPepInitializeDebuggerMasks @ 0x1402064B8 (PopPepInitializeDebuggerMasks.c)
- *     PopPepResetDeviceAccountingLevel @ 0x140206E00 (PopPepResetDeviceAccountingLevel.c)
- *     PopDiagTraceFxComponentIdleConstraints @ 0x140208650 (PopDiagTraceFxComponentIdleConstraints.c)
+ *     PopFxActivateDevice @ 0x140007BFC (PopFxActivateDevice.c)
+ *     PoFxIdleDevice @ 0x140007FA0 (PoFxIdleDevice.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x140130DD8 (PopPepUpdateIdleStateRefCount.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
+ *     PopPluginRequestDeviceIdleConstraints @ 0x140204804 (PopPluginRequestDeviceIdleConstraints.c)
+ *     PopFxEnableEnhancedAccounting @ 0x140205BDC (PopFxEnableEnhancedAccounting.c)
+ *     PopPepInitializeDebuggerMasks @ 0x1402062E4 (PopPepInitializeDebuggerMasks.c)
+ *     PopPepResetDeviceAccountingLevel @ 0x140206C2C (PopPepResetDeviceAccountingLevel.c)
+ *     PopDiagTraceFxComponentIdleConstraints @ 0x14020847C (PopDiagTraceFxComponentIdleConstraints.c)
  */
 
 void __fastcall PopPepInitializeVetoMasks(__int64 a1, unsigned int a2)
@@ -84,9 +84,9 @@ void __fastcall PopPepInitializeVetoMasks(__int64 a1, unsigned int a2)
     if ( (v7 & 1) != 0 )
       v8[v7 - 1] = 1;
     v9 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 64));
-    v10 = dword_140328940;
+    v10 = dword_140328980;
     OldIrql = v9;
-    v37 = dword_140328940;
+    v37 = dword_140328980;
     v34 = 0;
     v36 = _InterlockedCompareExchange(&PopFxDeviceAccountingLevel, 0, 0);
     v11 = v36;

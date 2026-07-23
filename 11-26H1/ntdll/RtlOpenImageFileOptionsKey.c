@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlOpenImageFileOptionsKey @ 0x1800D2E80
+ * XREFs of RtlOpenImageFileOptionsKey @ 0x1800D1290
  * Callers:
  *     <none>
  * Callees:

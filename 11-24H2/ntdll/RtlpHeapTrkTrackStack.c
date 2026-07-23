@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpHeapTrkTrackStack @ 0x18003C500
+ * XREFs of RtlpHeapTrkTrackStack @ 0x18001C780
  * Callers:
- *     RtlpHeapTrkTrackAdd @ 0x18003C7F0 (RtlpHeapTrkTrackAdd.c)
+ *     RtlpHeapTrkTrackAdd @ 0x18001CA70 (RtlpHeapTrkTrackAdd.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlCaptureStackBackTrace @ 0x18003C700 (RtlCaptureStackBackTrace.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x180165F10 (RtlCompareMemory.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlCaptureStackBackTrace @ 0x18001C980 (RtlCaptureStackBackTrace.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1801642D0 (RtlCompareMemory.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-unsigned __int64 RtlpHeapTrkTrackStack()
+__int64 *RtlpHeapTrkTrackStack()
 {
   __int64 v0; // rbp
   ULONG v1; // r15d
-  unsigned __int64 Heap; // rsi
+  _QWORD *Heap; // rsi
   __int64 v3; // rax
   __int64 *i; // rbx
   __int64 v5; // rdi
@@ -31,10 +31,10 @@ unsigned __int64 RtlpHeapTrkTrackStack()
   v0 = RtlCaptureStackBackTrace(3u, 0x40u, BackTrace, BackTraceHash);
   BackTraceHash[0] %= 0x1EEFu;
   v1 = BackTraceHash[0];
-  Heap = RtlAllocateHeap(qword_1801CE808, 0, 8 * v0 + 24);
-  RtlAcquireSRWLockExclusive(*(_QWORD *)(qword_1801CE800 + 8LL * (v1 & 0xF)));
-  v3 = qword_1801CE288;
-  for ( i = *(__int64 **)(qword_1801CE288 + 16LL * v1); ; i = (__int64 *)*i )
+  Heap = RtlAllocateHeap(HeapHandle, 0, 8 * v0 + 24);
+  RtlAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801CD7F8 + 8LL * (v1 & 0xF)));
+  v3 = qword_1801CD288;
+  for ( i = *(__int64 **)(qword_1801CD288 + 16LL * v1); ; i = (__int64 *)*i )
   {
     v5 = v3 + 16LL * v1;
     if ( i == (__int64 *)v5 )
@@ -44,34 +44,34 @@ unsigned __int64 RtlpHeapTrkTrackStack()
       if ( RtlCompareMemory(BackTrace, i + 3, 8 * v0) == 8 * v0 )
       {
         ++*((_DWORD *)i + 5);
-        RtlReleaseSRWLockExclusive(*(_QWORD *)(qword_1801CE800 + 8LL * (v1 & 0xF)));
+        RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801CD7F8 + 8LL * (v1 & 0xF)));
         if ( Heap )
-          RtlFreeHeap(qword_1801CE808, 0, Heap);
-        return (unsigned __int64)i;
+          RtlFreeHeap(HeapHandle, 0, Heap);
+        return i;
       }
-      v3 = qword_1801CE288;
+      v3 = qword_1801CD288;
     }
   }
   if ( Heap )
   {
-    *(_WORD *)(Heap + 16) = v0;
-    *(_WORD *)(Heap + 18) = v1;
-    *(_DWORD *)(Heap + 20) = 1;
-    memmove((void *)(Heap + 24), BackTrace, 8 * v0);
+    *((_WORD *)Heap + 8) = v0;
+    *((_WORD *)Heap + 9) = v1;
+    *((_DWORD *)Heap + 5) = 1;
+    memmove(Heap + 3, BackTrace, 8 * v0);
     v6 = *(_QWORD *)v5;
     if ( *(_QWORD *)(*(_QWORD *)v5 + 8LL) != v5 )
       __fastfail(3u);
-    *(_QWORD *)Heap = v6;
-    *(_QWORD *)(Heap + 8) = v5;
+    *Heap = v6;
+    Heap[1] = v5;
     *(_QWORD *)(v6 + 8) = Heap;
     *(_QWORD *)v5 = Heap;
-    _InterlockedIncrement(&dword_1801CE20C);
-    RtlReleaseSRWLockExclusive(*(_QWORD *)(qword_1801CE800 + 8LL * (BackTraceHash[0] & 0xF)));
+    _InterlockedIncrement(&dword_1801CD20C);
+    RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801CD7F8 + 8LL * (BackTraceHash[0] & 0xF)));
     return Heap;
   }
   else
   {
-    RtlReleaseSRWLockExclusive(*(_QWORD *)(qword_1801CE800 + 8LL * (v1 & 0xF)));
+    RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801CD7F8 + 8LL * (v1 & 0xF)));
     return 0LL;
   }
 }

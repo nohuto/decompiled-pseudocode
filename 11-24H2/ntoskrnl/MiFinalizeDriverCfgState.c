@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFinalizeDriverCfgState @ 0x140A3D8B8
+ * XREFs of MiFinalizeDriverCfgState @ 0x140A331C8
  * Callers:
- *     MmLoadSystemImageEx @ 0x1409C87D8 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x1409B7B70 (MmLoadSystemImageEx.c)
  * Callees:
- *     MiProcessKernelCfgImage @ 0x1404C91B8 (MiProcessKernelCfgImage.c)
- *     MiCompleteSecureDriverLoad @ 0x140A3E480 (MiCompleteSecureDriverLoad.c)
+ *     MiProcessKernelCfgImage @ 0x1404C2668 (MiProcessKernelCfgImage.c)
+ *     MiCompleteSecureDriverLoad @ 0x140A33D90 (MiCompleteSecureDriverLoad.c)
  */
 
 __int64 __fastcall MiFinalizeDriverCfgState(__int64 a1, char a2, __int64 a3)

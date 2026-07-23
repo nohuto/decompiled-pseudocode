@@ -1,27 +1,27 @@
 /*
- * XREFs of MiZeroAndFlushPtes @ 0x14012337C
+ * XREFs of MiZeroAndFlushPtes @ 0x14012344C
  * Callers:
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
- *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
- *     MmMapMdl @ 0x1402AD860 (MmMapMdl.c)
+ *     MmUnmapIoSpace @ 0x1401232F0 (MmUnmapIoSpace.c)
+ *     MmMapMdl @ 0x1402ADA50 (MmMapMdl.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
- *     MiDereferenceIoPages @ 0x140123634 (MiDereferenceIoPages.c)
- *     MiReplicatePteChange @ 0x140174F14 (MiReplicatePteChange.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121554 (MiInsertLargeTbFlushEntry.c)
+ *     MiDereferenceIoPages @ 0x140123704 (MiDereferenceIoPages.c)
+ *     MiReplicatePteChange @ 0x140175014 (MiReplicatePteChange.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiZeroAndFlushPtes(unsigned __int64 a1, unsigned __int64 a2)
@@ -130,13 +130,13 @@ void __fastcall MiZeroAndFlushPtes(unsigned __int64 a1, unsigned __int64 a2)
       v48 = v16;
       if ( v6 == 3 )
       {
-        KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+        KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
         if ( MiPteInShadowRange(v3) )
         {
           if ( (unsigned int)MiPteHasShadow() )
           {
             v27 = 1;
-            if ( !HIBYTE(word_14043A1AC) )
+            if ( !HIBYTE(word_14043B26C) )
             {
               v28 = (v26 & 1) == 0;
               goto LABEL_36;
@@ -179,7 +179,7 @@ LABEL_36:
         if ( (unsigned int)MiPteHasShadow() )
         {
           v19 = 1;
-          if ( HIBYTE(word_14043A1AC) != v31 )
+          if ( HIBYTE(word_14043B26C) != v31 )
             goto LABEL_8;
           v33 = (v13 & 1) == 0;
         }
@@ -198,7 +198,7 @@ LABEL_36:
         if ( (unsigned int)MiPteHasShadow() )
         {
           v19 = 1;
-          if ( HIBYTE(word_14043A1AC) != v34 )
+          if ( HIBYTE(word_14043B26C) != v34 )
             goto LABEL_8;
           v33 = (v20 & 1) == 0;
         }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSleepstudyUlongFormatter @ 0x140B2C140
+ * XREFs of PopSleepstudyUlongFormatter @ 0x140B2E1C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1404B9F90 (RtlUnicodeStringPrintf.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlUnicodeStringPrintf @ 0x1404B3820 (RtlUnicodeStringPrintf.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __fastcall PopSleepstudyUlongFormatter(unsigned int *a1, UNICODE_STRING *a2)

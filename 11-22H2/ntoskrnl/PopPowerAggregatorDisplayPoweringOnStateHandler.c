@@ -15,7 +15,7 @@ __int64 __fastcall PopPowerAggregatorDisplayPoweringOnStateHandler(__int64 a1)
   if ( *(_BYTE *)(a1 + 72) )
   {
     memset(v4, 0, sizeof(v4));
-    PopPowerAggregatorSetCurrentState(a1, (__int64)v4);
+    PopPowerAggregatorSetCurrentState((LARGE_INTEGER *)a1, (__int64)v4);
     v2 = *(_DWORD *)(a1 + 24);
     PoModernStandbyActionInProgress = 0;
     PopPowerAggregatorStartNextSession(0, v2);

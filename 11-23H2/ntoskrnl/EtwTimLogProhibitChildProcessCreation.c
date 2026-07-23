@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTimLogProhibitChildProcessCreation @ 0x1409E9A08
+ * XREFs of EtwTimLogProhibitChildProcessCreation @ 0x1409E9C98
  * Callers:
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x1406B722C (SeSubProcessToken.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpTiFillProcessIdentity @ 0x140303F54 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x1403041F8 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x140754BE8 (EtwpQueryProcessCommandLine.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwpTiFillProcessIdentity @ 0x1403041E4 (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiFillThreadIdentity @ 0x140304488 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x140754DD8 (EtwpQueryProcessCommandLine.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -146,7 +146,7 @@ void __fastcall EtwTimLogProhibitChildProcessCreation(int a1, __int64 a2, UNICOD
     v65 = v13;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C042E8,
-      (unsigned __int8 *)&word_1400358C6,
+      (unsigned __int8 *)&dword_14003594C,
       0LL,
       0LL,
       0xAu,
@@ -245,7 +245,7 @@ void __fastcall EtwTimLogProhibitChildProcessCreation(int a1, __int64 a2, UNICOD
     v36 = &MITIGATION_ENFORCE_PROHIBIT_CHILD_PROCESS_CREATION;
   EtwWrite(EtwSecurityMitigationsRegHandle, v36, 0LL, v37, &UserData);
   v39 = DestinationString_8.Buffer;
-  if ( (unsigned int)dword_140C04320 > 5 && tlgKeywordOn((__int64)&dword_140C04320, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C066C0 > 5 && tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL) )
   {
     v45 = v38;
     v52 = (__int64 *)&v45;
@@ -272,8 +272,8 @@ void __fastcall EtwTimLogProhibitChildProcessCreation(int a1, __int64 a2, UNICOD
     v70 = 2LL;
     v72[1] = 0;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C04320,
-      (unsigned __int8 *)&word_14003582E,
+      (__int64)&dword_140C066C0,
+      (unsigned __int8 *)&dword_1400358B4,
       0LL,
       0LL,
       0xCu,

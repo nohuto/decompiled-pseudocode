@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpUpdateGuidFilterData @ 0x1409F3CA8
+ * XREFs of EtwpUpdateGuidFilterData @ 0x1409E8008
  * Callers:
- *     EtwpClearSessionAndUnreferenceEntry @ 0x14083ECD8 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpUpdateGuidEnableInfo @ 0x1409F39DC (EtwpUpdateGuidEnableInfo.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140837F48 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpUpdateGuidEnableInfo @ 0x1409E7D3C (EtwpUpdateGuidEnableInfo.c)
  * Callees:
- *     KeGenericCallDpc @ 0x140494DA0 (KeGenericCallDpc.c)
- *     EtwpUpdateEventFilterAndFree @ 0x1406F7BB4 (EtwpUpdateEventFilterAndFree.c)
- *     EtwpFreeEventNameFilter @ 0x1409F4130 (EtwpFreeEventNameFilter.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeGenericCallDpc @ 0x14048F660 (KeGenericCallDpc.c)
+ *     EtwpUpdateEventFilterAndFree @ 0x1406F5BB4 (EtwpUpdateEventFilterAndFree.c)
+ *     EtwpFreeEventNameFilter @ 0x1409E8490 (EtwpFreeEventNameFilter.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpUpdateGuidFilterData(__int64 a1, unsigned int a2, char a3, __int64 a4)
@@ -47,7 +47,7 @@ __int64 __fastcall EtwpUpdateGuidFilterData(__int64 a1, unsigned int a2, char a3
     v12 = a3;
   if ( v12 )
     return 0LL;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x680uLL, 0x46777445u);
   v8 = Pool2;
   if ( Pool2 )
   {

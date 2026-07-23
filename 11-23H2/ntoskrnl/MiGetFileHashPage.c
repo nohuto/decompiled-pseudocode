@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetFileHashPage @ 0x140665F0C
+ * XREFs of MiGetFileHashPage @ 0x14066645C
  * Callers:
- *     MiMapPageFileHash @ 0x1406662EC (MiMapPageFileHash.c)
+ *     MiMapPageFileHash @ 0x14066683C (MiMapPageFileHash.c)
  * Callees:
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiAcquireNonPagedResources @ 0x1402E45A4 (MiAcquireNonPagedResources.c)
  */
 
 __int64 __fastcall MiGetFileHashPage(__int64 a1, unsigned int a2)

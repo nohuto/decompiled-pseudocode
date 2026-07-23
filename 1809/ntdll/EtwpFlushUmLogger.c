@@ -7,7 +7,7 @@
  *     EtwpSynchronizeWithLogger @ 0x18004CFA0 (EtwpSynchronizeWithLogger.c)
  *     EtwpGetPrivateLoggerContext @ 0x18004D150 (EtwpGetPrivateLoggerContext.c)
  *     EtwpAddInstanceIdToLogFileName @ 0x1800521A0 (EtwpAddInstanceIdToLogFileName.c)
- *     EtwpQueryUmLogger @ 0x180089384 (EtwpQueryUmLogger.c)
+ *     EtwpQueryUmLogger @ 0x180089394 (EtwpQueryUmLogger.c)
  *     EtwpBufferingModeFlush @ 0x18010F094 (EtwpBufferingModeFlush.c)
  */
 
@@ -38,7 +38,7 @@ LABEL_11:
         _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(v9 + 20) + 8));
         return v10;
       }
-      v10 = EtwpAddInstanceIdToLogFileName(a4, *(_DWORD *)(a4 + 96), (UNICODE_STRING *)(v11 + 168));
+      v10 = EtwpAddInstanceIdToLogFileName(a4, *(_DWORD *)(a4 + 96), (_UNICODE_STRING *)(v11 + 168));
       if ( v10 )
         goto LABEL_11;
       v10 = EtwpBufferingModeFlush(v9);

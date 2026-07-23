@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteTopLevelPage @ 0x1401DF9B4
+ * XREFs of MiDeleteTopLevelPage @ 0x1401DF7E0
  * Callers:
- *     MiDeleteProcessShadow @ 0x1401EF1E4 (MiDeleteProcessShadow.c)
+ *     MiDeleteProcessShadow @ 0x1401EF010 (MiDeleteProcessShadow.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiClearContainingMapping @ 0x140075D34 (MiClearContainingMapping.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiClearContainingMapping @ 0x140075DB4 (MiClearContainingMapping.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
  */
 
 __int64 __fastcall MiDeleteTopLevelPage(__int64 a1, __int64 a2)

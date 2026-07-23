@@ -20,19 +20,19 @@ char LdrpSetThreadPreferredLangList()
   struct _TEB *v5; // rcx
   __int64 v6; // rax
   unsigned int MuiImpersonation; // eax
-  int ThreadPreferredUILanguages; // eax
-  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
-  char v11; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS ThreadPreferredUILanguages; // eax
+  __int64 ReturnLength; // [rsp+30h] [rbp+8h] BYREF
+  ULONG NumberOfLanguages; // [rsp+38h] [rbp+10h] BYREF
 
   v0 = 0;
   if ( NtCurrentTeb()->MergedPrefLanguages && *((char *)NtCurrentTeb()->MergedPrefLanguages + 40) >= 0 )
   {
-    v10 = 0LL;
-    if ( (int)RtlpCreateProcessRegistryInfo(&v10) < 0 || !v10 )
+    ReturnLength = 0LL;
+    if ( (int)RtlpCreateProcessRegistryInfo(&ReturnLength) < 0 || !ReturnLength )
       return 0;
     if ( !*((_QWORD *)NtCurrentTeb()->MergedPrefLanguages + 2)
       || *(_DWORD *)(*((_QWORD *)NtCurrentTeb()->MergedPrefLanguages + 2) + 12LL) == MEMORY[0x7FFE03A4]
-      && NtCurrentTeb()->MuiGeneration == *(_DWORD *)(v10 + 16) )
+      && NtCurrentTeb()->MuiGeneration == *(_DWORD *)(ReturnLength + 16) )
     {
       v1 = NtCurrentTeb();
       WowTebOffset = v1->WowTebOffset;
@@ -64,8 +64,8 @@ char LdrpSetThreadPreferredLangList()
       *((_DWORD *)NtCurrentTeb()->MergedPrefLanguages + 10) = *((_DWORD *)NtCurrentTeb()->MergedPrefLanguages + 10) | 0x80;
     }
   }
-  LODWORD(v10) = 0;
-  ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages(48, (__int64)&v11, 0LL, &v10);
+  LODWORD(ReturnLength) = 0;
+  ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages(0x30u, &NumberOfLanguages, 0LL, (PULONG)&ReturnLength);
   if ( (int)(ThreadPreferredUILanguages + 0x80000000) < 0 || ThreadPreferredUILanguages == -1073741789 )
   {
     if ( NtCurrentTeb()->MergedPrefLanguages )

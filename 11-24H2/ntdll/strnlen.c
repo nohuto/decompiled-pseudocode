@@ -1,8 +1,8 @@
 /*
- * XREFs of strnlen @ 0x180126780
+ * XREFs of strnlen @ 0x1801249B0
  * Callers:
- *     _strlwr_s @ 0x1801225F0 (_strlwr_s.c)
- *     _strupr_s @ 0x180122720 (_strupr_s.c)
+ *     _strlwr_s @ 0x180120820 (_strlwr_s.c)
+ *     _strupr_s @ 0x180120950 (_strupr_s.c)
  * Callees:
  *     <none>
  */

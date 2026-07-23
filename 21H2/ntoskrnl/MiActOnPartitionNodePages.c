@@ -1,29 +1,29 @@
 /*
- * XREFs of MiActOnPartitionNodePages @ 0x1405608A0
+ * XREFs of MiActOnPartitionNodePages @ 0x140560AE0
  * Callers:
- *     MiClearPartitionPageBitMap @ 0x140561454 (MiClearPartitionPageBitMap.c)
- *     MiFreePartitionNodePages @ 0x1405622E4 (MiFreePartitionNodePages.c)
- *     MiInsertPartitionPages @ 0x140562540 (MiInsertPartitionPages.c)
- *     MiReturnPartitionPagesToParent @ 0x140562CC4 (MiReturnPartitionPagesToParent.c)
- *     MiHotAddPartitionMemory @ 0x1408DB27C (MiHotAddPartitionMemory.c)
- *     MiMakePartitionMemoryBlock @ 0x1408DB580 (MiMakePartitionMemoryBlock.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x1408DB778 (MiUpdatePartitionLargePfnBitMap.c)
+ *     MiClearPartitionPageBitMap @ 0x140561694 (MiClearPartitionPageBitMap.c)
+ *     MiFreePartitionNodePages @ 0x140562524 (MiFreePartitionNodePages.c)
+ *     MiInsertPartitionPages @ 0x140562780 (MiInsertPartitionPages.c)
+ *     MiReturnPartitionPagesToParent @ 0x140562F04 (MiReturnPartitionPagesToParent.c)
+ *     MiHotAddPartitionMemory @ 0x1408DB3DC (MiHotAddPartitionMemory.c)
+ *     MiMakePartitionMemoryBlock @ 0x1408DB6E0 (MiMakePartitionMemoryBlock.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x1408DB8D8 (MiUpdatePartitionLargePfnBitMap.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
- *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
+ *     MiUpdateLargePageBitMap @ 0x14030ADE0 (MiUpdateLargePageBitMap.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiHotRemoveHugeRange @ 0x140532CF8 (MiHotRemoveHugeRange.c)
- *     MiSetHugeRangePartitionId @ 0x1405339E0 (MiSetHugeRangePartitionId.c)
- *     MiMoveBadPageCrossPartition @ 0x14054EFEC (MiMoveBadPageCrossPartition.c)
- *     MiTransferPartitionPageRun @ 0x140562E10 (MiTransferPartitionPageRun.c)
- *     MiSplitPfnBitMaps @ 0x1407B9774 (MiSplitPfnBitMaps.c)
- *     MiAddPhysicalMemoryChunks @ 0x1408C542C (MiAddPhysicalMemoryChunks.c)
- *     MiHotAddHugeRange @ 0x1408C69B8 (MiHotAddHugeRange.c)
- *     MiFreePartitionPageRun @ 0x1408DB034 (MiFreePartitionPageRun.c)
- *     MiHotRemovePartitionPageRun @ 0x1408DB54C (MiHotRemovePartitionPageRun.c)
+ *     MiHotRemoveHugeRange @ 0x140532F38 (MiHotRemoveHugeRange.c)
+ *     MiSetHugeRangePartitionId @ 0x140533C20 (MiSetHugeRangePartitionId.c)
+ *     MiMoveBadPageCrossPartition @ 0x14054F22C (MiMoveBadPageCrossPartition.c)
+ *     MiTransferPartitionPageRun @ 0x140563050 (MiTransferPartitionPageRun.c)
+ *     MiSplitPfnBitMaps @ 0x1407B9C94 (MiSplitPfnBitMaps.c)
+ *     MiAddPhysicalMemoryChunks @ 0x1408C558C (MiAddPhysicalMemoryChunks.c)
+ *     MiHotAddHugeRange @ 0x1408C6B18 (MiHotAddHugeRange.c)
+ *     MiFreePartitionPageRun @ 0x1408DB194 (MiFreePartitionPageRun.c)
+ *     MiHotRemovePartitionPageRun @ 0x1408DB6AC (MiHotRemovePartitionPageRun.c)
  */
 
 void __fastcall MiActOnPartitionNodePages(__int64 a1, unsigned int a2, __int16 **a3)
@@ -152,7 +152,7 @@ LABEL_44:
     v17 = v11;
     v18 = (char *)v8 + 4 * ((v15 - 1) >> 5);
     v10 = (unsigned __int64)v8 + 4 * (v11 >> 5);
-    if ( (char *)v10 != v18 && (*(_DWORD *)v10 | *((_DWORD *)qword_140011C70 + (v11 & 0x1F))) == -1 )
+    if ( (char *)v10 != v18 && (*(_DWORD *)v10 | *((_DWORD *)qword_140012120 + (v11 & 0x1F))) == -1 )
     {
       v17 = (v11 & 0xFFFFFFFFFFFFFFE0uLL) + 32;
       for ( v10 += 4LL; v10 < (unsigned __int64)v18 && *(_DWORD *)v10 == -1; v10 += 4LL )
@@ -161,7 +161,7 @@ LABEL_44:
     while ( v17 < v15 && _bittest64(v8, v17) )
       ++v17;
     SchedulerAssist = 0LL;
-    if ( (char *)v10 != v18 && (*(_DWORD *)v10 & ~*((_DWORD *)qword_140011C70 + (v17 & 0x1F))) == 0 )
+    if ( (char *)v10 != v18 && (*(_DWORD *)v10 & ~*((_DWORD *)qword_140012120 + (v17 & 0x1F))) == 0 )
     {
       SchedulerAssist = (_DWORD *)(32 - (v17 & 0x1F));
       if ( SchedulerAssist == (_DWORD *)-1LL )

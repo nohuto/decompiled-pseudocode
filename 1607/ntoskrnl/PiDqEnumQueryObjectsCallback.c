@@ -1,5 +1,5 @@
 /*
- * XREFs of PiDqEnumQueryObjectsCallback @ 0x1404F9248
+ * XREFs of PiDqEnumQueryObjectsCallback @ 0x1404DC1D4
  * Callers:
  *     <none>
  * Callees:

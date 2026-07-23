@@ -7,12 +7,12 @@
  *     _RtlpTpIoDllUnloaded@4 @ 0x4B3859C1 (_RtlpTpIoDllUnloaded@4.c)
  */
 
-signed __int32 __stdcall RtlpTpIoDllNotification(int a1, _DWORD *a2, int a3)
+void __stdcall RtlpTpIoDllNotification(ULONG a1, LDR_DLL_NOTIFICATION_DATA *a2, PVOID a3)
 {
   int savedregs; // [esp+0h] [ebp+0h]
 
   if ( a1 == 1 )
-    return RtlpTpIoDllLoaded(a2, savedregs);
+    RtlpTpIoDllLoaded(a2, savedregs);
   else
-    return RtlpTpIoDllUnloaded(a2);
+    RtlpTpIoDllUnloaded(a2);
 }

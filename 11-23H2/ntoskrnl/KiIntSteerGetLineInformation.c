@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIntSteerGetLineInformation @ 0x1403212B0
+ * XREFs of KiIntSteerGetLineInformation @ 0x140321540
  * Callers:
- *     KiIntSteerConnect @ 0x140320F2C (KiIntSteerConnect.c)
+ *     KiIntSteerConnect @ 0x1403211BC (KiIntSteerConnect.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiIntSteerGetLineInformation(int *a1, int *a2, char *a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpApplyStackWalkIdFilter @ 0x1405AC0A4
+ * XREFs of EtwpApplyStackWalkIdFilter @ 0x1405AC2D4
  * Callers:
- *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
- *     EtwpApplyStackWalkFilterOnUserEvent @ 0x140940A5C (EtwpApplyStackWalkFilterOnUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14027FA90 (EtwpEventWriteFull.c)
+ *     EtwpApplyStackWalkFilterOnUserEvent @ 0x140940C2C (EtwpApplyStackWalkFilterOnUserEvent.c)
  * Callees:
- *     EtwpPerfectHashFunctionSearch @ 0x14025F44C (EtwpPerfectHashFunctionSearch.c)
+ *     EtwpPerfectHashFunctionSearch @ 0x14028118C (EtwpPerfectHashFunctionSearch.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

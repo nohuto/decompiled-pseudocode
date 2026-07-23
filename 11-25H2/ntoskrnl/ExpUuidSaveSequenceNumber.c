@@ -26,7 +26,14 @@ __int64 ExpUuidSaveSequenceNumber()
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
   memset_0(SourceString, 0, 0x1FEuLL);
-  PersistedStateLocation = RtlGetPersistedStateLocation(L"KernelExecutive", SourceString, 510, 0LL);
+  PersistedStateLocation = RtlGetPersistedStateLocation(
+                             L"KernelExecutive",
+                             0LL,
+                             L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Executive",
+                             LocationTypeRegistry,
+                             SourceString,
+                             0x1FEu,
+                             0LL);
   if ( PersistedStateLocation >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);

@@ -14,37 +14,38 @@
  *     _LdrpTraceLoadMUIDll@8 @ 0x4B33FAF1 (_LdrpTraceLoadMUIDll@8.c)
  */
 
-int __stdcall LdrpResGetMappingSize(int a1, unsigned int *a2, int a3, char a4)
+NTSTATUS __stdcall LdrpResGetMappingSize(int a1, unsigned int *a2, int a3, char a4)
 {
   _DWORD *SharedData; // eax
   int v5; // eax
   int v6; // esi
   unsigned int FileSizeFromLoadAsDataTable; // ebx
-  int result; // eax
-  __int16 v9; // cx
-  unsigned int v10; // edi
+  NTSTATUS result; // eax
+  WORD Magic; // cx
+  DWORD SizeOfImage; // edi
   _DWORD *v11; // eax
   int v12; // eax
   int v13; // eax
-  char v14[12]; // [esp+10h] [ebp-5Ch] BYREF
-  unsigned int v15; // [esp+1Ch] [ebp-50h]
-  _WORD v16[2]; // [esp+2Ch] [ebp-40h] BYREF
-  const wchar_t *v17; // [esp+30h] [ebp-3Ch]
-  _WORD v18[2]; // [esp+34h] [ebp-38h] BYREF
-  const wchar_t *v19; // [esp+38h] [ebp-34h]
-  int v20; // [esp+40h] [ebp-2Ch] BYREF
-  unsigned int v21; // [esp+44h] [ebp-28h]
-  unsigned int v22; // [esp+48h] [ebp-24h]
-  int v23; // [esp+4Ch] [ebp-20h]
-  bool v24; // [esp+53h] [ebp-19h]
+  ULONG_PTR *v14; // [esp+0h] [ebp-6Ch]
+  _BYTE MemoryInformation[12]; // [esp+10h] [ebp-5Ch] BYREF
+  unsigned int v16; // [esp+1Ch] [ebp-50h]
+  _WORD v17[2]; // [esp+2Ch] [ebp-40h] BYREF
+  const wchar_t *v18; // [esp+30h] [ebp-3Ch]
+  _WORD v19[2]; // [esp+34h] [ebp-38h] BYREF
+  PVOID BaseAddress; // [esp+38h] [ebp-34h]
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+40h] [ebp-2Ch] BYREF
+  unsigned int v22; // [esp+44h] [ebp-28h]
+  DWORD v23; // [esp+48h] [ebp-24h]
+  int v24; // [esp+4Ch] [ebp-20h]
+  bool v25; // [esp+53h] [ebp-19h]
   CPPEH_RECORD ms_exc; // [esp+54h] [ebp-18h]
 
-  v18[0] = 54;
-  v18[1] = 56;
-  v19 = L"LdrpResGetMappingSize Enter";
-  v16[0] = 52;
-  v16[1] = 54;
-  v17 = L"LdrpResGetMappingSize Exit";
+  v19[0] = 54;
+  v19[1] = 56;
+  BaseAddress = L"LdrpResGetMappingSize Enter";
+  v17[0] = 52;
+  v17[1] = 54;
+  v18 = L"LdrpResGetMappingSize Exit";
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
     v5 = (int)NtCurrentPeb()->SharedData + 555;
@@ -57,7 +58,7 @@ int __stdcall LdrpResGetMappingSize(int a1, unsigned int *a2, int a3, char a4)
       v13 = (int)NtCurrentPeb()->SharedData + 554;
     else
       v13 = 2147353476;
-    LdrpTraceLoadMUIDll(v18, *(unsigned __int8 *)v13);
+    LdrpTraceLoadMUIDll(v19, *(unsigned __int8 *)v13);
   }
   else
   {
@@ -65,61 +66,67 @@ int __stdcall LdrpResGetMappingSize(int a1, unsigned int *a2, int a3, char a4)
   }
   if ( !a1 || !a2 )
     return -1073741811;
-  v21 = 0;
+  v22 = 0;
   if ( (a3 & 0x20000) != 0 )
-    v21 = *a2;
+    v22 = *a2;
   *a2 = 0;
   FileSizeFromLoadAsDataTable = 0;
-  v24 = (a3 & 0x100) != 0 && (a1 & 1) == 0;
-  v19 = (const wchar_t *)(a1 & 0xFFFFFFFC);
-  result = RtlImageNtHeaderEx(1, a1 & 0xFFFFFFFC, 0, 0, &v20);
-  v23 = result;
+  v25 = (a3 & 0x100) != 0 && (a1 & 1) == 0;
+  BaseAddress = (PVOID)(a1 & 0xFFFFFFFC);
+  result = RtlImageNtHeaderEx(1u, (PVOID)(a1 & 0xFFFFFFFC), 0LL, &OutHeaders);
+  v24 = result;
   if ( result >= 0 )
   {
     ms_exc.registration.TryLevel = 0;
-    v9 = *(_WORD *)(v20 + 24);
-    if ( v9 == 267 || v9 == 523 )
+    Magic = OutHeaders->OptionalHeader.Magic;
+    if ( Magic == 267 || Magic == 523 )
     {
-      v10 = *(_DWORD *)(v20 + 80);
-      v22 = v10;
+      SizeOfImage = OutHeaders->OptionalHeader.SizeOfImage;
+      v23 = SizeOfImage;
     }
     else
     {
-      v10 = 0;
-      v22 = 0;
+      SizeOfImage = 0;
+      v23 = 0;
       result = -1073741701;
-      v23 = -1073741701;
+      v24 = -1073741701;
     }
     ms_exc.registration.TryLevel = -2;
     if ( result >= 0 )
     {
-      if ( !v24 || !v10 )
+      if ( !v25 || !SizeOfImage )
       {
         if ( !a4 )
           FileSizeFromLoadAsDataTable = LdrpGetFileSizeFromLoadAsDataTable(a1);
         if ( FileSizeFromLoadAsDataTable )
         {
           result = 0;
-          v23 = 0;
+          v24 = 0;
         }
         else
         {
-          result = NtQueryVirtualMemory(-1, v19, 3, v14, 28, 0);
-          v23 = result;
+          result = NtQueryVirtualMemory(
+                     (HANDLE)0xFFFFFFFF,
+                     BaseAddress,
+                     MemoryRegionInformation,
+                     MemoryInformation,
+                     0x1CuLL,
+                     v14);
+          v24 = result;
           if ( result >= 0 )
-            FileSizeFromLoadAsDataTable = v15;
+            FileSizeFromLoadAsDataTable = v16;
         }
-        if ( FileSizeFromLoadAsDataTable || !v10 )
+        if ( FileSizeFromLoadAsDataTable || !SizeOfImage )
           goto LABEL_16;
         result = 0;
-        v23 = 0;
+        v24 = 0;
       }
-      FileSizeFromLoadAsDataTable = v10;
+      FileSizeFromLoadAsDataTable = SizeOfImage;
 LABEL_16:
       if ( result >= 0 )
       {
-        if ( v21 && v21 < FileSizeFromLoadAsDataTable )
-          v23 = -1073741793;
+        if ( v22 && v22 < FileSizeFromLoadAsDataTable )
+          v24 = -1073741793;
         else
           *a2 = FileSizeFromLoadAsDataTable;
       }
@@ -132,9 +139,9 @@ LABEL_16:
       {
         if ( RtlGetCurrentServiceSessionId() )
           v6 = (int)NtCurrentPeb()->SharedData + 554;
-        LdrpTraceLoadMUIDll(v16, *(unsigned __int8 *)v6);
+        LdrpTraceLoadMUIDll(v17, *(unsigned __int8 *)v6);
       }
-      return v23;
+      return v24;
     }
   }
   return result;

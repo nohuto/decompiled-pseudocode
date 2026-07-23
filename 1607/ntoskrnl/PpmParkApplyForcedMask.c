@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkApplyForcedMask @ 0x14067662C
+ * XREFs of PpmParkApplyForcedMask @ 0x140676710
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
  * Callees:
- *     PpmAcquireLock @ 0x14000A528 (PpmAcquireLock.c)
- *     PpmReleaseLock @ 0x1400D46D4 (PpmReleaseLock.c)
- *     PpmCheckApplyParkConstraints @ 0x14014380C (PpmCheckApplyParkConstraints.c)
- *     PpmParkApplyPolicy @ 0x140143E70 (PpmParkApplyPolicy.c)
- *     PpmParkParkingAvailable @ 0x14056A3DC (PpmParkParkingAvailable.c)
+ *     PpmAcquireLock @ 0x14000A0A8 (PpmAcquireLock.c)
+ *     PpmReleaseLock @ 0x1400D2574 (PpmReleaseLock.c)
+ *     PpmCheckApplyParkConstraints @ 0x140143D7C (PpmCheckApplyParkConstraints.c)
+ *     PpmParkApplyPolicy @ 0x1401443E0 (PpmParkApplyPolicy.c)
+ *     PpmParkParkingAvailable @ 0x14056A91C (PpmParkParkingAvailable.c)
  */
 
 __int64 __fastcall PpmParkApplyForcedMask(__int64 *a1)

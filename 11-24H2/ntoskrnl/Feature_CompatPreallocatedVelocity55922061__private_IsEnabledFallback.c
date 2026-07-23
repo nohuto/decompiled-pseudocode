@@ -1,20 +1,15 @@
 /*
- * XREFs of Feature_CompatPreallocatedVelocity55922061__private_IsEnabledFallback @ 0x140695A78
+ * XREFs of Feature_CompatPreallocatedVelocity55922061__private_IsEnabledFallback @ 0x140696B48
  * Callers:
- *     Feature_CompatPreallocatedVelocity55922061__private_IsEnabledDeviceUsageNoInline @ 0x140695A40 (Feature_CompatPreallocatedVelocity55922061__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_CompatPreallocatedVelocity55922061__private_IsEnabledDeviceUsageNoInline @ 0x140696B10 (Feature_CompatPreallocatedVelocity55922061__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1404D17E0 (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404CA820 (wil_details_IsEnabledFallback.c)
  */
 
-__int64 __fastcall Feature_CompatPreallocatedVelocity55922061__private_IsEnabledFallback(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall Feature_CompatPreallocatedVelocity55922061__private_IsEnabledFallback(__int64 a1, unsigned int a2)
 {
   return wil_details_IsEnabledFallback(
            a1,
            a2,
-           (volatile signed __int32 **)&Feature_CompatPreallocatedVelocity55922061__private_descriptor,
-           a4);
+           (volatile signed __int32 **)&Feature_CompatPreallocatedVelocity55922061__private_descriptor);
 }

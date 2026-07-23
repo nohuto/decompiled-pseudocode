@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnScenarioAlloc @ 0x1406CBB10
+ * XREFs of PfSnScenarioAlloc @ 0x1406CCDB0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall PfSnScenarioAlloc(SIZE_T NumberOfBytes)

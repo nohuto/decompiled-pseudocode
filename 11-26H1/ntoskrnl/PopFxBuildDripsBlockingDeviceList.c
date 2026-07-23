@@ -1,26 +1,26 @@
 /*
- * XREFs of PopFxBuildDripsBlockingDeviceList @ 0x1404D4110
+ * XREFs of PopFxBuildDripsBlockingDeviceList @ 0x1404CD980
  * Callers:
- *     PopDripsWatchdogTakeAction @ 0x14061388C (PopDripsWatchdogTakeAction.c)
- *     PopDripsWatchdogCallbackHandler @ 0x140B3FB6C (PopDripsWatchdogCallbackHandler.c)
+ *     PopDripsWatchdogTakeAction @ 0x14061674C (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x140B41B9C (PopDripsWatchdogCallbackHandler.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PopFxReferenceDevice @ 0x1403948D4 (PopFxReferenceDevice.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PopFxIsDripsBlockingDevice @ 0x1404D4714 (PopFxIsDripsBlockingDevice.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     IoGetDevicePropertyData @ 0x140A98450 (IoGetDevicePropertyData.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x140B3FE28 (PopFxDestroyDripsBlockingDeviceList.c)
- *     IoLockUnlockPnpDeviceTree @ 0x140B479D4 (IoLockUnlockPnpDeviceTree.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PopFxReferenceDevice @ 0x140396654 (PopFxReferenceDevice.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PopFxIsDripsBlockingDevice @ 0x1404CDF84 (PopFxIsDripsBlockingDevice.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     IoGetDevicePropertyData @ 0x140A9C5D0 (IoGetDevicePropertyData.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x140B41E58 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x140B49768 (IoLockUnlockPnpDeviceTree.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall PopFxBuildDripsBlockingDeviceList(__int64 a1, __int64 **a2)
+__int64 __fastcall PopFxBuildDripsBlockingDeviceList(__int64 a1, __int64 *a2)
 {
   __int64 v2; // r12
   NTSTATUS DevicePropertyData; // edi
@@ -32,9 +32,9 @@ __int64 __fastcall PopFxBuildDripsBlockingDeviceList(__int64 a1, __int64 **a2)
   AutoBoost *v10; // rsi
   AutoBoost *v11; // rax
   AutoBoost *v12; // rsi
-  ULONG_PTR *i; // rsi
-  __int64 *v14; // r14
-  __int64 ***v15; // rax
+  struct _KTHREAD *i; // rsi
+  __int64 *p_OtherOperationCount; // r14
+  __int64 **v15; // rax
   __int64 *j; // r13
   __int64 *v17; // r14
   __int64 v18; // rax
@@ -100,11 +100,14 @@ __int64 __fastcall PopFxBuildDripsBlockingDeviceList(__int64 a1, __int64 **a2)
   Data = -1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v7 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F12420, 0LL, 0LL, v6);
-  v9 = _interlockedbittestandset64(&stru_140F12420.Header.Lock, 0LL);
+  v7 = (AutoBoost *)KeAbPreAcquire((__int64)&PopFxBlockingDeviceListLock, 0LL, 0LL, v6);
+  v9 = _interlockedbittestandset64(&PopFxBlockingDeviceListLock.Header.Lock, 0LL);
   v10 = v7;
   if ( v9 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F12420, v7, (__int64)&stru_140F12420);
+    ExfAcquirePushLockExclusiveEx(
+      (unsigned __int64 *)&PopFxBlockingDeviceListLock,
+      v7,
+      (__int64)&PopFxBlockingDeviceListLock);
   if ( v10 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -112,11 +115,14 @@ __int64 __fastcall PopFxBuildDripsBlockingDeviceList(__int64 a1, __int64 **a2)
     else
       *((_BYTE *)v10 + 10) = 1;
   }
-  v11 = (AutoBoost *)KeAbPreAcquire((__int64)&qword_140F123D0, 0LL, 0LL, v8);
-  v9 = _interlockedbittestandset64(&qword_140F123D0.Header.Lock, 0LL);
+  v11 = (AutoBoost *)KeAbPreAcquire((__int64)&PopFxBlockingDeviceListLock.Teb, 0LL, 0LL, v8);
+  v9 = _interlockedbittestandset64((volatile signed __int32 *)&PopFxBlockingDeviceListLock.Teb, 0LL);
   v12 = v11;
   if ( v9 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&qword_140F123D0, v11, (__int64)&qword_140F123D0);
+    ExfAcquirePushLockExclusiveEx(
+      (unsigned __int64 *)&PopFxBlockingDeviceListLock.Teb,
+      v11,
+      (__int64)&PopFxBlockingDeviceListLock.Teb);
   if ( v12 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -124,27 +130,29 @@ __int64 __fastcall PopFxBuildDripsBlockingDeviceList(__int64 a1, __int64 **a2)
     else
       *((_BYTE *)v12 + 10) = 1;
   }
-  a2[1] = (__int64 *)a2;
-  *a2 = (__int64 *)a2;
-  for ( i = (ULONG_PTR *)qword_140F123E0; i != &qword_140F123E0; i = (ULONG_PTR *)*i )
+  a2[1] = (__int64)a2;
+  *a2 = (__int64)a2;
+  for ( i = *(struct _KTHREAD **)&PopFxBlockingDeviceListLock.ForegroundLossTime;
+        i != (struct _KTHREAD *)&PopFxBlockingDeviceListLock.ForegroundLossTime;
+        i = *(struct _KTHREAD **)&i->Header.Lock )
   {
-    v14 = (__int64 *)(i + 114);
-    if ( i[6] && (unsigned __int8)PopFxIsDripsBlockingDevice(i, v2, i + 116) )
+    p_OtherOperationCount = &i->OtherOperationCount;
+    if ( i->StackLimit && (unsigned __int8)PopFxIsDripsBlockingDevice(i, v2, &i->WriteTransferCount) )
     {
       PopFxReferenceDevice((ULONG_PTR)i, 3);
-      v15 = (__int64 ***)a2[1];
+      v15 = (__int64 **)a2[1];
       if ( *v15 != a2 )
         __fastfail(3u);
-      *v14 = (__int64)a2;
-      i[115] = (ULONG_PTR)v15;
-      *v15 = (__int64 **)v14;
-      a2[1] = v14;
+      *p_OtherOperationCount = (__int64)a2;
+      i->ReadTransferCount = (__int64)v15;
+      *v15 = p_OtherOperationCount;
+      a2[1] = (__int64)p_OtherOperationCount;
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140F123D0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140F123D0.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&qword_140F123D0);
-  for ( j = *a2; j != (__int64 *)a2; j = (__int64 *)*j )
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopFxBlockingDeviceListLock.Teb, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&PopFxBlockingDeviceListLock.Teb);
+  KeAbPostRelease((unsigned __int64)&PopFxBlockingDeviceListLock.Teb);
+  for ( j = (__int64 *)*a2; j != a2; j = (__int64 *)*j )
   {
     v17 = (__int64 *)*(j - 108);
     DevicePropertyData = IoGetDevicePropertyData(
@@ -252,7 +260,7 @@ LABEL_77:
         {
           if ( v26 >= v20 )
           {
-            if ( (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+            if ( (unsigned int)dword_140E07560 > 5 && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
             {
               v46 = 4LL;
               v33 = v26 + 1;
@@ -264,8 +272,8 @@ LABEL_77:
               v49 = &v39;
               v50 = 8LL;
               tlgWriteTransfer_EtwWriteTransfer(
-                (__int64)&dword_140E07598,
-                (unsigned __int8 *)&word_140049ADE,
+                (__int64)&dword_140E07560,
+                (unsigned __int8 *)&byte_14004A07F,
                 v30,
                 0LL,
                 5u,
@@ -292,7 +300,7 @@ LABEL_77:
           v27 = (volatile signed __int32 *)*((_QWORD *)v27 + 2);
         }
       }
-      if ( v26 != v20 && (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+      if ( v26 != v20 && (unsigned int)dword_140E07560 > 5 && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
       {
         v32 = v26;
         v45 = &v32;
@@ -304,8 +312,8 @@ LABEL_77:
         v39 = 0x1000000LL;
         v50 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E07598,
-          (unsigned __int8 *)&byte_140049A7F,
+          (__int64)&dword_140E07560,
+          (unsigned __int8 *)&word_14004A0DE,
           0LL,
           0LL,
           5u,

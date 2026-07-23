@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLockAllMemoryLists @ 0x140112200
+ * XREFs of MiLockAllMemoryLists @ 0x140112770
  * Callers:
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
  */
 
 __int64 MiLockAllMemoryLists()
@@ -40,9 +40,9 @@ __int64 MiLockAllMemoryLists()
   v1 = 0;
   while ( 2 )
   {
-    Buffer = qword_140326FD8->Buffer;
-    v3 = v1 < qword_140326FD8->SizeOfBitMap ? v1 : 0;
-    v4 = qword_140326FD8->SizeOfBitMap - 1;
+    Buffer = qword_140327018->Buffer;
+    v3 = v1 < qword_140327018->SizeOfBitMap ? v1 : 0;
+    v4 = qword_140327018->SizeOfBitMap - 1;
     if ( ((unsigned __int8)Buffer & 4) != 0 )
     {
       v5 = 1LL;
@@ -79,8 +79,8 @@ LABEL_32:
         goto LABEL_13;
       SizeOfBitMap = v1 + 1;
       v3 = 0;
-      if ( v1 + 1 > qword_140326FD8->SizeOfBitMap )
-        SizeOfBitMap = qword_140326FD8->SizeOfBitMap;
+      if ( v1 + 1 > qword_140327018->SizeOfBitMap )
+        SizeOfBitMap = qword_140327018->SizeOfBitMap;
       v4 = SizeOfBitMap - 1;
     }
     if ( (_DWORD)v11 == -1 )
@@ -90,12 +90,12 @@ LABEL_13:
     if ( (unsigned int)v11 >= v1 && (_DWORD)v11 != -1 )
     {
       v1 = v11 + 1;
-      v12 = *(_QWORD *)(qword_140326FF8 + 8 * v11);
+      v12 = *(_QWORD *)(qword_140327038 + 8 * v11);
       if ( (*(_DWORD *)(v12 + 4) & 4) != 0 )
       {
         v13 = *(struct _KLOCK_QUEUE_HANDLE **)(v12 + 4496);
         KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v12 + 3680), v13);
-        v14 = dword_1403269FC;
+        v14 = dword_140326A3C;
         v15 = (__int64 *)(v12 + 1728);
         LODWORD(v16) = 1;
         v17 = 2LL;
@@ -109,11 +109,11 @@ LABEL_13:
               KeAcquireInStackQueuedSpinLockAtDpcLevel(
                 (PKSPIN_LOCK)(v18 + 8 * (v0 + 4 * v0 + 4)),
                 &v13[(unsigned int)v16]);
-              v14 = dword_1403269FC;
+              v14 = dword_140326A3C;
               LODWORD(v16) = v16 + 1;
               v0 = (unsigned int)(v0 + 1);
             }
-            while ( (unsigned int)v0 < dword_1403269FC );
+            while ( (unsigned int)v0 < dword_140326A3C );
           }
           ++v15;
           if ( !--v17 )

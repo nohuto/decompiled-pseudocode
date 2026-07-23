@@ -16,7 +16,7 @@
 void __fastcall VfLookasideAdd(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   _QWORD *v4; // rsi
-  struct _SLIST_ENTRY *v5; // rdi
+  _SLIST_ENTRY *v5; // rdi
   __int64 v6; // rdx
   __int128 v7; // [rsp+40h] [rbp-28h] BYREF
   __int64 v8; // [rsp+50h] [rbp-18h]
@@ -34,11 +34,7 @@ void __fastcall VfLookasideAdd(ULONG_PTR BugCheckParameter2, __int64 a2)
       {
         if ( !ViLookasideAllocationFailures && !ViLookasideAlreadyLoadedDrivers )
           CarReportRuleViolationFromNt(196, 202LL, BugCheckParameter2, 0LL, 0LL, 0xBu, a2);
-        v5 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(
-                                      (__int64 *)&ViLookasideAvl,
-                                      (__int64)&v7,
-                                      BugCheckParameter2,
-                                      0LL);
+        v5 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64 *)&ViLookasideAvl, (__int64)&v7, BugCheckParameter2, 0LL);
       }
       VfAvlInsertReservedTreeNode((__int64)&ViLookasideAvl, (__int64)&v7, v4);
       VfAvlCleanupLockContext((__int64)&v7, v6);

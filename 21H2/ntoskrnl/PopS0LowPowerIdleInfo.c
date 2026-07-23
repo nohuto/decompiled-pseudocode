@@ -1,11 +1,11 @@
 /*
- * XREFs of PopS0LowPowerIdleInfo @ 0x1408E406C
+ * XREFs of PopS0LowPowerIdleInfo @ 0x1408E41CC
  * Callers:
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
  * Callees:
- *     PopNetIsDisconnectStandbyActive @ 0x1408F1E7C (PopNetIsDisconnectStandbyActive.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopNetIsDisconnectStandbyActive @ 0x1408F1FDC (PopNetIsDisconnectStandbyActive.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopS0LowPowerIdleInfo(__int64 a1)
@@ -34,11 +34,11 @@ __int64 __fastcall PopS0LowPowerIdleInfo(__int64 a1)
     *(_DWORD *)a1 = v8;
     LOBYTE(v6) = (PopCsDeviceCompliance[0] == 1) | v6 & 0xFE;
     *(_BYTE *)(a1 + 4) = v6;
-    LOBYTE(v6) = (dword_140CFA334 != 1 ? 0 : 2) | v6 & 0xFD;
+    LOBYTE(v6) = (dword_140CFA37C != 1 ? 0 : 2) | v6 & 0xFD;
     *(_BYTE *)(a1 + 4) = v6;
-    LOBYTE(v6) = (dword_140CFA338 != 1 ? 0 : 4) | v6 & 0xFB;
+    LOBYTE(v6) = (dword_140CFA380 != 1 ? 0 : 4) | v6 & 0xFB;
     *(_BYTE *)(a1 + 4) = v6;
-    *(_BYTE *)(a1 + 4) = (dword_140CFA340 != 1 ? 0 : 8) | v6 & 0xF7;
+    *(_BYTE *)(a1 + 4) = (dword_140CFA388 != 1 ? 0 : 8) | v6 & 0xF7;
     LOBYTE(v6) = (IsDisconnectStandbyActive != 0) | *(_BYTE *)(a1 + 5) & 0xFE;
     *(_BYTE *)(a1 + 5) = v6;
     if ( (unsigned int)(v5 - 3) <= 1 )

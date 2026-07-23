@@ -1,12 +1,12 @@
 /*
- * XREFs of KeUninitThread @ 0x140A19A98
+ * XREFs of KeUninitThread @ 0x140A12C08
  * Callers:
- *     KiFreeProcessorStateInitializationParameters @ 0x1405B7038 (KiFreeProcessorStateInitializationParameters.c)
- *     PspInsertThread @ 0x1408A59BC (PspInsertThread.c)
+ *     KiFreeProcessorStateInitializationParameters @ 0x1405B42F8 (KiFreeProcessorStateInitializationParameters.c)
+ *     PspInsertThread @ 0x1408FBFD4 (PspInsertThread.c)
  * Callees:
- *     MmDeleteKernelStack @ 0x14026A4B0 (MmDeleteKernelStack.c)
- *     KiDeleteXStateStack @ 0x1405B7F74 (KiDeleteXStateStack.c)
- *     KiDeleteKernelShadowStack @ 0x140A19B34 (KiDeleteKernelShadowStack.c)
+ *     MmDeleteKernelStack @ 0x14021FA40 (MmDeleteKernelStack.c)
+ *     KiDeleteXStateStack @ 0x1405B5554 (KiDeleteXStateStack.c)
+ *     KiDeleteKernelShadowStack @ 0x140A12CA4 (KiDeleteKernelShadowStack.c)
  */
 
 __int64 __fastcall KeUninitThread(__int64 a1)

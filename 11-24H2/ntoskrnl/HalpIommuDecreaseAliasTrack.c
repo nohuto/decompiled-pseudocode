@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuDecreaseAliasTrack @ 0x14055397C
+ * XREFs of HalpIommuDecreaseAliasTrack @ 0x1405512BC
  * Callers:
- *     HalpIommuBlockDevice @ 0x1404BE880 (HalpIommuBlockDevice.c)
+ *     HalpIommuBlockDevice @ 0x1404B9A40 (HalpIommuBlockDevice.c)
  * Callees:
- *     IidAreIdsStrictlyEqual @ 0x14069BF5C (IidAreIdsStrictlyEqual.c)
+ *     IidAreIdsStrictlyEqual @ 0x14069CFDC (IidAreIdsStrictlyEqual.c)
  */
 
 __int64 __fastcall HalpIommuDecreaseAliasTrack(__int64 a1, _QWORD *a2)

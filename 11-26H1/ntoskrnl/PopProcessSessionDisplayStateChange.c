@@ -1,32 +1,29 @@
 /*
- * XREFs of PopProcessSessionDisplayStateChange @ 0x140A3EE2C
+ * XREFs of PopProcessSessionDisplayStateChange @ 0x1409FA84C
  * Callers:
- *     PopMonitorInvocation @ 0x14077C050 (PopMonitorInvocation.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     PopMonitorInvocation @ 0x14077EBD0 (PopMonitorInvocation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     PopArmIdlePhaseWatchdog @ 0x140A396D0 (PopArmIdlePhaseWatchdog.c)
- *     TtmIsEnabled @ 0x140A3EE84 (TtmIsEnabled.c)
- *     PopDisarmIdlePhaseWatchdog @ 0x140A3EEB4 (PopDisarmIdlePhaseWatchdog.c)
- *     PopTriggerMonitorPowerEvent @ 0x140A3EF18 (PopTriggerMonitorPowerEvent.c)
+ *     PopArmIdlePhaseWatchdog @ 0x1409F52D8 (PopArmIdlePhaseWatchdog.c)
+ *     TtmIsEnabled @ 0x1409FA8A4 (TtmIsEnabled.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x1409FA8D4 (PopDisarmIdlePhaseWatchdog.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1409FA938 (PopTriggerMonitorPowerEvent.c)
  */
 
 __int64 __fastcall PopProcessSessionDisplayStateChange(char a1, unsigned int a2)
 {
   unsigned int v2; // ebx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // rcx
+  __int64 v5; // rcx
 
   v2 = 0;
   if ( a1 )
     PopDisarmIdlePhaseWatchdog();
   else
     PopArmIdlePhaseWatchdog(a2);
-  if ( !(unsigned __int8)TtmIsEnabled(v6, v5, v7) )
+  if ( !(unsigned __int8)TtmIsEnabled() )
   {
-    LOBYTE(v8) = a1;
-    return (unsigned int)PopTriggerMonitorPowerEvent(v8, a2);
+    LOBYTE(v5) = a1;
+    return (unsigned int)PopTriggerMonitorPowerEvent(v5, a2);
   }
   return v2;
 }

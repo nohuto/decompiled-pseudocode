@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetPendingTick @ 0x1400FCF74
+ * XREFs of KiSetPendingTick @ 0x1400FCFF4
  * Callers:
  *     KeResumeClockTimerFromIdle @ 0x140060910 (KeResumeClockTimerFromIdle.c)
- *     KePrepareClockTimerForIdle @ 0x1400FC870 (KePrepareClockTimerForIdle.c)
- *     KiSetClockTickRate @ 0x1400FCDD4 (KiSetClockTickRate.c)
- *     KiRestoreClockTickRate @ 0x1400FCFD8 (KiRestoreClockTickRate.c)
- *     KeInitializeClock @ 0x1409D8C58 (KeInitializeClock.c)
+ *     KePrepareClockTimerForIdle @ 0x1400FC8F0 (KePrepareClockTimerForIdle.c)
+ *     KiSetClockTickRate @ 0x1400FCE54 (KiSetClockTickRate.c)
+ *     KiRestoreClockTickRate @ 0x1400FD058 (KiRestoreClockTickRate.c)
+ *     KeInitializeClock @ 0x1409D9C58 (KeInitializeClock.c)
  * Callees:
  *     <none>
  */

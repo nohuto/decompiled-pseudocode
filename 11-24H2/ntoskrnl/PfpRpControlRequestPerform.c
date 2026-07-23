@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpRpControlRequestPerform @ 0x140A76194
+ * XREFs of PfpRpControlRequestPerform @ 0x140A5ED28
  * Callers:
- *     PfpRpControlRequest @ 0x140A75E88 (PfpRpControlRequest.c)
+ *     PfpRpControlRequest @ 0x140A5EA1C (PfpRpControlRequest.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     PfpRpControlRequestUpdate @ 0x14094E7F8 (PfpRpControlRequestUpdate.c)
- *     PfpRpControlRequestReset @ 0x140A9E17C (PfpRpControlRequestReset.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     PfpRpControlRequestUpdate @ 0x140A5EDA0 (PfpRpControlRequestUpdate.c)
+ *     PfpRpControlRequestReset @ 0x140A996EC (PfpRpControlRequestReset.c)
  */
 
 __int64 __fastcall PfpRpControlRequestPerform(struct _EX_RUNDOWN_REF *a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall PfpRpControlRequestPerform(struct _EX_RUNDOWN_REF *a1, __int6
   unsigned int v6; // ebx
 
   v2 = a1 + 17;
-  if ( !ExAcquireRundownProtection(a1 + 17) )
+  if ( !ExAcquireRundownProtection_0(a1 + 17) )
     return (unsigned int)-1073741696;
   if ( *(_WORD *)(a2 + 2) )
   {
@@ -29,7 +29,7 @@ __int64 __fastcall PfpRpControlRequestPerform(struct _EX_RUNDOWN_REF *a1, __int6
   }
   else
   {
-    v5 = PfpRpControlRequestUpdate((__int64)a1, (_DWORD *)a2);
+    v5 = PfpRpControlRequestUpdate(a1, a2);
   }
   v6 = v5;
 LABEL_5:

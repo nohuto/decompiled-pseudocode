@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeletePartitionSlabState @ 0x1407FB560
+ * XREFs of MiDeletePartitionSlabState @ 0x1407FBCD0
  * Callers:
- *     MiDeletePartitionResources @ 0x1407FBD44 (MiDeletePartitionResources.c)
+ *     MiDeletePartitionResources @ 0x1407FC4B4 (MiDeletePartitionResources.c)
  * Callees:
- *     MiEnumerateSlabAllocatorsEx @ 0x14046A884 (MiEnumerateSlabAllocatorsEx.c)
- *     MiDeletePendingSlabIdentities @ 0x14068716C (MiDeletePendingSlabIdentities.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14046321C (MiEnumerateSlabAllocatorsEx.c)
+ *     MiDeletePendingSlabIdentities @ 0x14068829C (MiDeletePendingSlabIdentities.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiDeletePartitionSlabState(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall MiDeletePartitionSlabState(__int64 a1)
   PVOID *v5; // rdi
 
   MiDeletePendingSlabIdentities(a1, 1);
-  MiEnumerateSlabAllocatorsEx(a1, (__int64)MiDeleteSlabAllocator, 0LL, 0xFFFFFFFFLL, 9u);
+  MiEnumerateSlabAllocatorsEx(a1, (__int64)MiDeleteSlabAllocator, 0LL, 0xFFFFFFFF, 9u);
   result = *(unsigned int *)(a1 + 18288);
   v3 = 0;
   if ( (_DWORD)result )

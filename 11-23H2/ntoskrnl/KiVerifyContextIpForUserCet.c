@@ -1,10 +1,10 @@
 /*
- * XREFs of KiVerifyContextIpForUserCet @ 0x140570FD0
+ * XREFs of KiVerifyContextIpForUserCet @ 0x140571510
  * Callers:
- *     KeVerifyContextIpForUserCet @ 0x14030DEBC (KeVerifyContextIpForUserCet.c)
+ *     KeVerifyContextIpForUserCet @ 0x14030E14C (KeVerifyContextIpForUserCet.c)
  * Callees:
- *     RtlGetImageBaseAndLoadConfig @ 0x1405B1E00 (RtlGetImageBaseAndLoadConfig.c)
- *     RtlVerifyUserUnwindTarget @ 0x1409C2830 (RtlVerifyUserUnwindTarget.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x1405B2370 (RtlGetImageBaseAndLoadConfig.c)
+ *     RtlVerifyUserUnwindTarget @ 0x1409C2A30 (RtlVerifyUserUnwindTarget.c)
  */
 
 __int64 __fastcall KiVerifyContextIpForUserCet(__int64 a1, __int64 a2, unsigned int *a3, char a4, unsigned __int64 *a5)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmResetPerfTimes @ 0x1404D1C90
+ * XREFs of PpmResetPerfTimes @ 0x1404CB840
  * Callers:
- *     PpmCheckResetProcessors @ 0x14042A1AC (PpmCheckResetProcessors.c)
- *     PpmCheckReset @ 0x1404D1C70 (PpmCheckReset.c)
- *     PpmResetPerfEngineForProcessor @ 0x140523DE4 (PpmResetPerfEngineForProcessor.c)
- *     PpmCheckProcessorInit @ 0x14060A660 (PpmCheckProcessorInit.c)
+ *     PpmCheckReset @ 0x1404CB820 (PpmCheckReset.c)
+ *     PpmCheckResetProcessors @ 0x1404FB714 (PpmCheckResetProcessors.c)
+ *     PpmResetPerfEngineForProcessor @ 0x140526454 (PpmResetPerfEngineForProcessor.c)
+ *     PpmCheckProcessorInit @ 0x14060D220 (PpmCheckProcessorInit.c)
  * Callees:
- *     PpmHvSnapPerformanceAccumulation @ 0x140252790 (PpmHvSnapPerformanceAccumulation.c)
- *     PpmSnapPerformanceAccumulation @ 0x140253D2C (PpmSnapPerformanceAccumulation.c)
- *     PpmResetPerformanceAccumulation @ 0x1404D1D7C (PpmResetPerformanceAccumulation.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     PpmHvSnapPerformanceAccumulation @ 0x1402540F0 (PpmHvSnapPerformanceAccumulation.c)
+ *     PpmSnapPerformanceAccumulation @ 0x14025568C (PpmSnapPerformanceAccumulation.c)
+ *     PpmResetPerformanceAccumulation @ 0x1404CB92C (PpmResetPerformanceAccumulation.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall PpmResetPerfTimes(__int64 a1)

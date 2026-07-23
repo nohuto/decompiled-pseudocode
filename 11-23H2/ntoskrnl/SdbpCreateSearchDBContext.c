@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpCreateSearchDBContext @ 0x140758244
+ * XREFs of SdbpCreateSearchDBContext @ 0x140758434
  * Callers:
  *     SdbGetDatabaseMatch @ 0x140693044 (SdbGetDatabaseMatch.c)
- *     SdbpCheckKObject @ 0x140756E58 (SdbpCheckKObject.c)
+ *     SdbpCheckKObject @ 0x140757048 (SdbpCheckKObject.c)
  * Callees:
- *     RtlStringCchCatW @ 0x14022BC94 (RtlStringCchCatW.c)
- *     RtlStringCchCopyW @ 0x14022C6B0 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlStringCchCatW @ 0x14022BDA4 (RtlStringCchCatW.c)
+ *     RtlStringCchCopyW @ 0x14022C7C0 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
- *     AslPathSplit @ 0x140758BC0 (AslPathSplit.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
+ *     AslPathSplit @ 0x140758DB0 (AslPathSplit.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

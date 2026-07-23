@@ -1,14 +1,14 @@
 /*
- * XREFs of EmonOverflowHandlerInternalV2 @ 0x1404B710C
+ * XREFs of EmonOverflowHandlerInternalV2 @ 0x1404B093C
  * Callers:
- *     EmonOverflowHandler @ 0x1404B70D0 (EmonOverflowHandler.c)
+ *     EmonOverflowHandler @ 0x1404B0900 (EmonOverflowHandler.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     EmonIsModifiedByBadActorInternal @ 0x1404B7ABC (EmonIsModifiedByBadActorInternal.c)
- *     KeProfileInterruptWithSource @ 0x1404B7BF0 (KeProfileInterruptWithSource.c)
- *     PoGetProcessorIdleAccounting @ 0x14052F9F0 (PoGetProcessorIdleAccounting.c)
- *     EmonPebsOverflowHandler @ 0x140595E88 (EmonPebsOverflowHandler.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     EmonIsModifiedByBadActorInternal @ 0x1404B12EC (EmonIsModifiedByBadActorInternal.c)
+ *     KeProfileInterruptWithSource @ 0x1404B1420 (KeProfileInterruptWithSource.c)
+ *     PoGetProcessorIdleAccounting @ 0x140531EF0 (PoGetProcessorIdleAccounting.c)
+ *     EmonPebsOverflowHandler @ 0x140598608 (EmonPebsOverflowHandler.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 unsigned __int64 __fastcall EmonOverflowHandlerInternalV2(__int64 a1, unsigned int a2)
@@ -65,7 +65,7 @@ unsigned __int64 __fastcall EmonOverflowHandlerInternalV2(__int64 a1, unsigned i
   v2 = a1;
   v3 = a2;
   LODWORD(v49) = 0;
-  v4 = IommuInterfaceStateChangeCallbackPushLock.InGlobalForegroundList & __readmsr(0x38Eu);
+  v4 = IommuInterfaceStateChangeCallbackPushLock.ReadOperationCount & __readmsr(0x38Eu);
   v47 = v4;
   v5 = v4;
   if ( (v4 & 0x4000000000000000LL) != 0 )

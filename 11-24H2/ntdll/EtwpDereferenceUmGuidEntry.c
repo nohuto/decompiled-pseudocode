@@ -1,37 +1,35 @@
 /*
- * XREFs of EtwpDereferenceUmGuidEntry @ 0x18010ABC0
+ * XREFs of EtwpDereferenceUmGuidEntry @ 0x180105730
  * Callers:
- *     EtwNotificationUnregister @ 0x18001D140 (EtwNotificationUnregister.c)
- *     EtwDeliverDataBlock @ 0x18001E150 (EtwDeliverDataBlock.c)
- *     EtwpUpdateEnableInfoAndCallback @ 0x18001E990 (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwNotificationUnregister @ 0x180049B40 (EtwNotificationUnregister.c)
+ *     EtwDeliverDataBlock @ 0x18004AB50 (EtwDeliverDataBlock.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x18004B390 (EtwpUpdateEnableInfoAndCallback.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlRbRemoveNode @ 0x180051DA0 (RtlRbRemoveNode.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     EtwpAcquireGuidEntryExclusive @ 0x18010AC5C (EtwpAcquireGuidEntryExclusive.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlRbRemoveNode @ 0x180067980 (RtlRbRemoveNode.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     EtwpAcquireGuidEntryExclusive @ 0x1801057CC (EtwpAcquireGuidEntryExclusive.c)
  */
 
-__int64 __fastcall EtwpDereferenceUmGuidEntry(unsigned __int64 a1)
+LOGICAL __fastcall EtwpDereferenceUmGuidEntry(PRTL_BALANCED_NODE Node)
 {
-  __int64 result; // rax
-  volatile signed __int32 **v3; // rdx
-  unsigned __int64 v4; // r8
-  unsigned __int64 v5; // r8
+  LOGICAL result; // eax
+  _RTL_BALANCED_NODE *v3; // r8
 
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 52), 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd((volatile signed __int32 *)&Node[2].Left + 1, 0xFFFFFFFF);
+  if ( result == 1 )
   {
-    EtwpAcquireGuidEntryExclusive(a1);
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&EtwpProvLock, v3, v4);
-    RtlRbRemoveNode((unsigned __int64)&EtwpGuidEntryTable, (unsigned __int64 *)a1);
+    EtwpAcquireGuidEntryExclusive(Node);
+    RtlAcquireSRWLockExclusive(&EtwpProvLock);
+    RtlRbRemoveNode(&EtwpGuidEntryTable, Node);
     RtlReleaseSRWLockExclusive(&EtwpProvLock);
-    *(_DWORD *)(a1 + 48) = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 40));
-    v5 = *(_QWORD *)(a1 + 168);
-    if ( v5 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+    LODWORD(Node[2].Children[0]) = 0;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)&Node[1].16);
+    v3 = Node[7].Children[0];
+    if ( v3 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Node);
   }
   return result;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of SepNormalAccessCheck @ 0x1403509D0
+ * XREFs of SepNormalAccessCheck @ 0x14035B720
  * Callers:
- *     SepAccessCheck @ 0x14034F410 (SepAccessCheck.c)
+ *     SepAccessCheck @ 0x14035A160 (SepAccessCheck.c)
  * Callees:
- *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
- *     SepMatchPackage @ 0x14024E548 (SepMatchPackage.c)
- *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
- *     SepSidInToken @ 0x14027EA84 (SepSidInToken.c)
- *     AuthzBasepAddAccessTypeList @ 0x1402A253C (AuthzBasepAddAccessTypeList.c)
- *     SepIsPackageSid @ 0x1402B0B70 (SepIsPackageSid.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402B2C28 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepIsCapabilitySid @ 0x1402B635C (SepIsCapabilitySid.c)
- *     SepMatchCapability @ 0x1402B8FEC (SepMatchCapability.c)
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
- *     AuthzBasepObjectInTypeList @ 0x1405C16B0 (AuthzBasepObjectInTypeList.c)
+ *     AuthzBasepAddAccessTypeList @ 0x14021F97C (AuthzBasepAddAccessTypeList.c)
+ *     SepIsPackageSid @ 0x14022EED0 (SepIsPackageSid.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140230DD8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepIsCapabilitySid @ 0x14023453C (SepIsCapabilitySid.c)
+ *     SepMatchCapability @ 0x1402371FC (SepMatchCapability.c)
+ *     RtlEqualSid @ 0x14026A980 (RtlEqualSid.c)
+ *     SepSidInToken @ 0x14026CA24 (SepSidInToken.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402F24D0 (AuthzBasepEvaluateAceCondition.c)
+ *     SepMatchPackage @ 0x1402F2D98 (SepMatchPackage.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     RtlCompareMemory @ 0x140408390 (RtlCompareMemory.c)
+ *     AuthzBasepObjectInTypeList @ 0x1405C18E0 (AuthzBasepObjectInTypeList.c)
  */
 
 __int64 __fastcall SepNormalAccessCheck(
@@ -288,7 +288,13 @@ LABEL_63:
           }
 LABEL_88:
           v44 = (_DWORD *)(a13 + 8);
-          SepMatchCapability(a2, v60, v24 + 8, *((_DWORD *)v24 + 1), (_BYTE *)(a13 + 22), (_DWORD *)(a13 + 8));
+          SepMatchCapability(
+            a2,
+            v60,
+            (__int64)(v24 + 8),
+            *((_DWORD *)v24 + 1),
+            (_BYTE *)(a13 + 22),
+            (_DWORD *)(a13 + 8));
         }
         v45 = ~*v44;
         v58 = v45 & v20;

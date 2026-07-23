@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpEnableStackCaching @ 0x1408C3768
+ * XREFs of EtwpEnableStackCaching @ 0x1408C4A28
  * Callers:
- *     EtwpCheckForStackTracingExtension @ 0x14065AF4C (EtwpCheckForStackTracingExtension.c)
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
+ *     EtwpCheckForStackTracingExtension @ 0x14065C10C (EtwpCheckForStackTracingExtension.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408BAD0C (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     EtwpFreeStackCache @ 0x1408C38C0 (EtwpFreeStackCache.c)
+ *     InitializeSListHead @ 0x1400F3200 (InitializeSListHead.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     EtwpFreeStackCache @ 0x1408C4B80 (EtwpFreeStackCache.c)
  */
 
 __int64 __fastcall EtwpEnableStackCaching(__int64 a1, unsigned int a2, unsigned int a3)
@@ -22,7 +22,7 @@ __int64 __fastcall EtwpEnableStackCaching(__int64 a1, unsigned int a2, unsigned 
   __int64 v10; // rcx
   int v11; // r14d
   unsigned int v12; // edi
-  struct _SLIST_ENTRY *v13; // rax
+  _SLIST_ENTRY *v13; // rax
   signed __int32 v15[14]; // [rsp+0h] [rbp-38h] BYREF
 
   v3 = 0;
@@ -73,7 +73,7 @@ LABEL_19:
       }
       while ( 1 )
       {
-        v13 = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x128uLL, 0x78777445u);
+        v13 = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x128uLL, 0x78777445u);
         if ( !v13 )
           break;
         *((_DWORD *)&v13[1].Next + 2) = 0;

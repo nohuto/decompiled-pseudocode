@@ -1,20 +1,20 @@
 /*
- * XREFs of KiUpdateSpeculationControl @ 0x1403EA960
+ * XREFs of KiUpdateSpeculationControl @ 0x1403DEE10
  * Callers:
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405BE170 (KiOptimizeSpecCtrlSettingsWorker.c)
- *     SwapContext @ 0x1406B2B40 (SwapContext.c)
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405BB7A0 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     SwapContext @ 0x1406B3AE0 (SwapContext.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiIpiSendRequest @ 0x1402928D0 (KiIpiSendRequest.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiUpdateSpecCtrlEnhancedIBRS @ 0x1403EB550 (KiUpdateSpecCtrlEnhancedIBRS.c)
- *     KiUpdateStibpPairing @ 0x1403EB760 (KiUpdateStibpPairing.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     KiFlushCurrentRsb @ 0x1406BF940 (KiFlushCurrentRsb.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIpiSendRequest @ 0x1402A24D0 (KiIpiSendRequest.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiUpdateSpecCtrlEnhancedIBRS @ 0x1403DFA00 (KiUpdateSpecCtrlEnhancedIBRS.c)
+ *     KiUpdateStibpPairing @ 0x1403DFC10 (KiUpdateStibpPairing.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     KiFlushCurrentRsb @ 0x1406C0840 (KiFlushCurrentRsb.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int16 __fastcall KiUpdateSpeculationControl(__int64 a1)

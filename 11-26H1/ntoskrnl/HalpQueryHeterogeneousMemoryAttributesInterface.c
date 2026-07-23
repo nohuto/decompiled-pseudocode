@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpQueryHeterogeneousMemoryAttributesInterface @ 0x140784E08
+ * XREFs of HalpQueryHeterogeneousMemoryAttributesInterface @ 0x140787938
  * Callers:
- *     HaliQuerySystemInformation @ 0x140BED8E0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140BF38E0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

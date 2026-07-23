@@ -1,9 +1,9 @@
 /*
- * XREFs of SeRegisterImageVerificationCallback @ 0x140864F10
+ * XREFs of SeRegisterImageVerificationCallback @ 0x140865150
  * Callers:
  *     <none>
  * Callees:
- *     ExRegisterCallback @ 0x1403678A0 (ExRegisterCallback.c)
+ *     ExRegisterCallback @ 0x140367A40 (ExRegisterCallback.c)
  */
 
 __int64 __fastcall SeRegisterImageVerificationCallback(

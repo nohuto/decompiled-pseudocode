@@ -1,23 +1,23 @@
 /*
- * XREFs of CcAsyncLazywriteWorker @ 0x140385850
+ * XREFs of CcAsyncLazywriteWorker @ 0x140387600
  * Callers:
- *     CcAsyncLazywriteWorkerThread @ 0x1404BB4C0 (CcAsyncLazywriteWorkerThread.c)
+ *     CcAsyncLazywriteWorkerThread @ 0x1404B4CA0 (CcAsyncLazywriteWorkerThread.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     CcFreeWorkQueueEntry @ 0x14038364C (CcFreeWorkQueueEntry.c)
- *     CcFindNextWorkQueueEntry @ 0x1403852F0 (CcFindNextWorkQueueEntry.c)
- *     CcWriteBehindAsync @ 0x140385C44 (CcWriteBehindAsync.c)
- *     CcRepostToSynchronousLazywriter @ 0x140385EEC (CcRepostToSynchronousLazywriter.c)
- *     CcPerfLogWorkItemEnqueue @ 0x140389AC8 (CcPerfLogWorkItemEnqueue.c)
- *     CcPerfLogWorkItemDequeue @ 0x1404BF4EC (CcPerfLogWorkItemDequeue.c)
- *     CcPerfLogWorkItemComplete @ 0x1404C23E0 (CcPerfLogWorkItemComplete.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     CcReEngageWorkerThreads @ 0x14052B834 (CcReEngageWorkerThreads.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     CcDebugExceptionFilter @ 0x1405B0D14 (CcDebugExceptionFilter.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcFreeWorkQueueEntry @ 0x1403853FC (CcFreeWorkQueueEntry.c)
+ *     CcFindNextWorkQueueEntry @ 0x1403870A0 (CcFindNextWorkQueueEntry.c)
+ *     CcWriteBehindAsync @ 0x1403879F4 (CcWriteBehindAsync.c)
+ *     CcRepostToSynchronousLazywriter @ 0x140387C9C (CcRepostToSynchronousLazywriter.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x14038B878 (CcPerfLogWorkItemEnqueue.c)
+ *     CcPerfLogWorkItemDequeue @ 0x1404B8D3C (CcPerfLogWorkItemDequeue.c)
+ *     CcPerfLogWorkItemComplete @ 0x1404BBC30 (CcPerfLogWorkItemComplete.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     CcReEngageWorkerThreads @ 0x14052DD54 (CcReEngageWorkerThreads.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     CcDebugExceptionFilter @ 0x1405B3524 (CcDebugExceptionFilter.c)
  */
 
 void __fastcall CcAsyncLazywriteWorker(__int64 a1, __int64 a2, __int64 a3)
@@ -83,7 +83,7 @@ LABEL_3:
     KiRaiseIrqlProcessIrqlFlags(a1, a2);
   }
   LockHandle.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v10 = _InterlockedExchange64((volatile __int64 *)v8, (__int64)&LockHandle);
     if ( v10 )
@@ -150,7 +150,7 @@ LABEL_20:
           v28 = v6 + 188;
           _InterlockedIncrement((volatile signed __int32 *)(v6 + 188));
           KeReleaseInStackQueuedSpinLock(&LockHandle);
-          if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+          if ( (xmmword_140FC0C10 & 0x20000) != 0 )
             CcPerfLogWorkItemDequeue(NextWorkQueueEntry);
           v14 = *((_DWORD *)NextWorkQueueEntry + 32);
           if ( v14 == 4 )
@@ -188,7 +188,7 @@ LABEL_20:
           {
             if ( v23 == (_QWORD *)35422 )
             {
-              if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+              if ( (xmmword_140FC0C10 & 0x20000) != 0 )
               {
                 LOBYTE(a3) = 1;
                 CcPerfLogWorkItemEnqueue(v3, NextWorkQueueEntry, a3, 0LL, BugCheckParameter4, v20, v21);
@@ -196,7 +196,7 @@ LABEL_20:
             }
             else
             {
-              if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+              if ( (xmmword_140FC0C10 & 0x20000) != 0 )
                 CcPerfLogWorkItemComplete(NextWorkQueueEntry);
               CcFreeWorkQueueEntry((PSLIST_ENTRY)NextWorkQueueEntry);
             }

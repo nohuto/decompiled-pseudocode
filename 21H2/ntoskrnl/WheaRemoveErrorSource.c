@@ -1,15 +1,15 @@
 /*
- * XREFs of WheaRemoveErrorSource @ 0x14095CF40
+ * XREFs of WheaRemoveErrorSource @ 0x14095D100
  * Callers:
- *     WheaRemoveErrorSourceDeviceDriver @ 0x14095D110 (WheaRemoveErrorSourceDeviceDriver.c)
+ *     WheaRemoveErrorSourceDeviceDriver @ 0x14095D2F0 (WheaRemoveErrorSourceDeviceDriver.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
- *     WheapIsNonHestErrorSource @ 0x1403BB0A4 (WheapIsNonHestErrorSource.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     WheapGetErrorSource @ 0x1405BBACC (WheapGetErrorSource.c)
- *     WheapCallErrorSourceUninitialize @ 0x1405BCCA0 (WheapCallErrorSourceUninitialize.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     WheaLogInternalEvent @ 0x1403BAEC0 (WheaLogInternalEvent.c)
+ *     WheapIsNonHestErrorSource @ 0x1403BB214 (WheapIsNonHestErrorSource.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     WheapGetErrorSource @ 0x1405BBCFC (WheapGetErrorSource.c)
+ *     WheapCallErrorSourceUninitialize @ 0x1405BCED0 (WheapCallErrorSourceUninitialize.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 char __fastcall WheaRemoveErrorSource(int a1)
@@ -26,8 +26,13 @@ char __fastcall WheaRemoveErrorSource(int a1)
   LARGE_INTEGER Interval; // [rsp+20h] [rbp-E0h] BYREF
   _DWORD Src[8]; // [rsp+30h] [rbp-D0h] BYREF
   char v13; // [rsp+50h] [rbp-B0h] BYREF
-  int v14; // [rsp+41Ch] [rbp+31Ch]
-  char v15; // [rsp+420h] [rbp+320h]
+  __int64 v14; // [rsp+98h] [rbp-68h]
+  __int64 v15; // [rsp+A0h] [rbp-60h]
+  __int64 v16; // [rsp+A8h] [rbp-58h]
+  __int64 v17; // [rsp+B0h] [rbp-50h]
+  __int64 v18; // [rsp+E0h] [rbp-20h]
+  int v19; // [rsp+41Ch] [rbp+31Ch]
+  char v20; // [rsp+420h] [rbp+320h]
 
   ErrorSource = WheapGetErrorSource((__int64)&WheapErrorSourceTable, a1);
   v2 = (__int64)ErrorSource;
@@ -84,8 +89,16 @@ char __fastcall WheaRemoveErrorSource(int a1)
         Src[4] = 1280201291;
         Src[6] = 2;
         Src[7] = 977;
-        v14 = v9;
-        v15 = 1;
+        if ( *(_DWORD *)(v2 + 104) == 16 )
+        {
+          v15 = 0LL;
+          v16 = 0LL;
+          v17 = 0LL;
+          v14 = 0LL;
+          v18 = 0LL;
+        }
+        v19 = v9;
+        v20 = 1;
         LOBYTE(ErrorSource) = WheaLogInternalEvent(Src);
       }
     }

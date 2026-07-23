@@ -1,25 +1,25 @@
 /*
- * XREFs of AlpcpReplyLegacySynchronousRequest @ 0x1405E1BDC
+ * XREFs of AlpcpReplyLegacySynchronousRequest @ 0x1406D133C
  * Callers:
- *     NtReplyPort @ 0x1405DE380 (NtReplyPort.c)
- *     NtReplyWaitReceivePortEx @ 0x1405EAA60 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyPort @ 0x1406CDAE0 (NtReplyPort.c)
+ *     NtReplyWaitReceivePortEx @ 0x1406DA1C0 (NtReplyWaitReceivePortEx.c)
  * Callees:
- *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     KeReleaseSemaphoreEx @ 0x140284630 (KeReleaseSemaphoreEx.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
  *     AlpcpAvailableBufferSize @ 0x1405CF054 (AlpcpAvailableBufferSize.c)
- *     AlpcpProbeAndCaptureMessageHeader @ 0x1405E0284 (AlpcpProbeAndCaptureMessageHeader.c)
- *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
- *     AlpcpRemoveMessageFromPendingQueue @ 0x1405E38B0 (AlpcpRemoveMessageFromPendingQueue.c)
- *     AlpcpClearOwnerPortMessage @ 0x1405E393C (AlpcpClearOwnerPortMessage.c)
- *     AlpcpCaptureMessageData @ 0x1405E3D7C (AlpcpCaptureMessageData.c)
- *     AlpcpValidateMessage @ 0x1405E3F28 (AlpcpValidateMessage.c)
- *     AlpcpSetOwnerPortMessage @ 0x1405E6040 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpLookupMessage @ 0x1405E6870 (AlpcpLookupMessage.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     AlpcpValidateDataInformation @ 0x1408C2FD8 (AlpcpValidateDataInformation.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x1406CF9E4 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpCancelMessage @ 0x1406D277C (AlpcpCancelMessage.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x1406D3010 (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpClearOwnerPortMessage @ 0x1406D309C (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpCaptureMessageData @ 0x1406D34DC (AlpcpCaptureMessageData.c)
+ *     AlpcpValidateMessage @ 0x1406D3688 (AlpcpValidateMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1406D57A0 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpLookupMessage @ 0x1406D5FD0 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
+ *     AlpcpValidateDataInformation @ 0x1408C3138 (AlpcpValidateDataInformation.c)
  */
 
 __int64 __fastcall AlpcpReplyLegacySynchronousRequest(__int64 *a1, unsigned __int64 a2, char a3)
@@ -46,7 +46,7 @@ __int64 __fastcall AlpcpReplyLegacySynchronousRequest(__int64 *a1, unsigned __in
   __int64 v22; // rbx
   __int64 v23; // rcx
   __int64 v24; // rbx
-  _DWORD *v25; // r9
+  __int64 v25; // r9
   signed __int32 v27[8]; // [rsp+0h] [rbp-98h] BYREF
   unsigned int v28; // [rsp+30h] [rbp-68h]
   __int64 v29; // [rsp+38h] [rbp-60h]
@@ -193,7 +193,7 @@ LABEL_30:
     if ( (a1[6] & 4) != 0 )
       a1[3] = v24;
     else
-      KeReleaseSemaphoreEx(v24 + 1160, 1LL, 1LL, v25, 2);
+      KeReleaseSemaphoreEx(v24 + 1160, 1, 1, v25, 2);
     return v28;
   }
   else

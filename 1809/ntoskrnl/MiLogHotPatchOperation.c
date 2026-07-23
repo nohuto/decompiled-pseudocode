@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogHotPatchOperation @ 0x140856398
+ * XREFs of MiLogHotPatchOperation @ 0x1408575F8
  * Callers:
- *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
+ *     MiHotPatchImage @ 0x140856590 (MiHotPatchImage.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     PsGetProcessId @ 0x1400A5710 (PsGetProcessId.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PsGetProcessId @ 0x1400A5650 (PsGetProcessId.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogHotPatchOperation(__int64 a1, int a2, int a3, int a4, int *a5, unsigned __int16 *a6, int a7)
@@ -127,7 +127,7 @@ char __fastcall MiLogHotPatchOperation(__int64 a1, int a2, int a3, int a4, int *
         v64 = 4LL;
         v66 = 4LL;
         v65 = &v30;
-        LOBYTE(v7) = TlgWriteEx(v8, &unk_14036E290, v14, v15, v17, v18, 0x13u, &pData);
+        LOBYTE(v7) = TlgWriteEx(v8, &unk_14036F217, v14, v15, v17, v18, 0x13u, &pData);
       }
     }
   }

@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwSetTimerEx @ 0x1406A9C30
+ * XREFs of ZwSetTimerEx @ 0x1406AABD0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetTimerEx(
         HANDLE TimerHandle,
         TIMER_SET_INFORMATION_CLASS TimerSetInformationClass,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwSetTimerEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TimerHandle, *(_QWORD *)&TimerSetInformationClass);
+  return KiServiceInternal(TimerHandle);
 }

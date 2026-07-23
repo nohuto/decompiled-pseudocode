@@ -1,17 +1,16 @@
 /*
- * XREFs of ExpFreePoolChecks @ 0x1402B0D90
+ * XREFs of ExpFreePoolChecks @ 0x14035B160
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExFreeHeapPool @ 0x1402B0E50 (ExFreeHeapPool.c)
- *     ExpFreeHeapSpecialPool @ 0x1403A8B6C (ExpFreeHeapSpecialPool.c)
- *     ExRemovePoolTag @ 0x1403A9924 (ExRemovePoolTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x140359950 (ExFreeHeapPool.c)
+ *     ExRemovePoolTag @ 0x1403985B4 (ExRemovePoolTag.c)
+ *     ExpFreeHeapSpecialPool @ 0x140398994 (ExpFreeHeapSpecialPool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  * Callees:
- *     ExpCheckForWorker @ 0x1403D3B6C (ExpCheckForWorker.c)
- *     ExpCheckForResource @ 0x140491810 (ExpCheckForResource.c)
- *     ExpCheckForLookaside @ 0x140499BEC (ExpCheckForLookaside.c)
- *     KeCheckForTimer @ 0x1404CEC7C (KeCheckForTimer.c)
- *     VfPtFreePoolNotification @ 0x140BA96EC (VfPtFreePoolNotification.c)
+ *     ExpCheckForWorker @ 0x140261AEC (ExpCheckForWorker.c)
+ *     ExpCheckForResource @ 0x14048C4AC (ExpCheckForResource.c)
+ *     ExpCheckForLookaside @ 0x14049464C (ExpCheckForLookaside.c)
+ *     KeCheckForTimer @ 0x1404C7E48 (KeCheckForTimer.c)
+ *     VfPtFreePoolNotification @ 0x140BAB6EC (VfPtFreePoolNotification.c)
  */
 
 __int64 __fastcall ExpFreePoolChecks(ULONG_PTR BugCheckParameter3, unsigned int a2, __int64 a3, char a4, __int64 a5)
@@ -35,7 +34,7 @@ __int64 __fastcall ExpFreePoolChecks(ULONG_PTR BugCheckParameter3, unsigned int 
       ExpCheckForResource(BugCheckParameter3, a3);
     v12 = KeNumberProcessorsGroup0[9];
     if ( (v12 & 2) != 0 )
-      ExpCheckForWorker(BugCheckParameter3);
+      ExpCheckForWorker(BugCheckParameter3, a3);
   }
   LODWORD(result) = *(_DWORD *)&KeNumberProcessorsGroup0[9];
   result = (unsigned int)result;

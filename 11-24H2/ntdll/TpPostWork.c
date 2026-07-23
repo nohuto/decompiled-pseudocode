@@ -1,29 +1,31 @@
 /*
- * XREFs of TpPostWork @ 0x1800D6E00
+ * XREFs of TpPostWork @ 0x1800D2170
  * Callers:
- *     TppIopExecuteCallback @ 0x18001EF70 (TppIopExecuteCallback.c)
- *     RtlRegisterFeatureConfigurationChangeNotification @ 0x180097B20 (RtlRegisterFeatureConfigurationChangeNotification.c)
- *     RtlpFcCallChangeCallbacks @ 0x1800D6B60 (RtlpFcCallChangeCallbacks.c)
- *     LdrpQueueWork @ 0x1800D6D64 (LdrpQueueWork.c)
- *     RtlRaiseCustomSystemEventTrigger @ 0x180147750 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlRegisterFeatureConfigurationChangeNotification @ 0x18002C970 (RtlRegisterFeatureConfigurationChangeNotification.c)
+ *     TppIopExecuteCallback @ 0x18004B970 (TppIopExecuteCallback.c)
+ *     RtlpFcCallChangeCallbacks @ 0x1800D1ED0 (RtlpFcCallChangeCallbacks.c)
+ *     LdrpQueueWork @ 0x1800D20D4 (LdrpQueueWork.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x180145B00 (RtlRaiseCustomSystemEventTrigger.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall TpPostWork(unsigned __int64 a1, __int64 a2, __int64 a3, char *a4)
+void __cdecl TpPostWork(PTP_WORK Work)
 {
-  int v4; // eax
+  __int64 v1; // r8
+  char *v2; // r9
+  volatile int Flags; // eax
 
-  if ( !a1
-    || (v4 = *(_DWORD *)(a1 + 168), (v4 & 0x10000) != 0)
-    || (v4 & 0x20000) != 0
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppWorkpCleanupGroupMemberVFuncs
+  if ( !Work
+    || (Flags = Work->CleanupGroupMember.Flags, (Flags & 0x10000) != 0)
+    || (Flags & 0x20000) != 0
+    || (__int64 (__fastcall **)())Work->CleanupGroupMember.VFuncs != TppWorkpCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     TppRaiseInvalidParameter();
   }
   else
   {
-    TppWorkPost(a1, (volatile signed __int32 **)a1, a3, a4);
+    TppWorkPost((_RTL_SRWLOCK *)Work, (char **)Work, v1, v2);
   }
 }

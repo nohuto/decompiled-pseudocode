@@ -1,12 +1,12 @@
 /*
- * XREFs of MmCanThreadFault @ 0x14025F510
+ * XREFs of MmCanThreadFault @ 0x140281228
  * Callers:
- *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
- *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
- *     EtwpStackTraceDispatcher @ 0x1405A6F00 (EtwpStackTraceDispatcher.c)
- *     EtwpCovSampSafeForUserAddressCapture @ 0x1405AF7DC (EtwpCovSampSafeForUserAddressCapture.c)
+ *     EtwpEventWriteFull @ 0x14027FA90 (EtwpEventWriteFull.c)
+ *     ObpPushStackInfo @ 0x140564F68 (ObpPushStackInfo.c)
+ *     EtwpStackTraceDispatcher @ 0x1405A7130 (EtwpStackTraceDispatcher.c)
+ *     EtwpCovSampSafeForUserAddressCapture @ 0x1405AFA0C (EtwpCovSampSafeForUserAddressCapture.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
+ *     ObGetCurrentIrql @ 0x14023A8A0 (ObGetCurrentIrql.c)
  */
 
 _BOOL8 MmCanThreadFault()
@@ -16,7 +16,7 @@ _BOOL8 MmCanThreadFault()
   _BOOL8 result; // rax
 
   result = 0;
-  if ( (unsigned __int8)ObGetCurrentIrql() < 2u )
+  if ( ObGetCurrentIrql() < 2u )
   {
     CurrentThread = KeGetCurrentThread();
     if ( (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 2) == 0
@@ -24,7 +24,7 @@ _BOOL8 MmCanThreadFault()
     {
       if ( MmPhysicalMemoryBlock )
       {
-        v1 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8LL * CurrentThread->ApcState.Process[1].IdealProcessorPadding[5])
+        v1 = *(_QWORD *)(*(_QWORD *)(qword_140C4E688 + 8LL * CurrentThread->ApcState.Process[1].IdealProcessorPadding[5])
                        + 6848LL);
         if ( v1 )
         {

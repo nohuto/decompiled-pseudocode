@@ -1,14 +1,14 @@
 /*
- * XREFs of CcShouldSpinAsyncReadWorkerThread @ 0x1404E00C0
+ * XREFs of CcShouldSpinAsyncReadWorkerThread @ 0x1404D970C
  * Callers:
- *     CcAsyncReadWorker @ 0x1404DF280 (CcAsyncReadWorker.c)
- *     CcPostWorkQueueAsyncRead @ 0x1404DFCEC (CcPostWorkQueueAsyncRead.c)
+ *     CcPostWorkQueueAsyncRead @ 0x14027372C (CcPostWorkQueueAsyncRead.c)
+ *     CcAsyncReadWorker @ 0x1404D8CA0 (CcAsyncReadWorker.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x1402CD5E0 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x1402E62E0 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 char __fastcall CcShouldSpinAsyncReadWorkerThread(__int64 a1, _QWORD *a2, _QWORD *a3, unsigned int a4)
@@ -20,8 +20,8 @@ char __fastcall CcShouldSpinAsyncReadWorkerThread(__int64 a1, _QWORD *a2, _QWORD
   char v10; // di
   _QWORD **v11; // rsi
   unsigned int v12; // ecx
-  _QWORD *v13; // rax
-  _QWORD *v14; // rbp
+  char *v13; // rax
+  char *v14; // rbp
   signed __int64 v15; // r9
   _QWORD *v16; // rax
   _QWORD *v17; // rcx
@@ -53,13 +53,13 @@ LABEL_6:
     if ( a3 )
     {
       *a3 = 0LL;
-      v13 = KeAbPreAcquire((__int64)v9, 0LL);
+      v13 = (char *)KeAbPreAcquire((__int64)v9, 0LL);
       v14 = v13;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v9, (__int64)v13, (__int64)v9);
+        ExfAcquirePushLockExclusiveEx(v9, v13, (__int64)v9);
       v15 = 0LL;
       if ( v14 )
-        *((_BYTE *)v14 + 10) = 1;
+        v14[10] = 1;
       v16 = *v11;
       if ( *v11 != v11 )
       {

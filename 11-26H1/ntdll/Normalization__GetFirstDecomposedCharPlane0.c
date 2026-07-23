@@ -1,9 +1,9 @@
 /*
- * XREFs of Normalization__GetFirstDecomposedCharPlane0 @ 0x180121DB8
+ * XREFs of Normalization__GetFirstDecomposedCharPlane0 @ 0x180121B58
  * Callers:
- *     Normalization__IsNormalized @ 0x1800ADD10 (Normalization__IsNormalized.c)
- *     Normalization__CanCombineWithStartFirstPair @ 0x1800B0B28 (Normalization__CanCombineWithStartFirstPair.c)
- *     NormBuffer__LastStartBase @ 0x180120D80 (NormBuffer__LastStartBase.c)
+ *     Normalization__IsNormalized @ 0x1800ACE40 (Normalization__IsNormalized.c)
+ *     Normalization__CanCombineWithStartFirstPair @ 0x1800AFC58 (Normalization__CanCombineWithStartFirstPair.c)
+ *     NormBuffer__LastStartBase @ 0x180120B30 (NormBuffer__LastStartBase.c)
  * Callees:
  *     <none>
  */

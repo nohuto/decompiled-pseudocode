@@ -4,25 +4,25 @@
  *     MiFreeLargePageMemory @ 0x140026200 (MiFreeLargePageMemory.c)
  *     MiFreeLargeZeroPages @ 0x14002891C (MiFreeLargeZeroPages.c)
  *     MiFreeMdlPageRun @ 0x140029DE0 (MiFreeMdlPageRun.c)
- *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiDemoteValidLargePageOneLevel @ 0x140184B04 (MiDemoteValidLargePageOneLevel.c)
- *     MiInitializeDynamicPfns @ 0x1402A6704 (MiInitializeDynamicPfns.c)
- *     MiFindLargeNodePage @ 0x1402A9004 (MiFindLargeNodePage.c)
- *     MiDemotePfnListChain @ 0x1402C53D0 (MiDemotePfnListChain.c)
- *     MiActOnPartitionNodePages @ 0x1402D0118 (MiActOnPartitionNodePages.c)
- *     MiAddPhysicalMemory @ 0x14084C894 (MiAddPhysicalMemory.c)
- *     MiGetFastLargePage @ 0x14085D42C (MiGetFastLargePage.c)
- *     MiMarkLargePageRanges @ 0x1409B8EB4 (MiMarkLargePageRanges.c)
- *     MiCreateEnclaveRegions @ 0x1409BA34C (MiCreateEnclaveRegions.c)
- *     MiMarkLargePagePte @ 0x1409D1EF0 (MiMarkLargePagePte.c)
- *     MiCreateSlabEntriesFromLoaderSlab @ 0x1409F745C (MiCreateSlabEntriesFromLoaderSlab.c)
+ *     MiCommitPoolMemory @ 0x1400994D0 (MiCommitPoolMemory.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x140184C44 (MiDemoteValidLargePageOneLevel.c)
+ *     MiInitializeDynamicPfns @ 0x1402A68F4 (MiInitializeDynamicPfns.c)
+ *     MiFindLargeNodePage @ 0x1402A91F4 (MiFindLargeNodePage.c)
+ *     MiDemotePfnListChain @ 0x1402C55C0 (MiDemotePfnListChain.c)
+ *     MiActOnPartitionNodePages @ 0x1402D0308 (MiActOnPartitionNodePages.c)
+ *     MiAddPhysicalMemory @ 0x14084DAF4 (MiAddPhysicalMemory.c)
+ *     MiGetFastLargePage @ 0x14085E68C (MiGetFastLargePage.c)
+ *     MiMarkLargePageRanges @ 0x1409B9EB4 (MiMarkLargePageRanges.c)
+ *     MiCreateEnclaveRegions @ 0x1409BB34C (MiCreateEnclaveRegions.c)
+ *     MiMarkLargePagePte @ 0x1409D2EF0 (MiMarkLargePagePte.c)
+ *     MiCreateSlabEntriesFromLoaderSlab @ 0x1409F845C (MiCreateSlabEntriesFromLoaderSlab.c)
  * Callees:
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlSetBitsEx @ 0x14008AF20 (RtlSetBitsEx.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlSetBitsEx @ 0x14008AF10 (RtlSetBitsEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MiUpdateLargePageBitMap(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4, int a5)
@@ -173,7 +173,7 @@ LABEL_15:
     if ( !v12 )
     {
       v55 = 1;
-      KeAcquireInStackQueuedSpinLock(&qword_14043A1C0, &LockHandle);
+      KeAcquireInStackQueuedSpinLock(&qword_14043B280, &LockHandle);
     }
     if ( a4 == 1 )
       LOBYTE(v5) = RtlSetBitsEx(v13, v15, v18);

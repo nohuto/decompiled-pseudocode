@@ -1,10 +1,10 @@
 /*
- * XREFs of DifIsValidTrackingObject @ 0x140617BBC
+ * XREFs of DifIsValidTrackingObject @ 0x14061617C
  * Callers:
- *     DifObjTrkInsertItem @ 0x140617CF0 (DifObjTrkInsertItem.c)
- *     DifObjTrkRemoveItem @ 0x1406181C0 (DifObjTrkRemoveItem.c)
+ *     DifObjTrkInsertItem @ 0x1406162B0 (DifObjTrkInsertItem.c)
+ *     DifObjTrkRemoveItem @ 0x140616780 (DifObjTrkRemoveItem.c)
  * Callees:
- *     DifIsPluginEnabled @ 0x140619784 (DifIsPluginEnabled.c)
+ *     DifIsPluginEnabled @ 0x140617D44 (DifIsPluginEnabled.c)
  */
 
 __int64 __fastcall DifIsValidTrackingObject(unsigned int a1, unsigned __int64 a2)

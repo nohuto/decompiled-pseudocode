@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlLookupFunctionEntry @ 0x180015110
+ * XREFs of RtlLookupFunctionEntry @ 0x180041B10
  * Callers:
- *     RtlUnwindEx @ 0x180015480 (RtlUnwindEx.c)
- *     RtlDispatchException @ 0x180019060 (RtlDispatchException.c)
- *     RtlRaiseException @ 0x180070510 (RtlRaiseException.c)
- *     InitSpecialMachineFrames @ 0x180097454 (InitSpecialMachineFrames.c)
- *     RtlpSameFunction @ 0x1800ED7FC (RtlpSameFunction.c)
- *     RtlInitializeHistoryTable @ 0x1800F1E4C (RtlInitializeHistoryTable.c)
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
- *     __report_gsfailure @ 0x1801208B0 (__report_gsfailure.c)
+ *     InitSpecialMachineFrames @ 0x18002C2A4 (InitSpecialMachineFrames.c)
+ *     RtlUnwindEx @ 0x180041E80 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x180045A60 (RtlDispatchException.c)
+ *     RtlRaiseException @ 0x18008CDF0 (RtlRaiseException.c)
+ *     RtlpSameFunction @ 0x1800E8AEC (RtlpSameFunction.c)
+ *     RtlInitializeHistoryTable @ 0x1800ECACC (RtlInitializeHistoryTable.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
+ *     __report_gsfailure @ 0x18011EAE0 (__report_gsfailure.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x1800166E0 (RtlpxLookupFunctionTable.c)
- *     RtlpLookupDynamicFunctionEntry @ 0x1800E4C20 (RtlpLookupDynamicFunctionEntry.c)
+ *     RtlpxLookupFunctionTable @ 0x1800430E0 (RtlpxLookupFunctionTable.c)
+ *     RtlpLookupDynamicFunctionEntry @ 0x1800E00D0 (RtlpLookupDynamicFunctionEntry.c)
  */
 
 PRUNTIME_FUNCTION __stdcall RtlLookupFunctionEntry(
@@ -42,21 +42,21 @@ PRUNTIME_FUNCTION __stdcall RtlLookupFunctionEntry(
   unsigned int *v26; // r8
   unsigned __int64 v27; // rdx
   unsigned __int64 v28; // rdx
-  __int128 v29; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v30; // [rsp+30h] [rbp-18h]
+  __int128 v29; // [rsp+20h] [rbp-28h]
+  unsigned int v30; // [rsp+34h] [rbp-14h]
 
   if ( !HistoryTable )
     goto LABEL_2;
   if ( !HistoryTable->Once
     || (HistoryTable->Once = 0,
-        v28 = *(_QWORD *)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_1801E7355 + 6],
-        (result = *(PRUNTIME_FUNCTION *)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_1801E7355 + 8]) == 0LL)
+        v28 = *(_QWORD *)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_1801E6355 + 6],
+        (result = *(PRUNTIME_FUNCTION *)&RtlpUnwindHistoryTable[4 * (unsigned __int8)byte_1801E6355 + 8]) == 0LL)
     || ControlPc < v28 + result->BeginAddress
     || ControlPc >= v28 + result->EndAddress )
   {
     if ( HistoryTable->Search )
     {
-      if ( ControlPc >= qword_1801E7358 && ControlPc < qword_1801E7360 )
+      if ( ControlPc >= qword_1801E6358 && ControlPc < qword_1801E6360 )
       {
         GlobalHint = HistoryTable->GlobalHint;
         for ( i = GlobalHint; i < RtlpUnwindHistoryTable[0]; ++i )
@@ -91,24 +91,24 @@ PRUNTIME_FUNCTION __stdcall RtlLookupFunctionEntry(
       }
     }
 LABEL_2:
-    v30 = 0LL;
+    v30 = 0;
     v29 = 0LL;
-    if ( ControlPc < *((_QWORD *)&xmmword_1801E7440 + 1)
-      || ControlPc >= *((_QWORD *)&xmmword_1801E7440 + 1) + (unsigned __int64)(unsigned int)qword_1801E7450 )
+    if ( ControlPc < *((_QWORD *)&xmmword_1801E6440 + 1)
+      || ControlPc >= *((_QWORD *)&xmmword_1801E6440 + 1) + (unsigned __int64)(unsigned int)qword_1801E6450 )
     {
-      v6 = RtlpxLookupFunctionTable(ControlPc, &v29);
+      v6 = RtlpxLookupFunctionTable((PVOID)ControlPc);
     }
     else
     {
-      v6 = xmmword_1801E7440;
-      v29 = xmmword_1801E7440;
-      v30 = qword_1801E7450;
+      *((_QWORD *)&v29 + 1) = *((_QWORD *)&xmmword_1801E6440 + 1);
+      v6 = xmmword_1801E6440;
+      v30 = HIDWORD(qword_1801E6450);
     }
     if ( v6 )
     {
       *ImageBase = *((_QWORD *)&v29 + 1);
-      v7 = HIDWORD(v30) / 0xC;
-      if ( HIDWORD(v30) / 0xC )
+      v7 = v30 / 0xC;
+      if ( v30 / 0xC )
       {
         v8 = ControlPc - *ImageBase;
         v9 = *(unsigned int *)(v6 + 12LL * (v7 - 1));

@@ -1,9 +1,9 @@
 /*
- * XREFs of ApiSetSchemaExpander_MigrateSchemaData @ 0x140662F6C
+ * XREFs of ApiSetSchemaExpander_MigrateSchemaData @ 0x140661850
  * Callers:
- *     ApiSetComposeSchema_V7 @ 0x14066169C (ApiSetComposeSchema_V7.c)
+ *     ApiSetComposeSchema_V7 @ 0x14065FE98 (ApiSetComposeSchema_V7.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 void *__fastcall ApiSetSchemaExpander_MigrateSchemaData(__int64 a1)

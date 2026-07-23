@@ -1,13 +1,13 @@
 /*
- * XREFs of VslInitializeSecureProcess @ 0x14058D77C
+ * XREFs of VslInitializeSecureProcess @ 0x14058AA6C
  * Callers:
- *     KeSecureProcess @ 0x1405B843C (KeSecureProcess.c)
+ *     KeSecureProcess @ 0x1405B5A1C (KeSecureProcess.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslInitializeSecureProcess(
@@ -51,7 +51,7 @@ __int64 __fastcall VslInitializeSecureProcess(
     v22 = v15[0];
     v23 = v15[7];
 LABEL_6:
-    v14 = VslpEnterIumSecureMode(2u, 7LL, 0, (__int64)v16);
+    v14 = VslpEnterIumSecureMode(2u, 7u, 0, (__int64)v16);
     if ( a7 )
       VslpUnlockPagesForTransfer(v15);
     result = (unsigned int)v14;

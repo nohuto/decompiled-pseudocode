@@ -1,11 +1,11 @@
 /*
- * XREFs of SecureDump_PrepareForInit @ 0x1405D6CBC
+ * XREFs of SecureDump_PrepareForInit @ 0x1405D94AC
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     SecureDump_LogErrorEvent @ 0x1405D6C8C (SecureDump_LogErrorEvent.c)
- *     SecureDump_ReadRegistry @ 0x1405D71B0 (SecureDump_ReadRegistry.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SecureDump_LogErrorEvent @ 0x1405D947C (SecureDump_LogErrorEvent.c)
+ *     SecureDump_ReadRegistry @ 0x1405D99A0 (SecureDump_ReadRegistry.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SecureDump_PrepareForInit(__int64 a1, _BYTE *a2)
@@ -33,7 +33,7 @@ void __fastcall SecureDump_PrepareForInit(__int64 a1, _BYTE *a2)
   if ( !a2 )
     return;
   *a2 = 0;
-  xmmword_140E660E8 = 0LL;
+  xmmword_140E662A8 = 0LL;
   *(_OWORD *)&dwFlags = 0LL;
   Registry = SecureDump_ReadRegistry(
                (unsigned int)v10,
@@ -48,10 +48,10 @@ void __fastcall SecureDump_PrepareForInit(__int64 a1, _BYTE *a2)
   }
   else
   {
-    LODWORD(xmmword_140E660E8) = *(_DWORD *)P;
+    LODWORD(xmmword_140E662A8) = *(_DWORD *)P;
     ExFreePoolWithTag(P, 0);
     P = 0LL;
-    if ( (_DWORD)xmmword_140E660E8 )
+    if ( (_DWORD)xmmword_140E662A8 )
     {
 LABEL_19:
       v3 = 0;
@@ -71,10 +71,10 @@ LABEL_19:
     ForceDumpDisabled = 0;
     goto LABEL_19;
   }
-  DWORD1(xmmword_140E660E8) = *(_DWORD *)P;
+  DWORD1(xmmword_140E662A8) = *(_DWORD *)P;
   ExFreePoolWithTag(P, 0);
   P = 0LL;
-  if ( !DWORD1(xmmword_140E660E8) )
+  if ( !DWORD1(xmmword_140E662A8) )
     goto LABEL_8;
   *a2 = 1;
   if ( (int)SecureDump_ReadRegistry(
@@ -92,7 +92,7 @@ LABEL_19:
               (unsigned int)v9,
               (unsigned int)L"PublicKey",
               3,
-              (unsigned int)&xmmword_140E660E8 + 8,
+              (unsigned int)&xmmword_140E662A8 + 8,
               (__int64)&dwFlags) >= 0
     && (int)SecureDump_ReadRegistry(
               (unsigned int)v9,
@@ -110,10 +110,10 @@ LABEL_9:
 LABEL_20:
   if ( ForceDumpDisabled != 1 )
     goto LABEL_9;
-  if ( *((_QWORD *)&xmmword_140E660E8 + 1) )
+  if ( *((_QWORD *)&xmmword_140E662A8 + 1) )
   {
-    ExFreePoolWithTag(*((PVOID *)&xmmword_140E660E8 + 1), 0);
-    *((_QWORD *)&xmmword_140E660E8 + 1) = 0LL;
+    ExFreePoolWithTag(*((PVOID *)&xmmword_140E662A8 + 1), 0);
+    *((_QWORD *)&xmmword_140E662A8 + 1) = 0LL;
   }
   if ( *((_QWORD *)&dwFlags + 1) )
   {

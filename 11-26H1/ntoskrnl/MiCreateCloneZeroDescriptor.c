@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateCloneZeroDescriptor @ 0x140B5585C
+ * XREFs of MiCreateCloneZeroDescriptor @ 0x140B580FC
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x140961614 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x140A07308 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     MiWriteCloneFlags @ 0x1404B6674 (MiWriteCloneFlags.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiBuildNewCloneDescriptor @ 0x140B558E4 (MiBuildNewCloneDescriptor.c)
+ *     MiWriteCloneFlags @ 0x1404AFAC4 (MiWriteCloneFlags.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiBuildNewCloneDescriptor @ 0x140B58184 (MiBuildNewCloneDescriptor.c)
  */
 
 __int64 __fastcall MiCreateCloneZeroDescriptor(__int64 a1)

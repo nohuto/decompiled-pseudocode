@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlArmFeatureUsageProviderFlushNotification @ 0x1404F5110
+ * XREFs of RtlArmFeatureUsageProviderFlushNotification @ 0x1404F2A10
  * Callers:
- *     CmInitSystem0 @ 0x140C483D8 (CmInitSystem0.c)
+ *     CmFcInitSystem1 @ 0x140C4C340 (CmFcInitSystem1.c)
  * Callees:
- *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x1403A6B5C (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
+ *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x14048C7E8 (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
  */
 
-void __fastcall RtlArmFeatureUsageProviderFlushNotification(__int64 a1, char a2)
+void __fastcall RtlArmFeatureUsageProviderFlushNotification(__int64 a1, __int64 a2)
 {
   _m_prefetchw((const void *)(a1 + 100));
   CmFcpManagerArmFeatureUsageProviderFlushNotification(

@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpSetSystemInformation @ 0x140B10D50
+ * XREFs of HalpSetSystemInformation @ 0x140B12AD0
  * Callers:
  *     <none>
  * Callees:
- *     HalpGetCpuInfo @ 0x1404C55D0 (HalpGetCpuInfo.c)
- *     HalpRegisterProfileSourceInterruptHandler @ 0x14052E258 (HalpRegisterProfileSourceInterruptHandler.c)
- *     HalpSetProfileSourceInterval @ 0x140530C2C (HalpSetProfileSourceInterval.c)
- *     HalpRegisterProcessorTraceInterruptHandler @ 0x14059A9EC (HalpRegisterProcessorTraceInterruptHandler.c)
- *     HalpRegisterTimerInterruptHandler @ 0x14059AA8C (HalpRegisterTimerInterruptHandler.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HaliSetSystemInformation @ 0x1407767B4 (HaliSetSystemInformation.c)
- *     HalpRegisterPmuNotification @ 0x140B10EBC (HalpRegisterPmuNotification.c)
- *     HalpUnregisterPmuNotification @ 0x140B113CC (HalpUnregisterPmuNotification.c)
+ *     HalpGetCpuInfo @ 0x1404BEF80 (HalpGetCpuInfo.c)
+ *     HalpRegisterProfileSourceInterruptHandler @ 0x140530778 (HalpRegisterProfileSourceInterruptHandler.c)
+ *     HalpSetProfileSourceInterval @ 0x14053312C (HalpSetProfileSourceInterval.c)
+ *     HalpRegisterProcessorTraceInterruptHandler @ 0x14059D16C (HalpRegisterProcessorTraceInterruptHandler.c)
+ *     HalpRegisterTimerInterruptHandler @ 0x14059D20C (HalpRegisterTimerInterruptHandler.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HaliSetSystemInformation @ 0x14077965C (HaliSetSystemInformation.c)
+ *     HalpRegisterPmuNotification @ 0x140B12C3C (HalpRegisterPmuNotification.c)
+ *     HalpUnregisterPmuNotification @ 0x140B1314C (HalpUnregisterPmuNotification.c)
  */
 
 __int64 __fastcall HalpSetSystemInformation(int a1, __int64 a2, __int64 *a3)

@@ -1,310 +1,335 @@
 /*
- * XREFs of PiUEventNotifyUserMode @ 0x1409EEFC4
+ * XREFs of PiUEventNotifyUserMode @ 0x1409ECA04
  * Callers:
- *     PnpProcessTargetDeviceEvent @ 0x1409ED604 (PnpProcessTargetDeviceEvent.c)
- *     PnpNotifyUserModeDeviceRemoval @ 0x1409EE568 (PnpNotifyUserModeDeviceRemoval.c)
- *     PnpProcessCustomDeviceEvent @ 0x1409EEA44 (PnpProcessCustomDeviceEvent.c)
- *     PnpDeviceEventWorker @ 0x1409EFB60 (PnpDeviceEventWorker.c)
+ *     PnpProcessTargetDeviceEvent @ 0x1409EB044 (PnpProcessTargetDeviceEvent.c)
+ *     PnpNotifyUserModeDeviceRemoval @ 0x1409EBFA8 (PnpNotifyUserModeDeviceRemoval.c)
+ *     PnpProcessCustomDeviceEvent @ 0x1409EC484 (PnpProcessCustomDeviceEvent.c)
+ *     PnpDeviceEventWorker @ 0x1409ED430 (PnpDeviceEventWorker.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     KeInitializeGuardedMutex @ 0x14045D660 (KeInitializeGuardedMutex.c)
- *     RtlStringCchCopyNW @ 0x14046744C (RtlStringCchCopyNW.c)
- *     PiUEventShouldQueueEvent @ 0x140485E30 (PiUEventShouldQueueEvent.c)
- *     McTemplateK0z_EtwWriteTransfer @ 0x1404D4ED8 (McTemplateK0z_EtwWriteTransfer.c)
- *     McTemplateK0jqzjzx_EtwWriteTransfer @ 0x1405A60C0 (McTemplateK0jqzjzx_EtwWriteTransfer.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PpDevCfgRequestDeviceInstall @ 0x1406FAF90 (PpDevCfgRequestDeviceInstall.c)
- *     PiUEventGatherEventData @ 0x140724AE8 (PiUEventGatherEventData.c)
- *     PiUEventDereferenceEventEntry @ 0x14085BBFC (PiUEventDereferenceEventEntry.c)
- *     PiUEventFreeEventEntry @ 0x14085BC5C (PiUEventFreeEventEntry.c)
- *     PnpWatchdogTimerStart @ 0x1409C7554 (PnpWatchdogTimerStart.c)
- *     PiUEventDeviceNeedsInstall @ 0x1409ED440 (PiUEventDeviceNeedsInstall.c)
- *     PiUEventReferenceEventEntry @ 0x1409ED5C8 (PiUEventReferenceEventEntry.c)
- *     PiUEventIsDeviceEventVetoable @ 0x1409EF4B8 (PiUEventIsDeviceEventVetoable.c)
- *     PiUEventCacheObjectProperties @ 0x1409EF508 (PiUEventCacheObjectProperties.c)
- *     PnpWatchdogTimerPause @ 0x1409F001C (PnpWatchdogTimerPause.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     KeInitializeGuardedMutex @ 0x140452720 (KeInitializeGuardedMutex.c)
+ *     RtlStringCchCopyNW @ 0x14045EEEC (RtlStringCchCopyNW.c)
+ *     PiUEventShouldQueueEvent @ 0x140481420 (PiUEventShouldQueueEvent.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x1404CE1B0 (McTemplateK0z_EtwWriteTransfer.c)
+ *     Feature_KernelPnP_CheckDeviceInstancePath__private_IsEnabledDeviceUsageNoInline @ 0x1405A2FA0 (Feature_KernelPnP_CheckDeviceInstancePath__private_IsEnabledDeviceUsageNoInline.c)
+ *     McTemplateK0jqzjzx_EtwWriteTransfer @ 0x1405A2FF4 (McTemplateK0jqzjzx_EtwWriteTransfer.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PpDevCfgRequestDeviceInstall @ 0x1406F8BD0 (PpDevCfgRequestDeviceInstall.c)
+ *     PiUEventGatherEventData @ 0x140722678 (PiUEventGatherEventData.c)
+ *     PiUEventDereferenceEventEntry @ 0x14085796C (PiUEventDereferenceEventEntry.c)
+ *     PiUEventFreeEventEntry @ 0x1408579CC (PiUEventFreeEventEntry.c)
+ *     PnpWatchdogTimerStart @ 0x1409B9860 (PnpWatchdogTimerStart.c)
+ *     PnpWatchdogTimerPause @ 0x1409ED8EC (PnpWatchdogTimerPause.c)
+ *     PiUEventReferenceEventEntry @ 0x140A0D68C (PiUEventReferenceEventEntry.c)
+ *     PiUEventCacheObjectProperties @ 0x140A16710 (PiUEventCacheObjectProperties.c)
+ *     PiUEventIsDeviceEventVetoable @ 0x140A38344 (PiUEventIsDeviceEventVetoable.c)
+ *     PiUEventDeviceNeedsInstall @ 0x140A6F6E8 (PiUEventDeviceNeedsInstall.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiUEventNotifyUserMode(__int64 a1)
 {
   unsigned int v2; // esi
-  char v3; // r12
-  size_t v4; // r15
-  __int64 v5; // rbx
-  struct _WORK_QUEUE_ITEM *v6; // rax
-  char v7; // r15
-  char IsDeviceEventVetoable; // al
-  __int64 v10; // rcx
-  char v11; // r13
-  __int64 v12; // rdx
-  const wchar_t *v13; // rax
-  __int64 v14; // r15
+  char v3; // r13
+  const wchar_t *v4; // r12
+  size_t v5; // r14
+  __int64 v6; // rbx
+  const wchar_t *v8; // rdi
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  int v11; // ecx
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rax
+  __int64 v15; // r14
+  __int64 v16; // rcx
   __int64 Pool2; // rdi
-  struct _FAST_MUTEX *v16; // rax
-  _DWORD *v17; // rax
-  __int64 v18; // rax
-  const wchar_t *v19; // r8
-  wchar_t *v20; // rcx
-  __int64 *v21; // rax
-  PVOID *v22; // r15
-  NTSTATUS v23; // esi
-  __int64 v24; // rax
-  const wchar_t *v25; // rdi
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  __int64 v28; // rcx
-  struct _KEVENT *v29; // rax
-  __int64 v30; // rdx
-  _QWORD *v31; // rax
+  struct _FAST_MUTEX *v18; // rax
+  char v19; // cl
+  _DWORD *v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rcx
+  struct _KEVENT *v24; // rax
+  char v25; // r12
+  char v26; // r14
+  wchar_t *v27; // rcx
+  __int64 *v28; // rax
+  PVOID *v29; // r14
+  struct _WORK_QUEUE_ITEM *v30; // rax
+  NTSTATUS v31; // esi
   unsigned __int64 v32; // rbx
   __int64 v33; // rbx
   __int64 v34; // rcx
   __int64 v35; // r8
   __int64 v36; // rcx
   __int64 v37; // r8
-  char v38; // [rsp+50h] [rbp-19h]
-  int v39; // [rsp+54h] [rbp-15h] BYREF
-  const wchar_t *v40; // [rsp+58h] [rbp-11h] BYREF
-  __int64 v41; // [rsp+60h] [rbp-9h] BYREF
-  const WCHAR *v42; // [rsp+68h] [rbp-1h] BYREF
-  STRSAFE_PCNZWCH pszSrc[2]; // [rsp+70h] [rbp+7h] BYREF
-  LARGE_INTEGER Timeout; // [rsp+80h] [rbp+17h] BYREF
-  char v45; // [rsp+D8h] [rbp+6Fh] BYREF
-  char v46; // [rsp+E8h] [rbp+7Fh]
+  __int64 v38; // rdx
+  _QWORD *v39; // rax
+  unsigned int Buffer; // [rsp+54h] [rbp-15h] BYREF
+  const wchar_t *v41; // [rsp+58h] [rbp-11h] BYREF
+  __int64 v42; // [rsp+60h] [rbp-9h] BYREF
+  const WCHAR *v43; // [rsp+68h] [rbp-1h] BYREF
+  LARGE_INTEGER Timeout; // [rsp+70h] [rbp+7h] BYREF
+  PVOID Object[9]; // [rsp+78h] [rbp+Fh] BYREF
+  char IsDeviceEventVetoable; // [rsp+D8h] [rbp+6Fh] BYREF
+  char v47; // [rsp+E8h] [rbp+7Fh]
 
   v2 = 0;
   v3 = 0;
-  v38 = 0;
-  pszSrc[0] = 0LL;
-  v4 = 0LL;
   Timeout.QuadPart = 0LL;
+  v4 = 0LL;
+  IsDeviceEventVetoable = 0;
   v5 = 0LL;
-  v45 = 0;
+  v43 = 0LL;
   v42 = 0LL;
+  v6 = 0LL;
   v41 = 0LL;
-  v40 = 0LL;
-  v46 = 0;
+  v47 = 0;
   if ( PnpShutdownEvent.Header.SignalState )
     return (unsigned int)-1073741431;
   if ( *(_DWORD *)(a1 + 136) == 4 )
   {
-    v25 = (const wchar_t *)(a1 + 168);
-    if ( (int)PiUEventDeviceNeedsInstall((WCHAR *)(a1 + 168), &v45) >= 0
-      && v45
+    v8 = (const wchar_t *)(a1 + 168);
+    if ( (int)PiUEventDeviceNeedsInstall(a1 + 168, &IsDeviceEventVetoable) >= 0
+      && IsDeviceEventVetoable
       && (int)PpDevCfgRequestDeviceInstall() >= 0
-      && (byte_140EEFD22 & 0x10) != 0 )
+      && (byte_140EEFF62 & 0x10) != 0 )
     {
-      McTemplateK0z_EtwWriteTransfer(v26, (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceInstall_Requested, v27, v25);
+      McTemplateK0z_EtwWriteTransfer(v9, (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceInstall_Requested, v10, v8);
     }
   }
-  if ( PiUEventShouldQueueEvent(a1) )
+  if ( !PiUEventShouldQueueEvent(a1) )
+    return v2;
+  IsDeviceEventVetoable = PiUEventIsDeviceEventVetoable(a1);
+  v11 = Feature_KernelPnP_CheckDeviceInstancePath__private_IsEnabledDeviceUsageNoInline();
+  v12 = *(_QWORD *)(a1 + 160);
+  if ( v12 )
   {
-    IsDeviceEventVetoable = PiUEventIsDeviceEventVetoable(a1);
-    v10 = *(_QWORD *)(a1 + 160);
-    v11 = IsDeviceEventVetoable;
-    if ( v10 )
+    if ( !v11 )
     {
-      v12 = *(_QWORD *)(*(_QWORD *)(v10 + 312) + 40LL);
-      if ( v12 )
+      v16 = *(_QWORD *)(*(_QWORD *)(v12 + 312) + 40LL);
+      if ( !v16 )
+        goto LABEL_22;
+      v4 = *(const wchar_t **)(v16 + 48);
+      v15 = -1LL;
+      do
+        ++v15;
+      while ( v4[v15] );
+      goto LABEL_21;
+    }
+    v13 = *(_QWORD *)(*(_QWORD *)(v12 + 312) + 40LL);
+    if ( v13 )
+    {
+      v14 = *(_QWORD *)(v13 + 48);
+      if ( v14 )
       {
-        v13 = *(const wchar_t **)(v12 + 48);
-        v14 = -1LL;
-        pszSrc[0] = v13;
+        v4 = *(const wchar_t **)(v13 + 48);
+        v15 = -1LL;
         do
-          ++v14;
-        while ( v13[v14] );
-        v4 = v14 + 1;
+          ++v15;
+        while ( *(_WORD *)(v14 + 2 * v15) );
+LABEL_21:
+        v5 = v15 + 1;
       }
     }
-    v39 = *(_DWORD *)(a1 + 156) + 80 + 2 * v4;
-    Pool2 = ExAllocatePool2(0x100uLL);
-    if ( !Pool2 )
-      return (unsigned int)-1073741670;
-    v16 = (struct _FAST_MUTEX *)ExAllocatePool2(0x40uLL);
-    *(_QWORD *)(Pool2 + 16) = v16;
-    if ( !v16 )
+  }
+LABEL_22:
+  Buffer = *(_DWORD *)(a1 + 156) + 80 + 2 * v5;
+  Pool2 = ExAllocatePool2(0x100uLL, Buffer, 0x59706E50u);
+  if ( !Pool2 )
+    return (unsigned int)-1073741670;
+  v18 = (struct _FAST_MUTEX *)ExAllocatePool2(0x40uLL, 0x38uLL, 0x59706E50u);
+  *(_QWORD *)(Pool2 + 16) = v18;
+  if ( !v18 )
+  {
+    v2 = -1073741670;
+LABEL_75:
+    PiUEventFreeEventEntry((_QWORD *)Pool2);
+    return v2;
+  }
+  KeInitializeGuardedMutex(v18);
+  v19 = IsDeviceEventVetoable;
+  *(_BYTE *)(Pool2 + 77) = IsDeviceEventVetoable;
+  *(_DWORD *)(Pool2 + 56) = 1;
+  v20 = *(_DWORD **)(a1 + 48);
+  if ( v19 )
+  {
+    *(_QWORD *)(Pool2 + 32) = v20;
+    v21 = *(_QWORD *)(a1 + 56);
+    *(_QWORD *)(Pool2 + 40) = v21;
+    **(_WORD **)(v21 + 8) = 0;
+    v19 = IsDeviceEventVetoable;
+    **(_WORD **)(Pool2 + 40) = 0;
+    **(_DWORD **)(Pool2 + 32) = 0;
+  }
+  else
+  {
+    if ( v20 )
+      *v20 = 0;
+    v22 = *(_QWORD *)(a1 + 56);
+    if ( v22 )
     {
+      **(_WORD **)(v22 + 8) = 0;
+      **(_WORD **)(a1 + 56) = 0;
+    }
+  }
+  if ( *(_QWORD *)(a1 + 24) || v19 )
+  {
+    v23 = *(_QWORD *)(a1 + 104);
+    v3 = 1;
+    if ( v23 )
+    {
+      PnpWatchdogTimerPause(*(_QWORD *)(v23 + 8), 0LL);
+      v47 = 1;
+    }
+    v24 = (struct _KEVENT *)ExAllocatePool2(0x40uLL, 0x18uLL, 0x59706E50u);
+    *(_QWORD *)(Pool2 + 24) = v24;
+    if ( !v24 )
+    {
+      v25 = 0;
+LABEL_38:
       v2 = -1073741670;
-      goto LABEL_70;
+      v26 = 0;
+      goto LABEL_65;
     }
-    KeInitializeGuardedMutex(v16);
-    *(_DWORD *)(Pool2 + 56) = 1;
-    *(_BYTE *)(Pool2 + 77) = v11;
-    v17 = *(_DWORD **)(a1 + 48);
-    if ( v11 )
+    KeInitializeEvent(v24, NotificationEvent, 0);
+    PiUEventReferenceEventEntry(Pool2);
+  }
+  *(_BYTE *)(Pool2 + 76) = v3;
+  *(_DWORD *)(Pool2 + 72) = *(_DWORD *)(a1 + 156) + 8;
+  memmove((void *)(Pool2 + 80), (const void *)(a1 + 120), *(unsigned int *)(a1 + 156));
+  if ( v5 )
+  {
+    v27 = (wchar_t *)(Pool2 + *(unsigned int *)(a1 + 156) + 80LL);
+    *(_QWORD *)(Pool2 + 64) = v27;
+    RtlStringCchCopyNW(v27, v5, v4, v5);
+  }
+  PiUEventCacheObjectProperties(Pool2);
+  ExAcquireFastMutex(&PiUEventUsermodeEventQueueLock);
+  v28 = (__int64 *)qword_140F8BD48;
+  v29 = (PVOID *)PiUEventUsermodeEventQueue;
+  if ( *(PVOID **)qword_140F8BD48 != &PiUEventUsermodeEventQueue )
+    goto LABEL_76;
+  *(_QWORD *)Pool2 = &PiUEventUsermodeEventQueue;
+  v25 = 1;
+  *(_QWORD *)(Pool2 + 8) = v28;
+  *v28 = Pool2;
+  qword_140F8BD48 = Pool2;
+  KeReleaseGuardedMutex(&PiUEventUsermodeEventQueueLock);
+  if ( v29 == &PiUEventUsermodeEventQueue )
+  {
+    v30 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL, 0x20uLL, 0x59706E50u);
+    if ( !v30 )
+      goto LABEL_38;
+    v30->List.Flink = 0LL;
+    v30->WorkerRoutine = PiUEventProcessEventWorker;
+    v30->Parameter = v30;
+    ExQueueWorkItem(v30, NormalWorkQueue);
+  }
+  v26 = 1;
+  if ( v3 )
+  {
+    if ( (byte_140EEFF64 & 2) != 0 )
+      v6 = MEMORY[0xFFFFF78000000014];
+    Object[0] = &PnpShutdownEvent;
+    Object[1] = *(PVOID *)(Pool2 + 24);
+    Timeout.QuadPart = -10000 * (unsigned __int16)PiUEventSyncTimeoutMs;
+    v31 = KeWaitForMultipleObjects(2u, Object, WaitAny, Executive, 0, 1u, &Timeout, 0LL);
+    Buffer = 0;
+    ZwUpdateWnfStateData(&WNF_PNPB_AWAITING_RESPONSE, &Buffer, 4u, 0LL, 0LL, 0, 0);
+    if ( v31 )
     {
-      *(_QWORD *)(Pool2 + 32) = v17;
-      v24 = *(_QWORD *)(a1 + 56);
-      *(_QWORD *)(Pool2 + 40) = v24;
-      **(_WORD **)(v24 + 8) = 0;
-      **(_WORD **)(Pool2 + 40) = 0;
-      **(_DWORD **)(Pool2 + 32) = 0;
-    }
-    else
-    {
-      if ( v17 )
-        *v17 = 0;
-      v18 = *(_QWORD *)(a1 + 56);
-      if ( v18 )
+      if ( v31 == 1 )
       {
-        **(_WORD **)(v18 + 8) = 0;
-        **(_WORD **)(a1 + 56) = 0;
-      }
-    }
-    if ( *(_QWORD *)(a1 + 24) || v11 )
-    {
-      v28 = *(_QWORD *)(a1 + 104);
-      v3 = 1;
-      if ( v28 )
-      {
-        PnpWatchdogTimerPause(*(_QWORD *)(v28 + 8), 0LL);
-        v46 = 1;
-      }
-      v29 = (struct _KEVENT *)ExAllocatePool2(0x40uLL);
-      *(_QWORD *)(Pool2 + 24) = v29;
-      if ( !v29 )
-        goto LABEL_5;
-      KeInitializeEvent(v29, NotificationEvent, 0);
-      PiUEventReferenceEventEntry(Pool2);
-    }
-    *(_BYTE *)(Pool2 + 76) = v3;
-    *(_DWORD *)(Pool2 + 72) = *(_DWORD *)(a1 + 156) + 8;
-    memmove((void *)(Pool2 + 80), (const void *)(a1 + 120), *(unsigned int *)(a1 + 156));
-    if ( v4 )
-    {
-      v19 = pszSrc[0];
-      v20 = (wchar_t *)(Pool2 + *(unsigned int *)(a1 + 156) + 80LL);
-      *(_QWORD *)(Pool2 + 64) = v20;
-      RtlStringCchCopyNW(v20, v4, v19, v4);
-    }
-    PiUEventCacheObjectProperties(Pool2);
-    ExAcquireFastMutex(&PiUEventUsermodeEventQueueLock);
-    v21 = (__int64 *)qword_140F8BCA8;
-    v22 = (PVOID *)PiUEventUsermodeEventQueue;
-    if ( *(PVOID **)qword_140F8BCA8 != &PiUEventUsermodeEventQueue )
-LABEL_29:
-      __fastfail(3u);
-    *(_QWORD *)Pool2 = &PiUEventUsermodeEventQueue;
-    *(_QWORD *)(Pool2 + 8) = v21;
-    *v21 = Pool2;
-    qword_140F8BCA8 = Pool2;
-    v38 = 1;
-    KeReleaseGuardedMutex(&PiUEventUsermodeEventQueueLock);
-    if ( v22 == &PiUEventUsermodeEventQueue )
-    {
-      v6 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL);
-      if ( !v6 )
-      {
-LABEL_5:
-        v2 = -1073741670;
-        v7 = 0;
-LABEL_6:
-        if ( v46 )
-          PnpWatchdogTimerStart(*(_QWORD *)(*(_QWORD *)(a1 + 104) + 8LL));
-        if ( v7 )
-          return v2;
-        if ( v38 )
-        {
-          ExAcquireFastMutex(&PiUEventUsermodeEventQueueLock);
-          v30 = *(_QWORD *)Pool2;
-          if ( *(_QWORD *)(*(_QWORD *)Pool2 + 8LL) != Pool2 )
-            goto LABEL_29;
-          v31 = *(_QWORD **)(Pool2 + 8);
-          if ( *v31 != Pool2 )
-            goto LABEL_29;
-          *v31 = v30;
-          *(_QWORD *)(v30 + 8) = v31;
-          KeReleaseGuardedMutex(&PiUEventUsermodeEventQueueLock);
-        }
-        if ( v3 && *(_QWORD *)(Pool2 + 24) )
-          PiUEventDereferenceEventEntry((PVOID)Pool2);
-LABEL_70:
-        PiUEventFreeEventEntry((_QWORD *)Pool2);
-        return v2;
-      }
-      v6->List.Flink = 0LL;
-      v6->WorkerRoutine = PiUEventProcessEventWorker;
-      v6->Parameter = v6;
-      ExQueueWorkItem(v6, NormalWorkQueue);
-    }
-    v7 = 1;
-    if ( v3 )
-    {
-      if ( (byte_140EEFD24 & 2) != 0 )
-        v5 = MEMORY[0xFFFFF78000000014];
-      pszSrc[0] = (STRSAFE_PCNZWCH)&PnpShutdownEvent;
-      pszSrc[1] = *(STRSAFE_PCNZWCH *)(Pool2 + 24);
-      Timeout.QuadPart = -10000 * (unsigned __int16)PiUEventSyncTimeoutMs;
-      v23 = KeWaitForMultipleObjects(2u, (PVOID *)pszSrc, WaitAny, Executive, 0, 1u, &Timeout, 0LL);
-      v39 = 0;
-      ZwUpdateWnfStateData((__int64)&WNF_PNPB_AWAITING_RESPONSE, (__int64)&v39);
-      if ( v23 )
-      {
-        if ( v23 == 1 )
-        {
-          if ( !v11 || (v2 = -1073741536, !**(_DWORD **)(a1 + 48)) )
-            v2 = 0;
-          if ( (byte_140EEFD24 & 2) != 0 )
-          {
-            v32 = (__int64)((unsigned __int128)((MEMORY[0xFFFFF78000000014] - v5) * (__int128)0x346DC5D63886594BLL) >> 64) >> 11;
-            v33 = (v32 >> 63) + v32;
-            if ( v33 > (unsigned __int16)PiUEventSyncLongRunningMs )
-            {
-              PiUEventGatherEventData(Pool2, &v42, (__int64)&v41, (__int64)&v40);
-              if ( (byte_140EEFD24 & 2) != 0 )
-                McTemplateK0jqzjzx_EtwWriteTransfer(
-                  v34,
-                  (const EVENT_DESCRIPTOR *)KMPnPEvt_SynchronousEventLongRunning,
-                  v35,
-                  Pool2 + 80,
-                  *(_DWORD *)(Pool2 + 96),
-                  v42,
-                  v41,
-                  v40,
-                  v33);
-            }
-          }
-        }
-        else if ( v23 == 258 )
-        {
-          if ( (byte_140EEFD24 & 2) != 0 )
-          {
-            PiUEventGatherEventData(Pool2, &v42, (__int64)&v41, (__int64)&v40);
-            McTemplateK0jqzjzx_EtwWriteTransfer(
-              v36,
-              (const EVENT_DESCRIPTOR *)KMPnPEvt_SynchronousEventTimeout,
-              v37,
-              Pool2 + 80,
-              *(_DWORD *)(Pool2 + 96),
-              v42,
-              v41,
-              v40,
-              PiUEventSyncTimeoutMs);
-          }
+        if ( !IsDeviceEventVetoable || (v2 = -1073741536, !**(_DWORD **)(a1 + 48)) )
           v2 = 0;
-        }
-        else
+        if ( (byte_140EEFF64 & 2) != 0 )
         {
-          v2 = -1073741823;
+          v32 = (__int64)((unsigned __int128)((MEMORY[0xFFFFF78000000014] - v6) * (__int128)0x346DC5D63886594BLL) >> 64) >> 11;
+          v33 = (v32 >> 63) + v32;
+          if ( v33 > (unsigned __int16)PiUEventSyncLongRunningMs )
+          {
+            PiUEventGatherEventData(Pool2, &v43, (__int64)&v42, (__int64)&v41);
+            if ( (byte_140EEFF64 & 2) != 0 )
+              McTemplateK0jqzjzx_EtwWriteTransfer(
+                v34,
+                (const EVENT_DESCRIPTOR *)KMPnPEvt_SynchronousEventLongRunning,
+                v35,
+                Pool2 + 80,
+                *(_DWORD *)(Pool2 + 96),
+                v43,
+                v42,
+                v41,
+                v33);
+          }
         }
+      }
+      else if ( v31 == 258 )
+      {
+        if ( (byte_140EEFF64 & 2) != 0 )
+        {
+          PiUEventGatherEventData(Pool2, &v43, (__int64)&v42, (__int64)&v41);
+          McTemplateK0jqzjzx_EtwWriteTransfer(
+            v36,
+            (const EVENT_DESCRIPTOR *)KMPnPEvt_SynchronousEventTimeout,
+            v37,
+            Pool2 + 80,
+            *(_DWORD *)(Pool2 + 96),
+            v43,
+            v42,
+            v41,
+            PiUEventSyncTimeoutMs);
+        }
+        v2 = 0;
       }
       else
       {
-        v2 = -1073741431;
+        v2 = -1073741823;
       }
-      ExAcquireFastMutex(&PiUEventUsermodeEventQueueLock);
-      *(_QWORD *)(Pool2 + 32) = 0LL;
-      *(_QWORD *)(Pool2 + 40) = 0LL;
-      KeReleaseGuardedMutex(&PiUEventUsermodeEventQueueLock);
-      PiUEventDereferenceEventEntry((PVOID)Pool2);
     }
-    goto LABEL_6;
+    else
+    {
+      v2 = -1073741431;
+    }
+    ExAcquireFastMutex(&PiUEventUsermodeEventQueueLock);
+    *(_QWORD *)(Pool2 + 32) = 0LL;
+    *(_QWORD *)(Pool2 + 40) = 0LL;
+    KeReleaseGuardedMutex(&PiUEventUsermodeEventQueueLock);
+    PiUEventDereferenceEventEntry((PVOID)Pool2);
+  }
+LABEL_65:
+  if ( v47 )
+    PnpWatchdogTimerStart(*(_QWORD *)(*(_QWORD *)(a1 + 104) + 8LL));
+  if ( !v26 )
+  {
+    if ( !v25 )
+    {
+LABEL_72:
+      if ( v3 && *(_QWORD *)(Pool2 + 24) )
+        PiUEventDereferenceEventEntry((PVOID)Pool2);
+      goto LABEL_75;
+    }
+    ExAcquireFastMutex(&PiUEventUsermodeEventQueueLock);
+    v38 = *(_QWORD *)Pool2;
+    if ( *(_QWORD *)(*(_QWORD *)Pool2 + 8LL) == Pool2 )
+    {
+      v39 = *(_QWORD **)(Pool2 + 8);
+      if ( *v39 == Pool2 )
+      {
+        *v39 = v38;
+        *(_QWORD *)(v38 + 8) = v39;
+        KeReleaseGuardedMutex(&PiUEventUsermodeEventQueueLock);
+        goto LABEL_72;
+      }
+    }
+LABEL_76:
+    __fastfail(3u);
   }
   return v2;
 }

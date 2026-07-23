@@ -14,79 +14,78 @@
  *     TppRaiseInvalidParameter @ 0x1800F5C58 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpAllocWait(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl TpAllocWait(
+        PTP_WAIT *WaitReturn,
+        PTP_WAIT_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
   int v5; // r12d
-  _QWORD *p_Length; // r15
-  __int64 Heap; // rbx
+  PTP_WAIT *v7; // r15
+  char *Heap; // rbx
   HANDLE *v9; // r14
-  int WaitCompletionPacket; // edi
+  NTSTATUS WaitCompletionPacket; // edi
   __int64 v11; // rcx
-  _BYTE *v12; // rsi
+  char *v12; // rsi
   _DWORD *v13; // r14
   _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h]
 
-  v5 = a3;
-  p_Length = &Ldr->Length;
-  if ( !Ldr
-    || !a2
-    || a4 && (*(_DWORD *)(a4 + 56) & 0xFFFFFFFC) != 0
-    || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
+  v5 = (int)Context;
+  v7 = WaitReturn;
+  if ( !WaitReturn
+    || !Callback
+    || CallbackEnviron && (CallbackEnviron->u.Flags & 0xFFFFFFFC) != 0
+    || (WaitReturn = (PTP_WAIT *)NtCurrentPeb()->Ldr, *((_BYTE *)WaitReturn + 72)) )
   {
-    TppRaiseInvalidParameter(Ldr, a2, a3);
-    return 3221225485LL;
+    TppRaiseInvalidParameter(WaitReturn, Callback);
+    return -1073741811;
   }
   else
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 1835008) | 8u, 464LL);
-    if ( Heap )
+    Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 1835008) | 8, 0x1D0uLL);
+    if ( !Heap )
+      return -1073741801;
+    v9 = (HANDLE *)(Heap + 360);
+    *((_QWORD *)Heap + 21) = retaddr;
+    WaitCompletionPacket = NtCreateWaitCompletionPacket((PHANDLE)Heap + 45, 1u, 0LL);
+    if ( WaitCompletionPacket < 0
+      || (WaitCompletionPacket = TppInitializeTimer(
+                                   (__int64)Heap,
+                                   1,
+                                   v5,
+                                   (__int64)CallbackEnviron,
+                                   (__int64)TppWaitpCleanupGroupMemberVFuncs,
+                                   (__int64)&TppWaitpTaskVFuncs),
+          WaitCompletionPacket < 0) )
     {
-      v9 = (HANDLE *)(Heap + 360);
-      *(_QWORD *)(Heap + 168) = retaddr;
-      WaitCompletionPacket = NtCreateWaitCompletionPacket(Heap + 360, 1LL);
-      if ( WaitCompletionPacket < 0
-        || (WaitCompletionPacket = TppInitializeTimer(
-                                     Heap,
-                                     1,
-                                     v5,
-                                     a4,
-                                     (__int64)TppWaitpCleanupGroupMemberVFuncs,
-                                     (__int64)TppWaitpTaskVFuncs),
-            WaitCompletionPacket < 0) )
-      {
-        if ( *v9 )
-          NtClose(*v9);
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 1835008, Heap);
-      }
-      else
-      {
-        v11 = *(_QWORD *)(Heap + 136);
-        *(_QWORD *)(Heap + 440) = TppWaitCompletion;
-        v12 = (_BYTE *)(Heap + 452);
-        v13 = (_DWORD *)(Heap + 448);
-        if ( v11 )
-        {
-          TppGetCurrentThreadNumaNode(v11, (_DWORD *)(Heap + 448), (unsigned __int8 *)(Heap + 452));
-        }
-        else
-        {
-          *v13 = 0;
-          *v12 = 0;
-        }
-        *(_QWORD *)(Heap + 416) = 0LL;
-        *(_QWORD *)(Heap + 432) = Heap + 424;
-        *(_QWORD *)(Heap + 424) = Heap + 424;
-        *(_QWORD *)(Heap + 384) = TppDirectTaskVFuncs;
-        *(_DWORD *)(Heap + 392) = *v13;
-        *(_BYTE *)(Heap + 396) = *v12;
-        *(_QWORD *)(Heap + 80) = a2;
-        *p_Length = Heap;
-      }
+      if ( *v9 )
+        NtClose(*v9);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 1835008, Heap);
     }
     else
     {
-      return (unsigned int)-1073741801;
+      v11 = *((_QWORD *)Heap + 17);
+      *((_QWORD *)Heap + 55) = TppWaitCompletion;
+      v12 = Heap + 452;
+      v13 = Heap + 448;
+      if ( v11 )
+      {
+        TppGetCurrentThreadNumaNode(v11, (_DWORD *)Heap + 112, (unsigned __int8 *)Heap + 452);
+      }
+      else
+      {
+        *v13 = 0;
+        *v12 = 0;
+      }
+      *((_QWORD *)Heap + 52) = 0LL;
+      *((_QWORD *)Heap + 54) = Heap + 424;
+      *((_QWORD *)Heap + 53) = Heap + 424;
+      *((_QWORD *)Heap + 48) = TppDirectTaskVFuncs;
+      *((_DWORD *)Heap + 98) = *v13;
+      Heap[396] = *v12;
+      *((_QWORD *)Heap + 10) = Callback;
+      *v7 = (PTP_WAIT)Heap;
     }
-    return (unsigned int)WaitCompletionPacket;
+    return WaitCompletionPacket;
   }
 }

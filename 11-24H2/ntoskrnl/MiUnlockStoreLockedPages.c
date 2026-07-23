@@ -1,31 +1,32 @@
 /*
- * XREFs of MiUnlockStoreLockedPages @ 0x14039D370
+ * XREFs of MiUnlockStoreLockedPages @ 0x1402FA670
  * Callers:
- *     MmStoreProbeAndLockPages @ 0x140284E70 (MmStoreProbeAndLockPages.c)
- *     SmKmUnlockMdl @ 0x14039C804 (SmKmUnlockMdl.c)
+ *     MmStoreProbeAndLockPages @ 0x1402E9990 (MmStoreProbeAndLockPages.c)
+ *     SmKmUnlockMdl @ 0x1402F9B04 (SmKmUnlockMdl.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14021B9A0 (MiReleasePageFileInfo.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiWriteCompletePfn @ 0x14039D574 (MiWriteCompletePfn.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiReleasePageFileInfo @ 0x1402486F0 (MiReleasePageFileInfo.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiWriteCompletePfn @ 0x1402FA874 (MiWriteCompletePfn.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiUnlockStoreLockedPages(__int64 a1)
 {
   _QWORD *v1; // rsi
-  int v2; // ebx
+  unsigned int v2; // ebx
   char v3; // r14
   unsigned __int64 v4; // r12
   unsigned __int8 CurrentIrql; // r15
-  ULONG_PTR v6; // rdi
+  __int64 v6; // rdi
   unsigned int v7; // ebp
   unsigned int v8; // eax
   unsigned __int64 v9; // rax
-  __int64 v10; // rcx
+  __int64 v10; // r9
+  __int64 v11; // rcx
   __int64 result; // rax
-  __int64 v12; // rcx
+  __int64 v13; // rcx
 
   v1 = (_QWORD *)(a1 + 48);
   v2 = 16;
@@ -65,12 +66,12 @@ __int64 __fastcall MiUnlockStoreLockedPages(__int64 a1)
     v2 |= 2u;
     if ( (*(_BYTE *)(v6 + 34) & 0x10) == 0 )
       v2 = v8;
-    v9 = MiWriteCompletePfn(v6);
+    v9 = MiWriteCompletePfn(v6, v2, 0LL);
     if ( v9 )
     {
-      v12 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
+      v13 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
       _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      MiReleasePageFileInfo(v12, v9, 1LL);
+      MiReleasePageFileInfo(v13, v9, 1LL, v10);
     }
     else
     {
@@ -82,10 +83,10 @@ __int64 __fastcall MiUnlockStoreLockedPages(__int64 a1)
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
       __writecr8(CurrentIrql);
-      v10 = KeGetCurrentIrql();
+      v11 = KeGetCurrentIrql();
       __writecr8(2uLL);
       if ( KiIrqlFlags )
-        KiRaiseIrqlProcessIrqlFlags(v10, 2LL);
+        KiRaiseIrqlProcessIrqlFlags(v11, 2LL);
     }
     ++v1;
   }

@@ -12,126 +12,140 @@
  *     memmove @ 0x1800A6940 (memmove.c)
  */
 
-void __fastcall LdrpQueryIllegalCWDDevices(__int64 a1)
+void __fastcall LdrpQueryIllegalCWDDevices(HANDLE KeyHandle)
 {
-  char *v1; // rdi
-  int ValueKey; // eax
-  int v3; // ebx
-  unsigned __int64 v4; // rsi
-  int v5; // ecx
+  _BYTE *v2; // rdi
+  NTSTATUS v3; // eax
+  NTSTATUS v4; // ebx
+  void *v5; // rsi
+  int v6; // ecx
+  ULONG Length; // ebx
   void *ProcessHeap; // rcx
-  __int64 Heap; // rax
-  int v8; // eax
-  unsigned int v9; // eax
-  int v10; // eax
-  unsigned int v11; // [rsp+30h] [rbp-D0h]
-  int v12[3]; // [rsp+34h] [rbp-CCh] BYREF
-  unsigned __int16 v13[4]; // [rsp+40h] [rbp-C0h] BYREF
-  _DWORD *v14; // [rsp+48h] [rbp-B8h]
-  char v15; // [rsp+50h] [rbp-B0h] BYREF
+  PVOID Heap; // rax
+  NTSTATUS v10; // eax
+  unsigned int v11; // eax
+  int v12; // eax
+  ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG Value[3]; // [rsp+34h] [rbp-CCh] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE KeyValueInformation[1024]; // [rsp+50h] [rbp-B0h] BYREF
 
-  if ( a1 && (int)RtlInitUnicodeStringEx((__int64)v13, (__int64)L"CWDIllegalInDLLSearch") >= 0 )
+  if ( KeyHandle && RtlInitUnicodeStringEx(&DestinationString, L"CWDIllegalInDLLSearch") >= 0 )
   {
-    v1 = &v15;
-    ValueKey = NtQueryValueKey();
-    v3 = ValueKey;
-    if ( ValueKey >= 0 )
+    v2 = KeyValueInformation;
+    v3 = NtQueryValueKey(
+           KeyHandle,
+           &DestinationString,
+           KeyValuePartialInformation,
+           KeyValueInformation,
+           0x400u,
+           &ResultLength);
+    v4 = v3;
+    if ( v3 >= 0 )
     {
-      v4 = 0LL;
+      v5 = 0LL;
 LABEL_5:
-      v5 = *((_DWORD *)v1 + 1);
-      if ( ((v5 - 3) & 0xFFFFFFFB) != 0 )
+      v6 = *((_DWORD *)v2 + 1);
+      if ( ((v6 - 3) & 0xFFFFFFFB) != 0 )
       {
-        switch ( v5 )
+        switch ( v6 )
         {
           case 4:
-            if ( *((_DWORD *)v1 + 2) == 4 )
-              v12[0] = *((_DWORD *)v1 + 3);
-            else
-              v3 = -1073741820;
-            break;
-          case 11:
-            v3 = -1073741788;
-            break;
-          case 1:
-            if ( ((unsigned __int8)v12 & 3) != 0 )
+            if ( *((_DWORD *)v2 + 2) == 4 )
             {
-              v3 = -2147483646;
+              ResultLength = 4;
+              Value[0] = *((_DWORD *)v2 + 3);
             }
             else
             {
-              v14 = v1 + 12;
-              v13[0] = *((_WORD *)v1 + 4);
-              v13[1] = *((_WORD *)v1 + 4);
-              v3 = RtlUnicodeStringToInteger(v13, 0, v12);
+              v4 = -1073741820;
+            }
+            break;
+          case 11:
+            v4 = -1073741788;
+            break;
+          case 1:
+            if ( ((unsigned __int8)Value & 3) != 0 )
+            {
+              v4 = -2147483646;
+            }
+            else
+            {
+              ResultLength = 4;
+              DestinationString.Buffer = (wchar_t *)(v2 + 12);
+              DestinationString.Length = *((_WORD *)v2 + 4);
+              DestinationString.MaximumLength = *((_WORD *)v2 + 4);
+              v4 = RtlUnicodeStringToInteger(&DestinationString, 0, Value);
             }
             break;
           default:
-            v3 = -1073741788;
+            v4 = -1073741788;
             break;
         }
       }
-      else if ( v5 == 4 )
+      else if ( v6 == 4 )
       {
-        v9 = *((_DWORD *)v1 + 2);
-        if ( v9 > 4 )
-          v3 = -2147483643;
+        ResultLength = *((_DWORD *)v2 + 2);
+        v11 = *((_DWORD *)v2 + 2);
+        if ( v11 > 4 )
+          v4 = -2147483643;
         else
-          memmove(v12, v1 + 12, v9);
+          memmove(Value, v2 + 12, v11);
       }
       else
       {
-        v3 = -1073741788;
+        v4 = -1073741788;
       }
 LABEL_28:
-      if ( v4 )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+      if ( v5 )
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
 LABEL_30:
-      if ( v3 >= 0 && (unsigned int)(v12[0] + 1) <= 3 )
+      if ( v4 >= 0 && Value[0] + 1 <= 3 )
         goto LABEL_33;
       goto LABEL_32;
     }
-    if ( ValueKey != -2147483643 )
+    if ( v3 != -2147483643 )
       goto LABEL_30;
     while ( 1 )
     {
+      Length = ResultLength;
       ProcessHeap = NtCurrentPeb()->ProcessHeap;
       if ( !ProcessHeap )
         break;
-      Heap = RtlAllocateHeap((__int64)ProcessHeap, NtdllBaseTag + 1572864, v11);
-      v4 = Heap;
+      Heap = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1572864, ResultLength);
+      v5 = Heap;
       if ( !Heap )
         break;
-      v1 = (char *)Heap;
-      v8 = NtQueryValueKey();
-      v3 = v8;
-      if ( v8 >= 0 )
+      v2 = Heap;
+      v10 = NtQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, Heap, Length, &ResultLength);
+      v4 = v10;
+      if ( v10 >= 0 )
         goto LABEL_5;
-      if ( v8 != -2147483643 )
+      if ( v10 != -2147483643 )
         goto LABEL_28;
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v1);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
     }
   }
 LABEL_32:
-  v12[0] = (MEMORY[0x7FFE02D5] >> 4) & 3;
-  if ( v12[0] == 3 )
+  Value[0] = (MEMORY[0x7FFE02D5] >> 4) & 3;
+  if ( Value[0] == 3 )
   {
 LABEL_39:
     LdrpIllegalCWDDevices = -1;
     return;
   }
 LABEL_33:
-  if ( v12[0] == -1 )
+  if ( Value[0] == -1 )
     goto LABEL_39;
-  if ( v12[0] == 1 )
+  if ( Value[0] == 1 )
   {
     LdrpIllegalCWDDevices = 0x2000;
   }
   else
   {
-    v10 = 16;
-    if ( v12[0] != 2 )
-      v10 = 0;
-    LdrpIllegalCWDDevices = v10;
+    v12 = 16;
+    if ( Value[0] != 2 )
+      v12 = 0;
+    LdrpIllegalCWDDevices = v12;
   }
 }

@@ -12,7 +12,7 @@
 char __fastcall WheapTrackPendingPage(struct _SINGLE_LIST_ENTRY *a1)
 {
   unsigned int v2; // edx
-  struct _SINGLE_LIST_ENTRY *Pool2; // rax
+  _SINGLE_LIST_ENTRY *Pool2; // rax
   _DWORD Src[8]; // [rsp+20h] [rbp-38h] BYREF
 
   v2 = *(_DWORD *)off_140E095F8 << 12;
@@ -32,7 +32,7 @@ char __fastcall WheapTrackPendingPage(struct _SINGLE_LIST_ENTRY *a1)
   }
   else
   {
-    Pool2 = (struct _SINGLE_LIST_ENTRY *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_SINGLE_LIST_ENTRY *)ExAllocatePool2(0x40uLL);
     if ( Pool2 )
     {
       _InterlockedIncrement(&dword_140EF7520);

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopErrorLogQueueRequest @ 0x140A49674
+ * XREFs of IopErrorLogQueueRequest @ 0x140A40394
  * Callers:
- *     IopErrorLogThread @ 0x140A48EE0 (IopErrorLogThread.c)
+ *     IopErrorLogThread @ 0x140A3FC00 (IopErrorLogThread.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140334000 (KeSetCoalescableTimer.c)
- *     KeInitializeTimer @ 0x140455420 (KeInitializeTimer.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeSetCoalescableTimer @ 0x1402BE6B0 (KeSetCoalescableTimer.c)
+ *     KeInitializeTimer @ 0x14044A0E0 (KeInitializeTimer.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 char IopErrorLogQueueRequest()
@@ -14,7 +14,7 @@ char IopErrorLogQueueRequest()
   struct _KDPC *Pool2; // rax
   struct _KDPC *Dpc; // rdi
 
-  Pool2 = (struct _KDPC *)ExAllocatePool2(0x40uLL);
+  Pool2 = (struct _KDPC *)ExAllocatePool2(0x40uLL, 0x80uLL, 0x4C456F49u);
   Dpc = Pool2;
   if ( Pool2 )
   {

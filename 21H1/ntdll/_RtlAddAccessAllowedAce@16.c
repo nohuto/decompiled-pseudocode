@@ -6,7 +6,7 @@
  *     _RtlpAddKnownAce@24 @ 0x4B2D363E (_RtlpAddKnownAce@24.c)
  */
 
-int __stdcall RtlAddAccessAllowedAce(int a1, int a2, int a3, void *Src)
+NTSTATUS __cdecl RtlAddAccessAllowedAce(PACL Acl, ULONG AceRevision, ACCESS_MASK AccessMask, PSID Sid)
 {
-  return RtlpAddKnownAce(0, a3, Src, 0);
+  return RtlpAddKnownAce(Acl, 0, AccessMask, Sid, 0);
 }

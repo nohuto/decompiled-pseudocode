@@ -10,13 +10,13 @@
  *     @RtlpPlaceActivationContextOnLiveList@4 @ 0x4B33DA1A (@RtlpPlaceActivationContextOnLiveList@4.c)
  */
 
-int __thiscall RtlpPlaceActivationContextOnLiveList(_DWORD *this)
+NTSTATUS __thiscall RtlpPlaceActivationContextOnLiveList(_DWORD *this)
 {
   _DWORD *v2; // eax
   int v3; // ecx
 
   RtlpEnsureLiveDeadListsInitialized();
-  RtlEnterCriticalSection((int)NtCurrentPeb()->FastPebLock);
+  RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
   v2 = this + 2;
   v3 = g_SxsLiveActivationContexts;
   if ( *(int **)(g_SxsLiveActivationContexts + 4) != &g_SxsLiveActivationContexts )
@@ -25,5 +25,5 @@ int __thiscall RtlpPlaceActivationContextOnLiveList(_DWORD *this)
   this[3] = &g_SxsLiveActivationContexts;
   *(_DWORD *)(v3 + 4) = v2;
   g_SxsLiveActivationContexts = (int)(this + 2);
-  return RtlLeaveCriticalSection((int)NtCurrentPeb()->FastPebLock);
+  return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
 }

@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 DbgQueryDebugFilterState()
+NTSTATUS __cdecl DbgQueryDebugFilterState(ULONG ComponentId, ULONG Level)
 {
-  return ZwQueryDebugFilterState();
+  return ZwQueryDebugFilterState(ComponentId, Level);
 }

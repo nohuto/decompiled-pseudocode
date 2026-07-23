@@ -7,19 +7,14 @@
  *     TppIopValidateIo @ 0x18000ABB0 (TppIopValidateIo.c)
  */
 
-__int64 __fastcall TpStartAsyncIoOperation(__int64 a1)
+void __cdecl TpStartAsyncIoOperation(PTP_IO Io)
 {
-  __int64 result; // rax
-
-  result = TppIopValidateIo(a1, 0LL, 1LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppIopValidateIo(Io, 0LL, 1LL) )
   {
-    TppBarrierAdjust((unsigned __int64 *)(a1 + 56), 1, 0);
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 272));
-    _InterlockedIncrement((volatile signed __int32 *)a1);
-    result = MEMORY[0x7FFE03C0];
-    if ( *(_DWORD *)(*(_QWORD *)(a1 + 136) + 424LL) != MEMORY[0x7FFE03C0] )
-      return TppAdjustRunningThreadGoal();
+    TppBarrierAdjust((_RTL_SRWLOCK *)Io + 7, 1, 0);
+    _InterlockedIncrement((volatile signed __int32 *)Io + 68);
+    _InterlockedIncrement((volatile signed __int32 *)Io);
+    if ( *(_DWORD *)(*((_QWORD *)Io + 17) + 424LL) != MEMORY[0x7FFE03C0] )
+      TppAdjustRunningThreadGoal();
   }
-  return result;
 }

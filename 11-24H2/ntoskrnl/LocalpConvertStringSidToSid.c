@@ -1,18 +1,18 @@
 /*
- * XREFs of LocalpConvertStringSidToSid @ 0x140862418
+ * XREFs of LocalpConvertStringSidToSid @ 0x140866A28
  * Callers:
- *     SeConvertStringSidToSid @ 0x1404BB0F0 (SeConvertStringSidToSid.c)
- *     LocalConvertStringSDToSD_Rev1 @ 0x140863ECC (LocalConvertStringSDToSD_Rev1.c)
- *     LocalGetAclForString @ 0x140865750 (LocalGetAclForString.c)
- *     LocalGetSidForString @ 0x140866AC4 (LocalGetSidForString.c)
+ *     SeConvertStringSidToSid @ 0x1404B5F90 (SeConvertStringSidToSid.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x1408684DC (LocalConvertStringSDToSD_Rev1.c)
+ *     LocalGetAclForString @ 0x140869D60 (LocalGetAclForString.c)
+ *     LocalGetSidForString @ 0x14086B0D4 (LocalGetSidForString.c)
  * Callees:
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     wcstoul @ 0x1405007D0 (wcstoul.c)
- *     wcstoxq @ 0x1405009A4 (wcstoxq.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SddlpAlloc @ 0x1408638C4 (SddlpAlloc.c)
- *     SddlpFree @ 0x140863910 (SddlpFree.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     wcstoul @ 0x1404FE090 (wcstoul.c)
+ *     wcstoxq @ 0x1404FE264 (wcstoxq.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SddlpAlloc @ 0x140867ED4 (SddlpAlloc.c)
+ *     SddlpFree @ 0x140867F20 (SddlpFree.c)
  */
 
 __int64 __fastcall LocalpConvertStringSidToSid(_WORD *a1, __int64 *a2, wchar_t **a3)

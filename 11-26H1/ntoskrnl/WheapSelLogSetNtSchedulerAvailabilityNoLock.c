@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapSelLogSetNtSchedulerAvailabilityNoLock @ 0x1406D4674
+ * XREFs of WheapSelLogSetNtSchedulerAvailabilityNoLock @ 0x1406D86F4
  * Callers:
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
- *     WheaSelLogSetNtSchedulerAvailability @ 0x1406D45B8 (WheaSelLogSetNtSchedulerAvailability.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
+ *     WheaSelLogSetNtSchedulerAvailability @ 0x1406D8638 (WheaSelLogSetNtSchedulerAvailability.c)
  * Callees:
- *     IpmiHwContextInitialized @ 0x140532728 (IpmiHwContextInitialized.c)
+ *     IpmiHwContextInitialized @ 0x140534BC8 (IpmiHwContextInitialized.c)
  */
 
 signed __int8 WheapSelLogSetNtSchedulerAvailabilityNoLock()

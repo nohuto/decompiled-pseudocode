@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpShutdownWorkers @ 0x1407D5AC0
+ * XREFs of CmpShutdownWorkers @ 0x1407D5FB0
  * Callers:
- *     CmShutdownSystem1 @ 0x1406679A8 (CmShutdownSystem1.c)
+ *     CmShutdownSystem1 @ 0x140666298 (CmShutdownSystem1.c)
  * Callees:
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
  */
 
 BOOLEAN CmpShutdownWorkers()

@@ -2,25 +2,25 @@
  * XREFs of TppCallbackSendAndDestroyAlpcMessage @ 0x18004F030
  * Callers:
  *     TppWorkerThread @ 0x18004D110 (TppWorkerThread.c)
- *     TpCallbackSendPendingAlpcMessage @ 0x1801122A0 (TpCallbackSendPendingAlpcMessage.c)
+ *     TpCallbackSendPendingAlpcMessage @ 0x180112260 (TpCallbackSendPendingAlpcMessage.c)
  * Callees:
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
- *     ZwAlpcSendWaitReceivePort @ 0x18009E7B0 (ZwAlpcSendWaitReceivePort.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x18009E770 (ZwAlpcSendWaitReceivePort.c)
  */
 
 __int64 __fastcall TppCallbackSendAndDestroyAlpcMessage(__int64 a1)
 {
-  unsigned int v2; // ebx
+  unsigned __int32 v2; // ebx
 
   v2 = ZwAlpcSendWaitReceivePort(
-         *(_QWORD *)(a1 + 216),
-         *(unsigned int *)(a1 + 224),
-         *(_QWORD *)(a1 + 208),
+         *(HANDLE *)(a1 + 216),
+         *(_DWORD *)(a1 + 224),
+         *(PPORT_MESSAGE *)(a1 + 208),
          0LL,
          0LL,
          0LL,
          0LL,
          0LL);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *(_QWORD *)(a1 + 208));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(a1 + 208));
   return v2;
 }

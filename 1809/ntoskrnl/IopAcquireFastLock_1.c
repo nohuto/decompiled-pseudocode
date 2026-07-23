@@ -1,11 +1,11 @@
 /*
- * XREFs of IopAcquireFastLock_1 @ 0x1400DDBB0
+ * XREFs of IopAcquireFastLock_1 @ 0x1400DDC30
  * Callers:
- *     IopQueryXxxInformation @ 0x140661720 (IopQueryXxxInformation.c)
- *     IopSetEaOrQuotaInformationFile @ 0x14081AC3C (IopSetEaOrQuotaInformationFile.c)
+ *     IopQueryXxxInformation @ 0x1406628E0 (IopQueryXxxInformation.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x14081BE3C (IopSetEaOrQuotaInformationFile.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
  */
 
 char __fastcall IopAcquireFastLock_1(volatile __int32 *a1)

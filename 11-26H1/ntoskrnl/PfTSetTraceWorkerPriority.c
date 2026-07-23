@@ -1,13 +1,13 @@
 /*
- * XREFs of PfTSetTraceWorkerPriority @ 0x1405FFF44
+ * XREFs of PfTSetTraceWorkerPriority @ 0x1406029F4
  * Callers:
- *     PfpLogScenarioEventCallback @ 0x1407C5760 (PfpLogScenarioEventCallback.c)
- *     PfSetSuperfetchInformation @ 0x140B5DB14 (PfSetSuperfetchInformation.c)
- *     PfpPowerActionSleepSystemPhaseCallback @ 0x140BF8770 (PfpPowerActionSleepSystemPhaseCallback.c)
+ *     PfpLogScenarioEventCallback @ 0x1407C87C0 (PfpLogScenarioEventCallback.c)
+ *     PfSetSuperfetchInformation @ 0x140B60C94 (PfSetSuperfetchInformation.c)
+ *     PfpPowerActionSleepSystemPhaseCallback @ 0x140BFE770 (PfpPowerActionSleepSystemPhaseCallback.c)
  * Callees:
- *     KeSetPriorityThread @ 0x140204540 (KeSetPriorityThread.c)
- *     PfpPartitionAccessTraceLockAcquire @ 0x140BE95B0 (PfpPartitionAccessTraceLockAcquire.c)
- *     PfpPartitionAccessTraceLockRelease @ 0x140BF90AC (PfpPartitionAccessTraceLockRelease.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     PfpPartitionAccessTraceLockAcquire @ 0x140BEF5B0 (PfpPartitionAccessTraceLockAcquire.c)
+ *     PfpPartitionAccessTraceLockRelease @ 0x140BFF0AC (PfpPartitionAccessTraceLockRelease.c)
  */
 
 __int64 __fastcall PfTSetTraceWorkerPriority(__int64 a1, unsigned int a2)

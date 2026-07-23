@@ -1,19 +1,19 @@
 /*
- * XREFs of MiUnlockPageTableCharges @ 0x1402E2B40
+ * XREFs of MiUnlockPageTableCharges @ 0x1402E2DD0
  * Callers:
- *     MiCopyOnWrite @ 0x14026FDA0 (MiCopyOnWrite.c)
- *     MiUnlockWsle @ 0x1402A2700 (MiUnlockWsle.c)
- *     NtLockVirtualMemory @ 0x1402A3120 (NtLockVirtualMemory.c)
- *     MiProbeUnlockPage @ 0x1402CB170 (MiProbeUnlockPage.c)
- *     MiDemoteCombinedPte @ 0x1402F37B4 (MiDemoteCombinedPte.c)
- *     MiUnlockPhysicalPageByVa @ 0x14061CDD0 (MiUnlockPhysicalPageByVa.c)
- *     MiUnlockPageTableRange @ 0x14064D1E0 (MiUnlockPageTableRange.c)
+ *     MiCopyOnWrite @ 0x140270030 (MiCopyOnWrite.c)
+ *     MiUnlockWsle @ 0x1402A2990 (MiUnlockWsle.c)
+ *     NtLockVirtualMemory @ 0x1402A33B0 (NtLockVirtualMemory.c)
+ *     MiProbeUnlockPage @ 0x1402CB400 (MiProbeUnlockPage.c)
+ *     MiDemoteCombinedPte @ 0x1402F3A44 (MiDemoteCombinedPte.c)
+ *     MiUnlockPhysicalPageByVa @ 0x14061D320 (MiUnlockPhysicalPageByVa.c)
+ *     MiUnlockPageTableRange @ 0x14064D730 (MiUnlockPageTableRange.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiPfnShareCountIsZero @ 0x1402818C0 (MiPfnShareCountIsZero.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiIsLowestPageTablePage @ 0x14034932C (MiIsLowestPageTablePage.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiPfnShareCountIsZero @ 0x140281B50 (MiPfnShareCountIsZero.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiIsLowestPageTablePage @ 0x1403495BC (MiIsLowestPageTablePage.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __fastcall MiUnlockPageTableCharges(ULONG_PTR BugCheckParameter2, int a2, __int64 a3, __int64 a4)

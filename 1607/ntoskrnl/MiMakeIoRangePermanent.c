@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMakeIoRangePermanent @ 0x1401E6A18
+ * XREFs of MiMakeIoRangePermanent @ 0x1401E6844
  * Callers:
- *     MiMakeIoRangePermanentDpc @ 0x1401E6C90 (MiMakeIoRangePermanentDpc.c)
+ *     MiMakeIoRangePermanentDpc @ 0x1401E6ABC (MiMakeIoRangePermanentDpc.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlAvlInsertNodeEx @ 0x1400273B0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x140028500 (RtlAvlRemoveNode.c)
- *     MiRemoveUnmappedIoNode @ 0x14009C7D8 (MiRemoveUnmappedIoNode.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlInsertNodeEx @ 0x140026F30 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x140028080 (RtlAvlRemoveNode.c)
+ *     MiRemoveUnmappedIoNode @ 0x14009BFD8 (MiRemoveUnmappedIoNode.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -47,19 +47,19 @@ __int64 __fastcall MiMakeIoRangePermanent(unsigned __int64 a1)
   v5 = 0LL;
   v28 = 0LL;
   v6 = 0;
-  KeAcquireInStackQueuedSpinLock(&qword_1403275C0, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140327600, &LockHandle);
   v7 = v2 - v1 + 1;
   if ( !v7 )
     goto LABEL_33;
   do
   {
-    for ( i = (_QWORD *)qword_1403275D0; ; i = (_QWORD *)i[1] )
+    for ( i = (_QWORD *)qword_140327610; ; i = (_QWORD *)i[1] )
     {
       while ( 1 )
       {
         if ( !i )
         {
-          v15 = MiRemoveUnmappedIoNode((unsigned __int64 *)&qword_1403275D8, v1);
+          v15 = MiRemoveUnmappedIoNode((unsigned __int64 *)&qword_140327618, v1);
           v16 = v15;
           if ( !v15 )
           {
@@ -133,7 +133,7 @@ LABEL_15:
     }
     if ( (unsigned __int16)*v13 >> 14 == v4 )
       goto LABEL_15;
-    ++dword_140327614;
+    ++dword_140327654;
     v6 = -1073741800;
     v7 = 0LL;
 LABEL_16:
@@ -146,9 +146,9 @@ LABEL_31:
   if ( v6 < 0 )
     goto LABEL_43;
 LABEL_33:
-  v22 = (_QWORD *)qword_140327620;
+  v22 = (_QWORD *)qword_140327660;
   v23 = 0;
-  if ( !qword_140327620 )
+  if ( !qword_140327660 )
     goto LABEL_42;
   while ( 2 )
   {
@@ -156,7 +156,7 @@ LABEL_33:
     {
       if ( *(_QWORD *)(v3 + 24) <= v22[4] )
       {
-        ++dword_140327618;
+        ++dword_140327658;
         v6 = -1073741800;
         goto LABEL_43;
       }
@@ -179,7 +179,7 @@ LABEL_39:
   }
   v23 = 0;
 LABEL_42:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140327620, (unsigned __int64)v22, v23, v3);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140327660, (unsigned __int64)v22, v23, v3);
 LABEL_43:
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   while ( v5 )

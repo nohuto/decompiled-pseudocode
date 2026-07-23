@@ -20,15 +20,11 @@ __int64 __fastcall sub_180020404(__int64 a1, unsigned __int64 a2, unsigned int a
   unsigned __int64 v7; // rdx
   unsigned int v8; // ebp
   __int64 v9; // r9
-  _DWORD *HotpatchInformation; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
   __int64 v11; // rcx
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  unsigned int v19; // [rsp+68h] [rbp+20h] BYREF
+  __int64 UserModeGlobalLogger; // rcx
+  __int64 v14; // r8
+  __int64 v15; // [rsp+68h] [rbp+20h] BYREF
 
   if ( (dword_180158684 & 1) != 0 )
   {
@@ -75,15 +71,15 @@ LABEL_20:
   {
     sub_18001F198(a1, v6, 0, a3);
     v8 = 1;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v14, v13, v15, v16) )
-      v17 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    if ( RtlGetCurrentServiceSessionId() )
+      UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     else
-      v17 = 2147353472LL;
-    if ( *(_BYTE *)v17 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      UserModeGlobalLogger = 2147353472LL;
+    if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
     {
-      v18 = 3LL;
+      v14 = 3LL;
 LABEL_34:
-      sub_1800FFB4C(a1, a2, v18, v9);
+      sub_1800FFB4C(a1, a2, v14, v9);
     }
   }
   else
@@ -94,18 +90,18 @@ LABEL_34:
     }
     else
     {
-      v8 = sub_180029840((int)a1 + 176, v7, a2, a3, (__int64)&v19);
-      if ( v8 && v19 <= 0x3FF0 )
-        sub_180009838(a1 + 288, v19, 0);
+      v8 = sub_180029840((PRTL_SRWLOCK)(a1 + 176), (__int64)&v15);
+      if ( v8 && (unsigned int)v15 <= 0x3FF0 )
+        sub_180009838(a1 + 288, v15, 0);
     }
-    HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-    if ( HotpatchInformation && *HotpatchInformation )
-      v11 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    SharedData = NtCurrentPeb()->SharedData;
+    if ( SharedData && SharedData->ServiceSessionId )
+      v11 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     else
       v11 = 2147353472LL;
     if ( *(_BYTE *)v11 && (NtCurrentPeb()->TracingFlags & 1) != 0 && v8 )
     {
-      v18 = ((*(_BYTE *)(v6 + 24) & 1) == 0) | 2u;
+      v14 = ((*(_BYTE *)(v6 + 24) & 1) == 0) | 2u;
       goto LABEL_34;
     }
   }

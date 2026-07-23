@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrLogNewDataDllLoad @ 0x18002D38C
+ * XREFs of LdrLogNewDataDllLoad @ 0x18002D37C
  * Callers:
- *     LdrAddLoadAsDataTable @ 0x18002D160 (LdrAddLoadAsDataTable.c)
+ *     LdrAddLoadAsDataTable @ 0x18002D150 (LdrAddLoadAsDataTable.c)
  * Callees:
- *     LdrpLogNewDllLoadInternal @ 0x1800D18F0 (LdrpLogNewDllLoadInternal.c)
+ *     LdrpLogNewDllLoadInternal @ 0x1800D19B0 (LdrpLogNewDllLoadInternal.c)
  */
 
 char __fastcall LdrLogNewDataDllLoad(__int64 a1, __int64 a2)

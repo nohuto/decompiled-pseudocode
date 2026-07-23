@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpSearchKeyControlBlockTreeEx @ 0x140A17744
+ * XREFs of CmpSearchKeyControlBlockTreeEx @ 0x140A179F4
  * Callers:
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
- *     CmpRefreshHive @ 0x140A0C890 (CmpRefreshHive.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140A18238 (CmKeyBodyReplicateToVirtual.c)
- *     CmpCommitDiscardReplacePost @ 0x140A1F900 (CmpCommitDiscardReplacePost.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x140A284D8 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
+ *     CmpRefreshHive @ 0x140A0CB40 (CmpRefreshHive.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140A184E8 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpCommitDiscardReplacePost @ 0x140A1FBB0 (CmpCommitDiscardReplacePost.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x140A28788 (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     CmpFreeKeyControlBlock @ 0x140699D40 (CmpFreeKeyControlBlock.c)
- *     CmpLockKcbExclusive @ 0x1406D8468 (CmpLockKcbExclusive.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1406D8510 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpRemoveFromDelayedClose @ 0x14076BDB8 (CmpRemoveFromDelayedClose.c)
- *     CmpLockHashEntryByIndexExclusive @ 0x140A1F4D0 (CmpLockHashEntryByIndexExclusive.c)
- *     CmpUnlockHashEntryByIndex @ 0x140A1F57C (CmpUnlockHashEntryByIndex.c)
+ *     CmpLockKcbExclusive @ 0x1406D8498 (CmpLockKcbExclusive.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1406D8540 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpRemoveFromDelayedClose @ 0x14076BFA8 (CmpRemoveFromDelayedClose.c)
+ *     CmpLockHashEntryByIndexExclusive @ 0x140A1F780 (CmpLockHashEntryByIndexExclusive.c)
+ *     CmpUnlockHashEntryByIndex @ 0x140A1F82C (CmpUnlockHashEntryByIndex.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)
  *     CmpUnlockKcb @ 0x140AF55A0 (CmpUnlockKcb.c)

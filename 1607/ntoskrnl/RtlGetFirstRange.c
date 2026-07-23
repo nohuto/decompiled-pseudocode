@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGetFirstRange @ 0x14055A164
+ * XREFs of RtlGetFirstRange @ 0x14055A6A4
  * Callers:
- *     ArbOverrideConflict @ 0x140558184 (ArbOverrideConflict.c)
- *     ArbShareDriverExclusive @ 0x1405582D0 (ArbShareDriverExclusive.c)
- *     RtlIsRangeAvailable @ 0x140559F38 (RtlIsRangeAvailable.c)
+ *     ArbOverrideConflict @ 0x1405586C4 (ArbOverrideConflict.c)
+ *     ArbShareDriverExclusive @ 0x140558810 (ArbShareDriverExclusive.c)
+ *     RtlIsRangeAvailable @ 0x14055A478 (RtlIsRangeAvailable.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ NTSTATUS __stdcall RtlGetFirstRange(PRTL_RANGE_LIST RangeList, PRTL_RANGE_LIST_I
 {
   NTSTATUS v3; // r9d
   struct _LIST_ENTRY *Flink; // rax
-  struct _LIST_ENTRY *v5; // rcx
+  _LIST_ENTRY *v5; // rcx
 
   Iterator->RangeListHead = &RangeList->ListHead;
   v3 = 0;

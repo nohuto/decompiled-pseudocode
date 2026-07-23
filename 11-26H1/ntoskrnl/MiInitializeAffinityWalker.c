@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeAffinityWalker @ 0x1407116EC
+ * XREFs of MiInitializeAffinityWalker @ 0x1407163EC
  * Callers:
- *     MiAllocatePageChainHeader @ 0x140517510 (MiAllocatePageChainHeader.c)
+ *     MiAllocatePageChainHeader @ 0x140510F80 (MiAllocatePageChainHeader.c)
  * Callees:
- *     MiInitializeGroupAffinity @ 0x1404EEDE0 (MiInitializeGroupAffinity.c)
- *     MiEnforcePartitionAffinity @ 0x140507B78 (MiEnforcePartitionAffinity.c)
+ *     MiInitializeGroupAffinity @ 0x1404E83C0 (MiInitializeGroupAffinity.c)
+ *     MiEnforcePartitionAffinity @ 0x140501548 (MiEnforcePartitionAffinity.c)
  */
 
 __int64 __fastcall MiInitializeAffinityWalker(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
@@ -20,10 +20,10 @@ __int64 __fastcall MiInitializeAffinityWalker(__int64 a1, __int64 a2, unsigned i
   unsigned int v15; // eax
   __int64 v16; // rdx
 
-  v4 = &qword_140E2D698;
+  v4 = &qword_140E2D818;
   v5 = (unsigned int *)(a2 + 280);
   v9 = (int *)(a2 + 280);
-  v10 = *(_QWORD *)(384LL * a4 + qword_140E2D6B8 + 376);
+  v10 = *(_QWORD *)(384LL * a4 + qword_140E2D838 + 376);
   v11 = (*(_DWORD *)(v10 + 36) & 1) == 0;
   *(_BYTE *)(a2 + 8) = *(_BYTE *)(v10 + 36) & 1;
   if ( v11 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEtAppIdIntern @ 0x14069819C
+ * XREFs of PopEtAppIdIntern @ 0x1405F6E94
  * Callers:
- *     PopEtGetProcessAppId @ 0x140698028 (PopEtGetProcessAppId.c)
+ *     PopEtGetProcessAppId @ 0x1405F6D20 (PopEtGetProcessAppId.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlInternTableIntern @ 0x1406982C0 (RtlInternTableIntern.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlInternTableIntern @ 0x1405F6FB8 (RtlInternTableIntern.c)
  */
 
 __int64 __fastcall PopEtAppIdIntern(__int64 a1, __int64 *a2)

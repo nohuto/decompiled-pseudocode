@@ -8,23 +8,23 @@
  *     _RtlpHashStringToAtom@28 @ 0x4B2E032F (_RtlpHashStringToAtom@28.c)
  */
 
-int __fastcall RtlpFreeAllAtom(_DWORD *a1, int a2)
+signed int __fastcall RtlpFreeAllAtom(void *a1, int a2)
 {
-  int result; // eax
-  _DWORD *v4; // esi
+  signed int result; // eax
+  PVOID v4; // esi
   _BYTE v5[4]; // [esp+4h] [ebp-Ch] BYREF
   _DWORD *v6; // [esp+8h] [ebp-8h] BYREF
-  _DWORD *v7; // [esp+Ch] [ebp-4h] BYREF
+  PVOID BaseAddress; // [esp+Ch] [ebp-4h] BYREF
 
-  v7 = a1;
-  result = RtlpHashStringToAtom(a1, &v6, 0, v5, &v7);
+  BaseAddress = a1;
+  result = RtlpHashStringToAtom(a1, &v6, 0, v5, &BaseAddress);
   if ( result >= 0 )
   {
-    v4 = v7;
-    if ( v7 )
+    v4 = BaseAddress;
+    if ( BaseAddress )
     {
       if ( v6 )
-        *v6 = *v7;
+        *v6 = *(_DWORD *)BaseAddress;
       RtlpFreeHandleForAtom(a2, v4);
       return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
     }

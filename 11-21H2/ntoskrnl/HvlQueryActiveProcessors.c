@@ -1,7 +1,7 @@
 /*
  * XREFs of HvlQueryActiveProcessors @ 0x140543A70
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     sub_14073B5A0 @ 0x14073B5A0 (sub_14073B5A0.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ __int64 __fastcall HvlQueryActiveProcessors(unsigned int *a1, int *a2)
   __int64 v9; // rdx
   int v10; // eax
 
-  if ( (HvlpFlags & 2) == 0 )
+  if ( (dword_140D0688C & 2) == 0 )
     return 3221225506LL;
   v5 = 0;
   if ( !a1 )
@@ -25,8 +25,8 @@ __int64 __fastcall HvlQueryActiveProcessors(unsigned int *a1, int *a2)
   {
     v6 = *a1;
     v7 = v6;
-    if ( HvlpActiveProcessorCount < v6 )
-      v7 = HvlpActiveProcessorCount;
+    if ( dword_140D06A3C < v6 )
+      v7 = dword_140D06A3C;
     if ( v7 )
     {
       v8 = dword_140D125E4;
@@ -41,9 +41,9 @@ __int64 __fastcall HvlQueryActiveProcessors(unsigned int *a1, int *a2)
       while ( v9 );
       v6 = *a1;
     }
-    v5 = v6 < HvlpActiveProcessorCount ? 0xC0000023 : 0;
+    v5 = v6 < dword_140D06A3C ? 0xC0000023 : 0;
   }
   result = v5;
-  *a1 = HvlpActiveProcessorCount;
+  *a1 = dword_140D06A3C;
   return result;
 }

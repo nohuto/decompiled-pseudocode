@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDmInitializeComparisonObject @ 0x1408B52E0
+ * XREFs of PiDmInitializeComparisonObject @ 0x1408B2BD0
  * Callers:
- *     PiDmAddCacheReferenceForObject @ 0x1408B4924 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1408B2214 (PiDmAddCacheReferenceForObject.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
  */
 
 __int64 __fastcall PiDmInitializeComparisonObject(_WORD *a1, int a2, __int64 a3)

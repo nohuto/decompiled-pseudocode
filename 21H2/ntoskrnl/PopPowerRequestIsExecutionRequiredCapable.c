@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerRequestIsExecutionRequiredCapable @ 0x14067B184
+ * XREFs of PopPowerRequestIsExecutionRequiredCapable @ 0x14066E8C4
  * Callers:
- *     PopPowerRequestCleanUp @ 0x14028278C (PopPowerRequestCleanUp.c)
- *     PopHandleConvergedPowerRequestUpdate @ 0x140679D14 (PopHandleConvergedPowerRequestUpdate.c)
- *     PopEnableExecutionRequiredPowerRequests @ 0x1407D4228 (PopEnableExecutionRequiredPowerRequests.c)
+ *     PopPowerRequestCleanUp @ 0x140270A38 (PopPowerRequestCleanUp.c)
+ *     PopHandleConvergedPowerRequestUpdate @ 0x14066D454 (PopHandleConvergedPowerRequestUpdate.c)
+ *     PopEnableExecutionRequiredPowerRequests @ 0x1407D4398 (PopEnableExecutionRequiredPowerRequests.c)
  * Callees:
  *     <none>
  */

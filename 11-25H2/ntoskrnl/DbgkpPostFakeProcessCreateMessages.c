@@ -23,7 +23,7 @@ __int64 __fastcall DbgkpPostFakeProcessCreateMessages(_KPROCESS *BugCheckParamet
   Object = 0LL;
   memset(v10, 0, sizeof(v10));
   v9 = 0LL;
-  result = DbgkpPostFakeThreadMessages(BugCheckParameter1, a2, 0LL, &Object, &v9);
+  result = DbgkpPostFakeThreadMessages((__int64)BugCheckParameter1, a2, 0LL, &Object, &v9);
   if ( (int)result >= 0 )
   {
     KiStackAttachProcess(BugCheckParameter1, 0, (__int64)v10);

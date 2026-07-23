@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlStringCchCopyNW @ 0x140084FB0
+ * XREFs of RtlStringCchCopyNW @ 0x14010B264
  * Callers:
- *     PiDevCfgParsePropertyKeyName @ 0x1401CEED8 (PiDevCfgParsePropertyKeyName.c)
- *     AslPathSplit @ 0x140486A70 (AslPathSplit.c)
- *     PiUEventHandleVetoEvent @ 0x14052916C (PiUEventHandleVetoEvent.c)
- *     WmipBuildInstanceSet @ 0x140537360 (WmipBuildInstanceSet.c)
- *     IopErrorLogThread @ 0x1405426F4 (IopErrorLogThread.c)
- *     IopLogBlockedDriverEvent @ 0x14062200C (IopLogBlockedDriverEvent.c)
- *     SdbQueryDataExTagID @ 0x1406C19DC (SdbQueryDataExTagID.c)
+ *     PiDevCfgParsePropertyKeyName @ 0x1401CEC6C (PiDevCfgParsePropertyKeyName.c)
+ *     AslPathSplit @ 0x140513880 (AslPathSplit.c)
+ *     PiUEventHandleVetoEvent @ 0x1405296AC (PiUEventHandleVetoEvent.c)
+ *     WmipBuildInstanceSet @ 0x1405378A0 (WmipBuildInstanceSet.c)
+ *     IopErrorLogThread @ 0x140542C34 (IopErrorLogThread.c)
+ *     IopLogBlockedDriverEvent @ 0x1406220C0 (IopLogBlockedDriverEvent.c)
+ *     SdbQueryDataExTagID @ 0x1406C1B14 (SdbQueryDataExTagID.c)
  * Callees:
- *     RtlStringCopyWorkerW @ 0x140085004 (RtlStringCopyWorkerW.c)
+ *     RtlStringCopyWorkerW_3 @ 0x14010B2B8 (RtlStringCopyWorkerW_3.c)
  */
 
 NTSTATUS __stdcall RtlStringCchCopyNW(
@@ -36,5 +36,5 @@ LABEL_9:
     v4 = -1073741811;
     goto LABEL_9;
   }
-  return RtlStringCopyWorkerW(pszDest, cchDest, (size_t *)pszSrc, pszSrc, cchToCopy);
+  return RtlStringCopyWorkerW_3(pszDest, cchDest, (size_t *)pszSrc, pszSrc, cchToCopy);
 }

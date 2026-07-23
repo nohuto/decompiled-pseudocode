@@ -9,7 +9,7 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-void __fastcall RtlDispatchAPC(void (__fastcall *a1)(__int64), __int64 a2, volatile signed __int32 *a3)
+void __fastcall RtlDispatchAPC(void (__fastcall *a1)(__int64), __int64 a2, _ACTIVATION_CONTEXT *a3)
 {
   _QWORD v6[2]; // [rsp+20h] [rbp-58h] BYREF
   __int128 v7; // [rsp+30h] [rbp-48h]
@@ -23,7 +23,7 @@ void __fastcall RtlDispatchAPC(void (__fastcall *a1)(__int64), __int64 a2, volat
   v8 = 0LL;
   v9 = 0LL;
   v10 = 0LL;
-  if ( a3 == (volatile signed __int32 *)-1LL )
+  if ( a3 == (_ACTIVATION_CONTEXT *)-1LL )
   {
     a1(a2);
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IopPowerDispatch @ 0x14012445C
+ * XREFs of IopPowerDispatch @ 0x1401249CC
  * Callers:
  *     <none>
  * Callees:
- *     PoSetPowerState @ 0x14012E124 (PoSetPowerState.c)
+ *     PoSetPowerState @ 0x14012E694 (PoSetPowerState.c)
  */
 
 __int64 __fastcall IopPowerDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)

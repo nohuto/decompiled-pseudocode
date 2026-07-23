@@ -1,42 +1,42 @@
 /*
- * XREFs of LdrpIsCurrentPatchLatest @ 0x18015EA6C
+ * XREFs of LdrpIsCurrentPatchLatest @ 0x18015CE2C
  * Callers:
- *     LdrHotPatchNotify @ 0x18015E690 (LdrHotPatchNotify.c)
+ *     LdrHotPatchNotify @ 0x18015CA50 (LdrHotPatchNotify.c)
  * Callees:
- *     LdrpFindLoadedDllByHandle @ 0x18000F8E0 (LdrpFindLoadedDllByHandle.c)
- *     LdrpDereferenceModule @ 0x18001B350 (LdrpDereferenceModule.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwMapViewOfSection @ 0x180162190 (ZwMapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x1801621D0 (NtUnmapViewOfSection.c)
- *     ZwAreMappedFilesTheSame @ 0x180162E80 (ZwAreMappedFilesTheSame.c)
- *     ZwManageHotPatch @ 0x180163FC0 (ZwManageHotPatch.c)
+ *     LdrpFindLoadedDllByHandle @ 0x18003C2E0 (LdrpFindLoadedDllByHandle.c)
+ *     LdrpDereferenceModule @ 0x180047D50 (LdrpDereferenceModule.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwMapViewOfSection @ 0x180160550 (ZwMapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x180160590 (NtUnmapViewOfSection.c)
+ *     ZwAreMappedFilesTheSame @ 0x180161240 (ZwAreMappedFilesTheSame.c)
+ *     ZwManageHotPatch @ 0x180162380 (ZwManageHotPatch.c)
  */
 
-__int64 __fastcall LdrpIsCurrentPatchLatest(unsigned __int64 a1, bool *a2)
+__int64 __fastcall LdrpIsCurrentPatchLatest(void *a1, bool *a2)
 {
   int LoadedDllByHandle; // eax
-  __int64 v5; // rdi
-  int v6; // ebx
+  PVOID *v5; // rdi
+  NTSTATUS v6; // ebx
   bool v7; // si
   int v8; // eax
-  int v10; // eax
+  NTSTATUS v10; // eax
   __int64 v11; // [rsp+50h] [rbp-9h] BYREF
-  __int64 v12; // [rsp+58h] [rbp-1h] BYREF
+  ULONG_PTR ViewSize; // [rsp+58h] [rbp-1h] BYREF
   __int128 v13; // [rsp+60h] [rbp+7h] BYREF
   __int128 v14; // [rsp+70h] [rbp+17h]
   HANDLE Handle; // [rsp+80h] [rbp+27h]
-  __int64 v16; // [rsp+D0h] [rbp+77h] BYREF
-  __int64 v17; // [rsp+D8h] [rbp+7Fh] BYREF
+  PVOID BaseAddress; // [rsp+D0h] [rbp+77h] BYREF
+  PVOID v17; // [rsp+D8h] [rbp+7Fh] BYREF
 
   v11 = 0LL;
   v17 = 0LL;
   Handle = 0LL;
-  v16 = 0LL;
+  BaseAddress = 0LL;
   v13 = 0LL;
-  v12 = 0LL;
+  ViewSize = 0LL;
   v14 = 0LL;
-  LoadedDllByHandle = LdrpFindLoadedDllByHandle(a1, &v17, 0LL);
-  v5 = v17;
+  LoadedDllByHandle = LdrpFindLoadedDllByHandle(a1, (__int64 *)&v17, 0LL);
+  v5 = (PVOID *)v17;
   v6 = LoadedDllByHandle;
   if ( LoadedDllByHandle < 0 )
     goto LABEL_9;
@@ -49,12 +49,22 @@ __int64 __fastcall LdrpIsCurrentPatchLatest(unsigned __int64 a1, bool *a2)
   v6 = v8;
   if ( v8 >= 0 )
   {
-    if ( *(_QWORD *)(v5 + 296) )
+    if ( v5[37] )
     {
-      v6 = ZwMapViewOfSection(Handle, -1LL, &v16, 0LL, 0LL, 0LL, &v12, 2, 0, 16);
+      v6 = ZwMapViewOfSection(
+             Handle,
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             &BaseAddress,
+             0LL,
+             0LL,
+             0LL,
+             &ViewSize,
+             ViewUnmap,
+             0,
+             0x10u);
       if ( v6 < 0 )
         goto LABEL_9;
-      v10 = ZwAreMappedFilesTheSame(*(_QWORD *)(v5 + 296), v16);
+      v10 = ZwAreMappedFilesTheSame(v5[37], BaseAddress);
       v6 = v10;
       if ( v10 < 0 )
       {
@@ -76,16 +86,16 @@ LABEL_8:
   if ( v8 != -1073740588 )
     goto LABEL_9;
   v6 = 0;
-  v7 = *(_QWORD *)(v5 + 296) == 0LL;
+  v7 = v5[37] == 0LL;
 LABEL_20:
   if ( v6 >= 0 )
     goto LABEL_8;
 LABEL_9:
   if ( Handle )
     NtClose(Handle);
-  if ( v16 )
-    NtUnmapViewOfSection(-1LL);
+  if ( BaseAddress )
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
   if ( v5 )
-    LdrpDereferenceModule(v5);
+    LdrpDereferenceModule((char *)v5);
   return (unsigned int)v6;
 }

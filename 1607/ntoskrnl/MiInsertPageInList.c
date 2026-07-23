@@ -1,42 +1,42 @@
 /*
- * XREFs of MiInsertPageInList @ 0x1400695D0
+ * XREFs of MiInsertPageInList @ 0x140069150
  * Callers:
- *     MiZeroCfgSystemWideBitmapWorker @ 0x14001DF00 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiReservePageFileSpaceForPage @ 0x14001E990 (MiReservePageFileSpaceForPage.c)
- *     MiGatherMappedPages @ 0x1400201F0 (MiGatherMappedPages.c)
- *     MiPfnReferenceCountIsZero @ 0x14002448C (MiPfnReferenceCountIsZero.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     MiWriteCompletePfn @ 0x14004E5A0 (MiWriteCompletePfn.c)
- *     MiPfnShareCountIsZero @ 0x1400666E0 (MiPfnShareCountIsZero.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
- *     MiInsertAndUnlockStandbyPages @ 0x14006FEF0 (MiInsertAndUnlockStandbyPages.c)
- *     MiCreateDecayPfn @ 0x1400976F0 (MiCreateDecayPfn.c)
- *     MiOutSwapWorkingSetCallback @ 0x1400B9DD0 (MiOutSwapWorkingSetCallback.c)
- *     MiActOnPte @ 0x1400BBC88 (MiActOnPte.c)
- *     MiRelinkStandbyPage @ 0x1400BE514 (MiRelinkStandbyPage.c)
- *     MiBuildReservationCluster @ 0x14011603C (MiBuildReservationCluster.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x1401E2344 (MmMarkPhysicalMemoryAsBad.c)
- *     MmEnableModifiedWriteOfSection @ 0x1401E5C5C (MmEnableModifiedWriteOfSection.c)
- *     MiFreeModifiedReservations @ 0x1401EE838 (MiFreeModifiedReservations.c)
- *     MiTransferPartitionPageRun @ 0x1401F2058 (MiTransferPartitionPageRun.c)
- *     MiHandleForkTransitionPte @ 0x1401F71F0 (MiHandleForkTransitionPte.c)
- *     MiMakePageBad @ 0x1401FE1A0 (MiMakePageBad.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x14001DA80 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiReservePageFileSpaceForPage @ 0x14001E510 (MiReservePageFileSpaceForPage.c)
+ *     MiGatherMappedPages @ 0x14001FD70 (MiGatherMappedPages.c)
+ *     MiPfnReferenceCountIsZero @ 0x14002400C (MiPfnReferenceCountIsZero.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     MiWriteCompletePfn @ 0x14004E120 (MiWriteCompletePfn.c)
+ *     MiPfnShareCountIsZero @ 0x140066260 (MiPfnShareCountIsZero.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
+ *     MiInsertAndUnlockStandbyPages @ 0x14006FA70 (MiInsertAndUnlockStandbyPages.c)
+ *     MiCreateDecayPfn @ 0x140096EF0 (MiCreateDecayPfn.c)
+ *     MiOutSwapWorkingSetCallback @ 0x1400B7C60 (MiOutSwapWorkingSetCallback.c)
+ *     MiActOnPte @ 0x1400B9B18 (MiActOnPte.c)
+ *     MiRelinkStandbyPage @ 0x1400BC3A4 (MiRelinkStandbyPage.c)
+ *     MiBuildReservationCluster @ 0x1401165AC (MiBuildReservationCluster.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1401E2170 (MmMarkPhysicalMemoryAsBad.c)
+ *     MmEnableModifiedWriteOfSection @ 0x1401E5A88 (MmEnableModifiedWriteOfSection.c)
+ *     MiFreeModifiedReservations @ 0x1401EE664 (MiFreeModifiedReservations.c)
+ *     MiTransferPartitionPageRun @ 0x1401F1E84 (MiTransferPartitionPageRun.c)
+ *     MiHandleForkTransitionPte @ 0x1401F701C (MiHandleForkTransitionPte.c)
+ *     MiMakePageBad @ 0x1401FDFCC (MiMakePageBad.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     MiRestoreTransitionPte @ 0x14001D1F0 (MiRestoreTransitionPte.c)
- *     MiClearPfnImageVerified @ 0x14001DCB8 (MiClearPfnImageVerified.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
- *     MiInsertDecayClusterTimer @ 0x1400999F0 (MiInsertDecayClusterTimer.c)
- *     MiWakeModifiedPageWriter @ 0x140113248 (MiWakeModifiedPageWriter.c)
- *     MiUpdateAvailableEvents @ 0x14013C7F8 (MiUpdateAvailableEvents.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     MiRestoreTransitionPte @ 0x14001CD70 (MiRestoreTransitionPte.c)
+ *     MiClearPfnImageVerified @ 0x14001D838 (MiClearPfnImageVerified.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
+ *     MiInsertDecayClusterTimer @ 0x1400991F0 (MiInsertDecayClusterTimer.c)
+ *     MiWakeModifiedPageWriter @ 0x1401137B8 (MiWakeModifiedPageWriter.c)
+ *     MiUpdateAvailableEvents @ 0x14013CD68 (MiUpdateAvailableEvents.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
  */
 
 void __fastcall MiInsertPageInList(__int64 a1, unsigned int a2)
@@ -91,7 +91,7 @@ void __fastcall MiInsertPageInList(__int64 a1, unsigned int a2)
   if ( v4 == 1023 )
     v5 = MiSystemPartition;
   else
-    v5 = *(int **)(qword_140326FF8 + 8LL * v4);
+    v5 = *(int **)(qword_140327038 + 8LL * v4);
   if ( (a2 & 4) != 0 )
   {
     v6 = v5 + 480;
@@ -163,7 +163,7 @@ LABEL_39:
           break;
         }
         if ( (v9 & 0x200000000000000LL) != 0 )
-          _InterlockedIncrement64(&qword_140327340);
+          _InterlockedIncrement64(&qword_140327380);
         else
           _InterlockedIncrement64((volatile signed __int64 *)v5 + 560);
         v11 = 1;
@@ -197,21 +197,21 @@ LABEL_35:
         goto LABEL_39;
       }
       if ( (v9 & 0x200000000000000LL) != 0 )
-        _InterlockedIncrement64(&qword_140327340);
+        _InterlockedIncrement64(&qword_140327380);
       else
         _InterlockedIncrement64((volatile signed __int64 *)v5 + 560);
       *(_BYTE *)(a1 + 34) = *(_BYTE *)(a1 + 34) & 0xF8 | 2;
       return;
     case 3:
       if ( (*(_QWORD *)(a1 + 40) & 0x200000000000000LL) != 0 )
-        _InterlockedIncrement64(&qword_140327340);
+        _InterlockedIncrement64(&qword_140327380);
       else
         _InterlockedIncrement64((volatile signed __int64 *)v5 + 560);
       goto LABEL_54;
     case 4:
       v43 = *(_QWORD *)MiGetPrototypePteDirect(*(_QWORD *)(a1 + 16));
       if ( (*(_QWORD *)(a1 + 40) & 0x200000000000000LL) != 0 )
-        _InterlockedIncrement64(&qword_140327340);
+        _InterlockedIncrement64(&qword_140327380);
       else
         _InterlockedIncrement64((volatile signed __int64 *)v5 + 560);
       KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)v6 + 4, &v39);
@@ -318,7 +318,7 @@ LABEL_54:
     if ( v28 == 1023 )
       v29 = MiSystemPartition;
     else
-      v29 = *(int **)(qword_140326FF8 + 8LL * v28);
+      v29 = *(int **)(qword_140327038 + 8LL * v28);
     v30 = (_QWORD *)(*((_QWORD *)v29 + 6)
                    + 24
                    * ((*(_BYTE *)(a1 + 35) & 7)

@@ -12,24 +12,24 @@
  *     sub_180052A74 @ 0x180052A74 (sub_180052A74.c)
  */
 
-__int64 __fastcall sub_1800528A4(unsigned __int64 a1)
+LOGICAL __fastcall sub_1800528A4(PRTL_BALANCED_NODE Node)
 {
-  __int64 result; // rax
-  unsigned __int64 v3; // r8
+  LOGICAL result; // eax
+  _RTL_BALANCED_NODE *v3; // r8
 
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 52), 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd((volatile signed __int32 *)&Node[2].Left + 1, 0xFFFFFFFF);
+  if ( result == 1 )
   {
-    sub_180052A74(a1);
-    RtlAcquireSRWLockExclusive(&qword_18015C348);
-    RtlRbRemoveNode((__int64)&qword_18015C328, (unsigned __int64 *)a1);
-    RtlReleaseSRWLockExclusive(&qword_18015C348);
-    *(_DWORD *)(a1 + 48) = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 40));
-    v3 = *(_QWORD *)(a1 + 168);
+    sub_180052A74(Node);
+    RtlAcquireSRWLockExclusive(&stru_18015C348);
+    RtlRbRemoveNode(&stru_18015C328, Node);
+    RtlReleaseSRWLockExclusive(&stru_18015C348);
+    LODWORD(Node[2].Children[0]) = 0;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)&Node[1].16);
+    v3 = Node[7].Children[0];
     if ( v3 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3);
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Node);
   }
   return result;
 }

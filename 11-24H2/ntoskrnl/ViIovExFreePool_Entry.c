@@ -1,9 +1,9 @@
 /*
- * XREFs of ViIovExFreePool_Entry @ 0x1406A4030
+ * XREFs of ViIovExFreePool_Entry @ 0x1406A5030
  * Callers:
  *     <none>
  * Callees:
- *     VfPoolCheckIncorrectFreeApi @ 0x140B9A3D8 (VfPoolCheckIncorrectFreeApi.c)
+ *     VfPoolCheckIncorrectFreeApi @ 0x140B9C3D8 (VfPoolCheckIncorrectFreeApi.c)
  */
 
 __int64 __fastcall ViIovExFreePool_Entry(__int64 a1)

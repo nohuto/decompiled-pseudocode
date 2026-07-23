@@ -7,30 +7,30 @@
  *     RtlpInterlockedPushEntrySList @ 0x14018B480 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall HvlpStartVirtualProcessor(int a1, struct _SLIST_ENTRY *a2)
+__int64 __fastcall HvlpStartVirtualProcessor(int a1, _SLIST_ENTRY *a2)
 {
   char v4; // si
-  union _SLIST_HEADER *CurrentPrcb; // rbx
-  struct _SLIST_ENTRY *HypercallCachedPages; // rax
+  _SLIST_HEADER *CurrentPrcb; // rbx
+  _SLIST_ENTRY *HypercallCachedPages; // rax
   _SLIST_ENTRY *Next; // rbp
-  struct _SLIST_ENTRY *v8; // r14
+  _SLIST_ENTRY *v8; // r14
   char v9; // di
   __int16 v10; // ax
-  struct _SLIST_ENTRY *v11; // rax
-  struct _SLIST_ENTRY v12; // xmm0
-  struct _SLIST_ENTRY *v13; // r15
+  _SLIST_ENTRY *v11; // rax
+  _SLIST_ENTRY v12; // xmm0
+  _SLIST_ENTRY *v13; // r15
   unsigned int v14; // r15d
   bool v15; // zf
   __int64 v16; // rax
   struct _KPRCB *v17; // rcx
-  union _SLIST_HEADER *v19; // [rsp+28h] [rbp-40h]
-  struct _SLIST_ENTRY *v20; // [rsp+30h] [rbp-38h]
+  _SLIST_HEADER *v19; // [rsp+28h] [rbp-40h]
+  _SLIST_ENTRY *v20; // [rsp+30h] [rbp-38h]
   _SLIST_ENTRY *v21; // [rsp+38h] [rbp-30h]
   __int16 v22; // [rsp+60h] [rbp-8h]
 
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     HypercallCachedPages = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     if ( HypercallCachedPages )
     {
@@ -47,7 +47,7 @@ __int64 __fastcall HvlpStartVirtualProcessor(int a1, struct _SLIST_ENTRY *a2)
     Next = v21;
     LOBYTE(CurrentPrcb) = (v10 & 0x200) != 0;
     LOBYTE(v19) = (_BYTE)CurrentPrcb;
-    HypercallCachedPages = (struct _SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
+    HypercallCachedPages = (_SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
   }
   else
   {
@@ -56,7 +56,7 @@ __int64 __fastcall HvlpStartVirtualProcessor(int a1, struct _SLIST_ENTRY *a2)
     _disable();
     LOBYTE(CurrentPrcb) = ((unsigned __int16)CurrentPrcb & 0x200) != 0;
     LOBYTE(v19) = (_BYTE)CurrentPrcb;
-    HypercallCachedPages = (struct _SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
+    HypercallCachedPages = (_SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
     Next = HypercallCachedPages[1].Next;
   }
   v8 = v20;

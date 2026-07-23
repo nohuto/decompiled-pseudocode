@@ -5,8 +5,8 @@
  * Callees:
  *     CmSiAllocateMemory @ 0x1402089E0 (CmSiAllocateMemory.c)
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
  */
 
 __int64 __fastcall CmpGetCompleteFileName(UNICODE_STRING *Source, int a2, __int64 a3, UNICODE_STRING *a4)

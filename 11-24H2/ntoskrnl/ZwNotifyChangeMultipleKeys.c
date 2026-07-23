@@ -1,14 +1,26 @@
 /*
- * XREFs of ZwNotifyChangeMultipleKeys @ 0x1406A8890
+ * XREFs of ZwNotifyChangeMultipleKeys @ 0x1406A9830
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwNotifyChangeMultipleKeys(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwNotifyChangeMultipleKeys(
+        HANDLE MasterKeyHandle,
+        ULONG Count,
+        OBJECT_ATTRIBUTES SubordinateObjects[],
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree,
+        PVOID Buffer,
+        ULONG BufferSize,
+        BOOLEAN Asynchronous)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(MasterKeyHandle);
 }

@@ -20,7 +20,7 @@ __int64 __fastcall PiCreateDriverRedirectedStateKey(__int64 CreateOptions, __int
   RtlInitUnicodeString(&UnicodeString, 0LL);
   if ( CreateOptions && *(_QWORD *)(CreateOptions + 8) && *(_WORD *)CreateOptions >= 2u && a3 )
   {
-    StateRootPath = PiGetStateRootPath(L"DriverStatePath");
+    StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, LocationTypeRegistry, &UnicodeString);
     if ( StateRootPath >= 0 )
     {
       StateRootPath = PiCreateServiceKeyUnderPath(CreateOptions, &UnicodeString);

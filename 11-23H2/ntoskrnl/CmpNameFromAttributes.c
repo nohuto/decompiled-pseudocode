@@ -2,15 +2,15 @@
  * XREFs of CmpNameFromAttributes @ 0x140691F04
  * Callers:
  *     CmLoadDifferencingKey @ 0x14069108C (CmLoadDifferencingKey.c)
- *     NtReplaceKey @ 0x140A0E4B0 (NtReplaceKey.c)
+ *     NtReplaceKey @ 0x140A0E760 (NtReplaceKey.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwQueryObject @ 0x14041AF60 (ZwQueryObject.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140946FA0 (IoConvertFileHandleToKernelHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwQueryObject @ 0x14041B2F0 (ZwQueryObject.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x1409471A0 (IoConvertFileHandleToKernelHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

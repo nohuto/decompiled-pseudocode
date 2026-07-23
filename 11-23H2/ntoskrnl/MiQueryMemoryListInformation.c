@@ -1,8 +1,8 @@
 /*
- * XREFs of MiQueryMemoryListInformation @ 0x1402F8B40
+ * XREFs of MiQueryMemoryListInformation @ 0x1402F8DD0
  * Callers:
- *     MmQueryMemoryListInformation @ 0x1402F8958 (MmQueryMemoryListInformation.c)
- *     MmManagePartitionMemoryInformation @ 0x1407600FC (MmManagePartitionMemoryInformation.c)
+ *     MmQueryMemoryListInformation @ 0x1402F8BE8 (MmQueryMemoryListInformation.c)
+ *     MmManagePartitionMemoryInformation @ 0x1407602EC (MmManagePartitionMemoryInformation.c)
  * Callees:
  *     <none>
  */

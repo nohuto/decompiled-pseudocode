@@ -263,7 +263,7 @@ __int64 __fastcall KiSwapThread(__int64 a1, __int64 a2)
         if ( KiCheckMaxOverQuotaTransition(v24, v25) )
         {
           if ( (*(_BYTE *)(v24 + 112) & 1) != 0 )
-            KiRemoveSchedulingGroupQueue(a2, v24, 1);
+            KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)a2, v24, 1);
         }
         else if ( *(_QWORD *)v24 >= *(_QWORD *)(v24 + 24) && (*(_BYTE *)(v24 + 112) & 2) == 0 )
         {

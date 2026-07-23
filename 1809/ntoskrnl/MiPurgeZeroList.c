@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPurgeZeroList @ 0x1401519BC
+ * XREFs of MiPurgeZeroList @ 0x140151ABC
  * Callers:
- *     MiFinishResume @ 0x140151910 (MiFinishResume.c)
+ *     MiFinishResume @ 0x140151A10 (MiFinishResume.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiUnlinkFreeOrZeroedPage @ 0x140039AD0 (MiUnlinkFreeOrZeroedPage.c)
- *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     MiPurgeLargeZeroNodePages @ 0x140151AF8 (MiPurgeLargeZeroNodePages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14009B3EC (MiFreeZeroPageSizeIndex.c)
+ *     MiPurgeLargeZeroNodePages @ 0x140151BF8 (MiPurgeLargeZeroNodePages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiPurgeZeroList(__int64 a1)
@@ -24,7 +24,7 @@ void __fastcall MiPurgeZeroList(__int64 a1)
   {
     MiPurgeLargeZeroNodePages();
     v2 = 0;
-    if ( dword_14043A08C )
+    if ( dword_14043B14C )
     {
       v3 = (ULONG_PTR *)(*(_QWORD *)(a1 + 2112) + 16LL);
       do
@@ -56,7 +56,7 @@ void __fastcall MiPurgeZeroList(__int64 a1)
         ++v2;
         v3 += 5;
       }
-      while ( v2 < dword_14043A08C );
+      while ( v2 < dword_14043B14C );
     }
     *(_BYTE *)(a1 + 4765) = 0;
   }

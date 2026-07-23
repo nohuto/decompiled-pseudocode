@@ -6,7 +6,12 @@
  *     MiAllocateUserPhysicalPages @ 0x1407E8638 (MiAllocateUserPhysicalPages.c)
  */
 
-NTSTATUS __fastcall NtAllocateUserPhysicalPagesEx(void *a1, unsigned __int64 *a2, volatile void *a3, volatile void *a4)
+NTSTATUS __cdecl NtAllocateUserPhysicalPagesEx(
+        HANDLE ProcessHandle,
+        PULONG_PTR NumberOfPages,
+        PULONG_PTR UserPfnArray,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
-  return MiAllocateUserPhysicalPages(a1, a2, a3, a4);
+  return MiAllocateUserPhysicalPages(ProcessHandle, NumberOfPages, UserPfnArray, ExtendedParameters);
 }

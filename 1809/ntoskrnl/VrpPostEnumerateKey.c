@@ -1,31 +1,31 @@
 /*
- * XREFs of VrpPostEnumerateKey @ 0x14080A600
+ * XREFs of VrpPostEnumerateKey @ 0x14080B800
  * Callers:
- *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x1408091F0 (VrpRegistryCallback.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     EtwActivityIdControl @ 0x1400A3B50 (EtwActivityIdControl.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExGetPreviousMode @ 0x1400DDC70 (ExGetPreviousMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x1401B8450 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x1401B87D0 (ZwEnumerateKey.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
- *     VrpCleanupBufferParameter @ 0x1408083C4 (VrpCleanupBufferParameter.c)
- *     VrpOutputBufferParameter @ 0x1408084C8 (VrpOutputBufferParameter.c)
- *     VrpProcessBufferParameter @ 0x1408084F8 (VrpProcessBufferParameter.c)
- *     VrpFindExactNamespaceNode @ 0x14080A4F4 (VrpFindExactNamespaceNode.c)
- *     VrpUpdateKeyInformation @ 0x14080CF74 (VrpUpdateKeyInformation.c)
- *     VrpBuildKeyPath @ 0x14080DFDC (VrpBuildKeyPath.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     EtwActivityIdControl @ 0x1400A3A90 (EtwActivityIdControl.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExGetPreviousMode @ 0x1400DDCF0 (ExGetPreviousMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1401B85B0 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x1401B8930 (ZwEnumerateKey.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObOpenObjectByPointer @ 0x1406480E0 (ObOpenObjectByPointer.c)
+ *     VrpCleanupBufferParameter @ 0x1408095C4 (VrpCleanupBufferParameter.c)
+ *     VrpOutputBufferParameter @ 0x1408096C8 (VrpOutputBufferParameter.c)
+ *     VrpProcessBufferParameter @ 0x1408096F8 (VrpProcessBufferParameter.c)
+ *     VrpFindExactNamespaceNode @ 0x14080B6F4 (VrpFindExactNamespaceNode.c)
+ *     VrpUpdateKeyInformation @ 0x14080E174 (VrpUpdateKeyInformation.c)
+ *     VrpBuildKeyPath @ 0x14080F1DC (VrpBuildKeyPath.c)
  */
 
 __int64 __fastcall VrpPostEnumerateKey(__int64 a1, __int64 a2)
@@ -123,7 +123,7 @@ __int64 __fastcall VrpPostEnumerateKey(__int64 a1, __int64 a2)
   v36 = 0LL;
   v6 = *(_DWORD *)(a1 + 8);
   v43 = 0LL;
-  if ( stru_1403FFAD8.LevelPlus1 > 5 )
+  if ( stru_140400AD8.LevelPlus1 > 5 )
   {
     v39 = *(_DWORD *)(v4 + 12);
     v7 = v3 + 1;
@@ -138,7 +138,7 @@ __int64 __fastcall VrpPostEnumerateKey(__int64 a1, __int64 a2)
     v71 = Buffer;
     v72[0] = Length;
     v72[1] = 0;
-    TlgWrite(&stru_1403FFAD8, &unk_14036CB89, &ActivityId, 0LL, 5u, &pData);
+    TlgWrite(&stru_140400AD8, &unk_14036DB19, &ActivityId, 0LL, 5u, &pData);
   }
   if ( v6 < 0 && v6 != -1073741789 && v6 != -2147483643 )
   {
@@ -322,7 +322,7 @@ LABEL_31:
     KeAbPostRelease(v16 + 16);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   }
-  if ( v6 < 0 && stru_1403FFAD8.LevelPlus1 > 2 )
+  if ( v6 < 0 && stru_140400AD8.LevelPlus1 > 2 )
   {
     v40 = *(_DWORD *)(v4 + 12);
     v18 = v10 + 1;
@@ -346,7 +346,7 @@ LABEL_31:
     v63[1] = 0;
     v64 = &v41;
     v65 = 4LL;
-    TlgWrite(&stru_1403FFAD8, &unk_14036CD14, &ActivityId, 0LL, 8u, &v53);
+    TlgWrite(&stru_140400AD8, &unk_14036DCA4, &ActivityId, 0LL, 8u, &v53);
   }
   if ( KeyHandle )
     ZwClose(KeyHandle);

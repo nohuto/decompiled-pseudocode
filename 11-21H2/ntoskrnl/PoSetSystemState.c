@@ -3,9 +3,9 @@
  * Callers:
  *     PoRegisterSystemState @ 0x140201CD0 (PoRegisterSystemState.c)
  * Callees:
- *     PopSetSystemState @ 0x140368E90 (PopSetSystemState.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     sub_140368E90 @ 0x140368E90 (sub_140368E90.c)
+ *     sub_140A47CF8 @ 0x140A47CF8 (sub_140A47CF8.c)
+ *     sub_140A48330 @ 0x140A48330 (sub_140A48330.c)
  */
 
 void __stdcall PoSetSystemState(EXECUTION_STATE Flags)
@@ -17,10 +17,10 @@ void __stdcall PoSetSystemState(EXECUTION_STATE Flags)
   v2 = 0;
   if ( KeGetCurrentIrql() < 2u )
   {
-    PopAcquirePolicyLock(Flags);
+    sub_140A48330(Flags);
     v2 = 1;
   }
-  PopSetSystemState(Flags, 7u);
+  sub_140368E90(Flags, 7u);
   if ( v2 )
-    PopReleasePolicyLock(v4, v3);
+    sub_140A47CF8(v4, v3);
 }

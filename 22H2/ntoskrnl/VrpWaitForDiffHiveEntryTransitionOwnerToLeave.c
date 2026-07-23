@@ -20,31 +20,29 @@ void __fastcall VrpWaitForDiffHiveEntryTransitionOwnerToLeave(__int64 a1)
   ULONG_PTR v2; // rdi
   ULONG_PTR v3; // rsi
   __int64 v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  unsigned __int64 v7; // rbx
+  unsigned __int64 v5; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  struct _KEVENT v9[2]; // [rsp+30h] [rbp-38h] BYREF
+  struct _KEVENT v7[2]; // [rsp+30h] [rbp-38h] BYREF
 
-  memset(v9, 0, sizeof(v9));
-  v9[0].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)KeGetCurrentThread();
-  KeInitializeEvent(&v9[1], SynchronizationEvent, 0);
-  RtlInsertHeadCircularList((__int64 *)(a1 + 48), v9);
+  memset(v7, 0, sizeof(v7));
+  v7[0].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)KeGetCurrentThread();
+  KeInitializeEvent(&v7[1], SynchronizationEvent, 0);
+  RtlInsertHeadCircularList((__int64 *)(a1 + 48), v7);
   v2 = a1 + 24;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 24), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 24));
   KeAbPostRelease(a1 + 24);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   v3 = a1 + 40;
-  v4 = KeAbPreAcquire(v3, 0LL, 0LL);
-  v7 = v4;
+  v4 = KeAbPreAcquire(v3, 0LL, 0);
+  v5 = v4;
   if ( v4 )
-    KeAbPreWait(v4, v5, v6);
-  KeWaitForSingleObject(&v9[1], Executive, 0, 0, 0LL);
-  if ( v7 )
+    KeAbPreWait(v4);
+  KeWaitForSingleObject(&v7[1], Executive, 0, 0, 0LL);
+  if ( v5 )
   {
-    KeAbPreAcquire(v3, v7, 0LL);
-    KeAbPostReleaseEx(v3, v7);
+    KeAbPreAcquire(v3, v5, 0);
+    KeAbPostReleaseEx(v3, v5);
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

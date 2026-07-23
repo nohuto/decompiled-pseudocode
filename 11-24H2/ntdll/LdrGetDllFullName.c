@@ -1,33 +1,33 @@
 /*
- * XREFs of LdrGetDllFullName @ 0x18001A4C0
+ * XREFs of LdrGetDllFullName @ 0x180046EC0
  * Callers:
- *     GetModuleFullPathNameUnicode @ 0x1800AFAD0 (GetModuleFullPathNameUnicode.c)
+ *     GetModuleFullPathNameUnicode @ 0x18007C370 (GetModuleFullPathNameUnicode.c)
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     LdrpDereferenceModule @ 0x18001B350 (LdrpDereferenceModule.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     LdrpDereferenceModule @ 0x180047D50 (LdrpDereferenceModule.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall LdrGetDllFullName(unsigned __int64 a1, unsigned __int16 *a2)
+NTSTATUS __cdecl LdrGetDllFullName(PVOID DllHandle, PUNICODE_STRING FullDllName)
 {
-  unsigned int v4; // edi
-  __int64 v5; // rbp
-  unsigned __int64 v6; // rcx
+  NTSTATUS v4; // edi
+  volatile signed __int32 *v5; // rbp
+  unsigned __int64 Root; // rcx
   unsigned __int64 v7; // rax
   __int64 v8; // rax
   unsigned __int16 *v9; // rbx
-  unsigned int v10; // eax
+  unsigned int MaximumLength; // eax
   const void *v11; // rdx
-  void *v12; // r14
+  wchar_t *Buffer; // r14
   unsigned __int64 v13; // rsi
   _QWORD *SubSystemTib; // rax
   unsigned __int16 *v16; // rax
 
   v4 = 0;
-  if ( !a1 )
+  if ( !DllHandle )
   {
-    v5 = LdrpImageEntry;
+    v5 = (volatile signed __int32 *)LdrpImageEntry;
     SubSystemTib = NtCurrentTeb()->NtTib.SubSystemTib;
     v9 = (unsigned __int16 *)(LdrpImageEntry + 72);
     if ( SubSystemTib )
@@ -39,54 +39,54 @@ __int64 __fastcall LdrGetDllFullName(unsigned __int64 a1, unsigned __int16 *a2)
     goto LABEL_21;
   }
   v5 = 0LL;
-  if ( a1 == LdrpSystemDllBase )
+  if ( DllHandle == LdrpSystemDllBase )
   {
-    v5 = LdrpNtDllDataTableEntry;
+    v5 = (volatile signed __int32 *)LdrpNtDllDataTableEntry;
     goto LABEL_18;
   }
   RtlAcquireSRWLockShared(&LdrpModuleDatatableLock);
-  v6 = LdrpModuleBaseAddressIndex;
-  if ( (qword_1801D2460 & 1) != 0 )
+  Root = (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+  if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
   {
-    if ( !LdrpModuleBaseAddressIndex )
+    if ( !LdrpModuleBaseAddressIndex.Root )
       goto LABEL_17;
-    v6 = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ LdrpModuleBaseAddressIndex;
+    Root = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
   }
-  if ( !v6 )
+  if ( !Root )
     goto LABEL_17;
   do
   {
-    if ( a1 >= *(_QWORD *)(v6 - 152) )
+    if ( (unsigned __int64)DllHandle >= *(_QWORD *)(Root - 152) )
     {
-      if ( a1 <= *(_QWORD *)(v6 - 152) )
+      if ( (unsigned __int64)DllHandle <= *(_QWORD *)(Root - 152) )
         break;
-      v7 = *(_QWORD *)(v6 + 8);
-      if ( (qword_1801D2460 & 1) != 0 && v7 )
+      v7 = *(_QWORD *)(Root + 8);
+      if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v7 )
       {
-        v6 ^= v7;
+        Root ^= v7;
         continue;
       }
 LABEL_11:
-      v6 = v7;
+      Root = v7;
       continue;
     }
-    v7 = *(_QWORD *)v6;
-    if ( (qword_1801D2460 & 1) == 0 || !v7 )
+    v7 = *(_QWORD *)Root;
+    if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) == 0 || !v7 )
       goto LABEL_11;
-    v6 ^= v7;
+    Root ^= v7;
   }
-  while ( v6 );
-  if ( v6 )
+  while ( Root );
+  if ( Root )
   {
-    v8 = *(_QWORD *)(v6 - 48);
-    v5 = v6 - 200;
+    v8 = *(_QWORD *)(Root - 48);
+    v5 = (volatile signed __int32 *)(Root - 200);
     if ( *(_DWORD *)(v8 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v8 - 56LL) & 0x20) == 0 )
-      _InterlockedIncrement((volatile signed __int32 *)(v5 + 276));
+      _InterlockedIncrement(v5 + 69);
   }
 LABEL_17:
   RtlReleaseSRWLockShared(&LdrpModuleDatatableLock);
 LABEL_18:
-  v9 = (unsigned __int16 *)(v5 + 72);
+  v9 = (unsigned __int16 *)(v5 + 18);
   v4 = -1073741515;
   if ( v5 )
     v4 = 0;
@@ -97,25 +97,25 @@ LABEL_21:
   {
     if ( v9 )
     {
-      v10 = a2[1];
+      MaximumLength = FullDllName->MaximumLength;
       v11 = (const void *)*((_QWORD *)v9 + 1);
-      if ( *v9 <= (unsigned __int16)v10 )
-        v10 = *v9;
-      v12 = (void *)*((_QWORD *)a2 + 1);
-      v13 = v10;
-      *a2 = v10;
-      memmove(v12, v11, v10);
-      if ( (unsigned __int64)*a2 + 2 <= a2[1] )
-        *((_WORD *)v12 + (v13 >> 1)) = 0;
+      if ( *v9 <= (unsigned __int16)MaximumLength )
+        MaximumLength = *v9;
+      Buffer = FullDllName->Buffer;
+      v13 = MaximumLength;
+      FullDllName->Length = MaximumLength;
+      memmove(Buffer, v11, MaximumLength);
+      if ( (unsigned __int64)FullDllName->Length + 2 <= FullDllName->MaximumLength )
+        Buffer[v13 >> 1] = 0;
     }
     else
     {
-      *a2 = 0;
+      FullDllName->Length = 0;
     }
-    if ( *v9 > a2[1] )
+    if ( *v9 > FullDllName->MaximumLength )
       v4 = -1073741789;
-    if ( v5 != LdrpImageEntry )
-      LdrpDereferenceModule(v5);
+    if ( v5 != (volatile signed __int32 *)LdrpImageEntry )
+      LdrpDereferenceModule((PVOID)v5);
   }
   return v4;
 }

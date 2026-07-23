@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpInitializeProcessWrapperFilter @ 0x1800D421C
+ * XREFs of LdrpInitializeProcessWrapperFilter @ 0x1800D41DC
  * Callers:
  *     _LdrpInitialize @ 0x180075CBC (_LdrpInitialize.c)
  * Callees:
- *     LdrpLogDbgPrint @ 0x1800CDC88 (LdrpLogDbgPrint.c)
- *     RtlReportException @ 0x1800DCAA0 (RtlReportException.c)
+ *     LdrpLogDbgPrint @ 0x1800CDC48 (LdrpLogDbgPrint.c)
+ *     RtlReportException @ 0x1800DCA60 (RtlReportException.c)
  */
 
 __int64 __fastcall LdrpInitializeProcessWrapperFilter(const void **a1, _DWORD *a2)
@@ -33,7 +33,7 @@ __int64 __fastcall LdrpInitializeProcessWrapperFilter(const void **a1, _DWORD *a
   v5 = 0;
   if ( g_LdrBreakOnLdrpInitializeProcessFailure )
     __debugbreak();
-  v6 = (int)RtlReportException(*a1, a1[1], 2LL) < 0;
+  v6 = RtlReportException((PEXCEPTION_RECORD)*a1, (PCONTEXT)a1[1], 2u) < 0;
   result = 1LL;
   LOBYTE(v5) = !v6;
   *a2 = v5;

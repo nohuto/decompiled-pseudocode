@@ -154,7 +154,7 @@ __int64 __fastcall BapdWriteEtwEvents(unsigned __int64 a1, __int64 a2)
           goto LABEL_38;
         case 20:
           if ( !*v8 )
-            ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0LL, 0LL, 0LL, 0, 0);
+            ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0, 0LL, 0LL, 0, 0);
           break;
         case 16:
         case 29:

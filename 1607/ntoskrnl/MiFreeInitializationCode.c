@@ -1,20 +1,20 @@
 /*
- * XREFs of MiFreeInitializationCode @ 0x14047D5E8
+ * XREFs of MiFreeInitializationCode @ 0x14047C33C
  * Callers:
- *     MiFreeDriverInitialization @ 0x14047D508 (MiFreeDriverInitialization.c)
+ *     MiFreeDriverInitialization @ 0x14047C25C (MiFreeDriverInitialization.c)
  *     MmDiscardDriverSection @ 0x1407BC1C8 (MmDiscardDriverSection.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiDeleteSystemPagableVm @ 0x14004ACA0 (MiDeleteSystemPagableVm.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiVaToPfn @ 0x140083A00 (MiVaToPfn.c)
- *     MiClearNonPagedBitMapBits @ 0x140083D54 (MiClearNonPagedBitMapBits.c)
- *     MiAddExpansionNonPagedPool @ 0x140143164 (MiAddExpansionNonPagedPool.c)
- *     MiBadRefCount @ 0x1401F2B98 (MiBadRefCount.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiDeleteSystemPagableVm @ 0x14004A820 (MiDeleteSystemPagableVm.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiVaToPfn @ 0x140081B60 (MiVaToPfn.c)
+ *     MiClearNonPagedBitMapBits @ 0x140081EB4 (MiClearNonPagedBitMapBits.c)
+ *     MiAddExpansionNonPagedPool @ 0x1401436D4 (MiAddExpansionNonPagedPool.c)
+ *     MiBadRefCount @ 0x1401F29C4 (MiBadRefCount.c)
  */
 
 unsigned __int64 __fastcall MiFreeInitializationCode(__int64 a1, unsigned __int64 a2)

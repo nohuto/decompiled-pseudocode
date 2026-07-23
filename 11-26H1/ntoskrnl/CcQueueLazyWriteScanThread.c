@@ -1,21 +1,21 @@
 /*
- * XREFs of CcQueueLazyWriteScanThread @ 0x1405B0D70
+ * XREFs of CcQueueLazyWriteScanThread @ 0x1405B3580
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcDereferencePartition @ 0x1403843F0 (CcDereferencePartition.c)
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x1403856E4 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
- *     CcPostWorkQueue @ 0x1403863F0 (CcPostWorkQueue.c)
- *     CcIsLazyWriteScanQueuedInternal @ 0x140387740 (CcIsLazyWriteScanQueuedInternal.c)
- *     CcSetLazyWriteScanQueuedInternal @ 0x14038778C (CcSetLazyWriteScanQueuedInternal.c)
- *     CcAllocateWorkQueueEntry @ 0x140387B50 (CcAllocateWorkQueueEntry.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     CcNotifyExternalCachesInternal @ 0x140506DEC (CcNotifyExternalCachesInternal.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcDereferencePartition @ 0x1403861A0 (CcDereferencePartition.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140387494 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     CcPostWorkQueue @ 0x1403881A0 (CcPostWorkQueue.c)
+ *     CcIsLazyWriteScanQueuedInternal @ 0x1403894F0 (CcIsLazyWriteScanQueuedInternal.c)
+ *     CcSetLazyWriteScanQueuedInternal @ 0x14038953C (CcSetLazyWriteScanQueuedInternal.c)
+ *     CcAllocateWorkQueueEntry @ 0x140389900 (CcAllocateWorkQueueEntry.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     CcNotifyExternalCachesInternal @ 0x1405007BC (CcNotifyExternalCachesInternal.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall CcQueueLazyWriteScanThread(_QWORD *StartContext)
@@ -113,9 +113,9 @@ LABEL_16:
       v14 = StartContext[16];
       if ( !v14 )
         KeBugCheckEx(0x34u, 0x7B1uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-      if ( LODWORD(EmpParseLock.GlobalForegroundListEntry.Flink) )
+      if ( LODWORD(EmpParseLock.ReadOperationCount) )
       {
-        if ( EmpParseLock.IptSaveArea != &EmpParseLock.IptSaveArea )
+        if ( EmpParseLock.AutoBoostThreadState != &EmpParseLock.1136 )
         {
           v15 = (_QWORD *)*((_QWORD *)PspSystemPartition + 1);
           if ( StartContext == v15 )
@@ -144,7 +144,7 @@ LABEL_16:
         }
         else
         {
-          ++HIDWORD(EmpParseLock.KernelShadowStackInitial);
+          ++LODWORD(EmpParseLock.Spare35[0]);
           KeAcquireInStackQueuedSpinLock(StartContext + 96, (PKLOCK_QUEUE_HANDLE)&LockHandle.LockQueue.Lock);
           *((_BYTE *)StartContext + 1049) = 0;
           CcSetLazyWriteScanQueuedInternal(v1, v11, 0);

@@ -1,42 +1,42 @@
 /*
- * XREFs of RtlCreateTimerQueue @ 0x180106E00
+ * XREFs of RtlCreateTimerQueue @ 0x180101D30
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlpTpRevertCapture @ 0x18006CFA0 (RtlpTpRevertCapture.c)
- *     RtlpTpResumeImpersonation @ 0x18006E478 (RtlpTpResumeImpersonation.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlpTpRevertCapture @ 0x180089880 (RtlpTpRevertCapture.c)
+ *     RtlpTpResumeImpersonation @ 0x18008AD58 (RtlpTpResumeImpersonation.c)
  */
 
-__int64 __fastcall RtlCreateTimerQueue(__int64 *a1)
+NTSTATUS __cdecl RtlCreateTimerQueue(PHANDLE TimerQueueHandle)
 {
   int v2; // ebx
-  __int64 Heap; // rax
-  __int64 v4; // rcx
+  _QWORD *Heap; // rax
+  _QWORD *v4; // rcx
   _QWORD *v5; // rax
-  HANDLE v7; // [rsp+40h] [rbp+18h] BYREF
-  __int64 v8; // [rsp+48h] [rbp+20h]
+  HANDLE TokenHandle; // [rsp+40h] [rbp+18h] BYREF
+  _QWORD *v8; // [rsp+48h] [rbp+20h]
 
-  v7 = 0LL;
+  TokenHandle = 0LL;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return 3221225473LL;
-  *a1 = 0LL;
-  v2 = RtlpTpRevertCapture(&v7, 0);
+    return -1073741823;
+  *TimerQueueHandle = 0LL;
+  v2 = RtlpTpRevertCapture(&TokenHandle, 0);
   if ( v2 >= 0 )
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 0x30uLL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x30uLL);
     v4 = Heap;
     v8 = Heap;
     if ( Heap )
     {
       *(_DWORD *)Heap = 1;
-      *(_QWORD *)(Heap + 8) = 0LL;
-      *(_QWORD *)(Heap + 16) = 0LL;
-      v5 = (_QWORD *)(Heap + 24);
+      Heap[1] = 0LL;
+      Heap[2] = 0LL;
+      v5 = Heap + 3;
       v5[1] = v5;
       *v5 = v5;
-      *(_QWORD *)(v4 + 40) = 0LL;
-      *a1 = v4;
+      v4[5] = 0LL;
+      *TimerQueueHandle = v4;
       v2 = 0;
     }
     else
@@ -44,6 +44,6 @@ __int64 __fastcall RtlCreateTimerQueue(__int64 *a1)
       v2 = -1073741801;
     }
   }
-  RtlpTpResumeImpersonation(v7);
-  return (unsigned int)v2;
+  RtlpTpResumeImpersonation(TokenHandle);
+  return v2;
 }

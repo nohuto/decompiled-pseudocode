@@ -38,64 +38,67 @@ __int64 __fastcall LdrpMergeLangFallbackLists(
   int v14; // edi
   void *UserPrefLanguages; // rcx
   unsigned int v16; // eax
-  unsigned __int16 *v17; // r9
   int appended; // r12d
+  __int64 v18; // rdx
   __int64 v19; // rdx
-  __int64 v20; // rdx
-  __int64 v21; // rax
-  __int64 v22; // r13
-  __int64 v23; // rax
-  unsigned int v24; // edi
-  __int64 *v25; // rsi
+  __int64 v20; // rax
+  __int64 v21; // r13
+  __int64 v22; // rax
+  unsigned int v23; // edi
+  __int64 *v24; // rsi
+  unsigned __int16 *v25; // rdx
   __int64 v26; // rax
-  unsigned __int16 v27; // ax
-  __int64 *v28; // rdi
+  __int16 v27; // ax
+  unsigned __int16 v28; // ax
+  __int64 *v29; // rdi
   unsigned int i; // ecx
-  unsigned int v31; // eax
-  __int64 v32; // rax
-  __int64 v33; // rcx
-  __int64 v34; // r8
+  unsigned int v32; // eax
+  unsigned __int16 *v33; // r9
+  __int64 v34; // rax
+  __int64 v35; // rcx
+  __int64 v36; // r8
   unsigned int j; // edi
-  __int64 v36; // rax
-  __int64 v37; // rcx
-  int v38; // [rsp+28h] [rbp-71h]
-  int v39; // [rsp+28h] [rbp-71h]
-  int v40; // [rsp+28h] [rbp-71h]
-  char v41; // [rsp+38h] [rbp-61h]
-  int v42; // [rsp+3Ch] [rbp-5Dh] BYREF
-  __int16 v43[2]; // [rsp+40h] [rbp-59h] BYREF
-  int v44; // [rsp+44h] [rbp-55h] BYREF
-  int v45; // [rsp+48h] [rbp-51h]
-  int v46; // [rsp+4Ch] [rbp-4Dh]
-  int v47[2]; // [rsp+50h] [rbp-49h]
-  wchar_t *String[2]; // [rsp+58h] [rbp-41h] BYREF
-  __int64 v49; // [rsp+68h] [rbp-31h]
-  unsigned int v50; // [rsp+70h] [rbp-29h]
-  unsigned int v51; // [rsp+74h] [rbp-25h]
-  __int64 v52; // [rsp+78h] [rbp-21h] BYREF
-  wchar_t *v53[2]; // [rsp+80h] [rbp-19h] BYREF
-  __int64 v54; // [rsp+90h] [rbp-9h]
-  char v55; // [rsp+D8h] [rbp+3Fh]
-  __int64 *v56; // [rsp+E8h] [rbp+4Fh] BYREF
-  __int64 v57; // [rsp+F0h] [rbp+57h]
+  unsigned __int16 *v38; // r9
+  __int64 v39; // rax
+  __int64 v40; // rcx
+  int v41; // [rsp+28h] [rbp-71h]
+  int v42; // [rsp+28h] [rbp-71h]
+  int v43; // [rsp+28h] [rbp-71h]
+  char v44; // [rsp+38h] [rbp-61h]
+  int v45; // [rsp+3Ch] [rbp-5Dh] BYREF
+  __int16 v46[2]; // [rsp+40h] [rbp-59h] BYREF
+  int v47; // [rsp+44h] [rbp-55h] BYREF
+  int v48; // [rsp+48h] [rbp-51h]
+  int v49; // [rsp+4Ch] [rbp-4Dh]
+  int v50[2]; // [rsp+50h] [rbp-49h]
+  wchar_t *v51[2]; // [rsp+58h] [rbp-41h] BYREF
+  __int64 v52; // [rsp+68h] [rbp-31h]
+  unsigned int v53; // [rsp+70h] [rbp-29h]
+  unsigned int v54; // [rsp+74h] [rbp-25h]
+  __int64 v55; // [rsp+78h] [rbp-21h] BYREF
+  _UNICODE_STRING String; // [rsp+80h] [rbp-19h] BYREF
+  __int64 v57; // [rsp+90h] [rbp-9h]
+  char v58; // [rsp+D8h] [rbp+3Fh]
+  __int64 *InstallUILanguageId; // [rsp+E8h] [rbp+4Fh] BYREF
+  __int64 v60; // [rsp+F0h] [rbp+57h]
 
-  v57 = a4;
-  v56 = a3;
-  v55 = a1;
+  v60 = a4;
+  InstallUILanguageId = a3;
+  v58 = a1;
   v9 = 0;
-  v51 = 0;
-  v46 = 0;
-  LOWORD(v42) = -1;
+  v54 = 0;
+  v49 = 0;
+  LOWORD(v45) = -1;
   v10 = a3;
-  LOWORD(v44) = -1;
-  v43[0] = -1;
+  LOWORD(v47) = -1;
+  v46[0] = -1;
   v12 = a1;
-  v52 = 0LL;
+  v55 = 0LL;
   Heap = 0LL;
-  v41 = 0;
-  v49 = 0LL;
-  *(_OWORD *)String = 0LL;
-  *(_OWORD *)v53 = 0LL;
+  v44 = 0;
+  v52 = 0LL;
+  *(_OWORD *)v51 = 0LL;
+  String = 0LL;
   if ( !a3 || !*a3 || !a2 || *(_WORD *)(*a3 + 4) )
     return 3221225485LL;
   v14 = a1 & 0x10000;
@@ -103,188 +106,185 @@ __int64 __fastcall LdrpMergeLangFallbackLists(
     && (UserPrefLanguages = NtCurrentTeb()->UserPrefLanguages, *(_QWORD *)UserPrefLanguages) )
   {
     v16 = *(_DWORD *)(*(_QWORD *)UserPrefLanguages + 40LL);
-    v50 = v16;
+    v53 = v16;
   }
   else
   {
     v16 = 0;
-    v50 = 0;
+    v53 = 0;
   }
-  *(_QWORD *)v47 = a3;
+  *(_QWORD *)v50 = a3;
   if ( !v14 && (v16 & 6) != 0 )
   {
-    v51 = HIWORD(v16);
-    v41 = 1;
-    *(_QWORD *)v47 = &v52;
-    appended = LdrpCreateLangFallbackList(&v52, a2, 25LL, 0LL);
+    v54 = HIWORD(v16);
+    v44 = 1;
+    *(_QWORD *)v50 = &v55;
+    appended = LdrpCreateLangFallbackList(&v55, a2, 25LL, 0LL);
     if ( appended < 0 )
       goto LABEL_56;
-    v12 = v55;
+    v12 = v58;
   }
-  Heap = (wchar_t *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0x154uLL);
+  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x154uLL);
   if ( !Heap )
     return 3221225495LL;
   if ( !v14 )
   {
-    v19 = v57;
-    if ( v57 )
+    v18 = v60;
+    if ( v60 )
     {
-      for ( i = 0; ; i = v45 + 1 )
+      for ( i = 0; ; i = v48 + 1 )
       {
-        v31 = *(unsigned __int16 *)(v19 + 4);
-        v45 = i;
-        if ( i >= v31 )
+        v32 = *(unsigned __int16 *)(v18 + 4);
+        v48 = i;
+        if ( i >= v32 )
           break;
-        v17 = (unsigned __int16 *)(*(_QWORD *)(v19 + 24) + 6LL * i);
-        if ( *v17 )
+        v33 = (unsigned __int16 *)(*(_QWORD *)(v18 + 24) + 6LL * i);
+        if ( *v33 )
         {
-          v32 = *(_QWORD *)(v19 + 16);
-          String[1] = Heap;
-          v33 = a2;
-          LODWORD(String[0]) = 11141120;
-          if ( v32 )
-            v33 = v32;
-          if ( (int)GetNameFromLangListNode(v33, v17, (UNICODE_STRING *)String) >= 0 )
+          v34 = *(_QWORD *)(v18 + 16);
+          v51[1] = Heap;
+          v35 = a2;
+          LODWORD(v51[0]) = 11141120;
+          if ( v34 )
+            v35 = v34;
+          if ( (int)GetNameFromLangListNode(v35, v33, (_UNICODE_STRING *)v51) >= 0 )
           {
-            appended = LdrpLangFallbackListAppendNode(*(__int64 **)v47, a2, 0, (__int16 *)&v42, String[1]);
+            appended = LdrpLangFallbackListAppendNode(*(__int64 **)v50, a2, 0, (__int16 *)&v45, v51[1]);
             if ( appended < 0 )
               goto LABEL_56;
           }
-          v19 = v57;
+          v18 = v60;
         }
       }
-      v12 = v55;
+      v12 = v58;
     }
   }
-  v20 = a5;
+  v19 = a5;
   if ( a5 && !v14 )
   {
-    for ( j = 0; j < *(unsigned __int16 *)(v20 + 4); ++j )
+    for ( j = 0; j < *(unsigned __int16 *)(v19 + 4); ++j )
     {
-      v17 = (unsigned __int16 *)(*(_QWORD *)(v20 + 24) + 6LL * j);
-      if ( *v17 )
+      v38 = (unsigned __int16 *)(*(_QWORD *)(v19 + 24) + 6LL * j);
+      if ( *v38 )
       {
-        v36 = *(_QWORD *)(v20 + 16);
-        String[1] = Heap;
-        v37 = a2;
-        LODWORD(String[0]) = 11141120;
-        if ( v36 )
-          v37 = v36;
-        if ( (int)GetNameFromLangListNode(v37, v17, (UNICODE_STRING *)String) >= 0 )
+        v39 = *(_QWORD *)(v19 + 16);
+        v51[1] = Heap;
+        v40 = a2;
+        LODWORD(v51[0]) = 11141120;
+        if ( v39 )
+          v40 = v39;
+        if ( (int)GetNameFromLangListNode(v40, v38, (_UNICODE_STRING *)v51) >= 0 )
         {
-          appended = LdrpLangFallbackListAppendNode(*(__int64 **)v47, a2, 0, (__int16 *)&v42, String[1]);
+          appended = LdrpLangFallbackListAppendNode(*(__int64 **)v50, a2, 0, (__int16 *)&v45, v51[1]);
           if ( appended < 0 )
             goto LABEL_56;
         }
-        v20 = a5;
+        v19 = a5;
       }
     }
-    v12 = v55;
+    v12 = v58;
   }
-  v45 = v12 & 0x20;
-  if ( (v12 & 0x20) != 0 && ((v21 = a6) != 0 && *(_WORD *)(a6 + 4) || (v21 = a7) != 0 && *(_WORD *)(a7 + 4)) )
+  v48 = v12 & 0x20;
+  if ( (v12 & 0x20) != 0 && ((v20 = a6) != 0 && *(_WORD *)(a6 + 4) || (v20 = a7) != 0 && *(_WORD *)(a7 + 4)) )
   {
-    v22 = v21;
-    if ( *(_BYTE *)(v21 + 8) )
+    v21 = v20;
+    if ( *(_BYTE *)(v20 + 8) )
     {
-      v23 = *(_QWORD *)(a2 + 40);
+      v22 = *(_QWORD *)(a2 + 40);
     }
     else
     {
-      v49 = a8;
+      v52 = a8;
       if ( a8 )
       {
 LABEL_24:
-        v24 = 0;
-        if ( *(_WORD *)(v22 + 4) )
+        v23 = 0;
+        if ( *(_WORD *)(v21 + 4) )
         {
-          v25 = *(__int64 **)v47;
+          v24 = *(__int64 **)v50;
           do
           {
-            v20 = 6LL * v24 + *(_QWORD *)(v22 + 24);
-            v54 = 6LL * v24;
-            if ( *(_WORD *)v20 )
+            v25 = (unsigned __int16 *)(6LL * v23 + *(_QWORD *)(v21 + 24));
+            v57 = 6LL * v23;
+            if ( *v25 )
             {
-              String[1] = Heap;
-              LODWORD(String[0]) = 11141120;
-              if ( (int)GetNameFromLangListNode(a2, (unsigned __int16 *)v20, (UNICODE_STRING *)String) >= 0
-                && (int)LdrpLangFallbackListAppendNode(v25, a2, 1, (__int16 *)&v42, String[1]) >= 0
+              v51[1] = Heap;
+              LODWORD(v51[0]) = 11141120;
+              if ( (int)GetNameFromLangListNode(a2, v25, (_UNICODE_STRING *)v51) >= 0
+                && (int)LdrpLangFallbackListAppendNode(v24, a2, 1, (__int16 *)&v45, v51[1]) >= 0
                 && (v12 & 0x10) != 0 )
               {
-                v26 = *(_QWORD *)(v22 + 24);
-                if ( *(_WORD *)(v54 + v26) == 2 )
+                v26 = *(_QWORD *)(v21 + 24);
+                if ( *(_WORD *)(v57 + v26) == 2 )
                 {
-                  v20 = *(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL) + 28LL * *(__int16 *)(v54 + v26 + 4);
-                  if ( (*(_WORD *)v20 & 7) != 0
-                    && ((*(_WORD *)v20 & 6) == 0 || (int)LdrpMergeParentBaseLanguagesToList((int)v25, v38) >= 0) )
-                  {
-                    ++v46;
-                  }
+                  v27 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL) + 28LL * *(__int16 *)(v57 + v26 + 4));
+                  if ( (v27 & 7) != 0 && ((v27 & 6) == 0 || (int)LdrpMergeParentBaseLanguagesToList((int)v24, v41) >= 0) )
+                    ++v49;
                 }
               }
             }
-            ++v24;
+            ++v23;
           }
-          while ( v24 < *(unsigned __int16 *)(v22 + 4) );
-          v10 = v56;
+          while ( v23 < *(unsigned __int16 *)(v21 + 4) );
+          v10 = InstallUILanguageId;
         }
         goto LABEL_37;
       }
-      v23 = *(_QWORD *)(a2 + 48);
+      v22 = *(_QWORD *)(a2 + 48);
     }
-    v49 = v23;
+    v52 = v22;
     goto LABEL_24;
   }
 LABEL_37:
-  LOWORD(v56) = 0;
-  v53[1] = Heap + 85;
+  LOWORD(InstallUILanguageId) = 0;
+  String.Buffer = Heap + 85;
   appended = 0;
-  v27 = *(_WORD *)(a2 + 4);
-  LODWORD(v53[0]) = 11141120;
-  if ( !v27 )
+  v28 = *(_WORD *)(a2 + 4);
+  *(_DWORD *)&String.Length = 11141120;
+  if ( !v28 )
   {
-    appended = NtQueryInstallUILanguage(&v56, v20, 170LL);
+    appended = NtQueryInstallUILanguage((LANGID *)&InstallUILanguageId);
     if ( appended < 0 )
       goto LABEL_43;
-    if ( (int)NtIsUILanguageComitted() >= 0 )
+    if ( NtIsUILanguageComitted() >= 0 )
     {
       RtlpLoadInstallLanguageFallback(a2, a2 + 6, a2 + 8);
-      *(_WORD *)(a2 + 4) = (_WORD)v56;
+      *(_WORD *)(a2 + 4) = (_WORD)InstallUILanguageId;
     }
-    v27 = (unsigned __int16)v56;
+    v28 = (unsigned __int16)InstallUILanguageId;
   }
-  v9 = v27;
+  v9 = v28;
 LABEL_43:
   if ( appended >= 0 )
   {
-    if ( (unsigned __int8)RtlLCIDToCultureName(v9, (__int64)v53) )
+    if ( RtlLCIDToCultureName(v9, &String) )
     {
-      appended = RtlpMuiRegGetInstalledLanguageIndexByLangId(a2, v9, 1, v43);
+      appended = RtlpMuiRegGetInstalledLanguageIndexByLangId(a2, v9, 1, v46);
       if ( appended >= 0 )
       {
-        if ( (v55 & 0x40) != 0 || a9 && v46 )
+        if ( (v58 & 0x40) != 0 || a9 && v49 )
         {
-          v28 = *(__int64 **)v47;
+          v29 = *(__int64 **)v50;
           goto LABEL_55;
         }
-        v28 = *(__int64 **)v47;
-        appended = LdrpLangFallbackListAppendNode(*(__int64 **)v47, a2, 0, (__int16 *)&v44, v53[1]);
+        v29 = *(__int64 **)v50;
+        appended = LdrpLangFallbackListAppendNode(*(__int64 **)v50, a2, 0, (__int16 *)&v47, String.Buffer);
         if ( appended < 0
-          || !v45
-          || (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL) + 28LL * v43[0]) & 6) == 0
-          || (appended = LdrpMergeParentBaseLanguagesToList((int)v28, v39), appended >= 0) )
+          || !v48
+          || (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL) + 28LL * v46[0]) & 6) == 0
+          || (appended = LdrpMergeParentBaseLanguagesToList((int)v29, v42), appended >= 0) )
         {
 LABEL_55:
-          if ( v41 )
+          if ( v44 )
           {
-            v34 = v50 >> 2;
-            LOBYTE(v34) = (v50 & 4) != 0;
-            appended = RtlpFilterandReplaceConsoleLanguages(*v28, a2, v34, v51, v10);
-            if ( appended >= 0 && (v55 & 0x30) == 0x30 )
+            v36 = v53 >> 2;
+            LOBYTE(v36) = (v53 & 4) != 0;
+            appended = RtlpFilterandReplaceConsoleLanguages(*v29, a2, v36, v54, v10);
+            if ( appended >= 0 && (v58 & 0x30) == 0x30 )
             {
-              appended = LdrpLangFallbackListAppendNode(v10, a2, 0, (__int16 *)&v44, v53[1]);
-              if ( appended >= 0 && (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL) + 28LL * v43[0]) & 6) != 0 )
-                appended = LdrpMergeParentBaseLanguagesToList((int)v10, v40);
+              appended = LdrpLangFallbackListAppendNode(v10, a2, 0, (__int16 *)&v47, String.Buffer);
+              if ( appended >= 0 && (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL) + 28LL * v46[0]) & 6) != 0 )
+                appended = LdrpMergeParentBaseLanguagesToList((int)v10, v43);
             }
           }
         }
@@ -296,9 +296,9 @@ LABEL_55:
     }
   }
 LABEL_56:
-  if ( v52 )
-    RtlpMuiRegFreeLanguageList(v52);
+  if ( v55 )
+    RtlpMuiRegFreeLanguageList(v55);
   if ( Heap )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap, (__int64)v17);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return (unsigned int)appended;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpCorrectErrSrc @ 0x140BE9AC0
+ * XREFs of HalpCorrectErrSrc @ 0x140BEFAC0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     HalpGetMcaMaxVendorSpecificSectionLength @ 0x14057E6E4 (HalpGetMcaMaxVendorSpecificSectionLength.c)
- *     HalpGetMcaVendorSpecificSections @ 0x14057E714 (HalpGetMcaVendorSpecificSections.c)
- *     HalpCorrectNMIErrSrc @ 0x14057EBA0 (HalpCorrectNMIErrSrc.c)
- *     HalpCorrectGenericErrSrc @ 0x14058E2EC (HalpCorrectGenericErrSrc.c)
- *     HalpIsCmciImplemented @ 0x140BEA724 (HalpIsCmciImplemented.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     HalpGetMcaMaxVendorSpecificSectionLength @ 0x140580C04 (HalpGetMcaMaxVendorSpecificSectionLength.c)
+ *     HalpGetMcaVendorSpecificSections @ 0x140580C34 (HalpGetMcaVendorSpecificSections.c)
+ *     HalpCorrectNMIErrSrc @ 0x1405810C0 (HalpCorrectNMIErrSrc.c)
+ *     HalpCorrectGenericErrSrc @ 0x140590A6C (HalpCorrectGenericErrSrc.c)
+ *     HalpIsCmciImplemented @ 0x140BF0724 (HalpIsCmciImplemented.c)
  */
 
 __int64 __fastcall HalpCorrectErrSrc(_DWORD *a1, unsigned int *a2)

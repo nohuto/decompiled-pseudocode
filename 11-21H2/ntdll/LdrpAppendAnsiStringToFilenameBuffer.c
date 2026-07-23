@@ -10,13 +10,13 @@
  *     RtlAnsiStringToUnicodeString @ 0x18003D5E0 (RtlAnsiStringToUnicodeString.c)
  */
 
-__int64 __fastcall LdrpAppendAnsiStringToFilenameBuffer(unsigned __int16 *a1, STRING *a2)
+__int64 __fastcall LdrpAppendAnsiStringToFilenameBuffer(unsigned __int16 *a1, const ANSI_STRING *a2)
 {
   int FileNameBufferIfNeeded; // edi
   int v5; // eax
   unsigned __int16 v6; // dx
   __int64 v7; // rcx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   FileNameBufferIfNeeded = 0;
   if ( a2->Length )

@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCleanupIrp @ 0x140166D30
+ * XREFs of IoCleanupIrp @ 0x140166E30
  * Callers:
  *     <none>
  * Callees:
- *     IopFreeIrpExtension @ 0x140107850 (IopFreeIrpExtension.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     IopFreeIrpExtension @ 0x1401078D0 (IopFreeIrpExtension.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 void __fastcall IoCleanupIrp(ULONG_PTR BugCheckParameter1)

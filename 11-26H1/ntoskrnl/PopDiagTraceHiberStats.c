@@ -1,20 +1,20 @@
 /*
- * XREFs of PopDiagTraceHiberStats @ 0x140AF5348
+ * XREFs of PopDiagTraceHiberStats @ 0x140AF79E8
  * Callers:
- *     PopIssueActionRequest @ 0x140A37878 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1409F3438 (PopIssueActionRequest.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     PpmConvertTime @ 0x1403E63D0 (PpmConvertTime.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PopOpenPowerKey @ 0x1404E7CA4 (PopOpenPowerKey.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     PopComputeDerivedHiberStats @ 0x140AF5758 (PopComputeDerivedHiberStats.c)
- *     PopPotsLogHibernatePerformance @ 0x140AF5820 (PopPotsLogHibernatePerformance.c)
- *     PopQpcTimeInMs @ 0x140C06CF0 (PopQpcTimeInMs.c)
- *     PopSstDiagQueryResumeTimestamp @ 0x140C08C90 (PopSstDiagQueryResumeTimestamp.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     PpmConvertTime @ 0x1402F32B0 (PpmConvertTime.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PopOpenPowerKey @ 0x1404E1064 (PopOpenPowerKey.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     PopComputeDerivedHiberStats @ 0x140AF7DF8 (PopComputeDerivedHiberStats.c)
+ *     PopPotsLogHibernatePerformance @ 0x140AF7EC0 (PopPotsLogHibernatePerformance.c)
+ *     PopQpcTimeInMs @ 0x140C0CF00 (PopQpcTimeInMs.c)
+ *     PopSstDiagQueryResumeTimestamp @ 0x140C0EEA0 (PopSstDiagQueryResumeTimestamp.c)
  */
 
 BOOLEAN __fastcall PopDiagTraceHiberStats(int a1)
@@ -22,7 +22,7 @@ BOOLEAN __fastcall PopDiagTraceHiberStats(int a1)
   int v1; // eax
   void *v2; // rdi
   __int64 ResumeTimestamp; // rax
-  _KAFFINITY_EX *UserAffinity; // rbx
+  unsigned __int64 v4; // rbx
   ULONG *p_Size; // r15
   unsigned __int64 *v6; // r12
   _BYTE *Data; // r13
@@ -36,7 +36,7 @@ BOOLEAN __fastcall PopDiagTraceHiberStats(int a1)
   BOOLEAN result; // al
   _QWORD DestinationString[3]; // [rsp+38h] [rbp-D0h] BYREF
   __int64 v17; // [rsp+50h] [rbp-B8h]
-  _KAFFINITY_EX *v18; // [rsp+58h] [rbp-B0h]
+  __int64 v18; // [rsp+58h] [rbp-B0h]
   __int128 v19; // [rsp+60h] [rbp-A8h] BYREF
   _BYTE v20[480]; // [rsp+78h] [rbp-90h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+258h] [rbp+150h] BYREF
@@ -49,23 +49,19 @@ BOOLEAN __fastcall PopDiagTraceHiberStats(int a1)
   if ( v1 < 0 )
     v2 = 0LL;
   ResumeTimestamp = PopSstDiagQueryResumeTimestamp();
-  UserAffinity = stru_140F10070.UserAffinity;
-  *(_QWORD *)&stru_140F10070.UserAffinityPrimaryGroup = ResumeTimestamp;
-  HIDWORD(stru_140F10070.IoSelfBoostsEntry.Next) = dword_140F0FDA4;
-  LODWORD(stru_140F10070.IoSelfBoostsEntry.Next) = dword_140F0FE38;
-  v18 = stru_140F10070.UserAffinity;
-  stru_140F10070.SuspendEvent.Header.LockNV = PopQpcTimeInMs(
-                                                &stru_140F10070.Timer.Header.WaitListHead,
-                                                &stru_140F10070.Timer.Header.WaitListHead.Blink);
-  stru_140F10070.WaitBlock[1].Object = (PVOID)(unsigned int)PopQpcTimeInMs(
-                                                              &stru_140F10070.216,
-                                                              &stru_140F10070.WaitBlockFill11[88]);
-  PopComputeDerivedHiberStats(&stru_140F10070.WaitBlockFill10[8], UserAffinity, &v19);
+  v4 = qword_140F10B38;
+  qword_140F10B40 = ResumeTimestamp;
+  dword_140F10C44 = dword_140F10924;
+  dword_140F10C40 = dword_140F109B8;
+  v18 = qword_140F10B38;
+  dword_140F10BF0 = PopQpcTimeInMs(&qword_140F10A18, &qword_140F10A20);
+  qword_140F10AA0 = (unsigned int)PopQpcTimeInMs(&qword_140F109E8, &qword_140F10AA8);
+  PopComputeDerivedHiberStats(&qword_140F10A58, v4, &v19);
   p_Size = &UserData.Size;
   DestinationString[0] = 59LL;
   v6 = (unsigned __int64 *)v20;
   Data = v20;
-  v8 = &qword_140004D70;
+  v8 = &qword_140004D90;
   do
   {
     v9 = *(_DWORD *)v8;
@@ -73,7 +69,7 @@ BOOLEAN __fastcall PopDiagTraceHiberStats(int a1)
     if ( (*(_DWORD *)v8 & 0x40000000) != 0 )
       v11 = (unsigned __int64 *)&v20[v10 - 8];
     else
-      v11 = (unsigned __int64 *)((char *)&stru_140F10070.WaitBlock[0].WaitListEntry.Blink + v10);
+      v11 = (unsigned __int64 *)((char *)&qword_140F10A58 + v10);
     if ( (v9 & 2) != 0 )
       v12 = *v11;
     else
@@ -81,7 +77,7 @@ BOOLEAN __fastcall PopDiagTraceHiberStats(int a1)
     *v6 = v12;
     if ( v9 < 0 )
     {
-      v12 /= (unsigned __int64)UserAffinity;
+      v12 /= v4;
       *v6 = v12;
     }
     if ( (v9 & 0x10000000) != 0 )
@@ -96,7 +92,7 @@ BOOLEAN __fastcall PopDiagTraceHiberStats(int a1)
     *((_QWORD *)p_Size - 1) = Data;
     *p_Size = DataSize;
     Data += 8;
-    UserAffinity = v18;
+    v4 = v18;
     v8 += 3;
     p_Size[1] = 0;
     ++v6;
@@ -104,45 +100,35 @@ BOOLEAN __fastcall PopDiagTraceHiberStats(int a1)
     --DestinationString[0];
   }
   while ( DestinationString[0] );
-  stru_140F10070.SchedulerApc.Reserved[0] = (PVOID)((unsigned __int64)stru_140F10070.SchedulerApc.Reserved[0]
-                                                  / (unsigned __int64)UserAffinity);
-  *(_QWORD *)&stru_140F10070.WaitBlockFill11[16] /= (unsigned __int64)UserAffinity;
-  *(_QWORD *)stru_140F10070.PriorityFloorCounts = 1000LL
-                                                * *(_QWORD *)&stru_140F10070.UserAffinityPrimaryGroup
-                                                / PopQpcFrequency
-                                                - *(unsigned int *)&stru_140F10070.WaitBlockFill11[96]
-                                                - *(unsigned int *)&stru_140F10070.WaitBlockFill11[104];
+  qword_140F10BB8 /= v4;
+  qword_140F10A60 /= v4;
+  qword_140F10C48 = 1000 * qword_140F10B40 / PopQpcFrequency
+                  - (unsigned int)qword_140F10AB0
+                  - (unsigned int)dword_140F10AB8;
   if ( v2 )
   {
     RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], L"KernelResumeIoCpuTime");
-    ZwSetValueKey(v2, (PUNICODE_STRING)&DestinationString[1], 0, 4u, &stru_140F10070.SchedulerApcFill5[32], 4u);
+    ZwSetValueKey(v2, (PUNICODE_STRING)&DestinationString[1], 0, 4u, &qword_140F10BB8, 4u);
     RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], L"HiberIoCpuTime");
-    ZwSetValueKey(v2, (PUNICODE_STRING)&DestinationString[1], 0, 4u, &stru_140F10070.WaitBlockFill11[16], 4u);
-    if ( stru_140F10070.SchedulerApc.SystemArgument2 )
+    ZwSetValueKey(v2, (PUNICODE_STRING)&DestinationString[1], 0, 4u, &qword_140F10A60, 4u);
+    if ( qword_140F10BE0 )
     {
-      dword_140F0FD84 += PopQpcTimeInMs(&stru_140F10070.RelativeTimerBias, &stru_140F10070.SchedulerApcFill5[80]);
+      dword_140F10904 += PopQpcTimeInMs(&qword_140F10A08, &qword_140F10BE8);
       RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], L"HybridBootAnimationTime");
-      ZwSetValueKey(v2, (PUNICODE_STRING)&DestinationString[1], 0, 4u, &dword_140F0FD84, 4u);
+      ZwSetValueKey(v2, (PUNICODE_STRING)&DestinationString[1], 0, 4u, &dword_140F10904, 4u);
     }
-    *(_QWORD *)&stru_140F10070.PriorityFloorCounts[8] = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
-                                                       * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
+    qword_140F10C50 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
+                     * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
     RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], L"ResumeCompleteTimestamp");
-    ZwSetValueKey(v2, (PUNICODE_STRING)&DestinationString[1], 0, 0xBu, &stru_140F10070.PriorityFloorCounts[8], 8u);
+    ZwSetValueKey(v2, (PUNICODE_STRING)&DestinationString[1], 0, 0xBu, &qword_140F10C50, 8u);
     ZwClose(v2);
   }
-  result = PopPotsLogHibernatePerformance(&stru_140F10070.WaitBlockFill10[8], (unsigned int)v17);
-  if ( byte_140E67628 )
+  result = PopPotsLogHibernatePerformance(&qword_140F10A58, (unsigned int)v17);
+  if ( PopDiagHandleRegistered )
   {
-    result = EtwEventEnabled(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_HIBER_STATS);
+    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_HIBER_STATS);
     if ( result )
-      return EtwWrite(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_HIBER_STATS,
-               0LL,
-               0x3Bu,
-               &UserData);
+      return EtwWrite(PopDiagHandle, &POP_ETW_EVENT_HIBER_STATS, 0LL, 0x3Bu, &UserData);
   }
   return result;
 }

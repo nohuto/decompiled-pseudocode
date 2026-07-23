@@ -1,23 +1,23 @@
 /*
- * XREFs of KseShimDatabaseOpen @ 0x1409E63D0
+ * XREFs of KseShimDatabaseOpen @ 0x1409D6414
  * Callers:
- *     KsepDbGetShimInfo @ 0x1407BCA3C (KsepDbGetShimInfo.c)
- *     KsepDbGetDriverShims @ 0x1409E45DC (KsepDbGetDriverShims.c)
- *     KsepDbCacheReadDevice @ 0x1409E6158 (KsepDbCacheReadDevice.c)
- *     KseInitialize @ 0x140CCCEE0 (KseInitialize.c)
+ *     KsepDbGetShimInfo @ 0x1407BFA9C (KsepDbGetShimInfo.c)
+ *     KsepDbCacheReadDevice @ 0x1409D6A58 (KsepDbCacheReadDevice.c)
+ *     KsepDbGetDriverShims @ 0x1409D8DF4 (KsepDbGetDriverShims.c)
+ *     KseInitialize @ 0x140CD3040 (KseInitialize.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KsepDeletePatchSdb @ 0x1407BE428 (KsepDeletePatchSdb.c)
- *     KsepSdbMapToMemory @ 0x1409E6578 (KsepSdbMapToMemory.c)
- *     KsepSdbUnmapFromMemory @ 0x1409E6EA4 (KsepSdbUnmapFromMemory.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KsepDeletePatchSdb @ 0x1407C1488 (KsepDeletePatchSdb.c)
+ *     KsepSdbUnmapFromMemory @ 0x1409D5E7C (KsepSdbUnmapFromMemory.c)
+ *     KsepSdbMapToMemory @ 0x1409D65BC (KsepSdbMapToMemory.c)
  */
 
-__int64 __fastcall KseShimDatabaseOpen(_QWORD *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+__int64 __fastcall KseShimDatabaseOpen(LIST_ENTRY **a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
   struct _KTHREAD *CurrentThread; // rax
   AutoBoost *v6; // rax
@@ -40,24 +40,24 @@ __int64 __fastcall KseShimDatabaseOpen(_QWORD *a1, __int64 a2, __int64 a3, struc
     else
       *((_BYTE *)v9 + 10) = 1;
   }
-  if ( LODWORD(KsepShimDbLock.FirstArgument) )
+  if ( KsepShimDbDuringBoot )
   {
-    if ( !KsepShimDbLock.TrapFrame )
+    if ( !KsepShimDbHandle )
     {
       *a1 = 0LL;
       goto LABEL_10;
     }
     ++KsepShimDbRefCount;
     v10 = 0;
-    *a1 = KsepShimDbLock.TrapFrame;
-    _InterlockedIncrement((volatile signed __int32 *)&AlpcpMessageLogLock.WaitBlockList);
+    *a1 = (LIST_ENTRY *)KsepShimDbHandle;
+    _InterlockedIncrement((volatile signed __int32 *)&AlpcpMessageLogLock.ApcStateFill[16]);
   }
-  else if ( KsepShimDbLock.TrapFrame )
+  else if ( KsepShimDbHandle )
   {
     ++KsepShimDbRefCount;
     v10 = 0;
-    *a1 = KsepShimDbLock.TrapFrame;
-    _InterlockedIncrement((volatile signed __int32 *)&AlpcpMessageLogLock.216);
+    *a1 = (LIST_ENTRY *)KsepShimDbHandle;
+    _InterlockedIncrement((volatile signed __int32 *)&AlpcpMessageLogLock.ApcStateFill[24]);
   }
   else
   {
@@ -65,21 +65,21 @@ __int64 __fastcall KseShimDatabaseOpen(_QWORD *a1, __int64 a2, __int64 a3, struc
     if ( v10 < 0 )
     {
       *a1 = 0LL;
-      _InterlockedIncrement((_DWORD *)&AlpcpMessageLogLock.SwapListEntry.Next + 1);
+      _InterlockedIncrement((volatile signed __int32 *)&AlpcpMessageLogLock.ApcStateFill[28]);
 LABEL_10:
       v10 = -1073741823;
       goto LABEL_11;
     }
     if ( (int)KsepSdbMapToMemory(L"\\SystemRoot\\AppPatch\\drvpatch.sdb") >= 0
-      && LODWORD(KsepShimDbLock.CycleTime) >= KsepShimDbLock.SystemCallNumber )
+      && LODWORD(KsepShimDbLock.StackBase) >= *(_DWORD *)&KsepShimDbLock.WaitRegister.Flags )
     {
-      KsepSdbUnmapFromMemory(&KsepShimDbLock.CurrentRunTime);
+      KsepSdbUnmapFromMemory(&KsepShimDbLock.ThreadLock);
       KsepDeletePatchSdb();
     }
     ++KsepShimDbRefCount;
-    KsepShimDbLock.TrapFrame = (_KTRAP_FRAME *)&KsepShimDbLock.SListFaultAddress;
-    *a1 = &KsepShimDbLock.SListFaultAddress;
-    _InterlockedIncrement((_DWORD *)&AlpcpMessageLogLock.WaitBlockList + 1);
+    KsepShimDbHandle = (__int64)&KsepShimDbLock.Header.WaitListHead;
+    *a1 = &KsepShimDbLock.Header.WaitListHead;
+    _InterlockedIncrement((volatile signed __int32 *)&AlpcpMessageLogLock.ApcStateFill[20]);
   }
 LABEL_11:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&KsepShimDbLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

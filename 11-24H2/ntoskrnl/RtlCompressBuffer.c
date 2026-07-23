@@ -1,21 +1,20 @@
 /*
- * XREFs of RtlCompressBuffer @ 0x14038A270
+ * XREFs of RtlCompressBuffer @ 0x140383BB0
  * Callers:
- *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x14027ABDC (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
- *     EtwpFileModeCompress @ 0x14032EFC8 (EtwpFileModeCompress.c)
- *     SmStoreCompressBuffer @ 0x140389E34 (SmStoreCompressBuffer.c)
- *     EtwpCompressBuffer @ 0x140650CB4 (EtwpCompressBuffer.c)
- *     RtlCompressChunks @ 0x14077DD50 (RtlCompressChunks.c)
- *     EtwpWriteBufferCompressed @ 0x1407B0650 (EtwpWriteBufferCompressed.c)
- *     PopAddPagesToCompressedPageSet @ 0x140B5C3C4 (PopAddPagesToCompressedPageSet.c)
+ *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x14023016C (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
+ *     EtwpFileModeCompress @ 0x1402B780C (EtwpFileModeCompress.c)
+ *     SmStoreCompressBuffer @ 0x140383774 (SmStoreCompressBuffer.c)
+ *     EtwpCompressBuffer @ 0x14064F3BC (EtwpCompressBuffer.c)
+ *     RtlCompressChunks @ 0x14077DC80 (RtlCompressChunks.c)
+ *     EtwpWriteBufferCompressed @ 0x1407B0AA0 (EtwpWriteBufferCompressed.c)
+ *     PopAddPagesToCompressedPageSet @ 0x140B5E434 (PopAddPagesToCompressedPageSet.c)
  * Callees:
- *     RtlCompressBufferLz4 @ 0x14038A3F0 (RtlCompressBufferLz4.c)
- *     RtlCompressBufferXpressHuff @ 0x14038BAA0 (RtlCompressBufferXpressHuff.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlCompressBufferLZNT1 @ 0x140B640F0 (RtlCompressBufferLZNT1.c)
+ *     RtlCompressBufferLz4 @ 0x140383D30 (RtlCompressBufferLz4.c)
+ *     RtlCompressBufferXpressHuff @ 0x1403853E0 (RtlCompressBufferXpressHuff.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlCompressBufferLZNT1 @ 0x140B66200 (RtlCompressBufferLZNT1.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall RtlCompressBuffer(
         USHORT CompressionFormatAndEngine,
         PUCHAR UncompressedBuffer,
@@ -64,5 +63,5 @@ NTSTATUS __stdcall RtlCompressBuffer(
              CompressedBufferSize,
              UncompressedChunkSize,
              FinalCompressedSize);
-  return guard_dispatch_icall_no_overrides(v8, UncompressedBuffer, *(_QWORD *)&UncompressedBufferSize, CompressedBuffer);
+  return guard_dispatch_icall_no_overrides(v8, UncompressedBuffer);
 }

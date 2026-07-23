@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCustomAccessRoutine0 @ 0x14042B790
+ * XREFs of KiCustomAccessRoutine0 @ 0x14042BB20
  * Callers:
- *     ExpTimerDpcRoutine @ 0x140369EC0 (ExpTimerDpcRoutine.c)
- *     FsRtlTruncateSmallMcb @ 0x14066CF90 (FsRtlTruncateSmallMcb.c)
+ *     ExpTimerDpcRoutine @ 0x14036A060 (ExpTimerDpcRoutine.c)
+ *     FsRtlTruncateSmallMcb @ 0x14066D4E0 (FsRtlTruncateSmallMcb.c)
  * Callees:
- *     KiCustomRecurseRoutine0 @ 0x14042B770 (KiCustomRecurseRoutine0.c)
+ *     KiCustomRecurseRoutine0 @ 0x14042BB00 (KiCustomRecurseRoutine0.c)
  */
 
 __int64 __fastcall KiCustomAccessRoutine0(unsigned int *a1)

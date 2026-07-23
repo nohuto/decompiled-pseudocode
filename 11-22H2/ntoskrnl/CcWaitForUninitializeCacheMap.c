@@ -128,10 +128,13 @@ void __fastcall CcWaitForUninitializeCacheMap(__int64 a1)
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&v36);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -179,10 +182,10 @@ LABEL_38:
           *(_DWORD *)(v17 + 152) &= ~0x10000u;
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&v36);
           v20 = v36.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v21 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && v36.OldIrql <= 0xFu && v21 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && v36.OldIrql <= 0xFu && v21 >= 2u )
             {
               v22 = KeGetCurrentPrcb();
               v23 = v22->SchedulerAssist;
@@ -199,10 +202,10 @@ LABEL_38:
         {
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&v36);
           v25 = v36.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v26 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && v36.OldIrql <= 0xFu && v26 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && v36.OldIrql <= 0xFu && v26 >= 2u )
             {
               v27 = KeGetCurrentPrcb();
               v28 = v27->SchedulerAssist;

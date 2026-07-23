@@ -1,12 +1,12 @@
 /*
- * XREFs of CcSetLoggedDataThreshold @ 0x1404FA800
+ * XREFs of CcSetLoggedDataThreshold @ 0x1404F3E10
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402B4630 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402FF300 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  */
 
 void __fastcall CcSetLoggedDataThreshold(void *a1, unsigned int a2)
@@ -18,8 +18,8 @@ void __fastcall CcSetLoggedDataThreshold(void *a1, unsigned int a2)
   memset(&v6, 0, sizeof(v6));
   memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(&CcMasterLock, &v6);
-  for ( i = (struct _KTHREAD *)EmpParseLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
-        i != (struct _KTHREAD *)&EmpParseLock.InGlobalUpdateVpThreadPriorityList;
+  for ( i = (struct _KTHREAD *)EmpParseLock.KernelWaitTime;
+        i != (struct _KTHREAD *)&EmpParseLock.KernelWaitTime;
         i = *(struct _KTHREAD **)&i->Header.Lock )
   {
     if ( i->SListFaultAddress == a1 )

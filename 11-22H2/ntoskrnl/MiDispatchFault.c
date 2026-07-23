@@ -248,7 +248,7 @@ LABEL_22:
               }
               v21 = &ExpInterlockedPopEntrySListFault;
               v29 = *(_QWORD *)(v39.m128i_i64[0] + 360);
-              v20 = KiDynamicTraceEnabled && v29 >= qword_140D1F2A8 && v29 < qword_140D1F2B0 && KeGetCurrentIrql() == 15;
+              v20 = KiDynamicTraceEnabled && v29 >= ControlPc && v29 < qword_140D1F2B0 && KeGetCurrentIrql() == 15;
             }
             else
             {

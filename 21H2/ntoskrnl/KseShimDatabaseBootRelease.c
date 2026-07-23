@@ -1,14 +1,14 @@
 /*
- * XREFs of KseShimDatabaseBootRelease @ 0x1407BCC60
+ * XREFs of KseShimDatabaseBootRelease @ 0x1407BD3F0
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x1403C3418 (PnpCompleteSystemStartProcess.c)
- *     KseShimDatabaseClose @ 0x140758D88 (KseShimDatabaseClose.c)
+ *     PnpCompleteSystemStartProcess @ 0x1403C3848 (PnpCompleteSystemStartProcess.c)
+ *     KseShimDatabaseClose @ 0x140758F48 (KseShimDatabaseClose.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KsepSdbBootRelease @ 0x1407BCD08 (KsepSdbBootRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KsepSdbBootRelease @ 0x1407BD498 (KsepSdbBootRelease.c)
  */
 
 _QWORD *KseShimDatabaseBootRelease()
@@ -16,6 +16,9 @@ _QWORD *KseShimDatabaseBootRelease()
   struct _KTHREAD *CurrentThread; // rax
   int v1; // eax
   char v2; // bl
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -26,7 +29,7 @@ _QWORD *KseShimDatabaseBootRelease()
     if ( !KsepShimDbRefCount || (--KsepShimDbRefCount, v1 == 1) )
     {
       KsepSdbBootRelease(KsepShimDb);
-      KsepSdbBootRelease(qword_140C2AEF8);
+      KsepSdbBootRelease(qword_140C2AF38);
       KsepShimDbHandle = 0LL;
       KsepShimDbDuringBoot = 0;
     }
@@ -35,5 +38,5 @@ _QWORD *KseShimDatabaseBootRelease()
   if ( (v2 & 2) != 0 && (v2 & 4) == 0 )
     ExfTryToWakePushLock(&KsepShimDbLock);
   KeAbPostRelease((ULONG_PTR)&KsepShimDbLock);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v3, v4, v5);
 }

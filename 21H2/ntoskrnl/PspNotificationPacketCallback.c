@@ -1,15 +1,15 @@
 /*
- * XREFs of PspNotificationPacketCallback @ 0x1406B47F0
+ * XREFs of PspNotificationPacketCallback @ 0x1406139C0
  * Callers:
  *     <none>
  * Callees:
- *     IoSetIoCompletionEx @ 0x14028FFC0 (IoSetIoCompletionEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x140618774 (PspLockJobExclusive.c)
+ *     IoSetIoCompletionEx @ 0x14020DF30 (IoSetIoCompletionEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockJob @ 0x140682390 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406823D4 (PspLockJobExclusive.c)
  */
 
-void __fastcall PspNotificationPacketCallback(__int64 a1, __int64 a2)
+LONG_PTR __fastcall PspNotificationPacketCallback(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rsi
   signed __int32 v4; // r9d
@@ -18,9 +18,10 @@ void __fastcall PspNotificationPacketCallback(__int64 a1, __int64 a2)
   signed __int32 v7; // eax
   unsigned int v8; // ecx
   unsigned int v9; // edi
+  LONG_PTR result; // rax
 
   CurrentThread = KeGetCurrentThread();
-  PspLockJobExclusive(a2, (__int64)CurrentThread);
+  PspLockJobExclusive(a2, CurrentThread);
   v4 = *(_DWORD *)(a2 + 1320);
   do
   {
@@ -50,10 +51,11 @@ void __fastcall PspNotificationPacketCallback(__int64 a1, __int64 a2)
   v9 = *(_QWORD *)(a2 + 456) != 0LL ? v5 : 0;
   if ( v9 )
   {
-    IoSetIoCompletionEx(*(_QWORD *)(a2 + 456), *(_QWORD *)(a2 + 464), 0LL, 0LL, v9, 0, *(_QWORD *)(a2 + 1000));
+    IoSetIoCompletionEx(*(_QWORD *)(a2 + 456), *(_QWORD *)(a2 + 464), 0LL, 0, v9, 0, *(_QWORD *)(a2 + 1000));
     _InterlockedIncrement64((volatile signed __int64 *)(a2 + 472));
   }
-  PspUnlockJob(a2, (__int64)CurrentThread);
+  result = PspUnlockJob(a2, CurrentThread);
   if ( !v9 )
-    ObfDereferenceObjectWithTag((PVOID)a2, 0x624A7350u);
+    return ObfDereferenceObjectWithTag((PVOID)a2, 0x624A7350u);
+  return result;
 }

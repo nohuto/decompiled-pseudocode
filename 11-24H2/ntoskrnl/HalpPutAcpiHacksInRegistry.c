@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpPutAcpiHacksInRegistry @ 0x140702484
+ * XREFs of HalpPutAcpiHacksInRegistry @ 0x1407000C4
  * Callers:
- *     HaliInitPowerManagement @ 0x140702360 (HaliInitPowerManagement.c)
+ *     HaliInitPowerManagement @ 0x1406FFFA0 (HaliInitPowerManagement.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
  */
 
 int HalpPutAcpiHacksInRegistry()

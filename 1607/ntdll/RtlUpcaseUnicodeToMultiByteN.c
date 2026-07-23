@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlUpcaseUnicodeToMultiByteN @ 0x180080070
+ * XREFs of RtlUpcaseUnicodeToMultiByteN @ 0x180080060
  * Callers:
- *     toupper @ 0x18009C3D0 (toupper.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x1800E3340 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     toupper @ 0x18009C3C0 (toupper.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x1800E3400 (RtlUpcaseUnicodeStringToAnsiString.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
-        _BYTE *a1,
-        unsigned int a2,
-        unsigned int *a3,
-        unsigned __int16 *a4,
-        unsigned int a5)
+NTSTATUS __cdecl RtlUpcaseUnicodeToMultiByteN(
+        PCHAR MultiByteString,
+        ULONG MaxBytesInMultiByteString,
+        PULONG BytesInMultiByteString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  _BYTE *v5; // r10
-  unsigned int v6; // r11d
-  unsigned int *v7; // rdi
-  unsigned int v8; // r13d
+  PCHAR v5; // r10
+  ULONG v6; // r11d
+  PULONG v7; // rdi
+  ULONG v8; // r13d
   __int64 v9; // r8
   __int64 v10; // r14
   __int64 v11; // r12
-  _BYTE *v12; // r10
-  unsigned __int16 *v13; // rdi
+  CHAR *v12; // r10
+  const WCHAR *v13; // rdi
   __int64 v14; // r9
   unsigned __int16 v15; // r11
   __int64 v17; // rax
@@ -51,21 +51,21 @@ __int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
   __int16 v40; // dx
   unsigned int v41; // eax
 
-  v5 = a1;
-  v6 = a5 >> 1;
-  v7 = a3;
-  v8 = a2;
+  v5 = MultiByteString;
+  v6 = BytesInUnicodeString >> 1;
+  v7 = BytesInMultiByteString;
+  v8 = MaxBytesInMultiByteString;
   if ( !NlsMbCodePageTag )
   {
-    if ( v6 < a2 )
-      v8 = a5 >> 1;
-    if ( a3 )
-      *a3 = v8;
+    if ( v6 < MaxBytesInMultiByteString )
+      v8 = BytesInUnicodeString >> 1;
+    if ( BytesInMultiByteString )
+      *BytesInMultiByteString = v8;
     v9 = NlsUnicodeToAnsiData;
     v10 = NlsAnsiToUnicodeData;
     v11 = v8 & 0xF;
-    v12 = &a1[v11];
-    v13 = &a4[v11];
+    v12 = &MultiByteString[v11];
+    v13 = &UnicodeString[v11];
     v14 = Nls844UnicodeUpcaseTable;
     while ( (unsigned int)v11 <= 8 )
     {
@@ -117,7 +117,7 @@ LABEL_13:
       v8 -= v11;
       LODWORD(v11) = 16;
       if ( !v8 )
-        return 0LL;
+        return 0;
     }
     if ( (_DWORD)v11 != 9 )
     {
@@ -385,7 +385,7 @@ LABEL_100:
     *(v12 - 2) = *(_BYTE *)(v32 + v9);
     goto LABEL_11;
   }
-  v33 = (int)a1;
+  v33 = (int)MultiByteString;
   if ( v6 )
   {
     v34 = NlsUnicodeToMbAnsiData;
@@ -395,7 +395,7 @@ LABEL_100:
     {
       if ( !v8 )
         break;
-      v37 = *a4++;
+      v37 = *UnicodeString++;
       v38 = *(_WORD *)(v34 + 2 * v37);
       if ( NlsLeadByteInfoTable[HIBYTE(v38)] )
         v39 = *(_WORD *)(NlsMbAnsiCodePageTables
@@ -429,10 +429,10 @@ LABEL_100:
       --v6;
     }
     while ( v6 );
-    v7 = a3;
-    v33 = (int)a1;
+    v7 = BytesInMultiByteString;
+    v33 = (int)MultiByteString;
   }
   if ( v7 )
     *v7 = (_DWORD)v5 - v33;
-  return 0LL;
+  return 0;
 }

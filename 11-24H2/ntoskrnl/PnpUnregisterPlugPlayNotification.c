@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpUnregisterPlugPlayNotification @ 0x14046F240
+ * XREFs of PnpUnregisterPlugPlayNotification @ 0x140469950
  * Callers:
- *     PopPolicyDeviceTargetChange @ 0x14075AB60 (PopPolicyDeviceTargetChange.c)
- *     CmpHiveCacheEntryCleanup @ 0x1407E54D8 (CmpHiveCacheEntryCleanup.c)
- *     IoUnregisterPlugPlayNotificationEx @ 0x140A4EAB0 (IoUnregisterPlugPlayNotificationEx.c)
- *     IoUnregisterPlugPlayNotification @ 0x140A8E890 (IoUnregisterPlugPlayNotification.c)
- *     PopCleanCoolingExtension @ 0x140AB1600 (PopCleanCoolingExtension.c)
+ *     PopPolicyDeviceTargetChange @ 0x140759250 (PopPolicyDeviceTargetChange.c)
+ *     CmpHiveCacheEntryCleanup @ 0x1407E5AA8 (CmpHiveCacheEntryCleanup.c)
+ *     IoUnregisterPlugPlayNotificationEx @ 0x140A45730 (IoUnregisterPlugPlayNotificationEx.c)
+ *     IoUnregisterPlugPlayNotification @ 0x140A8AF00 (IoUnregisterPlugPlayNotification.c)
+ *     PopCleanCoolingExtension @ 0x140AAC570 (PopCleanCoolingExtension.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PnpDereferenceNotify @ 0x1409EED14 (PnpDereferenceNotify.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PnpDereferenceNotify @ 0x1409EC754 (PnpDereferenceNotify.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpUnregisterPlugPlayNotification(PVOID P, char a2)

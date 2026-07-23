@@ -141,7 +141,7 @@ __int64 __fastcall IopParseDevice(
   char v47; // bl
   PDEVICE_OBJECT AttachedDevice; // r12
   ULONG Characteristics; // eax
-  int ActiveConsoleId; // edi
+  ULONG ActiveConsoleId; // edi
   __int64 v51; // rax
   int v52; // edi
   bool v53; // di

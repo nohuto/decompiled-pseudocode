@@ -15,11 +15,11 @@
  *     <none>
  */
 
-__int64 __fastcall RtlReAllocateHeap(__int64 a1)
+PVOID __cdecl RtlReAllocateHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress, SIZE_T Size)
 {
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
-    return RtlpHpReAllocWithExceptionProtection();
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+    return (PVOID)RtlpHpReAllocWithExceptionProtection(HeapHandle, Flags, BaseAddress, Size);
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpVirtReAllocateHeap();
-  return RtlpReAllocateHeapInternal();
+    return (PVOID)RtlpHpVirtReAllocateHeap(HeapHandle);
+  return (PVOID)RtlpReAllocateHeapInternal(HeapHandle);
 }

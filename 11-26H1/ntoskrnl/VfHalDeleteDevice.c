@@ -1,12 +1,12 @@
 /*
- * XREFs of VfHalDeleteDevice @ 0x140C25180
+ * XREFs of VfHalDeleteDevice @ 0x140C2B190
  * Callers:
- *     VfIoDeleteDevice @ 0x140C306C0 (VfIoDeleteDevice.c)
+ *     VfIoDeleteDevice @ 0x140C366D0 (VfIoDeleteDevice.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x140C22F98 (VF_FIND_DEVICE_INFORMATION_AND_REMOVE.c)
- *     ViReleaseDmaAdapter @ 0x140C27B3C (ViReleaseDmaAdapter.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x140C28FA8 (VF_FIND_DEVICE_INFORMATION_AND_REMOVE.c)
+ *     ViReleaseDmaAdapter @ 0x140C2DB4C (ViReleaseDmaAdapter.c)
  */
 
 void __fastcall VfHalDeleteDevice(struct _LIST_ENTRY *a1)
@@ -46,13 +46,13 @@ LABEL_16:
     }
     else
     {
-      v5 = KeAcquireSpinLockRaiseToDpc(&qword_140F08290);
+      v5 = KeAcquireSpinLockRaiseToDpc(&qword_140F085F0);
       for ( i = ViAdapterList.Flink; &ViAdapterList != i; i = i->Flink )
       {
         if ( i[4].Flink == v3 )
           LOBYTE(i[4].Blink) = 1;
       }
-      KeReleaseSpinLock(&qword_140F08290, v5);
+      KeReleaseSpinLock(&qword_140F085F0, v5);
     }
   }
 }

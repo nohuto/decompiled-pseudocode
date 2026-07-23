@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpPerformCompleteKcbCacheLookup @ 0x1404A000C
+ * XREFs of CmpPerformCompleteKcbCacheLookup @ 0x140518418
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x14000B4B0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpGetSymbolicLinkTarget @ 0x14000B030 (CmpGetSymbolicLinkTarget.c)
  * Callees:
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x140087D10 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpUnlockHashEntryByKcb @ 0x1403FC980 (CmpUnlockHashEntryByKcb.c)
- *     CmpGetComponentNameAtIndex @ 0x1404047F0 (CmpGetComponentNameAtIndex.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x140404978 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpLockKcbShared @ 0x140435440 (CmpLockKcbShared.c)
- *     CmpDereferenceKeyControlBlock @ 0x140437DB0 (CmpDereferenceKeyControlBlock.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmpPerformSingleKcbCacheLookup @ 0x1404A0334 (CmpPerformSingleKcbCacheLookup.c)
- *     CmpIsHiveLoadingOnOtherThread @ 0x1404A0EB8 (CmpIsHiveLoadingOnOtherThread.c)
- *     CmpLockHashEntrySharedByKcb @ 0x140506BA0 (CmpLockHashEntrySharedByKcb.c)
- *     CmpWaitForHiveMount @ 0x1405752DC (CmpWaitForHiveMount.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x14010BF00 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpUnlockHashEntryByKcb @ 0x1403FB840 (CmpUnlockHashEntryByKcb.c)
+ *     CmpGetComponentNameAtIndex @ 0x1404036B0 (CmpGetComponentNameAtIndex.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x140403838 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpLockKcbShared @ 0x140434310 (CmpLockKcbShared.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140436C80 (CmpDereferenceKeyControlBlock.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmpLockHashEntrySharedByKcb @ 0x1404E9B30 (CmpLockHashEntrySharedByKcb.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x140518740 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpIsHiveLoadingOnOtherThread @ 0x1405192C4 (CmpIsHiveLoadingOnOtherThread.c)
+ *     CmpWaitForHiveMount @ 0x14057581C (CmpWaitForHiveMount.c)
  */
 
 __int64 __fastcall CmpPerformCompleteKcbCacheLookup(

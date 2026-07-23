@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlQueryEnvironmentVariable_U @ 0x180084F00
+ * XREFs of RtlQueryEnvironmentVariable_U @ 0x180006DB0
  * Callers:
- *     RtlpLookupSafeCurDirList @ 0x1801146A8 (RtlpLookupSafeCurDirList.c)
+ *     RtlpLookupSafeCurDirList @ 0x18010F9B4 (RtlpLookupSafeCurDirList.c)
  * Callees:
- *     RtlQueryEnvironmentVariable @ 0x1800851D0 (RtlQueryEnvironmentVariable.c)
+ *     RtlQueryEnvironmentVariable @ 0x180007080 (RtlQueryEnvironmentVariable.c)
  */
 
-__int64 __fastcall RtlQueryEnvironmentVariable_U(__int64 a1, unsigned __int16 *a2, __int64 a3)
+NTSTATUS __cdecl RtlQueryEnvironmentVariable_U(PVOID Environment, PUNICODE_STRING Name, PUNICODE_STRING Value)
 {
-  unsigned __int64 v3; // rax
-  __int64 result; // rax
+  unsigned __int64 MaximumLength; // rax
+  NTSTATUS result; // eax
   __int16 v6; // cx
-  unsigned __int64 v7; // [rsp+48h] [rbp+10h] BYREF
+  ULONG_PTR v7; // [rsp+48h] [rbp+10h] BYREF
 
-  v3 = *(unsigned __int16 *)(a3 + 2);
+  MaximumLength = Value->MaximumLength;
   v7 = 0LL;
   result = RtlQueryEnvironmentVariable(
-             a1,
-             *((_QWORD *)a2 + 1),
-             (unsigned __int64)*a2 >> 1,
-             *(_QWORD *)(a3 + 8),
-             v3 >> 1,
+             Environment,
+             Name->Buffer,
+             (unsigned __int64)Name->Length >> 1,
+             Value->Buffer,
+             MaximumLength >> 1,
              &v7);
   v6 = v7;
   if ( v7 > 0x7FFF )
-    return 3221225495LL;
-  if ( (_DWORD)result == -1073741789 )
+    return -1073741801;
+  if ( result == -1073741789 )
     v6 = v7 - 1;
-  *(_WORD *)a3 = 2 * v6;
+  Value->Length = 2 * v6;
   return result;
 }

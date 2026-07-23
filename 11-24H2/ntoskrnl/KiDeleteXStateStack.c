@@ -1,10 +1,10 @@
 /*
- * XREFs of KiDeleteXStateStack @ 0x1405B7F74
+ * XREFs of KiDeleteXStateStack @ 0x1405B5554
  * Callers:
- *     KeUninitThread @ 0x140A19A98 (KeUninitThread.c)
- *     KeInitThread @ 0x140B69230 (KeInitThread.c)
+ *     KeUninitThread @ 0x140A12C08 (KeUninitThread.c)
+ *     KeInitThread @ 0x140B6A948 (KeInitThread.c)
  * Callees:
- *     MmDeleteKernelStack @ 0x14026A4B0 (MmDeleteKernelStack.c)
+ *     MmDeleteKernelStack @ 0x14021FA40 (MmDeleteKernelStack.c)
  */
 
 unsigned __int64 __fastcall KiDeleteXStateStack(__int64 a1)

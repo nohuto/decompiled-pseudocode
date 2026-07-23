@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwQueryInformationPort @ 0x1403FCD20
+ * XREFs of ZwQueryInformationPort @ 0x1403FCF00
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryInformationPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryInformationPort(
+        HANDLE PortHandle,
+        PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

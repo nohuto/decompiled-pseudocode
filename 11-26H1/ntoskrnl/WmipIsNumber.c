@@ -1,8 +1,8 @@
 /*
- * XREFs of WmipIsNumber @ 0x140AF7E54
+ * XREFs of WmipIsNumber @ 0x140AFA4F4
  * Callers:
- *     WmipFindISinGEbyName @ 0x140A0B3A0 (WmipFindISinGEbyName.c)
- *     WmipPrepareWnodeSI @ 0x140A0F5E4 (WmipPrepareWnodeSI.c)
+ *     WmipFindISinGEbyName @ 0x140A0A608 (WmipFindISinGEbyName.c)
+ *     WmipPrepareWnodeSI @ 0x140A0E7D4 (WmipPrepareWnodeSI.c)
  * Callees:
  *     <none>
  */

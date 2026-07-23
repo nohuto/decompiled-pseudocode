@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsKvaLeakSimulated @ 0x1403B5C08
+ * XREFs of KiIsKvaLeakSimulated @ 0x1403B5D78
  * Callers:
- *     KiEnableKvaShadowing @ 0x14099F860 (KiEnableKvaShadowing.c)
+ *     KiEnableKvaShadowing @ 0x1409A0790 (KiEnableKvaShadowing.c)
  * Callees:
  *     <none>
  */

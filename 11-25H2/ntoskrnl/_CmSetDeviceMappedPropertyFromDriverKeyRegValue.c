@@ -35,7 +35,7 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromDriverKeyRegValue(
   __int64 v23; // [rsp+28h] [rbp-58h]
   HANDLE Handle; // [rsp+40h] [rbp-40h] BYREF
   size_t pcchLength; // [rsp+48h] [rbp-38h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+50h] [rbp-30h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+50h] [rbp-30h] BYREF
   wchar_t pszDest[12]; // [rsp+60h] [rbp-20h] BYREF
 
   Handle = 0LL;

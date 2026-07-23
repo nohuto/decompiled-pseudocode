@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlGetFunctionOverrideRelocationMaxVpn @ 0x14067BD84
+ * XREFs of RtlGetFunctionOverrideRelocationMaxVpn @ 0x14067C2D4
  * Callers:
  *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
  * Callees:

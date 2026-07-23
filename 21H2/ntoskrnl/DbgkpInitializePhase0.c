@@ -1,21 +1,21 @@
 /*
- * XREFs of DbgkpInitializePhase0 @ 0x140A6D4E0
+ * XREFs of DbgkpInitializePhase0 @ 0x140A6E4E0
  * Callers:
- *     DbgkInitialize @ 0x140A6D4AC (DbgkInitialize.c)
+ *     DbgkInitialize @ 0x140A6E4AC (DbgkInitialize.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     CmSiRWLockInitialize @ 0x140795710 (CmSiRWLockInitialize.c)
- *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
- *     DbgkpInitializePhase0SiloState @ 0x1407CA4C4 (DbgkpInitializePhase0SiloState.c)
- *     DbgkpGetServerSiloState @ 0x1407CA7EC (DbgkpGetServerSiloState.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmSiRWLockInitialize @ 0x140795910 (CmSiRWLockInitialize.c)
+ *     ObCreateObjectType @ 0x140795AD0 (ObCreateObjectType.c)
+ *     DbgkpInitializePhase0SiloState @ 0x1407CA7E4 (DbgkpInitializePhase0SiloState.c)
+ *     DbgkpGetServerSiloState @ 0x1407CAB0C (DbgkpGetServerSiloState.c)
  */
 
 void DbgkpInitializePhase0()
 {
   char *ServerSiloState; // rax
   __int64 v1; // rbx
-  union _RTL_RUN_ONCE *v2; // rcx
-  union _RTL_RUN_ONCE *v3; // rcx
+  _RTL_RUN_ONCE *v2; // rcx
+  _RTL_RUN_ONCE *v3; // rcx
   UNICODE_STRING v4; // [rsp+20h] [rbp-39h] BYREF
   _QWORD v5[16]; // [rsp+30h] [rbp-29h] BYREF
 
@@ -47,7 +47,7 @@ void DbgkpInitializePhase0()
     {
       if ( !DbgkpMaxModuleMsgs )
         DbgkpMaxModuleMsgs = 500;
-      v2 = &stru_140C53F30;
+      v2 = &stru_140C53F70;
       do
       {
         CmSiRWLockInitialize(v2);

@@ -17,28 +17,28 @@
  *     memmove @ 0x1800A3C00 (memmove.c)
  */
 
-__int64 __fastcall RtlQueryEnvironmentVariable(
-        _WORD *a1,
-        const wchar_t *a2,
-        size_t a3,
-        void *a4,
-        unsigned __int64 a5,
-        unsigned __int64 *a6)
+NTSTATUS __cdecl RtlQueryEnvironmentVariable(
+        PVOID Environment,
+        PCWSTR Name,
+        SIZE_T NameLength,
+        PWSTR Value,
+        SIZE_T ValueLength,
+        PSIZE_T ReturnLength)
 {
   const wchar_t *v7; // r9
   struct _TEB *v9; // r13
   int v10; // r12d
-  unsigned int PseudoEnvironmentVariable; // edi
+  NTSTATUS PseudoEnvironmentVariable; // edi
   __int64 v12; // rbx
   __int64 v13; // r15
-  unsigned __int64 v14; // rbx
-  unsigned __int64 *v15; // r14
+  SIZE_T v14; // rbx
+  PSIZE_T v15; // r14
   _WORD *v16; // r13
-  unsigned __int16 *v17; // rbx
+  PCWSTR v17; // rbx
   char *v18; // rax
-  unsigned __int16 *v19; // rsi
+  const WCHAR *v19; // rsi
   char *v20; // rdi
-  unsigned __int16 *i; // r9
+  const WCHAR *i; // r9
   bool v22; // zf
   unsigned __int64 v23; // r10
   unsigned __int64 v24; // r11
@@ -51,25 +51,25 @@ __int64 __fastcall RtlQueryEnvironmentVariable(
   char **v31; // r10
   bool v32; // zf
   _BYTE *v33; // r11
-  unsigned __int64 v34; // rax
+  SIZE_T v34; // rax
   __int64 v35; // rbx
   _PEB *ProcessEnvironmentBlock; // rcx
   int v37; // r15d
-  const wchar_t *v38; // rbx
-  __int64 FastPebLock; // rcx
-  unsigned __int64 v41; // [rsp+20h] [rbp-88h]
-  unsigned __int64 v42; // [rsp+20h] [rbp-88h]
-  unsigned int v43; // [rsp+40h] [rbp-68h]
-  _WORD *Environment; // [rsp+C0h] [rbp+18h] BYREF
+  PCWSTR v38; // rbx
+  _RTL_CRITICAL_SECTION *FastPebLock; // rcx
+  SIZE_T v41; // [rsp+20h] [rbp-88h]
+  SIZE_T v42; // [rsp+20h] [rbp-88h]
+  NTSTATUS v43; // [rsp+40h] [rbp-68h]
+  PVOID v45; // [rsp+C0h] [rbp+18h] BYREF
   void *v46; // [rsp+C8h] [rbp+20h]
 
-  v46 = a4;
-  v7 = a2;
+  v46 = Value;
+  v7 = Name;
   v9 = NtCurrentTeb();
   v10 = 0;
-  *a6 = 0LL;
-  if ( !a3 )
-    return 3221225728LL;
+  *ReturnLength = 0LL;
+  if ( !NameLength )
+    return -1073741568;
   PseudoEnvironmentVariable = -1073741568;
   LODWORD(v12) = 4;
   while ( 1 )
@@ -80,58 +80,61 @@ __int64 __fastcall RtlQueryEnvironmentVariable(
       {
         v12 = (unsigned int)(v12 - 1);
         v13 = 0x180000000LL + 24 * v12 + 1166000;
-        if ( a3 <= *(_QWORD *)v13 )
+        if ( NameLength <= *(_QWORD *)v13 )
           continue;
       }
-      v14 = a5;
+      v14 = ValueLength;
       goto LABEL_8;
     }
-    while ( a3 != *(_QWORD *)v13 );
-    if ( !wcsnicmp(v7, *(const wchar_t **)(0x180000008LL + 24 * v12 + 1166000), a3) )
+    while ( NameLength != *(_QWORD *)v13 );
+    if ( !wcsnicmp(v7, *(const wchar_t **)(0x180000008LL + 24 * v12 + 1166000), NameLength) )
       break;
-    v7 = a2;
+    v7 = Name;
   }
-  v14 = a5;
-  PseudoEnvironmentVariable = RtlpQueryPseudoEnvironmentVariable(*(unsigned int *)(v13 + 16), v46, a5, a6);
+  v14 = ValueLength;
+  PseudoEnvironmentVariable = RtlpQueryPseudoEnvironmentVariable(
+                                *(unsigned int *)(v13 + 16),
+                                v46,
+                                ValueLength,
+                                ReturnLength);
 LABEL_8:
   if ( PseudoEnvironmentVariable != -1073741568 )
     return PseudoEnvironmentVariable;
-  if ( a1 )
+  if ( Environment )
   {
-    Environment = a1;
-    if ( !*a1 )
-      return (unsigned int)-1073741568;
+    v45 = Environment;
+    if ( !*(_WORD *)Environment )
+      return -1073741568;
     ProcessEnvironmentBlock = v9->ProcessEnvironmentBlock;
-    if ( ProcessEnvironmentBlock->ProcessParameters->Environment == a1
-      && ((FastPebLock = (__int64)ProcessEnvironmentBlock->FastPebLock) == 0
-       || RtlIsCriticalSectionLockedByThread(FastPebLock)) )
+    if ( ProcessEnvironmentBlock->ProcessParameters->Environment == Environment
+      && ((FastPebLock = ProcessEnvironmentBlock->FastPebLock) == 0LL || RtlIsCriticalSectionLockedByThread(FastPebLock)) )
     {
       v42 = v14;
-      v38 = a2;
-      PseudoEnvironmentVariable = RtlpQueryEnvironmentCache(&Environment, a2, a3, v46, v42, a6);
+      v38 = Name;
+      PseudoEnvironmentVariable = RtlpQueryEnvironmentCache(&v45, Name, NameLength, v46, v42, ReturnLength);
       if ( PseudoEnvironmentVariable != -1073741568 )
         return PseudoEnvironmentVariable;
       v37 = 1;
-      a1 = Environment;
+      Environment = v45;
     }
     else
     {
       v37 = 0;
-      v38 = a2;
+      v38 = Name;
     }
-    return (unsigned int)RtlpScanEnvironment(a1, v38, a3, v46, a5, a6, v37);
+    return RtlpScanEnvironment(Environment, v38, NameLength, v46, ValueLength, ReturnLength, v37);
   }
   RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
-  Environment = v9->ProcessEnvironmentBlock->ProcessParameters->Environment;
-  v15 = a6;
+  v45 = v9->ProcessEnvironmentBlock->ProcessParameters->Environment;
+  v15 = ReturnLength;
   v41 = v14;
   v16 = v46;
-  v17 = (unsigned __int16 *)a2;
-  v43 = RtlpQueryEnvironmentCache(&Environment, a2, a3, v46, v41, a6);
+  v17 = Name;
+  v43 = RtlpQueryEnvironmentCache(&v45, Name, NameLength, v46, v41, ReturnLength);
   if ( v43 != -1073741568 )
     goto LABEL_61;
-  v18 = (char *)Environment;
-  v19 = (unsigned __int16 *)&a2[a3];
+  v18 = (char *)v45;
+  v19 = &Name[NameLength];
   while ( 1 )
   {
     if ( !*(_WORD *)v18 )
@@ -209,7 +212,7 @@ LABEL_19:
     }
 LABEL_32:
     v18 += 2;
-    v17 = (unsigned __int16 *)a2;
+    v17 = Name;
   }
   v25 = 1;
 LABEL_26:
@@ -250,7 +253,7 @@ LABEL_26:
   v34 = (v18 - v33) >> 1;
   if ( v16 )
   {
-    if ( v34 < a5 )
+    if ( v34 < ValueLength )
     {
       *v15 = v34;
       v35 = v34;
@@ -258,7 +261,7 @@ LABEL_26:
       v16[v35] = 0;
       goto LABEL_51;
     }
-    if ( a5 )
+    if ( ValueLength )
       *v16 = 0;
   }
   *v15 = v34 + 1;

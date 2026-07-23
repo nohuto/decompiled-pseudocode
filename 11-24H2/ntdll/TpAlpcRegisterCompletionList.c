@@ -1,9 +1,9 @@
 /*
- * XREFs of TpAlpcRegisterCompletionList @ 0x18006AEF0
+ * XREFs of TpAlpcRegisterCompletionList @ 0x1800877D0
  * Callers:
  *     <none>
  * Callees:
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
  */
 
 __int64 __fastcall TpAlpcRegisterCompletionList(_PEB_LDR_DATA *Ldr)

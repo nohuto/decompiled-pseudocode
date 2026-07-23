@@ -1,11 +1,11 @@
 /*
- * XREFs of IaLpssSetPowerD0 @ 0x14067CA10
+ * XREFs of IaLpssSetPowerD0 @ 0x14067CF60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IaLpssPciSetPower @ 0x14067C818 (IaLpssPciSetPower.c)
- *     Uart16550InitializePortCommon @ 0x14067CD74 (Uart16550InitializePortCommon.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IaLpssPciSetPower @ 0x14067CD68 (IaLpssPciSetPower.c)
+ *     Uart16550InitializePortCommon @ 0x14067D2C4 (Uart16550InitializePortCommon.c)
  */
 
 __int64 __fastcall IaLpssSetPowerD0(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall IaLpssSetPowerD0(__int64 a1)
     v2 = IaLpssPciSetPower(0);
     if ( !v2 )
     {
-      if ( (((__int64 (__fastcall *)(__int64, _QWORD))off_140C06B20[0])(*(_QWORD *)a1 + 129LL, 0LL) & 7) != 0 )
+      if ( (((__int64 (__fastcall *)(__int64, _QWORD))off_140C06B10[0])(*(_QWORD *)a1 + 129LL, 0LL) & 7) != 0 )
       {
         return 2;
       }
@@ -33,14 +33,14 @@ __int64 __fastcall IaLpssSetPowerD0(__int64 a1)
         if ( IaLpssClockParams )
         {
           LODWORD(v3) = IaLpssClockParams | 0x80000000;
-          ((void (__fastcall *)(__int64, __int64))off_140C06B48[0])(*(_QWORD *)a1 + 128LL, v3);
-          v4 = ((__int64 (__fastcall *)(__int64))off_140C06B40[0])(*(_QWORD *)a1 + 128LL);
+          ((void (__fastcall *)(__int64, __int64))off_140C06B38[0])(*(_QWORD *)a1 + 128LL, v3);
+          v4 = ((__int64 (__fastcall *)(__int64))off_140C06B30[0])(*(_QWORD *)a1 + 128LL);
           v5 = v4;
           LODWORD(v5) = v4 & 0x7FFFFFFF;
-          ((void (__fastcall *)(__int64, __int64))off_140C06B48[0])(*(_QWORD *)a1 + 128LL, v5);
+          ((void (__fastcall *)(__int64, __int64))off_140C06B38[0])(*(_QWORD *)a1 + 128LL, v5);
         }
         LOBYTE(v3) = 7;
-        ((void (__fastcall *)(__int64, __int64))off_140C06B28[0])(*(_QWORD *)a1 + 129LL, v3);
+        ((void (__fastcall *)(__int64, __int64))off_140C06B18[0])(*(_QWORD *)a1 + 129LL, v3);
         LOBYTE(v6) = 1;
         *(_WORD *)(a1 + 12) = 0;
         LOBYTE(v7) = 1;

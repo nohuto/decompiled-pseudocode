@@ -3,9 +3,9 @@
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     Feature_XFG_User__private_ReportDeviceUsage @ 0x14041A1DC (Feature_XFG_User__private_ReportDeviceUsage.c)
- *     MmCreateSection @ 0x14076C620 (MmCreateSection.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     Feature_XFG_User__private_ReportDeviceUsage @ 0x14041A56C (Feature_XFG_User__private_ReportDeviceUsage.c)
+ *     MmCreateSection @ 0x14076C810 (MmCreateSection.c)
  */
 
 __int64 MiInitializeCfg()

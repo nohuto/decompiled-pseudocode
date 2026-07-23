@@ -15,52 +15,54 @@
 
 int __stdcall TpSetDefaultPoolStackInformation(_DWORD *a1)
 {
-  _DWORD *Heap; // eax
+  PTP_POOL_STACK_INFORMATION Heap; // eax
   unsigned int v3; // ecx
-  int v4; // eax
-  int v5; // [esp+10h] [ebp-20h]
-  char v6; // [esp+17h] [ebp-19h]
+  _TP_POOL *v4; // eax
+  SIZE_T v5; // [esp-4h] [ebp-34h]
+  NTSTATUS v6; // [esp+10h] [ebp-20h]
+  char v7; // [esp+17h] [ebp-19h]
 
+  v7 = 0;
   v6 = 0;
-  v5 = 0;
   if ( !a1 )
     return -1073741811;
   if ( !TppPoolpGlobalPoolStackSize
-    || *(_DWORD *)(TppPoolpGlobalPoolStackSize + 4) < a1[1]
-    || *(_DWORD *)TppPoolpGlobalPoolStackSize < *a1 )
+    || HIDWORD(TppPoolpGlobalPoolStackSize->StackReserve) < a1[1]
+    || LODWORD(TppPoolpGlobalPoolStackSize->StackReserve) < *a1 )
   {
     RtlAcquireSRWLockExclusive(&TppPoolpGlobalPoolLock);
-    Heap = (_DWORD *)TppPoolpGlobalPoolStackSize;
+    Heap = TppPoolpGlobalPoolStackSize;
     if ( TppPoolpGlobalPoolStackSize
-      || (Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8, 8),
-          (TppPoolpGlobalPoolStackSize = (int)Heap) != 0) )
+      || (LODWORD(v5) = 8,
+          Heap = (PTP_POOL_STACK_INFORMATION)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8, v5),
+          (TppPoolpGlobalPoolStackSize = Heap) != 0) )
     {
       v3 = a1[1];
-      if ( Heap[1] < v3 )
+      if ( HIDWORD(Heap->StackReserve) < v3 )
       {
-        Heap[1] = v3;
-        v6 = 1;
+        HIDWORD(Heap->StackReserve) = v3;
+        v7 = 1;
       }
-      if ( *Heap < *a1 )
+      if ( LODWORD(Heap->StackReserve) < *a1 )
       {
-        *Heap = *a1;
-        v6 = 1;
+        LODWORD(Heap->StackReserve) = *a1;
+        v7 = 1;
       }
     }
     else
     {
-      v5 = -1073741801;
+      v6 = -1073741801;
     }
     RtlReleaseSRWLockExclusive(&TppPoolpGlobalPoolLock);
   }
-  if ( v5 >= 0 && v6 )
+  if ( v6 >= 0 && v7 )
   {
-    v4 = TpPoolReferenceExistingGlobalPool();
+    v4 = (_TP_POOL *)TpPoolReferenceExistingGlobalPool();
     if ( v4 )
     {
-      v5 = TpSetPoolStackInformation(v4, TppPoolpGlobalPoolStackSize);
-      TppPoolpDereferenceGlobalPool((signed __int32 **)&TppPoolpGlobalPool, (int)&TppPoolpGlobalPoolLock);
+      v6 = TpSetPoolStackInformation(v4, TppPoolpGlobalPoolStackSize);
+      TppPoolpDereferenceGlobalPool((signed __int32 **)&TppPoolpGlobalPool, &TppPoolpGlobalPoolLock);
     }
   }
-  return v5;
+  return v6;
 }

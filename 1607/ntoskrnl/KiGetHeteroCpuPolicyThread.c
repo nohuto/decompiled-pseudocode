@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGetHeteroCpuPolicyThread @ 0x1400CEF4C
+ * XREFs of KiGetHeteroCpuPolicyThread @ 0x1400CCDEC
  * Callers:
- *     KiFindReadyThread @ 0x1400CEF5C (KiFindReadyThread.c)
- *     KiCheckPreferredHeteroProcessor @ 0x1400DD2C0 (KiCheckPreferredHeteroProcessor.c)
- *     KiHeteroChooseTargetProcessor @ 0x1401D7F44 (KiHeteroChooseTargetProcessor.c)
+ *     KiFindReadyThread @ 0x1400CCDFC (KiFindReadyThread.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1400DB160 (KiCheckPreferredHeteroProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x1401D7D70 (KiHeteroChooseTargetProcessor.c)
  * Callees:
  *     <none>
  */

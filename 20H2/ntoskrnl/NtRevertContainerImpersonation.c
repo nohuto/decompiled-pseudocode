@@ -6,7 +6,11 @@
  *     PspRevertContainerImpersonation @ 0x14027F410 (PspRevertContainerImpersonation.c)
  */
 
-__int64 __fastcall NtRevertContainerImpersonation(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+NTSTATUS NtRevertContainerImpersonation(void)
 {
-  return PspRevertContainerImpersonation((ULONG_PTR)KeGetCurrentThread(), a2, a3, a4);
+  __int64 v0; // rdx
+  __int64 v1; // r8
+  _DWORD *v2; // r9
+
+  return PspRevertContainerImpersonation((ULONG_PTR)KeGetCurrentThread(), v0, v1, v2);
 }

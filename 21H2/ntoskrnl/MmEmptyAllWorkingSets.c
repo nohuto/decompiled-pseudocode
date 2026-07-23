@@ -1,11 +1,11 @@
 /*
- * XREFs of MmEmptyAllWorkingSets @ 0x14053C804
+ * XREFs of MmEmptyAllWorkingSets @ 0x14053CA44
  * Callers:
- *     EtwpSetMark @ 0x1409373DC (EtwpSetMark.c)
- *     PopTransitionToSleep @ 0x1409950D0 (PopTransitionToSleep.c)
+ *     EtwpSetMark @ 0x1409375AC (EtwpSetMark.c)
+ *     PopTransitionToSleep @ 0x1409960D0 (PopTransitionToSleep.c)
  * Callees:
- *     PsGetNextPartition @ 0x1402ABF88 (PsGetNextPartition.c)
- *     MiEmptyAllWorkingSets @ 0x14053B1F8 (MiEmptyAllWorkingSets.c)
+ *     PsGetNextPartition @ 0x140250E68 (PsGetNextPartition.c)
+ *     MiEmptyAllWorkingSets @ 0x14053B438 (MiEmptyAllWorkingSets.c)
  */
 
 __int64 *MmEmptyAllWorkingSets()

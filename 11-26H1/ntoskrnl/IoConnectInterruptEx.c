@@ -1,17 +1,17 @@
 /*
- * XREFs of IoConnectInterruptEx @ 0x140A98030
+ * XREFs of IoConnectInterruptEx @ 0x140A9C1B0
  * Callers:
- *     HalpInterruptConnect @ 0x14057B950 (HalpInterruptConnect.c)
- *     DifIoConnectInterruptExWrapper @ 0x14065A180 (DifIoConnectInterruptExWrapper.c)
+ *     HalpInterruptConnect @ 0x14057DE80 (HalpInterruptConnect.c)
+ *     DifIoConnectInterruptExWrapper @ 0x14065DD60 (DifIoConnectInterruptExWrapper.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IopConnectInterruptFullySpecified @ 0x14079F708 (IopConnectInterruptFullySpecified.c)
- *     IopConnectLineBasedInterrupt @ 0x140A97D7C (IopConnectLineBasedInterrupt.c)
- *     IopGetInterruptConnectionData @ 0x140A98340 (IopGetInterruptConnectionData.c)
- *     IopConnectInterrupt @ 0x140A98890 (IopConnectInterrupt.c)
- *     IopConnectMessageBasedInterrupt @ 0x140A990F0 (IopConnectMessageBasedInterrupt.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IopConnectInterruptFullySpecified @ 0x1407A2248 (IopConnectInterruptFullySpecified.c)
+ *     IopConnectLineBasedInterrupt @ 0x140A9BEFC (IopConnectLineBasedInterrupt.c)
+ *     IopGetInterruptConnectionData @ 0x140A9C4C0 (IopGetInterruptConnectionData.c)
+ *     IopConnectInterrupt @ 0x140A9CA10 (IopConnectInterrupt.c)
+ *     IopConnectMessageBasedInterrupt @ 0x140A9D270 (IopConnectMessageBasedInterrupt.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoConnectInterruptEx(PIO_CONNECT_INTERRUPT_PARAMETERS Parameters)

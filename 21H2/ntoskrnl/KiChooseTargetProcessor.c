@@ -1,19 +1,19 @@
 /*
- * XREFs of KiChooseTargetProcessor @ 0x140344DE0
+ * XREFs of KiChooseTargetProcessor @ 0x14034FB30
  * Callers:
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MmGetNextNode @ 0x1402936D4 (MmGetNextNode.c)
- *     KiReduceByEffectiveIdleSmtSet @ 0x1402B6474 (KiReduceByEffectiveIdleSmtSet.c)
- *     KiTryLocalThreadSchedule @ 0x140345560 (KiTryLocalThreadSchedule.c)
- *     KiSelectIdleProcessor @ 0x140390858 (KiSelectIdleProcessor.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MmGetNextNode @ 0x140211644 (MmGetNextNode.c)
+ *     KiReduceByEffectiveIdleSmtSet @ 0x140234654 (KiReduceByEffectiveIdleSmtSet.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiTryLocalThreadSchedule @ 0x1403502B0 (KiTryLocalThreadSchedule.c)
+ *     KiSelectIdleProcessor @ 0x1403909A8 (KiSelectIdleProcessor.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     KeQueryReadyQueueStatsProcessor @ 0x1405144D8 (KeQueryReadyQueueStatsProcessor.c)
- *     KiFindRankBiasedIdleSmtSet @ 0x14051F1FC (KiFindRankBiasedIdleSmtSet.c)
- *     KiSelectCandidateProcessor @ 0x140525BA4 (KiSelectCandidateProcessor.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     KeQueryReadyQueueStatsProcessor @ 0x140514718 (KeQueryReadyQueueStatsProcessor.c)
+ *     KiFindRankBiasedIdleSmtSet @ 0x14051F43C (KiFindRankBiasedIdleSmtSet.c)
+ *     KiSelectCandidateProcessor @ 0x140525DE4 (KiSelectCandidateProcessor.c)
  */
 
 __int64 __fastcall KiChooseTargetProcessor(__int64 a1, __int64 a2, __int64 *a3, __int64 a4, unsigned __int8 a5)

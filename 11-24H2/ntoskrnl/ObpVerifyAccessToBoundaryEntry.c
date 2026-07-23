@@ -1,25 +1,25 @@
 /*
- * XREFs of ObpVerifyAccessToBoundaryEntry @ 0x140A49740
+ * XREFs of ObpVerifyAccessToBoundaryEntry @ 0x140A40460
  * Callers:
  *     <none>
  * Callees:
- *     SeAccessCheckWithHint @ 0x14035A620 (SeAccessCheckWithHint.c)
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlAddMandatoryAce @ 0x14091D840 (RtlAddMandatoryAce.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x140A07B00 (RtlSetSaclSecurityDescriptor.c)
- *     RtlIsPackageSid @ 0x140A4997C (RtlIsPackageSid.c)
+ *     SeAccessCheckWithHint @ 0x1403B6970 (SeAccessCheckWithHint.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlAddMandatoryAce @ 0x1409112B0 (RtlAddMandatoryAce.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140A04030 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlIsPackageSid @ 0x140A4069C (RtlIsPackageSid.c)
  */
 
 _BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(unsigned __int8 *a1, __int64 a2)
 {
   int v4; // eax
   unsigned __int8 **v5; // rax
-  unsigned __int8 *v6; // r9
+  void *v6; // r9
   __int16 v7; // ax
   PSID *v10; // rdx
   int v11; // eax
@@ -49,12 +49,12 @@ _BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(unsigned __int8 *a1, __int64 a2
       return 1LL;
     }
     RtlCreateAcl(&Acl, 0x54u, 2u);
-    RtlAddMandatoryAce((__int64)&Acl, 2u, 0, a1 + 8, 17, 7);
+    RtlAddMandatoryAce(&Acl, 2u, 0, a1 + 8, 0x11u, 7u);
     RtlCreateSecurityDescriptor(&SecurityDescriptor, 1u);
-    RtlSetSaclSecurityDescriptor((__int64)&SecurityDescriptor, 1, (__int64)&Acl, 0);
+    RtlSetSaclSecurityDescriptor(&SecurityDescriptor, 1u, &Acl, 0);
     return SeAccessCheckWithHint(
              (__int64)&SecurityDescriptor,
-             1u,
+             1,
              (int *)a2,
              1,
              0xF000Fu,
@@ -65,17 +65,17 @@ _BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(unsigned __int8 *a1, __int64 a2
              &v12,
              (int *)(a2 + 48));
   }
-  if ( !(unsigned __int8)RtlIsPackageSid(a1 + 8) )
+  if ( !RtlIsPackageSid(a1 + 8) )
   {
     memset_0(v18, 0, sizeof(v18));
     *(_QWORD *)v17 = 10485762LL;
-    RtlpAddKnownAce((__int64)v17, 2u, 0, 983055, a1 + 8, 0);
+    RtlpAddKnownAce((ACL *)v17, 2u, 0, 983055, a1 + 8, 0);
     v5 = *(unsigned __int8 ***)(a2 + 32);
     if ( v5 )
-      RtlpAddKnownAce((__int64)v17, 2u, 0, 983055, *v5, 0);
-    v6 = *(unsigned __int8 **)(a2 + 40);
+      RtlpAddKnownAce((ACL *)v17, 2u, 0, 983055, *v5, 0);
+    v6 = *(void **)(a2 + 40);
     Acl = (ACL)5505026LL;
-    RtlAddMandatoryAce((__int64)&Acl, 2u, 0, v6, 17, 7);
+    RtlAddMandatoryAce(&Acl, 2u, 0, v6, 0x11u, 7u);
     LOBYTE(SecurityDescriptor) = 1;
     if ( (SWORD1(SecurityDescriptor) & 0x8000u) == 0 )
     {
@@ -90,7 +90,7 @@ _BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(unsigned __int8 *a1, __int64 a2
     }
     return SeAccessCheckWithHint(
              (__int64)&SecurityDescriptor,
-             1u,
+             1,
              (int *)a2,
              1,
              0xF000Fu,

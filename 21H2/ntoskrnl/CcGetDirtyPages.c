@@ -1,9 +1,9 @@
 /*
- * XREFs of CcGetDirtyPages @ 0x1402F8DC0
+ * XREFs of CcGetDirtyPages @ 0x140303B10
  * Callers:
  *     <none>
  * Callees:
- *     CcForEachPartition @ 0x1402F8C10 (CcForEachPartition.c)
+ *     CcForEachPartition @ 0x140303960 (CcForEachPartition.c)
  */
 
 LARGE_INTEGER __stdcall CcGetDirtyPages(

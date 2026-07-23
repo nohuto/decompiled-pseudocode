@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpLimitDpcInsertEntry @ 0x1406549A0
+ * XREFs of ExpLimitDpcInsertEntry @ 0x1406530A0
  * Callers:
- *     ExpLimitInsertDpc @ 0x140654C50 (ExpLimitInsertDpc.c)
+ *     ExpLimitInsertDpc @ 0x140653350 (ExpLimitInsertDpc.c)
  * Callees:
- *     ExpTrackRaiseLimitNotification @ 0x1406552C4 (ExpTrackRaiseLimitNotification.c)
+ *     ExpTrackRaiseLimitNotification @ 0x1406539C4 (ExpTrackRaiseLimitNotification.c)
  */
 
 unsigned __int64 __fastcall ExpLimitDpcInsertEntry(signed __int64 *a1)

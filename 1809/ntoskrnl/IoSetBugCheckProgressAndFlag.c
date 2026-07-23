@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetBugCheckProgressAndFlag @ 0x140280264
+ * XREFs of IoSetBugCheckProgressAndFlag @ 0x140280454
  * Callers:
- *     IoWriteCrashDump @ 0x1402805AC (IoWriteCrashDump.c)
+ *     IoWriteCrashDump @ 0x14028079C (IoWriteCrashDump.c)
  * Callees:
- *     IoUpdateBugCheckProgressEnvVariable @ 0x1402804BC (IoUpdateBugCheckProgressEnvVariable.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x1402806AC (IoUpdateBugCheckProgressEnvVariable.c)
  */
 
 void IoSetBugCheckProgressAndFlag()

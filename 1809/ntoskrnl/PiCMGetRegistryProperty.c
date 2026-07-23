@@ -1,16 +1,16 @@
 /*
- * XREFs of PiCMGetRegistryProperty @ 0x140594FA0
+ * XREFs of PiCMGetRegistryProperty @ 0x140595FA0
  * Callers:
- *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1405984F0 (PiCMHandleIoctl.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiCMConvertRegistryProperty @ 0x140594E34 (PiCMConvertRegistryProperty.c)
- *     PiCMCaptureRegistryPropertyInputData @ 0x140595154 (PiCMCaptureRegistryPropertyInputData.c)
- *     PiCMReleaseRegistryPropertyInputData @ 0x14059530C (PiCMReleaseRegistryPropertyInputData.c)
- *     PiCMReturnBufferResultData @ 0x140599DD4 (PiCMReturnBufferResultData.c)
- *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     _CmGetInstallerClassRegProp @ 0x1406F1234 (_CmGetInstallerClassRegProp.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiCMConvertRegistryProperty @ 0x140595E34 (PiCMConvertRegistryProperty.c)
+ *     PiCMCaptureRegistryPropertyInputData @ 0x140596154 (PiCMCaptureRegistryPropertyInputData.c)
+ *     PiCMReleaseRegistryPropertyInputData @ 0x14059630C (PiCMReleaseRegistryPropertyInputData.c)
+ *     PiCMReturnBufferResultData @ 0x14059ADD4 (PiCMReturnBufferResultData.c)
+ *     _CmGetDeviceRegProp @ 0x1405C799C (_CmGetDeviceRegProp.c)
+ *     _CmGetInstallerClassRegProp @ 0x1406F24D4 (_CmGetInstallerClassRegProp.c)
  */
 
 __int64 __fastcall PiCMGetRegistryProperty(

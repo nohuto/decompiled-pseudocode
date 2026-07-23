@@ -1,16 +1,16 @@
 /*
- * XREFs of NtInitializeRegistry @ 0x18009F650
+ * XREFs of NtInitializeRegistry @ 0x18009F610
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtInitializeRegistry()
+NTSTATUS __cdecl NtInitializeRegistry(USHORT BootCondition)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 257LL;
+  result = 257;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

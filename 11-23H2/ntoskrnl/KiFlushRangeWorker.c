@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFlushRangeWorker @ 0x14038CD20
+ * XREFs of KiFlushRangeWorker @ 0x14038CF00
  * Callers:
  *     <none>
  * Callees:
- *     KiFlushRangeTb @ 0x14038CD68 (KiFlushRangeTb.c)
+ *     KiFlushRangeTb @ 0x14038CF48 (KiFlushRangeTb.c)
  */
 
 __int64 __fastcall KiFlushRangeWorker(__int64 a1, __int64 a2, __int64 a3)

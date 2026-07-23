@@ -44,7 +44,7 @@ __int64 __fastcall sub_180044B94(__int64 a1, unsigned __int64 a2, __int64 a3, un
   }
   else
   {
-    v27 = sub_1800515E8(&unk_180166A60, 2 * ((a2 - qword_180166A58) >> 20));
+    v27 = sub_1800515E8(&qword_180166A60, 2 * ((a2 - qword_180166A58) >> 20));
     if ( !v27 )
       goto LABEL_31;
     v10 = v27 - 1;

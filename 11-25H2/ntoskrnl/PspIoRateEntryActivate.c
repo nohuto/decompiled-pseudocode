@@ -19,12 +19,12 @@
 __int64 __fastcall PspIoRateEntryActivate(struct _EX_RUNDOWN_REF *a1, unsigned __int64 a2, __int64 a3, _BYTE *a4)
 {
   int v4; // eax
-  struct _EX_RUNDOWN_REF *v5; // rbx
+  _RTL_BALANCED_NODE *v5; // rbx
   const WCHAR *v10; // rdx
   __int64 v11; // r8
   int started; // edi
   __int64 v13; // rcx
-  struct _EX_RUNDOWN_REF *v15; // rax
+  _RTL_BALANCED_NODE *v15; // rax
   unsigned __int64 v16; // [rsp+60h] [rbp-29h] BYREF
   UNICODE_STRING DestinationString; // [rsp+68h] [rbp-21h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-11h] BYREF
@@ -54,14 +54,14 @@ __int64 __fastcall PspIoRateEntryActivate(struct _EX_RUNDOWN_REF *a1, unsigned _
     started = ZwCreateFile(&Handle, 0x100080u, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 7u, 1u, 0x20u, 0LL, 0);
     if ( started < 0 )
       goto LABEL_14;
-    v15 = IoDiskIoAttributionAllocate(a2, *(_QWORD *)(a2 + 1584));
+    v15 = (_RTL_BALANCED_NODE *)IoDiskIoAttributionAllocate(a2, *(_QWORD *)(a2 + 1584));
     v5 = v15;
     if ( !v15 )
     {
       started = -1073741670;
       goto LABEL_14;
     }
-    IoStartDiskIoAttributionForContext((unsigned __int64)v15);
+    IoStartDiskIoAttributionForContext(v15);
     v4 = (int)Handle;
     v11 = (__int64)v5;
   }

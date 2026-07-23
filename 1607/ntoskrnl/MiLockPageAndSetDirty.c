@@ -1,19 +1,19 @@
 /*
- * XREFs of MiLockPageAndSetDirty @ 0x140015578
+ * XREFs of MiLockPageAndSetDirty @ 0x1400150F8
  * Callers:
- *     MiCopyToUserVa @ 0x140014B50 (MiCopyToUserVa.c)
- *     NtGetWriteWatch @ 0x140014EF0 (NtGetWriteWatch.c)
- *     MiIssueHardFault @ 0x140024930 (MiIssueHardFault.c)
- *     MmSetPageProtection @ 0x1400B23C0 (MmSetPageProtection.c)
- *     NtLockVirtualMemory @ 0x1400BAEC8 (NtLockVirtualMemory.c)
- *     MiValidFault @ 0x1400E6250 (MiValidFault.c)
- *     MiMakeCombineCandidateClean @ 0x1401F9F74 (MiMakeCombineCandidateClean.c)
+ *     MiCopyToUserVa @ 0x1400146D0 (MiCopyToUserVa.c)
+ *     NtGetWriteWatch @ 0x140014A70 (NtGetWriteWatch.c)
+ *     MiIssueHardFault @ 0x1400244B0 (MiIssueHardFault.c)
+ *     MmSetPageProtection @ 0x1400B0300 (MmSetPageProtection.c)
+ *     NtLockVirtualMemory @ 0x1400B8D58 (NtLockVirtualMemory.c)
+ *     MiValidFault @ 0x1400E40F0 (MiValidFault.c)
+ *     MiMakeCombineCandidateClean @ 0x1401F9DA0 (MiMakeCombineCandidateClean.c)
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
  */
 
 __int64 __fastcall MiLockPageAndSetDirty(__int64 a1, int a2)

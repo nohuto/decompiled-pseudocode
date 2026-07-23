@@ -1,20 +1,20 @@
 /*
- * XREFs of NtAssignProcessToJobObject @ 0x140A17020
+ * XREFs of NtAssignProcessToJobObject @ 0x140A10200
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     EtwTraceJobAssignProcess @ 0x140A17148 (EtwTraceJobAssignProcess.c)
- *     PsAssignProcessToJobObject @ 0x140A171F0 (PsAssignProcessToJobObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     EtwTraceJobAssignProcess @ 0x140A10328 (EtwTraceJobAssignProcess.c)
+ *     PsAssignProcessToJobObject @ 0x140A103D0 (PsAssignProcessToJobObject.c)
  */
 
-__int64 __fastcall NtAssignProcessToJobObject(void *a1, ULONG_PTR a2)
+NTSTATUS __cdecl NtAssignProcessToJobObject(HANDLE JobHandle, HANDLE ProcessHandle)
 {
   KPROCESSOR_MODE PreviousMode; // bp
-  int v4; // esi
+  NTSTATUS v4; // esi
   PVOID v5; // rdi
   PVOID v6; // rbx
   PVOID Object; // [rsp+70h] [rbp+18h] BYREF
@@ -23,11 +23,11 @@ __int64 __fastcall NtAssignProcessToJobObject(void *a1, ULONG_PTR a2)
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v9 = 0LL;
-  v4 = ObReferenceObjectByHandle(a1, 1u, (POBJECT_TYPE)PsJobType, PreviousMode, &v9, 0LL);
+  v4 = ObReferenceObjectByHandle(JobHandle, 1u, (POBJECT_TYPE)PsJobType, PreviousMode, &v9, 0LL);
   if ( v4 >= 0
-    && (a2 == -7LL
+    && (ProcessHandle == (HANDLE)-7LL
      || (v4 = ObpReferenceObjectByHandleWithTag(
-                a2,
+                (ULONG_PTR)ProcessHandle,
                 257,
                 (__int64)PsProcessType,
                 PreviousMode,
@@ -52,5 +52,5 @@ __int64 __fastcall NtAssignProcessToJobObject(void *a1, ULONG_PTR a2)
     ObfDereferenceObjectWithTag(v5, 0x624A7350u);
   if ( v6 )
     ObfDereferenceObject(v6);
-  return (unsigned int)v4;
+  return v4;
 }

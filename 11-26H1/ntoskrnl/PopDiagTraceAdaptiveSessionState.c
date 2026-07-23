@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceAdaptiveSessionState @ 0x140A3D9EC
+ * XREFs of PopDiagTraceAdaptiveSessionState @ 0x1409F940C
  * Callers:
- *     PopAdaptiveGetSessionStateUnsafe @ 0x140A3D93C (PopAdaptiveGetSessionStateUnsafe.c)
+ *     PopAdaptiveGetSessionStateUnsafe @ 0x1409F935C (PopAdaptiveGetSessionStateUnsafe.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceAdaptiveSessionState(
@@ -51,11 +51,9 @@ char __fastcall PopDiagTraceAdaptiveSessionState(
   v37 = a3;
   v36 = a2;
   v35 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v10) = EtwEventEnabled(
-                    *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                    &POP_ETW_EVENT_ADAPTIVE_SESSION_STATE);
+    LOBYTE(v10) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_ADAPTIVE_SESSION_STATE);
     if ( (_BYTE)v10 )
     {
       v14 = a7;
@@ -80,12 +78,7 @@ char __fastcall PopDiagTraceAdaptiveSessionState(
       v29 = 4LL;
       v31 = 4LL;
       v33 = 4LL;
-      LOBYTE(v10) = EtwWrite(
-                      *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                      &POP_ETW_EVENT_ADAPTIVE_SESSION_STATE,
-                      0LL,
-                      0xAu,
-                      &UserData);
+      LOBYTE(v10) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_ADAPTIVE_SESSION_STATE, 0LL, 0xAu, &UserData);
     }
   }
   return (char)v10;

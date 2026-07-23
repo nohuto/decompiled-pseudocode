@@ -1,10 +1,10 @@
 /*
- * XREFs of MmCheckMapIoSpace @ 0x140924E88
+ * XREFs of MmCheckMapIoSpace @ 0x140925E88
  * Callers:
- *     VerifierMmMapIoSpace @ 0x1409448C0 (VerifierMmMapIoSpace.c)
+ *     VerifierMmMapIoSpace @ 0x1409458C0 (VerifierMmMapIoSpace.c)
  * Callees:
- *     MiIsPfn @ 0x1400A88E0 (MiIsPfn.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
+ *     MiIsPfn @ 0x1400A8820 (MiIsPfn.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall MmCheckMapIoSpace(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

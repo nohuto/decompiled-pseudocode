@@ -1,14 +1,14 @@
 /*
  * XREFs of PsTerminateServerSilo @ 0x1409AB9B0
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1409AC180 (PspInitializeServerSiloDeferred.c)
- *     PsShutdownSystem @ 0x1409B1074 (PsShutdownSystem.c)
- *     PspCatchCriticalBreak @ 0x1409B1558 (PspCatchCriticalBreak.c)
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
- *     ExpSystemErrorHandler2 @ 0x140A6CC50 (ExpSystemErrorHandler2.c)
+ *     sub_1409AC180 @ 0x1409AC180 (sub_1409AC180.c)
+ *     sub_1409B1074 @ 0x1409B1074 (sub_1409B1074.c)
+ *     sub_1409B1558 @ 0x1409B1558 (sub_1409B1558.c)
+ *     sub_140A494E8 @ 0x140A494E8 (sub_140A494E8.c)
+ *     sub_140A6CC50 @ 0x140A6CC50 (sub_140A6CC50.c)
  * Callees:
- *     PsIsServerSilo @ 0x14020A400 (PsIsServerSilo.c)
- *     PspTerminateAllProcessesInJobHierarchy @ 0x1406D78E0 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     sub_14020A400 @ 0x14020A400 (sub_14020A400.c)
+ *     sub_1406D78E0 @ 0x1406D78E0 (sub_1406D78E0.c)
  */
 
 void __fastcall PsTerminateServerSilo(__int64 a1)
@@ -18,7 +18,7 @@ void __fastcall PsTerminateServerSilo(__int64 a1)
 
   if ( a1 )
   {
-    if ( PsIsServerSilo(a1) )
-      PspTerminateAllProcessesInJobHierarchy(v2, v1, 0);
+    if ( sub_14020A400(a1) )
+      sub_1406D78E0(v2, v1, 0);
   }
 }

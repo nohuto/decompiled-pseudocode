@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnEndProcessTrace @ 0x140606950
+ * XREFs of PfSnEndProcessTrace @ 0x140607950
  * Callers:
- *     PspExitProcess @ 0x140608E0C (PspExitProcess.c)
- *     PfSnOperationProcess @ 0x1406CF864 (PfSnOperationProcess.c)
- *     PfSnFailProcessTrace @ 0x1406D6D94 (PfSnFailProcessTrace.c)
+ *     PspExitProcess @ 0x140609E0C (PspExitProcess.c)
+ *     PfSnOperationProcess @ 0x1406D0B04 (PfSnOperationProcess.c)
+ *     PfSnFailProcessTrace @ 0x1406D8034 (PfSnFailProcessTrace.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     PfSnReferenceProcessTrace @ 0x1400D4AB0 (PfSnReferenceProcessTrace.c)
- *     memcmp @ 0x140196200 (memcmp.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     PfSnReferenceProcessTrace @ 0x1400D4B30 (PfSnReferenceProcessTrace.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
  */
 
 __int64 __fastcall PfSnEndProcessTrace(__int64 a1, signed __int32 a2, const void *a3)

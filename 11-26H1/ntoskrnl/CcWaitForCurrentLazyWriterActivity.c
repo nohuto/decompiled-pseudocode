@@ -1,9 +1,9 @@
 /*
- * XREFs of CcWaitForCurrentLazyWriterActivity @ 0x1405B15A0
+ * XREFs of CcWaitForCurrentLazyWriterActivity @ 0x1405B3DB0
  * Callers:
- *     PopGracefulShutdown @ 0x140BF9180 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x140BFF180 (PopGracefulShutdown.c)
  * Callees:
- *     CcForEachPartition @ 0x140258154 (CcForEachPartition.c)
+ *     CcForEachPartition @ 0x140259934 (CcForEachPartition.c)
  */
 
 NTSTATUS CcWaitForCurrentLazyWriterActivity(void)

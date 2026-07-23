@@ -1,19 +1,26 @@
 /*
- * XREFs of ZwCreateWnfStateName @ 0x140724E70
+ * XREFs of ZwCreateWnfStateName @ 0x140729A40
  * Callers:
- *     DifZwCreateWnfStateNameWrapper @ 0x1406A36F0 (DifZwCreateWnfStateNameWrapper.c)
- *     ExpTrackTableInsertLimit @ 0x1406CCD60 (ExpTrackTableInsertLimit.c)
- *     PspAllocateNotificationChannel @ 0x1407F7938 (PspAllocateNotificationChannel.c)
- *     PiUEventInitClientRegistrationContext @ 0x1409D7674 (PiUEventInitClientRegistrationContext.c)
- *     PopCreateNotificationName @ 0x140A3AE38 (PopCreateNotificationName.c)
- *     PspAllocateAndQueryProcessNotificationChannel @ 0x140B3DD70 (PspAllocateAndQueryProcessNotificationChannel.c)
+ *     DifZwCreateWnfStateNameWrapper @ 0x1406A72D0 (DifZwCreateWnfStateNameWrapper.c)
+ *     ExpTrackTableInsertLimit @ 0x1406D0D90 (ExpTrackTableInsertLimit.c)
+ *     PspAllocateNotificationChannel @ 0x1407FD498 (PspAllocateNotificationChannel.c)
+ *     PiUEventInitClientRegistrationContext @ 0x1409A8564 (PiUEventInitClientRegistrationContext.c)
+ *     PopCreateNotificationName @ 0x1409F6A38 (PopCreateNotificationName.c)
+ *     PspAllocateAndQueryProcessNotificationChannel @ 0x140B3FE50 (PspAllocateAndQueryProcessNotificationChannel.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateWnfStateName(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateWnfStateName(
+        PWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_LIFETIME NameLifetime,
+        WNF_DATA_SCOPE DataScope,
+        BOOLEAN PersistData,
+        PCWNF_TYPE_ID TypeId,
+        ULONG MaximumStateSize,
+        PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(StateName);
 }

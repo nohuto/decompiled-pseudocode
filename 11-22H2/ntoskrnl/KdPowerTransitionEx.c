@@ -53,9 +53,9 @@ __int64 __fastcall KdPowerTransitionEx(int a1, char a2)
         {
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
               if ( CurrentIrql == 2 )
@@ -95,10 +95,10 @@ __int64 __fastcall KdPowerTransitionEx(int a1, char a2)
         KxReleaseSpinLock((volatile signed __int64 *)&KdDebuggerLock);
         if ( CurrentIrql != 0xFF )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v15 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v17 = CurrentPrcb->SchedulerAssist;

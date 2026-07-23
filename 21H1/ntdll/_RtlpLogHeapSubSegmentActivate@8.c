@@ -9,18 +9,18 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall RtlpLogHeapSubSegmentActivate(int a1, int a2)
+NTSTATUS __fastcall RtlpLogHeapSubSegmentActivate(int a1, int a2)
 {
   int v2; // eax
-  _DWORD v4[10]; // [esp+Ch] [ebp-2Ch] BYREF
+  _DWORD Fields[10]; // [esp+Ch] [ebp-2Ch] BYREF
 
-  memset(v4, 0, sizeof(v4));
-  v4[8] = a1;
-  HIWORD(v4[1]) = 4152;
-  v4[9] = a2;
+  memset(Fields, 0, sizeof(Fields));
+  Fields[8] = a1;
+  HIWORD(Fields[1]) = 4152;
+  Fields[9] = a2;
   if ( RtlGetCurrentServiceSessionId() )
     v2 = (int)NtCurrentPeb()->SharedData + 550;
   else
     v2 = 2147353472;
-  return NtTraceEvent(*(unsigned __int8 *)v2, 132098, 8, (int)v4);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v2, 0x20402u, 8u, Fields);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpSelectVpSet @ 0x1405BAAFC
+ * XREFs of HvlpSelectVpSet @ 0x1405BD36C
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x1405B9968 (HvlStartBootLogicalProcessors.c)
+ *     HvlStartBootLogicalProcessors @ 0x1405BC1D8 (HvlStartBootLogicalProcessors.c)
  * Callees:
- *     HvlIsSingleGroupRequired @ 0x1405B87E4 (HvlIsSingleGroupRequired.c)
- *     HvlpComputeLpComparisonMetrics @ 0x1405B9F48 (HvlpComputeLpComparisonMetrics.c)
- *     HvlpLpComparison @ 0x1405BA480 (HvlpLpComparison.c)
- *     HviGetImplementationLimits @ 0x1406DC808 (HviGetImplementationLimits.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HvlIsSingleGroupRequired @ 0x1405BB054 (HvlIsSingleGroupRequired.c)
+ *     HvlpComputeLpComparisonMetrics @ 0x1405BC7B8 (HvlpComputeLpComparisonMetrics.c)
+ *     HvlpLpComparison @ 0x1405BCCF0 (HvlpLpComparison.c)
+ *     HviGetImplementationLimits @ 0x1406E0AA8 (HviGetImplementationLimits.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HvlpSelectVpSet(unsigned int a1, __int64 a2)

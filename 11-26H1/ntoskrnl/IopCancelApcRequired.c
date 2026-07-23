@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCancelApcRequired @ 0x14052AAA4
+ * XREFs of IopCancelApcRequired @ 0x14052CFC4
  * Callers:
- *     NtCancelSynchronousIoFile @ 0x140797050 (NtCancelSynchronousIoFile.c)
- *     IopCancelIrpsInThreadListForCurrentProcess @ 0x140956BB4 (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     NtCancelSynchronousIoFile @ 0x140799B80 (NtCancelSynchronousIoFile.c)
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x14094A5DC (IopCancelIrpsInThreadListForCurrentProcess.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall IopCancelApcRequired(__int64 a1, __int64 a2, __int64 a3)

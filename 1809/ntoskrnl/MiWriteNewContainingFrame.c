@@ -1,9 +1,9 @@
 /*
- * XREFs of MiWriteNewContainingFrame @ 0x1402C5F60
+ * XREFs of MiWriteNewContainingFrame @ 0x1402C6150
  * Callers:
- *     MiDemotePfnListChain @ 0x1402C53D0 (MiDemotePfnListChain.c)
+ *     MiDemotePfnListChain @ 0x1402C55C0 (MiDemotePfnListChain.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiWriteNewContainingFrame(__int64 a1, __int64 a2, __int64 a3)

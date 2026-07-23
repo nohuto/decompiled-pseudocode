@@ -12,8 +12,25 @@
  *     RtlGetAppContainerSidType @ 0x140984120 (RtlGetAppContainerSidType.c)
  */
 
-char __fastcall RtlIsParentOfChildAppContainer(PSID Sid, PSID a2)
+BOOLEAN __cdecl RtlIsParentOfChildAppContainer(PSID ParentAppContainerSid, PSID ChildAppContainerSid)
 {
-  RtlGetAppContainerSidType(Sid);
-  return 0;
+  ULONG i; // edi
+  PULONG v5; // rbx
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+40h] [rbp+18h] BYREF
+
+  AppContainerSidType = NotAppContainerSidType;
+  if ( RtlGetAppContainerSidType(ParentAppContainerSid, &AppContainerSidType) < 0
+    || AppContainerSidType != ParentAppContainerSidType
+    || RtlGetAppContainerSidType(ChildAppContainerSid, &AppContainerSidType) < 0
+    || AppContainerSidType != ChildAppContainerSidType )
+  {
+    return 0;
+  }
+  for ( i = 1; i < 8; ++i )
+  {
+    v5 = RtlSubAuthoritySid(ParentAppContainerSid, i);
+    if ( *v5 != *RtlSubAuthoritySid(ChildAppContainerSid, i) )
+      return 0;
+  }
+  return 1;
 }

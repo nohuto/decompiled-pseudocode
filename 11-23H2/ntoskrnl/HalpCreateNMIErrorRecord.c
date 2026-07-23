@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpCreateNMIErrorRecord @ 0x140506474
+ * XREFs of HalpCreateNMIErrorRecord @ 0x1405069C4
  * Callers:
- *     HalpCreateErrorRecord @ 0x1405026B0 (HalpCreateErrorRecord.c)
+ *     HalpCreateErrorRecord @ 0x140502C00 (HalpCreateErrorRecord.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     WheaInitializeRecordHeader @ 0x1406124F0 (WheaInitializeRecordHeader.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WheaInitializeRecordHeader @ 0x140612A40 (WheaInitializeRecordHeader.c)
  */
 
 __int64 __fastcall HalpCreateNMIErrorRecord(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

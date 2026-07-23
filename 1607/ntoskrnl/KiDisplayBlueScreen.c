@@ -1,20 +1,20 @@
 /*
- * XREFs of KiDisplayBlueScreen @ 0x1401D516C
+ * XREFs of KiDisplayBlueScreen @ 0x1401D4F98
  * Callers:
- *     KeBugCheck2 @ 0x1401D40EC (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1401D3F18 (KeBugCheck2.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x1401271F4 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x140127230 (BgpFwAcquireLock.c)
- *     HeadlessDispatch @ 0x14013C5A0 (HeadlessDispatch.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     RtlStringCbPrintfExA @ 0x1401B0F7C (RtlStringCbPrintfExA.c)
- *     InbvAcquireDisplayOwnership @ 0x1401C3600 (InbvAcquireDisplayOwnership.c)
- *     IoSaveBugCheckProgress @ 0x1401C6260 (IoSaveBugCheckProgress.c)
- *     KeGetBugMessageText @ 0x1401D4E10 (KeGetBugMessageText.c)
- *     KiDumpParameterImages @ 0x1401D5490 (KiDumpParameterImages.c)
- *     KiHeadlessDisplayString @ 0x1401D55E4 (KiHeadlessDisplayString.c)
- *     BgpFwDisplayBugCheckScreen @ 0x14023A7EC (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwReleaseLock @ 0x140127764 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1401277A0 (BgpFwAcquireLock.c)
+ *     HeadlessDispatch @ 0x14013CB10 (HeadlessDispatch.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     RtlStringCbPrintfExA @ 0x1401B0E60 (RtlStringCbPrintfExA.c)
+ *     InbvAcquireDisplayOwnership @ 0x1401C34E4 (InbvAcquireDisplayOwnership.c)
+ *     IoSaveBugCheckProgress @ 0x1401C6100 (IoSaveBugCheckProgress.c)
+ *     KeGetBugMessageText @ 0x1401D4C3C (KeGetBugMessageText.c)
+ *     KiDumpParameterImages @ 0x1401D52BC (KiDumpParameterImages.c)
+ *     KiHeadlessDisplayString @ 0x1401D5410 (KiHeadlessDisplayString.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14023A6D0 (BgpFwDisplayBugCheckScreen.c)
  */
 
 void __fastcall KiDisplayBlueScreen(int a1)
@@ -109,7 +109,7 @@ void __fastcall KiDisplayBlueScreen(int a1)
   v14 = KiBugCheckData;
   BgpFwAcquireLock();
   if ( (dword_1402F9F90 & 2) != 0 )
-    BgpFwDisplayBugCheckScreen(v14, (unsigned int)&qword_14030DD28, v3, (unsigned int)&v21, a1);
+    BgpFwDisplayBugCheckScreen(v14, (unsigned int)&qword_14030DD68, v3, (unsigned int)&v21, a1);
   BgpFwReleaseLock();
   IoSaveBugCheckProgress(128);
   v15 = (unsigned __int16 *)v21;

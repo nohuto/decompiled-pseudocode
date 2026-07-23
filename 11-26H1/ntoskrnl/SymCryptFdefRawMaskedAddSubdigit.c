@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefRawMaskedAddSubdigit @ 0x140568E90
+ * XREFs of SymCryptFdefRawMaskedAddSubdigit @ 0x140568070
  * Callers:
- *     SymCryptFdefRawDivMod @ 0x140568BF0 (SymCryptFdefRawDivMod.c)
+ *     SymCryptFdefRawDivMod @ 0x140567DD0 (SymCryptFdefRawDivMod.c)
  * Callees:
  *     <none>
  */

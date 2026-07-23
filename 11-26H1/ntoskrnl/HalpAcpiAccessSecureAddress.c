@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAcpiAccessSecureAddress @ 0x14024D0F0
+ * XREFs of HalpAcpiAccessSecureAddress @ 0x14024EA50
  * Callers:
  *     <none>
  * Callees:
- *     MiGetVirtualAddressState @ 0x14024D274 (MiGetVirtualAddressState.c)
- *     MiMirrorInSingleProcessorMode @ 0x1402A2D34 (MiMirrorInSingleProcessorMode.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     HalpPCIConfig @ 0x14043A4F0 (HalpPCIConfig.c)
+ *     MiGetVirtualAddressState @ 0x14024EBD4 (MiGetVirtualAddressState.c)
+ *     MiMirrorInSingleProcessorMode @ 0x1402A2284 (MiMirrorInSingleProcessorMode.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     HalpPCIConfig @ 0x14042CDA0 (HalpPCIConfig.c)
  */
 
 __int64 __fastcall HalpAcpiAccessSecureAddress(char a1, const void *a2, __int64 a3, int a4, _DWORD *a5)

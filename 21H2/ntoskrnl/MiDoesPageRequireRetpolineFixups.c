@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDoesPageRequireRetpolineFixups @ 0x1405FC594
+ * XREFs of MiDoesPageRequireRetpolineFixups @ 0x1406EBCF4
  * Callers:
- *     MiRelocateImagePfn @ 0x1405FC260 (MiRelocateImagePfn.c)
- *     MiInitializePrivateFixupBitmap @ 0x1405FC490 (MiInitializePrivateFixupBitmap.c)
- *     MiPageHasRelocations @ 0x14069C02C (MiPageHasRelocations.c)
- *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
+ *     MiPageHasRelocations @ 0x1405FB1EC (MiPageHasRelocations.c)
+ *     MiRelocateImage @ 0x1406AC790 (MiRelocateImage.c)
+ *     MiRelocateImagePfn @ 0x1406EB9C0 (MiRelocateImagePfn.c)
+ *     MiInitializePrivateFixupBitmap @ 0x1406EBBF0 (MiInitializePrivateFixupBitmap.c)
  * Callees:
  *     <none>
  */

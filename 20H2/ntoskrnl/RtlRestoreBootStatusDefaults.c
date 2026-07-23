@@ -10,7 +10,7 @@
  *     RtlpRecordBootStatusData @ 0x140786774 (RtlpRecordBootStatusData.c)
  */
 
-__int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
   const __m128i *v2; // rax
   __m128i v3; // xmm1
@@ -19,7 +19,7 @@ __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
   __m128i v6; // xmm1
   __m128i v7; // xmm1
   __m128i v8; // xmm1
-  NTSTATUS v9; // edx
+  int v9; // edx
   _OWORD *v10; // rcx
   _OWORD *v11; // rcx
   LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-B0h] BYREF
@@ -29,7 +29,7 @@ __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
   IoStatusBlock = 0LL;
   memset(&Buffer[4], 0, 0xACuLL);
   *(_DWORD *)Buffer = 176;
-  RtlGetNtProductType(&Buffer[4]);
+  RtlGetNtProductType((PNT_PRODUCT_TYPE)&Buffer[4]);
   *(_DWORD *)&Buffer[168] = 0;
   v2 = (const __m128i *)Buffer;
   v3 = 0LL;
@@ -76,5 +76,5 @@ __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
       }
     }
   }
-  return (unsigned int)v9;
+  return v9;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpFindFreeCell @ 0x14070A730
+ * XREFs of HvpFindFreeCell @ 0x14070A940
  * Callers:
- *     HvpDoAllocateCell @ 0x14070A440 (HvpDoAllocateCell.c)
+ *     HvpDoAllocateCell @ 0x14070A650 (HvpDoAllocateCell.c)
  * Callees:
- *     RtlFindSetBits @ 0x1402968F0 (RtlFindSetBits.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     HvpFindFreeCellInBin @ 0x14070A950 (HvpFindFreeCellInBin.c)
+ *     RtlFindSetBits @ 0x140296B80 (RtlFindSetBits.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     HvpFindFreeCellInBin @ 0x14070AB60 (HvpFindFreeCellInBin.c)
  *     HvpGetBinContextInitialize @ 0x140AF5200 (HvpGetBinContextInitialize.c)
  *     HvpMapEntryGetBinAddress @ 0x140AF5210 (HvpMapEntryGetBinAddress.c)
  *     HvpGetCellMap @ 0x140AF5280 (HvpGetCellMap.c)

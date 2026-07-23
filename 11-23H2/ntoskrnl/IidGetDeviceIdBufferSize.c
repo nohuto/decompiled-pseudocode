@@ -1,7 +1,7 @@
 /*
- * XREFs of IidGetDeviceIdBufferSize @ 0x1408292CC
+ * XREFs of IidGetDeviceIdBufferSize @ 0x1408295CC
  * Callers:
- *     HalpIommuCloneDeviceId @ 0x1403913E8 (HalpIommuCloneDeviceId.c)
+ *     HalpIommuCloneDeviceId @ 0x1403915C8 (HalpIommuCloneDeviceId.c)
  * Callees:
  *     <none>
  */

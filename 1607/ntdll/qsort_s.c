@@ -1,12 +1,12 @@
 /*
- * XREFs of qsort_s @ 0x18009AB70
+ * XREFs of qsort_s @ 0x18009AB60
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     shortsort_s @ 0x18009AEC0 (shortsort_s.c)
- *     _guard_check_icall @ 0x18009D0E0 (_guard_check_icall.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     shortsort_s @ 0x18009AEB0 (shortsort_s.c)
+ *     _guard_check_icall @ 0x18009D0D0 (_guard_check_icall.c)
  */
 
 void __cdecl qsort_s(

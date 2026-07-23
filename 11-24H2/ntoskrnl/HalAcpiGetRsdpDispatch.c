@@ -1,5 +1,5 @@
 /*
- * XREFs of HalAcpiGetRsdpDispatch @ 0x14053CDD0
+ * XREFs of HalAcpiGetRsdpDispatch @ 0x14053A6D0
  * Callers:
  *     <none>
  * Callees:

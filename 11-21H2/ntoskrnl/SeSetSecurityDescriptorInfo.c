@@ -1,10 +1,10 @@
 /*
  * XREFs of SeSetSecurityDescriptorInfo @ 0x1407258E0
  * Callers:
- *     IopSetDeviceSecurityDescriptor @ 0x1406DB04C (IopSetDeviceSecurityDescriptor.c)
+ *     sub_1406DB04C @ 0x1406DB04C (sub_1406DB04C.c)
  *     ObSetSecurityDescriptorInfo @ 0x1407255D0 (ObSetSecurityDescriptorInfo.c)
  * Callees:
- *     RtlpSetSecurityObject @ 0x140726700 (RtlpSetSecurityObject.c)
+ *     sub_140726700 @ 0x140726700 (sub_140726700.c)
  */
 
 NTSTATUS __stdcall SeSetSecurityDescriptorInfo(
@@ -16,7 +16,7 @@ NTSTATUS __stdcall SeSetSecurityDescriptorInfo(
         PGENERIC_MAPPING GenericMapping)
 {
   if ( *ObjectsSecurityDescriptor )
-    return RtlpSetSecurityObject(
+    return sub_140726700(
              (_DWORD)Object,
              *SecurityInformation,
              (_DWORD)ModificationDescriptor,

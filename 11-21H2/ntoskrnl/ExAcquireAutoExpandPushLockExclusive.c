@@ -4,21 +4,21 @@
  *     FsRtlInsertPerFileContext @ 0x1402563D0 (FsRtlInsertPerFileContext.c)
  *     FsRtlRemovePerFileObjectContext @ 0x1402A2FE0 (FsRtlRemovePerFileObjectContext.c)
  *     FsRtlInsertPerFileObjectContext @ 0x1402A3510 (FsRtlInsertPerFileObjectContext.c)
- *     MiLockLoaderEntry @ 0x1402D96AC (MiLockLoaderEntry.c)
- *     MiDeletePagablePteRange @ 0x140330080 (MiDeletePagablePteRange.c)
+ *     sub_1402D96AC @ 0x1402D96AC (sub_1402D96AC.c)
+ *     sub_140330080 @ 0x140330080 (sub_140330080.c)
  *     FsRtlRemovePerFileContext @ 0x1405417D0 (FsRtlRemovePerFileContext.c)
  *     FsRtlRemovePerStreamContext @ 0x1405418D0 (FsRtlRemovePerStreamContext.c)
- *     MiFreePhysicalPageChain @ 0x1405AA6C4 (MiFreePhysicalPageChain.c)
- *     MiFreePhysicalPages @ 0x1405AAA4C (MiFreePhysicalPages.c)
- *     MiLockAwePagesExclusive @ 0x1405AB970 (MiLockAwePagesExclusive.c)
- *     MiLockAweVadsExclusive @ 0x1405AB9B8 (MiLockAweVadsExclusive.c)
+ *     sub_1405AA6C4 @ 0x1405AA6C4 (sub_1405AA6C4.c)
+ *     sub_1405AAA4C @ 0x1405AAA4C (sub_1405AAA4C.c)
+ *     sub_1405AB970 @ 0x1405AB970 (sub_1405AB970.c)
+ *     sub_1405AB9B8 @ 0x1405AB9B8 (sub_1405AB9B8.c)
  *     FsRtlTeardownPerFileContexts @ 0x1406B41F0 (FsRtlTeardownPerFileContexts.c)
  *     FsRtlTeardownPerStreamContexts @ 0x1407B1200 (FsRtlTeardownPerStreamContexts.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14029F6A8 (KiAbTryReclaimOrphanedEntries.c)
- *     ExpAcquireFannedOutPushLockExclusive @ 0x14039F294 (ExpAcquireFannedOutPushLockExclusive.c)
+ *     sub_140287F30 @ 0x140287F30 (sub_140287F30.c)
+ *     sub_14029F120 @ 0x14029F120 (sub_14029F120.c)
+ *     sub_14029F6A8 @ 0x14029F6A8 (sub_14029F6A8.c)
+ *     sub_14039F294 @ 0x14039F294 (sub_14039F294.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -26,9 +26,9 @@ __int64 __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParame
 {
   __int64 v2; // rbx
   struct _KTHREAD *CurrentThread; // rsi
-  unsigned int AbEntrySummary; // eax
+  unsigned int v5; // eax
   __int64 v6; // rcx
-  int SessionId; // eax
+  int v7; // eax
   __int64 result; // rax
 
   v2 = 0LL;
@@ -38,27 +38,26 @@ __int64 __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParame
   {
     CurrentThread = KeGetCurrentThread();
     _disable();
-    AbEntrySummary = CurrentThread->AbEntrySummary;
-    if ( CurrentThread->AbEntrySummary
-      || (AbEntrySummary = KiAbTryReclaimOrphanedEntries(BugCheckParameter2, (__int64)CurrentThread)) != 0 )
+    v5 = *((unsigned __int8 *)CurrentThread + 792);
+    if ( *((_BYTE *)CurrentThread + 792) || (v5 = sub_14029F6A8(BugCheckParameter2, (__int64)CurrentThread)) != 0 )
     {
-      _BitScanForward((unsigned int *)&v6, AbEntrySummary);
-      CurrentThread->AbEntrySummary = AbEntrySummary & ~(1 << v6);
+      _BitScanForward((unsigned int *)&v6, v5);
+      *((_BYTE *)CurrentThread + 792) = v5 & ~(1 << v6);
       _enable();
-      v2 = (__int64)(&CurrentThread[1].Process + 12 * v6);
+      v2 = (__int64)CurrentThread + 96 * v6 + 1696;
       if ( BugCheckParameter2 - qword_140C50630 < 0x8000000000LL )
-        SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+        v7 = sub_140287F30(*((_QWORD *)CurrentThread + 23));
       else
-        SessionId = -1;
-      *(_DWORD *)(v2 + 8) = SessionId;
+        v7 = -1;
+      *(_DWORD *)(v2 + 8) = v7;
       *(_QWORD *)v2 = BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL;
     }
   }
   if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v2, BugCheckParameter2);
+    sub_14029F120((unsigned __int64 *)BugCheckParameter2, v2, BugCheckParameter2);
   result = *(unsigned int *)(BugCheckParameter2 + 8);
   if ( (result & 1) != 0 )
-    result = ExpAcquireFannedOutPushLockExclusive((unsigned int)result & 0xFFFFFFF8, v2, BugCheckParameter2);
+    result = sub_14039F294((unsigned int)result & 0xFFFFFFF8, v2, BugCheckParameter2);
   if ( v2 )
     *(_BYTE *)(v2 + 18) = 1;
   return result;

@@ -39,7 +39,7 @@ unsigned __int8 __fastcall KiRestoreClockTickRate(unsigned __int64 a1, __int64 a
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -55,7 +55,7 @@ unsigned __int8 __fastcall KiRestoreClockTickRate(unsigned __int64 a1, __int64 a
       KiSetNextClockTickDueTime(1);
     }
     *(_QWORD *)a3 = CurrentPrcb->ClockTimerState.TimeIncrement;
-    v8 = KiIrqlFlags;
+    v8 = (int)KiIrqlFlags;
     *v5 = CurrentPrcb->ClockTimerState.LastRequestedTimeIncrement;
     if ( v8 )
     {

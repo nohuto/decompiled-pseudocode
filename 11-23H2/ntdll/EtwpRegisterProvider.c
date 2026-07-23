@@ -15,23 +15,23 @@
 
 ULONG __fastcall EtwpRegisterProvider(__int64 a1, __int64 a2, int a3)
 {
-  int v6; // ebp
+  ULONG OutputBufferLength; // ebp
   char v7; // si
-  _BYTE *v8; // rbx
+  _QWORD *v8; // rbx
   NTSTATUS v9; // eax
   __int128 v10; // xmm0
   NTSTATUS v11; // eax
   ULONG v12; // ebp
   __int64 v13; // rcx
   __int64 v14; // rax
-  __int64 Heap; // rax
-  unsigned int v17; // [rsp+30h] [rbp-D8h] BYREF
-  _BYTE v18[160]; // [rsp+38h] [rbp-D0h] BYREF
+  _QWORD *Heap; // rax
+  ULONG ReturnLength; // [rsp+30h] [rbp-D8h] BYREF
+  _BYTE InputBuffer[160]; // [rsp+38h] [rbp-D0h] BYREF
 
-  v6 = 160;
+  OutputBufferLength = 160;
   v7 = 0;
-  memset_thunk_772440563353939046(v18, 0, 0xA0uLL);
-  v8 = v18;
+  memset_thunk_772440563353939046(InputBuffer, 0, 0xA0uLL);
+  v8 = InputBuffer;
   if ( !byte_180187488 )
   {
     v9 = RtlRunOnceExecuteOnce(&EtwpRegisterTpInitOnce, EtwpRegisterTpNotificationOnce, 0LL, 0LL);
@@ -44,16 +44,16 @@ ULONG __fastcall EtwpRegisterProvider(__int64 a1, __int64 a2, int a3)
     *((_DWORD *)v8 + 4) = a3;
     *(_OWORD *)v8 = v10;
     *((_DWORD *)v8 + 5) = *(unsigned __int16 *)(a1 + 84);
-    *((_QWORD *)v8 + 4) = a2;
-    v11 = NtTraceControl(15LL, v8, 160LL, v8, v6, &v17);
+    v8[4] = a2;
+    v11 = NtTraceControl(EtwRegisterGuidsCode, v8, 0xA0u, v8, OutputBufferLength, &ReturnLength);
     if ( v11 != -1073741789 )
       break;
     if ( v7 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v8);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
     v7 = 1;
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v17);
-    v6 = v17;
-    v8 = (_BYTE *)Heap;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, ReturnLength);
+    OutputBufferLength = ReturnLength;
+    v8 = Heap;
     if ( !Heap )
     {
       v11 = -1073741801;
@@ -70,9 +70,9 @@ LABEL_15:
   if ( v12 )
     goto LABEL_13;
 LABEL_6:
-  *(_QWORD *)(a1 + 88) = *((_QWORD *)v8 + 3);
+  *(_QWORD *)(a1 + 88) = v8[3];
   if ( (unsigned int)(a3 - 2) <= 1 )
-    EtwpUpdateEnableInfoAndCallback(a1, (__int64)(v8 + 40));
+    EtwpUpdateEnableInfoAndCallback(a1, (__int64)(v8 + 5));
   v13 = *(_QWORD *)(a1 + 32) - *(_QWORD *)&PrivateLoggerNotificationGuid.Data1;
   if ( !v13 )
     v13 = *(_QWORD *)(a1 + 40) - *(_QWORD *)PrivateLoggerNotificationGuid.Data4;
@@ -84,7 +84,7 @@ LABEL_13:
   if ( v7 )
   {
     if ( v8 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v8);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
   }
   return v12;
 }

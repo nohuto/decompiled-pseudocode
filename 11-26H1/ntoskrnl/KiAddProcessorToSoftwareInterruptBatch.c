@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAddProcessorToSoftwareInterruptBatch @ 0x140245EE0
+ * XREFs of KiAddProcessorToSoftwareInterruptBatch @ 0x140247840
  * Callers:
- *     KiSendHeteroRescheduleIntRequestHelper @ 0x14021E510 (KiSendHeteroRescheduleIntRequestHelper.c)
- *     KiFastExitThreadWait @ 0x140244040 (KiFastExitThreadWait.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiExitThreadWait @ 0x140245780 (KiExitThreadWait.c)
- *     KiSatisfyThreadWait @ 0x140245F80 (KiSatisfyThreadWait.c)
+ *     KiSendHeteroRescheduleIntRequestHelper @ 0x14021FEA0 (KiSendHeteroRescheduleIntRequestHelper.c)
+ *     KiFastExitThreadWait @ 0x1402459A0 (KiFastExitThreadWait.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiExitThreadWait @ 0x1402470E0 (KiExitThreadWait.c)
+ *     KiSatisfyThreadWait @ 0x1402478E0 (KiSatisfyThreadWait.c)
  * Callees:
  *     <none>
  */
@@ -34,8 +34,8 @@ __int64 __fastcall KiAddProcessorToSoftwareInterruptBatch(__int64 a1, __int64 a2
   if ( (_DWORD)result == *(_DWORD *)(a2 + 36) )
     return result;
   *(_BYTE *)(a1 + 1) = 2;
-  v4 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * (unsigned int)result) & 0x3F;
-  v5 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * (unsigned int)result) >> 6;
+  v4 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + (unsigned int)result) & 0x3F;
+  v5 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + (unsigned int)result) >> 6;
   if ( *(unsigned __int16 *)(a1 + 8) <= (unsigned int)v5 )
   {
     result = *(unsigned __int16 *)(a1 + 10);

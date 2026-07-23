@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlpCtContextFree @ 0x180102508
+ * XREFs of RtlpCtContextFree @ 0x1801024C8
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1801022B0 (RtlRaiseCustomSystemEventTrigger.c)
- *     RtlpCtContextInit @ 0x180102564 (RtlpCtContextInit.c)
- *     RtlpRtlpCtWaitForWnfQuiescentWorker @ 0x180102680 (RtlpRtlpCtWaitForWnfQuiescentWorker.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x180102270 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlpCtContextInit @ 0x180102524 (RtlpCtContextInit.c)
+ *     RtlpRtlpCtWaitForWnfQuiescentWorker @ 0x180102640 (RtlpRtlpCtWaitForWnfQuiescentWorker.c)
  * Callees:
  *     TpReleaseWork @ 0x18000F180 (TpReleaseWork.c)
  *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x180063B70 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
  */
 
-__int64 __fastcall RtlpCtContextFree(__int64 *a1)
+LOGICAL __fastcall RtlpCtContextFree(__int64 a1)
 {
-  __int64 v2; // rcx
+  void *v2; // rcx
   void *v3; // rcx
 
-  v2 = a1[1];
+  v2 = *(void **)(a1 + 8);
   if ( v2 )
     RtlUnsubscribeWnfNotificationWaitForCompletion(v2);
-  v3 = (void *)a1[2];
+  v3 = *(void **)(a1 + 16);
   if ( v3 )
   {
     NtClose(v3);
-    a1[2] = 0LL;
+    *(_QWORD *)(a1 + 16) = 0LL;
   }
-  if ( *a1 )
-    TpReleaseWork(*a1);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)a1);
+  if ( *(_QWORD *)a1 )
+    TpReleaseWork(*(PTP_WORK *)a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)a1);
 }

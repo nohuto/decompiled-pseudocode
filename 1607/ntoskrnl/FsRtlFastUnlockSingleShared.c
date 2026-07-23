@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlFastUnlockSingleShared @ 0x1400C530C
+ * XREFs of FsRtlFastUnlockSingleShared @ 0x1400C31AC
  * Callers:
- *     FsRtlFastUnlockSingle @ 0x1400C50D8 (FsRtlFastUnlockSingle.c)
- *     FsRtlPrivateRemoveLock @ 0x1401B91A4 (FsRtlPrivateRemoveLock.c)
+ *     FsRtlFastUnlockSingle @ 0x1400C2F78 (FsRtlFastUnlockSingle.c)
+ *     FsRtlPrivateRemoveLock @ 0x1401B8DE8 (FsRtlPrivateRemoveLock.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x1400AB4CC (FsRtlPrivateCheckWaitingLocks.c)
- *     FsRtlSplitLocks @ 0x1400AB520 (FsRtlSplitLocks.c)
- *     FsRtlFindFirstOverlappingSharedNode @ 0x1400C553C (FsRtlFindFirstOverlappingSharedNode.c)
- *     FsRtlPrivateResetLowestLockOffset @ 0x1400C5690 (FsRtlPrivateResetLowestLockOffset.c)
- *     RtlDelete @ 0x1400C58D4 (RtlDelete.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1400A9A4C (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlSplitLocks @ 0x1400A9AA0 (FsRtlSplitLocks.c)
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x1400C33DC (FsRtlFindFirstOverlappingSharedNode.c)
+ *     FsRtlPrivateResetLowestLockOffset @ 0x1400C3530 (FsRtlPrivateResetLowestLockOffset.c)
+ *     RtlDelete @ 0x1400C3774 (RtlDelete.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall FsRtlFastUnlockSingleShared(
@@ -32,7 +32,7 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   unsigned int v15; // edi
   KIRQL v16; // r12
   __int64 FirstOverlappingSharedNode; // rax
-  struct _RTL_SPLAY_LINKS *v18; // r9
+  _RTL_SPLAY_LINKS *v18; // r9
   _RTL_SPLAY_LINKS *v19; // r14
   unsigned __int64 v20; // rax
   _RTL_SPLAY_LINKS *Parent; // rsi
@@ -59,7 +59,7 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   }
   v25 = (__int64)v9 + (_QWORD)*a4 - 1;
   FirstOverlappingSharedNode = FsRtlFindFirstOverlappingSharedNode(v14, (unsigned int)&v27, (unsigned int)&v25, 0, 0LL);
-  v18 = (struct _RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
+  v18 = (_RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
   if ( !FirstOverlappingSharedNode
     || (v19 = (_RTL_SPLAY_LINKS *)(FirstOverlappingSharedNode - 24),
         v20 = 0LL,

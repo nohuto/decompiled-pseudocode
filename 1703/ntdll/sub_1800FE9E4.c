@@ -8,14 +8,14 @@
  *     sub_180109E7C @ 0x180109E7C (sub_180109E7C.c)
  */
 
-signed __int64 sub_1800FE9E4()
+void sub_1800FE9E4()
 {
-  RtlAcquireSRWLockExclusive(&qword_18015C2A0);
+  RtlAcquireSRWLockExclusive(&stru_18015C2A0);
   if ( (dword_18015C2A8 & 1) != 0 )
   {
     dword_18015C2A8 = 0;
     sub_1800059EC((__int64)sub_1800FEC20, 0LL, 2);
     sub_180109E7C(&dword_18015C2B0);
   }
-  return RtlReleaseSRWLockExclusive(&qword_18015C2A0);
+  RtlReleaseSRWLockExclusive(&stru_18015C2A0);
 }

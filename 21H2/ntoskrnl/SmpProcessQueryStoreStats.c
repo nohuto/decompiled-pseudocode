@@ -1,12 +1,12 @@
 /*
- * XREFs of SmpProcessQueryStoreStats @ 0x14059D058
+ * XREFs of SmpProcessQueryStoreStats @ 0x14059D288
  * Callers:
- *     SmQueryStoreCommitUsage @ 0x14059CFC0 (SmQueryStoreCommitUsage.c)
- *     SmProcessQueryStoreStats @ 0x140929E90 (SmProcessQueryStoreStats.c)
+ *     SmQueryStoreCommitUsage @ 0x14059D1F0 (SmQueryStoreCommitUsage.c)
+ *     SmProcessQueryStoreStats @ 0x140929FF0 (SmProcessQueryStoreStats.c)
  * Callees:
- *     ?SmStGetStoreStats@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x1402CBF70 (-SmStGetStoreStats@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
- *     SmpKeyedStoreEntryGet @ 0x1402D6348 (SmpKeyedStoreEntryGet.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
+ *     ?SmStGetStoreStats@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x14024A6DC (-SmStGetStoreStats@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
+ *     SmpKeyedStoreEntryGet @ 0x140287698 (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14028A928 (SmKmStoreRefFromStoreIndex.c)
  */
 
 __int64 __fastcall SmpProcessQueryStoreStats(PVOID a1)

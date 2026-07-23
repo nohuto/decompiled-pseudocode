@@ -1,24 +1,24 @@
 /*
- * XREFs of MiParseImageLoadConfig @ 0x1406508DC
+ * XREFs of MiParseImageLoadConfig @ 0x140651A9C
  * Callers:
- *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x140651084 (MiRelocateImage.c)
  * Callees:
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
- *     MiFreeImageCfgContext @ 0x1400DA48C (MiFreeImageCfgContext.c)
- *     MiIsImportOptimizationEnabled @ 0x1400DA510 (MiIsImportOptimizationEnabled.c)
- *     MiIsRetpolineEnabled @ 0x1400DA570 (MiIsRetpolineEnabled.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiLogRelocationRva @ 0x14064B18C (MiLogRelocationRva.c)
- *     MiFreeImageRetpolineContext @ 0x140650E04 (MiFreeImageRetpolineContext.c)
- *     MiCaptureImageCfgContext @ 0x140652230 (MiCaptureImageCfgContext.c)
- *     RtlCreateRvaList @ 0x140652620 (RtlCreateRvaList.c)
- *     MiFreeImageLoadConfig @ 0x1406FD29C (MiFreeImageLoadConfig.c)
- *     MiCaptureDynamicRelocationTableRva @ 0x14074BA4C (MiCaptureDynamicRelocationTableRva.c)
- *     MiCaptureRetpolineRelocationTables @ 0x1408538D4 (MiCaptureRetpolineRelocationTables.c)
- *     MiCreateRetpolineRelocationInformation @ 0x140853B00 (MiCreateRetpolineRelocationInformation.c)
+ *     MiFreeImageCfgContext @ 0x1400DA50C (MiFreeImageCfgContext.c)
+ *     MiIsImportOptimizationEnabled @ 0x1400DA590 (MiIsImportOptimizationEnabled.c)
+ *     MiIsRetpolineEnabled @ 0x1400DA5F0 (MiIsRetpolineEnabled.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiLogRelocationRva @ 0x14064C34C (MiLogRelocationRva.c)
+ *     MiFreeImageRetpolineContext @ 0x140651FC4 (MiFreeImageRetpolineContext.c)
+ *     MiCaptureImageCfgContext @ 0x1406533F0 (MiCaptureImageCfgContext.c)
+ *     RtlCreateRvaList @ 0x1406537E0 (RtlCreateRvaList.c)
+ *     MiFreeImageLoadConfig @ 0x1406FE53C (MiFreeImageLoadConfig.c)
+ *     MiCaptureDynamicRelocationTableRva @ 0x14074CC3C (MiCaptureDynamicRelocationTableRva.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x140854B34 (MiCaptureRetpolineRelocationTables.c)
+ *     MiCreateRetpolineRelocationInformation @ 0x140854D60 (MiCreateRetpolineRelocationInformation.c)
  */
 
 __int64 __fastcall MiParseImageLoadConfig(__int64 a1, char *a2, unsigned int a3, __int64 *a4, __int64 a5, int *a6)

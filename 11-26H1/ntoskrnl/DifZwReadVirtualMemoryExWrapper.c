@@ -1,18 +1,24 @@
 /*
- * XREFs of DifZwReadVirtualMemoryExWrapper @ 0x1406B60C0
+ * XREFs of DifZwReadVirtualMemoryExWrapper @ 0x1406B9CA0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwReadVirtualMemoryEx @ 0x1407262F0 (ZwReadVirtualMemoryEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwReadVirtualMemoryEx @ 0x14072AEC0 (ZwReadVirtualMemoryEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-__int64 __fastcall DifZwReadVirtualMemoryExWrapper(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6)
+__int64 __fastcall DifZwReadVirtualMemoryExWrapper(
+        void *a1,
+        void *a2,
+        void *a3,
+        SIZE_T a4,
+        ULONG_PTR *NumberOfBytesRead,
+        ULONG Flags)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -25,12 +31,12 @@ __int64 __fastcall DifZwReadVirtualMemoryExWrapper(__int64 a1, __int64 a2, __int
   BOOLEAN v17; // di
   __int128 *j; // rbx
   PVOID v20; // [rsp+30h] [rbp-40h] BYREF
-  int v21; // [rsp+38h] [rbp-38h]
-  __int64 v22; // [rsp+40h] [rbp-30h]
-  __int64 v23; // [rsp+48h] [rbp-28h]
-  __int64 v24; // [rsp+50h] [rbp-20h]
-  __int64 v25; // [rsp+58h] [rbp-18h]
-  __int64 v26; // [rsp+60h] [rbp-10h]
+  ULONG v21; // [rsp+38h] [rbp-38h]
+  ULONG_PTR *v22; // [rsp+40h] [rbp-30h]
+  SIZE_T v23; // [rsp+48h] [rbp-28h]
+  void *v24; // [rsp+50h] [rbp-20h]
+  void *v25; // [rsp+58h] [rbp-18h]
+  void *v26; // [rsp+60h] [rbp-10h]
   unsigned int VirtualMemory; // [rsp+68h] [rbp-8h]
   void *retaddr; // [rsp+98h] [rbp+28h]
 
@@ -54,8 +60,8 @@ __int64 __fastcall DifZwReadVirtualMemoryExWrapper(__int64 a1, __int64 a2, __int
 LABEL_7:
   v14 = 0;
   v26 = a1;
-  v22 = a5;
-  v21 = a6;
+  v22 = NumberOfBytesRead;
+  v21 = Flags;
   v25 = a2;
   v24 = a3;
   v23 = a4;
@@ -71,7 +77,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  VirtualMemory = ZwReadVirtualMemoryEx(a1, a2, a3, a4, a5, a6);
+  VirtualMemory = ZwReadVirtualMemoryEx(a1, a2, a3, a4, NumberOfBytesRead, Flags);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

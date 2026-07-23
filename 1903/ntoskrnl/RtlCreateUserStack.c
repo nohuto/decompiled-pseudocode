@@ -9,51 +9,51 @@
  *     ZwFreeVirtualMemory @ 0x1401C0490 (ZwFreeVirtualMemory.c)
  */
 
-NTSTATUS __fastcall RtlCreateUserStack(
-        unsigned __int64 a1,
-        unsigned __int64 a2,
-        __int64 a3,
-        unsigned __int64 a4,
-        ULONG_PTR RegionSize,
-        _QWORD *a6)
+NTSTATUS __cdecl RtlCreateUserStack(
+        SIZE_T CommittedStackSize,
+        SIZE_T MaximumStackSize,
+        ULONG_PTR ZeroBits,
+        SIZE_T PageSize,
+        ULONG_PTR ReserveAlignment,
+        PINITIAL_TEB InitialTeb)
 {
-  unsigned __int64 v7; // r14
-  __int64 v8; // rsi
+  SIZE_T v7; // r14
+  SIZE_T v8; // rsi
   ULONG_PTR v9; // r15
   unsigned __int64 v10; // r13
-  unsigned __int64 v11; // rax
-  unsigned __int64 v12; // rcx
+  SIZE_T v11; // rax
+  SIZE_T v12; // rcx
   __int64 v13; // rdx
-  unsigned __int64 v14; // rdi
+  ULONG_PTR v14; // rdi
   unsigned __int64 v15; // rbx
   NTSTATUS result; // eax
-  _QWORD *v17; // rsi
-  __int64 v18; // rcx
+  PINITIAL_TEB v17; // rsi
+  char *v18; // rcx
   ULONG_PTR v19; // rbx
-  NTSTATUS v20; // edi
+  int v20; // edi
   char *v21; // rax
   PIMAGE_NT_HEADERS v22; // rax
-  unsigned __int64 SizeOfStackCommit; // rcx
-  unsigned __int64 SizeOfStackReserve; // rdx
-  ULONG_PTR v25; // [rsp+30h] [rbp-88h] BYREF
+  SIZE_T SizeOfStackCommit; // rcx
+  SIZE_T SizeOfStackReserve; // rdx
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp-88h] BYREF
   ULONG_PTR v26; // [rsp+38h] [rbp-80h] BYREF
-  PVOID v27; // [rsp+40h] [rbp-78h] BYREF
-  unsigned __int64 v28; // [rsp+48h] [rbp-70h]
+  PVOID AllocatedStackBase; // [rsp+40h] [rbp-78h] BYREF
+  ULONG_PTR v28; // [rsp+48h] [rbp-70h]
   _DWORD ProcessInformation[4]; // [rsp+50h] [rbp-68h] BYREF
   unsigned __int64 v30; // [rsp+60h] [rbp-58h]
-  __int64 v31; // [rsp+68h] [rbp-50h]
-  __int64 v32; // [rsp+70h] [rbp-48h]
+  ULONG_PTR v31; // [rsp+68h] [rbp-50h]
+  char *v32; // [rsp+70h] [rbp-48h]
   PVOID BaseAddress; // [rsp+D8h] [rbp+20h] BYREF
 
   v32 = 0LL;
-  v7 = HIBYTE(a4);
-  v8 = a4 & 0xFFFFFFFFFFFFFFLL;
-  if ( HIBYTE(a4) > 0x40u )
+  v7 = HIBYTE(PageSize);
+  v8 = PageSize & 0xFFFFFFFFFFFFFFLL;
+  if ( HIBYTE(PageSize) > 0x40u )
     return -1073741811;
   v9 = 3 * v8;
   v10 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[0];
-  v11 = a1;
-  if ( !a1 || (v12 = a2) == 0 )
+  v11 = CommittedStackSize;
+  if ( !CommittedStackSize || (v12 = MaximumStackSize) == 0 )
   {
     v22 = RtlImageNtHeader((PVOID)KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[18]);
     if ( !v22 )
@@ -68,11 +68,11 @@ NTSTATUS __fastcall RtlCreateUserStack(
       SizeOfStackCommit = HIDWORD(v22->OptionalHeader.SizeOfStackReserve);
       SizeOfStackReserve = LODWORD(v22->OptionalHeader.SizeOfStackReserve);
     }
-    v11 = a1;
-    if ( !a1 )
+    v11 = CommittedStackSize;
+    if ( !CommittedStackSize )
       v11 = SizeOfStackCommit;
-    v12 = a2;
-    if ( !a2 )
+    v12 = MaximumStackSize;
+    if ( !MaximumStackSize )
       v12 = SizeOfStackReserve;
   }
   if ( !v11 )
@@ -93,7 +93,7 @@ NTSTATUS __fastcall RtlCreateUserStack(
   ProcessInformation[3] = 0;
   ProcessInformation[2] = 0;
   v30 = v15;
-  v31 = a3;
+  v31 = ZeroBits;
   result = ZwSetInformationProcess(
              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
              ProcessThreadStackAllocation,
@@ -101,26 +101,26 @@ NTSTATUS __fastcall RtlCreateUserStack(
              0x28u);
   if ( result >= 0 )
   {
-    v17 = a6;
-    *a6 = 0LL;
-    v17[1] = 0LL;
+    v17 = InitialTeb;
+    InitialTeb->PreviousStackBase = 0LL;
+    v17->PreviousStackLimit = 0LL;
     v18 = v32;
-    v17[4] = v32;
-    v17[2] = v18 + v15;
-    BaseAddress = (PVOID)(v15 + v18 - v14);
+    v17->AllocatedStackBase = v32;
+    v17->StackBase = &v18[v15];
+    BaseAddress = &v18[v15 - v14];
     v19 = v15 - v14;
-    RegionSize = v14;
-    v20 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
+    ReserveAlignment = v14;
+    v20 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &ReserveAlignment, 0x1000u, 4u);
     if ( v20 < 0
-      || (v21 = (char *)BaseAddress, v17[3] = BaseAddress, v19 >= v9)
+      || (v21 = (char *)BaseAddress, v17->StackLimit = BaseAddress, v19 >= v9)
       && (BaseAddress = &v21[-v9],
-          v25 = v9,
-          v20 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &v25, 0x1000u, 0x104u),
+          RegionSize = v9,
+          v20 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 0x104u),
           v20 < 0) )
     {
-      v27 = (PVOID)v17[4];
+      AllocatedStackBase = v17->AllocatedStackBase;
       v26 = 0LL;
-      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v27, &v26, 0x8000u);
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &AllocatedStackBase, &v26, 0x8000u);
       return v20;
     }
     else

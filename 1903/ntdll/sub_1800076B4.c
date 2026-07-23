@@ -9,10 +9,10 @@
  *     ZwWaitForAlertByThreadId @ 0x1800A0010 (ZwWaitForAlertByThreadId.c)
  */
 
-signed __int64 __fastcall sub_1800076B4(__int64 a1, __int64 a2)
+int __fastcall sub_1800076B4(__int64 a1, __int64 a2)
 {
   __int64 v4; // rsi
-  signed __int64 result; // rax
+  signed __int64 v5; // rax
   signed __int64 v6; // rbx
   signed __int64 v7; // rtt
   unsigned __int64 v8; // rcx
@@ -27,22 +27,22 @@ signed __int64 __fastcall sub_1800076B4(__int64 a1, __int64 a2)
   bool v17; // zf
 
   v4 = (*(_DWORD *)a2 >> 5) & 0x7F;
-  result = *(_QWORD *)(a1 + 8 * v4);
-  while ( result )
+  v5 = *(_QWORD *)(a1 + 8 * v4);
+  while ( v5 )
   {
-    if ( (result & 2) != 0 )
+    if ( (v5 & 2) != 0 )
     {
-      v14 = result;
-      result = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), result | 1, result);
-      if ( v14 == result )
+      v14 = v5;
+      v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), v5 | 1, v5);
+      if ( v14 == v5 )
         break;
     }
     else
     {
-      v6 = result | 2;
-      v7 = result;
-      result = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), result | 2, result);
-      if ( v7 == result )
+      v6 = v5 | 2;
+      v7 = v5;
+      v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), v5 | 2, v5);
+      if ( v7 == v5 )
       {
         v8 = v6 & 0xFFFFFFFFFFFFFFFCuLL;
         v9 = v6 & 0xFFFFFFFFFFFFFFFCuLL;
@@ -59,21 +59,21 @@ signed __int64 __fastcall sub_1800076B4(__int64 a1, __int64 a2)
               v13 = *(_QWORD *)(v8 + 16);
               if ( v12 )
                 v13 = v12 ^ ((unsigned __int8)v6 ^ (unsigned __int8)v12) & 3;
-              result = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), v13, v6);
-              if ( v6 == result )
+              v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), v13, v6);
+              if ( v6 == v5 )
               {
                 if ( !v13 )
-                  return result;
+                  return v5;
                 *(_QWORD *)(v12 + 24) = 0LL;
                 v8 = v12;
                 v9 = v12;
               }
               else
               {
-                v6 = result;
-                v8 = result & 0xFFFFFFFFFFFFFFFCuLL;
-                v9 = result & 0xFFFFFFFFFFFFFFFCuLL;
-                v11 = *(_QWORD *)((result & 0xFFFFFFFFFFFFFFFCuLL) + 24);
+                v6 = v5;
+                v8 = v5 & 0xFFFFFFFFFFFFFFFCuLL;
+                v9 = v5 & 0xFFFFFFFFFFFFFFFCuLL;
+                v11 = *(_QWORD *)((v5 & 0xFFFFFFFFFFFFFFFCuLL) + 24);
               }
               goto LABEL_18;
             }
@@ -93,7 +93,7 @@ LABEL_18:
           if ( !v8 )
           {
             if ( !v10 && _InterlockedExchange((volatile __int32 *)(a2 + 40), 0) != 2 )
-              ZwWaitForAlertByThreadId(*(_QWORD *)a2, 0LL);
+              ZwWaitForAlertByThreadId(*(PVOID *)a2, 0LL);
             *(_QWORD *)(v9 + 32) = v11;
             do
             {
@@ -101,20 +101,20 @@ LABEL_18:
               v16 = v6 & 1;
               if ( (v6 & 1) == 0 )
                 v15 = v6 & 0xFFFFFFFFFFFFFFFCuLL;
-              result = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), v15, v6);
-              v17 = v6 == result;
-              v6 = result;
+              v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), v15, v6);
+              v17 = v6 == v5;
+              v6 = v5;
             }
             while ( !v17 );
             if ( v16 )
-              return sub_180006358(result);
-            return result;
+              LODWORD(v5) = sub_180006358(v5);
+            return v5;
           }
         }
       }
     }
   }
   if ( _InterlockedExchange((volatile __int32 *)(a2 + 40), 1) != 2 )
-    return sub_180007598(a1, (_QWORD *)a2, 0LL, dword_180163B6C);
-  return result;
+    LODWORD(v5) = sub_180007598(a1, (PVOID *)a2, 0LL, dword_180163B6C);
+  return v5;
 }

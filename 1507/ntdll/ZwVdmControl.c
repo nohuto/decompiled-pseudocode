@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwVdmControl()
+NTSTATUS __cdecl ZwVdmControl(VDMSERVICECLASS Service, PVOID ServiceData)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 434LL;
+  result = 434;
   __asm { syscall; Low latency system call }
   return result;
 }

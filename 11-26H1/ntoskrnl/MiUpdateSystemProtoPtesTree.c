@@ -1,28 +1,28 @@
 /*
- * XREFs of MiUpdateSystemProtoPtesTree @ 0x140458D20
+ * XREFs of MiUpdateSystemProtoPtesTree @ 0x140450590
  * Callers:
- *     MiDeletePerSessionProtos @ 0x1404586A0 (MiDeletePerSessionProtos.c)
- *     MiAllocateSubsectionProtos @ 0x140458B54 (MiAllocateSubsectionProtos.c)
- *     MiPruneUnusedList @ 0x14048F610 (MiPruneUnusedList.c)
- *     MiDeleteSubsectionPages @ 0x1404919FC (MiDeleteSubsectionPages.c)
- *     MiCreatePrototypePtes @ 0x14049406C (MiCreatePrototypePtes.c)
- *     MiDeleteCachedSubsection @ 0x1405108F0 (MiDeleteCachedSubsection.c)
- *     MiEntireSubsectionIsPurged @ 0x140529CA0 (MiEntireSubsectionIsPurged.c)
- *     MiCreatePagingFileFinish @ 0x1409B7E0C (MiCreatePagingFileFinish.c)
- *     MiBuildImageControlArea @ 0x140A551FC (MiBuildImageControlArea.c)
- *     MiCreateImageMapFreeResources @ 0x140A55C50 (MiCreateImageMapFreeResources.c)
- *     MiSegmentDelete @ 0x140A816BC (MiSegmentDelete.c)
- *     MiDeletePageFileSectionNodes @ 0x140A8186C (MiDeletePageFileSectionNodes.c)
- *     MiAllocatePerSessionProtos @ 0x140B11CA8 (MiAllocatePerSessionProtos.c)
- *     MiAllocateFileExtents @ 0x140B5F8D8 (MiAllocateFileExtents.c)
+ *     MiDeletePerSessionProtos @ 0x14044FF10 (MiDeletePerSessionProtos.c)
+ *     MiAllocateSubsectionProtos @ 0x1404503C4 (MiAllocateSubsectionProtos.c)
+ *     MiPruneUnusedList @ 0x140488FD0 (MiPruneUnusedList.c)
+ *     MiDeleteSubsectionPages @ 0x14048B54C (MiDeleteSubsectionPages.c)
+ *     MiCreatePrototypePtes @ 0x14048DBBC (MiCreatePrototypePtes.c)
+ *     MiDeleteCachedSubsection @ 0x14050A360 (MiDeleteCachedSubsection.c)
+ *     MiEntireSubsectionIsPurged @ 0x14052C1C0 (MiEntireSubsectionIsPurged.c)
+ *     MiCreatePagingFileFinish @ 0x140988DEC (MiCreatePagingFileFinish.c)
+ *     MiBuildImageControlArea @ 0x140A6279C (MiBuildImageControlArea.c)
+ *     MiCreateImageMapFreeResources @ 0x140A631D8 (MiCreateImageMapFreeResources.c)
+ *     MiSegmentDelete @ 0x140A8752C (MiSegmentDelete.c)
+ *     MiDeletePageFileSectionNodes @ 0x140A876DC (MiDeletePageFileSectionNodes.c)
+ *     MiAllocatePerSessionProtos @ 0x140B13A28 (MiAllocatePerSessionProtos.c)
+ *     MiAllocateFileExtents @ 0x140B62A58 (MiAllocateFileExtents.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     RtlpTreeDoubleRotateNodes @ 0x14044D5D0 (RtlpTreeDoubleRotateNodes.c)
- *     RtlpRbReportFatalError @ 0x140619BDC (RtlpRbReportFatalError.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     RtlpTreeDoubleRotateNodes @ 0x140445700 (RtlpTreeDoubleRotateNodes.c)
+ *     RtlpRbReportFatalError @ 0x14061CC2C (RtlpRbReportFatalError.c)
  */
 
 void __fastcall MiUpdateSystemProtoPtesTree(_QWORD *a1, char a2)
@@ -77,21 +77,21 @@ void __fastcall MiUpdateSystemProtoPtesTree(_QWORD *a1, char a2)
   if ( (a2 & 2) != 0 )
   {
     v5 = 17;
-    ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)&stru_140E2D150.CurrentRunTime);
+    ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)&stru_140E2D2D0.CurrentRunTime);
   }
   else
   {
-    v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2D150.CurrentRunTime);
+    v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2D2D0.CurrentRunTime);
   }
   if ( (a2 & 1) == 0 )
   {
-    RtlAvlRemoveNode((unsigned __int64 *)&stru_140E2D150.CycleTime, (__int64)a1);
+    RtlAvlRemoveNode((unsigned __int64 *)&stru_140E2D2D0.CycleTime, (__int64)a1);
     a1[3] &= ~8uLL;
     goto LABEL_65;
   }
-  CycleTime = stru_140E2D150.CycleTime;
+  CycleTime = stru_140E2D2D0.CycleTime;
   v7 = 0;
-  if ( !stru_140E2D150.CycleTime )
+  if ( !stru_140E2D2D0.CycleTime )
     goto LABEL_30;
   while ( 1 )
   {
@@ -139,7 +139,7 @@ LABEL_30:
   a1[2] = CycleTime;
   if ( !CycleTime )
   {
-    stru_140E2D150.CycleTime = (volatile unsigned __int64)a1;
+    stru_140E2D2D0.CycleTime = (volatile unsigned __int64)a1;
     a1[3] |= 8uLL;
     goto LABEL_65;
   }
@@ -155,10 +155,10 @@ LABEL_37:
       {
         v14 = *(_QWORD *)(v10 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
         if ( v14 != CycleTime )
-          RtlpRbReportFatalError(v14, CycleTime, v10);
+          RtlpRbReportFatalError(v14, CycleTime);
         v15 = *(_QWORD *)(CycleTime + 8LL * v7);
         if ( v15 != v10 )
-          RtlpRbReportFatalError(v15, v10, CycleTime);
+          RtlpRbReportFatalError(v15, v10);
         v16 = *(_QWORD *)(CycleTime + 16);
         v17 = (_QWORD *)(v16 & 0xFFFFFFFFFFFFFFFCuLL);
         if ( (v16 & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
@@ -170,15 +170,15 @@ LABEL_37:
           else
           {
             if ( *v17 != CycleTime )
-              RtlpRbReportFatalError(*v17, CycleTime, *(_QWORD *)(CycleTime + 16) & 0xFFFFFFFFFFFFFFFCuLL);
+              RtlpRbReportFatalError(*v17, CycleTime);
             *v17 = v10;
           }
         }
         else
         {
-          if ( stru_140E2D150.CycleTime != CycleTime )
-            RtlpRbReportFatalError(stru_140E2D150.CycleTime, CycleTime, &stru_140E2D150.CycleTime);
-          stru_140E2D150.CycleTime = v10;
+          if ( stru_140E2D2D0.CycleTime != CycleTime )
+            RtlpRbReportFatalError(stru_140E2D2D0.CycleTime, CycleTime);
+          stru_140E2D2D0.CycleTime = v10;
         }
         v18 = v16 ^ *(_QWORD *)(v10 + 16);
         v19 = (__int64 *)(v10 + 8LL * !v7);
@@ -188,7 +188,7 @@ LABEL_37:
         {
           v21 = *(_QWORD *)(v20 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
           if ( v21 != v10 )
-            RtlpRbReportFatalError(v21, v10, *v19);
+            RtlpRbReportFatalError(v21, v10);
           *(_QWORD *)(v20 + 16) = CycleTime | *(_DWORD *)(v20 + 16) & 3;
         }
         *(_QWORD *)(CycleTime + 8LL * v7) = v20;
@@ -199,7 +199,7 @@ LABEL_37:
       }
       else
       {
-        v22 = RtlpTreeDoubleRotateNodes(&stru_140E2D150.CycleTime, CycleTime, v10, v7);
+        v22 = RtlpTreeDoubleRotateNodes(&stru_140E2D2D0.CycleTime, CycleTime, v10, v7);
         *(_BYTE *)(CycleTime + 16) &= 0xFCu;
         v23 = *(_BYTE *)(v10 + 16) & 0xFC;
         *(_BYTE *)(v10 + 16) = v23;
@@ -223,8 +223,8 @@ LABEL_37:
     while ( 1 )
     {
       v10 = CycleTime;
-      *(_BYTE *)(CycleTime + 16) = v11 | *(_BYTE *)(CycleTime + 16) & 0xFC;
       v13 = CycleTime;
+      *(_BYTE *)(CycleTime + 16) ^= (v11 ^ *(_BYTE *)(CycleTime + 16)) & 3;
       CycleTime = *(_QWORD *)(CycleTime + 16) & 0xFFFFFFFFFFFFFFFCuLL;
       if ( !CycleTime )
         break;
@@ -240,17 +240,17 @@ LABEL_63:
 LABEL_65:
   if ( v5 == 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-      stru_140E2D150.CurrentRunTime = 0;
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+      stru_140E2D2D0.CurrentRunTime = 0;
     else
-      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&stru_140E2D150.CurrentRunTime, retaddr);
+      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&stru_140E2D2D0.CurrentRunTime, retaddr);
   }
   else
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-      stru_140E2D150.CurrentRunTime = 0;
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+      stru_140E2D2D0.CurrentRunTime = 0;
     else
-      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&stru_140E2D150.CurrentRunTime, retaddr);
+      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&stru_140E2D2D0.CurrentRunTime, retaddr);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v5);
     __writecr8(v5);

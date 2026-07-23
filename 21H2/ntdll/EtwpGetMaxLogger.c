@@ -5,18 +5,18 @@
  *     EtwGetTraceEnableLevel @ 0x180081D60 (EtwGetTraceEnableLevel.c)
  *     EtwGetTraceEnableFlags @ 0x180081DA0 (EtwGetTraceEnableFlags.c)
  * Callees:
- *     NtTraceControl @ 0x1800A0ED0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1800A0E90 (NtTraceControl.c)
  */
 
 __int64 EtwpGetMaxLogger()
 {
   __int64 result; // rax
-  int v1; // [rsp+40h] [rbp+8h] BYREF
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
   result = (unsigned int)EtwpMaxLoggers;
   if ( !EtwpMaxLoggers )
   {
-    if ( (unsigned int)NtTraceControl(42LL, 0LL, 0LL, &EtwpMaxLoggers, 4, &v1) || v1 != 4 )
+    if ( NtTraceControl(EtwMaxLoggers, 0LL, 0, &EtwpMaxLoggers, 4u, &ReturnLength) || ReturnLength != 4 )
     {
       result = 64LL;
       EtwpMaxLoggers = 64;

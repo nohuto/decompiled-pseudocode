@@ -1,16 +1,16 @@
 /*
- * XREFs of AslpFileMakeStringVersionAttributes @ 0x14071F4E0
+ * XREFs of AslpFileMakeStringVersionAttributes @ 0x140720780
  * Callers:
- *     AslpFileGetVersionAttributes @ 0x14071F470 (AslpFileGetVersionAttributes.c)
+ *     AslpFileGetVersionAttributes @ 0x140720710 (AslpFileGetVersionAttributes.c)
  * Callees:
- *     AslpFileStringTokenize @ 0x140178E18 (AslpFileStringTokenize.c)
- *     AslpFileVerBlockGetValueOffset @ 0x140178F0C (AslpFileVerBlockGetValueOffset.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     AslStringDuplicate @ 0x14067C4C4 (AslStringDuplicate.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     AslStringXmlSanitize @ 0x14071F8FC (AslStringXmlSanitize.c)
- *     AslpFileQueryVersionString @ 0x14071FA04 (AslpFileQueryVersionString.c)
- *     AslFree @ 0x1408E96B4 (AslFree.c)
+ *     AslpFileStringTokenize @ 0x140178F18 (AslpFileStringTokenize.c)
+ *     AslpFileVerBlockGetValueOffset @ 0x14017900C (AslpFileVerBlockGetValueOffset.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     AslStringDuplicate @ 0x14067D684 (AslStringDuplicate.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     AslStringXmlSanitize @ 0x140720B9C (AslStringXmlSanitize.c)
+ *     AslpFileQueryVersionString @ 0x140720CA4 (AslpFileQueryVersionString.c)
+ *     AslFree @ 0x1408EA974 (AslFree.c)
  */
 
 __int64 __fastcall AslpFileMakeStringVersionAttributes(__int64 a1, unsigned __int16 *a2)
@@ -171,14 +171,14 @@ LABEL_43:
   v23 = (unsigned __int64)v22 >> 2;
   for ( j = 0LL; j < 0x80; j += 16LL )
   {
-    v25 = *(int *)((char *)&unk_140355AB0 + j);
+    v25 = *(int *)((char *)&unk_140356AB0 + j);
     VersionString = AslpFileQueryVersionString(
                       (int)v32,
                       (int)v33,
                       (int)v2,
                       (int)v21,
                       v23,
-                      *(NTSTRSAFE_PCWSTR *)((char *)&unk_140355AB0 + j + 8));
+                      *(NTSTRSAFE_PCWSTR *)((char *)&unk_140356AB0 + j + 8));
     if ( VersionString < 0 )
     {
       if ( VersionString != -1073741275 )

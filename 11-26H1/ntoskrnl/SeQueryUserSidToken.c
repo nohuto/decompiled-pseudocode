@@ -1,17 +1,17 @@
 /*
- * XREFs of SeQueryUserSidToken @ 0x14094E160
+ * XREFs of SeQueryUserSidToken @ 0x1409C9AA0
  * Callers:
- *     CmpLogHiveFileInaccessible @ 0x1408B5990 (CmpLogHiveFileInaccessible.c)
- *     ExpWnfQueryCurrentUserSID @ 0x14094E028 (ExpWnfQueryCurrentUserSID.c)
- *     PopEtGetProcessSidAndPackageIdentity @ 0x14094E20C (PopEtGetProcessSidAndPackageIdentity.c)
- *     PiDqSameUserHive @ 0x1409917AC (PiDqSameUserHive.c)
- *     AlpcpPortQueryConnectedSidInfo @ 0x140A6C0A8 (AlpcpPortQueryConnectedSidInfo.c)
- *     MiFindProcessImageHotPatchRecord @ 0x140A99998 (MiFindProcessImageHotPatchRecord.c)
+ *     CmpLogHiveFileInaccessible @ 0x1408BBF64 (CmpLogHiveFileInaccessible.c)
+ *     PiDqSameUserHive @ 0x14095220C (PiDqSameUserHive.c)
+ *     ExpWnfQueryCurrentUserSID @ 0x1409C9978 (ExpWnfQueryCurrentUserSID.c)
+ *     PopEtGetProcessSidAndPackageIdentity @ 0x1409C9B4C (PopEtGetProcessSidAndPackageIdentity.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x140A7D6D8 (AlpcpPortQueryConnectedSidInfo.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140A9DB18 (MiFindProcessImageHotPatchRecord.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall SeQueryUserSidToken(__int64 a1, void *a2, unsigned int a3, unsigned int *a4)
@@ -20,8 +20,6 @@ __int64 __fastcall SeQueryUserSidToken(__int64 a1, void *a2, unsigned int a3, un
   unsigned int v9; // ebp
   const void **v10; // rax
   unsigned int v11; // ebx
-  __int64 v12; // rdx
-  __int64 v13; // r8
   __int64 result; // rax
 
   CurrentThread = KeGetCurrentThread();
@@ -36,7 +34,7 @@ __int64 __fastcall SeQueryUserSidToken(__int64 a1, void *a2, unsigned int a3, un
     v9 = 0;
   }
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   result = v9;
   if ( a4 )
     *a4 = v11;

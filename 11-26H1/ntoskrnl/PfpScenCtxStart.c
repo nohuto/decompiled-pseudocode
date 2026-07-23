@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpScenCtxStart @ 0x1407C6060
+ * XREFs of PfpScenCtxStart @ 0x1407C90C0
  * Callers:
- *     PfInitializeSuperfetch @ 0x140CCE038 (PfInitializeSuperfetch.c)
+ *     PfInitializeSuperfetch @ 0x140CD4198 (PfInitializeSuperfetch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PfpCreateEventInternal @ 0x1407C802C (PfpCreateEventInternal.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PfpCreateEventInternal @ 0x1407CB08C (PfpCreateEventInternal.c)
  */
 
 __int64 __fastcall PfpScenCtxStart(__int64 a1)

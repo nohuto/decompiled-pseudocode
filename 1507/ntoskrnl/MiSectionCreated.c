@@ -295,7 +295,7 @@ LABEL_122:
   {
     v33[32] |= 2u;
     if ( *((__int64 *)v33 + 4) < 0 )
-      KiAbEntryRemoveFromTree((char *)CurrentThread->LockEntries + v32, v28, v29);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)((char *)&CurrentThread->LockEntries[0].TreeNode + v32));
     v34 = *((_WORD *)v33 + 44);
     if ( v34 )
     {

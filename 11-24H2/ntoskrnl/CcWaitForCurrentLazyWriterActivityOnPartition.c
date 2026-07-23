@@ -1,10 +1,10 @@
 /*
- * XREFs of CcWaitForCurrentLazyWriterActivityOnPartition @ 0x14057B0B4
+ * XREFs of CcWaitForCurrentLazyWriterActivityOnPartition @ 0x140578544
  * Callers:
- *     CcWaitForCurrentLazyWriterActivityHelper @ 0x14057AED0 (CcWaitForCurrentLazyWriterActivityHelper.c)
- *     CcExitPartition @ 0x14057CB90 (CcExitPartition.c)
+ *     CcWaitForCurrentLazyWriterActivityHelper @ 0x140578360 (CcWaitForCurrentLazyWriterActivityHelper.c)
+ *     CcExitPartition @ 0x14057A020 (CcExitPartition.c)
  * Callees:
- *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x14057AEF8 (CcWaitForCurrentLazyWriterActivityOnNode.c)
+ *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x140578388 (CcWaitForCurrentLazyWriterActivityOnNode.c)
  */
 
 __int64 __fastcall CcWaitForCurrentLazyWriterActivityOnPartition(__int64 a1, __int64 a2)

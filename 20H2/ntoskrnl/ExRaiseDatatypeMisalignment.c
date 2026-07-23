@@ -271,5 +271,5 @@
 
 void __noreturn ExRaiseDatatypeMisalignment(void)
 {
-  RtlRaiseStatus(0x80000002);
+  RtlRaiseStatus(-2147483646);
 }

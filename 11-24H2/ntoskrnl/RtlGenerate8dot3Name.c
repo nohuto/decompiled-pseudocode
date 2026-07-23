@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlGenerate8dot3Name @ 0x1408B06E0
+ * XREFs of RtlGenerate8dot3Name @ 0x140906940
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlpIsUtf8Process @ 0x1408AF8F0 (RtlpIsUtf8Process.c)
- *     RtlComputeLfnChecksum @ 0x1408B1248 (RtlComputeLfnChecksum.c)
- *     RtlIsValidOemCharacter @ 0x1408B1350 (RtlIsValidOemCharacter.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlpIsUtf8Process @ 0x140905B50 (RtlpIsUtf8Process.c)
+ *     RtlComputeLfnChecksum @ 0x1409074A8 (RtlComputeLfnChecksum.c)
+ *     RtlIsValidOemCharacter @ 0x1409075B0 (RtlIsValidOemCharacter.c)
  */
 
 NTSTATUS __stdcall RtlGenerate8dot3Name(
@@ -228,7 +228,7 @@ LABEL_39:
       v7->NameBuffer[v56] = v57;
     }
     v7->NameLength += 4;
-    v7->ChecksumInserted = 1;
+    v7->CheckSumInserted = 1;
   }
   if ( (_DWORD)v11 == -1 )
   {
@@ -303,13 +303,13 @@ LABEL_81:
     break;
   }
   v4 = v61;
-  if ( BYTE2(NlsMbCodePageTag) )
+  if ( FsRtlSafeExtensions )
     v7->ExtensionBuffer[(unsigned int)(ExtensionLength - 1)] = 126;
 LABEL_46:
   v23 = v60;
   v24 = v7->LastIndexValue + 1;
   v7->LastIndexValue = v24;
-  if ( v24 > 4 && !v7->ChecksumInserted )
+  if ( v24 > 4 && !v7->CheckSumInserted )
   {
     v42 = RtlComputeLfnChecksum(Name);
     v7->Checksum = v42;
@@ -333,7 +333,7 @@ LABEL_46:
     v7->LastIndexValue = 1;
     v7->NameLength = 6 - v43;
     v24 = 1;
-    v7->ChecksumInserted = 1;
+    v7->CheckSumInserted = 1;
   }
   v25 = 1;
   do

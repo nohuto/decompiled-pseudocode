@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     wil_details_EvaluateFeatureDependencies @ 0x140A122C0 (wil_details_EvaluateFeatureDependencies.c)
- *     wil_details_UpdateFeatureConfiguredStates @ 0x140A12374 (wil_details_UpdateFeatureConfiguredStates.c)
+ *     wil_details_EvaluateFeatureDependencies @ 0x140A12570 (wil_details_EvaluateFeatureDependencies.c)
+ *     wil_details_UpdateFeatureConfiguredStates @ 0x140A12624 (wil_details_UpdateFeatureConfiguredStates.c)
  */
 
-__int64 wil_details_ReevaluateOnFeatureConfigurationChange()
+void __fastcall wil_details_ReevaluateOnFeatureConfigurationChange(PVOID a1)
 {
-  wil_details_UpdateFeatureConfiguredStates();
-  return wil_details_EvaluateFeatureDependencies();
+  wil_details_UpdateFeatureConfiguredStates(a1);
+  wil_details_EvaluateFeatureDependencies();
 }

@@ -8,7 +8,7 @@
 
 int __fastcall RtlpWow64SelectSystem32PathInternal(__int16 a1, char a2, PUNICODE_STRING DestinationString)
 {
-  const WCHAR *v3; // eax
+  const wchar_t *v3; // eax
 
   switch ( a1 )
   {
@@ -21,9 +21,9 @@ int __fastcall RtlpWow64SelectSystem32PathInternal(__int16 a1, char a2, PUNICODE
       if ( a2 )
         v3 = L"\\SysWOW64\\";
       else
-        v3 = L"SysWOW64";
+        v3 = (const wchar_t *)L"SysWOW64";
 LABEL_5:
-      RtlInitUnicodeString(DestinationString, v3);
+      RtlInitUnicodeString(DestinationString, (PCWSTR)v3);
       return 0;
     case 452:
       if ( a2 )

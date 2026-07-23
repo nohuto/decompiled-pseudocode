@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEsWorkItemSchedule @ 0x140870840
+ * XREFs of PopEsWorkItemSchedule @ 0x140870A80
  * Callers:
- *     PopEsPowerSettingBatteryThresholdCallback @ 0x1408650C0 (PopEsPowerSettingBatteryThresholdCallback.c)
- *     PopEsQueueStateEvaluation @ 0x140870820 (PopEsQueueStateEvaluation.c)
- *     PopEsWnfSubscriptionOverrideCallback @ 0x140998540 (PopEsWnfSubscriptionOverrideCallback.c)
+ *     PopEsPowerSettingBatteryThresholdCallback @ 0x140865300 (PopEsPowerSettingBatteryThresholdCallback.c)
+ *     PopEsQueueStateEvaluation @ 0x140870A60 (PopEsQueueStateEvaluation.c)
+ *     PopEsWnfSubscriptionOverrideCallback @ 0x140998740 (PopEsWnfSubscriptionOverrideCallback.c)
  *     PopEsInit @ 0x140B51F88 (PopEsInit.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  */
 
 void __fastcall PopEsWorkItemSchedule(int a1)

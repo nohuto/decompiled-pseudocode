@@ -1,14 +1,14 @@
 /*
- * XREFs of Amd64EnableMonitoring @ 0x14056AFE0
+ * XREFs of Amd64EnableMonitoring @ 0x140568470
  * Callers:
  *     <none>
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     HalpGetProfileDescriptor @ 0x1404B0FE4 (HalpGetProfileDescriptor.c)
- *     Amd64AllocateCounter @ 0x14056A5AC (Amd64AllocateCounter.c)
- *     Amd64ConfigureCounter @ 0x14056AAD8 (Amd64ConfigureCounter.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     HalpGetProfileDescriptor @ 0x1404AB874 (HalpGetProfileDescriptor.c)
+ *     Amd64AllocateCounter @ 0x140567A3C (Amd64AllocateCounter.c)
+ *     Amd64ConfigureCounter @ 0x140567F68 (Amd64ConfigureCounter.c)
  */
 
 __int64 __fastcall Amd64EnableMonitoring(

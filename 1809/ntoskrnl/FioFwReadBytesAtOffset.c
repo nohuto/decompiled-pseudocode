@@ -1,20 +1,20 @@
 /*
- * XREFs of FioFwReadBytesAtOffset @ 0x14017BC48
+ * XREFs of FioFwReadBytesAtOffset @ 0x14017BD48
  * Callers:
- *     FioFwReadUlongAtOffset @ 0x140179E88 (FioFwReadUlongAtOffset.c)
- *     RaspLoadBearings @ 0x14017B648 (RaspLoadBearings.c)
- *     FioFwReadUshortAtOffset @ 0x14017B838 (FioFwReadUshortAtOffset.c)
- *     RaspInitializeGlyphData @ 0x14017B86C (RaspInitializeGlyphData.c)
- *     RaspInitializeCompositeGlyphData @ 0x140329208 (RaspInitializeCompositeGlyphData.c)
- *     FopReadMappingTable @ 0x1409FAABC (FopReadMappingTable.c)
- *     FopValidateFontNameTable @ 0x1409FAC8C (FopValidateFontNameTable.c)
- *     FopReadCmapTable @ 0x1409FAE20 (FopReadCmapTable.c)
- *     BgpRasInitializeRasterizer @ 0x1409FAF80 (BgpRasInitializeRasterizer.c)
- *     FopReadNamingTable @ 0x1409FB154 (FopReadNamingTable.c)
- *     FopReadNameRecord @ 0x1409FB278 (FopReadNameRecord.c)
- *     FopGetTableOffsetAndSize @ 0x1409FB2E8 (FopGetTableOffsetAndSize.c)
+ *     FioFwReadUlongAtOffset @ 0x140179F88 (FioFwReadUlongAtOffset.c)
+ *     RaspLoadBearings @ 0x14017B748 (RaspLoadBearings.c)
+ *     FioFwReadUshortAtOffset @ 0x14017B938 (FioFwReadUshortAtOffset.c)
+ *     RaspInitializeGlyphData @ 0x14017B96C (RaspInitializeGlyphData.c)
+ *     RaspInitializeCompositeGlyphData @ 0x1403293F8 (RaspInitializeCompositeGlyphData.c)
+ *     FopReadMappingTable @ 0x1409FBABC (FopReadMappingTable.c)
+ *     FopValidateFontNameTable @ 0x1409FBC8C (FopValidateFontNameTable.c)
+ *     FopReadCmapTable @ 0x1409FBE20 (FopReadCmapTable.c)
+ *     BgpRasInitializeRasterizer @ 0x1409FBF80 (BgpRasInitializeRasterizer.c)
+ *     FopReadNamingTable @ 0x1409FC154 (FopReadNamingTable.c)
+ *     FopReadNameRecord @ 0x1409FC278 (FopReadNameRecord.c)
+ *     FopGetTableOffsetAndSize @ 0x1409FC2E8 (FopGetTableOffsetAndSize.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall FioFwReadBytesAtOffset(__int64 a1, unsigned int a2, unsigned int a3, void *a4)

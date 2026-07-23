@@ -1,13 +1,13 @@
 /*
- * XREFs of KiTimerExpiration @ 0x1403AB338
+ * XREFs of KiTimerExpiration @ 0x1403B5048
  * Callers:
- *     KiRetireDpcList @ 0x140335700 (KiRetireDpcList.c)
- *     KiTimerExpirationDpc @ 0x1405FB010 (KiTimerExpirationDpc.c)
+ *     KiRetireDpcList @ 0x140337730 (KiRetireDpcList.c)
+ *     KiTimerExpirationDpc @ 0x1405FDA30 (KiTimerExpirationDpc.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     KiExpireTimerTable @ 0x1403AB740 (KiExpireTimerTable.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     KiExpireTimerTable @ 0x1403B5450 (KiExpireTimerTable.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiTimerExpiration(__int64 a1, int a2, unsigned __int64 a3, char a4, __int64 a5)

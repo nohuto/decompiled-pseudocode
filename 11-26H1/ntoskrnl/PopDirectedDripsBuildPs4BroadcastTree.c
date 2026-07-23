@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDirectedDripsBuildPs4BroadcastTree @ 0x14077151C
+ * XREFs of PopDirectedDripsBuildPs4BroadcastTree @ 0x14077451C
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x140B0BCE4 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x140B0D6D8 (PopDirectedDripsBuildBroadcastTreeFull.c)
  * Callees:
- *     PopDirectedDripsRemoveQueueDevice @ 0x14077BAB0 (PopDirectedDripsRemoveQueueDevice.c)
- *     PopDirectedDripsFindPs4RootDevice @ 0x1407E2978 (PopDirectedDripsFindPs4RootDevice.c)
- *     PopDirectedDripsFlushDeviceQueue @ 0x1407E2998 (PopDirectedDripsFlushDeviceQueue.c)
- *     PopDirectedDripsVisitPs4Device @ 0x1407E29BC (PopDirectedDripsVisitPs4Device.c)
- *     PopDirectedDripsVisitDevice @ 0x140B0BC90 (PopDirectedDripsVisitDevice.c)
- *     PopDirectedDripsDiagTraceProblemDevice @ 0x140B0C00C (PopDirectedDripsDiagTraceProblemDevice.c)
+ *     PopDirectedDripsRemoveQueueDevice @ 0x14077E6F0 (PopDirectedDripsRemoveQueueDevice.c)
+ *     PopDirectedDripsFindPs4RootDevice @ 0x1407E7A08 (PopDirectedDripsFindPs4RootDevice.c)
+ *     PopDirectedDripsFlushDeviceQueue @ 0x1407E7A28 (PopDirectedDripsFlushDeviceQueue.c)
+ *     PopDirectedDripsVisitPs4Device @ 0x1407E7A4C (PopDirectedDripsVisitPs4Device.c)
+ *     PopDirectedDripsVisitDevice @ 0x140B0D684 (PopDirectedDripsVisitDevice.c)
+ *     PopDirectedDripsDiagTraceProblemDevice @ 0x140B0DA00 (PopDirectedDripsDiagTraceProblemDevice.c)
  */
 
 __int64 __fastcall PopDirectedDripsBuildPs4BroadcastTree(__int64 a1, __int64 a2, __int64 a3)

@@ -8,7 +8,7 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiStoreDrainWriteSupports(union _SLIST_HEADER *a1)
+void __fastcall MiStoreDrainWriteSupports(_SLIST_HEADER *a1)
 {
   PSLIST_ENTRY v1; // rbx
   PSLIST_ENTRY v2; // rcx

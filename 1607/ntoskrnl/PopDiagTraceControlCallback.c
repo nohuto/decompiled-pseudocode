@@ -1,30 +1,30 @@
 /*
- * XREFs of PopDiagTraceControlCallback @ 0x14052B2D0
+ * XREFs of PopDiagTraceControlCallback @ 0x14052BF20
  * Callers:
  *     <none>
  * Callees:
- *     PopDiagTraceSystemLatencyUpdate @ 0x14000A45C (PopDiagTraceSystemLatencyUpdate.c)
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     PopDiagTraceFxRundown @ 0x140110808 (PopDiagTraceFxRundown.c)
- *     PopThermalTraceRundownEvents @ 0x140110994 (PopThermalTraceRundownEvents.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     PopDiagTraceSystemLatencyUpdate @ 0x140009FDC (PopDiagTraceSystemLatencyUpdate.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     PopDiagTraceFxRundown @ 0x140110D6C (PopDiagTraceFxRundown.c)
+ *     PopThermalTraceRundownEvents @ 0x140110EF8 (PopThermalTraceRundownEvents.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     PopDiagTracePowerSetting @ 0x1403F3464 (PopDiagTracePowerSetting.c)
- *     PopDiagTracePowerRequestCreate @ 0x14052000C (PopDiagTracePowerRequestCreate.c)
- *     PopAcquirePowerRequestPushLock @ 0x140520750 (PopAcquirePowerRequestPushLock.c)
- *     PopDiagTraceDynamicTickStatusRundown @ 0x14052B548 (PopDiagTraceDynamicTickStatusRundown.c)
- *     PopRundownThermalRequests @ 0x14052B5D4 (PopRundownThermalRequests.c)
- *     PopDiagTracePlatformRoleRundown @ 0x14052B684 (PopDiagTracePlatformRoleRundown.c)
- *     PopLoggingInformation @ 0x14052B944 (PopLoggingInformation.c)
- *     ExTraceTimerResolution @ 0x14052BA28 (ExTraceTimerResolution.c)
- *     PopTransitionTelemetryOsState @ 0x140545DA0 (PopTransitionTelemetryOsState.c)
+ *     PopDiagTracePowerSetting @ 0x1403F2328 (PopDiagTracePowerSetting.c)
+ *     PopDiagTracePowerRequestCreate @ 0x140503074 (PopDiagTracePowerRequestCreate.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1405037B8 (PopAcquirePowerRequestPushLock.c)
+ *     PopDiagTraceDynamicTickStatusRundown @ 0x14052C198 (PopDiagTraceDynamicTickStatusRundown.c)
+ *     PopRundownThermalRequests @ 0x14052C224 (PopRundownThermalRequests.c)
+ *     PopDiagTracePlatformRoleRundown @ 0x14052C2D4 (PopDiagTracePlatformRoleRundown.c)
+ *     PopLoggingInformation @ 0x14052C594 (PopLoggingInformation.c)
+ *     ExTraceTimerResolution @ 0x14052C678 (ExTraceTimerResolution.c)
+ *     PopTransitionTelemetryOsState @ 0x1405462E0 (PopTransitionTelemetryOsState.c)
  */
 
 void __fastcall PopDiagTraceControlCallback(
@@ -64,7 +64,7 @@ void __fastcall PopDiagTraceControlCallback(
 
   if ( (_DWORD)ControlCode == 2 )
   {
-    if ( CallbackContext == &pCallbackContext )
+    if ( CallbackContext == &hProvider )
     {
       if ( (MatchAnyKeyword & 0x800000000000LL) != 0 )
         PopTransitionTelemetryOsState(5LL);
@@ -78,14 +78,14 @@ void __fastcall PopDiagTraceControlCallback(
         PopDiagTracePowerRequestCreate(1, (__int64)i);
       PopReleaseRwLock(&PopPowerRequestLock);
       *(_QWORD *)&UserData.Size = 4LL;
-      v22 = dword_140303E0C == 0;
+      v22 = dword_140303D4C == 0;
       UserData.Ptr = (ULONGLONG)&v22;
       EtwWrite(PopDiagHandle, &POP_ETW_EVENT_ACDC_STATE_RUNDOWN, 0LL, 1u, &UserData);
       ExAcquireFastMutex(&PopSettingLock);
       v8 = (PVOID *)PopPowerSettings;
       if ( PopPowerSettings != &PopPowerSettings )
       {
-        v9 = dword_140303E0C;
+        v9 = dword_140303D4C;
         do
         {
           v10 = v8[v9 + 8];

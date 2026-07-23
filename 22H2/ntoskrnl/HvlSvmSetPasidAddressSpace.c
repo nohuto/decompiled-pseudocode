@@ -22,7 +22,7 @@ __int64 __fastcall HvlSvmSetPasidAddressSpace(int a1, int a2, __int64 a3)
   v8 = a3;
   while ( 1 )
   {
-    v3 = HvcallFastExtended(65695LL, (__int64)v7, 16LL, 0LL, 0);
+    v3 = HvcallFastExtended(65695LL, (__int64)v7, 0x10u, 0, 0);
     if ( (HvlpFlags & 2) == 0 || !(unsigned __int8)HvlpHvStatusIsInsufficientMemory((unsigned __int16)v3, v3) )
       break;
     if ( (int)HvlpHandleInsufficientMemory(v4, v3, v5) < 0 )

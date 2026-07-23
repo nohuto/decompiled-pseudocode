@@ -1,9 +1,9 @@
 /*
- * XREFs of KeCountSetBitsGroupMask @ 0x140418024
+ * XREFs of KeCountSetBitsGroupMask @ 0x140407DD4
  * Callers:
- *     KeQueryCpuPartitionAffinity @ 0x1405BFB24 (KeQueryCpuPartitionAffinity.c)
+ *     KeQueryCpuPartitionAffinity @ 0x1405BD154 (KeQueryCpuPartitionAffinity.c)
  * Callees:
- *     RtlNumberOfSetBitsEx @ 0x1404181F0 (RtlNumberOfSetBitsEx.c)
+ *     RtlNumberOfSetBitsEx @ 0x140407FA0 (RtlNumberOfSetBitsEx.c)
  */
 
 __int64 __fastcall KeCountSetBitsGroupMask(__int64 a1)

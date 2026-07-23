@@ -163,7 +163,7 @@ __int64 EtwpCoverageEnsureContext()
                   *(_QWORD *)EtwpCoverageContext + 104LL,
                   -10000LL * (unsigned int)EtwpCoverageResetPeriod,
                   10000LL * (unsigned int)EtwpCoverageResetPeriod,
-                  v23);
+                  (__int64)v23);
               }
               EtwpCoverageLockOwner = 0LL;
               v18 = _InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCoverageLock, 0xFFFFFFFFFFFFFFFFuLL);

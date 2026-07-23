@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpReadSupportInitialize @ 0x1404DC7A0
+ * XREFs of PfpReadSupportInitialize @ 0x1404D5E80
  * Callers:
- *     PfpPrefetchFiles @ 0x140A4EEAC (PfpPrefetchFiles.c)
- *     PfpPrefetchFilesTrickle @ 0x140A507FC (PfpPrefetchFilesTrickle.c)
+ *     PfpPrefetchFiles @ 0x140A5819C (PfpPrefetchFiles.c)
+ *     PfpPrefetchFilesTrickle @ 0x140A59AEC (PfpPrefetchFilesTrickle.c)
  * Callees:
- *     PfpOpenHandleInitialize @ 0x140AAE5F8 (PfpOpenHandleInitialize.c)
+ *     PfpOpenHandleInitialize @ 0x140AAC258 (PfpOpenHandleInitialize.c)
  */
 
 __int64 __fastcall PfpReadSupportInitialize(__int64 a1)

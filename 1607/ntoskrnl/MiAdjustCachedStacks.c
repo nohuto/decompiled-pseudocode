@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAdjustCachedStacks @ 0x1400BEBA4
+ * XREFs of MiAdjustCachedStacks @ 0x1400BCA34
  * Callers:
- *     MiWorkingSetManager @ 0x1400BDF08 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400BBD98 (MiWorkingSetManager.c)
  * Callees:
- *     MmCreateKernelStack @ 0x1400F17B0 (MmCreateKernelStack.c)
- *     MmDeleteKernelStack @ 0x1400F1B80 (MmDeleteKernelStack.c)
+ *     MmCreateKernelStack @ 0x1400EF600 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1400EF9D0 (MmDeleteKernelStack.c)
  */
 
 __int64 MiAdjustCachedStacks()
@@ -37,13 +37,13 @@ __int64 MiAdjustCachedStacks()
     v17 = 0LL;
     do
     {
-      v3 = qword_1403269B0;
+      v3 = qword_1403269F0;
       v4 = 2 * (result + v1);
-      v5 = *((_DWORD *)&qword_1403269B0[v4 + 8].HeaderX64 + 1);
-      v6 = v5 - *((_DWORD *)&qword_1403269B0[v4 + 8].HeaderX64 + 2);
+      v5 = *((_DWORD *)&qword_1403269F0[v4 + 8].HeaderX64 + 1);
+      v6 = v5 - *((_DWORD *)&qword_1403269F0[v4 + 8].HeaderX64 + 2);
       if ( v6 )
       {
-        Alignment = qword_1403269B0[v4 + 8].Alignment;
+        Alignment = qword_1403269F0[v4 + 8].Alignment;
         if ( Alignment < 16 || v6 >= 0x10 )
         {
           v13 = Alignment / 4;
@@ -56,7 +56,7 @@ __int64 MiAdjustCachedStacks()
         {
           v13 = Alignment / 8;
         }
-        *((_DWORD *)&qword_1403269B0[v4 + 8].HeaderX64 + 2) = v5;
+        *((_DWORD *)&qword_1403269F0[v4 + 8].HeaderX64 + 2) = v5;
         if ( !v13 )
           v13 = 1;
         v14 = v13 + Alignment;
@@ -64,16 +64,16 @@ __int64 MiAdjustCachedStacks()
           v14 = 256;
         LODWORD(v3[v4 + 8].Alignment) = v14;
       }
-      else if ( !*((_DWORD *)&qword_1403269B0[v4 + 8].HeaderX64 + 3) )
+      else if ( !*((_DWORD *)&qword_1403269F0[v4 + 8].HeaderX64 + 3) )
       {
-        v7 = qword_1403269B0[v4 + 8].Alignment;
+        v7 = qword_1403269F0[v4 + 8].Alignment;
         v8 = v7 / 20;
         if ( !(v7 / 20) )
           v8 = v7 != 0;
         v9 = v7 - v8;
         if ( v1 != 1 && v9 < 5 )
           v9 = 5;
-        LODWORD(qword_1403269B0[v4 + 8].Alignment) = v9;
+        LODWORD(qword_1403269F0[v4 + 8].Alignment) = v9;
         if ( v1 == 1 )
         {
           v10 = 16;

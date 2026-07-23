@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpReferenceDeviceMapFastRef @ 0x1409856A0
+ * XREFs of ObpReferenceDeviceMapFastRef @ 0x14096DEB0
  * Callers:
- *     ObpSetCurrentProcessDeviceMap @ 0x140985458 (ObpSetCurrentProcessDeviceMap.c)
+ *     ObpSetCurrentProcessDeviceMap @ 0x14096DC68 (ObpSetCurrentProcessDeviceMap.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     ObDereferenceDeviceMap @ 0x1409855D4 (ObDereferenceDeviceMap.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     ObDereferenceDeviceMap @ 0x14096DDE4 (ObDereferenceDeviceMap.c)
  */
 
 unsigned __int64 __fastcall ObpReferenceDeviceMapFastRef(signed __int64 *a1)
@@ -20,7 +20,7 @@ unsigned __int64 __fastcall ObpReferenceDeviceMapFastRef(signed __int64 *a1)
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
   struct _KTHREAD *CurrentThread; // rcx
   signed __int64 *p_Blink; // rsi
-  _QWORD *v8; // rdi
+  char *v8; // rdi
   volatile signed __int64 *v9; // rdi
   signed __int64 v10; // rax
   signed __int64 v11; // rtt
@@ -45,11 +45,11 @@ unsigned __int64 __fastcall ObpReferenceDeviceMapFastRef(signed __int64 *a1)
     CurrentThread = KeGetCurrentThread();
     p_Blink = (signed __int64 *)&CurrentServerSiloGlobals[7].Blink;
     --CurrentThread->SpecialApcDisable;
-    v8 = KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[7].Blink, 0LL);
+    v8 = (char *)KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[7].Blink, 0LL);
     if ( _InterlockedCompareExchange64(p_Blink, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(p_Blink, 0, v8, (__int64)p_Blink);
     if ( v8 )
-      *((_BYTE *)v8 + 10) = 1;
+      v8[10] = 1;
     v9 = (volatile signed __int64 *)(*a1 & 0xFFFFFFFFFFFFFFF0uLL);
     if ( v9 )
     {

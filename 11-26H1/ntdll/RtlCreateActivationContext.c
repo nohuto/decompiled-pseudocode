@@ -1,77 +1,87 @@
 /*
- * XREFs of RtlCreateActivationContext @ 0x1800A1F40
+ * XREFs of RtlCreateActivationContext @ 0x1800A1070
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     DbgPrintEx @ 0x1800413D0 (DbgPrintEx.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlpValidateActivationContextData @ 0x1800A20D8 (RtlpValidateActivationContextData.c)
- *     RtlpInitializeAssemblyStorageMap @ 0x1800A2738 (RtlpInitializeAssemblyStorageMap.c)
- *     RtlpPlaceActivationContextOnLiveList @ 0x18011D4A4 (RtlpPlaceActivationContextOnLiveList.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     DbgPrintEx @ 0x18002B940 (DbgPrintEx.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlpValidateActivationContextData @ 0x1800A1208 (RtlpValidateActivationContextData.c)
+ *     RtlpInitializeAssemblyStorageMap @ 0x1800A1868 (RtlpInitializeAssemblyStorageMap.c)
+ *     RtlpPlaceActivationContextOnLiveList @ 0x18011D254 (RtlpPlaceActivationContextOnLiveList.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlCreateActivationContext(int a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5, _QWORD *a6)
+NTSTATUS __cdecl RtlCreateActivationContext(
+        ULONG Flags,
+        PACTIVATION_CONTEXT_DATA ActivationContextData,
+        ULONG ExtraBytes,
+        PACTIVATION_CONTEXT_NOTIFY_ROUTINE NotificationRoutine,
+        PVOID NotificationContext,
+        PACTIVATION_CONTEXT *ActivationContext)
 {
-  int v8; // ebx
+  __int64 v6; // rdi
+  NTSTATUS v9; // ebx
   _QWORD *Heap_0; // rax
-  _QWORD *v10; // rdi
-  _QWORD *v11; // rcx
-  _QWORD *v12; // r8
-  __int64 v13; // rdx
-  _QWORD *v14; // rax
+  void *v11; // r14
+  _QWORD *v12; // rdi
+  _QWORD *v13; // rcx
+  _QWORD *v14; // r8
+  __int64 v15; // rdx
+  _QWORD *v16; // rax
 
-  if ( (char *)a2 == "Actx " )
+  v6 = ExtraBytes;
+  if ( ActivationContextData == (PACTIVATION_CONTEXT_DATA)"Actx " )
   {
-    DbgPrintEx(51, 0, "SXS: %s() passed the empty activation context data\n", "RtlCreateActivationContext");
-    return (unsigned int)-1073741811;
+    DbgPrintEx(0x33u, 0, "SXS: %s() passed the empty activation context data\n", "RtlCreateActivationContext");
+    return -1073741811;
   }
-  if ( a6 )
-    *a6 = 0LL;
-  if ( a1 || !a2 || a3 > 0x10000 || !a6 )
-    return (unsigned int)-1073741811;
-  v8 = RtlpValidateActivationContextData();
-  if ( v8 >= 0 )
+  if ( ActivationContext )
+    *ActivationContext = 0LL;
+  if ( Flags || !ActivationContextData || ExtraBytes > 0x10000 || !ActivationContext )
+    return -1073741811;
+  v9 = RtlpValidateActivationContextData();
+  if ( v9 >= 0 )
   {
-    Heap_0 = (_QWORD *)RtlAllocateHeap_0();
+    Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 0, v6 + 528);
+    v11 = Heap_0;
     if ( Heap_0 )
     {
-      v10 = Heap_0 + 1;
+      v12 = Heap_0 + 1;
       *Heap_0 = 1733124929LL;
-      v11 = Heap_0 + 15;
-      v12 = 0LL;
-      v13 = *(unsigned int *)(*(unsigned int *)(a2 + 24) + a2 + 8);
-      v14 = Heap_0 + 17;
-      if ( (unsigned int)v13 <= 0x20 )
-        v12 = v14;
-      v8 = RtlpInitializeAssemblyStorageMap(v11, v13, v12);
-      if ( v8 < 0 )
+      v13 = Heap_0 + 15;
+      v14 = 0LL;
+      v15 = *(unsigned int *)((char *)&ActivationContextData->FormatVersion + ActivationContextData->AssemblyRosterOffset);
+      v16 = Heap_0 + 17;
+      if ( (unsigned int)v15 <= 0x20 )
+        v14 = v16;
+      v9 = RtlpInitializeAssemblyStorageMap(v13, v15, v14);
+      if ( v9 < 0 )
       {
-        RtlFreeHeap_0();
+        RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v11);
       }
       else
       {
-        v10[5] = a5;
-        *v10 = 1LL;
-        v10[3] = a2;
-        v10[4] = a4;
-        *((_OWORD *)v10 + 3) = 0LL;
-        *((_OWORD *)v10 + 4) = 0LL;
-        *((_OWORD *)v10 + 5) = 0LL;
-        *((_OWORD *)v10 + 6) = 0LL;
-        memset_thunk_772440563353939046(v10 + 49, 0, 0x80uLL);
-        *((_DWORD *)v10 + 96) = 0;
+        v12[5] = NotificationContext;
+        *v12 = 1LL;
+        v12[3] = ActivationContextData;
+        v12[4] = NotificationRoutine;
+        *((_OWORD *)v12 + 3) = 0LL;
+        *((_OWORD *)v12 + 4) = 0LL;
+        *((_OWORD *)v12 + 5) = 0LL;
+        *((_OWORD *)v12 + 6) = 0LL;
+        memset_thunk_772440563353939046(v12 + 49, 0, 0x80uLL);
+        *((_DWORD *)v12 + 96) = 0;
         if ( g_SxsKeepActivationContextsAlive )
-          RtlpPlaceActivationContextOnLiveList(v10);
-        *a6 = v10;
+          RtlpPlaceActivationContextOnLiveList(v12);
+        *ActivationContext = (PACTIVATION_CONTEXT)v12;
         return 0;
       }
     }
     else
     {
-      return (unsigned int)-1073741801;
+      return -1073741801;
     }
   }
-  return (unsigned int)v8;
+  return v9;
 }

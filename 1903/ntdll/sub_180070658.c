@@ -25,7 +25,7 @@ __int64 __fastcall sub_180070658(
 
   if ( !a1 || *(_DWORD *)(a1 + 72) )
   {
-    sub_18010EFC8(a1, a2, (unsigned int)a2, a4);
+    sub_18010EFC8(a1, a2, (unsigned int)a2);
     return 3221225485LL;
   }
   v8 = *(_QWORD *)(a1 + 184);

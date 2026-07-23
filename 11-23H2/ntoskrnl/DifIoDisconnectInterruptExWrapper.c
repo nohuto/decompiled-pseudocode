@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoDisconnectInterruptExWrapper @ 0x1405DEFF0
+ * XREFs of DifIoDisconnectInterruptExWrapper @ 0x1405DF560
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoDisconnectInterruptEx @ 0x14078DC50 (IoDisconnectInterruptEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoDisconnectInterruptEx @ 0x14078DE40 (IoDisconnectInterruptEx.c)
  */
 
 void __fastcall DifIoDisconnectInterruptExWrapper(PIO_DISCONNECT_INTERRUPT_PARAMETERS Parameters)

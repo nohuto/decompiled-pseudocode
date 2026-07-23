@@ -1,8 +1,8 @@
 /*
- * XREFs of KasanTrackAddress @ 0x1403564F0
+ * XREFs of KasanTrackAddress @ 0x140356690
  * Callers:
- *     MmCreateKernelStack @ 0x1402716A0 (MmCreateKernelStack.c)
- *     MmAllocateIsrStack @ 0x14081D57C (MmAllocateIsrStack.c)
+ *     MmCreateKernelStack @ 0x140271930 (MmCreateKernelStack.c)
+ *     MmAllocateIsrStack @ 0x14081D84C (MmAllocateIsrStack.c)
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  *     MiInitializeSharedUserData @ 0x140B6BC64 (MiInitializeSharedUserData.c)
  * Callees:

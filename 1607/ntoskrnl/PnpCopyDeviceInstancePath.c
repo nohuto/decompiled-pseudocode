@@ -1,5 +1,5 @@
 /*
- * XREFs of PnpCopyDeviceInstancePath @ 0x140581730
+ * XREFs of PnpCopyDeviceInstancePath @ 0x140581BDC
  * Callers:
  *     IopInitializePlugPlayServices @ 0x14079CCD4 (IopInitializePlugPlayServices.c)
  * Callees:

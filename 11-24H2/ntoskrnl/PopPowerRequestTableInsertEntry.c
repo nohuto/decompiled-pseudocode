@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerRequestTableInsertEntry @ 0x140A64C70
+ * XREFs of PopPowerRequestTableInsertEntry @ 0x140A5D440
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x1403313A8 (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestCreateCommon @ 0x1402BAAB0 (PopPowerRequestCreateCommon.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x1403F03D0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403E40F0 (RtlInsertElementGenericTableAvl.c)
  */
 
 PVOID __fastcall PopPowerRequestTableInsertEntry(int a1)

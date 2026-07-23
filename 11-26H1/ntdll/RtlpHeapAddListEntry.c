@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHeapAddListEntry @ 0x18007E3B0
+ * XREFs of RtlpHeapAddListEntry @ 0x18006CAA0
  * Callers:
- *     RtlpAllocateHeap @ 0x18001E7C0 (RtlpAllocateHeap.c)
- *     RtlpFreeHeap @ 0x1800233D0 (RtlpFreeHeap.c)
- *     RtlpCreateSplitBlock @ 0x180028890 (RtlpCreateSplitBlock.c)
- *     RtlpInitializeUCRIndex @ 0x18007DE6C (RtlpInitializeUCRIndex.c)
- *     RtlpPopulateListIndex @ 0x18007E1BC (RtlpPopulateListIndex.c)
- *     RtlpValidateHeapSegment @ 0x1800DD034 (RtlpValidateHeapSegment.c)
- *     RtlZeroHeap @ 0x1801465B0 (RtlZeroHeap.c)
+ *     RtlpAllocateHeap @ 0x180009890 (RtlpAllocateHeap.c)
+ *     RtlpFreeHeap @ 0x18000E4A0 (RtlpFreeHeap.c)
+ *     RtlpCreateSplitBlock @ 0x180013960 (RtlpCreateSplitBlock.c)
+ *     RtlpInitializeUCRIndex @ 0x18006C558 (RtlpInitializeUCRIndex.c)
+ *     RtlpPopulateListIndex @ 0x18006C8A8 (RtlpPopulateListIndex.c)
+ *     RtlpValidateHeapSegment @ 0x1800D9FA4 (RtlpValidateHeapSegment.c)
+ *     RtlZeroHeap @ 0x180146460 (RtlZeroHeap.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHeapAddListEntry(__int64 a1, __int64 a2, char a3, __int64 a4, int a5, int a6)

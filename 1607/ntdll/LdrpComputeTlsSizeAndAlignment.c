@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpComputeTlsSizeAndAlignment @ 0x180051458
+ * XREFs of LdrpComputeTlsSizeAndAlignment @ 0x180051448
  * Callers:
- *     LdrpHandleTlsData @ 0x18002DED4 (LdrpHandleTlsData.c)
- *     LdrpAllocateTls @ 0x1800512B4 (LdrpAllocateTls.c)
+ *     LdrpHandleTlsData @ 0x18002DEC4 (LdrpHandleTlsData.c)
+ *     LdrpAllocateTls @ 0x1800512A4 (LdrpAllocateTls.c)
  * Callees:
  *     <none>
  */

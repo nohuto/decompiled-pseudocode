@@ -67,7 +67,7 @@ LABEL_10:
     }
     else
     {
-      CmpAddDockingInfo((__int64)Handle, a2);
+      CmpAddDockingInfo(Handle, a2);
       Data = a3;
       v6 = ZwSetValueKey(Handle, (PUNICODE_STRING)&CmpStrProfileNumberString, 0, 4u, &Data, 4u);
     }

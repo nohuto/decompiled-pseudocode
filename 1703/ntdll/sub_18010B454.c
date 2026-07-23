@@ -8,36 +8,28 @@
  *     _guard_dispatch_icall_nop @ 0x1800A8C20 (_guard_dispatch_icall_nop.c)
  */
 
-signed __int64 __fastcall sub_18010B454(__int64 a1, __int64 a2)
+void __fastcall sub_18010B454(__int64 a1, __int64 a2)
 {
   signed __int32 v2; // r8d
-  signed __int64 result; // rax
-  volatile signed __int64 *v6; // rsi
+  signed __int32 i; // eax
+  _RTL_SRWLOCK *v6; // rsi
   _QWORD *v7; // rdx
   __int64 v8; // [rsp+58h] [rbp+10h]
 
   v2 = *(_DWORD *)(a2 + 16);
-  LODWORD(result) = v2;
-  while ( 1 )
+  for ( i = v2; (i & 0xFFFFFF) != 1; v2 = i )
   {
-    result &= 0xFFFFFFu;
-    if ( (_DWORD)result == 1 )
+    i = _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 16), v2 ^ (v2 ^ (v2 - 1)) & 0xFFFFFF, v2);
+    if ( v2 == i )
       break;
-    result = (unsigned int)_InterlockedCompareExchange(
-                             (volatile signed __int32 *)(a2 + 16),
-                             v2 ^ (v2 ^ (v2 - 1)) & 0xFFFFFF,
-                             v2);
-    if ( v2 == (_DWORD)result )
-      break;
-    v2 = result;
   }
   if ( (v2 & 0xFFFFFFu) <= 1 )
   {
-    v6 = (volatile signed __int64 *)(a1 + 40);
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 40));
+    v6 = (_RTL_SRWLOCK *)(a1 + 40);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 40));
     if ( (_InterlockedDecrement((volatile signed __int32 *)(a2 + 16)) & 0xFFFFFF) != 0 )
     {
-      return RtlReleaseSRWLockExclusive(v6);
+      RtlReleaseSRWLockExclusive(v6);
     }
     else
     {
@@ -77,8 +69,7 @@ signed __int64 __fastcall sub_18010B454(__int64 a1, __int64 a2)
         v7 = (_QWORD *)*v7;
       }
       RtlReleaseSRWLockExclusive(v6);
-      return (*(__int64 (__fastcall **)(__int64, _QWORD))(a1 + 56))(a2, *(_QWORD *)(a1 + 64));
+      (*(void (__fastcall **)(__int64, _QWORD))(a1 + 56))(a2, *(_QWORD *)(a1 + 64));
     }
   }
-  return result;
 }

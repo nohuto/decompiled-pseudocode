@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFillGapAddresses @ 0x1403BCDAC
+ * XREFs of MiFillGapAddresses @ 0x1403BCF1C
  * Callers:
- *     MiFillPfnGaps @ 0x140A66AC0 (MiFillPfnGaps.c)
+ *     MiFillPfnGaps @ 0x140A67AC0 (MiFillPfnGaps.c)
  * Callees:
- *     MiFillGapPtes @ 0x1403BCE4C (MiFillGapPtes.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiFillGapPtes @ 0x1403BCFBC (MiFillGapPtes.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFillGapAddresses(__int64 a1, unsigned __int64 a2, int a3)

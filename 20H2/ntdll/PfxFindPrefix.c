@@ -8,55 +8,55 @@
  *     ComputeNameLength @ 0x1800E61D8 (ComputeNameLength.c)
  */
 
-_QWORD *__fastcall PfxFindPrefix(__int64 a1, unsigned __int16 *a2)
+PPREFIX_TABLE_ENTRY __cdecl PfxFindPrefix(PPREFIX_TABLE PrefixTable, PSTRING FullName)
 {
-  __int64 v2; // rdi
-  __int64 v3; // rbp
-  __int16 v5; // ax
-  _QWORD *i; // rsi
-  _QWORD *v7; // r14
+  PPREFIX_TABLE_ENTRY NextPrefixTree; // rdi
+  PPREFIX_TABLE v3; // rbp
+  CSHORT v5; // ax
+  _RTL_SPLAY_LINKS *i; // rsi
+  _PREFIX_TABLE_ENTRY *p_LeftChild; // r14
   int v8; // eax
-  __int64 v10; // rbx
+  _PREFIX_TABLE_ENTRY *v10; // rbx
 
-  v2 = *(_QWORD *)(a1 + 8);
-  v3 = a1;
-  v5 = ComputeNameLength(a2);
-  while ( *(__int16 *)(v2 + 2) > v5 )
+  NextPrefixTree = PrefixTable->NextPrefixTree;
+  v3 = PrefixTable;
+  v5 = ComputeNameLength(&FullName->Length);
+  while ( NextPrefixTree->NameLength > v5 )
   {
-    v3 = v2;
-    v2 = *(_QWORD *)(v2 + 8);
+    v3 = (PPREFIX_TABLE)NextPrefixTree;
+    NextPrefixTree = NextPrefixTree->NextPrefixTree;
   }
 LABEL_12:
-  if ( *(__int16 *)(v2 + 2) <= 0 )
+  if ( NextPrefixTree->NameLength <= 0 )
     return 0LL;
-  for ( i = (_QWORD *)(v2 + 16); ; i = (_QWORD *)i[2] )
+  for ( i = &NextPrefixTree->Links; ; i = i->RightChild )
   {
     while ( 1 )
     {
       if ( !i )
       {
-        v3 = v2;
-        v2 = *(_QWORD *)(v2 + 8);
+        v3 = (PPREFIX_TABLE)NextPrefixTree;
+        NextPrefixTree = NextPrefixTree->NextPrefixTree;
         goto LABEL_12;
       }
-      v7 = i - 2;
-      v8 = CompareNamesCaseSensitive((unsigned __int16 *)i[3], a2);
+      p_LeftChild = (_PREFIX_TABLE_ENTRY *)&i[-1].LeftChild;
+      v8 = CompareNamesCaseSensitive((unsigned __int16 *)i[1].Parent, &FullName->Length);
       if ( v8 != 3 )
         break;
-      i = (_QWORD *)i[1];
+      i = i->LeftChild;
     }
     if ( v8 )
       break;
   }
-  if ( *(_WORD *)v7 == 514 )
+  if ( p_LeftChild->NodeTypeCode == 514 )
   {
-    v10 = *(_QWORD *)(v2 + 8);
-    *(_QWORD *)(v2 + 8) = 0LL;
-    *(_WORD *)v2 = 514;
-    v7 = RtlSplay(i) - 2;
-    *(_WORD *)v7 = 513;
-    *(_QWORD *)(v3 + 8) = v7;
-    v7[1] = v10;
+    v10 = NextPrefixTree->NextPrefixTree;
+    NextPrefixTree->NextPrefixTree = 0LL;
+    NextPrefixTree->NodeTypeCode = 514;
+    p_LeftChild = (_PREFIX_TABLE_ENTRY *)&RtlSplay(i)[-1].LeftChild;
+    p_LeftChild->NodeTypeCode = 513;
+    v3->NextPrefixTree = p_LeftChild;
+    p_LeftChild->NextPrefixTree = v10;
   }
-  return v7;
+  return p_LeftChild;
 }

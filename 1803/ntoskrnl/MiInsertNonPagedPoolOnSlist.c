@@ -13,7 +13,7 @@
  *     RtlpInterlockedPushEntrySList @ 0x1401B2C10 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall MiInsertNonPagedPoolOnSlist(struct _SLIST_ENTRY *a1, unsigned __int64 a2)
+__int64 __fastcall MiInsertNonPagedPoolOnSlist(_SLIST_ENTRY *a1, unsigned __int64 a2)
 {
   ULONG_PTR v2; // rdi
   int v3; // r11d
@@ -43,7 +43,7 @@ __int64 __fastcall MiInsertNonPagedPoolOnSlist(struct _SLIST_ENTRY *a1, unsigned
   unsigned __int64 v27; // r11
   __int64 v28; // rcx
   __int64 v29; // rdi
-  union _SLIST_HEADER *v30; // rdi
+  _SLIST_HEADER *v30; // rdi
   unsigned __int64 v31; // rsi
   int v32; // r12d
   ULONG_PTR v33; // r10

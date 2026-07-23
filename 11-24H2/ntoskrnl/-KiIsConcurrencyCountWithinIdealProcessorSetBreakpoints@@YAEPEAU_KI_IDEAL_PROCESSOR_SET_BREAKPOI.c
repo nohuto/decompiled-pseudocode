@@ -1,7 +1,7 @@
 /*
- * XREFs of ?KiIsConcurrencyCountWithinIdealProcessorSetBreakpoints@@YAEPEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@PEAT_KI_PROCESS_CONCURRENCY_COUNT@@@Z @ 0x1403B44EC
+ * XREFs of ?KiIsConcurrencyCountWithinIdealProcessorSetBreakpoints@@YAEPEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@PEAT_KI_PROCESS_CONCURRENCY_COUNT@@@Z @ 0x1403A28B4
  * Callers:
- *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1403B3BB8 (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
+ *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1403A23C8 (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
  * Callees:
  *     <none>
  */

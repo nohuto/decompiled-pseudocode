@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBcdClose @ 0x1408F584C
+ * XREFs of PopBcdClose @ 0x1408F59AC
  * Callers:
- *     PopAllocateHiberContext @ 0x140777C44 (PopAllocateHiberContext.c)
- *     PoInitHiberServices @ 0x140790C78 (PoInitHiberServices.c)
+ *     PopAllocateHiberContext @ 0x140777E04 (PopAllocateHiberContext.c)
+ *     PoInitHiberServices @ 0x140792228 (PoInitHiberServices.c)
  * Callees:
- *     BcdCloseStore @ 0x140782414 (BcdCloseStore.c)
+ *     BcdCloseStore @ 0x1407825D4 (BcdCloseStore.c)
  */
 
-__int64 __fastcall PopBcdClose(__int64 a1)
+NTSTATUS __fastcall PopBcdClose(void *a1)
 {
   return BcdCloseStore(a1);
 }

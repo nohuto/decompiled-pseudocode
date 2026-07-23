@@ -1,7 +1,7 @@
 /*
- * XREFs of EmonConfigurePebsBuffer @ 0x14051D118
+ * XREFs of EmonConfigurePebsBuffer @ 0x14051D668
  * Callers:
- *     EmonMarkCountersReserved @ 0x14051D430 (EmonMarkCountersReserved.c)
+ *     EmonMarkCountersReserved @ 0x14051D980 (EmonMarkCountersReserved.c)
  * Callees:
  *     <none>
  */

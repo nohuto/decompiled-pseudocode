@@ -41,7 +41,7 @@ __int64 PopPowerAggregatorSessionSwitchWorker()
     PdcTaskClientRequest(PopSleepStudyTaskClientActivator, v3);
     v4[0] = 0LL;
     v4[1] = -1LL;
-    return KeSetTimer2((__int64)&unk_140F08300, -50000000LL, 0LL, (__int64)v4);
+    return KeSetTimer2((__int64)&unk_140F08300, (LARGE_INTEGER)-50000000LL, 0LL, (__int64)v4);
   }
   return result;
 }

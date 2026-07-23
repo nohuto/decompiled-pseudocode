@@ -15,7 +15,7 @@ void __fastcall PipKsrCallback(PVOID CallbackContext, char *Argument1, int *Argu
   char *v7; // rdx
   GUID *v8; // rcx
   int v9; // eax
-  int v10; // [rsp+38h] [rbp+10h] BYREF
+  int SystemInformation; // [rsp+38h] [rbp+10h] BYREF
 
   if ( Argument1 )
   {
@@ -59,10 +59,10 @@ LABEL_14:
   else if ( *Argument2 >= 0 )
   {
     v9 = PipKsrNotifyDrivers(&GUID_KERNEL_SOFT_RESTART_PREPARE);
-    v10 = 0;
+    SystemInformation = 0;
     *Argument2 = v9;
     PnpKsrPrepared = 1;
-    ZwQuerySystemInformation(151LL, (__int64)&v10);
-    PnpKsrIsHhrPrepare = (v10 & 0x40) != 0;
+    ZwQuerySystemInformation(SystemSoftRebootInformation, &SystemInformation, 4u, 0LL);
+    PnpKsrIsHhrPrepare = (SystemInformation & 0x40) != 0;
   }
 }

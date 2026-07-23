@@ -1,14 +1,14 @@
 /*
- * XREFs of PiCMDeleteClassKey @ 0x14083709C
+ * XREFs of PiCMDeleteClassKey @ 0x1408382FC
  * Callers:
- *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1405984F0 (PiCMHandleIoctl.c)
  * Callees:
- *     PiCMReleaseObjectInputData @ 0x14059D6AC (PiCMReleaseObjectInputData.c)
- *     PiCMCaptureObjectInputData @ 0x14059D6DC (PiCMCaptureObjectInputData.c)
- *     PiCMReturnBasicResultData @ 0x14059F60C (PiCMReturnBasicResultData.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
- *     _CmDeleteInstallerClass @ 0x1408F7BC0 (_CmDeleteInstallerClass.c)
- *     _CmDeleteInterfaceClass @ 0x1408F7F90 (_CmDeleteInterfaceClass.c)
+ *     PiCMReleaseObjectInputData @ 0x14059E6AC (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x14059E6DC (PiCMCaptureObjectInputData.c)
+ *     PiCMReturnBasicResultData @ 0x1405A060C (PiCMReturnBasicResultData.c)
+ *     PiAuDoesClientHaveAccess @ 0x140700A2C (PiAuDoesClientHaveAccess.c)
+ *     _CmDeleteInstallerClass @ 0x1408F8E80 (_CmDeleteInstallerClass.c)
+ *     _CmDeleteInterfaceClass @ 0x1408F9250 (_CmDeleteInterfaceClass.c)
  */
 
 __int64 __fastcall PiCMDeleteClassKey(

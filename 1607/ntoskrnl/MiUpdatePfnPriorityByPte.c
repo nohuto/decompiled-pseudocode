@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUpdatePfnPriorityByPte @ 0x14002E6B0
+ * XREFs of MiUpdatePfnPriorityByPte @ 0x14002E230
  * Callers:
- *     MiSystemFault @ 0x14001BFF0 (MiSystemFault.c)
- *     MiPfPrepareSequentialReadList @ 0x1404302F0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140445CF0 (MiPfPrepareReadList.c)
+ *     MiSystemFault @ 0x14001BB70 (MiSystemFault.c)
+ *     MiPfPrepareSequentialReadList @ 0x14042F1C0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140444BC0 (MiPfPrepareReadList.c)
  * Callees:
- *     MiIsPfn @ 0x14000FBA0 (MiIsPfn.c)
- *     MiRelinkStandbyPage @ 0x1400BE514 (MiRelinkStandbyPage.c)
- *     MiLockPage @ 0x1401593D8 (MiLockPage.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInvalidPteConforms @ 0x1401F26C4 (MiInvalidPteConforms.c)
- *     MiUnlockPage @ 0x1401F2B80 (MiUnlockPage.c)
+ *     MiIsPfn @ 0x14000F720 (MiIsPfn.c)
+ *     MiRelinkStandbyPage @ 0x1400BC3A4 (MiRelinkStandbyPage.c)
+ *     MiLockPage @ 0x140159948 (MiLockPage.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInvalidPteConforms @ 0x1401F24F0 (MiInvalidPteConforms.c)
+ *     MiUnlockPage @ 0x1401F29AC (MiUnlockPage.c)
  */
 
 unsigned __int64 __fastcall MiUpdatePfnPriorityByPte(unsigned __int64 a1, unsigned int a2)
@@ -98,9 +98,9 @@ LABEL_26:
       {
         result = (__int64)(a1 << 25) >> 16;
         if ( (result < 0xFFFFF68000000000uLL || result > 0xFFFFF6FFFFFFFFFFuLL)
-          && result >= qword_140326AF0
-          && result < qword_140326AF0 + (qword_140326AE0 << 21)
-          && (result < qword_140327FF0 || result >= qword_140327FF0 + 0x8000000000LL) )
+          && result >= qword_140326B30
+          && result < qword_140326B30 + (qword_140326B20 << 21)
+          && (result < qword_140328030 || result >= qword_140328030 + 0x8000000000LL) )
         {
           return result;
         }

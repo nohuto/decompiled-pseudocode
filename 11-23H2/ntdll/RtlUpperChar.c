@@ -9,12 +9,12 @@
  *     RtlpIsUtf8Process @ 0x180018DC4 (RtlpIsUtf8Process.c)
  */
 
-char RtlUpperChar()
+CHAR __cdecl RtlUpperChar(CHAR Character)
 {
-  char v0; // cl
+  CHAR v1; // cl
 
   RtlpIsUtf8Process();
-  if ( (unsigned __int8)(v0 - 97) <= 0x19u )
-    return v0 ^ 0x20;
-  return v0;
+  if ( (unsigned __int8)(v1 - 97) <= 0x19u )
+    return v1 ^ 0x20;
+  return v1;
 }

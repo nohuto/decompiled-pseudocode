@@ -1,10 +1,10 @@
 /*
- * XREFs of KeFindBiasedSetBitGroupMask @ 0x14041804C
+ * XREFs of KeFindBiasedSetBitGroupMask @ 0x140407DFC
  * Callers:
- *     KiHeteroSelectIdleProcessorFromNode @ 0x1402938F0 (KiHeteroSelectIdleProcessorFromNode.c)
- *     KeStartThread @ 0x1403B3660 (KeStartThread.c)
+ *     KiHeteroSelectIdleProcessorFromNode @ 0x1402A34F0 (KiHeteroSelectIdleProcessorFromNode.c)
+ *     KeStartThread @ 0x1403A1E70 (KeStartThread.c)
  * Callees:
- *     RtlNumberOfSetBitsEx @ 0x1404181F0 (RtlNumberOfSetBitsEx.c)
+ *     RtlNumberOfSetBitsEx @ 0x140407FA0 (RtlNumberOfSetBitsEx.c)
  */
 
 __int64 __fastcall KeFindBiasedSetBitGroupMask(__int64 *a1, unsigned __int64 a2)

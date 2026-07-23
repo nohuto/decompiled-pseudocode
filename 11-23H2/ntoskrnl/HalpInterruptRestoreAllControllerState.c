@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptRestoreAllControllerState @ 0x140A956B0
+ * XREFs of HalpInterruptRestoreAllControllerState @ 0x140A95520
  * Callers:
- *     HalpInterruptMaskLevelTriggeredLines @ 0x140520D70 (HalpInterruptMaskLevelTriggeredLines.c)
- *     HalpInterruptUnmaskLevelTriggeredLines @ 0x140520F70 (HalpInterruptUnmaskLevelTriggeredLines.c)
- *     HalpInterruptSwapProcessorIdentifiers @ 0x140A97D60 (HalpInterruptSwapProcessorIdentifiers.c)
+ *     HalpInterruptMaskLevelTriggeredLines @ 0x1405212C0 (HalpInterruptMaskLevelTriggeredLines.c)
+ *     HalpInterruptUnmaskLevelTriggeredLines @ 0x1405214C0 (HalpInterruptUnmaskLevelTriggeredLines.c)
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x140A97BD0 (HalpInterruptSwapProcessorIdentifiers.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     HalpInterruptRestoreController @ 0x14051A8E8 (HalpInterruptRestoreController.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     HalpInterruptRestoreController @ 0x14051AE38 (HalpInterruptRestoreController.c)
  */
 
 void HalpInterruptRestoreAllControllerState()

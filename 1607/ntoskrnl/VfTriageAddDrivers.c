@@ -3,10 +3,10 @@
  * Callers:
  *     VfInitBootDriversLoaded @ 0x1407A52D8 (VfInitBootDriversLoaded.c)
  * Callees:
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     TriageGetLoaderEntry @ 0x14023E014 (TriageGetLoaderEntry.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     TriageGetLoaderEntry @ 0x14023DEF8 (TriageGetLoaderEntry.c)
  *     VfDriverLock @ 0x1406FE42C (VfDriverLock.c)
- *     VfDriverUnlock @ 0x140704D5C (VfDriverUnlock.c)
+ *     VfDriverUnlock @ 0x140704D8C (VfDriverUnlock.c)
  *     VfSuspectDriversAllocateEntry @ 0x140715E70 (VfSuspectDriversAllocateEntry.c)
  *     VfSuspectDriversInsert @ 0x1407160E8 (VfSuspectDriversInsert.c)
  *     TriageGetDriverCount @ 0x1407D3D20 (TriageGetDriverCount.c)

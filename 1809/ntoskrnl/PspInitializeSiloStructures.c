@@ -1,16 +1,16 @@
 /*
- * XREFs of PspInitializeSiloStructures @ 0x1409B01B8
+ * XREFs of PspInitializeSiloStructures @ 0x1409B11B8
  * Callers:
- *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x1409B20C8 (PspInitPhase0.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PspSiloInitializeSharedUserSessionId @ 0x1406D0D8C (PspSiloInitializeSharedUserSessionId.c)
- *     PspStorageAllocSlot @ 0x140728938 (PspStorageAllocSlot.c)
- *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
- *     PspAllocStorage @ 0x140759588 (PspAllocStorage.c)
- *     PspStorageFreeSlot @ 0x14088F4B4 (PspStorageFreeSlot.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     PspSiloInitializeSharedUserSessionId @ 0x1406D202C (PspSiloInitializeSharedUserSessionId.c)
+ *     PspStorageAllocSlot @ 0x140729B28 (PspStorageAllocSlot.c)
+ *     ObCreateObjectType @ 0x140729BB0 (ObCreateObjectType.c)
+ *     PspAllocStorage @ 0x14075A778 (PspAllocStorage.c)
+ *     PspStorageFreeSlot @ 0x140890714 (PspStorageFreeSlot.c)
  */
 
 char PspInitializeSiloStructures()
@@ -21,11 +21,11 @@ char PspInitializeSiloStructures()
   _QWORD v4[17]; // [rsp+20h] [rbp-88h] BYREF
 
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x270uLL, 0x476C6953u);
-  qword_14055B9A0 = (__int64)PoolWithTag;
+  qword_14055C9A0 = (__int64)PoolWithTag;
   if ( !PoolWithTag )
     return 0;
   memset(PoolWithTag, 0, 0x270uLL);
-  if ( (int)PspSiloInitializeSharedUserSessionId(qword_14055B9A0) < 0
+  if ( (int)PspSiloInitializeSharedUserSessionId(qword_14055C9A0) < 0
     || (int)PspStorageAllocSlot((ULONG *)&PsObjectDirectorySiloContextSlot) < 0 )
   {
     return 0;
@@ -44,7 +44,7 @@ LABEL_13:
     goto LABEL_13;
   }
   PspSiloMonitorLock = 0LL;
-  qword_14040E328 = (__int64)&PspSiloMonitorList;
+  qword_14040F388 = (__int64)&PspSiloMonitorList;
   PspSiloMonitorList = (__int64)&PspSiloMonitorList;
   memset(v4, 0, 0x78uLL);
   BYTE2(v4[0]) |= 0x84u;
@@ -63,7 +63,7 @@ LABEL_13:
     }
     else
     {
-      if ( (int)PspAllocStorage(&qword_14055B988) >= 0 )
+      if ( (int)PspAllocStorage(&qword_14055C988) >= 0 )
         return 1;
       ObfDereferenceObjectWithTag(PsSiloContextPagedType, 0x746C6644u);
       v3 = PsSiloContextNonPagedType;

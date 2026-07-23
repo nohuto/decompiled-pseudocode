@@ -1,24 +1,24 @@
 /*
- * XREFs of PopCheckShutdownMarker @ 0x140C2D6B4
+ * XREFs of PopCheckShutdownMarker @ 0x140C2F7D4
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PopReadRegKeyValue @ 0x1404AC224 (PopReadRegKeyValue.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1406A6AD0 (ZwQuerySystemInformation.c)
- *     ZwQuerySystemInformationEx @ 0x1406A91D0 (ZwQuerySystemInformationEx.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     PopRecordSleepCheckpointSource @ 0x140749950 (PopRecordSleepCheckpointSource.c)
- *     RtlCheckSystemBootStatusIntegrity @ 0x140782D40 (RtlCheckSystemBootStatusIntegrity.c)
- *     RtlGetSystemBootStatusEx @ 0x140782DF0 (RtlGetSystemBootStatusEx.c)
- *     ExGetFirmwareEnvironmentVariable @ 0x1409666C0 (ExGetFirmwareEnvironmentVariable.c)
- *     PopRecordSleepCheckpoint @ 0x140A8C1E8 (PopRecordSleepCheckpoint.c)
- *     PopClearSystemSleepCheckpoint @ 0x140A9C774 (PopClearSystemSleepCheckpoint.c)
- *     PopReadWheaBootErrorCount @ 0x140C2DDAC (PopReadWheaBootErrorCount.c)
- *     PopDiagTraceDirtyTransition @ 0x140C2F2D0 (PopDiagTraceDirtyTransition.c)
- *     PopDiagTraceInvalidBootStat @ 0x140C2FE74 (PopDiagTraceInvalidBootStat.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PopReadRegKeyValue @ 0x1404A667C (PopReadRegKeyValue.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1406A7A70 (ZwQuerySystemInformation.c)
+ *     ZwQuerySystemInformationEx @ 0x1406AA170 (ZwQuerySystemInformationEx.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     PopRecordSleepCheckpointSource @ 0x140747C80 (PopRecordSleepCheckpointSource.c)
+ *     RtlCheckSystemBootStatusIntegrity @ 0x140782C70 (RtlCheckSystemBootStatusIntegrity.c)
+ *     RtlGetSystemBootStatusEx @ 0x140782D20 (RtlGetSystemBootStatusEx.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x14094F150 (ExGetFirmwareEnvironmentVariable.c)
+ *     PopRecordSleepCheckpoint @ 0x140A88720 (PopRecordSleepCheckpoint.c)
+ *     PopClearSystemSleepCheckpoint @ 0x140A97CE4 (PopClearSystemSleepCheckpoint.c)
+ *     PopReadWheaBootErrorCount @ 0x140C2FECC (PopReadWheaBootErrorCount.c)
+ *     PopDiagTraceDirtyTransition @ 0x140C313F0 (PopDiagTraceDirtyTransition.c)
+ *     PopDiagTraceInvalidBootStat @ 0x140C31F94 (PopDiagTraceInvalidBootStat.c)
  */
 
 char __fastcall PopCheckShutdownMarker(__int64 a1)
@@ -28,7 +28,7 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
   int SystemBootStatus; // eax
   int *v5; // r9
   __int64 v6; // r10
-  _DWORD *v7; // r8
+  WNF_STATE_NAME *v7; // r8
   unsigned __int64 v8; // r8
   __int64 v9; // r9
   unsigned __int64 v10; // r8
@@ -46,9 +46,9 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
   int v22; // [rsp+58h] [rbp-B0h] BYREF
   int v23; // [rsp+5Ch] [rbp-ACh] BYREF
   int v24; // [rsp+60h] [rbp-A8h] BYREF
-  int v25; // [rsp+64h] [rbp-A4h] BYREF
+  int Buffer; // [rsp+64h] [rbp-A4h] BYREF
   __int64 v26; // [rsp+68h] [rbp-A0h] BYREF
-  _QWORD v27[3]; // [rsp+70h] [rbp-98h] BYREF
+  WNF_STATE_NAME StateName[3]; // [rsp+70h] [rbp-98h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v28; // [rsp+88h] [rbp-80h] BYREF
   __int64 v29; // [rsp+A8h] [rbp-60h]
   __int64 v30; // [rsp+B0h] [rbp-58h]
@@ -85,7 +85,7 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
 
   v1 = *(_QWORD *)(a1 + 240);
   v16 = 0;
-  *(_OWORD *)&v27[1] = 0LL;
+  *(_OWORD *)StateName[1].Data = 0LL;
   v3 = *(_BYTE *)(v1 + 132);
   v49 = 14;
   v50 = &PopBsdPhysicalPowerButtonInfo;
@@ -93,49 +93,49 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
   v53 = &PopBsdPowerTransition;
   PopDirtyTransitionDiagInfo = v3 & 1;
   v56 = &PopBsdPowerTransitionExtension;
-  v59 = &dword_140E6716C;
+  v59 = &dword_140E6734C;
   v52 = 7;
   v54 = 32;
   v55 = 16;
   v57 = 32;
   v58 = 11;
   v60 = 4;
-  RtlCheckSystemBootStatusIntegrity((__int64)&byte_140E67161);
+  RtlCheckSystemBootStatusIntegrity((__int64)&byte_140E67341);
   SystemBootStatus = RtlGetSystemBootStatusEx((__int64)&v49, 4u);
   if ( SystemBootStatus < 0 )
   {
     v5 = &v49;
     v6 = 4LL;
-    v7 = &v27[1];
+    v7 = &StateName[1];
     do
     {
-      if ( !*v7 )
-        dword_140E67164 |= 1 << *(_BYTE *)v5;
-      ++v7;
+      if ( !v7->Data[0] )
+        dword_140E67344 |= 1 << *(_BYTE *)v5;
+      v7 = (WNF_STATE_NAME *)((char *)v7 + 4);
       v5 += 6;
       --v6;
     }
     while ( v6 );
-    LOBYTE(v5) = byte_140E67161;
-    PopDiagTraceInvalidBootStat(MEMORY[0x7FFE02C4], (unsigned int)dword_140E67164, (unsigned int)SystemBootStatus, v5);
+    LOBYTE(v5) = byte_140E67341;
+    PopDiagTraceInvalidBootStat(MEMORY[0x7FFE02C4], (unsigned int)dword_140E67344, (unsigned int)SystemBootStatus, v5);
   }
   PopBsdPhysicalPowerButtonInfoAtBoot = PopBsdPhysicalPowerButtonInfo;
-  xmmword_140E673B0 = xmmword_140E672B0;
-  xmmword_140E673C0 = xmmword_140E672C0;
-  xmmword_140E673D0 = xmmword_140E672D0;
+  xmmword_140E67300 = xmmword_140E674B0;
+  xmmword_140E67310 = xmmword_140E674C0;
+  xmmword_140E67320 = xmmword_140E674D0;
   if ( _mm_srli_si128((__m128i)PopBsdPhysicalPowerButtonInfo, 8).m128i_u32[0]
-    && (unsigned int)dword_140E076F0 > 5
-    && tlgKeywordOn((__int64)&dword_140E076F0, 0x200000000000LL) )
+    && (unsigned int)dword_140E07680 > 5
+    && tlgKeywordOn((__int64)&dword_140E07680, 0x200000000000LL) )
   {
     v20 = v8;
     v19 = WORD2(v8);
     v31 = &v19;
     v33 = &v20;
-    v35 = &xmmword_140E673C0;
-    v21 = WORD6(xmmword_140E673C0);
+    v35 = &xmmword_140E67310;
+    v21 = WORD6(xmmword_140E67310);
     v37 = &v21;
     v39 = &v22;
-    v23 = HIWORD(xmmword_140E673C0);
+    v23 = HIWORD(xmmword_140E67310);
     v41 = &v23;
     v24 = BYTE6(v8);
     v43 = &v24;
@@ -157,26 +157,26 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
     v46 = 1LL;
     v48 = 1LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E076F0,
-      (unsigned __int8 *)&byte_140048427,
+      (__int64)&dword_140E07680,
+      (unsigned __int8 *)&byte_140048827,
       0LL,
       0LL,
       0xCu,
       &v28);
   }
   PopBsdPowerTransitionAtBoot = PopBsdPowerTransition;
-  xmmword_140E67350 = xmmword_140E67258;
+  xmmword_140E672C0 = xmmword_140E67468;
   PopBsdPowerTransitionOnDisk = PopBsdPowerTransition;
-  xmmword_140E67330 = xmmword_140E67258;
+  xmmword_140E674F0 = xmmword_140E67468;
   PopBsdPhysicalPowerButtonInfoOnDisk = PopBsdPhysicalPowerButtonInfo;
-  xmmword_140E67370 = xmmword_140E672B0;
-  xmmword_140E67380 = xmmword_140E672C0;
-  xmmword_140E67390 = xmmword_140E672D0;
+  xmmword_140E67530 = xmmword_140E674B0;
+  xmmword_140E67540 = xmmword_140E674C0;
+  xmmword_140E67550 = xmmword_140E674D0;
   PopBsdPowerTransitionExtensionAtBoot = PopBsdPowerTransitionExtension;
-  xmmword_140E673F0 = xmmword_140E672F0;
+  xmmword_140E672E0 = xmmword_140E67488;
   PopBsdPowerTransitionExtensionOnDisk = PopBsdPowerTransitionExtension;
-  xmmword_140E67310 = xmmword_140E672F0;
-  if ( (qword_140EFEAF8 & 4) != 0 )
+  xmmword_140E67510 = xmmword_140E67488;
+  if ( (qword_140EFEE18 & 4) != 0 )
     BYTE8(PopBsdPowerTransitionAtBoot) &= ~1u;
   if ( (PopSimulate & 0x200) != 0 )
     BYTE8(PopBsdPowerTransitionAtBoot) |= 1u;
@@ -188,9 +188,9 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
     *(_QWORD *)&PopBsdPowerTransitionAtBoot = PopBsdPhysicalPowerButtonInfoAtBoot;
   }
   PopAutoChkCausedReboot = (BYTE14(PopBsdPowerTransition) & 0x10) != 0;
-  v27[0] = WNF_PO_PREVIOUS_SHUTDOWN_STATE;
-  v25 = BYTE8(PopBsdPowerTransitionAtBoot) & 1;
-  result = ZwUpdateWnfStateData((__int64)v27, (__int64)&v25);
+  StateName[0] = (WNF_STATE_NAME)WNF_PO_PREVIOUS_SHUTDOWN_STATE;
+  Buffer = BYTE8(PopBsdPowerTransitionAtBoot) & 1;
+  result = ZwUpdateWnfStateData(StateName, &Buffer, 4u, 0LL, 0LL, 0, 0);
   if ( (PopSimulate & 0x400) != 0 )
   {
     WORD6(PopBsdPowerTransitionAtBoot) = 1;
@@ -200,7 +200,7 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
   if ( (PopSimulate & 0x20000000) != 0 )
   {
     BYTE8(PopBsdPowerTransitionAtBoot) |= 2u;
-    *((_QWORD *)&xmmword_140E673F0 + 1) = 1LL;
+    *((_QWORD *)&xmmword_140E672E0 + 1) = 1LL;
   }
   if ( (BYTE8(PopBsdPowerTransitionAtBoot) & 1) != 0 )
   {
@@ -231,61 +231,61 @@ char __fastcall PopCheckShutdownMarker(__int64 a1)
       v15 = *(_QWORD *)(v14 + 280);
       if ( v15 )
       {
-        dword_140E67170 = *(_DWORD *)(v15 + 56);
-        qword_140E67178 = *(_QWORD *)(v15 + 64);
-        qword_140E67180 = *(_QWORD *)(v15 + 72);
-        qword_140E67188 = *(_QWORD *)(v15 + 80);
-        qword_140E67190 = *(_QWORD *)(v15 + 88);
+        dword_140E67350 = *(_DWORD *)(v15 + 56);
+        qword_140E67358 = *(_QWORD *)(v15 + 64);
+        qword_140E67360 = *(_QWORD *)(v15 + 72);
+        qword_140E67368 = *(_QWORD *)(v15 + 80);
+        qword_140E67370 = *(_QWORD *)(v15 + 88);
       }
     }
-    dword_140E671E8 = 0;
+    dword_140E673C8 = 0;
     PopReadRegKeyValue(
       L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl",
       L"CrashDumpEnabled",
       4uLL,
       4,
-      &dword_140E671E8);
-    dword_140E671EC = 0;
+      &dword_140E673C8);
+    dword_140E673CC = 0;
     PopReadRegKeyValue(
       L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl",
       L"FilterPages",
       4uLL,
       4,
-      &dword_140E671EC);
+      &dword_140E673CC);
     if ( (int)PopReadRegKeyValue(
                 L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\LastCrashdump",
                 L"Info",
                 0x30uLL,
                 0,
-                &dword_140E671F0) >= 0
-      && !dword_140E67170
-      && dword_140E671F8 )
+                &dword_140E673D0) >= 0
+      && !dword_140E67350
+      && dword_140E673D8 )
     {
-      dword_140E67170 = dword_140E671F8;
-      qword_140E67178 = qword_140E67200;
-      dword_140E67198 = 1;
+      dword_140E67350 = dword_140E673D8;
+      qword_140E67358 = qword_140E673E0;
+      dword_140E67378 = 1;
     }
-    dword_140E67168 = MEMORY[0x7FFE02C4];
-    byte_140E671B0 = v13;
-    qword_140E671B8 = (__int64)&PopBsdPhysicalPowerButtonInfoAtBoot;
-    qword_140E671A0 = (__int64)&PopBsdPowerTransitionAtBoot;
-    qword_140E671A8 = (__int64)&PopBsdPowerTransitionExtensionAtBoot;
-    dword_140E671C0 = ExBootAppErrorDiagCode;
-    dword_140E671C4 = ExBootAppFailureStatus;
-    ZwQuerySystemInformation(90LL, (__int64)&unk_140E671C8);
-    dword_140E67228 = 7;
-    qword_140E67230 = (__int64)&PopFirmwareResetReason;
-    if ( (int)ZwQuerySystemInformationEx(72LL, (__int64)&dword_140E67228) >= 0 )
+    dword_140E67348 = MEMORY[0x7FFE02C4];
+    byte_140E67390 = v13;
+    qword_140E67398 = (__int64)&PopBsdPhysicalPowerButtonInfoAtBoot;
+    qword_140E67380 = (__int64)&PopBsdPowerTransitionAtBoot;
+    qword_140E67388 = (__int64)&PopBsdPowerTransitionExtensionAtBoot;
+    dword_140E673A0 = ExBootAppErrorDiagCode;
+    dword_140E673A4 = ExBootAppFailureStatus;
+    ZwQuerySystemInformation(SystemBootEnvironmentInformation, &unk_140E673A8, 0x20u, 0LL);
+    dword_140E67408 = 7;
+    qword_140E67410 = (__int64)&PopFirmwareResetReason;
+    if ( ZwQuerySystemInformationEx(SystemWatchdogTimerInformation, &dword_140E67408, 4u, &dword_140E67408, 8u, 0LL) >= 0 )
     {
-      dword_140E67220 = dword_140E6722C;
-      if ( dword_140E6722C )
+      dword_140E67400 = dword_140E6740C;
+      if ( dword_140E6740C )
       {
-        dword_140E67228 = 8;
-        if ( (int)ZwQuerySystemInformationEx(72LL, (__int64)&dword_140E67228) >= 0 )
-          dword_140E67224 = dword_140E6722C;
+        dword_140E67408 = 8;
+        if ( ZwQuerySystemInformationEx(SystemWatchdogTimerInformation, &dword_140E67408, 4u, &dword_140E67408, 8u, 0LL) >= 0 )
+          dword_140E67404 = dword_140E6740C;
       }
     }
-    PopReadWheaBootErrorCount(&dword_140E67238);
+    PopReadWheaBootErrorCount(&dword_140E67418);
     return PopDiagTraceDirtyTransition(&PopDirtyTransitionDiagInfo);
   }
   return result;

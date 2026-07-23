@@ -1,17 +1,17 @@
 /*
- * XREFs of SeEtwWriteKMCveEvent @ 0x1406C60E0
+ * XREFs of SeEtwWriteKMCveEvent @ 0x1406C9D80
  * Callers:
  *     <none>
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __stdcall SeEtwWriteKMCveEvent(PCUNICODE_STRING CveId, PCUNICODE_STRING AdditionalDetails)
 {
   unsigned int v3; // r8d
   __int64 v4; // rax
-  REGHANDLE v5; // rcx
+  struct _LIST_ENTRY *Blink; // rcx
   _WORD v6[8]; // [rsp+40h] [rbp-9h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp+7h] BYREF
   _WORD *v8; // [rsp+60h] [rbp+17h]
@@ -38,7 +38,7 @@ NTSTATUS __stdcall SeEtwWriteKMCveEvent(PCUNICODE_STRING CveId, PCUNICODE_STRING
   }
   v4 = 2LL * v3;
   *(&UserData.Ptr + v4) = (ULONGLONG)v6;
-  v5 = EtwCVEAuditProvRegHandle;
+  Blink = stru_140F03830.SavedApcState.ApcListHead[1].Blink;
   *((_QWORD *)&UserData.Size + v4) = 2LL;
-  return EtwWriteEx(v5, &CVE_AUDIT_DETECT_KM, 0LL, 0, 0LL, 0LL, v3 + 1, &UserData);
+  return EtwWriteEx((REGHANDLE)Blink, &CVE_AUDIT_DETECT_KM, 0LL, 0, 0LL, 0LL, v3 + 1, &UserData);
 }

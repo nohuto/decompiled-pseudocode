@@ -3,20 +3,20 @@
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiMarkPageActive @ 0x1400214D4 (MiMarkPageActive.c)
- *     MiInitializePfnForOtherProcess @ 0x140021708 (MiInitializePfnForOtherProcess.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiChargeWsles @ 0x1400E1B20 (MiChargeWsles.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MmInitializeProcessAddressSpace @ 0x14046D378 (MmInitializeProcessAddressSpace.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiMarkPageActive @ 0x140021054 (MiMarkPageActive.c)
+ *     MiInitializePfnForOtherProcess @ 0x140021288 (MiInitializePfnForOtherProcess.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiChargeWsles @ 0x1400DF9C0 (MiChargeWsles.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MmInitializeProcessAddressSpace @ 0x14046C248 (MmInitializeProcessAddressSpace.c)
  */
 
 __int64 __fastcall MiInitializeBootProcess(__int64 a1)
@@ -88,7 +88,7 @@ __int64 __fastcall MiInitializeBootProcess(__int64 a1)
     v5 = v13;
   }
   while ( v1 < 4 );
-  v14 = (((unsigned __int64)(qword_140327F90 + 276840816) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v14 = (((unsigned __int64)(qword_140327FD0 + 276840816) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v15 = v29;
   do
   {
@@ -111,7 +111,7 @@ __int64 __fastcall MiInitializeBootProcess(__int64 a1)
     MiMarkPageActive((__int64)v16);
     v4 ^= (v4 ^ (((__int64)(v16 + 0xB000000000LL) / 48) << 12)) & 0xFFFFFFFFF000LL;
     if ( !v5 )
-      v4 = ~qword_1403A9350 & (v4 | 0x8000000000000100uLL) ^ ((unsigned __int16)~(_WORD)qword_1403A9350 ^ (unsigned __int16)(HIBYTE(word_140326AA8) << 8)) & 0x100;
+      v4 = ~qword_1403A9350 & (v4 | 0x8000000000000100uLL) ^ ((unsigned __int16)~(_WORD)qword_1403A9350 ^ (unsigned __int16)(HIBYTE(word_140326AE8) << 8)) & 0x100;
     *v17 = v4;
     if ( MiPteInShadowRange((unsigned __int64)v17) )
       MiWritePteShadow(v18, v4);
@@ -121,15 +121,15 @@ __int64 __fastcall MiInitializeBootProcess(__int64 a1)
   v19 = BugCheckParameter1;
   *(_QWORD *)(48 * ((MEMORY[0xFFFFF6FB7DBEDF68] >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL) = BugCheckParameter1;
   _InterlockedOr((volatile signed __int32 *)(v19 + 772), 0x800u);
-  KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
-  v20 = (_QWORD *)qword_140326980;
+  KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
+  v20 = (_QWORD *)qword_1403269C0;
   v21 = (_QWORD *)(v19 + 1552);
-  if ( *(__int64 **)qword_140326980 != &qword_140326978 )
+  if ( *(__int64 **)qword_1403269C0 != &qword_1403269B8 )
     __fastfail(3u);
-  *(_QWORD *)(v19 + 1560) = qword_140326980;
-  *v21 = &qword_140326978;
+  *(_QWORD *)(v19 + 1560) = qword_1403269C0;
+  *v21 = &qword_1403269B8;
   *v20 = v21;
-  qword_140326980 = v19 + 1552;
+  qword_1403269C0 = v19 + 1552;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   v23 = 0;
   return MmInitializeProcessAddressSpace(v19, 0LL, 0LL, &v23, 0);

@@ -1,9 +1,9 @@
 /*
- * XREFs of KseHookMmGetVirtualForPhysical @ 0x1405288A0
+ * XREFs of KseHookMmGetVirtualForPhysical @ 0x140528AE0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KseHookMmGetVirtualForPhysical(__int64 a1)

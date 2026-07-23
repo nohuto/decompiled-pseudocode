@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSmartSuspendValidateSinglePrediction @ 0x140A8FC14
+ * XREFs of PopSmartSuspendValidateSinglePrediction @ 0x140A8C254
  * Callers:
- *     PopSmartSuspendValidatePredictions @ 0x14075C560 (PopSmartSuspendValidatePredictions.c)
+ *     PopSmartSuspendValidatePredictions @ 0x14075B4FC (PopSmartSuspendValidatePredictions.c)
  * Callees:
- *     PopDiagTraceSmartSuspendValidation @ 0x140A8FD44 (PopDiagTraceSmartSuspendValidation.c)
+ *     PopDiagTraceSmartSuspendValidation @ 0x140A8C384 (PopDiagTraceSmartSuspendValidation.c)
  */
 
 void __fastcall PopSmartSuspendValidateSinglePrediction(__int64 a1, unsigned __int64 a2)

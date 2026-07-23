@@ -8,17 +8,17 @@
  *     TppRaiseInvalidParameter @ 0x18010F0F8 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpCallbackIndependent(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall TpCallbackIndependent(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v4; // ebx
+  int v4; // ebx
   __int64 v6; // rdi
   __int64 v7; // rdi
   signed __int64 v8; // rax
   signed __int64 v9; // rtt
   __int64 v10; // rcx
   int v11; // eax
-  unsigned int v12; // ecx
-  int v14; // [rsp+30h] [rbp+8h] BYREF
+  int v12; // ecx
+  int WorkerFactoryInformation; // [rsp+30h] [rbp+8h] BYREF
   signed __int64 v15; // [rsp+38h] [rbp+10h]
 
   v4 = 0;
@@ -69,8 +69,8 @@ LABEL_12:
   v12 = v11;
   if ( v11 >= 0 )
   {
-    v14 = 2;
-    return NtSetInformationWorkerFactory(*(_QWORD *)(v6 + 56), 9LL, &v14);
+    WorkerFactoryInformation = 2;
+    return NtSetInformationWorkerFactory(*(HANDLE *)(v6 + 56), WorkerFactoryCallbackType, &WorkerFactoryInformation, 4u);
   }
 LABEL_18:
   if ( v11 != -1073741637 )

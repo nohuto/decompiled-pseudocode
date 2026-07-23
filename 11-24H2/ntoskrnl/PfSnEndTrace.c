@@ -1,22 +1,22 @@
 /*
- * XREFs of PfSnEndTrace @ 0x140971A58
+ * XREFs of PfSnEndTrace @ 0x14095A268
  * Callers:
- *     PfSnEndTraceWorkerThreadRoutine @ 0x140971A40 (PfSnEndTraceWorkerThreadRoutine.c)
+ *     PfSnEndTraceWorkerThreadRoutine @ 0x14095A250 (PfSnEndTraceWorkerThreadRoutine.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PfpPartitionDereferenceParent @ 0x140274CCC (PfpPartitionDereferenceParent.c)
- *     PfSnDeactivateTrace @ 0x1402C65D4 (PfSnDeactivateTrace.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PfpPartitionReferenceParentSafeByProcess @ 0x1404249A0 (PfpPartitionReferenceParentSafeByProcess.c)
- *     PfFbBufferListFlushStandby @ 0x1404775E4 (PfFbBufferListFlushStandby.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PfSnBuildDumpFromTrace @ 0x140971DD0 (PfSnBuildDumpFromTrace.c)
- *     PfSnLogEndTrace @ 0x140972020 (PfSnLogEndTrace.c)
- *     PfSnCleanupTrace @ 0x14097212C (PfSnCleanupTrace.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PfpPartitionDereferenceParent @ 0x14022A25C (PfpPartitionDereferenceParent.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PfSnDeactivateTrace @ 0x1402BC3D4 (PfSnDeactivateTrace.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PfpPartitionReferenceParentSafeByProcess @ 0x140418850 (PfpPartitionReferenceParentSafeByProcess.c)
+ *     PfFbBufferListFlushStandby @ 0x140473B84 (PfFbBufferListFlushStandby.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PfSnBuildDumpFromTrace @ 0x14095A5E0 (PfSnBuildDumpFromTrace.c)
+ *     PfSnLogEndTrace @ 0x14095A830 (PfSnLogEndTrace.c)
+ *     PfSnCleanupTrace @ 0x14095A93C (PfSnCleanupTrace.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnEndTrace(char *P)
@@ -96,7 +96,7 @@ __int64 __fastcall PfSnEndTrace(char *P)
     v39 = v23;
     v42 = v23;
     v45 = 1;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)qword_1400483D8, 0LL, 0LL, 7u, v33);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)byte_1400486BB, 0LL, 0LL, 7u, v33);
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   KeGetCurrentThread()->PreviousMode = 0;
@@ -110,7 +110,7 @@ __int64 __fastcall PfSnEndTrace(char *P)
     v8 = v9;
   }
   v10 = *((int *)P + 82);
-  if ( (int)v10 >= dword_140E66E54 )
+  if ( (int)v10 >= dword_140E66FA4 )
   {
     if ( (int)v10 > 10 )
     {
@@ -142,44 +142,44 @@ __int64 __fastcall PfSnEndTrace(char *P)
   {
     if ( v15 && v29 && *(_DWORD *)(v29 + 608) < *(_DWORD *)(v29 + 612) )
       PfFbBufferListFlushStandby(v29, v29 + 288);
-    ExAcquireFastMutex(&stru_140E67028);
-    if ( dword_140E67064 == 1 )
+    ExAcquireFastMutex(&stru_140E67178);
+    if ( dword_140E671B4 == 1 )
     {
-      KeReleaseGuardedMutex(&stru_140E67028);
+      KeReleaseGuardedMutex(&stru_140E67178);
       ExFreePoolWithTag(v13, 0);
     }
     else
     {
-      v16 = qword_140E67020;
-      if ( *(PVOID **)qword_140E67020 != &qword_140E67018 )
+      v16 = qword_140E67170;
+      if ( *(PVOID **)qword_140E67170 != &qword_140E67168 )
 LABEL_12:
         __fastfail(3u);
-      v13[1] = qword_140E67020;
-      *v13 = &qword_140E67018;
+      v13[1] = qword_140E67170;
+      *v13 = &qword_140E67168;
       *v16 = v13;
-      v18 = dword_140E67060 + 1;
-      qword_140E67020 = v13;
+      v18 = dword_140E671B0 + 1;
+      qword_140E67170 = v13;
       while ( 1 )
       {
-        dword_140E67060 = v18;
-        if ( v18 <= dword_140E66CEC )
+        dword_140E671B0 = v18;
+        if ( v18 <= dword_140E66E3C )
           break;
-        v20 = qword_140E67018;
-        if ( qword_140E67018 == &qword_140E67018 )
+        v20 = qword_140E67168;
+        if ( qword_140E67168 == &qword_140E67168 )
           break;
-        if ( *((PVOID **)qword_140E67018 + 1) != &qword_140E67018 )
+        if ( *((PVOID **)qword_140E67168 + 1) != &qword_140E67168 )
           goto LABEL_12;
-        v21 = *(_QWORD *)qword_140E67018;
-        if ( *(PVOID *)(*(_QWORD *)qword_140E67018 + 8LL) != qword_140E67018 )
+        v21 = *(_QWORD *)qword_140E67168;
+        if ( *(PVOID *)(*(_QWORD *)qword_140E67168 + 8LL) != qword_140E67168 )
           goto LABEL_12;
-        qword_140E67018 = *(PVOID *)qword_140E67018;
-        *(_QWORD *)(v21 + 8) = &qword_140E67018;
+        qword_140E67168 = *(PVOID *)qword_140E67168;
+        *(_QWORD *)(v21 + 8) = &qword_140E67168;
         ExFreePoolWithTag(v20, 0);
-        v18 = dword_140E67060 - 1;
+        v18 = dword_140E671B0 - 1;
       }
-      KeReleaseGuardedMutex(&stru_140E67028);
-      if ( qword_140E67068 )
-        KeSetEvent(qword_140E67068, 0, 0);
+      KeReleaseGuardedMutex(&stru_140E67178);
+      if ( qword_140E671B8 )
+        KeSetEvent(qword_140E671B8, 0, 0);
       v12 = 0;
     }
   }
@@ -201,7 +201,13 @@ LABEL_12:
       v38 = &v26;
       v26 = HIDWORD(v32);
       v39 = v24;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)byte_14004839B, 0LL, 0LL, 5u, v33);
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140E074B8,
+        (unsigned __int8 *)&word_14004867E,
+        0LL,
+        0LL,
+        5u,
+        v33);
     }
   }
   return (unsigned int)v12;

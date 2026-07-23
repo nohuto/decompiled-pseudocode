@@ -49,7 +49,7 @@ __int64 PopEtInit()
   int v26; // [rsp+58h] [rbp-A8h]
   __int64 (__fastcall *v27)(__int64, __int64, __int64, __int64); // [rsp+70h] [rbp-90h]
   __int64 (__fastcall *v28)(__int64 *); // [rsp+78h] [rbp-88h]
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+B0h] [rbp-50h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+B0h] [rbp-50h] BYREF
 
   DestinationString = 0LL;
   if ( !PopEnergyEstimationEnabled )

@@ -10,47 +10,47 @@
  *     LdrpLogDllState @ 0x180026314 (LdrpLogDllState.c)
  *     LdrpCheckForRetryLoading @ 0x18002ADB8 (LdrpCheckForRetryLoading.c)
  *     LdrpLogError @ 0x18007168C (LdrpLogError.c)
- *     LdrpValidateIntegrityContinuity @ 0x180086FE0 (LdrpValidateIntegrityContinuity.c)
- *     LdrpSetModuleSigningLevel @ 0x18008F4D0 (LdrpSetModuleSigningLevel.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     NtOpenFile @ 0x1800A0940 (NtOpenFile.c)
- *     NtCreateSection @ 0x1800A0C20 (NtCreateSection.c)
- *     NtRaiseHardError @ 0x1800A2ED0 (NtRaiseHardError.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     LdrpValidateIntegrityContinuity @ 0x180086FF0 (LdrpValidateIntegrityContinuity.c)
+ *     LdrpSetModuleSigningLevel @ 0x18008F4E0 (LdrpSetModuleSigningLevel.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     NtOpenFile @ 0x1800A0960 (NtOpenFile.c)
+ *     NtCreateSection @ 0x1800A0C40 (NtCreateSection.c)
+ *     NtRaiseHardError @ 0x1800A2EF0 (NtRaiseHardError.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     LdrAppxHandleIntegrityFailure @ 0x1800CD7D0 (LdrAppxHandleIntegrityFailure.c)
  *     LdrpCheckComponentOnDemandEtwEvent @ 0x1800D0C80 (LdrpCheckComponentOnDemandEtwEvent.c)
  *     LdrpLogEtwEvent @ 0x1800D1238 (LdrpLogEtwEvent.c)
  */
 
-__int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
+__int64 __fastcall LdrpMapDllNtFileName(__int64 a1, _UNICODE_STRING *a2)
 {
   __int64 v3; // rbx
-  __int64 v5; // r12
+  unsigned __int64 v5; // r12
   ULONG v6; // eax
   __int64 v7; // r15
   __int64 v8; // rcx
   __int64 v9; // r14
   int i; // esi
   NTSTATUS v11; // eax
-  int v12; // r9d
+  __int64 v12; // r9
   int v13; // ebx
-  int v14; // esi
-  int v15; // eax
+  ULONG v14; // esi
+  NTSTATUS v15; // eax
   int v17; // r8d
   int v18; // r9d
   char *v19; // rcx
   int v20; // r8d
   int v21; // r9d
   HANDLE FileHandle; // [rsp+40h] [rbp-59h] BYREF
-  HANDLE Handle; // [rsp+48h] [rbp-51h] BYREF
+  HANDLE SectionHandle; // [rsp+48h] [rbp-51h] BYREF
   __int64 v24; // [rsp+50h] [rbp-49h]
-  _QWORD v25[2]; // [rsp+58h] [rbp-41h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-31h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-21h] BYREF
+  unsigned __int64 Parameters[2]; // [rsp+58h] [rbp-41h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-31h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-21h] BYREF
   char v28; // [rsp+100h] [rbp+67h] BYREF
-  UNICODE_STRING *v29; // [rsp+108h] [rbp+6Fh]
+  _UNICODE_STRING *v29; // [rsp+108h] [rbp+6Fh]
   char v30; // [rsp+110h] [rbp+77h] BYREF
-  char v31; // [rsp+118h] [rbp+7Fh] BYREF
+  ULONG Response; // [rsp+118h] [rbp+7Fh] BYREF
 
   v29 = a2;
   v3 = *(_QWORD *)(a1 + 56);
@@ -68,16 +68,14 @@ __int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
     ObjectAttributes.Attributes = v6;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v7 = 2147353476LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v8 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v8 = 2147353476LL;
     v9 = 2147353477LL;
     if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      v19 = (unsigned int)RtlGetCurrentServiceSessionId()
-          ? (char *)NtCurrentPeb()->SharedData + 555
-          : (char *)2147353477;
+      v19 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
       if ( (*v19 & 0x20) != 0 )
       {
         LOBYTE(v18) = -1;
@@ -108,19 +106,13 @@ __int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
       v14 = 0x1000000;
       if ( (*(_DWORD *)(a1 + 32) & 0x1000000) == 0
         || ((NtCurrentPeb()->BitField & 0x10) == 0
-          ? (LOBYTE(v12) = 8,
-             v13 = LdrpSetModuleSigningLevel(
-                     (_DWORD)FileHandle,
-                     *(_QWORD *)(a1 + 56),
-                     (unsigned int)&v30,
-                     v12,
-                     (__int64)&v28))
+          ? (LOBYTE(v12) = 8, v13 = LdrpSetModuleSigningLevel(FileHandle, *(_QWORD *)(a1 + 56), &v30, v12, &v28))
           : (v13 = 0),
             v13 >= 0) )
       {
         if ( UseWOW64 && (*(_DWORD *)(a1 + 32) & 0x800) == 0 )
           v14 = 17825792;
-        v15 = NtCreateSection(&Handle, 15LL, 0LL, 0LL, 16, v14, FileHandle);
+        v15 = NtCreateSection(&SectionHandle, 0xFu, 0LL, 0LL, 0x10u, v14, FileHandle);
         v13 = v15;
         if ( v15 < 0 )
         {
@@ -130,20 +122,20 @@ __int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
           }
           else if ( v15 != -1073741801 && v15 != -1073741670 && v15 != -1073741523 )
           {
-            v25[0] = v5;
-            v25[1] = v15;
-            if ( (int)NtRaiseHardError(3221225595LL, 2LL, 1LL, v25, 1, &v31) >= 0 && LdrInitState != 3 )
+            Parameters[0] = v5;
+            Parameters[1] = v15;
+            if ( NtRaiseHardError(-1073741701, 2u, 1u, Parameters, 1u, &Response) >= 0 && LdrInitState != 3 )
               ++LdrpFatalHardErrorCount;
           }
           LdrpLogError((unsigned int)v13, 5253LL, 0LL, v5);
         }
         else
         {
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+          if ( RtlGetCurrentServiceSessionId() )
             v7 = (__int64)NtCurrentPeb()->SharedData + 554;
           if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
           {
-            if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+            if ( RtlGetCurrentServiceSessionId() )
               v9 = (__int64)NtCurrentPeb()->SharedData + 555;
             if ( (*(_BYTE *)v9 & 0x20) != 0 )
             {
@@ -156,9 +148,9 @@ __int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
           {
             if ( LdrpAdvapi32DllHandle )
             {
-              v13 = ((__int64 (__fastcall *)(HANDLE, UNICODE_STRING *))(__ROR8__(
-                                                                          LdrpSaferIsDllAllowedRoutine,
-                                                                          64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
+              v13 = ((__int64 (__fastcall *)(HANDLE, _UNICODE_STRING *))(__ROR8__(
+                                                                           LdrpSaferIsDllAllowedRoutine,
+                                                                           64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
                       FileHandle,
                       v29);
               if ( v13 == -1073741275 )
@@ -177,12 +169,12 @@ __int64 __fastcall LdrpMapDllNtFileName(__int64 a1, UNICODE_STRING *a2)
               if ( v13 >= 0 )
               {
                 *(_QWORD *)(a1 + 176) = FileHandle;
-                *(_QWORD *)(a1 + 24) = Handle;
+                *(_QWORD *)(a1 + 24) = SectionHandle;
                 return (unsigned int)v13;
               }
             }
           }
-          NtClose(Handle);
+          NtClose(SectionHandle);
         }
       }
     }

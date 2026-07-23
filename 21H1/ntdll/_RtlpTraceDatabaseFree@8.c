@@ -8,10 +8,10 @@
 
 bool __thiscall RtlpTraceDatabaseFree(void *this)
 {
-  void *v2; // [esp+0h] [ebp-8h] BYREF
-  int v3; // [esp+4h] [ebp-4h] BYREF
+  PVOID BaseAddress; // [esp+0h] [ebp-8h] BYREF
+  ULONG_PTR RegionSize; // [esp+4h] [ebp-4h] BYREF
 
-  v3 = 0;
-  v2 = this;
-  return NtFreeVirtualMemory(-1, (int)&v2, (int)&v3, 0x8000) >= 0;
+  LODWORD(RegionSize) = 0;
+  BaseAddress = this;
+  return NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 0x8000u) >= 0;
 }

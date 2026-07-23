@@ -1,12 +1,12 @@
 /*
- * XREFs of MiZeroLargePageThread @ 0x140185040
+ * XREFs of MiZeroLargePageThread @ 0x140185180
  * Callers:
  *     <none>
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
- *     MiDeleteZeroThreadContext @ 0x1401850B4 (MiDeleteZeroThreadContext.c)
- *     MiZeroLargePages @ 0x14018512C (MiZeroLargePages.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCFC0 (KeSetActualBasePriorityThread.c)
+ *     MiDeleteZeroThreadContext @ 0x1401851F4 (MiDeleteZeroThreadContext.c)
+ *     MiZeroLargePages @ 0x14018526C (MiZeroLargePages.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiZeroLargePageThread(PVOID P, __int64 a2, __int64 a3)

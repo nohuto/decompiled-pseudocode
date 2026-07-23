@@ -1,23 +1,23 @@
 /*
- * XREFs of MiIsPageOnBadList @ 0x14030492C
+ * XREFs of MiIsPageOnBadList @ 0x14030E80C
  * Callers:
- *     MiTradePage @ 0x14022B650 (MiTradePage.c)
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
- *     MiFindContiguousPagesEx @ 0x140304960 (MiFindContiguousPagesEx.c)
- *     MiPfnsWorthTrying @ 0x140305B00 (MiPfnsWorthTrying.c)
- *     MiConfirmCombinePageContents @ 0x140314938 (MiConfirmCombinePageContents.c)
- *     MiDeleteSectionCluster @ 0x1403A0124 (MiDeleteSectionCluster.c)
- *     MiCopyHeaderIfResident @ 0x1404765F4 (MiCopyHeaderIfResident.c)
- *     MiMakePageBad @ 0x14047C9DC (MiMakePageBad.c)
- *     MiArePageContentsZero @ 0x1404CA060 (MiArePageContentsZero.c)
- *     MmTryIdentifyPage @ 0x14067287C (MmTryIdentifyPage.c)
- *     MiGetListOfPendingBadPages @ 0x140673AD0 (MiGetListOfPendingBadPages.c)
- *     MiRemoveBadPages @ 0x14067406C (MiRemoveBadPages.c)
- *     MiUnlinkBadPages @ 0x1406747FC (MiUnlinkBadPages.c)
- *     MmGetPageBadStatus @ 0x140674AB0 (MmGetPageBadStatus.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x140674B50 (MmMarkPhysicalMemoryAsBad.c)
- *     MiLocateSharedPageViews @ 0x1406790E0 (MiLocateSharedPageViews.c)
- *     MiTransferPartitionPageRun @ 0x14068B4FC (MiTransferPartitionPageRun.c)
+ *     MiDeleteSectionCluster @ 0x140216B54 (MiDeleteSectionCluster.c)
+ *     MiTradePage @ 0x1402FEF60 (MiTradePage.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
+ *     MiFindContiguousPagesEx @ 0x14030E840 (MiFindContiguousPagesEx.c)
+ *     MiPfnsWorthTrying @ 0x14030F9E0 (MiPfnsWorthTrying.c)
+ *     MiCopyHeaderIfResident @ 0x1403F0510 (MiCopyHeaderIfResident.c)
+ *     MiConfirmCombinePageContents @ 0x1403F1C84 (MiConfirmCombinePageContents.c)
+ *     MiMakePageBad @ 0x140477B64 (MiMakePageBad.c)
+ *     MiArePageContentsZero @ 0x1404C33B0 (MiArePageContentsZero.c)
+ *     MmTryIdentifyPage @ 0x140673A4C (MmTryIdentifyPage.c)
+ *     MiGetListOfPendingBadPages @ 0x140674CA0 (MiGetListOfPendingBadPages.c)
+ *     MiRemoveBadPages @ 0x14067523C (MiRemoveBadPages.c)
+ *     MiUnlinkBadPages @ 0x1406759CC (MiUnlinkBadPages.c)
+ *     MmGetPageBadStatus @ 0x140675C80 (MmGetPageBadStatus.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x140675D20 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiLocateSharedPageViews @ 0x14067A2C0 (MiLocateSharedPageViews.c)
+ *     MiTransferPartitionPageRun @ 0x14068C62C (MiTransferPartitionPageRun.c)
  * Callees:
  *     <none>
  */

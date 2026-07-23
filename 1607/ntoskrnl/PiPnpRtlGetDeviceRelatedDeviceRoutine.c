@@ -1,9 +1,9 @@
 /*
- * XREFs of PiPnpRtlGetDeviceRelatedDeviceRoutine @ 0x1404CFCE8
+ * XREFs of PiPnpRtlGetDeviceRelatedDeviceRoutine @ 0x14050CDB4
  * Callers:
  *     <none>
  * Callees:
- *     PlugPlayGetRelatedDevice @ 0x1404CFD20 (PlugPlayGetRelatedDevice.c)
+ *     PlugPlayGetRelatedDevice @ 0x14050CDEC (PlugPlayGetRelatedDevice.c)
  */
 
 __int64 __fastcall PiPnpRtlGetDeviceRelatedDeviceRoutine(

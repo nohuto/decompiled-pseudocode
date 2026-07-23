@@ -75,7 +75,7 @@ unsigned __int64 __fastcall MiFreeInitializationCode(unsigned __int64 *a1, unsig
     a1[25] -= v19[3];
     a1[26] -= result;
     v14 = (PVOID)a1[6];
-    if ( v14 == (PVOID)PsNtosImageBase || v14 == PsHalImageBase )
+    if ( v14 == PsNtosImageBase || v14 == PsHalImageBase )
     {
       v15 = v19[3];
       qword_1403CC650 -= v19[3];

@@ -1,9 +1,9 @@
 /*
- * XREFs of PsChargeProcessPoolQuota @ 0x1403BD360
+ * XREFs of PsChargeProcessPoolQuota @ 0x1403C71D0
  * Callers:
- *     PsChargePoolQuota @ 0x1403BD330 (PsChargePoolQuota.c)
+ *     PsChargePoolQuota @ 0x1403C71A0 (PsChargePoolQuota.c)
  * Callees:
- *     PspExpandQuota @ 0x1403BD8E8 (PspExpandQuota.c)
+ *     PspExpandQuota @ 0x1403C7758 (PspExpandQuota.c)
  */
 
 NTSTATUS __stdcall PsChargeProcessPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PTR Amount)
@@ -31,7 +31,7 @@ NTSTATUS __stdcall PsChargeProcessPoolQuota(PEPROCESS Process, POOL_TYPE PoolTyp
     return 0;
   v5 = 0;
   v6 = PoolType == PagedPool;
-  v7 = stru_140FC01F0.SchedulerApcFill3[8 * v6 + 48];
+  v7 = stru_140FC11F0.SchedulerApcFill3[8 * v6 + 40];
   v8 = 8 * v6;
   v9 = (unsigned __int64 *)(&Process[1].SchedulingGroup->Policy + 16 * v6);
   _m_prefetchw(v9);
@@ -45,11 +45,11 @@ LABEL_4:
     {
       v12 = v10 + Amount;
       if ( v10 + Amount < v10 )
-        return *(_DWORD *)&stru_140FC01F0.SchedulerApcFill5[v8 + 52];
+        return *(_DWORD *)&stru_140FC11F0.SchedulerApcFill5[v8 + 44];
       if ( v12 <= v11 )
         break;
       if ( (v7 & 1) == 0 || !v9[10] )
-        return *(_DWORD *)&stru_140FC01F0.SchedulerApcFill5[v8 + 52];
+        return *(_DWORD *)&stru_140FC11F0.SchedulerApcFill5[v8 + 44];
       v21 = _InterlockedExchange64((volatile __int64 *)v9 + 9, 0LL);
       if ( v21 )
       {
@@ -57,7 +57,7 @@ LABEL_4:
         goto LABEL_4;
       }
       if ( !(unsigned __int8)PspExpandQuota(v6, (_DWORD)v9, v10, Amount, (__int64)&i) )
-        return *(_DWORD *)&stru_140FC01F0.SchedulerApcFill5[v8 + 52];
+        return *(_DWORD *)&stru_140FC11F0.SchedulerApcFill5[v8 + 44];
     }
     v14 = _InterlockedCompareExchange64((volatile signed __int64 *)v9, v12, v10);
     v13 = v10 == v14;

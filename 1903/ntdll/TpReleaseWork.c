@@ -8,22 +8,14 @@
  *     sub_1800364D8 @ 0x1800364D8 (sub_1800364D8.c)
  */
 
-__int64 __fastcall TpReleaseWork(__int64 a1)
+void __cdecl TpReleaseWork(PTP_WORK Work)
 {
-  __int64 result; // rax
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
-  result = sub_1800364D8(a1, 1LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)sub_1800364D8(Work, 1LL) && (unsigned int)sub_180031774(Work, 1LL) )
   {
-    result = sub_180031774(a1, 1LL);
-    if ( (_DWORD)result )
-    {
-      *(_QWORD *)(a1 + 184) = retaddr;
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-      if ( (_DWORD)result == 1 )
-        return (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
-    }
+    *((_QWORD *)Work + 23) = retaddr;
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)Work, 0xFFFFFFFF) == 1 )
+      (**((void (__fastcall ***)(PTP_WORK))Work + 1))(Work);
   }
-  return result;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrResolveDelayLoadsFromDll @ 0x18015C2D0
+ * XREFs of LdrResolveDelayLoadsFromDll @ 0x18015C190
  * Callers:
  *     <none>
  * Callees:
- *     LdrpGetDelayloadDescriptor @ 0x18015C44C (LdrpGetDelayloadDescriptor.c)
+ *     LdrpGetDelayloadDescriptor @ 0x18015C30C (LdrpGetDelayloadDescriptor.c)
  */
 
-__int64 __fastcall LdrResolveDelayLoadsFromDll(__int64 a1, __int64 a2, int a3)
+NTSTATUS __cdecl LdrResolveDelayLoadsFromDll(PVOID ParentModuleBase, PCSTR TargetDllName, ULONG Flags)
 {
-  __int64 DelayloadDescriptor; // rax
+  const IMAGE_DELAYLOAD_DESCRIPTOR *DelayloadDescriptor; // rax
 
-  if ( a3 )
-    return 3221225485LL;
-  DelayloadDescriptor = LdrpGetDelayloadDescriptor(a1);
+  if ( Flags )
+    return -1073741811;
+  DelayloadDescriptor = (const IMAGE_DELAYLOAD_DESCRIPTOR *)LdrpGetDelayloadDescriptor(ParentModuleBase);
   if ( DelayloadDescriptor )
-    return LdrpResolveDelayLoadDescriptor(a1, DelayloadDescriptor);
+    return LdrpResolveDelayLoadDescriptor((char *)ParentModuleBase, DelayloadDescriptor);
   else
-    return 3221225781LL;
+    return -1073741515;
 }

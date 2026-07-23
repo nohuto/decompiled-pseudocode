@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogReserveVaFailed @ 0x140A2E8A4
+ * XREFs of MiLogReserveVaFailed @ 0x140A2EB54
  * Callers:
- *     MiReserveUserMemory @ 0x14071F3E0 (MiReserveUserMemory.c)
+ *     MiReserveUserMemory @ 0x14071F5E0 (MiReserveUserMemory.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     PsGetProcessSessionId @ 0x140297620 (PsGetProcessSessionId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     PsGetProcessSessionId @ 0x1402978B0 (PsGetProcessSessionId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -114,7 +114,7 @@ char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3, __int64
           v20 = a2;
           v21 = a3;
           v22 = a4;
-          LOBYTE(v4) = tlgWriteEx_EtwWriteEx(v12, (unsigned __int8 *)&word_1400384A2, v11, 1u, v14, v15, 0xAu, &v27);
+          LOBYTE(v4) = tlgWriteEx_EtwWriteEx(v12, (unsigned __int8 *)&word_14003858A, v11, 1u, v14, v15, 0xAu, &v27);
         }
       }
     }

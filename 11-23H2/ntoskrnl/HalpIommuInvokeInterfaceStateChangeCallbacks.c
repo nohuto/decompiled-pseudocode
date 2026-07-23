@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuInvokeInterfaceStateChangeCallbacks @ 0x14050DFE8
+ * XREFs of HalpIommuInvokeInterfaceStateChangeCallbacks @ 0x14050E538
  * Callers:
- *     HalpNotifyIommuDomainPolicyChange @ 0x14050E0B0 (HalpNotifyIommuDomainPolicyChange.c)
+ *     HalpNotifyIommuDomainPolicyChange @ 0x14050E600 (HalpNotifyIommuDomainPolicyChange.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpIommuDeviceGetDomainTypes @ 0x14050DE78 (HalpIommuDeviceGetDomainTypes.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpIommuDeviceGetDomainTypes @ 0x14050E3C8 (HalpIommuDeviceGetDomainTypes.c)
  */
 
 signed __int32 __fastcall HalpIommuInvokeInterfaceStateChangeCallbacks(__int64 a1, char a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiMapCacheExceptionFilter @ 0x140A3088C
+ * XREFs of MiMapCacheExceptionFilter @ 0x140A30B3C
  * Callers:
- *     MmCopyToCachedPage @ 0x1402CD7D0 (MmCopyToCachedPage.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
+ *     MmCopyToCachedPage @ 0x1402CDA60 (MmCopyToCachedPage.c)
+ *     MiMakePageAvoidRead @ 0x1402CE290 (MiMakePageAvoidRead.c)
  * Callees:
  *     <none>
  */

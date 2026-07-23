@@ -1,15 +1,15 @@
 /*
- * XREFs of MmInitializeProcessor @ 0x14099F710
+ * XREFs of MmInitializeProcessor @ 0x1409A0640
  * Callers:
- *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
- *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1408BA7D8 (KiStartDynamicProcessor.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
+ *     KeStartAllProcessors @ 0x140A4E568 (KeStartAllProcessors.c)
  * Callees:
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiCreateUltraThreadContext @ 0x1402E30FC (MiCreateUltraThreadContext.c)
- *     MmDeleteProcessor @ 0x14052DFD0 (MmDeleteProcessor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiCreateUltraThreadContext @ 0x14029444C (MiCreateUltraThreadContext.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
+ *     MmDeleteProcessor @ 0x14052E210 (MmDeleteProcessor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmInitializeProcessor(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -23,11 +23,11 @@ __int64 __fastcall MmInitializeProcessor(__int64 a1, __int64 a2, __int64 a3, uns
 
   if ( *(_DWORD *)(a1 + 36) )
     *(_QWORD *)(a1 + 34224) = -1LL;
-  v5 = MiReservePtes((__int64)&qword_140C4EF40, 0x40u, a3, a4);
+  v5 = MiReservePtes((__int64)&qword_140C4EF80, 0x40u, a3, a4);
   if ( v5 )
   {
     *(_QWORD *)(a1 + 33280) = (__int64)(v5 << 25) >> 16;
-    *(_DWORD *)(a1 + 32540) = dword_140C4DEF8;
+    *(_DWORD *)(a1 + 32540) = dword_140C4DF38;
     Pool = (char *)MiAllocatePool(64, 0x30C8uLL, 0x20206D4Du);
     v7 = Pool;
     if ( Pool )
@@ -38,13 +38,13 @@ __int64 __fastcall MmInitializeProcessor(__int64 a1, __int64 a2, __int64 a3, uns
       *((_QWORD *)Pool + 2) = Pool + 8248;
       *((_DWORD *)Pool + 6) = 512;
       v8 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 192) + 146LL);
-      v9 = qword_140C50D90 + 4544 * v8;
+      v9 = qword_140C50DD0 + 4544 * v8;
       *(_DWORD *)(a1 + 32532) = *(unsigned __int8 *)(v9 + 4212);
       *(_DWORD *)(a1 + 32536) = *(_DWORD *)(v9 + 4208);
       v10 = __rdtsc();
       if ( (unsigned int)MiCreateUltraThreadContext(
                            (__int64)v7 + 12352,
-                           ((_DWORD)v8 << byte_140C4DE8C) | (unsigned int)(v10 & (unsigned __int16)((1 << byte_140C4DE8D)
+                           ((_DWORD)v8 << byte_140C4DECC) | (unsigned int)(v10 & (unsigned __int16)((1 << byte_140C4DECD)
                                                                                                   - 1)),
                            8) )
       {

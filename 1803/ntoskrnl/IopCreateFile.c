@@ -370,15 +370,15 @@ LABEL_38:
                 }
                 if ( (*(_DWORD *)(v35 + 4) & 4) != 0 )
                 {
-                  ++FsRtlEcpListLookaside.L.TotalFrees;
-                  if ( LOWORD(FsRtlEcpListLookaside.L.ListHead.Alignment) >= FsRtlEcpListLookaside.L.Depth )
+                  ++unk_1403D191C;
+                  if ( LOWORD(FsRtlEcpListLookaside.Alignment) >= unk_1403D1910 )
                   {
-                    ++FsRtlEcpListLookaside.L.FreeMisses;
-                    ((void (__fastcall *)(__int64))FsRtlEcpListLookaside.L.FreeEx)(v35);
+                    ++unk_1403D1920;
+                    unk_1403D1938(v35);
                   }
                   else
                   {
-                    RtlpInterlockedPushEntrySList(&FsRtlEcpListLookaside.L.ListHead, (PSLIST_ENTRY)v35);
+                    RtlpInterlockedPushEntrySList(&FsRtlEcpListLookaside, (PSLIST_ENTRY)v35);
                   }
                 }
                 else

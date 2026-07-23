@@ -12,21 +12,21 @@
 
 __int64 WheapPfaReset()
 {
-  _BYTE *v0; // rax
+  PRTL_BALANCED_NODE v0; // rax
   signed __int8 v1; // cf
-  _BYTE *v2; // rbx
+  PRTL_BALANCED_NODE v2; // rbx
   PVOID *v3; // rbx
   PVOID *v4; // rcx
   PVOID *v5; // rdx
   PVOID **v6; // rax
 
-  v0 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&WheapPfaLock, 0LL, 0LL);
+  v0 = KeAbPreAcquire((ULONG_PTR)&WheapPfaLock, 0LL, 0);
   v1 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock, 0LL);
   v2 = v0;
   if ( v1 )
     ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v0, (ULONG_PTR)&WheapPfaLock);
   if ( v2 )
-    v2[26] |= 1u;
+    BYTE2(v2[1].Left) |= 1u;
   WheapApplyPolicyChanges();
   v3 = (PVOID *)WheapPfaList;
   while ( v3 != &WheapPfaList )

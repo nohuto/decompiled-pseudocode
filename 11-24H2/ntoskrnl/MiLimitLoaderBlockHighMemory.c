@@ -1,19 +1,19 @@
 /*
- * XREFs of MiLimitLoaderBlockHighMemory @ 0x140C55E48
+ * XREFs of MiLimitLoaderBlockHighMemory @ 0x140C57FD8
  * Callers:
- *     MiMemoryLicense @ 0x140C561FC (MiMemoryLicense.c)
+ *     MiMemoryLicense @ 0x140C5838C (MiMemoryLicense.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-unsigned __int64 __fastcall MiLimitLoaderBlockHighMemory(__int64 a1, ULONG_PTR a2)
+unsigned __int64 __fastcall MiLimitLoaderBlockHighMemory(_RTL_RB_TREE *a1, ULONG_PTR a2)
 {
-  unsigned __int64 *v2; // rbp
+  _RTL_RB_TREE *v2; // rbp
   unsigned __int64 v3; // rdi
   __int64 v4; // r14
-  __int64 v6; // rax
-  _QWORD *i; // rbx
+  _RTL_BALANCED_NODE *Min; // rax
+  _QWORD *Children; // rbx
   _QWORD **v8; // rax
   _QWORD *v9; // rdx
   _QWORD *v10; // rcx
@@ -24,40 +24,40 @@ unsigned __int64 __fastcall MiLimitLoaderBlockHighMemory(__int64 a1, ULONG_PTR a
   ULONG_PTR v15; // r10
   int v16; // eax
 
-  v2 = (unsigned __int64 *)(a1 + 352);
+  v2 = a1 + 22;
   v3 = 0LL;
   v4 = KeFeatureBits & 0x2000000000LL;
-  v6 = *(_QWORD *)(a1 + 360);
-  if ( (v6 & 1) != 0 )
+  Min = a1[22].Min;
+  if ( ((unsigned __int8)Min & 1) != 0 )
   {
-    if ( v6 == 1 )
-      i = 0LL;
+    if ( Min == (_RTL_BALANCED_NODE *)1 )
+      Children = 0LL;
     else
-      i = (_QWORD *)(v6 ^ ((unsigned __int64)v2 | 1));
+      Children = (_QWORD *)((unsigned __int64)Min ^ ((unsigned __int64)v2 | 1));
   }
   else
   {
-    i = *(_QWORD **)(a1 + 360);
+    Children = a1[22].Min->Children;
   }
-  while ( i )
+  while ( Children )
   {
-    v8 = (_QWORD **)i[1];
-    v9 = i;
-    v10 = i;
+    v8 = (_QWORD **)Children[1];
+    v9 = Children;
+    v10 = Children;
     if ( v8 )
     {
       v11 = *v8;
-      for ( i = (_QWORD *)i[1]; v11; v11 = (_QWORD *)*v11 )
-        i = v11;
+      for ( Children = (_QWORD *)Children[1]; v11; v11 = (_QWORD *)*v11 )
+        Children = v11;
     }
     else
     {
       while ( 1 )
       {
-        i = (_QWORD *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !i || (_QWORD *)*i == v10 )
+        Children = (_QWORD *)(Children[2] & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( !Children || (_QWORD *)*Children == v10 )
           break;
-        v10 = i;
+        v10 = Children;
       }
     }
     v12 = *((_DWORD *)v9 + 6);
@@ -118,7 +118,7 @@ LABEL_43:
           v9[5] = a2 - v15;
           goto LABEL_43;
         }
-        RtlRbRemoveNode(v2, v9);
+        RtlRbRemoveNode(v2, (PRTL_BALANCED_NODE)v9);
       }
     }
   }

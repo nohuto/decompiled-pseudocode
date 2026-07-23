@@ -126,7 +126,7 @@ NTSTATUS __stdcall NtSetInformationThread(
   int v77; // edi
   PVOID Object; // [rsp+40h] [rbp-1B8h] BYREF
   int v79; // [rsp+48h] [rbp-1B0h]
-  struct _PROCESSOR_NUMBER v80; // [rsp+50h] [rbp-1A8h] BYREF
+  _PROCESSOR_NUMBER v80; // [rsp+50h] [rbp-1A8h] BYREF
   LONG Increment; // [rsp+54h] [rbp-1A4h]
   char v82; // [rsp+58h] [rbp-1A0h]
   unsigned int v83; // [rsp+5Ch] [rbp-19Ch]
@@ -167,42 +167,42 @@ NTSTATUS __stdcall NtSetInformationThread(
     v9 = 0x140000000uLL;
     switch ( ThreadInformationClass )
     {
-      case 2:
-      case 3:
-      case 5:
-      case 6:
-      case 8:
-      case 9:
-      case 10:
-      case 11:
-      case 12:
-      case 13:
-      case 14:
-      case 15:
-      case 16:
-      case 17:
-      case 18:
-      case 19:
-      case 20:
-      case 21:
-      case 22:
-      case 23:
-      case 24:
-      case 25:
-      case 26:
-      case 27:
-      case 28:
-      case 29:
-      case 33:
+      case ThreadPriority:
+      case ThreadBasePriority:
+      case ThreadImpersonationToken:
+      case ThreadDescriptorTableEntry:
+      case ThreadEventPair:
+      case ThreadQuerySetWin32StartAddress:
+      case ThreadZeroTlsCell:
+      case ThreadPerformanceCount:
+      case ThreadAmILastThread:
+      case ThreadIdealProcessor:
+      case ThreadPriorityBoost:
+      case ThreadSetTlsArrayAddress:
+      case ThreadIsIoPending:
+      case ThreadHideFromDebugger:
+      case ThreadBreakOnTermination:
+      case ThreadSwitchLegacyState:
+      case ThreadIsTerminated:
+      case ThreadLastSystemCall:
+      case ThreadIoPriority:
+      case ThreadCycleTime:
+      case ThreadPagePriority:
+      case ThreadActualBasePriority:
+      case ThreadTebInformation:
+      case ThreadCSwitchMon:
+      case ThreadCSwitchPmu:
+      case ThreadWow64Context:
+      case ThreadIdealProcessorEx:
         goto LABEL_5;
-      case 4:
-      case 30:
-      case 31:
-      case 34:
+      case ThreadAffinityMask:
+      case ThreadGroupInformation:
+      case ThreadUmsInformation:
+      case ThreadCpuAccountingInformation:
         v10 = 8;
         goto LABEL_6;
-      case 7:
-      case 32:
+      case ThreadEnableAlignmentFaultFixup:
+      case ThreadCounterProfiling:
         v11 = 1;
         v10 = 1;
         break;
@@ -284,7 +284,7 @@ LABEL_18:
   {
     switch ( ThreadInformationClass )
     {
-      case 2:
+      case ThreadPriority:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v60 = *(_DWORD *)v5;
@@ -314,7 +314,7 @@ LABEL_18:
 LABEL_115:
         v25 = Object;
         goto LABEL_37;
-      case 3:
+      case ThreadBasePriority:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v49 = *(_DWORD *)v5;
@@ -363,7 +363,7 @@ LABEL_24:
         v29 = Object;
         KeSetBasePriorityThread((PKTHREAD)Object, v54);
         goto LABEL_48;
-      case 4:
+      case ThreadAffinityMask:
         if ( (_DWORD)v4 != 8 )
           return -1073741820;
         v43 = *(HANDLE *)v5;
@@ -394,7 +394,7 @@ LABEL_24:
           v14 = -1073741558;
         }
         goto LABEL_48;
-      case 7:
+      case ThreadEnableAlignmentFaultFixup:
         if ( (_DWORD)v4 != 1 )
           return -1073741820;
         v68 = *(_BYTE *)v5;
@@ -414,9 +414,9 @@ LABEL_24:
         else
           _interlockedbittestandreset((volatile signed __int32 *)Object + 30, 0);
         goto LABEL_115;
-      case 9:
+      case ThreadQuerySetWin32StartAddress:
         return -1073741811;
-      case 10:
+      case ThreadZeroTlsCell:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v30 = *(_DWORD *)v5;
@@ -496,7 +496,7 @@ LABEL_24:
           }
         }
         return v31;
-      case 13:
+      case ThreadIdealProcessor:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v45 = *(_DWORD *)v5;
@@ -519,7 +519,7 @@ LABEL_24:
         if ( (v47[29] & 0x400) == 0 )
           PspWriteTebIdealProcessor(CurrentThread, v47);
         goto LABEL_89;
-      case 14:
+      case ThreadPriorityBoost:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v65 = *(_DWORD *)v5;
@@ -542,9 +542,9 @@ LABEL_24:
           return v66;
         }
         return result;
-      case 15:
+      case ThreadSetTlsArrayAddress:
         return -1073741822;
-      case 17:
+      case ThreadHideFromDebugger:
         if ( (_DWORD)v4 )
           return -1073741820;
         result = ObReferenceObjectByHandleWithTag(
@@ -560,7 +560,7 @@ LABEL_24:
           return result;
         _InterlockedOr((volatile signed __int32 *)Object + 431, 4u);
         goto LABEL_171;
-      case 18:
+      case ThreadBreakOnTermination:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v64 = *(_DWORD *)v5;
@@ -582,7 +582,7 @@ LABEL_24:
         else
           _InterlockedAnd((volatile signed __int32 *)Object + 431, 0xFFFFFFDF);
         goto LABEL_115;
-      case 19:
+      case ThreadSwitchLegacyState:
         result = ObReferenceObjectByHandleWithTag(
                    ThreadHandle,
                    0x20u,
@@ -596,7 +596,7 @@ LABEL_24:
         v25 = Object;
         *((_QWORD *)Object + 74) = MEMORY[0xFFFFF780000003D8] | 3LL;
         goto LABEL_37;
-      case 22:
+      case ThreadIoPriority:
         if ( (((_DWORD)v4 - 4) & 0xFFFFFFFB) != 0 )
           return -1073741820;
         if ( (_DWORD)v4 == 4 )
@@ -639,7 +639,7 @@ LABEL_24:
         PsSetIoPriorityThread((__int64)v57, v5);
         v25 = v57;
         goto LABEL_37;
-      case 25:
+      case ThreadActualBasePriority:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v27 = *(_DWORD *)v5;
@@ -669,7 +669,7 @@ LABEL_24:
           v14 = -1073741727;
         }
         goto LABEL_48;
-      case 29:
+      case ThreadWow64Context:
         result = ObReferenceObjectByHandleWithTag(
                    ThreadHandle,
                    0x10u,
@@ -695,7 +695,7 @@ LABEL_24:
           }
         }
         return result;
-      case 30:
+      case ThreadGroupInformation:
         if ( (_DWORD)v4 != 16 )
           return -1073741820;
         v102 = *(_OWORD *)v5;
@@ -731,7 +731,7 @@ LABEL_24:
           ExReleaseResourceLite((PERESOURCE)(v63 + 56));
         PspUnlockProcessShared(v62, (__int64)CurrentThread);
         goto LABEL_48;
-      case 31:
+      case ThreadUmsInformation:
         if ( (_DWORD)v4 != 24 )
           return -1073741820;
         v97 = *(_OWORD *)v5;
@@ -762,7 +762,7 @@ LABEL_24:
         if ( (_DWORD)v97 != 2 )
           return -1073741811;
         return PspDetachThreadFromUmsCompletionList(v72);
-      case 32:
+      case ThreadCounterProfiling:
         if ( (_DWORD)v4 != 24 )
           return -1073741820;
         v85 = *(_OWORD *)v5;
@@ -799,10 +799,10 @@ LABEL_24:
 LABEL_89:
         ObfDereferenceObjectWithTag(v47, 0x79517350u);
         return v48;
-      case 33:
+      case ThreadIdealProcessorEx:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
-        v80 = *(struct _PROCESSOR_NUMBER *)v5;
+        v80 = *(_PROCESSOR_NUMBER *)v5;
         result = ObReferenceObjectByHandleWithTag(
                    ThreadHandle,
                    0x20u,
@@ -819,10 +819,10 @@ LABEL_89:
         {
           if ( (*((_DWORD *)v29 + 29) & 0x400) == 0 )
             PspWriteTebIdealProcessor(CurrentThread, v29);
-          *(struct _PROCESSOR_NUMBER *)v5 = v80;
+          *(_PROCESSOR_NUMBER *)v5 = v80;
         }
         goto LABEL_48;
-      case 34:
+      case ThreadCpuAccountingInformation:
         if ( ThreadHandle != (HANDLE)-2LL )
           return -1073741811;
         if ( (_DWORD)v4 != 8 )
@@ -855,7 +855,7 @@ LABEL_89:
           CurrentThread[1].SListFaultAddress = 0LL;
         }
         return 0;
-      case 36:
+      case ThreadHeterogeneousCpuPolicy:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v76 = MEMORY[4];
@@ -876,7 +876,7 @@ LABEL_89:
           ObfDereferenceObjectWithTag(Object, 0x79517350u);
         }
         return v77;
-      case 39:
+      case ThreadSelectedCpuSets:
         if ( (v4 & 7) != 0 || (unsigned int)v4 > 0xA0 )
           return -1073741820;
         memmove(v103, (const void *)v5, v4);

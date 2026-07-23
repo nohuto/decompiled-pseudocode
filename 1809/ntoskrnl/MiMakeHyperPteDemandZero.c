@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMakeHyperPteDemandZero @ 0x14011AF9C
+ * XREFs of MiMakeHyperPteDemandZero @ 0x14011B00C
  * Callers:
- *     MiMakeHyperRangeAccessible @ 0x14006E3D0 (MiMakeHyperRangeAccessible.c)
- *     MiFillHyperPtes @ 0x14011AE84 (MiFillHyperPtes.c)
+ *     MiMakeHyperRangeAccessible @ 0x14006E3C0 (MiMakeHyperRangeAccessible.c)
+ *     MiFillHyperPtes @ 0x14011AEF4 (MiFillHyperPtes.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 void __fastcall MiMakeHyperPteDemandZero(__int64 a1, __int64 a2, _DWORD *a3)
@@ -29,7 +29,7 @@ void __fastcall MiMakeHyperPteDemandZero(__int64 a1, __int64 a2, _DWORD *a3)
     if ( (unsigned int)MiPteHasShadow(v6, v5) )
     {
       v8 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_3;
       v9 = (v5 & 1) == 0;
     }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMapChildLargePageVads @ 0x1408D9960
+ * XREFs of MiMapChildLargePageVads @ 0x1408D9AC0
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x1408D9060 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x1408D91C0 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
- *     MiIsVadLargePrivate @ 0x1402AD514 (MiIsVadLargePrivate.c)
- *     MiCopyLargeVad @ 0x1408D9D20 (MiCopyLargeVad.c)
+ *     MiIsVadLargePrivate @ 0x14022B870 (MiIsVadLargePrivate.c)
+ *     MiLocateAddress @ 0x14027CD80 (MiLocateAddress.c)
+ *     MiCopyLargeVad @ 0x1408D9E80 (MiCopyLargeVad.c)
  */
 
 __int64 __fastcall MiMapChildLargePageVads(__int64 a1, __int64 a2)
@@ -53,7 +53,7 @@ __int64 __fastcall MiMapChildLargePageVads(__int64 a1, __int64 a2)
           v8 = i;
         }
       }
-      if ( MiIsVadLargePrivate(v7) )
+      if ( (unsigned int)MiIsVadLargePrivate(v7) )
       {
         Address = MiLocateAddress((*(unsigned int *)(v10 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v10 + 32) << 32)) << 12);
         result = MiCopyLargeVad(a1, Address, v12);

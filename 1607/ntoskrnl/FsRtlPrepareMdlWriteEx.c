@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlPrepareMdlWriteEx @ 0x1404EE0B4
+ * XREFs of FsRtlPrepareMdlWriteEx @ 0x1404D017C
  * Callers:
  *     <none>
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IoFreeIrp @ 0x140055DD0 (IoFreeIrp.c)
- *     IoBuildAsynchronousFsdRequest @ 0x1400A4568 (IoBuildAsynchronousFsdRequest.c)
- *     IoSynchronousCallDriver @ 0x1400AC630 (IoSynchronousCallDriver.c)
- *     FsRtlPrepareMdlWrite @ 0x1404EE120 (FsRtlPrepareMdlWrite.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IoFreeIrp @ 0x140055950 (IoFreeIrp.c)
+ *     IoSynchronousCallDriver @ 0x1400AAB98 (IoSynchronousCallDriver.c)
+ *     IoBuildAsynchronousFsdRequest @ 0x14010AE94 (IoBuildAsynchronousFsdRequest.c)
+ *     FsRtlPrepareMdlWrite @ 0x1404D01E8 (FsRtlPrepareMdlWrite.c)
  */
 
 __int64 __fastcall FsRtlPrepareMdlWriteEx(

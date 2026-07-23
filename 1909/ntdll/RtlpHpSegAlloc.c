@@ -46,14 +46,14 @@ void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, __int64 a4, u
     v14 = a5 & 0xFFFFFFFD;
     if ( !v13 )
       v14 = a5;
-    if ( (int)RtlpHpSegPageRangeCommit(a1, v11, 0, v5, v14, 0LL) < 0 )
+    if ( (int)RtlpHpSegPageRangeCommit(a1, v14, 0LL) < 0 )
     {
       v9 = 0LL;
       goto LABEL_20;
     }
   }
   if ( (a5 & 4) != 0 )
-    RtlpHpSegPageRangeCommit(a1, v11, v8 - 1, v8 - (v12 << *(_BYTE *)(a1 + 9)) - 1, 0, 0LL);
+    RtlpHpSegPageRangeCommit(a1, 0, 0LL);
   *(_DWORD *)(v11 + 4) = (v12 << *(_BYTE *)(a1 + 8)) - a2;
   v15 = v11 & *(_QWORD *)a1;
   v16 = v11 - v15;

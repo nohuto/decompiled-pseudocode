@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCovSampCaptureQueueDpc @ 0x14048ADF0
+ * XREFs of EtwpCovSampCaptureQueueDpc @ 0x140484930
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
- *     InterlockedPushListSList @ 0x140730D40 (InterlockedPushListSList.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
+ *     InterlockedPushListSList @ 0x140735910 (InterlockedPushListSList.c)
  */
 
 void __fastcall EtwpCovSampCaptureQueueDpc(
@@ -15,9 +15,9 @@ void __fastcall EtwpCovSampCaptureQueueDpc(
         PVOID SystemArgument2)
 {
   PSLIST_ENTRY v5; // rax
-  struct _SLIST_ENTRY *Next; // rcx
+  _SLIST_ENTRY *Next; // rcx
   ULONG v7; // r9d
-  struct _SLIST_ENTRY *i; // r8
+  _SLIST_ENTRY *i; // r8
 
   v5 = RtlpInterlockedFlushSList((PSLIST_HEADER)DeferredContext + 67);
   if ( v5 )

@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpAdjustCreatorAccessState @ 0x1406C2B08
+ * XREFs of ObpAdjustCreatorAccessState @ 0x1406C2B38
  * Callers:
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     ObpGrantAccess @ 0x1407B61E4 (ObpGrantAccess.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     ObpGrantAccess @ 0x1407B64C4 (ObpGrantAccess.c)
  * Callees:
- *     SeComputeCreatorDeniedRights @ 0x14022F320 (SeComputeCreatorDeniedRights.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ObpReferenceSecurityDescriptor @ 0x1406C2C04 (ObpReferenceSecurityDescriptor.c)
- *     ObpDereferenceSecurityDescriptorForObject @ 0x1406C30DC (ObpDereferenceSecurityDescriptorForObject.c)
- *     SePrivilegedServiceAuditAlarm @ 0x1406C381C (SePrivilegedServiceAuditAlarm.c)
- *     SePrivilegeCheck @ 0x14072F2B0 (SePrivilegeCheck.c)
- *     SeAppendPrivileges @ 0x1407B63E0 (SeAppendPrivileges.c)
+ *     SeComputeCreatorDeniedRights @ 0x14022F430 (SeComputeCreatorDeniedRights.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ObpReferenceSecurityDescriptor @ 0x1406C2C34 (ObpReferenceSecurityDescriptor.c)
+ *     ObpDereferenceSecurityDescriptorForObject @ 0x1406C310C (ObpDereferenceSecurityDescriptorForObject.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x1406C384C (SePrivilegedServiceAuditAlarm.c)
+ *     SePrivilegeCheck @ 0x14072F4B0 (SePrivilegeCheck.c)
+ *     SeAppendPrivileges @ 0x1407B66C0 (SeAppendPrivileges.c)
  */
 
 __int64 __fastcall ObpAdjustCreatorAccessState(PACCESS_STATE AccessState, KPROCESSOR_MODE a2, _DWORD *a3, __int64 a4)

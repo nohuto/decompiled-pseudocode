@@ -1,8 +1,8 @@
 /*
- * XREFs of PpvUtilInit @ 0x140B82C48
+ * XREFs of PpvUtilInit @ 0x140B84C48
  * Callers:
- *     VfIoPendingEntry @ 0x140612330 (VfIoPendingEntry.c)
- *     VfIoPendingUnload @ 0x140612400 (VfIoPendingUnload.c)
+ *     VfIoPendingEntry @ 0x1406108F0 (VfIoPendingEntry.c)
+ *     VfIoPendingUnload @ 0x1406109C0 (VfIoPendingUnload.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of _StartPathWithLongPathPrefixIfNeeded @ 0x1800E5DE4
+ * XREFs of _StartPathWithLongPathPrefixIfNeeded @ 0x1800E3FF4
  * Callers:
- *     GetOverlayFilePathUsingChecksum @ 0x1800327F0 (GetOverlayFilePathUsingChecksum.c)
- *     _BuildCumulativeOverlayFilePath @ 0x1800333EC (_BuildCumulativeOverlayFilePath.c)
+ *     GetOverlayFilePathUsingChecksum @ 0x18001D950 (GetOverlayFilePathUsingChecksum.c)
+ *     _BuildCumulativeOverlayFilePath @ 0x18001E54C (_BuildCumulativeOverlayFilePath.c)
  * Callees:
- *     memcpy_s @ 0x180133B50 (memcpy_s.c)
- *     memmove_s @ 0x180133BF0 (memmove_s.c)
+ *     memcpy_s @ 0x1801338C0 (memcpy_s.c)
+ *     memmove_s @ 0x180133960 (memmove_s.c)
  */
 
 __int64 __fastcall StartPathWithLongPathPrefixIfNeeded(rsize_t SourceSize, rsize_t DestinationSize, char *Destination)

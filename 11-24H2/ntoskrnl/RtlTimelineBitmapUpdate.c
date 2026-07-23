@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlTimelineBitmapUpdate @ 0x1404006B0
+ * XREFs of RtlTimelineBitmapUpdate @ 0x1403FB2C0
  * Callers:
- *     PoEnergyContextUpdateComponentPower @ 0x1409048E0 (PoEnergyContextUpdateComponentPower.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x14099B564 (PoEnergyContextUpdateComponentPower.c)
  * Callees:
  *     <none>
  */

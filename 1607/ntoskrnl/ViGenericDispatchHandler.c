@@ -30,7 +30,7 @@
  *     ViGenericSystemControl @ 0x14071AADC (ViGenericSystemControl.c)
  *     ViGenericWrite @ 0x14071AAF0 (ViGenericWrite.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ViGenericDispatchHandler(__int64 a1, __int64 a2, __int64 (*a3)(void), unsigned int a4)

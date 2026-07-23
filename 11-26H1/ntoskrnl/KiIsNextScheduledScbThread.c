@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsNextScheduledScbThread @ 0x1404B3224
+ * XREFs of KiIsNextScheduledScbThread @ 0x1404AC8A4
  * Callers:
- *     KiDirectSwitchThread @ 0x140239BE0 (KiDirectSwitchThread.c)
+ *     KiDirectSwitchThread @ 0x14023B540 (KiDirectSwitchThread.c)
  * Callees:
  *     <none>
  */

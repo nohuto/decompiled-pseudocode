@@ -9,7 +9,7 @@
  *     MiDeleteCachedKernelShadowStack @ 0x1406443C4 (MiDeleteCachedKernelShadowStack.c)
  */
 
-__int64 __fastcall MiPruneCachedStackList(__int64 a1, union _SLIST_HEADER *a2, unsigned int a3, int a4)
+__int64 __fastcall MiPruneCachedStackList(__int64 a1, _SLIST_HEADER *a2, unsigned int a3, int a4)
 {
   __int64 result; // rax
   PSLIST_ENTRY v9; // rax

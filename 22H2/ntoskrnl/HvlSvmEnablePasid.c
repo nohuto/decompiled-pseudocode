@@ -23,7 +23,7 @@ __int64 __fastcall HvlSvmEnablePasid(unsigned int a1, int a2)
   v7 = a2;
   while ( 1 )
   {
-    v2 = HvcallFastExtended(65700LL, (__int64)&v6, 16LL, 0LL, 0);
+    v2 = HvcallFastExtended(65700LL, (__int64)&v6, 0x10u, 0, 0);
     if ( (HvlpFlags & 2) == 0 || !(unsigned __int8)HvlpHvStatusIsInsufficientMemory((unsigned __int16)v2, v2) )
       break;
     if ( (int)HvlpHandleInsufficientMemory(v3, v2, v4) < 0 )

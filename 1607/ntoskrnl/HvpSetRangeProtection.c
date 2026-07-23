@@ -1,21 +1,21 @@
 /*
- * XREFs of HvpSetRangeProtection @ 0x1405139A4
+ * XREFs of HvpSetRangeProtection @ 0x1404F6D94
  * Callers:
- *     HvpAddBin @ 0x14047DF10 (HvpAddBin.c)
- *     HvInitializeHive @ 0x14047FBA4 (HvInitializeHive.c)
- *     HvpResetPageProtection @ 0x1404B1F40 (HvpResetPageProtection.c)
- *     HvpMarkDirty @ 0x1405137E0 (HvpMarkDirty.c)
+ *     HvpAddBin @ 0x14047CC64 (HvpAddBin.c)
+ *     HvInitializeHive @ 0x14047E8F8 (HvInitializeHive.c)
+ *     HvpResetPageProtection @ 0x14049C320 (HvpResetPageProtection.c)
+ *     HvpMarkDirty @ 0x1404F6BD0 (HvpMarkDirty.c)
  * Callees:
- *     HvpMapEntryReleaseBinAddress @ 0x14002D400 (HvpMapEntryReleaseBinAddress.c)
- *     HvpMapEntryGetBinAddress @ 0x14002D660 (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x14002D780 (HvpGetBinContextInitialize.c)
- *     ExProtectPoolEx @ 0x1400EA270 (ExProtectPoolEx.c)
- *     HvpMapEntryGetFreeBin @ 0x1400F0100 (HvpMapEntryGetFreeBin.c)
- *     HvpMapEntryIsBinPresent @ 0x1400F011C (HvpMapEntryIsBinPresent.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     HvpGetBinContextInTempBin @ 0x1401B6CD8 (HvpGetBinContextInTempBin.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
- *     HvViewMapPinForFileOffset @ 0x14060FC6C (HvViewMapPinForFileOffset.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x14002CF80 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpMapEntryGetBinAddress @ 0x14002D1E0 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x14002D300 (HvpGetBinContextInitialize.c)
+ *     ExProtectPoolEx @ 0x1400E80E0 (ExProtectPoolEx.c)
+ *     HvpMapEntryGetFreeBin @ 0x1400EDF80 (HvpMapEntryGetFreeBin.c)
+ *     HvpMapEntryIsBinPresent @ 0x1400EDF9C (HvpMapEntryIsBinPresent.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     HvpGetBinContextInTempBin @ 0x1401B6BBC (HvpGetBinContextInTempBin.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
+ *     HvViewMapPinForFileOffset @ 0x14060FD20 (HvViewMapPinForFileOffset.c)
  */
 
 char __fastcall HvpSetRangeProtection(ULONG_PTR BugCheckParameter2, unsigned int a2, unsigned int a3, unsigned int a4)

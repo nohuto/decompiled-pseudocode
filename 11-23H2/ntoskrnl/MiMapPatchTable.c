@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMapPatchTable @ 0x140A3A260
+ * XREFs of MiMapPatchTable @ 0x140A3A510
  * Callers:
  *     MiMapSystemImage @ 0x140695E88 (MiMapSystemImage.c)
  * Callees:
  *     MiMakePrototypePteDirect @ 0x140213CE0 (MiMakePrototypePteDirect.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiMapPatchTable(unsigned __int64 a1, __int64 a2)

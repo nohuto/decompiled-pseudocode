@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpPartitionCreatePoolInternal @ 0x140A22748
+ * XREFs of ExpPartitionCreatePoolInternal @ 0x1408F7C7C
  * Callers:
- *     ExpPartitionInitialize @ 0x1407BFE84 (ExpPartitionInitialize.c)
- *     ExpPartitionCreatePoolDelayed @ 0x140A221DC (ExpPartitionCreatePoolDelayed.c)
- *     ExpPartitionCreatePool @ 0x140AB9EF0 (ExpPartitionCreatePool.c)
+ *     ExpPartitionInitialize @ 0x1407C02D4 (ExpPartitionInitialize.c)
+ *     ExpPartitionCreatePoolDelayed @ 0x1408F898C (ExpPartitionCreatePoolDelayed.c)
+ *     ExpPartitionCreatePool @ 0x140AB4F0C (ExpPartitionCreatePool.c)
  * Callees:
- *     ExpWorkQueueDestroy @ 0x1407C00D8 (ExpWorkQueueDestroy.c)
- *     ExpWorkQueueInitialize @ 0x1407C016C (ExpWorkQueueInitialize.c)
- *     ExpCreateWorkerThread @ 0x140A22278 (ExpCreateWorkerThread.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExpWorkQueueDestroy @ 0x1407C0528 (ExpWorkQueueDestroy.c)
+ *     ExpWorkQueueInitialize @ 0x1407C05BC (ExpWorkQueueInitialize.c)
+ *     ExpCreateWorkerThread @ 0x1408F8A28 (ExpCreateWorkerThread.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpPartitionCreatePoolInternal(__int64 a1, int a2, int a3, USHORT *a4, signed int a5)
@@ -19,14 +19,14 @@ __int64 __fastcall ExpPartitionCreatePoolInternal(__int64 a1, int a2, int a3, US
   __int64 v11; // r15
   int i; // esi
 
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x2E0uLL, 0x6C577845u);
   if ( Pool2 )
   {
     v11 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL * *a4);
     ExpWorkQueueInitialize(Pool2, a2, a3, a1, a4, a5);
     for ( i = 0; i < (2 * *(_DWORD *)(Pool2 + 716)) >> 1; ++i )
     {
-      WorkerThread = ExpCreateWorkerThread(Pool2, (int)v11 + 276);
+      WorkerThread = ExpCreateWorkerThread(Pool2, v11 + 276);
       if ( WorkerThread < 0 )
       {
         ExpWorkQueueDestroy((char *)Pool2);

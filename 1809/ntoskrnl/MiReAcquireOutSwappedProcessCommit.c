@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReAcquireOutSwappedProcessCommit @ 0x1402A4BD4
+ * XREFs of MiReAcquireOutSwappedProcessCommit @ 0x1402A4DC4
  * Callers:
- *     KiInSwapProcesses @ 0x14010B340 (KiInSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x14010B3C0 (KiInSwapProcesses.c)
  * Callees:
  *     KeFreezeProcess @ 0x140002940 (KeFreezeProcess.c)
  *     MiBeginProcessClean @ 0x140011D68 (MiBeginProcessClean.c)
  *     KeForceAttachProcess @ 0x14001674C (KeForceAttachProcess.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     KeForceDetachProcess @ 0x140127F74 (KeForceDetachProcess.c)
- *     MiLogOutswappedProcessCommitReacquire @ 0x1402A3F9C (MiLogOutswappedProcessCommitReacquire.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     KeForceDetachProcess @ 0x140128044 (KeForceDetachProcess.c)
+ *     MiLogOutswappedProcessCommitReacquire @ 0x1402A418C (MiLogOutswappedProcessCommitReacquire.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiReAcquireOutSwappedProcessCommit(unsigned __int16 *Object)
@@ -43,7 +43,7 @@ __int64 __fastcall MiReAcquireOutSwappedProcessCommit(unsigned __int16 *Object)
   CurrentThread = KeGetCurrentThread();
   v4 = 0;
   v5 = SharedVm;
-  if ( dword_1405401D0 != 1 )
+  if ( dword_1405411D0 != 1 )
   {
     v7 = (*((_DWORD *)Object + 193) & 8) != 0;
     if ( (*((_DWORD *)Object + 193) & 8) != 0 )
@@ -52,7 +52,7 @@ __int64 __fastcall MiReAcquireOutSwappedProcessCommit(unsigned __int16 *Object)
     }
     else
     {
-      v6 = MiChargeCommit(*(_QWORD *)(qword_14043A748 + 8LL * Object[727]), *((_QWORD *)SharedVm + 1), 1u);
+      v6 = MiChargeCommit(*(_QWORD *)(qword_14043B808 + 8LL * Object[727]), *((_QWORD *)SharedVm + 1), 1u);
       if ( v6 )
         goto LABEL_15;
     }

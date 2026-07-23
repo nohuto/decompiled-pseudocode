@@ -1,10 +1,10 @@
 /*
- * XREFs of MiComputeVadCommitAbove @ 0x140B241BC
+ * XREFs of MiComputeVadCommitAbove @ 0x140B265BC
  * Callers:
- *     MiReturnPageTablePageCommitment @ 0x140B23EB8 (MiReturnPageTablePageCommitment.c)
+ *     MiReturnPageTablePageCommitment @ 0x140B262B8 (MiReturnPageTablePageCommitment.c)
  * Callees:
- *     MiGetNextVad @ 0x140326018 (MiGetNextVad.c)
- *     MiAdjacentVadResolvesPageTable @ 0x1404F5B30 (MiAdjacentVadResolvesPageTable.c)
+ *     MiGetNextVad @ 0x140328048 (MiGetNextVad.c)
+ *     MiAdjacentVadResolvesPageTable @ 0x1404EF0F0 (MiAdjacentVadResolvesPageTable.c)
  */
 
 void __fastcall MiComputeVadCommitAbove(_QWORD *a1)

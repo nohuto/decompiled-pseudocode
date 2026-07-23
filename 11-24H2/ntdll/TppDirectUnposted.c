@@ -1,42 +1,40 @@
 /*
- * XREFs of TppDirectUnposted @ 0x18015C590
+ * XREFs of TppDirectUnposted @ 0x18015A950
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     TppFreeDirectParams @ 0x18006D790 (TppFreeDirectParams.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     TppFreeDirectParams @ 0x18008A070 (TppFreeDirectParams.c)
  */
 
-__int64 __fastcall TppDirectUnposted(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+void __fastcall TppDirectUnposted(__int64 a1)
 {
-  volatile signed __int32 *v3; // rsi
-  _QWORD **v4; // rdi
-  _QWORD *v5; // rbx
-  _QWORD *v6; // rax
-  __int64 result; // rax
+  _RTL_SRWLOCK *v1; // rsi
+  _QWORD **v2; // rdi
+  _QWORD *v3; // rbx
+  _QWORD *v4; // rax
 
-  v3 = (volatile signed __int32 *)(a1 + 32);
-  v4 = (_QWORD **)(a1 + 40);
+  v1 = (_RTL_SRWLOCK *)(a1 + 32);
+  v2 = (_QWORD **)(a1 + 40);
   while ( 1 )
   {
-    RtlAcquireSRWLockExclusive(v3, a2, a3);
-    v5 = *v4;
-    if ( *v4 == v4 )
+    RtlAcquireSRWLockExclusive(v1);
+    v3 = *v2;
+    if ( *v2 == v2 )
     {
-      v5 = 0LL;
+      v3 = 0LL;
     }
     else
     {
-      if ( (_QWORD **)v5[1] != v4 || (v6 = (_QWORD *)*v5, *(_QWORD **)(*v5 + 8LL) != v5) )
+      if ( (_QWORD **)v3[1] != v2 || (v4 = (_QWORD *)*v3, *(_QWORD **)(*v3 + 8LL) != v3) )
         __fastfail(3u);
-      *v4 = v6;
-      v6[1] = v4;
+      *v2 = v4;
+      v4[1] = v2;
     }
-    result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)v3);
-    if ( !v5 )
+    RtlReleaseSRWLockExclusive(v1);
+    if ( !v3 )
       break;
-    TppFreeDirectParams((__int64)(v5 - 4));
+    TppFreeDirectParams((__int64)(v3 - 4));
   }
-  return result;
 }

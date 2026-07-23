@@ -1,39 +1,39 @@
 /*
- * XREFs of RtlUpcaseUnicodeToMultiByteN @ 0x180034130
+ * XREFs of RtlUpcaseUnicodeToMultiByteN @ 0x18001F290
  * Callers:
- *     toupper @ 0x18012D870 (toupper.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x1801406A0 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     toupper @ 0x18012D5E0 (toupper.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x1801405A0 (RtlUpcaseUnicodeStringToAnsiString.c)
  * Callees:
- *     RtlUnicodeToUTF8N @ 0x180034960 (RtlUnicodeToUTF8N.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlUnicodeToUTF8N @ 0x18001FAC0 (RtlUnicodeToUTF8N.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
-        _BYTE *a1,
-        unsigned int a2,
-        unsigned int *a3,
-        char *a4,
-        unsigned int a5)
+NTSTATUS __cdecl RtlUpcaseUnicodeToMultiByteN(
+        PCHAR MultiByteString,
+        ULONG MaxBytesInMultiByteString,
+        PULONG BytesInMultiByteString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  unsigned int v6; // esi
-  unsigned int v8; // ebp
-  _BYTE *v9; // rdi
-  __int64 v10; // r11
-  __int64 v11; // r10
+  ULONG v6; // esi
+  ULONG v8; // ebp
+  CHAR *v9; // rdi
+  unsigned __int16 *MultiByteTable; // r11
+  _WORD *WideCharTable; // r10
   __int64 v12; // r15
-  unsigned int v13; // eax
+  ULONG v13; // eax
   __int64 v14; // r9
   unsigned __int64 v15; // rax
-  unsigned int v17; // r15d
-  unsigned int v18; // r12d
+  NTSTATUS v17; // r15d
+  ULONG v18; // r12d
   unsigned int v19; // r13d
   __int64 v20; // r10
   __int64 v21; // r13
-  _WORD *v22; // r9
+  WCHAR *v22; // r9
   unsigned __int64 v23; // r8
   __int64 v24; // r13
   __int64 v25; // r15
-  _BYTE *v26; // r8
+  PCHAR v26; // r8
   __int64 i; // r12
   __int64 v28; // rax
   unsigned __int16 v29; // cx
@@ -43,29 +43,29 @@ __int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
   unsigned int v33; // eax
   signed __int32 v34[8]; // [rsp+0h] [rbp-108h] BYREF
   unsigned int v35; // [rsp+30h] [rbp-D8h]
-  int v36; // [rsp+34h] [rbp-D4h] BYREF
+  ULONG UTF8StringActualByteCount; // [rsp+34h] [rbp-D4h] BYREF
   __int64 v37; // [rsp+38h] [rbp-D0h]
-  _BYTE v38[128]; // [rsp+40h] [rbp-C8h] BYREF
+  WCHAR UnicodeStringSource[64]; // [rsp+40h] [rbp-C8h] BYREF
 
-  v6 = a5 >> 1;
-  v8 = a2;
-  v9 = a1;
+  v6 = BytesInUnicodeString >> 1;
+  v8 = MaxBytesInMultiByteString;
+  v9 = MultiByteString;
   _InterlockedOr(v34, 0);
-  if ( word_1801C5FD0 == -535 || GlobalRtlNlsState == -535 )
+  if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
   {
     v17 = 0;
     v18 = 0;
-    v37 = qword_1801C6038;
+    v37 = qword_1801C5038;
     while ( v6 && v8 )
     {
-      v36 = 0;
+      UTF8StringActualByteCount = 0;
       if ( v6 >= 0x40 )
       {
         v19 = 64;
         v35 = 64;
         if ( v6 != 64 )
         {
-          if ( (unsigned int)*((unsigned __int16 *)a4 + 63) - 55296 <= 0x3FF )
+          if ( (unsigned int)UnicodeString[63] - 55296 <= 0x3FF )
             v19 = 63;
           v35 = v19;
         }
@@ -77,10 +77,10 @@ __int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
       }
       v20 = v19;
       v21 = v37;
-      v22 = v38;
+      v22 = UnicodeStringSource;
       do
       {
-        v23 = *(unsigned __int16 *)((char *)v22 + a4 - v38);
+        v23 = *(WCHAR *)((char *)v22 + (char *)UnicodeString - (char *)UnicodeStringSource);
         if ( (unsigned int)v23 >= 0x61 )
         {
           if ( (unsigned int)v23 > 0x7A )
@@ -106,43 +106,42 @@ __int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
       while ( v20 );
       v24 = v35;
       v17 = 0;
-      if ( (int)RtlUnicodeToUTF8N((_DWORD)v9, v8, (unsigned int)&v36, (unsigned int)v38, 2 * v35) < 0 )
+      if ( RtlUnicodeToUTF8N(v9, v8, &UTF8StringActualByteCount, UnicodeStringSource, 2 * v35) < 0 )
       {
-        v18 += v36;
+        v18 += UTF8StringActualByteCount;
         v17 = -2147483643;
         break;
       }
-      a4 += 2 * v24;
-      LODWORD(v9) = v36 + (_DWORD)v9;
-      v8 -= v36;
-      v18 += v36;
+      UnicodeString += v24;
+      v9 += UTF8StringActualByteCount;
+      v8 -= UTF8StringActualByteCount;
+      v18 += UTF8StringActualByteCount;
       v6 -= v24;
     }
-    if ( a3 )
-      *a3 = v18;
+    if ( BytesInMultiByteString )
+      *BytesInMultiByteString = v18;
     return v17;
   }
   else
   {
     _InterlockedOr(v34, 0);
-    v10 = qword_1801C5FB0;
-    v11 = qword_1801C5FB8;
-    if ( word_1801C5F9C )
+    MultiByteTable = GlobalRtlNlsState.MultiByteTable;
+    WideCharTable = GlobalRtlNlsState.WideCharTable;
+    if ( GlobalRtlNlsState.DBCSCodePage )
     {
-      v25 = qword_1801C6020;
-      v26 = a1;
-      for ( i = qword_1801C6038; v6; --v6 )
+      v25 = qword_1801C5020;
+      v26 = MultiByteString;
+      for ( i = qword_1801C5038; v6; --v6 )
       {
         if ( !v8 )
           break;
-        v28 = *(unsigned __int16 *)a4;
-        a4 += 2;
-        v29 = *(_WORD *)(v11 + 2 * v28);
+        v28 = *UnicodeString++;
+        v29 = WideCharTable[v28];
         v30 = *(unsigned __int16 *)(v25 + 2 * ((unsigned __int64)v29 >> 8));
         if ( (_WORD)v30 )
-          v31 = *(_WORD *)(qword_1801C5FC8 + 2 * (v30 + (unsigned __int8)v29));
+          v31 = GlobalRtlNlsState.DBCSOffsets[v30 + (unsigned __int8)v29];
         else
-          v31 = *(_WORD *)(v10 + 2LL * (unsigned __int8)v29);
+          v31 = MultiByteTable[(unsigned __int8)v29];
         if ( v31 >= 0x61u )
         {
           if ( v31 > 0x7Au )
@@ -161,7 +160,7 @@ __int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
             v31 -= 32;
           }
         }
-        v32 = *(_WORD *)(v11 + 2LL * v31);
+        v32 = WideCharTable[v31];
         if ( HIBYTE(v32) )
         {
           v33 = v8--;
@@ -173,24 +172,24 @@ __int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
         --v8;
         ++v26;
       }
-      if ( a3 )
-        *a3 = (_DWORD)v26 - (_DWORD)v9;
+      if ( BytesInMultiByteString )
+        *BytesInMultiByteString = (_DWORD)v26 - (_DWORD)v9;
       return v8 < v6 ? 0x80000005 : 0;
     }
     else
     {
-      v12 = qword_1801C6038;
-      v13 = a2;
-      if ( v6 < a2 )
-        v13 = a5 >> 1;
-      if ( a3 )
-        *a3 = v13;
+      v12 = qword_1801C5038;
+      v13 = MaxBytesInMultiByteString;
+      if ( v6 < MaxBytesInMultiByteString )
+        v13 = BytesInUnicodeString >> 1;
+      if ( BytesInMultiByteString )
+        *BytesInMultiByteString = v13;
       if ( v13 )
       {
         v14 = v13;
         do
         {
-          v15 = *(unsigned __int16 *)(v10 + 2LL * *(unsigned __int8 *)(*(unsigned __int16 *)a4 + v11));
+          v15 = MultiByteTable[*((unsigned __int8 *)WideCharTable + *UnicodeString)];
           if ( (unsigned int)v15 >= 0x61 )
           {
             if ( (unsigned int)v15 > 0x7A )
@@ -213,13 +212,13 @@ __int64 __fastcall RtlUpcaseUnicodeToMultiByteN(
               LOWORD(v15) = v15 - 32;
             }
           }
-          a4 += 2;
-          *v9++ = *(_BYTE *)((unsigned __int16)v15 + v11);
+          ++UnicodeString;
+          *v9++ = *((_BYTE *)WideCharTable + (unsigned __int16)v15);
           --v14;
         }
         while ( v14 );
       }
-      return a2 < v6 ? 0x80000005 : 0;
+      return MaxBytesInMultiByteString < v6 ? 0x80000005 : 0;
     }
   }
 }

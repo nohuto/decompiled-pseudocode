@@ -1,9 +1,9 @@
 /*
- * XREFs of BiTranslateDisplayOrder @ 0x1406D588C
+ * XREFs of BiTranslateDisplayOrder @ 0x1406D59C4
  * Callers:
- *     BiExportEfiBootManager @ 0x1406D4A80 (BiExportEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x1406D4BB8 (BiExportEfiBootManager.c)
  * Callees:
- *     BiTranslateObjectIdentifier @ 0x1406D59CC (BiTranslateObjectIdentifier.c)
+ *     BiTranslateObjectIdentifier @ 0x1406D5B04 (BiTranslateObjectIdentifier.c)
  */
 
 __int64 __fastcall BiTranslateDisplayOrder(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

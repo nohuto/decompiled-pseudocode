@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlIpv6StringToAddressExW @ 0x180055810
+ * XREFs of RtlIpv6StringToAddressExW @ 0x180055800
  * Callers:
- *     RtlCanonicalizeDomainName @ 0x180055610 (RtlCanonicalizeDomainName.c)
+ *     RtlCanonicalizeDomainName @ 0x180055600 (RtlCanonicalizeDomainName.c)
  * Callees:
- *     RtlIpv6StringToAddressW @ 0x180055A20 (RtlIpv6StringToAddressW.c)
+ *     RtlIpv6StringToAddressW @ 0x180055A10 (RtlIpv6StringToAddressW.c)
  *     iswctype @ 0x18009A240 (iswctype.c)
  */
 

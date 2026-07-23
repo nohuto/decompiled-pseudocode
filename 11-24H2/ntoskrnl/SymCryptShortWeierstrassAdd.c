@@ -1,17 +1,17 @@
 /*
- * XREFs of SymCryptShortWeierstrassAdd @ 0x14052CBB0
+ * XREFs of SymCryptShortWeierstrassAdd @ 0x1405337B0
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptModElementIsZero @ 0x140523C3C (SymCryptModElementIsZero.c)
- *     SymCryptEcpointCopy @ 0x14052A944 (SymCryptEcpointCopy.c)
- *     SymCryptEcpointCreate @ 0x14052A980 (SymCryptEcpointCreate.c)
- *     SymCryptEcpointMaskedCopy @ 0x14052AB88 (SymCryptEcpointMaskedCopy.c)
- *     SymCryptSizeofEcpointFromCurve @ 0x14052B2D0 (SymCryptSizeofEcpointFromCurve.c)
- *     SymCryptShortWeierstrassAddDiffNonZero @ 0x14052CD70 (SymCryptShortWeierstrassAddDiffNonZero.c)
- *     SymCryptShortWeierstrassAddSideChannelUnsafe @ 0x14052D178 (SymCryptShortWeierstrassAddSideChannelUnsafe.c)
- *     SymCryptShortWeierstrassIsEqual @ 0x14052E0B0 (SymCryptShortWeierstrassIsEqual.c)
- *     SymCryptEcpointDouble @ 0x14052E71C (SymCryptEcpointDouble.c)
+ *     SymCryptModElementIsZero @ 0x140521554 (SymCryptModElementIsZero.c)
+ *     SymCryptEcpointCopy @ 0x140528154 (SymCryptEcpointCopy.c)
+ *     SymCryptEcpointCreate @ 0x140528190 (SymCryptEcpointCreate.c)
+ *     SymCryptEcpointMaskedCopy @ 0x140528398 (SymCryptEcpointMaskedCopy.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x140528AE0 (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptEcpointDouble @ 0x140528B98 (SymCryptEcpointDouble.c)
+ *     SymCryptShortWeierstrassAddDiffNonZero @ 0x140533970 (SymCryptShortWeierstrassAddDiffNonZero.c)
+ *     SymCryptShortWeierstrassAddSideChannelUnsafe @ 0x140533D78 (SymCryptShortWeierstrassAddSideChannelUnsafe.c)
+ *     SymCryptShortWeierstrassIsEqual @ 0x140534CC0 (SymCryptShortWeierstrassIsEqual.c)
  */
 
 void *__fastcall SymCryptShortWeierstrassAdd(
@@ -48,7 +48,7 @@ void *__fastcall SymCryptShortWeierstrassAdd(
   SymCryptModElementIsZero();
   SymCryptShortWeierstrassIsEqual(a1, v9, (_DWORD)a3, 1, v17, v15);
   SymCryptShortWeierstrassAddDiffNonZero(a1, (_DWORD)a2, (_DWORD)a3, (_DWORD)v14, v17, v15);
-  SymCryptEcpointDouble(a1, (_DWORD)a2, (_DWORD)v16, 0, v17, v15);
+  SymCryptEcpointDouble(a1, (__int64)a2);
   SymCryptEcpointMaskedCopy(a1, v16, v14);
   SymCryptEcpointMaskedCopy(a1, a2, v14);
   SymCryptEcpointMaskedCopy(a1, a3, v14);

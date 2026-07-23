@@ -1,12 +1,12 @@
 /*
- * XREFs of SepDeleteClaimAttributes @ 0x1408A3E98
+ * XREFs of SepDeleteClaimAttributes @ 0x1408A50F8
  * Callers:
- *     SepSetTokenClaims @ 0x1405BD5DC (SepSetTokenClaims.c)
- *     SepTokenDeleteMethod @ 0x1405DEE70 (SepTokenDeleteMethod.c)
- *     SepDeleteLogonSessionClaims @ 0x1406B38A8 (SepDeleteLogonSessionClaims.c)
+ *     SepSetTokenClaims @ 0x1405BE5DC (SepSetTokenClaims.c)
+ *     SepTokenDeleteMethod @ 0x1405DFE70 (SepTokenDeleteMethod.c)
+ *     SepDeleteLogonSessionClaims @ 0x1406B4B48 (SepDeleteLogonSessionClaims.c)
  * Callees:
  *     AuthzBasepFreeSecurityAttributesList @ 0x140021130 (AuthzBasepFreeSecurityAttributesList.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepDeleteClaimAttributes(PVOID P)

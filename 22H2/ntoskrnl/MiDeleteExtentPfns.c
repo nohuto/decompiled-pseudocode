@@ -30,7 +30,7 @@ char __fastcall MiDeleteExtentPfns(__int64 a1, __int64 a2)
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( a1 )
   {
-    v3 = KeAbPreAcquire((ULONG_PTR)&qword_140C4CB10, 0LL, 0LL);
+    v3 = KeAbPreAcquire((ULONG_PTR)&qword_140C4CB10, 0LL, 0);
     if ( v3 )
       *(_BYTE *)(v3 + 26) |= 1u;
   }

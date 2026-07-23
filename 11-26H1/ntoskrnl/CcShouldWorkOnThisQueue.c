@@ -1,9 +1,9 @@
 /*
- * XREFs of CcShouldWorkOnThisQueue @ 0x140386D48
+ * XREFs of CcShouldWorkOnThisQueue @ 0x140388AF8
  * Callers:
- *     CcWorkerThread @ 0x1403865D0 (CcWorkerThread.c)
+ *     CcWorkerThread @ 0x140388380 (CcWorkerThread.c)
  * Callees:
- *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x1403835E8 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x140385398 (CcIsWriteBehindThreadpoolAtLowPriority.c)
  */
 
 bool __fastcall CcShouldWorkOnThisQueue(__int64 a1, __int64 a2, __int64 a3, char a4)

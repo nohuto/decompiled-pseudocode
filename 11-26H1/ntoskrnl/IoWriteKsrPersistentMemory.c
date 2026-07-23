@@ -1,10 +1,10 @@
 /*
- * XREFs of IoWriteKsrPersistentMemory @ 0x14079D0F0
+ * XREFs of IoWriteKsrPersistentMemory @ 0x14079FC30
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall IoWriteKsrPersistentMemory(__int64 a1, const void *a2, size_t a3)

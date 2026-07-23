@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGetMultiStringLength @ 0x1800F09F0
+ * XREFs of RtlpGetMultiStringLength @ 0x1800F09B0
  * Callers:
- *     RtlpSetPreferredUILanguages @ 0x1800F1270 (RtlpSetPreferredUILanguages.c)
+ *     RtlpSetPreferredUILanguages @ 0x1800F1230 (RtlpSetPreferredUILanguages.c)
  * Callees:
  *     <none>
  */

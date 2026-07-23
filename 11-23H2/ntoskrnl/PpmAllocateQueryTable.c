@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmAllocateQueryTable @ 0x14099CFA0
+ * XREFs of PpmAllocateQueryTable @ 0x14099D1A0
  * Callers:
- *     PpmRegisterSpmSettings @ 0x14099D620 (PpmRegisterSpmSettings.c)
+ *     PpmRegisterSpmSettings @ 0x14099D820 (PpmRegisterSpmSettings.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

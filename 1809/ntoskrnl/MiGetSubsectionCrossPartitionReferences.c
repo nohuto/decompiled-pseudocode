@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetSubsectionCrossPartitionReferences @ 0x14009388C
+ * XREFs of MiGetSubsectionCrossPartitionReferences @ 0x1400937CC
  * Callers:
- *     MiChargeSegmentCommit @ 0x14061E0D0 (MiChargeSegmentCommit.c)
+ *     MiChargeSegmentCommit @ 0x14061F0D0 (MiChargeSegmentCommit.c)
  * Callees:
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x1400938C4 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140093804 (MiGetSubsectionHoldingCrossPartitionReferences.c)
  */
 
 __int64 __fastcall MiGetSubsectionCrossPartitionReferences(__int64 a1)

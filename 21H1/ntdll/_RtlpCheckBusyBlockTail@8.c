@@ -25,7 +25,8 @@ char __fastcall RtlpCheckBusyBlockTail(int a1, unsigned int a2)
   int v14; // eax
   int v15; // eax
   int v16; // edi
-  SIZE_T v18; // [esp+Ch] [ebp-4h]
+  SIZE_T v18; // [esp-4h] [ebp-14h]
+  int v19; // [esp+Ch] [ebp-4h]
 
   v3 = *(_BYTE *)(a2 + 7);
   if ( v3 == 1 )
@@ -125,9 +126,10 @@ LABEL_39:
   }
   v15 = 0;
 LABEL_43:
+  LODWORD(v18) = 8;
   v16 = v15 + v5;
-  v18 = RtlCompareMemory((const void *)(v16 + a2 + 8), CheckHeapFillPattern, 8u);
-  if ( v18 == 8 )
+  v19 = RtlCompareMemory((const void *)(v16 + a2 + 8), CheckHeapFillPattern, v18);
+  if ( v19 == 8 )
     return 1;
   if ( NtCurrentPeb()->Ldr )
     DbgPrint("HEAP[%wZ]: ");
@@ -136,7 +138,7 @@ LABEL_43:
   DbgPrint(
     "Heap block at %p modified at %p past requested size of %Ix\n",
     (const void *)a2,
-    (const void *)(v16 + a2 + 8 + v18),
+    (const void *)(v16 + a2 + 8 + v19),
     v16);
   if ( NtCurrentPeb()->BeingDebugged )
   {

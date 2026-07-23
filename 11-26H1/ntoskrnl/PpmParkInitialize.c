@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmParkInitialize @ 0x140CD63E8
+ * XREFs of PpmParkInitialize @ 0x140CDC73C
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 PpmParkInitialize()
@@ -14,7 +14,7 @@ __int64 PpmParkInitialize()
   struct _KAFFINITY_EX *Pool2; // rax
   __int64 v3; // rsi
   unsigned int *p_Reserved; // rdi
-  _XSAVE_FORMAT *v5; // rax
+  ULONG_PTR v5; // rax
   __int64 v6; // rcx
 
   v0 = PpmHeteroMultiClassParkingRegValue;
@@ -22,19 +22,11 @@ __int64 PpmParkInitialize()
   if ( PpmHeteroMultiClassParkingRegValue == -1 )
     v0 = (unsigned __int8)PpmMaxCoreClasses > 2u;
   PpmHeteroMultiClassParkingEnabled = v0;
-  PopModernStandbyStateNotify.ApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)ExAllocatePool2(
-                                                                                      64LL,
-                                                                                      4LL
-                                                                                    * (unsigned int)KeMaximumProcessors,
-                                                                                      0x704D5050u);
-  if ( !PopModernStandbyStateNotify.ApcState.ApcListHead[0].Flink )
+  PpmParkOldSoftParkRankList = (void *)ExAllocatePool2(64LL, 4LL * (unsigned int)KeMaximumProcessors, 0x704D5050u);
+  if ( !PpmParkOldSoftParkRankList )
     return (unsigned int)-1073741670;
-  PopModernStandbyStateNotify.ApcState.ApcListHead[0].Blink = (struct _LIST_ENTRY *)ExAllocatePool2(
-                                                                                      64LL,
-                                                                                      4LL
-                                                                                    * (unsigned int)KeMaximumProcessors,
-                                                                                      0x704D5050u);
-  if ( !PopModernStandbyStateNotify.ApcState.ApcListHead[0].Blink )
+  PpmParkNewSoftParkRankList = (void *)ExAllocatePool2(64LL, 4LL * (unsigned int)KeMaximumProcessors, 0x704D5050u);
+  if ( !PpmParkNewSoftParkRankList )
     return (unsigned int)-1073741670;
   Pool2 = (struct _KAFFINITY_EX *)ExAllocatePool2(64LL, 0x1CE0uLL, 0x704D5050u);
   PpmParkPerfCheckAffinities = Pool2;
@@ -50,13 +42,13 @@ __int64 PpmParkInitialize()
     --v3;
   }
   while ( v3 );
-  v5 = (_XSAVE_FORMAT *)ExAllocatePool2(64LL, (unsigned int)(16 * KeMaximumProcessors), 0x704D5050u);
+  v5 = ExAllocatePool2(64LL, (unsigned int)(16 * KeMaximumProcessors), 0x704D5050u);
   if ( v5 )
   {
     v6 = 4LL * (unsigned int)KeMaximumProcessors;
-    PopModernStandbyStateNotify.StateSaveArea = v5;
-    *(_QWORD *)&PopModernStandbyStateNotify.WaitRegister.Flags = (char *)v5 + v6;
-    PopModernStandbyStateNotify.SchedulingGroup = (_KSCHEDULING_GROUP *volatile)((char *)v5 + v6 + v6);
+    PpmHeteroPerfCheckUtilities = v5;
+    qword_140F0C250 = v6 + v5;
+    qword_140F0C248 = v6 + v5 + v6;
   }
   else
   {

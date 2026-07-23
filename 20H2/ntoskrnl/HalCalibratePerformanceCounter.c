@@ -23,12 +23,12 @@ __int64 __fastcall HalCalibratePerformanceCounter(volatile signed __int32 *a1, _
   ULONG_PTR v10; // rbp
   __int64 v11; // rdx
   __int64 v12; // rax
-  __int64 v13; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER v13; // [rsp+40h] [rbp+8h] BYREF
 
   Number = KeGetPcr()->Prcb.Number;
   v3 = a2;
   v4 = HalpPerformanceCounter;
-  v13 = 0LL;
+  v13.QuadPart = 0LL;
   if ( *(_DWORD *)(HalpPerformanceCounter + 228) == 5 )
     v3 = HalpTimerScaleCounter(a2, 10000000LL, *(_QWORD *)(HalpPerformanceCounter + 192));
   if ( v4 != HalpOriginalPerformanceCounter )

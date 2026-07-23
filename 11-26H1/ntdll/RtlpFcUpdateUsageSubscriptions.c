@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpFcUpdateUsageSubscriptions @ 0x1801119C0
+ * XREFs of RtlpFcUpdateUsageSubscriptions @ 0x180111530
  * Callers:
- *     RtlSubscribeForFeatureUsageNotification @ 0x180148E10 (RtlSubscribeForFeatureUsageNotification.c)
- *     RtlUnsubscribeFromFeatureUsageNotifications @ 0x180148E20 (RtlUnsubscribeFromFeatureUsageNotifications.c)
+ *     RtlSubscribeForFeatureUsageNotification @ 0x180148CC0 (RtlSubscribeForFeatureUsageNotification.c)
+ *     RtlUnsubscribeFromFeatureUsageNotifications @ 0x180148CD0 (RtlUnsubscribeFromFeatureUsageNotifications.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     ZwSetSystemInformation @ 0x1801626D0 (ZwSetSystemInformation.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     ZwSetSystemInformation @ 0x1801625D0 (ZwSetSystemInformation.c)
  */
 
 __int64 __fastcall RtlpFcUpdateUsageSubscriptions(__int64 a1, unsigned __int64 a2, unsigned __int8 a3)
@@ -15,14 +15,14 @@ __int64 __fastcall RtlpFcUpdateUsageSubscriptions(__int64 a1, unsigned __int64 a
   unsigned int v6; // edi
   int v7; // r14d
   unsigned __int64 v8; // rax
-  unsigned int v9; // ebp
+  ULONG v9; // ebp
   _DWORD *Heap_0; // rax
   _DWORD *v11; // rsi
   unsigned int v12; // edx
   __int64 v13; // rcx
   __int64 v14; // rax
   __int128 v15; // xmm0
-  int v16; // ebx
+  NTSTATUS v16; // ebx
 
   v4 = a3;
   if ( a2 <= 0xFFFFFFFF )
@@ -38,7 +38,7 @@ __int64 __fastcall RtlpFcUpdateUsageSubscriptions(__int64 a1, unsigned __int64 a
     }
     else
     {
-      Heap_0 = (_DWORD *)RtlAllocateHeap_0();
+      Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, v9);
       v6 = 0;
       v11 = Heap_0;
       if ( Heap_0 )
@@ -59,8 +59,8 @@ __int64 __fastcall RtlpFcUpdateUsageSubscriptions(__int64 a1, unsigned __int64 a
           }
           while ( v12 < a2 );
         }
-        v16 = ZwSetSystemInformation(212LL, v11, v9);
-        RtlFreeHeap_0();
+        v16 = ZwSetSystemInformation(SystemFeatureUsageSubscriptionInformation, v11, v9);
+        RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v11);
         if ( v16 < 0 )
           return (unsigned int)v16;
       }

@@ -1,10 +1,10 @@
 /*
- * XREFs of I_MinCryptFindSignerCertificateByIssuerAndSerialNumber @ 0x1408A2258
+ * XREFs of I_MinCryptFindSignerCertificateByIssuerAndSerialNumber @ 0x1408A8668
  * Callers:
- *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A250C (I_MinCryptVerifyAuthenticodeTimeStamp.c)
- *     MinCrypK_VerifySignedDataKModeEx @ 0x1408A2AC4 (MinCrypK_VerifySignedDataKModeEx.c)
+ *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A891C (I_MinCryptVerifyAuthenticodeTimeStamp.c)
+ *     MinCrypK_VerifySignedDataKModeEx @ 0x1408A8ED4 (MinCrypK_VerifySignedDataKModeEx.c)
  * Callees:
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall I_MinCryptFindSignerCertificateByIssuerAndSerialNumber(

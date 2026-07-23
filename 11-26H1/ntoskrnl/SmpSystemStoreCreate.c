@@ -1,17 +1,17 @@
 /*
- * XREFs of SmpSystemStoreCreate @ 0x14081A360
+ * XREFs of SmpSystemStoreCreate @ 0x140820570
  * Callers:
- *     SmProcessConfigRequest @ 0x1408195C0 (SmProcessConfigRequest.c)
- *     SmInitSystem @ 0x140C7F2E8 (SmInitSystem.c)
+ *     SmProcessConfigRequest @ 0x14081F7D0 (SmProcessConfigRequest.c)
+ *     SmInitSystem @ 0x140C852E8 (SmInitSystem.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MmGetNumberOfPhysicalPages @ 0x1404AF740 (MmGetNumberOfPhysicalPages.c)
- *     SmpDirtyStoreCreate @ 0x140967114 (SmpDirtyStoreCreate.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MmGetNumberOfPhysicalPages @ 0x1404A8DD0 (MmGetNumberOfPhysicalPages.c)
+ *     SmpDirtyStoreCreate @ 0x140ADC3B8 (SmpDirtyStoreCreate.c)
  */
 
 __int64 __fastcall SmpSystemStoreCreate(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

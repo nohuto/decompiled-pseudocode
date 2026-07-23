@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpPrepareLightWeightTransaction @ 0x14053AC0C
+ * XREFs of CmpPrepareLightWeightTransaction @ 0x14053B14C
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x14053A870 (CmpCommitLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x14053ADB0 (CmpCommitLightWeightTransaction.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     CmListGetNextElement @ 0x140402E2C (CmListGetNextElement.c)
- *     CmpCleanupLightWeightPrepare @ 0x14053A998 (CmpCleanupLightWeightPrepare.c)
- *     CmpProcessLightWeightUOW @ 0x14053AD0C (CmpProcessLightWeightUOW.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     CmListGetNextElement @ 0x140401CEC (CmListGetNextElement.c)
+ *     CmpCleanupLightWeightPrepare @ 0x14053AED8 (CmpCleanupLightWeightPrepare.c)
+ *     CmpProcessLightWeightUOW @ 0x14053B24C (CmpProcessLightWeightUOW.c)
  */
 
 __int64 __fastcall CmpPrepareLightWeightTransaction(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall CmpPrepareLightWeightTransaction(__int64 a1)
   EVENT_DATA_DESCRIPTOR v12; // [rsp+58h] [rbp-30h] BYREF
 
   if ( stru_1402F34E0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1402F34E0, 1uLL) )
-    TlgWrite(&stru_1402F34E0, &unk_14027AE1B, 0LL, 0LL, 2u, &pData);
+    TlgWrite(&stru_1402F34E0, &unk_14027AF1B, 0LL, 0LL, 2u, &pData);
   if ( a1 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -54,6 +54,6 @@ __int64 __fastcall CmpPrepareLightWeightTransaction(__int64 a1)
   v8 = 0;
 LABEL_10:
   if ( stru_1402F34E0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1402F34E0, 1uLL) )
-    TlgWrite(&stru_1402F34E0, &unk_14027ADEA, 0LL, 0LL, 2u, &v12);
+    TlgWrite(&stru_1402F34E0, &unk_14027AEEA, 0LL, 0LL, 2u, &v12);
   return (unsigned int)v8;
 }

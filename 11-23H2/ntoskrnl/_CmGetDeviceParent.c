@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmGetDeviceParent @ 0x14079A334
+ * XREFs of _CmGetDeviceParent @ 0x14079A524
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA3BC (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x1407989E8 (_CmIsDeviceSafeRemovalRequired.c)
- *     PiCMGetRelatedDeviceInstance @ 0x140799CF0 (PiCMGetRelatedDeviceInstance.c)
- *     _CmGetDeviceSiblings @ 0x14083917C (_CmGetDeviceSiblings.c)
- *     _CmGetParentDeviceContainerId @ 0x1408607B4 (_CmGetParentDeviceContainerId.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA3EC (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x140798BD8 (_CmIsDeviceSafeRemovalRequired.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x140799EE0 (PiCMGetRelatedDeviceInstance.c)
+ *     _CmGetDeviceSiblings @ 0x14083947C (_CmGetDeviceSiblings.c)
+ *     _CmGetParentDeviceContainerId @ 0x1408609F4 (_CmGetParentDeviceContainerId.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14022B238 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     _CmIsRootDevice @ 0x14079A498 (_CmIsRootDevice.c)
- *     _NtPlugPlayGetDeviceRelatedDevice @ 0x14079A4DC (_NtPlugPlayGetDeviceRelatedDevice.c)
+ *     RtlStringCchCopyExW @ 0x14022B348 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     _CmIsRootDevice @ 0x14079A688 (_CmIsRootDevice.c)
+ *     _NtPlugPlayGetDeviceRelatedDevice @ 0x14079A6CC (_NtPlugPlayGetDeviceRelatedDevice.c)
  */
 
 int __fastcall CmGetDeviceParent(__int64 a1, const WCHAR *a2, wchar_t *a3, unsigned int *a4)

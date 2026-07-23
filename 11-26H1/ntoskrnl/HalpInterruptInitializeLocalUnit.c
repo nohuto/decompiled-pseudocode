@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpInterruptInitializeLocalUnit @ 0x1405902E8
+ * XREFs of HalpInterruptInitializeLocalUnit @ 0x140592A68
  * Callers:
- *     HalpInterruptReinitializeThisProcessor @ 0x140513164 (HalpInterruptReinitializeThisProcessor.c)
- *     HalpInterruptResetThisProcessor @ 0x14057CBE0 (HalpInterruptResetThisProcessor.c)
- *     HalpInterruptInitializeController @ 0x1405901D0 (HalpInterruptInitializeController.c)
+ *     HalpInterruptReinitializeThisProcessor @ 0x14050CBD4 (HalpInterruptReinitializeThisProcessor.c)
+ *     HalpInterruptResetThisProcessor @ 0x14057F100 (HalpInterruptResetThisProcessor.c)
+ *     HalpInterruptInitializeController @ 0x140592950 (HalpInterruptInitializeController.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     HalpInterruptRestoreController @ 0x1404DE24C (HalpInterruptRestoreController.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpInterruptMarkProcessorStarted @ 0x14057C938 (HalpInterruptMarkProcessorStarted.c)
- *     HalpInitializeCmciVector @ 0x14058FDB4 (HalpInitializeCmciVector.c)
- *     HalpInitializeDeferredErrorVector @ 0x14058FE70 (HalpInitializeDeferredErrorVector.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptRestoreController @ 0x1404D792C (HalpInterruptRestoreController.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpInterruptMarkProcessorStarted @ 0x14057EE64 (HalpInterruptMarkProcessorStarted.c)
+ *     HalpInitializeCmciVector @ 0x140592534 (HalpInitializeCmciVector.c)
+ *     HalpInitializeDeferredErrorVector @ 0x1405925F0 (HalpInitializeDeferredErrorVector.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpInterruptInitializeLocalUnit(ULONG_PTR BugCheckParameter3)

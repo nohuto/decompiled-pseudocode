@@ -1,25 +1,25 @@
 /*
- * XREFs of CcFlushCachePriv @ 0x1402AC810
+ * XREFs of CcFlushCachePriv @ 0x1402771F0
  * Callers:
- *     CcZeroData @ 0x1402CC9B0 (CcZeroData.c)
- *     CcZeroEndOfLastPage @ 0x14044C774 (CcZeroEndOfLastPage.c)
- *     CcFlushCacheToLsn @ 0x140479380 (CcFlushCacheToLsn.c)
- *     CcFlushCache @ 0x14047B490 (CcFlushCache.c)
- *     MiFlushDataSection @ 0x140483F48 (MiFlushDataSection.c)
- *     CcCoherencyFlushAndPurgeCache @ 0x1404DD130 (CcCoherencyFlushAndPurgeCache.c)
- *     CcMapAndCopyInToCache @ 0x1404DD240 (CcMapAndCopyInToCache.c)
+ *     CcZeroData @ 0x14040BA30 (CcZeroData.c)
+ *     CcZeroEndOfLastPage @ 0x140443674 (CcZeroEndOfLastPage.c)
+ *     CcFlushCacheToLsn @ 0x140474C10 (CcFlushCacheToLsn.c)
+ *     CcFlushCache @ 0x140476B40 (CcFlushCache.c)
+ *     MiFlushDataSection @ 0x14047F468 (MiFlushDataSection.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x1404D6B50 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcMapAndCopyInToCache @ 0x1404D6C60 (CcMapAndCopyInToCache.c)
  * Callees:
- *     CcFlushCacheOneRange @ 0x140240110 (CcFlushCacheOneRange.c)
- *     CcFlushCachePostProcessOneRange @ 0x1402AACA0 (CcFlushCachePostProcessOneRange.c)
- *     CcFlushCacheAcquireRange @ 0x1402ABBD0 (CcFlushCacheAcquireRange.c)
- *     CcFlushCachePostProcess @ 0x1402ABF10 (CcFlushCachePostProcess.c)
- *     CcFlushCachePreProcess @ 0x1402AC290 (CcFlushCachePreProcess.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x1402ACCF0 (ExpAllocatePoolWithTagFromNode.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     VfHandlePoolAlloc @ 0x140BA8AA0 (VfHandlePoolAlloc.c)
+ *     CcFlushCacheOneRange @ 0x140208260 (CcFlushCacheOneRange.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     CcFlushCachePostProcessOneRange @ 0x140275FC0 (CcFlushCachePostProcessOneRange.c)
+ *     CcFlushCacheAcquireRange @ 0x140276EF0 (CcFlushCacheAcquireRange.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402776D0 (ExpAllocatePoolWithTagFromNode.c)
+ *     CcFlushCachePreProcess @ 0x140278C74 (CcFlushCachePreProcess.c)
+ *     CcFlushCachePostProcess @ 0x1402791F0 (CcFlushCachePostProcess.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     VfHandlePoolAlloc @ 0x140BAAAA0 (VfHandlePoolAlloc.c)
  */
 
 void __fastcall CcFlushCachePriv(const void *a1, __int64 a2, int a3, _QWORD *a4, char a5, __int128 *a6, __int64 a7)
@@ -87,7 +87,7 @@ void __fastcall CcFlushCachePriv(const void *a1, __int64 a2, int a3, _QWORD *a4,
     *(_QWORD *)(v16 + 80) = *a4;
     *(_QWORD *)(v16 + 88) = v16 + 80;
   }
-  if ( CcFlushCachePreProcess(v16) )
+  if ( (unsigned __int8)CcFlushCachePreProcess(v16) )
   {
     if ( *(_BYTE *)(v16 + 132) )
       *(_QWORD *)(v16 + 96) = 0LL;
@@ -100,7 +100,7 @@ void __fastcall CcFlushCachePriv(const void *a1, __int64 a2, int a3, _QWORD *a4,
           break;
         CcFlushCacheOneRange((__int64 *)v16);
       }
-      while ( CcFlushCachePostProcessOneRange(v16) );
+      while ( CcFlushCachePostProcessOneRange((__int64 *)v16) );
       if ( *(_QWORD *)(v16 + 232) && *(_DWORD *)(v16 + 248) )
         *(LARGE_INTEGER *)(v16 + 240) = KeQueryPerformanceCounter(0LL);
     }

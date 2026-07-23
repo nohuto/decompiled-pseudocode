@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     IoBoostThreadIoPriority @ 0x140280754 (IoBoostThreadIoPriority.c)
- *     PsBoostThreadIoEx @ 0x1402ACD80 (PsBoostThreadIoEx.c)
+ *     sub_140280754 @ 0x140280754 (sub_140280754.c)
+ *     sub_1402ACD80 @ 0x1402ACD80 (sub_1402ACD80.c)
  */
 
 __int64 __fastcall IoBoostThreadIo(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -20,12 +20,12 @@ __int64 __fastcall IoBoostThreadIo(__int64 a1, __int64 a2, __int64 a3, int a4)
   if ( v6 )
   {
     LOBYTE(a2) = 1;
-    PsBoostThreadIoEx(a1, a2, a3, 0LL);
+    sub_1402ACD80(a1, a2, a3, 0LL);
   }
   else
   {
-    PsBoostThreadIoEx(a1, 0LL, a3, 0LL);
-    IoBoostThreadIoPriority(a1, v4, 0x80000000LL);
+    sub_1402ACD80(a1, 0LL, a3, 0LL);
+    sub_140280754(a1, v4, 0x80000000LL);
   }
   return 0LL;
 }

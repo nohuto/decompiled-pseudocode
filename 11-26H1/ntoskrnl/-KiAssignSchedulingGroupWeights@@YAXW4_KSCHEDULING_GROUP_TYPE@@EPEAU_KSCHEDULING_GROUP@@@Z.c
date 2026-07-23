@@ -1,21 +1,20 @@
 /*
- * XREFs of ?KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x140445568
+ * XREFs of ?KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x14043E070
  * Callers:
- *     KeInsertSchedulingGroup @ 0x140444BD0 (KeInsertSchedulingGroup.c)
- *     KeSetSchedulingGroupWeights @ 0x14044506C (KeSetSchedulingGroupWeights.c)
- *     KeRemoveSchedulingGroup @ 0x1404C61B4 (KeRemoveSchedulingGroup.c)
- *     KeUpdateGroupSchedulingConstants @ 0x1405F9184 (KeUpdateGroupSchedulingConstants.c)
+ *     KeInsertSchedulingGroup @ 0x14043D6E0 (KeInsertSchedulingGroup.c)
+ *     KeSetSchedulingGroupWeights @ 0x14043DB7C (KeSetSchedulingGroupWeights.c)
+ *     KeRemoveSchedulingGroup @ 0x1404BFB64 (KeRemoveSchedulingGroup.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1405FBBA4 (KeUpdateGroupSchedulingConstants.c)
  * Callees:
- *     ?KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x140445624 (-KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z.c)
+ *     ?KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x14043E128 (-KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z.c)
  */
 
-struct _LIST_ENTRY *__fastcall KiAssignSchedulingGroupWeights(int a1, unsigned __int8 a2, __int64 a3)
+void __fastcall KiAssignSchedulingGroupWeights(int a1, unsigned __int8 a2, __int64 a3)
 {
-  unsigned int v5; // ebx
-  struct _LIST_ENTRY *Flink; // rdi
+  unsigned int v5; // edi
+  struct _LIST_ENTRY *Flink; // rbx
   struct _LIST_ENTRY *v7; // rsi
   struct _KSCHEDULING_GROUP *v8; // rcx
-  struct _LIST_ENTRY *result; // rax
 
   if ( a1 )
   {
@@ -34,13 +33,13 @@ LABEL_8:
     if ( a3 )
     {
       if ( !*(_DWORD *)(a3 + 20) )
-        return result;
+        return;
       v5 = *(_DWORD *)(a3 + 16);
     }
     else
     {
       if ( !KiGroupSchedulingTotalWeight )
-        return result;
+        return;
       v5 = KiGroupSchedulingMinimumWeight;
     }
     if ( !a3 )
@@ -58,9 +57,7 @@ LABEL_9:
       if ( !a1 )
         KiUpdateCpuTargetByWeight(v8, a2);
     }
-    result = Flink->Flink;
-    Flink = result;
+    Flink = Flink->Flink;
   }
-  while ( result != v7 );
-  return result;
+  while ( Flink != v7 );
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptEcurveValidateAndComputeSizes @ 0x140522AF0
+ * XREFs of SymCryptEcurveValidateAndComputeSizes @ 0x140520404
  * Callers:
- *     SymCryptEcurveAllocate @ 0x140522320 (SymCryptEcurveAllocate.c)
+ *     SymCryptEcurveAllocate @ 0x14051FC64 (SymCryptEcurveAllocate.c)
  * Callees:
- *     SymCryptDigitsFromBits @ 0x140523724 (SymCryptDigitsFromBits.c)
- *     SymCryptSizeofIntFromDigits @ 0x140523FFC (SymCryptSizeofIntFromDigits.c)
- *     SymCryptSizeofModulusFromDigits @ 0x14052402C (SymCryptSizeofModulusFromDigits.c)
- *     SymCryptSizeofEcpointEx @ 0x14052B2B4 (SymCryptSizeofEcpointEx.c)
+ *     SymCryptDigitsFromBits @ 0x14052103C (SymCryptDigitsFromBits.c)
+ *     SymCryptSizeofIntFromDigits @ 0x140521914 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModulusFromDigits @ 0x140521944 (SymCryptSizeofModulusFromDigits.c)
+ *     SymCryptSizeofEcpointEx @ 0x140528AC4 (SymCryptSizeofEcpointEx.c)
  */
 
 char __fastcall SymCryptEcurveValidateAndComputeSizes(_DWORD *a1, unsigned int *a2)

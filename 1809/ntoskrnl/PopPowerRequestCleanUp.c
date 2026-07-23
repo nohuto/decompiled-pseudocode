@@ -1,28 +1,28 @@
 /*
  * XREFs of PopPowerRequestCleanUp @ 0x14000333C
  * Callers:
- *     PopClosePowerRequestObject @ 0x1405882C0 (PopClosePowerRequestObject.c)
- *     PoDeletePowerRequest @ 0x140588E00 (PoDeletePowerRequest.c)
- *     PopDeletePowerRequestObject @ 0x140589A20 (PopDeletePowerRequestObject.c)
- *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
+ *     PopClosePowerRequestObject @ 0x1405892C0 (PopClosePowerRequestObject.c)
+ *     PoDeletePowerRequest @ 0x140589E00 (PoDeletePowerRequest.c)
+ *     PopDeletePowerRequestObject @ 0x14058AA20 (PopDeletePowerRequestObject.c)
+ *     PspExitThread @ 0x1405F85E0 (PspExitThread.c)
  * Callees:
  *     PoDestroyReasonContext @ 0x140003730 (PoDestroyReasonContext.c)
  *     PopPowerRequestExecuteCallbacks @ 0x1400038BC (PopPowerRequestExecuteCallbacks.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopNotifySessionUserPowerRequestDeleted @ 0x1405886DC (PopNotifySessionUserPowerRequestDeleted.c)
- *     PopProcessDisplayRequiredChange @ 0x1405886FC (PopProcessDisplayRequiredChange.c)
- *     PopUpdatePowerRequestProcessWakeCounter @ 0x14058999C (PopUpdatePowerRequestProcessWakeCounter.c)
- *     PopPowerRequestDeleteEntryById @ 0x140589A34 (PopPowerRequestDeleteEntryById.c)
- *     PopReleasePowerRequestPushLock @ 0x140589A6C (PopReleasePowerRequestPushLock.c)
- *     PopUmpoSendPowerRequestOverrideCleanup @ 0x140589A88 (PopUmpoSendPowerRequestOverrideCleanup.c)
- *     PopDiagTracePowerRequestClose @ 0x140589B2C (PopDiagTracePowerRequestClose.c)
- *     PopStatsDeletePowerRequest @ 0x140589BBC (PopStatsDeletePowerRequest.c)
- *     PopPowerRequestIsExecutionRequiredCapable @ 0x140589D2C (PopPowerRequestIsExecutionRequiredCapable.c)
- *     PopAcquirePowerRequestPushLock @ 0x140589D50 (PopAcquirePowerRequestPushLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopNotifySessionUserPowerRequestDeleted @ 0x1405896DC (PopNotifySessionUserPowerRequestDeleted.c)
+ *     PopProcessDisplayRequiredChange @ 0x1405896FC (PopProcessDisplayRequiredChange.c)
+ *     PopUpdatePowerRequestProcessWakeCounter @ 0x14058A99C (PopUpdatePowerRequestProcessWakeCounter.c)
+ *     PopPowerRequestDeleteEntryById @ 0x14058AA34 (PopPowerRequestDeleteEntryById.c)
+ *     PopReleasePowerRequestPushLock @ 0x14058AA6C (PopReleasePowerRequestPushLock.c)
+ *     PopUmpoSendPowerRequestOverrideCleanup @ 0x14058AA88 (PopUmpoSendPowerRequestOverrideCleanup.c)
+ *     PopDiagTracePowerRequestClose @ 0x14058AB2C (PopDiagTracePowerRequestClose.c)
+ *     PopStatsDeletePowerRequest @ 0x14058ABBC (PopStatsDeletePowerRequest.c)
+ *     PopPowerRequestIsExecutionRequiredCapable @ 0x14058AD2C (PopPowerRequestIsExecutionRequiredCapable.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14058AD50 (PopAcquirePowerRequestPushLock.c)
  */
 
 void __fastcall PopPowerRequestCleanUp(unsigned int *Object)
@@ -65,11 +65,11 @@ void __fastcall PopPowerRequestCleanUp(unsigned int *Object)
   *v6 = v5;
   v5[1] = (unsigned int *)v6;
   *(_QWORD *)v4 = 0LL;
-  if ( v4[11] && (byte_140418234 || v1) )
+  if ( v4[11] && (byte_1404192F4 || v1) )
   {
     v4[11] = 0;
     if ( !v1 && (v4[6] & 8) == 0 )
-      --dword_1403FE7A0;
+      --dword_1403FF7A0;
   }
   if ( (unsigned __int8)PopPowerRequestIsExecutionRequiredCapable(v4) )
     PopUpdatePowerRequestProcessWakeCounter(v4, 0LL);

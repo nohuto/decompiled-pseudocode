@@ -1,18 +1,18 @@
 /*
- * XREFs of PopCaptureReasonContext @ 0x14041C644
+ * XREFs of PopCaptureReasonContext @ 0x14041069C
  * Callers:
- *     PoCaptureReasonContext @ 0x140331D38 (PoCaptureReasonContext.c)
+ *     PoCaptureReasonContext @ 0x1402BC6B8 (PoCaptureReasonContext.c)
  * Callees:
- *     PopSafeCopyUnicodeString @ 0x14041C8E4 (PopSafeCopyUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopSafeCopyUnicodeString @ 0x14041093C (PopSafeCopyUnicodeString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopCaptureReasonContext(__int64 a1, char a2, bool *a3, __int64 *a4)
 {
   __int64 *v5; // rsi
-  unsigned __int64 v7; // rbx
+  ULONG_PTR v7; // rbx
   __int64 v8; // r12
   int v9; // r15d
   __int64 Pool2; // rax
@@ -82,7 +82,7 @@ __int64 __fastcall PopCaptureReasonContext(__int64 a1, char a2, bool *a3, __int6
   }
   v9 = 0x80000000;
 LABEL_5:
-  Pool2 = ExAllocatePool2((a2 != 0) + 256LL);
+  Pool2 = ExAllocatePool2((a2 != 0) + 256LL, v7, 0x78435250u);
   v11 = (void *)Pool2;
   if ( Pool2 )
   {

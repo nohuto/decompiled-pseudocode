@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpGetPoolTagInfoTarget @ 0x14043AE10
+ * XREFs of ExpGetPoolTagInfoTarget @ 0x14042D650
  * Callers:
  *     <none>
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KiHaltOnAddress @ 0x1404FA2B8 (KiHaltOnAddress.c)
- *     KeCanUseHaltOnAddress @ 0x1404FA680 (KeCanUseHaltOnAddress.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KiHaltOnAddress @ 0x1404F7B98 (KiHaltOnAddress.c)
+ *     KeCanUseHaltOnAddress @ 0x1404F7F60 (KeCanUseHaltOnAddress.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, unsigned __int64 a4)
@@ -101,7 +101,7 @@ __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, volatile sign
     if ( (v29 & 0x40000000) != 0 )
       KeWakeAddressAll(a4, a2);
     memmove(*(void **)v6, ExPoolTagTables, 80LL * *(_QWORD *)(v6 + 8));
-    v17 = (__int64 *)&unk_140EFA7E8;
+    v17 = (__int64 *)&unk_140EFAAE8;
     v18 = 2047LL;
     v19 = *(_QWORD *)v6 + 80LL * *(_QWORD *)(v6 + 8);
     do

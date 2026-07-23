@@ -23,58 +23,65 @@
  *     _RtlpValidObjectAce@4 @ 0x4B34CCBA (_RtlpValidObjectAce@4.c)
  */
 
-char __stdcall RtlValidAcl(int a1)
+BOOLEAN __cdecl RtlValidAcl(PACL Acl)
 {
   unsigned int v1; // ebx
-  _WORD *v2; // ecx
-  unsigned __int8 *v3; // esi
-  unsigned int v4; // ecx
-  unsigned int v5; // edx
-  unsigned __int8 v6; // cl
+  unsigned __int16 *p_AclSize; // ecx
+  PACL v3; // esi
+  ACL *v4; // ecx
+  unsigned int AclSize; // edx
+  unsigned __int8 AclRevision; // cl
   char valid; // al
 
   v1 = 0;
-  if ( (unsigned __int8)(*(_BYTE *)a1 - 2) <= 2u )
+  if ( (unsigned __int8)(Acl->AclRevision - 2) <= 2u )
   {
-    v2 = (_WORD *)(a1 + 2);
-    if ( ((a1 + 3) & 0xFFFFFFFE) == a1 + 2 && *v2 >= 8u )
+    p_AclSize = &Acl->AclSize;
+    if ( (unsigned __int16 *)(((unsigned int)&Acl->AclSize + 1) & 0xFFFFFFFE) == &Acl->AclSize && *p_AclSize >= 8u )
     {
-      v3 = (unsigned __int8 *)(a1 + 8);
+      v3 = Acl + 1;
       while ( 1 )
       {
-        if ( v1 >= *(unsigned __int16 *)(a1 + 4) )
+        if ( v1 >= Acl->AceCount )
           return 1;
-        v4 = a1 + (unsigned __int16)*v2;
-        if ( (unsigned int)(v3 + 4) >= v4 )
+        v4 = (PACL)((char *)Acl + *p_AclSize);
+        if ( &v3->AceCount >= (unsigned __int16 *)v4 )
           return 0;
-        if ( (unsigned __int8 *)((unsigned int)(v3 + 3) & 0xFFFFFFFE) != v3 + 2 )
+        if ( (unsigned __int16 *)(((unsigned int)&v3->AclSize + 1) & 0xFFFFFFFE) != &v3->AclSize )
           return 0;
-        v5 = *((unsigned __int16 *)v3 + 1);
-        if ( (unsigned int)&v3[v5] > v4 )
+        AclSize = v3->AclSize;
+        if ( (PACL)((char *)v3 + AclSize) > v4 )
           return 0;
-        v6 = *v3;
-        if ( *v3 <= 3u || v6 <= 0xAu && v6 >= 9u || v6 <= 0xEu && v6 >= 0xDu || v6 == 17 || v6 == 19 || v6 == 20 )
+        AclRevision = v3->AclRevision;
+        if ( v3->AclRevision <= 3u
+          || AclRevision <= 0xAu && AclRevision >= 9u
+          || AclRevision <= 0xEu && AclRevision >= 0xDu
+          || AclRevision == 17
+          || AclRevision == 19
+          || AclRevision == 20 )
         {
           valid = RtlpValidKnownAce(v3);
           goto LABEL_11;
         }
-        if ( v6 == 4 )
+        if ( AclRevision == 4 )
         {
-          if ( *(_BYTE *)a1 < 3u )
+          if ( Acl->AclRevision < 3u )
             return 0;
           valid = RtlpValidCompoundAce(v3);
           goto LABEL_11;
         }
-        if ( v6 >= 5u && v6 <= 8u || v6 >= 0xBu && v6 <= 0xCu || (unsigned __int8)(v6 - 15) <= 1u )
+        if ( AclRevision >= 5u && AclRevision <= 8u
+          || AclRevision >= 0xBu && AclRevision <= 0xCu
+          || (unsigned __int8)(AclRevision - 15) <= 1u )
         {
-          if ( *(_BYTE *)a1 < 4u )
+          if ( Acl->AclRevision < 4u )
             return 0;
           valid = RtlpValidObjectAce(v3);
           goto LABEL_11;
         }
-        if ( v6 == 18 )
+        if ( AclRevision == 18 )
           break;
-        if ( v6 == 21 )
+        if ( AclRevision == 21 )
         {
           valid = RtlpValidAccessFilterAce(v3);
 LABEL_11:
@@ -82,12 +89,12 @@ LABEL_11:
             return 0;
           goto LABEL_12;
         }
-        if ( v5 < 4 )
+        if ( AclSize < 4 )
           return 0;
 LABEL_12:
-        v3 += *((unsigned __int16 *)v3 + 1);
+        v3 = (PACL)((char *)v3 + v3->AclSize);
         ++v1;
-        v2 = (_WORD *)(a1 + 2);
+        p_AclSize = &Acl->AclSize;
       }
       valid = RtlpValidAttributeAce(v3);
       goto LABEL_11;

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDeletePagefile @ 0x140A32800
+ * XREFs of MiDeletePagefile @ 0x140A32AB0
  * Callers:
- *     MmStoreRegister @ 0x140832E04 (MmStoreRegister.c)
- *     MiCreatePagingFile @ 0x1408330DC (MiCreatePagingFile.c)
- *     MiCreatePagefile @ 0x140833A94 (MiCreatePagefile.c)
- *     MiDeletePagingFiles @ 0x140A329A8 (MiDeletePagingFiles.c)
- *     MiCreateSpecialPurposeMemoryPageFile @ 0x140A4715C (MiCreateSpecialPurposeMemoryPageFile.c)
+ *     MmStoreRegister @ 0x140833104 (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x1408333DC (MiCreatePagingFile.c)
+ *     MiCreatePagefile @ 0x140833D94 (MiCreatePagefile.c)
+ *     MiDeletePagingFiles @ 0x140A32C58 (MiDeletePagingFiles.c)
+ *     MiCreateSpecialPurposeMemoryPageFile @ 0x140A4740C (MiCreateSpecialPurposeMemoryPageFile.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
  *     MiFreePageFileHashPfns @ 0x14021D960 (MiFreePageFileHashPfns.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MiFreeModWriterEntry @ 0x1402F489C (MiFreeModWriterEntry.c)
- *     MiUpdatePageFileList @ 0x140395E00 (MiUpdatePageFileList.c)
- *     MiReleasePageHash @ 0x140666C3C (MiReleasePageHash.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     PiPagePathSetState @ 0x140853C48 (PiPagePathSetState.c)
- *     MiDeletePageFileMemoryExtents @ 0x140A47214 (MiDeletePageFileMemoryExtents.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     MiFreeModWriterEntry @ 0x1402F4B2C (MiFreeModWriterEntry.c)
+ *     MiUpdatePageFileList @ 0x140395FE0 (MiUpdatePageFileList.c)
+ *     MiReleasePageHash @ 0x14066718C (MiReleasePageHash.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     PiPagePathSetState @ 0x140853F48 (PiPagePathSetState.c)
+ *     MiDeletePageFileMemoryExtents @ 0x140A474C4 (MiDeletePageFileMemoryExtents.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -48,7 +48,7 @@ void __fastcall MiDeletePagefile(char *P, int a2)
   v7 = *((_QWORD *)P + 27);
   if ( v7 )
     MiReleasePageHash(v7, *((_DWORD *)P + 2));
-  MiFreePageFileHashPfns((union _SLIST_HEADER *)P);
+  MiFreePageFileHashPfns((_SLIST_HEADER *)P);
   if ( _bittest16((const signed __int16 *)P + 102, 8u) )
     MiUpdatePageFileList((__int64)P, 0);
   if ( _bittest16((const signed __int16 *)P + 102, 0xBu) )

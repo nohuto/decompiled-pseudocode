@@ -15,11 +15,11 @@ void *sub_180061354()
   char v0; // cl
   unsigned int v1; // ecx
   void *result; // rax
-  _BYTE v3[56]; // [rsp+20h] [rbp-58h] BYREF
+  _BYTE SystemInformation[56]; // [rsp+20h] [rbp-58h] BYREF
   char v4; // [rsp+58h] [rbp-20h]
 
   qword_18015BFE8 = sub_18000EEA8();
-  if ( (int)ZwQuerySystemInformation(0LL, v3, 64LL, 0LL) < 0 )
+  if ( ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL) < 0 )
   {
     v1 = 1;
   }

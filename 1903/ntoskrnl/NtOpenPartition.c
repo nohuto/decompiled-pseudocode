@@ -7,26 +7,26 @@
  *     ObCloseHandle @ 0x14060F280 (ObCloseHandle.c)
  */
 
-__int64 __fastcall NtOpenPartition(HANDLE *a1, ACCESS_MASK a2, __int64 a3)
+NTSTATUS __cdecl NtOpenPartition(
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // di
   __int64 v7; // rdx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   HANDLE Handle[4]; // [rsp+48h] [rbp-20h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
+    if ( (unsigned __int64)PartitionHandle < 0x7FFFFFFF0000LL )
+      v7 = (__int64)PartitionHandle;
     *(_QWORD *)v7 = *(_QWORD *)v7;
   }
-  result = ObOpenObjectByName(a3, PsPartitionType, PreviousMode, 0LL, a2, 0LL, Handle);
-  if ( (int)result >= 0 )
-  {
-    *a1 = Handle[0];
-    return (unsigned int)result;
-  }
+  result = ObOpenObjectByName((__int64)ObjectAttributes, PsPartitionType, PreviousMode, 0LL, DesiredAccess, 0LL, Handle);
+  if ( result >= 0 )
+    *PartitionHandle = Handle[0];
   return result;
 }

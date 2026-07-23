@@ -1,18 +1,18 @@
 /*
- * XREFs of VslRegisterIumPowerCallbacks @ 0x1409DF644
+ * XREFs of VslRegisterIumPowerCallbacks @ 0x1409E0644
  * Callers:
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     PoRegisterPowerSettingCallback @ 0x140589EE0 (PoRegisterPowerSettingCallback.c)
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
- *     ExSubscribeWnfStateChange @ 0x1406BC470 (ExSubscribeWnfStateChange.c)
+ *     PoRegisterPowerSettingCallback @ 0x14058AEE0 (PoRegisterPowerSettingCallback.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
+ *     ExSubscribeWnfStateChange @ 0x1406BD710 (ExSubscribeWnfStateChange.c)
  */
 
 void VslRegisterIumPowerCallbacks()
 {
   char OutputBuffer; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( VslVsmEnabled && NtPowerInformation((POWER_INFORMATION_LEVEL)66, 0LL, 0, &OutputBuffer, 1u) >= 0 )
+  if ( VslVsmEnabled && NtPowerInformation(PlatformInformation, 0LL, 0, &OutputBuffer, 1u) >= 0 )
   {
     if ( OutputBuffer )
     {

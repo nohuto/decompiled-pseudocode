@@ -1,5 +1,5 @@
 /*
- * XREFs of PopFindNextSystemPowerState @ 0x14066A3C8
+ * XREFs of PopFindNextSystemPowerState @ 0x14066A4AC
  * Callers:
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
  * Callees:
@@ -12,19 +12,19 @@ char __fastcall PopFindNextSystemPowerState(int a1, char a2, _BYTE *a3)
   int v4; // eax
 
   v3 = 1;
-  dword_140303480 = dword_140303484;
-  if ( dword_140303484 == 1 )
+  dword_1403033C0 = dword_1403033C4;
+  if ( dword_1403033C4 == 1 )
   {
-    v4 = dword_14030346C;
-    if ( dword_14030346C < 0 && *a3 )
+    v4 = dword_1403033AC;
+    if ( dword_1403033AC < 0 && *a3 )
     {
       *a3 = 0;
-      dword_14030346C = v4 & 0xEFFFFFFF;
-      dword_140303480 = a1;
+      dword_1403033AC = v4 & 0xEFFFFFFF;
+      dword_1403033C0 = a1;
     }
     else if ( a2 && a1 == 5 )
     {
-      dword_140303480 = 5;
+      dword_1403033C0 = 5;
     }
     else
     {

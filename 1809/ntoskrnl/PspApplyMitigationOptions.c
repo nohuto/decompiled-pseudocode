@@ -1,15 +1,15 @@
 /*
- * XREFs of PspApplyMitigationOptions @ 0x14064DD90
+ * XREFs of PspApplyMitigationOptions @ 0x14064EF50
  * Callers:
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ObReferenceProcessHandleTable @ 0x1405D1160 (ObReferenceProcessHandleTable.c)
- *     ExEnableHandleExceptions @ 0x1406C4B88 (ExEnableHandleExceptions.c)
- *     PspDecodeMitigationExecuteOptions @ 0x1406CB01C (PspDecodeMitigationExecuteOptions.c)
- *     PspSetNoChildProcessRestrictedPolicy @ 0x1406CD2C8 (PspSetNoChildProcessRestrictedPolicy.c)
- *     KeSetCheckStackExtentsProcess @ 0x1408433B8 (KeSetCheckStackExtentsProcess.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ObReferenceProcessHandleTable @ 0x1405D2160 (ObReferenceProcessHandleTable.c)
+ *     ExEnableHandleExceptions @ 0x1406C5E28 (ExEnableHandleExceptions.c)
+ *     PspDecodeMitigationExecuteOptions @ 0x1406CC2BC (PspDecodeMitigationExecuteOptions.c)
+ *     PspSetNoChildProcessRestrictedPolicy @ 0x1406CE568 (PspSetNoChildProcessRestrictedPolicy.c)
+ *     KeSetCheckStackExtentsProcess @ 0x140844618 (KeSetCheckStackExtentsProcess.c)
  */
 
 unsigned __int64 __fastcall PspApplyMitigationOptions(__int64 a1, __int64 a2, __m128i *a3, __int128 *a4, int a5)

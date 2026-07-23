@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPreventControlAreaDeletion @ 0x1404F62AC
+ * XREFs of MiPreventControlAreaDeletion @ 0x1404EF8B8
  * Callers:
- *     MiLocateSharedPageViews @ 0x1406F8320 (MiLocateSharedPageViews.c)
+ *     MiLocateSharedPageViews @ 0x1406FCFF0 (MiLocateSharedPageViews.c)
  * Callees:
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReferenceSubsection @ 0x14030BFE0 (MiReferenceSubsection.c)
- *     MiIncrementModifiedWriteCount @ 0x1404F6374 (MiIncrementModifiedWriteCount.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReferenceSubsection @ 0x1402EE060 (MiReferenceSubsection.c)
+ *     MiIncrementModifiedWriteCount @ 0x1404EF980 (MiIncrementModifiedWriteCount.c)
  */
 
 __int64 __fastcall MiPreventControlAreaDeletion(__int64 a1, __int64 *a2, _QWORD *a3)

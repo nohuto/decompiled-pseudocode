@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpExtRegisterResourceDescriptor @ 0x14054CF10
+ * XREFs of HalpExtRegisterResourceDescriptor @ 0x14054A7D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
- *     HalpExtBuildResourceIdString @ 0x14054CD64 (HalpExtBuildResourceIdString.c)
- *     HalpRegisterDmaChannel @ 0x140553100 (HalpRegisterDmaChannel.c)
- *     HalpRegisterDmaController @ 0x1405531F8 (HalpRegisterDmaController.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
+ *     HalpExtBuildResourceIdString @ 0x14054A624 (HalpExtBuildResourceIdString.c)
+ *     HalpRegisterDmaChannel @ 0x140550A40 (HalpRegisterDmaChannel.c)
+ *     HalpRegisterDmaController @ 0x140550B38 (HalpRegisterDmaController.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalpExtRegisterResourceDescriptor(unsigned int a1, ULONG_PTR a2, __int64 a3, __int64 a4)

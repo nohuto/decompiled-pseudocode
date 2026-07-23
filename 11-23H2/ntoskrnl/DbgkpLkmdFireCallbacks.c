@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgkpLkmdFireCallbacks @ 0x14093AD34
+ * XREFs of DbgkpLkmdFireCallbacks @ 0x14093AF34
  * Callers:
- *     DbgkCaptureLiveDump @ 0x14093A868 (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x14093AA68 (DbgkCaptureLiveDump.c)
  * Callees:
  *     ExReferenceCallBackBlock @ 0x140214EF0 (ExReferenceCallBackBlock.c)
  *     ExDereferenceCallBackBlock @ 0x140214FB0 (ExDereferenceCallBackBlock.c)
- *     PsGetProcessSessionIdEx @ 0x14036FA00 (PsGetProcessSessionIdEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     PsGetProcessSessionIdEx @ 0x14036FBA0 (PsGetProcessSessionIdEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall DbgkpLkmdFireCallbacks(__int64 a1, int a2, __int64 a3)
 {
   char v3; // si
   int ProcessSessionId; // ebx
-  union _RTL_RUN_ONCE *v8; // rdi
+  _RTL_RUN_ONCE *v8; // rdi
   __int64 v9; // r14
   struct _EX_RUNDOWN_REF *v10; // rbp
   int Ptr; // eax

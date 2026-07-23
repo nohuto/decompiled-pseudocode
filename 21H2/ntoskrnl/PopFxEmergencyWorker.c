@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxEmergencyWorker @ 0x1407D50D0
+ * XREFs of PopFxEmergencyWorker @ 0x1407D5240
  * Callers:
  *     <none>
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
- *     PopFxProcessWorkPool @ 0x140263914 (PopFxProcessWorkPool.c)
+ *     PopFxProcessWorkPool @ 0x140284DE8 (PopFxProcessWorkPool.c)
+ *     KeSetActualBasePriorityThread @ 0x1402D4E00 (KeSetActualBasePriorityThread.c)
  */
 
 NTSTATUS __fastcall PopFxEmergencyWorker(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiInitializeTimer2Data @ 0x140139704
+ * XREFs of KiInitializeTimer2Data @ 0x140139C74
  * Callers:
- *     KeInitializeTimerTable @ 0x14054E370 (KeInitializeTimerTable.c)
+ *     KeInitializeTimerTable @ 0x14054E710 (KeInitializeTimerTable.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ __int64 *KiInitializeTimer2Data()
   __int64 *result; // rax
   __int64 v1; // rcx
 
-  result = qword_14030E2F0;
+  result = qword_14030E330;
   v1 = 4LL;
   do
   {

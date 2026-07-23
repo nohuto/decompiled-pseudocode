@@ -6,7 +6,7 @@
  *     _RtlpRemoveVectoredHandler@8 @ 0x4B2AB233 (_RtlpRemoveVectoredHandler@8.c)
  */
 
-int __stdcall RtlRemoveVectoredExceptionHandler(int a1)
+ULONG __cdecl RtlRemoveVectoredExceptionHandler(PVOID Handle)
 {
-  return RtlpRemoveVectoredHandler(a1, 0);
+  return RtlpRemoveVectoredHandler(Handle, 0);
 }

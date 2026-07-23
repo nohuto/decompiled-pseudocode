@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
@@ -20,6 +20,6 @@ __int64 __fastcall ExReleasePushLockSharedEx(volatile signed __int64 *BugCheckPa
   if ( result != 17 )
     result = ExfReleasePushLockShared(BugCheckParameter2);
   if ( (v3 & 2) == 0 )
-    return KeAbPostRelease((ULONG_PTR)BugCheckParameter2);
+    return sub_1402AFC00((ULONG_PTR)BugCheckParameter2);
   return result;
 }

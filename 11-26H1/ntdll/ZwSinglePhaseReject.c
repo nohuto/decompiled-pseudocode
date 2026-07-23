@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwSinglePhaseReject @ 0x180162870
+ * XREFs of ZwSinglePhaseReject @ 0x180162770
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSinglePhaseReject()
+NTSTATUS __cdecl ZwSinglePhaseReject(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 458LL;
+  result = 458;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

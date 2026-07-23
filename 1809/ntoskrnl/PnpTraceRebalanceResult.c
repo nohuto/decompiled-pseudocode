@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpTraceRebalanceResult @ 0x140839D08
+ * XREFs of PnpTraceRebalanceResult @ 0x14083AF68
  * Callers:
- *     PnpRebalance @ 0x14083F8A8 (PnpRebalance.c)
+ *     PnpRebalance @ 0x140840B08 (PnpRebalance.c)
  * Callees:
  *     TraceLoggingProviderEnabled @ 0x1400129D8 (TraceLoggingProviderEnabled.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 BOOLEAN PnpTraceRebalanceResult()
@@ -53,15 +53,15 @@ BOOLEAN PnpTraceRebalanceResult()
   __int64 *v39; // [rsp+130h] [rbp+30h]
   __int64 v40; // [rsp+138h] [rbp+38h]
 
-  result = TraceLoggingProviderEnabled(&stru_1403FFBC8, 0, 0x400000000000uLL);
+  result = TraceLoggingProviderEnabled(&stru_140400BC8, 0, 0x400000000000uLL);
   if ( result )
   {
     if ( !v1 || !*(_QWORD *)(v1 + 40) || !*(_QWORD *)(v1 + 24) )
       __fastfail(5u);
     v2 = MEMORY[0xFFFFF78000000008];
-    if ( stru_1403FFBC8.LevelPlus1 > 5 )
+    if ( stru_140400BC8.LevelPlus1 > 5 )
     {
-      result = TlgKeywordOn(&stru_1403FFBC8, 0x400000000000uLL);
+      result = TlgKeywordOn(&stru_140400BC8, 0x400000000000uLL);
       if ( result )
       {
         v6 = v2 - *((_QWORD *)v4 + 7);
@@ -101,7 +101,7 @@ BOOLEAN PnpTraceRebalanceResult()
         v36 = 4LL;
         v38 = 8LL;
         v40 = 8LL;
-        return TlgWrite(&stru_1403FFBC8, &unk_14036D691, 0LL, 0LL, 0xFu, &pData);
+        return TlgWrite(&stru_140400BC8, &unk_14036E56D, 0LL, 0LL, 0xFu, &pData);
       }
     }
   }

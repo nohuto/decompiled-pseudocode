@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpLazyCommitWorker @ 0x140603320
+ * XREFs of CmpLazyCommitWorker @ 0x1406033D4
  * Callers:
  *     <none>
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     UNLOCK_HIVE_LOAD @ 0x1403FB7E4 (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x1403FB8B4 (LOCK_HIVE_LOAD.c)
- *     UnlockShutdown @ 0x1404A0FFC (UnlockShutdown.c)
- *     LockShutdownShared @ 0x1404A1EFC (LockShutdownShared.c)
- *     CmpCleanupTransactionState @ 0x1404DA1C8 (CmpCleanupTransactionState.c)
- *     CmpTransMgrCommit @ 0x1404DA7A0 (CmpTransMgrCommit.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1403FA6A4 (UNLOCK_HIVE_LOAD.c)
+ *     LOCK_HIVE_LOAD @ 0x1403FA774 (LOCK_HIVE_LOAD.c)
+ *     CmpCleanupTransactionState @ 0x1404BD7CC (CmpCleanupTransactionState.c)
+ *     CmpTransMgrCommit @ 0x1404BDDA4 (CmpTransMgrCommit.c)
+ *     UnlockShutdown @ 0x140519408 (UnlockShutdown.c)
+ *     LockShutdownShared @ 0x14051A308 (LockShutdownShared.c)
  */
 
 __int64 CmpLazyCommitWorker()
@@ -108,13 +108,13 @@ __int64 CmpLazyCommitWorker()
         v18[1] = (__int64)&v24;
         if ( v17 == (__int64 *)&v24 )
           break;
-        v19 = (__int64 **)qword_140322948;
-        if ( *(__int64 **)qword_140322948 != &CmpLazyCommitListHead )
+        v19 = (__int64 **)qword_140322968;
+        if ( *(__int64 **)qword_140322968 != &CmpLazyCommitListHead )
           __fastfail(3u);
         *v17 = (__int64)&CmpLazyCommitListHead;
         v17[1] = (__int64)v19;
         *v19 = v17;
-        qword_140322948 = (__int64)v17;
+        qword_140322968 = (__int64)v17;
       }
       ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v20, v21, v22);

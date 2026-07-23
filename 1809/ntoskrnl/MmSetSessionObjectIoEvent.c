@@ -1,9 +1,9 @@
 /*
- * XREFs of MmSetSessionObjectIoEvent @ 0x14071DF80
+ * XREFs of MmSetSessionObjectIoEvent @ 0x14071F220
  * Callers:
- *     IopSessionChangeWorker @ 0x140177960 (IopSessionChangeWorker.c)
+ *     IopSessionChangeWorker @ 0x140177A60 (IopSessionChangeWorker.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
  */
 
 LONG __fastcall MmSetSessionObjectIoEvent(__int64 a1)

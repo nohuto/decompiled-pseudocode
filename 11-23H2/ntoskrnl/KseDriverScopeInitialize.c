@@ -3,9 +3,9 @@
  * Callers:
  *     KseInitialize @ 0x140B495CC (KseInitialize.c)
  * Callees:
- *     KsepLogInfo @ 0x1403740AC (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
- *     KseRegisterShim @ 0x140808710 (KseRegisterShim.c)
+ *     KsepLogInfo @ 0x14037424C (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
+ *     KseRegisterShim @ 0x1408089E0 (KseRegisterShim.c)
  */
 
 void KseDriverScopeInitialize()

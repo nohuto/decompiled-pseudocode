@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDrainCrossPartitionUsage @ 0x14068A0B4
+ * XREFs of MiDrainCrossPartitionUsage @ 0x14068B1E4
  * Callers:
- *     MiDeletePartition @ 0x1407EC62C (MiDeletePartition.c)
+ *     MiDeletePartition @ 0x1407ECBFC (MiDeletePartition.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ExRundownCompletedCacheAware @ 0x14045AE10 (ExRundownCompletedCacheAware.c)
- *     ExWaitForRundownProtectionReleaseCacheAware @ 0x14045AE50 (ExWaitForRundownProtectionReleaseCacheAware.c)
- *     MiDecrementControlAreaCount @ 0x14045E248 (MiDecrementControlAreaCount.c)
- *     MiDecrementCloneHeaderCount @ 0x1404F52D0 (MiDecrementCloneHeaderCount.c)
- *     CcExitPartition @ 0x14057CB90 (CcExitPartition.c)
- *     MiMakeUnusedSegmentDeleteOnClose @ 0x140672268 (MiMakeUnusedSegmentDeleteOnClose.c)
- *     MiStoreDeletePartition @ 0x14068BE24 (MiStoreDeletePartition.c)
- *     SmDeletePartition @ 0x140797340 (SmDeletePartition.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExRundownCompletedCacheAware @ 0x1404501B0 (ExRundownCompletedCacheAware.c)
+ *     ExWaitForRundownProtectionReleaseCacheAware @ 0x1404501F0 (ExWaitForRundownProtectionReleaseCacheAware.c)
+ *     MiDecrementControlAreaCount @ 0x140453308 (MiDecrementControlAreaCount.c)
+ *     MiDecrementCloneHeaderCount @ 0x1404F2BD0 (MiDecrementCloneHeaderCount.c)
+ *     CcExitPartition @ 0x14057A020 (CcExitPartition.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x140673438 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiStoreDeletePartition @ 0x14068CF54 (MiStoreDeletePartition.c)
+ *     SmDeletePartition @ 0x140797450 (SmDeletePartition.c)
  */
 
 void __fastcall MiDrainCrossPartitionUsage(__int64 a1)
@@ -35,12 +35,12 @@ void __fastcall MiDrainCrossPartitionUsage(__int64 a1)
   Object.Header.LockNV = 393216;
   Object.Header.WaitListHead.Flink = &Object.Header.WaitListHead;
   v2 = (volatile LONG *)(a1 + 1728);
-  v3 = ExAcquireSpinLockExclusive(&dword_140E2FF40);
+  v3 = ExAcquireSpinLockExclusive(&dword_140E30080);
   ExAcquireSpinLockExclusiveAtDpcLevel(v2);
   _InterlockedOr((volatile signed __int32 *)(a1 + 4), 1u);
   *(_QWORD *)(a1 + 2768) = &Object;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1728));
-  MiReleaseSpinLockExclusive(&dword_140E2FF40, v3);
+  MiReleaseSpinLockExclusive(&dword_140E30080, v3);
   MiDecrementControlAreaCount(a1, (volatile signed __int64 *)(a1 + 1744));
   MiDecrementControlAreaCount(a1, (volatile signed __int64 *)(a1 + 1736));
   MiMakeUnusedSegmentDeleteOnClose(a1);

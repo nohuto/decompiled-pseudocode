@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTrimUnusedPageFileRegionsApc @ 0x14010F220
+ * XREFs of MiTrimUnusedPageFileRegionsApc @ 0x14010F784
  * Callers:
  *     <none>
  * Callees:
- *     MiFindFreePageFileSpace @ 0x1400B65FC (MiFindFreePageFileSpace.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiMakePageFilePte @ 0x1401F274C (MiMakePageFilePte.c)
+ *     MiFindFreePageFileSpace @ 0x1400B4424 (MiFindFreePageFileSpace.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiMakePageFilePte @ 0x1401F2578 (MiMakePageFilePte.c)
  */
 
 LONG __fastcall MiTrimUnusedPageFileRegionsApc(__int64 a1)

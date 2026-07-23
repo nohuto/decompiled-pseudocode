@@ -1,5 +1,5 @@
 /*
- * XREFs of KiIpiInterruptShadow @ 0x140C5A240
+ * XREFs of KiIpiInterruptShadow @ 0x140C60240
  * Callers:
  *     <none>
  * Callees:

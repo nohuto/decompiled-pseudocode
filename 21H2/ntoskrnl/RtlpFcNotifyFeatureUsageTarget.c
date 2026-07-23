@@ -1,46 +1,71 @@
 /*
- * XREFs of RtlpFcNotifyFeatureUsageTarget @ 0x140919988
+ * XREFs of RtlpFcNotifyFeatureUsageTarget @ 0x140919AE8
  * Callers:
- *     RtlpFcSendFeatureUsageNotifications @ 0x140919AE8 (RtlpFcSendFeatureUsageNotifications.c)
+ *     RtlpFcSendFeatureUsageNotifications @ 0x140919C48 (RtlpFcSendFeatureUsageNotifications.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQueryWnfStateData @ 0x1403FD020 (ZwQueryWnfStateData.c)
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQueryWnfStateData @ 0x1403FD200 (ZwQueryWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall RtlpFcNotifyFeatureUsageTarget(__int64 a1, _DWORD *a2)
+__int64 __fastcall RtlpFcNotifyFeatureUsageTarget(__int64 a1, WNF_STATE_NAME *a2)
 {
-  _DWORD *PoolWithTag; // rdi
-  int WnfStateData; // ebx
-  unsigned int i; // ecx
-  _DWORD v7[2]; // [rsp+48h] [rbp-18h] BYREF
+  PVOID Buffer; // rdi
+  NTSTATUS updated; // ebx
+  ULONG v5; // r8d
+  unsigned int v6; // ecx
+  __int64 v7; // rdx
+  ULONG BufferSize; // [rsp+40h] [rbp-20h] BYREF
+  ULONG ChangeStamp; // [rsp+44h] [rbp-1Ch] BYREF
+  WNF_STATE_NAME StateName; // [rsp+48h] [rbp-18h] BYREF
 
-  v7[0] = *a2;
-  v7[1] = a2[1];
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x6E6F6346u);
-  if ( PoolWithTag )
+  StateName = *a2;
+  Buffer = ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x6E6F6346u);
+  if ( Buffer )
   {
     do
     {
-      WnfStateData = ZwQueryWnfStateData((__int64)v7, 0LL);
-      if ( WnfStateData >= 0 )
+      BufferSize = 4096;
+      ChangeStamp = 0;
+      updated = ZwQueryWnfStateData(&StateName, 0LL, 0LL, &ChangeStamp, Buffer, &BufferSize);
+      if ( updated >= 0 )
       {
-        for ( i = 0; i < 0x200; ++i )
+        v5 = BufferSize;
+        v6 = 0;
+        if ( (BufferSize & 7) != 0 )
+          v5 = 0;
+        BufferSize = v5;
+        v7 = v5 >> 3;
+        if ( (_DWORD)v7 )
         {
-          if ( PoolWithTag[2 * i] == *(_DWORD *)a1 && LOWORD(PoolWithTag[2 * i + 1]) == *(_WORD *)(a1 + 4) )
-            break;
+          while ( *((_DWORD *)Buffer + 2 * v6) != *(_DWORD *)a1 || *((_WORD *)Buffer + 4 * v6 + 2) != *(_WORD *)(a1 + 4) )
+          {
+            if ( ++v6 >= (unsigned int)v7 )
+              goto LABEL_10;
+          }
         }
-        WnfStateData = ZwUpdateWnfStateData((__int64)v7, (__int64)PoolWithTag);
+        else
+        {
+LABEL_10:
+          if ( (unsigned __int64)v5 + 8 <= 0x1000 )
+          {
+            v5 += 8;
+            *((_DWORD *)Buffer + 2 * v7) = *(_DWORD *)a1;
+            *((_WORD *)Buffer + 4 * v7 + 2) = *(_WORD *)(a1 + 4);
+            BufferSize = v5;
+          }
+        }
+        updated = ZwUpdateWnfStateData(&StateName, Buffer, v5, 0LL, 0LL, ChangeStamp, 1u);
       }
     }
-    while ( WnfStateData == -1073741823 );
-    ExFreePoolWithTag(PoolWithTag, 0);
+    while ( updated == -1073741823 );
+    ExFreePoolWithTag(Buffer, 0);
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return (unsigned int)WnfStateData;
+  return (unsigned int)updated;
 }

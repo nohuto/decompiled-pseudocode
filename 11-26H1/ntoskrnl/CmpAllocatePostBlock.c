@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpAllocatePostBlock @ 0x14097AD98
+ * XREFs of CmpAllocatePostBlock @ 0x14093CDA8
  * Callers:
- *     NtNotifyChangeMultipleKeys @ 0x14097A180 (NtNotifyChangeMultipleKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x14093C190 (NtNotifyChangeMultipleKeys.c)
  * Callees:
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     Feature_NotifyQuotaCharge__private_IsEnabledDeviceUsageNoInline @ 0x1404BD94C (Feature_NotifyQuotaCharge__private_IsEnabledDeviceUsageNoInline.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     Feature_NotifyQuotaCharge__private_IsEnabledDeviceUsageNoInline @ 0x1404B712C (Feature_NotifyQuotaCharge__private_IsEnabledDeviceUsageNoInline.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpAllocatePostBlock(int a1, int a2, __int64 a3, __int64 a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopRemoveDumpCapsuleSupport @ 0x140188588
+ * XREFs of IopRemoveDumpCapsuleSupport @ 0x1401886C8
  * Callers:
- *     IoConfigureCrashDump @ 0x1401884AC (IoConfigureCrashDump.c)
- *     IoInitializeCrashDump @ 0x14074CFA0 (IoInitializeCrashDump.c)
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     IoConfigureCrashDump @ 0x1401885EC (IoConfigureCrashDump.c)
+ *     IoInitializeCrashDump @ 0x14074E190 (IoInitializeCrashDump.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 IopRemoveDumpCapsuleSupport()

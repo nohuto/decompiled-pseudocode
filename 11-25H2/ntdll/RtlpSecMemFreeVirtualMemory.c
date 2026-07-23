@@ -18,34 +18,41 @@
  *     ZwQueryVirtualMemory @ 0x180163680 (ZwQueryVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpSecMemFreeVirtualMemory(__int64 a1, __int64 *a2, __int64 *a3, __int64 a4)
+NTSTATUS __fastcall RtlpSecMemFreeVirtualMemory(__int64 a1, PVOID *a2, ULONG_PTR *a3, ULONG a4)
 {
-  unsigned int v4; // ebp
-  unsigned int v7; // r14d
-  __int64 v8; // rdx
-  __int64 v9; // rsi
-  __int128 v11; // [rsp+30h] [rbp-38h] BYREF
+  NTSTATUS v7; // r14d
+  ULONG_PTR v8; // rdx
+  PVOID v9; // rsi
+  __int128 MemoryInformation; // [rsp+30h] [rbp-38h] BYREF
   __int128 v12; // [rsp+40h] [rbp-28h]
   __int128 v13; // [rsp+50h] [rbp-18h]
 
-  v4 = a4;
-  v7 = ZwFreeVirtualMemory(-1LL, a2, a3, a4);
+  v7 = ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, a3, a4);
   if ( v7 != -1073741755 )
     return v7;
   v8 = *a3;
   v9 = *a2;
-  v11 = 0LL;
+  MemoryInformation = 0LL;
   v12 = 0LL;
   v13 = 0LL;
-  if ( RtlpSecMemListHead == (_UNKNOWN *)&RtlpSecMemListHead )
+  if ( RtlpSecMemListHead == &RtlpSecMemListHead )
     return v7;
   if ( !v8 )
   {
-    if ( (int)ZwQueryVirtualMemory(-1LL, v9, 3LL, &v11, 48LL, 0LL) < 0 || HIDWORD(v11) == 0x10000 )
+    if ( ZwQueryVirtualMemory(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           v9,
+           MemoryRegionInformation,
+           &MemoryInformation,
+           0x30uLL,
+           0LL) < 0
+      || HIDWORD(MemoryInformation) == 0x10000 )
+    {
       return v7;
+    }
     v8 = v12;
   }
   if ( (unsigned __int8)RtlpCallSecureMemoryCallbacks(v9, v8) )
-    return ZwFreeVirtualMemory(-1LL, a2, a3, v4);
+    return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, a3, a4);
   return v7;
 }

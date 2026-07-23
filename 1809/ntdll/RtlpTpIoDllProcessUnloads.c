@@ -1,10 +1,10 @@
 /*
  * XREFs of RtlpTpIoDllProcessUnloads @ 0x18011152C
  * Callers:
- *     RtlpTpIoDllUnloaded @ 0x18008BB58 (RtlpTpIoDllUnloaded.c)
+ *     RtlpTpIoDllUnloaded @ 0x18008BB68 (RtlpTpIoDllUnloaded.c)
  * Callees:
  *     TpAdjustBindingCount @ 0x18002DA74 (TpAdjustBindingCount.c)
- *     RtlDuplicateUnicodeString @ 0x18007E1C0 (RtlDuplicateUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x18007E1D0 (RtlDuplicateUnicodeString.c)
  */
 
 void __fastcall RtlpTpIoDllProcessUnloads(__int64 a1, __int64 a2)
@@ -53,7 +53,7 @@ LABEL_6:
       *(_QWORD *)(i + 64) = 0LL;
       *(_QWORD *)(i + 144) = *(_QWORD *)(a1 + 24);
       *(_DWORD *)(i + 152) = *(_DWORD *)(a1 + 32);
-      RtlDuplicateUnicodeString(1, *(__int16 **)(a1 + 8), i + 128);
+      RtlDuplicateUnicodeString(1u, *(PUNICODE_STRING *)(a1 + 8), (PUNICODE_STRING)(i + 128));
       v10 = *(_DWORD *)(i + 120);
     }
     *(_DWORD *)(i + 120) = v10 & 0xFFFFFFF9;

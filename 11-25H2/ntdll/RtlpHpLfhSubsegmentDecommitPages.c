@@ -44,14 +44,11 @@ void __fastcall RtlpHpLfhSubsegmentDecommitPages(unsigned __int64 a1, __int64 a2
   unsigned int v28; // edi
   unsigned int v29; // ebx
   unsigned int v30; // [rsp+30h] [rbp-78h]
-  _DWORD v31[2]; // [rsp+38h] [rbp-70h] BYREF
-  __int64 v32; // [rsp+40h] [rbp-68h]
-  void *v33; // [rsp+48h] [rbp-60h] BYREF
-  int v34; // [rsp+50h] [rbp-58h]
-  int v35; // [rsp+54h] [rbp-54h]
-  void *v36; // [rsp+58h] [rbp-50h]
-  int v37; // [rsp+60h] [rbp-48h]
-  int v38; // [rsp+64h] [rbp-44h]
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+38h] [rbp-70h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-60h] BYREF
+  void *v33; // [rsp+58h] [rbp-50h]
+  int v34; // [rsp+60h] [rbp-48h]
+  int v35; // [rsp+64h] [rbp-44h]
 
   v4 = 0;
   v30 = a4;
@@ -73,23 +70,23 @@ void __fastcall RtlpHpLfhSubsegmentDecommitPages(unsigned __int64 a1, __int64 a2
         v14 = 8LL;
       if ( v11 <= v13 )
         return;
-      if ( qword_1801D0268 && !byte_1801D4988 )
+      if ( Context && !byte_1801D4988 )
       {
         if ( !_InterlockedCompareExchange((volatile signed __int32 *)&qword_1801D0278, 1, 0) )
         {
-          TpSetTimerEx(qword_1801D0268, &qword_1801D0270, 0LL, 1000LL);
+          TpSetTimerEx(Context, &DueTime, 0, 0x3E8u);
           if ( (RtlpHpHeapFeatures & 8) != 0 && (unsigned int)dword_1801CE670 > 5 )
           {
-            v31[1] = 5;
-            v33 = off_1801CE678;
-            v31[0] = 184549376;
-            v32 = 0LL;
-            v34 = *(unsigned __int16 *)off_1801CE678;
-            v36 = &unk_1801A4426;
-            v35 = 2;
-            v37 = 25;
-            v38 = 1;
-            EtwEventWriteTransfer(qword_1801CE690, (unsigned int)v31, 0, 0, 2, (__int64)&v33);
+            *(_DWORD *)&EventDescriptor.Level = 5;
+            UserData.Ptr = (unsigned __int64)off_1801CE678;
+            *(_DWORD *)&EventDescriptor.Id = 184549376;
+            EventDescriptor.Keyword = 0LL;
+            UserData.Size = *(unsigned __int16 *)off_1801CE678;
+            v33 = &unk_1801A4426;
+            UserData.Reserved = 2;
+            v34 = 25;
+            v35 = 1;
+            EtwEventWriteTransfer(RegHandle, &EventDescriptor, 0LL, 0LL, 2u, &UserData);
           }
           a4 = v30;
         }
@@ -162,7 +159,7 @@ void __fastcall RtlpHpLfhSubsegmentDecommitPages(unsigned __int64 a1, __int64 a2
 LABEL_42:
         if ( _interlockedbittestandset64(v22, 0LL) )
         {
-          RtlpAcquireSRWLockExclusiveContended(a2 + 56);
+          RtlpAcquireSRWLockExclusiveContended((PVOID)(a2 + 56));
           a4 = v30;
         }
         goto LABEL_47;
@@ -192,5 +189,5 @@ LABEL_48:
   if ( !v4 )
     return;
 LABEL_49:
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 56));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 56));
 }

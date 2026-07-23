@@ -33,19 +33,19 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   _RTL_SPLAY_LINKS *v7; // rdi
   KSPIN_LOCK *v8; // rsi
   KIRQL v9; // al
-  RTL_SPLAY_LINKS *v10; // r8
-  RTL_SPLAY_LINKS *v11; // r14
+  _RTL_SPLAY_LINKS *v10; // r8
+  _RTL_SPLAY_LINKS *v11; // r14
   KIRQL v12; // bp
   unsigned int v13; // ebx
   _RTL_SPLAY_LINKS *i; // rax
   PRTL_SPLAY_LINKS v15; // rax
-  RTL_SPLAY_LINKS *v16; // rcx
+  _RTL_SPLAY_LINKS *v16; // rcx
   _RTL_SPLAY_LINKS *Parent; // r15
   _RTL_SPLAY_LINKS *v18; // rbx
-  RTL_SPLAY_LINKS *v19; // r13
-  RTL_SPLAY_LINKS *v20; // rdx
+  _RTL_SPLAY_LINKS *v19; // r13
+  _RTL_SPLAY_LINKS *v20; // rdx
   _RTL_SPLAY_LINKS *v21; // r9
-  RTL_SPLAY_LINKS *v22; // rcx
+  _RTL_SPLAY_LINKS *v22; // rcx
   PRTL_SPLAY_LINKS v23; // rbx
   void *v24; // rdi
   void **v25; // r15
@@ -84,7 +84,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   __int64 *v59; // [rsp+38h] [rbp-80h]
   _RTL_SPLAY_LINKS *v60; // [rsp+40h] [rbp-78h] BYREF
   PRTL_SPLAY_LINKS v61; // [rsp+48h] [rbp-70h]
-  RTL_SPLAY_LINKS *v62; // [rsp+50h] [rbp-68h]
+  _RTL_SPLAY_LINKS *v62; // [rsp+50h] [rbp-68h]
   _RTL_SPLAY_LINKS *v63; // [rsp+58h] [rbp-60h] BYREF
   PVOID Entry; // [rsp+60h] [rbp-58h]
   char v65; // [rsp+C0h] [rbp+8h]
@@ -100,7 +100,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   v8 = (KSPIN_LOCK *)(v6 + 3);
   a2[5].Parent = 0LL;
   v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v6 + 3);
-  v11 = (RTL_SPLAY_LINKS *)v6[4];
+  v11 = (_RTL_SPLAY_LINKS *)v6[4];
   v12 = v9;
   if ( !v11 && !v6[5] )
   {
@@ -235,7 +235,7 @@ LABEL_20:
     ((void (__fastcall *)(__int64, char *))v59[2])(a6, (char *)Entry + 8);
     v12 = KeAcquireSpinLockRaiseToDpc(v8);
     ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, v39);
-    v22 = (RTL_SPLAY_LINKS *)v8[1];
+    v22 = (_RTL_SPLAY_LINKS *)v8[1];
     v65 = 0;
     if ( v22 )
     {
@@ -290,7 +290,7 @@ LABEL_24:
             }
           }
           __writecr8(v12);
-          ((void (__fastcall *)(__int64, RTL_SPLAY_LINKS *))v6[2])(a6, &v23[1]);
+          ((void (__fastcall *)(__int64, _RTL_SPLAY_LINKS *))v6[2])(a6, &v23[1]);
           v45 = KeAcquireSpinLockRaiseToDpc(v8);
           v28 = (PRTL_SPLAY_LINKS)v8[2];
           v12 = v45;

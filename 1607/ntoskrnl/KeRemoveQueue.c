@@ -1,14 +1,14 @@
 /*
- * XREFs of KeRemoveQueue @ 0x1400A86B8
+ * XREFs of KeRemoveQueue @ 0x1400A6C30
  * Callers:
- *     ExpWorkerFactoryManagerThread @ 0x14013D78C (ExpWorkerFactoryManagerThread.c)
- *     FsRtlWorkerThread @ 0x14014B9C0 (FsRtlWorkerThread.c)
- *     PopFxEmergencyWorker @ 0x14014BE58 (PopFxEmergencyWorker.c)
- *     IopPassiveInterruptRealtimeWorker @ 0x14014C2B4 (IopPassiveInterruptRealtimeWorker.c)
- *     KiBlockAndActivateUmsThread @ 0x1401DC128 (KiBlockAndActivateUmsThread.c)
- *     EtwpReceiveReplyDataBlock @ 0x1404D38F0 (EtwpReceiveReplyDataBlock.c)
+ *     ExpWorkerFactoryManagerThread @ 0x14013DCFC (ExpWorkerFactoryManagerThread.c)
+ *     FsRtlWorkerThread @ 0x14014BF30 (FsRtlWorkerThread.c)
+ *     PopFxEmergencyWorker @ 0x14014C3C8 (PopFxEmergencyWorker.c)
+ *     IopPassiveInterruptRealtimeWorker @ 0x14014C824 (IopPassiveInterruptRealtimeWorker.c)
+ *     KiBlockAndActivateUmsThread @ 0x1401DBF54 (KiBlockAndActivateUmsThread.c)
+ *     EtwpReceiveReplyDataBlock @ 0x1404B7390 (EtwpReceiveReplyDataBlock.c)
  * Callees:
- *     KeRemoveQueueEx @ 0x14006A3B0 (KeRemoveQueueEx.c)
+ *     KeRemoveQueueEx @ 0x140069F30 (KeRemoveQueueEx.c)
  */
 
 PLIST_ENTRY __stdcall KeRemoveQueue(PRKQUEUE Queue, KPROCESSOR_MODE WaitMode, PLARGE_INTEGER Timeout)

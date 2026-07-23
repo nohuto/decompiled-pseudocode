@@ -1,10 +1,10 @@
 /*
- * XREFs of PspRequestDeferredJobNotification @ 0x14008F5EC
+ * XREFs of PspRequestDeferredJobNotification @ 0x14008F50C
  * Callers:
- *     PspJobCycleTimeNotificationDpcRoutine @ 0x140139990 (PspJobCycleTimeNotificationDpcRoutine.c)
- *     PspSendWakeNotification @ 0x1406000F4 (PspSendWakeNotification.c)
+ *     PspJobCycleTimeNotificationDpcRoutine @ 0x140139A90 (PspJobCycleTimeNotificationDpcRoutine.c)
+ *     PspSendWakeNotification @ 0x1406010F4 (PspSendWakeNotification.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
  */
 
 char __fastcall PspRequestDeferredJobNotification(signed __int64 a1, unsigned int a2)

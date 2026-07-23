@@ -1,9 +1,9 @@
 /*
- * XREFs of PopProcessorIdleSelectNotification @ 0x140204AFC
+ * XREFs of PopProcessorIdleSelectNotification @ 0x140204928
  * Callers:
  *     <none>
  * Callees:
- *     PopTranslateDependencyArray @ 0x140204DD0 (PopTranslateDependencyArray.c)
+ *     PopTranslateDependencyArray @ 0x140204BFC (PopTranslateDependencyArray.c)
  */
 
 __int64 __fastcall PopProcessorIdleSelectNotification(__int64 a1, ULONG_PTR a2)

@@ -12,8 +12,8 @@
 __int64 __fastcall RecurseValidate<_RESCDIRECTORY *>(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v4; // r12d
-  unsigned __int64 Heap; // rbx
-  __int64 v7; // rax
+  _QWORD *Heap; // rbx
+  PVOID v7; // rax
   __int64 v8; // rcx
   __int64 v9; // rax
   __int64 v10; // rcx
@@ -23,23 +23,23 @@ __int64 __fastcall RecurseValidate<_RESCDIRECTORY *>(__int64 a1, unsigned int a2
   __int64 v14; // rdi
   __int64 v15; // rsi
   __int64 v16; // rax
-  unsigned __int64 v17; // r8
+  void *v17; // r8
 
   v4 = 0;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 16LL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
   if ( Heap )
   {
-    v7 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 40LL);
-    *(_QWORD *)(Heap + 8) = v7;
+    v7 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x28uLL);
+    Heap[1] = v7;
     if ( v7 )
     {
       *(_DWORD *)Heap = 0;
-      *(_DWORD *)(Heap + 4) = 10;
+      *((_DWORD *)Heap + 1) = 10;
       if ( (unsigned int)StackPush<unsigned int>(a2, Heap) )
       {
         while ( 1 )
         {
-          v8 = *(_QWORD *)(Heap + 8);
+          v8 = Heap[1];
           if ( !v8 || !*(_DWORD *)Heap )
             break;
           v9 = (unsigned int)(*(_DWORD *)Heap - 1);
@@ -86,11 +86,11 @@ __int64 __fastcall RecurseValidate<_RESCDIRECTORY *>(__int64 a1, unsigned int a2
         v4 = 1;
       }
 LABEL_23:
-      v17 = *(_QWORD *)(Heap + 8);
+      v17 = (void *)Heap[1];
       if ( v17 )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v17);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v17);
     }
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   }
   return v4;
 }

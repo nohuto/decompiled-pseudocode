@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonSaveProfilingContextInternalOriginal @ 0x14055E664
+ * XREFs of EmonSaveProfilingContextInternalOriginal @ 0x14055C294
  * Callers:
- *     EmonSaveProfilingContextOriginal @ 0x140B4F6F0 (EmonSaveProfilingContextOriginal.c)
+ *     EmonSaveProfilingContextOriginal @ 0x140B51740 (EmonSaveProfilingContextOriginal.c)
  * Callees:
- *     EmonReadCounter @ 0x14055D7C4 (EmonReadCounter.c)
+ *     EmonReadCounter @ 0x14055B3F4 (EmonReadCounter.c)
  */
 
 void __fastcall EmonSaveProfilingContextInternalOriginal(int a1, int a2)

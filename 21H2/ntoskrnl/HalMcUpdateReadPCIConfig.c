@@ -1,9 +1,9 @@
 /*
- * XREFs of HalMcUpdateReadPCIConfig @ 0x1404CC080
+ * XREFs of HalMcUpdateReadPCIConfig @ 0x1404CC2C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpReadPCIConfig @ 0x14039EAF4 (HalpReadPCIConfig.c)
+ *     HalpReadPCIConfig @ 0x14039EC44 (HalpReadPCIConfig.c)
  */
 
 __int64 __fastcall HalMcUpdateReadPCIConfig(int a1, unsigned int a2, void *a3, unsigned int a4, unsigned int a5)

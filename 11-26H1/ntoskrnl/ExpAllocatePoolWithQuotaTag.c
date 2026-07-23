@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpAllocatePoolWithQuotaTag @ 0x140C109D0
+ * XREFs of ExpAllocatePoolWithQuotaTag @ 0x140C169D0
  * Callers:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x14024E83C (RtlCSparseBitmapBitmaskRead.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExpStampBigPoolEntry @ 0x14029BD80 (ExpStampBigPoolEntry.c)
- *     RtlpHpVaMgrCtxQuery @ 0x140350620 (RtlpHpVaMgrCtxQuery.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x140398700 (ExpAllocatePoolWithTagFromNode.c)
- *     PspExpandQuota @ 0x1403BD8E8 (PspExpandQuota.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14025019C (RtlCSparseBitmapBitmaskRead.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExpStampBigPoolEntry @ 0x14029B2E0 (ExpStampBigPoolEntry.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x1403526A0 (RtlpHpVaMgrCtxQuery.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x14039A460 (ExpAllocatePoolWithTagFromNode.c)
+ *     PspExpandQuota @ 0x1403C7758 (PspExpandQuota.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 ULONG_PTR __fastcall ExpAllocatePoolWithQuotaTag(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, int a5)
@@ -69,7 +69,7 @@ ULONG_PTR __fastcall ExpAllocatePoolWithQuotaTag(__int64 a1, unsigned __int64 a2
   v10 = PoolWithTagFromNode;
   if ( !PoolWithTagFromNode || (v7 & 1) == 0 )
     return v10;
-  if ( ExpSpecialAllocations )
+  if ( LODWORD(stru_140EFF2C0.InitialStack) )
   {
     if ( (_WORD)PoolWithTagFromNode )
     {
@@ -78,18 +78,18 @@ ULONG_PTR __fastcall ExpAllocatePoolWithQuotaTag(__int64 a1, unsigned __int64 a2
     else
     {
       v36 = RtlCSparseBitmapBitmaskRead(
-              (__int64)&ExpUuidLock.ThreadLock,
-              2 * ((PoolWithTagFromNode - (unsigned __int64)ExpUuidLock.StackBase) >> 20));
+              (__int64)&ExpUuidLock.CycleTime,
+              2 * ((PoolWithTagFromNode - ExpUuidLock.ThreadLock) >> 20));
       if ( !v36 || (v11 = v36 - 1, v11 == 2) )
       {
         v46 = 0LL;
         v47 = 0LL;
-        RtlpHpVaMgrCtxQuery((__int64)&ExpUuidLock.FirstArgument, v10, (__int64)&v46);
+        RtlpHpVaMgrCtxQuery((__int64)&ExpUuidLock.TrapFrame, v10, (__int64)&v46);
         v13 = *(_QWORD *)v47;
 LABEL_9:
         if ( !v13 )
           KeBugCheckEx(0xC2u, 0LL, 0LL, v10, 0LL);
-        for ( i = qword_140EEED00; (__int64)i < (__int64)qword_140EEED20; ++i )
+        for ( i = qword_140EEF000; (__int64)i < (__int64)qword_140EEF020; ++i )
         {
           if ( v13 == *i )
             return v10;
@@ -118,7 +118,7 @@ LABEL_12:
     v42 = v19;
     v41[0] = v18;
     if ( (v17 & 0x800) != 0 )
-      *(_QWORD *)(v16 + 8) = (ULONG_PTR)stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink ^ v16;
+      *(_QWORD *)(v16 + 8) = (ULONG_PTR)stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink ^ v16;
   }
   else
   {
@@ -137,8 +137,8 @@ LABEL_33:
         v33 = v15 - 16LL * (unsigned __int8)*(_WORD *)v15;
       if ( (*(_BYTE *)(v33 + 3) & 8) != 0 )
       {
-        BugCheckParameter4 = *(_QWORD *)(v33 + 8) ^ (ULONG_PTR)stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink ^ v33;
-        *(_QWORD *)(v33 + 8) = (unsigned __int64)Process ^ (ULONG_PTR)stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink ^ v33;
+        BugCheckParameter4 = *(_QWORD *)(v33 + 8) ^ (ULONG_PTR)stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink ^ v33;
+        *(_QWORD *)(v33 + 8) = (unsigned __int64)Process ^ (ULONG_PTR)stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink ^ v33;
       }
       else
       {
@@ -164,7 +164,7 @@ LABEL_33:
     v21 = (v7 & 0x100) != 0;
     v44 = v21;
     v22 = (unsigned __int64 *)(&SchedulingGroup->Policy + 16 * v21);
-    v23 = stru_140FC01F0.SchedulerApcFill3[8 * v21 + 48];
+    v23 = stru_140FC11F0.SchedulerApcFill3[8 * v21 + 40];
     v40 = v23;
     _m_prefetchw(v22);
     v24 = *v22;
@@ -231,7 +231,7 @@ LABEL_20:
       v24 = v43;
       v23 = v40;
     }
-    if ( *(int *)&stru_140FC01F0.SchedulerApcFill5[8 * v21 + 52] >= 0 )
+    if ( *(int *)&stru_140FC11F0.SchedulerApcFill5[8 * v21 + 44] >= 0 )
       goto LABEL_33;
     ExFreePoolWithTag((PVOID)v10, a4);
     return 0LL;

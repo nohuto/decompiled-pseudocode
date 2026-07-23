@@ -1,19 +1,19 @@
 /*
- * XREFs of ExEnumHandleTable @ 0x14045E4D0
+ * XREFs of ExEnumHandleTable @ 0x14045D3A0
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x1401C9AC0 (IoRevokeHandlesForProcess.c)
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     ObFindHandleForObject @ 0x14045E424 (ObFindHandleForObject.c)
- *     ObInitProcess @ 0x14045F504 (ObInitProcess.c)
- *     IopQueryProcessIdsUsingFile @ 0x1406256BC (IopQueryProcessIdsUsingFile.c)
- *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x14062CE90 (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
- *     ObShutdownSystem @ 0x1406655DC (ObShutdownSystem.c)
- *     EtwpObjectHandleRundown @ 0x1406A73A4 (EtwpObjectHandleRundown.c)
+ *     IoRevokeHandlesForProcess @ 0x1401C9960 (IoRevokeHandlesForProcess.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     ObFindHandleForObject @ 0x14045D2F4 (ObFindHandleForObject.c)
+ *     ObInitProcess @ 0x14045E3D4 (ObInitProcess.c)
+ *     IopQueryProcessIdsUsingFile @ 0x140625770 (IopQueryProcessIdsUsingFile.c)
+ *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x14062CF44 (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
+ *     ObShutdownSystem @ 0x1406656C0 (ObShutdownSystem.c)
+ *     EtwpObjectHandleRundown @ 0x1406A74DC (EtwpObjectHandleRundown.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpLookupHandleTableEntry @ 0x140451390 (ExpLookupHandleTableEntry.c)
- *     ExpGetNextHandleTableEntry @ 0x14045E6A0 (ExpGetNextHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x14049B4BC (ExpBlockOnLockedHandleEntry.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExpLookupHandleTableEntry @ 0x140450260 (ExpLookupHandleTableEntry.c)
+ *     ExpGetNextHandleTableEntry @ 0x14045D570 (ExpGetNextHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x1404AF024 (ExpBlockOnLockedHandleEntry.c)
  */
 
 __int64 __fastcall ExEnumHandleTable(

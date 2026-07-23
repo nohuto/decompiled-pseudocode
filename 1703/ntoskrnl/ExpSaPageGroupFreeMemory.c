@@ -19,13 +19,13 @@ bool __fastcall ExpSaPageGroupFreeMemory(__int64 a1, unsigned __int64 a2, unsign
 {
   ULONG_PTR v3; // rsi
   unsigned __int64 v4; // r15
-  _BYTE *v7; // rax
-  _BYTE *v8; // rdi
+  PRTL_BALANCED_NODE v7; // rax
+  PRTL_BALANCED_NODE v8; // rdi
   bool v9; // r14
   struct _KTHREAD *CurrentThread; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v12; // r15
-  __int64 v13; // r8
+  unsigned int v13; // r8d
   bool v14; // zf
   __int64 v15; // rcx
   int v16; // eax
@@ -39,12 +39,12 @@ bool __fastcall ExpSaPageGroupFreeMemory(__int64 a1, unsigned __int64 a2, unsign
 
   v3 = a1 + 24;
   v4 = a3;
-  v7 = (_BYTE *)KeAbPreAcquire(a1 + 24, 0LL, 0LL);
+  v7 = KeAbPreAcquire(a1 + 24, 0LL, 0);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v3, 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v3, v7, v3);
   if ( v8 )
-    v8[26] |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   RtlClearBitsEx(a1 + 48, (a2 >> 4) & 0x1FF, v4);
   *(_DWORD *)(a1 + 36) += v4;
   v9 = *(_DWORD *)(a1 + 36) == 512;
@@ -58,7 +58,7 @@ bool __fastcall ExpSaPageGroupFreeMemory(__int64 a1, unsigned __int64 a2, unsign
     SessionId = 0xFFFFFFFFLL;
   --CurrentThread->SpecialApcDisable;
   v12 = ++CurrentThread->AbAllocationRegionCount;
-  LODWORD(v13) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  v13 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v14 = !_BitScanReverse((unsigned int *)&v15, v13);
@@ -68,7 +68,7 @@ bool __fastcall ExpSaPageGroupFreeMemory(__int64 a1, unsigned __int64 a2, unsign
     v16 = 1 << v15;
     v17 = v15;
     v18 = &CurrentThread->LockEntries[v17];
-    v13 = ~v16 & (unsigned int)v13;
+    v13 &= ~v16;
     if ( (v18->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v18->LockState.0 & 1) == 0
       && (*(_QWORD *)&v18->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v3 & 0x7FFFFFFFFFFFFFFCLL)
@@ -81,7 +81,7 @@ bool __fastcall ExpSaPageGroupFreeMemory(__int64 a1, unsigned __int64 a2, unsign
         {
           v18->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v18->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v17], SessionId, v13);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v17].TreeNode, SessionId);
           v23 = 0;
           v23 = v18->BoostBitmap.AllFields & 0x1FFFF;
           v18->BoostBitmap.AllFields &= 0xFFFE0000;

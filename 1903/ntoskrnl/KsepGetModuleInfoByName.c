@@ -15,9 +15,9 @@ __int64 __fastcall KsepGetModuleInfoByName(PCWSTR SourceString, _DWORD *a2, _QWO
   NTSTATUS v5; // ebx
   int v6; // ebx
   __int64 v7; // r14
-  STRING String2; // [rsp+20h] [rbp-30h] BYREF
+  _STRING String2; // [rsp+20h] [rbp-30h] BYREF
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-20h] BYREF
-  STRING String1; // [rsp+40h] [rbp-10h] BYREF
+  _STRING String1; // [rsp+40h] [rbp-10h] BYREF
 
   *(_QWORD *)&String2.Length = 0LL;
   String2.Buffer = 0LL;

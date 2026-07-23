@@ -1,41 +1,41 @@
 /*
- * XREFs of RtlpAcquireDescriptorPseudoGlobalLockEx @ 0x180141DD8
+ * XREFs of RtlpAcquireDescriptorPseudoGlobalLockEx @ 0x18013FF88
  * Callers:
- *     RtlLockProcessHeapOnProcessTerminate @ 0x18000322C (RtlLockProcessHeapOnProcessTerminate.c)
- *     RtlpHpGCTimerEnumProcessHeapsCallback @ 0x1801427F0 (RtlpHpGCTimerEnumProcessHeapsCallback.c)
- *     RtlpLockHeapForClone @ 0x180142A28 (RtlpLockHeapForClone.c)
+ *     RtlLockProcessHeapOnProcessTerminate @ 0x1800AB850 (RtlLockProcessHeapOnProcessTerminate.c)
+ *     RtlpHpGCTimerEnumProcessHeapsCallback @ 0x1801409A0 (RtlpHpGCTimerEnumProcessHeapsCallback.c)
+ *     RtlpLockHeapForClone @ 0x180140BD8 (RtlpLockHeapForClone.c)
  * Callees:
- *     RtlTryAcquireSRWLockExclusive @ 0x18001B950 (RtlTryAcquireSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlTryAcquireSRWLockExclusive @ 0x180048350 (RtlTryAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall RtlpAcquireDescriptorPseudoGlobalLockEx(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+char __fastcall RtlpAcquireDescriptorPseudoGlobalLockEx(__int64 a1, char a2)
 {
-  char v4; // di
+  char v3; // di
   void *UniqueThread; // rsi
-  volatile signed __int32 *v6; // rcx
+  _RTL_SRWLOCK *v5; // rcx
 
-  v4 = 1;
+  v3 = 1;
   if ( (*(_BYTE *)(a1 + 24) & 2) == 0 )
   {
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
     if ( (_DWORD)UniqueThread != *(_DWORD *)(a1 + 36) )
     {
-      v6 = (volatile signed __int32 *)(a1 + 40);
-      if ( (_BYTE)a2 )
+      v5 = (_RTL_SRWLOCK *)(a1 + 40);
+      if ( a2 )
       {
-        if ( !RtlTryAcquireSRWLockExclusive(v6) )
+        if ( !RtlTryAcquireSRWLockExclusive(v5) )
           return 0;
       }
       else
       {
-        RtlAcquireSRWLockExclusive(v6, a2, a3);
+        RtlAcquireSRWLockExclusive(v5);
       }
       *(_DWORD *)(a1 + 32) = 1;
       *(_DWORD *)(a1 + 36) = (_DWORD)UniqueThread;
-      return v4;
+      return v3;
     }
     ++*(_DWORD *)(a1 + 32);
   }
-  return v4;
+  return v3;
 }

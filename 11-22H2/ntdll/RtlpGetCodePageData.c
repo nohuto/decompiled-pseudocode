@@ -8,12 +8,12 @@
  *     RtlpIsUtf8Process @ 0x180018FD4 (RtlpIsUtf8Process.c)
  */
 
-__int16 *RtlpGetCodePageData()
+_CPTABLEINFO *RtlpGetCodePageData()
 {
   signed __int32 v1[10]; // [rsp+0h] [rbp-28h] BYREF
 
   if ( RtlpIsUtf8Process() )
-    return (__int16 *)&Utf8TableInfo;
+    return &Utf8TableInfo;
   _InterlockedOr(v1, 0);
   return &GlobalRtlNlsState;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiZeroEngineSetOptimalCount @ 0x14069001C
+ * XREFs of MiZeroEngineSetOptimalCount @ 0x1406910EC
  * Callers:
- *     MiInitializeZeroEngines @ 0x1407FF3F0 (MiInitializeZeroEngines.c)
+ *     MiInitializeZeroEngines @ 0x1407FFB34 (MiInitializeZeroEngines.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiZeroEngineSetOptimalCount(__int64 a1, int a2)

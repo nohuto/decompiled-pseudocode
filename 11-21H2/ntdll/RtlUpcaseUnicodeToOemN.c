@@ -9,20 +9,32 @@
  *     RtlpIsUtf8Process @ 0x18000E12C (RtlpIsUtf8Process.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeToOemN(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeToOemN(
+        PCHAR OemString,
+        ULONG MaxBytesInOemString,
+        PULONG BytesInOemString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  int v3; // edx
-  int v4; // ecx
-  int v5; // r8d
-  int v6; // r9d
-  int v7; // r10d
-  signed __int32 v9[8]; // [rsp+0h] [rbp-48h] BYREF
+  ULONG v5; // edx
+  CHAR *v6; // rcx
+  ULONG *v7; // r8
+  const WCHAR *v8; // r9
+  ULONG v9; // r10d
+  signed __int32 v11[8]; // [rsp+0h] [rbp-48h] BYREF
 
-  if ( (unsigned __int8)RtlpIsUtf8Process(a1, a2, a3) )
-    return UpcaseUnicodeToUTF8NHelper(v4, v3, v5, v6, v7);
-  _InterlockedOr(v9, 0);
-  if ( word_18017769C )
-    return UpcaseUnicodeToMultiByteNHelper(v4, v3, v5, v6, v7);
+  if ( (unsigned __int8)RtlpIsUtf8Process(OemString) )
+    return UpcaseUnicodeToUTF8NHelper(v6, v5, v9);
+  _InterlockedOr(v11, 0);
+  if ( CodePageTable.DBCSCodePage )
+    return UpcaseUnicodeToMultiByteNHelper(v6, v5, v7, v8, v9);
   else
-    return UpcaseUnicodeToSingleByteNHelper(v4, v3, v5, v6, v7, qword_1801776B8, qword_1801776B0);
+    return UpcaseUnicodeToSingleByteNHelper(
+             (_DWORD)v6,
+             v5,
+             (_DWORD)v7,
+             (_DWORD)v8,
+             v9,
+             (__int64)CodePageTable.WideCharTable,
+             (__int64)CodePageTable.MultiByteTable);
 }

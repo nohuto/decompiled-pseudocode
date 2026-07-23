@@ -1,25 +1,25 @@
 /*
- * XREFs of PspSetJobIoRateControl @ 0x14085E618
+ * XREFs of PspSetJobIoRateControl @ 0x14085A388
  * Callers:
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PspIoRateControlInfoIsAnySet @ 0x1404AEE38 (PspIoRateControlInfoIsAnySet.c)
- *     PspLockRootJobExclusive @ 0x14085D130 (PspLockRootJobExclusive.c)
- *     PspIoRateEntryDeactivate @ 0x14085E900 (PspIoRateEntryDeactivate.c)
- *     PspLockJobConditionally @ 0x14085E94C (PspLockJobConditionally.c)
- *     PspSetJobIoRateControlForVolume @ 0x14085E97C (PspSetJobIoRateControlForVolume.c)
- *     EtwTracePsIoRateControl @ 0x14085F0B4 (EtwTracePsIoRateControl.c)
- *     PspIoRateEntryActivate @ 0x14085F29C (PspIoRateEntryActivate.c)
- *     PspSetJobIoAttribution @ 0x1408EA0D0 (PspSetJobIoAttribution.c)
- *     PspUnlockJob @ 0x1408ED360 (PspUnlockJob.c)
- *     PspJobIoRateControlDisable @ 0x140A5E7F8 (PspJobIoRateControlDisable.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PspIoRateControlInfoIsAnySet @ 0x1404A9810 (PspIoRateControlInfoIsAnySet.c)
+ *     PspLockRootJobExclusive @ 0x140858E9C (PspLockRootJobExclusive.c)
+ *     PspIoRateEntryDeactivate @ 0x14085A670 (PspIoRateEntryDeactivate.c)
+ *     PspLockJobConditionally @ 0x14085A6BC (PspLockJobConditionally.c)
+ *     PspSetJobIoAttribution @ 0x14085B900 (PspSetJobIoAttribution.c)
+ *     PspUnlockJob @ 0x14085EB90 (PspUnlockJob.c)
+ *     PspJobIoRateControlDisable @ 0x140A56A68 (PspJobIoRateControlDisable.c)
+ *     PspIoRateEntryActivate @ 0x140A6D2B4 (PspIoRateEntryActivate.c)
+ *     EtwTracePsIoRateControl @ 0x140A71D94 (EtwTracePsIoRateControl.c)
+ *     PspSetJobIoRateControlForVolume @ 0x140AB24C8 (PspSetJobIoRateControlForVolume.c)
  */
 
 __int64 __fastcall PspSetJobIoRateControl(__int64 a1, __int64 a2)
@@ -27,50 +27,47 @@ __int64 __fastcall PspSetJobIoRateControl(__int64 a1, __int64 a2)
   struct _KTHREAD *CurrentThread; // r12
   unsigned __int64 *v3; // r13
   int v4; // edi
-  _QWORD *v7; // rax
-  _QWORD *v8; // r14
+  char *v7; // rax
+  char *v8; // r14
   int v9; // r14d
   int i; // ecx
   struct _ERESOURCE *v11; // r12
   int v12; // r15d
   int j; // ecx
   _QWORD *v14; // r15
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  int v19; // eax
-  __int64 v20; // rax
-  __int64 v21; // [rsp+30h] [rbp-28h] BYREF
-  struct _KTHREAD *v22; // [rsp+38h] [rbp-20h]
+  int v16; // eax
+  __int64 v17; // rax
+  __int64 v18; // [rsp+30h] [rbp-28h] BYREF
+  struct _KTHREAD *v19; // [rsp+38h] [rbp-20h]
   PERESOURCE Resource; // [rsp+40h] [rbp-18h]
-  char v24; // [rsp+A0h] [rbp+48h] BYREF
-  _QWORD *v25; // [rsp+A8h] [rbp+50h]
-  char v26; // [rsp+B0h] [rbp+58h] BYREF
-  __int64 v27; // [rsp+B8h] [rbp+60h] BYREF
+  char v21; // [rsp+A0h] [rbp+48h] BYREF
+  _QWORD *v22; // [rsp+A8h] [rbp+50h]
+  char v23; // [rsp+B0h] [rbp+58h] BYREF
+  __int64 v24; // [rsp+B8h] [rbp+60h] BYREF
 
-  v25 = (_QWORD *)a2;
+  v22 = (_QWORD *)a2;
   CurrentThread = KeGetCurrentThread();
   v3 = (unsigned __int64 *)(a1 + 1744);
   v4 = 0;
-  v22 = CurrentThread;
-  v27 = 0LL;
-  v21 = 0LL;
-  v24 = 0;
+  v19 = CurrentThread;
+  v24 = 0LL;
+  v18 = 0LL;
+  v21 = 0;
   --CurrentThread->KernelApcDisable;
-  v26 = 0;
-  v7 = KeAbPreAcquire(a1 + 1744, 0LL);
+  v23 = 0;
+  v7 = (char *)KeAbPreAcquire(a1 + 1744, 0LL);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v3, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v3, (__int64)v7, (__int64)v3);
+    ExfAcquirePushLockExclusiveEx(v3, v7, (__int64)v3);
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   v9 = 1;
   if ( (*(_DWORD *)(a2 + 36) & 1) == 0 )
   {
-    v20 = v21;
+    v17 = v18;
     if ( *(_QWORD *)(a1 + 1672) )
-      v20 = *(_QWORD *)(a1 + 1672);
-    v21 = v20;
+      v17 = *(_QWORD *)(a1 + 1672);
+    v18 = v17;
     v9 = PspJobIoRateControlDisable(a1);
     Resource = (PERESOURCE)(a1 + 56);
 LABEL_31:
@@ -79,7 +76,7 @@ LABEL_31:
       goto LABEL_32;
     goto LABEL_37;
   }
-  PspLockRootJobExclusive(a1, (__int64)CurrentThread, &v27);
+  PspLockRootJobExclusive(a1, (__int64)CurrentThread, &v24);
   for ( i = 0; ; i = 1 )
   {
     if ( i )
@@ -88,7 +85,7 @@ LABEL_31:
       ExAcquireResourceExclusiveLite((PERESOURCE)(a1 + 56), 1u);
       goto LABEL_11;
     }
-    if ( a1 == v27 )
+    if ( a1 == v24 )
       break;
   }
   v11 = (struct _ERESOURCE *)(a1 + 56);
@@ -97,52 +94,52 @@ LABEL_11:
   v12 = PspSetJobIoAttribution((PVOID)a1);
   if ( v12 < 0 )
   {
-    CurrentThread = v22;
+    CurrentThread = v19;
     goto LABEL_13;
   }
   for ( j = 0; !j; j = 1 )
   {
-    if ( a1 == v27 )
+    if ( a1 == v24 )
       goto LABEL_21;
   }
   ExReleaseResourceLite(v11);
 LABEL_21:
-  PspUnlockJob(v27, v22);
-  v14 = v25;
-  if ( v25[3] )
+  PspUnlockJob(v24, v19);
+  v14 = v22;
+  if ( v22[3] )
   {
-    v19 = PspSetJobIoRateControlForVolume(a1, (_DWORD)v25, (unsigned int)&v24, (unsigned int)&v26, (__int64)&v21);
+    v16 = PspSetJobIoRateControlForVolume(a1, (_DWORD)v22, (unsigned int)&v21, (unsigned int)&v23, (__int64)&v18);
     Resource = v11;
-    v12 = v19;
-    if ( v19 >= 0 )
+    v12 = v16;
+    if ( v16 >= 0 )
       goto LABEL_27;
   }
   else
   {
-    if ( !PspIoRateControlInfoIsAnySet(v25) )
+    if ( !PspIoRateControlInfoIsAnySet(v22) )
     {
       if ( !*(_QWORD *)(a1 + 1672) )
       {
 LABEL_30:
         Resource = v11;
-        CurrentThread = v22;
+        CurrentThread = v19;
         goto LABEL_31;
       }
-      v21 = *(_QWORD *)(a1 + 1672);
+      v18 = *(_QWORD *)(a1 + 1672);
       PspIoRateEntryDeactivate(a1 + 1632);
       goto LABEL_25;
     }
     Resource = v11;
-    v12 = PspIoRateEntryActivate(a1 + 1632, a1, v14, &v24);
+    v12 = PspIoRateEntryActivate(a1 + 1632, a1, v14, &v21);
     if ( v12 >= 0 )
     {
-      v21 = *(_QWORD *)(a1 + 1672);
-      v26 = 1;
+      v18 = *(_QWORD *)(a1 + 1672);
+      v23 = 1;
 LABEL_27:
-      if ( !v24 )
+      if ( !v21 )
       {
 LABEL_28:
-        if ( v26 )
+        if ( v23 )
           --v9;
         goto LABEL_30;
       }
@@ -151,26 +148,26 @@ LABEL_25:
       goto LABEL_28;
     }
   }
-  CurrentThread = v22;
+  CurrentThread = v19;
 LABEL_37:
-  PspLockRootJobExclusive(a1, (__int64)CurrentThread, &v27);
-  PspLockJobConditionally(a1, &v27);
+  PspLockRootJobExclusive(a1, (__int64)CurrentThread, &v24);
+  PspLockJobConditionally(a1, &v24);
   PspSetJobIoAttribution((PVOID)a1);
 LABEL_13:
   while ( !v4 )
   {
-    if ( a1 == v27 )
+    if ( a1 == v24 )
       goto LABEL_39;
     v4 = 1;
   }
   ExReleaseResourceLite(Resource);
 LABEL_39:
-  PspUnlockJob(v27, CurrentThread);
+  PspUnlockJob(v24, CurrentThread);
 LABEL_32:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)v3);
   KeAbPostRelease((ULONG_PTR)v3);
-  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v15, v16, v17);
-  EtwTracePsIoRateControl(*(unsigned int *)(a1 + 1468), v25, v21, (unsigned int)v12);
+  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+  EtwTracePsIoRateControl(*(unsigned int *)(a1 + 1468), v22, v18, (unsigned int)v12);
   return (unsigned int)v12;
 }

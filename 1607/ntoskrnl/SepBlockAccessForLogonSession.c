@@ -1,12 +1,12 @@
 /*
- * XREFs of SepBlockAccessForLogonSession @ 0x140533AB8
+ * XREFs of SepBlockAccessForLogonSession @ 0x140533FF8
  * Callers:
- *     SepRmInteractiveLogoffLogonSessionCompletedWrkr @ 0x140533A90 (SepRmInteractiveLogoffLogonSessionCompletedWrkr.c)
+ *     SepRmInteractiveLogoffLogonSessionCompletedWrkr @ 0x140533FD0 (SepRmInteractiveLogoffLogonSessionCompletedWrkr.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140013620 (PsGetCurrentServerSilo.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
+ *     PsGetCurrentServerSilo @ 0x1400131A0 (PsGetCurrentServerSilo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
  */
 
 __int64 __fastcall SepBlockAccessForLogonSession(_DWORD *a1)

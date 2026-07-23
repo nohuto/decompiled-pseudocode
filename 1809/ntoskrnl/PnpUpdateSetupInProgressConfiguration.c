@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpUpdateSetupInProgressConfiguration @ 0x140832C94
+ * XREFs of PnpUpdateSetupInProgressConfiguration @ 0x140833EF4
  * Callers:
- *     PnpWatchdogSetupInProgressConfigure @ 0x14073C140 (PnpWatchdogSetupInProgressConfigure.c)
+ *     PnpWatchdogSetupInProgressConfigure @ 0x14073D330 (PnpWatchdogSetupInProgressConfigure.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopGetRegistryValue @ 0x140681694 (IopGetRegistryValue.c)
  */
 
 void __fastcall PnpUpdateSetupInProgressConfiguration(HANDLE KeyHandle)

@@ -20,32 +20,32 @@
  *     RtlpLogHeapUnlockEvent @ 0x18011756C (RtlpLogHeapUnlockEvent.c)
  */
 
-char __fastcall RtlUnlockHeap(__int64 a1)
+BOOLEAN __cdecl RtlUnlockHeap(PVOID HeapHandle)
 {
   __int64 v2; // rdi
   _BYTE *v4; // rsi
   signed __int32 v5; // ebp
   _DWORD *SharedData; // rcx
   __int64 v7; // rcx
-  __int64 DeferredCriticalSectionEvent; // r10
+  void *DeferredCriticalSectionEvent; // r10
   int v10; // eax
   signed __int32 v11[14]; // [rsp+0h] [rbp-38h] BYREF
   int v12; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    RtlpHpHeapUnlock(a1, 0);
+    RtlpHpHeapUnlock((__int64)HeapHandle, 0);
   }
   else
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
       return ((__int64 (*)(void))qword_180174298)();
-    if ( !(unsigned __int8)RtlpCheckHeapSignature(a1, "RtlUnlockHeap") )
+    if ( !(unsigned __int8)RtlpCheckHeapSignature(HeapHandle, "RtlUnlockHeap") )
       return 0;
-    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
     {
-      v2 = *(_QWORD *)(a1 + 352);
-      --*(_WORD *)(a1 + 416);
+      v2 = *((_QWORD *)HeapHandle + 44);
+      --*((_WORD *)HeapHandle + 208);
       if ( (*(_DWORD *)(v2 + 12))-- == 1 )
       {
         *(_QWORD *)(v2 + 16) = 0LL;
@@ -55,9 +55,9 @@ char __fastcall RtlUnlockHeap(__int64 a1)
         {
           if ( (*v4 & 1) != 0 )
             RtlpNotOwnerCriticalSection(v2);
-          DeferredCriticalSectionEvent = *(_QWORD *)(v2 + 24);
+          DeferredCriticalSectionEvent = *(void **)(v2 + 24);
           if ( !DeferredCriticalSectionEvent )
-            DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(v2);
+            DeferredCriticalSectionEvent = (void *)RtlpCreateDeferredCriticalSectionEvent(v2);
           v12 = 0;
           while ( v5 != _InterlockedCompareExchange((volatile signed __int32 *)v4, (v5 & 2 | 1) + v5, v5) )
           {
@@ -67,7 +67,7 @@ char __fastcall RtlUnlockHeap(__int64 a1)
           }
           if ( (v5 & 2) != 0 )
           {
-            if ( DeferredCriticalSectionEvent == -1 )
+            if ( DeferredCriticalSectionEvent == (void *)-1LL )
             {
               _InterlockedOr(v11, 0);
               RtlpWakeByAddress(v2 + 8, 0LL);
@@ -76,10 +76,7 @@ char __fastcall RtlUnlockHeap(__int64 a1)
             {
               v10 = ZwSetEvent(DeferredCriticalSectionEvent, 0LL);
               if ( v10 < 0 )
-              {
-                RtlRaiseStatus((unsigned int)v10);
-                JUMPOUT(0x180015DC1LL);
-              }
+                RtlRaiseStatus(v10);
             }
           }
         }
@@ -94,7 +91,7 @@ char __fastcall RtlUnlockHeap(__int64 a1)
   if ( *(_BYTE *)v7 )
   {
     if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapUnlockEvent(a1);
+      RtlpLogHeapUnlockEvent(HeapHandle);
   }
   return 1;
 }

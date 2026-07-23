@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegTlsCleanup @ 0x140606250
+ * XREFs of RtlpHpSegTlsCleanup @ 0x140603890
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpLfhContextTlsCleanup @ 0x140606890 (RtlpHpLfhContextTlsCleanup.c)
+ *     RtlpHpLfhContextTlsCleanup @ 0x140603ED0 (RtlpHpLfhContextTlsCleanup.c)
  */
 
 __int64 __fastcall RtlpHpSegTlsCleanup(__int64 a1)

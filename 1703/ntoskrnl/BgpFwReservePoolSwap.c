@@ -19,7 +19,7 @@ __int64 __fastcall BgpFwReservePoolSwap(int a1, __int64 a2, unsigned int a3, __i
       dword_14036E388 = dword_14036E304;
       result = (unsigned int)dword_14036E300;
       HintIndex = dword_14036E300;
-      BitMapHeader = (struct _RTL_BITMAP)xmmword_14036E310;
+      BitMapHeader = (_RTL_BITMAP)xmmword_14036E310;
     }
   }
   else

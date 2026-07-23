@@ -1,28 +1,33 @@
 /*
- * XREFs of ZwQueryLicenseValue @ 0x140726010
+ * XREFs of ZwQueryLicenseValue @ 0x14072ABE0
  * Callers:
- *     SepDesktopAppxSubProcessToken @ 0x14045FEB8 (SepDesktopAppxSubProcessToken.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057CE5C (HalpQueryMaximumRegisteredProcessorCount.c)
- *     RtlGetProductInfo @ 0x14061E210 (RtlGetProductInfo.c)
- *     RtlpEcReadSkuUpdateManagementGroup @ 0x14061E988 (RtlpEcReadSkuUpdateManagementGroup.c)
- *     DifZwQueryLicenseValueWrapper @ 0x1406B2A90 (DifZwQueryLicenseValueWrapper.c)
- *     SepIsLockedDown @ 0x14080FEE8 (SepIsLockedDown.c)
- *     ExGetExpirationDate @ 0x140837BDC (ExGetExpirationDate.c)
- *     ExpGenuinePolicyPostProcess @ 0x1408386E0 (ExpGenuinePolicyPostProcess.c)
- *     MmCreateMirror @ 0x140868750 (MmCreateMirror.c)
- *     RtlpGetWindowsPolicy @ 0x1408A776C (RtlpGetWindowsPolicy.c)
- *     RtlpGetPolicyValueForSystemCapability @ 0x140A91E38 (RtlpGetPolicyValueForSystemCapability.c)
- *     InitializeDynamicPartitioningPolicy @ 0x140CAB8B4 (InitializeDynamicPartitioningPolicy.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
- *     PpmInitIdlePolicy @ 0x140CCFE78 (PpmInitIdlePolicy.c)
- *     WheapLoadPolicy @ 0x140CE85FC (WheapLoadPolicy.c)
+ *     SepDesktopAppxSubProcessToken @ 0x14051E308 (SepDesktopAppxSubProcessToken.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057F37C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     RtlGetProductInfo @ 0x140621260 (RtlGetProductInfo.c)
+ *     RtlpEcReadSkuUpdateManagementGroup @ 0x1406219D8 (RtlpEcReadSkuUpdateManagementGroup.c)
+ *     DifZwQueryLicenseValueWrapper @ 0x1406B6670 (DifZwQueryLicenseValueWrapper.c)
+ *     SepIsLockedDown @ 0x140815978 (SepIsLockedDown.c)
+ *     ExGetExpirationDate @ 0x14083DE1C (ExGetExpirationDate.c)
+ *     ExpGenuinePolicyPostProcess @ 0x14083E920 (ExpGenuinePolicyPostProcess.c)
+ *     MmCreateMirror @ 0x14086EB30 (MmCreateMirror.c)
+ *     RtlpGetWindowsPolicy @ 0x1408ADBDC (RtlpGetWindowsPolicy.c)
+ *     RtlpGetPolicyValueForSystemCapability @ 0x140A96988 (RtlpGetPolicyValueForSystemCapability.c)
+ *     InitializeDynamicPartitioningPolicy @ 0x140CB18F4 (InitializeDynamicPartitioningPolicy.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
+ *     PpmInitIdlePolicy @ 0x140CD6020 (PpmInitIdlePolicy.c)
+ *     WheapLoadPolicy @ 0x140CEE99C (WheapLoadPolicy.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryLicenseValue(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryLicenseValue(
+        PUNICODE_STRING ValueName,
+        PULONG Type,
+        PVOID Data,
+        ULONG DataSize,
+        PULONG ResultDataSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ValueName);
 }

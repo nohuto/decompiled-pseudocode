@@ -12,11 +12,20 @@
  *     <none>
  */
 
-__int64 NtWriteFile()
+NTSTATUS __cdecl NtWriteFile(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 8LL;
+  result = 8;
   __asm { syscall; Low latency system call }
   return result;
 }

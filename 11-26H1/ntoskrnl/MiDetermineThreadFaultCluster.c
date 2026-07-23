@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDetermineThreadFaultCluster @ 0x1402D60A8
+ * XREFs of MiDetermineThreadFaultCluster @ 0x1402B7E68
  * Callers:
- *     MiResolvePrivateZeroFault @ 0x1402D5420 (MiResolvePrivateZeroFault.c)
+ *     MiResolvePrivateZeroFault @ 0x1402B71E0 (MiResolvePrivateZeroFault.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetPageChainForFault @ 0x140284C30 (MiGetPageChainForFault.c)
- *     MiFreePageChain @ 0x140292AA4 (MiFreePageChain.c)
- *     MiConfirmFaultClusterDescriptor @ 0x1402ECD70 (MiConfirmFaultClusterDescriptor.c)
- *     MiProtectionToCacheAttribute @ 0x140372270 (MiProtectionToCacheAttribute.c)
- *     MiComputeZeroClusterMaximum @ 0x1403D9D60 (MiComputeZeroClusterMaximum.c)
- *     MiAppendPageChain @ 0x1404578A0 (MiAppendPageChain.c)
- *     MiCheckFaultClusterEligibility @ 0x14045F870 (MiCheckFaultClusterEligibility.c)
- *     MiCheckFaultClusterDisable @ 0x14046B000 (MiCheckFaultClusterDisable.c)
- *     MiSetFaultClusterContextBlockEntryState @ 0x14046E324 (MiSetFaultClusterContextBlockEntryState.c)
- *     MiSortFaultClusterDescriptors @ 0x140494C40 (MiSortFaultClusterDescriptors.c)
- *     MiSplitPageChain @ 0x1404C418C (MiSplitPageChain.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetPageChainForFault @ 0x140284190 (MiGetPageChainForFault.c)
+ *     MiFreePageChain @ 0x140292004 (MiFreePageChain.c)
+ *     MiConfirmFaultClusterDescriptor @ 0x1402CEDB0 (MiConfirmFaultClusterDescriptor.c)
+ *     MiProtectionToCacheAttribute @ 0x140374020 (MiProtectionToCacheAttribute.c)
+ *     MiComputeZeroClusterMaximum @ 0x1403DCF50 (MiComputeZeroClusterMaximum.c)
+ *     MiAppendPageChain @ 0x14044F110 (MiAppendPageChain.c)
+ *     MiCheckFaultClusterEligibility @ 0x140458F70 (MiCheckFaultClusterEligibility.c)
+ *     MiCheckFaultClusterDisable @ 0x140464780 (MiCheckFaultClusterDisable.c)
+ *     MiSetFaultClusterContextBlockEntryState @ 0x140467AA4 (MiSetFaultClusterContextBlockEntryState.c)
+ *     MiSortFaultClusterDescriptors @ 0x14048E790 (MiSortFaultClusterDescriptors.c)
+ *     MiSplitPageChain @ 0x1404BDA6C (MiSplitPageChain.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiDetermineThreadFaultCluster(__int64 a1, __int64 a2, int a3, __int64 a4, unsigned __int64 *a5)
@@ -290,7 +290,7 @@ LABEL_63:
   v44 = MiProtectionToCacheAttribute(*(unsigned int *)(a1 + 32));
   MiGetPageChainForFault(
     *(_QWORD *)(a1 + 8),
-    *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v59 + 174)),
+    *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v59 + 174)),
     *(_QWORD *)(a1 + 16),
     *(_DWORD *)(a1 + 40),
     v44,

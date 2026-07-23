@@ -1,10 +1,10 @@
 /*
- * XREFs of XmRetOp @ 0x140576960
+ * XREFs of XmRetOp @ 0x140573DF0
  * Callers:
  *     <none>
  * Callees:
- *     XmPopStack @ 0x140468128 (XmPopStack.c)
- *     XmGetWordImmediate @ 0x140468D7C (XmGetWordImmediate.c)
+ *     XmPopStack @ 0x140460AD8 (XmPopStack.c)
+ *     XmGetWordImmediate @ 0x14046172C (XmGetWordImmediate.c)
  */
 
 __int64 __fastcall XmRetOp(__int64 a1)

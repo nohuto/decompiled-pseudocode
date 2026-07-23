@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLockAndConfirmFaultClusterDescriptor @ 0x14039F79C
+ * XREFs of MiLockAndConfirmFaultClusterDescriptor @ 0x1403A14FC
  * Callers:
- *     MiPerformFaultClusterMaintenance @ 0x1402EB0D0 (MiPerformFaultClusterMaintenance.c)
+ *     MiPerformFaultClusterMaintenance @ 0x1402CD110 (MiPerformFaultClusterMaintenance.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiUnlockFaultPageTable @ 0x1402EB810 (MiUnlockFaultPageTable.c)
- *     MiResolvePageTablePage @ 0x1402ECA70 (MiResolvePageTablePage.c)
- *     MiConfirmFaultClusterDescriptor @ 0x1402ECD70 (MiConfirmFaultClusterDescriptor.c)
- *     MiFillPteHierarchy @ 0x14039FA50 (MiFillPteHierarchy.c)
- *     MiSetFaultClusterContextBlockEntryState @ 0x14046E324 (MiSetFaultClusterContextBlockEntryState.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUnlockFaultPageTable @ 0x1402CD850 (MiUnlockFaultPageTable.c)
+ *     MiResolvePageTablePage @ 0x1402CEAB0 (MiResolvePageTablePage.c)
+ *     MiConfirmFaultClusterDescriptor @ 0x1402CEDB0 (MiConfirmFaultClusterDescriptor.c)
+ *     MiFillPteHierarchy @ 0x1403A17B0 (MiFillPteHierarchy.c)
+ *     MiSetFaultClusterContextBlockEntryState @ 0x140467AA4 (MiSetFaultClusterContextBlockEntryState.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiLockAndConfirmFaultClusterDescriptor(

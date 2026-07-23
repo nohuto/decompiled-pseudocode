@@ -1,9 +1,9 @@
 /*
- * XREFs of PoRequestPowerIrp @ 0x14028F200
+ * XREFs of PoRequestPowerIrp @ 0x14028F490
  * Callers:
  *     <none>
  * Callees:
- *     PopRequestPowerIrp @ 0x14028F230 (PopRequestPowerIrp.c)
+ *     PopRequestPowerIrp @ 0x14028F4C0 (PopRequestPowerIrp.c)
  */
 
 NTSTATUS __stdcall PoRequestPowerIrp(

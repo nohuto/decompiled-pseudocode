@@ -8,13 +8,13 @@
 
 NTSTATUS __stdcall PsWrapApcWow64Thread(PVOID *ApcContext, PVOID *ApcRoutine)
 {
-  _KPROCESS *Process; // rcx
+  __int64 v2; // rcx
   __int16 v3; // ax
 
-  Process = KeGetCurrentThread()->ApcState.Process;
-  if ( Process[1].Affinity.StaticBitmap[30] )
+  v2 = *((_QWORD *)KeGetCurrentThread() + 23);
+  if ( *(_QWORD *)(v2 + 1408) )
   {
-    v3 = WORD2(Process[2].Affinity.StaticBitmap[20]);
+    v3 = *(_WORD *)(v2 + 2412);
     if ( v3 == 332 || v3 == 452 )
       *ApcRoutine = (PVOID)(-4LL * (_QWORD)*ApcRoutine);
   }

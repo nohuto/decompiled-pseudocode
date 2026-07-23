@@ -26,7 +26,7 @@ __int64 MiInitializeMirroring()
   PVOID PoolWithTag; // rax
   __int64 v2; // rbx
   __int64 v3; // r8
-  __int64 *v4; // rsi
+  _RTL_BITMAP_EX *v4; // rsi
   struct _KTHREAD *CurrentThread; // r14
   __int64 v6; // rbp
   unsigned __int64 v7; // rbx
@@ -43,7 +43,7 @@ __int64 MiInitializeMirroring()
   _KLOCK_ENTRY *v19; // rdi
   __int64 v20; // rdx
   __int64 v21; // rcx
-  __int128 v22; // [rsp+30h] [rbp-38h] BYREF
+  _RTL_BITMAP_EX v22; // [rsp+30h] [rbp-38h] BYREF
   int v23; // [rsp+70h] [rbp+8h] BYREF
   int v24; // [rsp+78h] [rbp+10h]
 
@@ -62,7 +62,7 @@ __int64 MiInitializeMirroring()
   {
     memset(PoolWithTag, 0, v0);
     qword_14038B3E8 = v2;
-    v4 = qword_140388B58;
+    v4 = &stru_140388B58;
     CurrentThread = KeGetCurrentThread();
     v6 = qword_1403885E0;
     v7 = (((unsigned __int64)(qword_1403885E0 + 8) >> 3) + 4095) >> 12;
@@ -72,10 +72,9 @@ __int64 MiInitializeMirroring()
       v9 = MiReservePtes((__int64)&qword_140389360, (unsigned int)v7, v3);
       if ( !v9 || !(unsigned int)MiInitializeDynamicBitmap(&v22, (__int64)(v9 << 25) >> 16, v6 + 1, 24) )
         break;
-      *(_QWORD *)&v22 = 0LL;
+      v22.SizeOfBitMap = 0LL;
       ++v8;
-      *(_OWORD *)v4 = v22;
-      v4 += 2;
+      *v4++ = v22;
       if ( v8 >= 2 )
       {
         if ( (dword_140400118 & 1) != 0 )
@@ -123,7 +122,7 @@ LABEL_16:
           }
           v19->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v19->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v11->LockEntries[v18]);
+            KiAbEntryRemoveFromTree(&v11->LockEntries[v18].TreeNode);
           v23 = 0;
           v23 = v19->BoostBitmap.AllFields & 0x1FFFF;
           v19->BoostBitmap.AllFields &= 0xFFFE0000;

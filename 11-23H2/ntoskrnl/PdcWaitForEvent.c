@@ -1,9 +1,9 @@
 /*
- * XREFs of PdcWaitForEvent @ 0x1409C8BBC
+ * XREFs of PdcWaitForEvent @ 0x1409C8DBC
  * Callers:
- *     Pdcv2pActivationClientCallback @ 0x1409C8A40 (Pdcv2pActivationClientCallback.c)
+ *     Pdcv2pActivationClientCallback @ 0x1409C8C40 (Pdcv2pActivationClientCallback.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
  */
 
 NTSTATUS __fastcall PdcWaitForEvent(void *a1)

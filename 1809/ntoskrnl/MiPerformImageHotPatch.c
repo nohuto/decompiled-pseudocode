@@ -1,33 +1,33 @@
 /*
- * XREFs of MiPerformImageHotPatch @ 0x140856C80
+ * XREFs of MiPerformImageHotPatch @ 0x140857EE0
  * Callers:
- *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
+ *     MiHotPatchImage @ 0x140856590 (MiHotPatchImage.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
- *     MiLockVad @ 0x1400769A4 (MiLockVad.c)
- *     MiUnlockVad @ 0x1400784B0 (MiUnlockVad.c)
- *     MiObtainReferencedSecureVad @ 0x1400861D0 (MiObtainReferencedSecureVad.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     MiBeginHoldingDirtyFaults @ 0x1402B91C0 (MiBeginHoldingDirtyFaults.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlApplyHotPatch @ 0x14057E148 (RtlApplyHotPatch.c)
- *     MiSetProcessPebHotPatchState @ 0x14058235C (MiSetProcessPebHotPatchState.c)
- *     MmUnsecureVirtualMemory @ 0x1405F3430 (MmUnsecureVirtualMemory.c)
- *     MiUnmapViewOfSection @ 0x1406171B0 (MiUnmapViewOfSection.c)
- *     MiUnmapImageInSystemSpace @ 0x14065088C (MiUnmapImageInSystemSpace.c)
- *     MiMapViewOfSectionExCommon @ 0x140676C10 (MiMapViewOfSectionExCommon.c)
- *     MiApplyImageHotPatch @ 0x140854688 (MiApplyImageHotPatch.c)
- *     MiInitializeImageHotPatchContext @ 0x1408557DC (MiInitializeImageHotPatchContext.c)
- *     MiOpenHotPatchFile @ 0x1408568EC (MiOpenHotPatchFile.c)
- *     MiPrepareToHotPatchImage @ 0x140857348 (MiPrepareToHotPatchImage.c)
- *     MiReleaseHotPatchResources @ 0x140857F0C (MiReleaseHotPatchResources.c)
- *     RtlFindHotPatchBase @ 0x140899C90 (RtlFindHotPatchBase.c)
- *     RtlFindHotPatchInformation @ 0x140899CBC (RtlFindHotPatchInformation.c)
- *     RtlValidateHotPatchBase @ 0x140899F44 (RtlValidateHotPatchBase.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiVadDeleted @ 0x140075550 (MiVadDeleted.c)
+ *     MiLockVad @ 0x140076994 (MiLockVad.c)
+ *     MiUnlockVad @ 0x1400784A0 (MiUnlockVad.c)
+ *     MiObtainReferencedSecureVad @ 0x1400861C0 (MiObtainReferencedSecureVad.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     MiBeginHoldingDirtyFaults @ 0x1402B93B0 (MiBeginHoldingDirtyFaults.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlApplyHotPatch @ 0x14057F148 (RtlApplyHotPatch.c)
+ *     MiSetProcessPebHotPatchState @ 0x14058335C (MiSetProcessPebHotPatchState.c)
+ *     MmUnsecureVirtualMemory @ 0x1405F4430 (MmUnsecureVirtualMemory.c)
+ *     MiUnmapViewOfSection @ 0x1406181B0 (MiUnmapViewOfSection.c)
+ *     MiUnmapImageInSystemSpace @ 0x140651A4C (MiUnmapImageInSystemSpace.c)
+ *     MiMapViewOfSectionExCommon @ 0x140677DD0 (MiMapViewOfSectionExCommon.c)
+ *     MiApplyImageHotPatch @ 0x1408558E8 (MiApplyImageHotPatch.c)
+ *     MiInitializeImageHotPatchContext @ 0x140856A3C (MiInitializeImageHotPatchContext.c)
+ *     MiOpenHotPatchFile @ 0x140857B4C (MiOpenHotPatchFile.c)
+ *     MiPrepareToHotPatchImage @ 0x1408585A8 (MiPrepareToHotPatchImage.c)
+ *     MiReleaseHotPatchResources @ 0x14085916C (MiReleaseHotPatchResources.c)
+ *     RtlFindHotPatchBase @ 0x14089AEF0 (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x14089AF1C (RtlFindHotPatchInformation.c)
+ *     RtlValidateHotPatchBase @ 0x14089B1A4 (RtlValidateHotPatchBase.c)
  */
 
 __int64 MiPerformImageHotPatch(__int64 a1, __int64 a2, ...)
@@ -249,7 +249,7 @@ LABEL_12:
       *v4 = 0LL;
       v4[1] = 0LL;
       v4[2] = 0LL;
-      v18 = (char *)MiObtainReferencedSecureVad((unsigned __int64)SecureHandle ^ Process ^ qword_14043A010, (int *)va);
+      v18 = (char *)MiObtainReferencedSecureVad((unsigned __int64)SecureHandle ^ Process ^ qword_14043B0D0, (int *)va);
       MiInitializeImageHotPatchContext(v32, (__int64)v18);
       MiBeginHoldingDirtyFaults(a1, v36);
       v37 |= 2u;

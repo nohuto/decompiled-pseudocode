@@ -1,16 +1,16 @@
 /*
- * XREFs of VerifierInitSystem @ 0x140C3B1B8
+ * XREFs of VerifierInitSystem @ 0x140C3D310
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     VfPendingInitPhase1 @ 0x140B91AB4 (VfPendingInitPhase1.c)
- *     VfFaultsInitPhase1 @ 0x140B96468 (VfFaultsInitPhase1.c)
- *     VfPoolInitPhase1 @ 0x140B9A3F0 (VfPoolInitPhase1.c)
- *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140B9B33C (VfSettingsMiscellaneousChecksInitPhase1.c)
- *     VfIsRuleClassEnabled @ 0x140BA7550 (VfIsRuleClassEnabled.c)
- *     ViInitSystemPhase0 @ 0x140C3B6E4 (ViInitSystemPhase0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     VfPendingInitPhase1 @ 0x140B93AB4 (VfPendingInitPhase1.c)
+ *     VfFaultsInitPhase1 @ 0x140B98468 (VfFaultsInitPhase1.c)
+ *     VfPoolInitPhase1 @ 0x140B9C3F0 (VfPoolInitPhase1.c)
+ *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140B9D33C (VfSettingsMiscellaneousChecksInitPhase1.c)
+ *     VfIsRuleClassEnabled @ 0x140BA9550 (VfIsRuleClassEnabled.c)
+ *     ViInitSystemPhase0 @ 0x140C3D83C (ViInitSystemPhase0.c)
  */
 
 char VerifierInitSystem()

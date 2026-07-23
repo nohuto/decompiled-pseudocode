@@ -1,14 +1,14 @@
 /*
- * XREFs of RawCleanup @ 0x14071B01C
+ * XREFs of RawCleanup @ 0x1406C8D0C
  * Callers:
- *     RawDispatch @ 0x14071AB40 (RawDispatch.c)
+ *     RawDispatch @ 0x1406C8830 (RawDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     RawInitiateDeleteVolume @ 0x140360A2C (RawInitiateDeleteVolume.c)
- *     IoRemoveLinkShareAccessEx @ 0x14071B0E0 (IoRemoveLinkShareAccessEx.c)
- *     FsRtlNotifyVolumeEvent @ 0x14076E0F0 (FsRtlNotifyVolumeEvent.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     RawInitiateDeleteVolume @ 0x1402A592C (RawInitiateDeleteVolume.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     IoRemoveLinkShareAccessEx @ 0x1406C8DD0 (IoRemoveLinkShareAccessEx.c)
+ *     FsRtlNotifyVolumeEvent @ 0x14076E2B0 (FsRtlNotifyVolumeEvent.c)
  */
 
 __int64 __fastcall RawCleanup(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, PIRP Irp, __int64 a3)

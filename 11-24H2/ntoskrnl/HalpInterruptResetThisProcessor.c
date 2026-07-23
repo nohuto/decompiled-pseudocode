@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpInterruptResetThisProcessor @ 0x140541D10
+ * XREFs of HalpInterruptResetThisProcessor @ 0x14053F610
  * Callers:
- *     HalpInterruptRebootService @ 0x14055A1D0 (HalpInterruptRebootService.c)
+ *     HalpInterruptRebootService @ 0x140557E00 (HalpInterruptRebootService.c)
  * Callees:
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
- *     KeStallExecutionProcessor @ 0x14033A030 (KeStallExecutionProcessor.c)
- *     HalpInterruptSetProblemEx @ 0x1403BC82C (HalpInterruptSetProblemEx.c)
- *     HalpPowerWriteResetCommand @ 0x140544B14 (HalpPowerWriteResetCommand.c)
- *     HalpInterruptInitializeController @ 0x1405564D4 (HalpInterruptInitializeController.c)
- *     HalpInterruptInitializeLocalUnit @ 0x1405565EC (HalpInterruptInitializeLocalUnit.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
+ *     KeStallExecutionProcessor @ 0x140319510 (KeStallExecutionProcessor.c)
+ *     HalpInterruptSetProblemEx @ 0x14037537C (HalpInterruptSetProblemEx.c)
+ *     HalpPowerWriteResetCommand @ 0x1405423D4 (HalpPowerWriteResetCommand.c)
+ *     HalpInterruptInitializeController @ 0x140553E14 (HalpInterruptInitializeController.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x140553F2C (HalpInterruptInitializeLocalUnit.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __noreturn HalpInterruptResetThisProcessor()
@@ -17,20 +17,14 @@ void __noreturn HalpInterruptResetThisProcessor()
   unsigned int Number; // esi
   __int64 v1; // rdx
   __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  ULONG_PTR *v5; // rdi
-  ULONG_PTR v6; // rbx
+  ULONG_PTR *v3; // rdi
+  ULONG_PTR v4; // rbx
+  int v5; // eax
+  __int64 v6; // rdx
   int v7; // eax
   __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  int v11; // eax
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rbx
-  int v16; // eax
+  __int64 v9; // rbx
+  int v10; // eax
 
   Number = KeGetPcr()->Prcb.Number;
   HalpDisableInterrupts();
@@ -42,37 +36,32 @@ void __noreturn HalpInterruptResetThisProcessor()
     while ( _InterlockedExchangeAdd(&HalpInterruptProcessorsStarted, 0) )
       _mm_pause();
     KeStallExecutionProcessor(0x64u);
-    v5 = (ULONG_PTR *)HalpRegisteredInterruptControllers;
-    while ( v5 != &HalpRegisteredInterruptControllers )
+    v3 = (ULONG_PTR *)HalpRegisteredInterruptControllers;
+    while ( v3 != &HalpRegisteredInterruptControllers )
     {
-      v6 = (ULONG_PTR)v5;
-      v5 = (ULONG_PTR *)*v5;
-      v7 = *(_DWORD *)(v6 + 248);
-      if ( (v7 & 1) != 0 )
+      v4 = (ULONG_PTR)v3;
+      v3 = (ULONG_PTR *)*v3;
+      v5 = *(_DWORD *)(v4 + 248);
+      if ( (v5 & 1) != 0 )
       {
-        *(_DWORD *)(v6 + 248) = v7 & 0xFFFFFFFE;
-        HalpInterruptInitializeController(v6);
-        if ( *(_QWORD *)(v6 + 176)
-          && (v11 = guard_dispatch_icall_no_overrides(*(_QWORD *)(v6 + 16), v8, v9, v10), v11 < 0) )
-        {
-          HalpInterruptSetProblemEx(v6, 35, v11, (__int64)"minkernel\\hals\\lib\\interrupts\\common\\intsup.c", 0xBF1u);
-        }
+        *(_DWORD *)(v4 + 248) = v5 & 0xFFFFFFFE;
+        HalpInterruptInitializeController(v4);
+        if ( *(_QWORD *)(v4 + 176) && (v7 = guard_dispatch_icall_no_overrides(*(_QWORD *)(v4 + 16), v6), v7 < 0) )
+          HalpInterruptSetProblemEx(v4, 35, v7, (__int64)"minkernel\\hals\\lib\\interrupts\\common\\intsup.c", 0xBF1u);
         else
-        {
-          *(_DWORD *)(v6 + 248) &= ~1u;
-        }
+          *(_DWORD *)(v4 + 248) &= ~1u;
       }
     }
     KeStallExecutionProcessor(0x64u);
   }
-  guard_dispatch_icall_no_overrides(v2, v1, v3, v4);
-  v15 = HalpInterruptController;
+  guard_dispatch_icall_no_overrides(v2, v1);
+  v9 = HalpInterruptController;
   if ( *(_QWORD *)(HalpInterruptController + 168) )
   {
-    v16 = guard_dispatch_icall_no_overrides(*(_QWORD *)(HalpInterruptController + 16), v12, v13, v14);
-    if ( v16 < 0 )
-      HalpInterruptSetProblemEx(v15, 34, v16, (__int64)"minkernel\\hals\\lib\\interrupts\\common\\intsup.c", 0xC22u);
+    v10 = guard_dispatch_icall_no_overrides(*(_QWORD *)(HalpInterruptController + 16), v8);
+    if ( v10 < 0 )
+      HalpInterruptSetProblemEx(v9, 34, v10, (__int64)"minkernel\\hals\\lib\\interrupts\\common\\intsup.c", 0xC22u);
   }
   HalpPowerWriteResetCommand(Number, (unsigned __int64)&HalpInterruptProcessorsStarted & -(__int64)(Number != 0));
-  JUMPOUT(0x140541E68LL);
+  JUMPOUT(0x14053F768LL);
 }

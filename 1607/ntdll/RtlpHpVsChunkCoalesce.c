@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVsChunkCoalesce @ 0x18001BE40
+ * XREFs of RtlpHpVsChunkCoalesce @ 0x18001BE30
  * Callers:
- *     RtlpHpVsChunkSplit @ 0x18001C5A0 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsContextFree @ 0x18001CC40 (RtlpHpVsContextFree.c)
+ *     RtlpHpVsChunkSplit @ 0x18001C590 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsContextFree @ 0x18001CC30 (RtlpHpVsContextFree.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x18001C040 (RtlRbRemoveNode.c)
- *     RtlpHpVsFreeChunkRemove @ 0x18006E724 (RtlpHpVsFreeChunkRemove.c)
+ *     RtlRbRemoveNode @ 0x18001C030 (RtlRbRemoveNode.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x18006E714 (RtlpHpVsFreeChunkRemove.c)
  */
 
 unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int *a4)
@@ -55,7 +55,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
     v15 = v14 ^ v5 ^ *(_QWORD *)v14;
     if ( (v15 & 0xFF000000000000LL) == 0 )
     {
-      RtlRbRemoveNode(a1 + 8, v14 + 8);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 8), (PRTL_BALANCED_NODE)(v14 + 8));
       v18 = v5 ^ *(_DWORD *)v14 ^ v14;
       v19 = 16 * HIWORD(v18);
       v20 = (((v14 & 0xFFF) + v19 + 4095) >> 12) - ((unsigned __int64)(v19 + 4095) >> 12);

@@ -1,13 +1,13 @@
 /*
- * XREFs of VslBindNtIum @ 0x140C199BC
+ * XREFs of VslBindNtIum @ 0x140C1B9F4
  * Callers:
- *     HvlEnableVsmCalls @ 0x140C5D014 (HvlEnableVsmCalls.c)
+ *     HvlEnableVsmCalls @ 0x140C1B930 (HvlEnableVsmCalls.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 VslBindNtIum()
@@ -50,7 +50,7 @@ __int64 VslBindNtIum()
   v7 = (unsigned int)((unsigned __int64)MmGetPhysicalAddress(BaseAddress).QuadPart >> 12);
   if ( (unsigned __int64)((v0 + 48) & 0xFFF) + 176 > 0x1000 )
     v8 = (unsigned int)((unsigned __int64)MmGetPhysicalAddress((char *)&v3 + 7).QuadPart >> 12);
-  result = VslpEnterIumSecureMode(2u, 256LL, 0, (__int64)v4);
+  result = VslpEnterIumSecureMode(2u, 0x100u, 0, (__int64)v4);
   if ( (int)result < 0 )
     KeBugCheckEx(0x6Fu, (int)result, 0xFFuLL, 0LL, 0LL);
   return result;

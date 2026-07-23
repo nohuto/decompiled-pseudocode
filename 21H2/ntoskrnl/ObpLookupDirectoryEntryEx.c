@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpLookupDirectoryEntryEx @ 0x140601DF4
+ * XREFs of ObpLookupDirectoryEntryEx @ 0x1406F1554
  * Callers:
- *     ObpDeleteNameCheck @ 0x14062CBD0 (ObpDeleteNameCheck.c)
- *     ObpCreateSymbolicLinkName @ 0x1406B8F14 (ObpCreateSymbolicLinkName.c)
- *     ObCloseHandleTableEntry @ 0x1406F5660 (ObCloseHandleTableEntry.c)
- *     ObCreateObjectTypeEx @ 0x1407958F0 (ObCreateObjectTypeEx.c)
- *     ObpLookupDirectoryEntry @ 0x1407960FC (ObpLookupDirectoryEntry.c)
+ *     ObpCreateSymbolicLinkName @ 0x140618538 (ObpCreateSymbolicLinkName.c)
+ *     ObpDeleteNameCheck @ 0x140663D60 (ObpDeleteNameCheck.c)
+ *     ObCloseHandleTableEntry @ 0x14070CA40 (ObCloseHandleTableEntry.c)
+ *     ObCreateObjectTypeEx @ 0x140795AF0 (ObCreateObjectTypeEx.c)
+ *     ObpLookupDirectoryEntry @ 0x1407962FC (ObpLookupDirectoryEntry.c)
  * Callees:
- *     ObpLockDirectoryShared @ 0x14020660C (ObpLockDirectoryShared.c)
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
- *     ObpUnlockDirectory @ 0x14027EB0C (ObpUnlockDirectory.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     ObpLookupDirectoryUsingHash @ 0x140601F48 (ObpLookupDirectoryUsingHash.c)
- *     ObpGetShadowDirectory @ 0x1408DC2DC (ObpGetShadowDirectory.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObpUnlockDirectory @ 0x14026CAAC (ObpUnlockDirectory.c)
+ *     ObpLockDirectoryShared @ 0x1402AAF3C (ObpLockDirectoryShared.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     ObpLookupDirectoryUsingHash @ 0x1406F16A8 (ObpLookupDirectoryUsingHash.c)
+ *     ObpGetShadowDirectory @ 0x1408DC43C (ObpGetShadowDirectory.c)
  */
 
 __int64 __fastcall ObpLookupDirectoryEntryEx(

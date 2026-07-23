@@ -1,15 +1,15 @@
 /*
- * XREFs of ViDeadlockEmptyDatabase @ 0x140C374CC
+ * XREFs of ViDeadlockEmptyDatabase @ 0x140C3D4DC
  * Callers:
- *     ViDeadlockDetectionApplySettings @ 0x140C37414 (ViDeadlockDetectionApplySettings.c)
+ *     ViDeadlockDetectionApplySettings @ 0x140C3D424 (ViDeadlockDetectionApplySettings.c)
  * Callees:
- *     ViLowerIrql @ 0x14064738C (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x1406473C4 (ViRaiseIrqlToDpcLevel.c)
- *     ViDeadlockDetectionLock @ 0x140C37460 (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x140C37498 (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockFree @ 0x140C37910 (ViDeadlockFree.c)
- *     ViDeadlockRemoveResource @ 0x140C37FF8 (ViDeadlockRemoveResource.c)
- *     ViDeadlockRemoveThread @ 0x140C38198 (ViDeadlockRemoveThread.c)
+ *     ViLowerIrql @ 0x14064AF6C (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x14064AFA4 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockDetectionLock @ 0x140C3D470 (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x140C3D4A8 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x140C3D920 (ViDeadlockFree.c)
+ *     ViDeadlockRemoveResource @ 0x140C3E008 (ViDeadlockRemoveResource.c)
+ *     ViDeadlockRemoveThread @ 0x140C3E1A8 (ViDeadlockRemoveThread.c)
  */
 
 __int64 ViDeadlockEmptyDatabase()

@@ -1,21 +1,21 @@
 /*
- * XREFs of PspSchedulerSharedDataRegionSlotAllocate @ 0x1409137C4
+ * XREFs of PspSchedulerSharedDataRegionSlotAllocate @ 0x1408EAED0
  * Callers:
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x14024B8D0 (RtlFindClearBitsAndSet.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObReferenceObjectByPointerWithTag @ 0x140418730 (ObReferenceObjectByPointerWithTag.c)
- *     KeSwappablePageGetLockedAddress @ 0x14046A5B4 (KeSwappablePageGetLockedAddress.c)
- *     KeSwappablePageReference @ 0x14046A5CC (KeSwappablePageReference.c)
- *     PsGetCurrentThreadProcess @ 0x1404709D0 (PsGetCurrentThreadProcess.c)
- *     ZwAllocateVirtualMemory @ 0x1406A6710 (ZwAllocateVirtualMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlFindClearBitsAndSet @ 0x14027BEE0 (RtlFindClearBitsAndSet.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ObReferenceObjectByPointerWithTag @ 0x1404084E0 (ObReferenceObjectByPointerWithTag.c)
+ *     PsGetCurrentThreadProcess @ 0x14046B080 (PsGetCurrentThreadProcess.c)
+ *     KeSwappablePageGetLockedAddress @ 0x140470D90 (KeSwappablePageGetLockedAddress.c)
+ *     KeSwappablePageReference @ 0x140470DA8 (KeSwappablePageReference.c)
+ *     ZwAllocateVirtualMemory @ 0x1406A76B0 (ZwAllocateVirtualMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PspSchedulerSharedDataRegionSlotAllocate(struct _KTHREAD *a1, __int64 a2, _QWORD *a3)
@@ -23,8 +23,8 @@ __int64 __fastcall PspSchedulerSharedDataRegionSlotAllocate(struct _KTHREAD *a1,
   _KPROCESS *v6; // rbx
   NTSTATUS v7; // esi
   struct _KTHREAD *CurrentThread; // rcx
-  _QWORD *v10; // rax
-  _QWORD *v11; // r15
+  char *v10; // rax
+  char *v11; // r15
   _DWORD *v12; // r12
   ULONG ClearBitsAndSet; // eax
   unsigned __int64 v14; // r15
@@ -33,7 +33,7 @@ __int64 __fastcall PspSchedulerSharedDataRegionSlotAllocate(struct _KTHREAD *a1,
   __int64 v17; // rcx
   __int64 LockedAddress; // rax
   struct _KTHREAD *v19; // rax
-  _QWORD *v20; // r14
+  char *v20; // r14
   _DWORD *v21; // rax
   _DWORD *v22; // r8
   PVOID BaseAddress; // [rsp+30h] [rbp-48h] BYREF
@@ -51,12 +51,12 @@ __int64 __fastcall PspSchedulerSharedDataRegionSlotAllocate(struct _KTHREAD *a1,
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v10 = KeAbPreAcquire(a2 + 200, 0LL);
+    v10 = (char *)KeAbPreAcquire(a2 + 200, 0LL);
     v11 = v10;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(a2 + 200), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a2 + 200), (__int64)v10, a2 + 200);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a2 + 200), v10, a2 + 200);
     if ( v11 )
-      *((_BYTE *)v11 + 10) = 1;
+      v11[10] = 1;
     v12 = (_DWORD *)(a2 + 224);
     ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)(a2 + 208), 1u, *(_DWORD *)(a2 + 224));
     v14 = ClearBitsAndSet;
@@ -100,17 +100,17 @@ LABEL_16:
       }
       v19 = KeGetCurrentThread();
       --v19->KernelApcDisable;
-      v20 = KeAbPreAcquire(a2 + 200, 0LL);
+      v20 = (char *)KeAbPreAcquire(a2 + 200, 0LL);
       v21 = v12;
       if ( _interlockedbittestandset64((volatile signed __int32 *)(a2 + 200), 0LL) )
       {
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a2 + 200), (__int64)v20, a2 + 200);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a2 + 200), v20, a2 + 200);
         v21 = (_DWORD *)(a2 + 224);
       }
       v22 = v12;
       if ( v20 )
       {
-        *((_BYTE *)v20 + 10) = 1;
+        v20[10] = 1;
         v22 = v21;
       }
       *(_BYTE *)(*(_QWORD *)(a2 + 216) + (v14 >> 3)) &= ~(1 << (v14 & 7));

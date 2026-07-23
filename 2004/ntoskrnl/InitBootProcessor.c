@@ -84,69 +84,70 @@ __int64 __fastcall InitBootProcessor(__int64 a1)
   ULONGLONG v12; // rcx
   ULONG_PTR v13; // r8
   ULONG_PTR v14; // r9
-  __int64 v15; // r9
-  __int64 v16; // r8
+  USHORT **v15; // r9
+  USHORT *v16; // r8
   USHORT *v17; // rdx
   USHORT *v18; // rcx
   int v19; // ecx
-  NTSTATUS v20; // eax
+  PNLSTABLEINFO v20; // rcx
+  NTSTATUS v21; // eax
   UNICODE_STRING *HostNtSystemRoot; // r13
-  NTSTATUS v22; // eax
-  int v23; // eax
-  unsigned int v24; // esi
+  NTSTATUS v23; // eax
+  int v24; // eax
+  ULONG v25; // esi
   PVOID PoolWithTag; // rax
-  void *v26; // rdi
-  const char *v27; // rcx
-  unsigned int v28; // r15d
+  void *v27; // rdi
+  const char *v28; // rcx
+  unsigned int v29; // r15d
   __int64 *i; // rdi
-  char *v30; // r8
-  unsigned int v31; // r9d
-  __int64 v32; // rdx
-  char v33; // al
-  NTSTATUS v34; // eax
-  size_t v35; // rdx
-  const char *v36; // r8
-  NTSTRSAFE_PSTR *v37; // r9
-  int Message; // eax
-  NTSTATUS v39; // eax
-  size_t v40; // rdx
-  const char *v41; // r8
-  NTSTATUS v42; // eax
+  char *v31; // r8
+  unsigned int v32; // r9d
+  __int64 v33; // rdx
+  char v34; // al
+  NTSTATUS v35; // eax
+  size_t v36; // rdx
+  const char *v37; // r8
+  NTSTRSAFE_PSTR *v38; // r9
+  NTSTATUS Message; // eax
+  NTSTATUS v40; // eax
+  size_t v41; // rdx
+  const char *v42; // r8
   NTSTATUS v43; // eax
   NTSTATUS v44; // eax
   NTSTATUS v45; // eax
   NTSTATUS v46; // eax
-  PVOID v47; // rax
-  __int64 v48; // rdx
-  __int64 v49; // rcx
-  void *v50; // rdi
+  NTSTATUS v47; // eax
+  PVOID v48; // rax
+  __int64 v49; // rdx
+  __int64 v50; // rcx
+  void *v51; // rdi
   __int64 result; // rax
-  size_t *pcbRemaining; // [rsp+28h] [rbp-E0h]
+  PMESSAGE_RESOURCE_ENTRY *MessageEntry; // [rsp+28h] [rbp-E0h]
   ULONG dwFlags; // [rsp+30h] [rbp-D8h]
   int dwFlagsa; // [rsp+30h] [rbp-D8h]
-  unsigned int DestinationString; // [rsp+38h] [rbp-D0h] BYREF
+  ULONG DestinationString; // [rsp+38h] [rbp-D0h] BYREF
   STRING DestinationString_8; // [rsp+40h] [rbp-C8h] BYREF
-  size_t cbDest; // [rsp+50h] [rbp-B8h] BYREF
+  size_t pcbRemaining; // [rsp+50h] [rbp-B8h] BYREF
   ULONGLONG pullResult; // [rsp+58h] [rbp-B0h] BYREF
-  unsigned int *v59; // [rsp+60h] [rbp-A8h] BYREF
-  void *v60; // [rsp+68h] [rbp-A0h] BYREF
-  const char *v61; // [rsp+70h] [rbp-98h] BYREF
-  NTSTRSAFE_PSTR v62[3]; // [rsp+78h] [rbp-90h] BYREF
-  _QWORD v63[3]; // [rsp+90h] [rbp-78h] BYREF
-  __int64 v64[4]; // [rsp+A8h] [rbp-60h] BYREF
-  char pszDest[256]; // [rsp+C8h] [rbp-40h] BYREF
-  char v66[64]; // [rsp+1C8h] [rbp+C0h] BYREF
+  PIMAGE_RESOURCE_DATA_ENTRY ResourceDataEntry; // [rsp+60h] [rbp-A8h] BYREF
+  PVOID ResourceBuffer; // [rsp+68h] [rbp-A0h] BYREF
+  PMESSAGE_RESOURCE_ENTRY v62; // [rsp+70h] [rbp-98h] BYREF
+  NTSTRSAFE_PSTR v63[3]; // [rsp+78h] [rbp-90h] BYREF
+  _QWORD v64[3]; // [rsp+90h] [rbp-78h] BYREF
+  _LDR_RESOURCE_INFO ResourceInfo; // [rsp+A8h] [rbp-60h] BYREF
+  CHAR pszDest[256]; // [rsp+C8h] [rbp-40h] BYREF
+  CHAR SourceString[64]; // [rsp+1C8h] [rbp+C0h] BYREF
 
   dword_140D257B4 = -1;
   dword_140D24994 = 259;
-  v61 = 0LL;
-  v59 = 0LL;
-  cbDest = 0LL;
+  v62 = 0LL;
+  ResourceDataEntry = 0LL;
+  pcbRemaining = 0LL;
   qword_140D24960 = (__int64)&PspTimeZoneStateBuffer;
   dword_140D24990 = 1;
   byte_140D24959 = 1;
   DestinationString_8 = 0LL;
-  *(_OWORD *)&v62[1] = 0LL;
+  *(_OWORD *)&v63[1] = 0LL;
   ExpValidateLoader();
   MEMORY[0xFFFFF780000002C4] = *(_DWORD *)(*(_QWORD *)(a1 + 240) + 2868LL);
   ExpInitLicensing((__int64)&PspHostSiloGlobals);
@@ -211,27 +212,27 @@ __int64 __fastcall InitBootProcessor(__int64 a1)
     v11 = *(_QWORD *)v11;
     v10 = v13 + v14;
   }
-  v15 = *(_QWORD *)(a1 + 224);
+  v15 = *(USHORT ***)(a1 + 224);
   if ( v15 )
   {
-    if ( *(_QWORD *)v15 && *(_QWORD *)(v15 + 8) )
+    if ( *v15 && v15[1] )
     {
-      InitNlsTableBase = *(void **)v15;
+      InitNlsTableBase = *v15;
       InitAnsiCodePageDataOffset = 0;
-      InitOemCodePageDataOffset = *(_DWORD *)(v15 + 8) - *(_DWORD *)v15;
-      v19 = *(_DWORD *)(v15 + 16) - *(_DWORD *)v15;
+      InitOemCodePageDataOffset = *((_DWORD *)v15 + 2) - *(_DWORD *)v15;
+      v19 = *((_DWORD *)v15 + 4) - *(_DWORD *)v15;
     }
     else
     {
       v19 = 0;
-      InitNlsTableBase = *(void **)(v15 + 16);
+      InitNlsTableBase = v15[2];
       InitAnsiCodePageDataOffset = 0;
       InitOemCodePageDataOffset = 0;
     }
     InitUnicodeCaseTableDataOffset = v19;
-    v16 = *(_QWORD *)(v15 + 16);
-    v17 = *(USHORT **)(v15 + 8);
-    v18 = *(USHORT **)v15;
+    v16 = v15[2];
+    v17 = v15[1];
+    v18 = *v15;
   }
   else
   {
@@ -243,8 +244,8 @@ __int64 __fastcall InitBootProcessor(__int64 a1)
     InitAnsiCodePageDataOffset = 0;
     InitOemCodePageDataOffset = 0;
   }
-  RtlInitNlsTables(v18, v17, v16);
-  RtlResetRtlTranslations();
+  RtlInitNlsTables(v18, v17, v16, (PNLSTABLEINFO)v15);
+  RtlResetRtlTranslations(v20);
   ExLeapSecondData = *(PVOID *)(*(_QWORD *)(a1 + 240) + 2944LL);
   WheaInitializeServices();
   ((void (__fastcall *)(ULONG_PTR))off_140C008B0[0])(HalIommuDispatch);
@@ -263,35 +264,35 @@ __int64 __fastcall InitBootProcessor(__int64 a1)
   ExpTickCountMultiplier = ExComputeTickCountMultiplier();
   MEMORY[0xFFFFF78000000004] = ExpTickCountMultiplier;
   MEMORY[0xFFFFF7800000023C] = 0;
-  v20 = RtlStringCbPrintfA(pszDest, 0x100uLL, "C:%s", *(const char **)(a1 + 200));
-  if ( v20 < 0 )
-    KeBugCheckEx(0x6Eu, v20, 0LL, 0LL, 0LL);
+  v21 = RtlStringCbPrintfA(pszDest, 0x100uLL, "C:%s", *(const char **)(a1 + 200));
+  if ( v21 < 0 )
+    KeBugCheckEx(0x6Eu, v21, 0LL, 0LL, 0LL);
   RtlInitAnsiString(&DestinationString_8, pszDest);
   DestinationString_8.Buffer[--DestinationString_8.Length] = 0;
   HostNtSystemRoot = (UNICODE_STRING *)RtlGetHostNtSystemRoot();
   HostNtSystemRoot->Buffer = (wchar_t *)0xFFFFF78000000030LL;
   *(_DWORD *)&HostNtSystemRoot->Length = 34078720;
-  v22 = RtlAnsiStringToUnicodeString(HostNtSystemRoot, &DestinationString_8, 0);
-  if ( v22 < 0 )
-    KeBugCheckEx(0x6Eu, v22, 1uLL, 0LL, 0LL);
-  v64[0] = 11LL;
-  v64[1] = 1LL;
-  v64[2] = 0LL;
-  v60 = 0LL;
+  v23 = RtlAnsiStringToUnicodeString(HostNtSystemRoot, &DestinationString_8, 0);
+  if ( v23 < 0 )
+    KeBugCheckEx(0x6Eu, v23, 1uLL, 0LL, 0LL);
+  ResourceInfo.Type = 11LL;
+  ResourceInfo.Name = 1LL;
+  ResourceInfo.Language = 0LL;
+  ResourceBuffer = 0LL;
   DestinationString = 0;
-  if ( (int)LdrFindResource_U(0x140000000LL, v64, 3u, &v59) >= 0
-    && (int)LdrAccessResource(0x140000000LL, (unsigned __int64)v59, (__int64)&v60, (__int64)&DestinationString) >= 0 )
+  if ( LdrFindResource_U((PVOID)0x140000000LL, &ResourceInfo, 3u, &ResourceDataEntry) >= 0
+    && LdrAccessResource((PVOID)0x140000000LL, ResourceDataEntry, &ResourceBuffer, &DestinationString) >= 0 )
   {
-    KiBugCodeMessages = v60;
+    KiBugCodeMessages = ResourceBuffer;
   }
   CmNtGlobalFlag2 &= 1u;
   MEMORY[0xFFFFF78000000258] = CmGlobalValidationRunlevel;
   MEMORY[0xFFFFF7800000028B] = 1;
-  v23 = CmNtSpBuildNumber & 0xFFF;
+  v24 = CmNtSpBuildNumber & 0xFFF;
   HIWORD(CmNtCSDVersion) = 0;
-  CmNtSpBuildNumber = v23;
+  CmNtSpBuildNumber = v24;
   if ( CmNtCSDReleaseType )
-    CmNtCSDVersion |= v23 << 16;
+    CmNtCSDVersion |= v24 << 16;
   if ( InitTickRolloverDelayLength != 4 || InitTickRolloverDelayType != 4 )
     InitTickRolloverDelay = 0;
   if ( InitTickRolloverDelay )
@@ -318,61 +319,61 @@ __int64 __fastcall InitBootProcessor(__int64 a1)
   InbvDriverInitialize(0LL, a1, 0LL);
   if ( KiBugCodeMessages )
   {
-    v24 = DestinationString;
+    v25 = DestinationString;
     PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, DestinationString, 0x6342694Bu);
-    v26 = PoolWithTag;
+    v27 = PoolWithTag;
     if ( !PoolWithTag )
       KeBugCheck(0x7Du);
-    memmove(PoolWithTag, KiBugCodeMessages, v24);
-    KiBugCodeMessages = v26;
+    memmove(PoolWithTag, KiBugCodeMessages, v25);
+    KiBugCodeMessages = v27;
   }
   if ( *(_DWORD *)(a1 + 12) != 1 )
   {
-    v27 = *(const char **)(a1 + 216);
-    if ( v27 )
+    v28 = *(const char **)(a1 + 216);
+    if ( v28 )
     {
-      if ( strstr(v27, "DEBUG") )
+      if ( strstr(v28, "DEBUG") )
       {
         IopAutoReboot = 0;
         KeBugCheckEx(0x196u, *(unsigned int *)(a1 + 12), 1uLL, 0LL, 0LL);
       }
     }
   }
-  v28 = 0;
-  for ( i = *(__int64 **)(a1 + 16); i != (__int64 *)(a1 + 16); ++v28 )
+  v29 = 0;
+  for ( i = *(__int64 **)(a1 + 16); i != (__int64 *)(a1 + 16); ++v29 )
   {
-    if ( v28 >= 3 )
+    if ( v29 >= 3 )
     {
-      v30 = (char *)i[10];
-      if ( *(_WORD *)v30 == 92 )
+      v31 = (char *)i[10];
+      if ( *(_WORD *)v31 == 92 )
       {
-        v31 = *((unsigned __int16 *)i + 36) >> 1;
-        if ( (unsigned __int64)v31 + 1 <= 0x100 )
+        v32 = *((unsigned __int16 *)i + 36) >> 1;
+        if ( (unsigned __int64)v32 + 1 <= 0x100 )
         {
-          v32 = 0LL;
+          v33 = 0LL;
           do
           {
-            v33 = *v30;
-            v30 += 2;
-            pszDest[v32] = v33;
-            v32 = (unsigned int)(v32 + 1);
+            v34 = *v31;
+            v31 += 2;
+            pszDest[v33] = v34;
+            v33 = (unsigned int)(v33 + 1);
           }
-          while ( (unsigned int)v32 < v31 );
-          if ( (unsigned int)v32 >= 0x100uLL )
+          while ( (unsigned int)v33 < v32 );
+          if ( (unsigned int)v33 >= 0x100uLL )
             _report_rangecheckfailure();
-          pszDest[v32] = 0;
+          pszDest[v33] = 0;
 LABEL_64:
-          RtlInitAnsiString((PSTRING)&v62[1], pszDest);
-          DbgLoadImageSymbols((__int64)&v62[1], i[6], 0xFFFFFFFFLL);
+          RtlInitAnsiString((PSTRING)&v63[1], pszDest);
+          DbgLoadImageSymbols((__int64)&v63[1], (void *)i[6], 0xFFFFFFFFLL);
         }
       }
       else if ( ((unsigned __int64)*((unsigned __int16 *)i + 44) >> 1)
               + ((unsigned __int64)HostNtSystemRoot->Length >> 1)
               + 17 <= 0x100 )
       {
-        v34 = RtlStringCbPrintfA(pszDest, 0x100uLL, "%ws\\System32\\Drivers\\%wZ", HostNtSystemRoot->Buffer + 2, i + 11);
-        if ( v34 < 0 )
-          KeBugCheckEx(0x31u, v34, 3uLL, 0LL, 0LL);
+        v35 = RtlStringCbPrintfA(pszDest, 0x100uLL, "%ws\\System32\\Drivers\\%wZ", HostNtSystemRoot->Buffer + 2, i + 11);
+        if ( v35 < 0 )
+          KeBugCheckEx(0x31u, v35, 3uLL, 0LL, 0LL);
         goto LABEL_64;
       }
     }
@@ -389,55 +390,55 @@ LABEL_64:
   MEMORY[0xFFFFF780000002B8] = 0x80000000;
   if ( CmNtCSDVersion )
   {
-    Message = RtlFindMessage(0x140000000LL, 0xBu, 0, 0x40000087u, (unsigned __int16 **)&v61);
+    Message = RtlFindMessage((PVOID)0x140000000LL, 0xBu, 0, 0x40000087u, &v62);
     if ( Message < 0 )
       KeBugCheckEx(0x31u, Message, 4uLL, 0LL, 0LL);
-    RtlInitAnsiString(&DestinationString_8, v61 + 4);
+    RtlInitAnsiString(&DestinationString_8, (PCSZ)v62->Text);
     DestinationString_8.Length -= 2;
     dwFlagsa = (unsigned __int8)CmNtCSDVersion != 0 ? (unsigned __int8)CmNtCSDVersion + 64 : 0;
-    LODWORD(pcbRemaining) = BYTE1(CmNtCSDVersion);
-    v39 = RtlStringCbPrintfA(pszDest, 0x100uLL, "%Z %u%c", &DestinationString_8, pcbRemaining);
-    if ( v39 < 0 )
-      KeBugCheckEx(0x31u, v39, 5uLL, 0LL, 0LL);
+    LODWORD(MessageEntry) = BYTE1(CmNtCSDVersion);
+    v40 = RtlStringCbPrintfA(pszDest, 0x100uLL, "%Z %u%c", &DestinationString_8, MessageEntry);
+    if ( v40 < 0 )
+      KeBugCheckEx(0x31u, v40, 5uLL, 0LL, 0LL);
     if ( (CmNtCSDVersion & 0xFFFF0000) != 0 )
     {
-      v62[0] = 0LL;
-      v42 = RtlStringCbCatExA(pszDest, v40, v41, v62, &cbDest, dwFlagsa);
-      if ( v42 < 0 )
-        KeBugCheckEx(0x31u, v42, 6uLL, 0LL, 0LL);
-      v43 = RtlStringCbPrintfA(v62[0], cbDest, "v.%u", HIWORD(CmNtCSDVersion));
+      v63[0] = 0LL;
+      v43 = RtlStringCbCatExA(pszDest, v41, v42, v63, &pcbRemaining, dwFlagsa);
       if ( v43 < 0 )
-        KeBugCheckEx(0x31u, v43, 7uLL, 0LL, 0LL);
+        KeBugCheckEx(0x31u, v43, 6uLL, 0LL, 0LL);
+      v44 = RtlStringCbPrintfA(v63[0], pcbRemaining, "v.%u", HIWORD(CmNtCSDVersion));
+      if ( v44 < 0 )
+        KeBugCheckEx(0x31u, v44, 7uLL, 0LL, 0LL);
     }
   }
   else
   {
-    v44 = RtlStringCbCopyExA(pszDest, v35, v36, v37, &cbDest, dwFlags);
-    if ( v44 < 0 )
-      KeBugCheckEx(0x31u, v44, 8uLL, 0LL, 0LL);
-    CmCSDVersionString.MaximumLength = 256 - cbDest;
+    v45 = RtlStringCbCopyExA(pszDest, v36, v37, v38, &pcbRemaining, dwFlags);
+    if ( v45 < 0 )
+      KeBugCheckEx(0x31u, v45, 8uLL, 0LL, 0LL);
+    CmCSDVersionString.MaximumLength = 256 - pcbRemaining;
   }
   RtlInitAnsiString(&DestinationString_8, pszDest);
-  v45 = RtlAnsiStringToUnicodeString(&CmCSDVersionString, &DestinationString_8, 1u);
-  if ( v45 < 0 )
-    KeBugCheckEx(0x31u, v45, 9uLL, 0LL, 0LL);
-  v46 = RtlStringCbPrintfA(v66, 0x40uLL, "%u.%u", 6, 3);
+  v46 = RtlAnsiStringToUnicodeString(&CmCSDVersionString, &DestinationString_8, 1u);
   if ( v46 < 0 )
-    KeBugCheckEx(0x31u, v46, 0xAuLL, 0LL, 0LL);
-  if ( !RtlCreateUnicodeStringFromAsciiz(&CmVersionString, v66) )
+    KeBugCheckEx(0x31u, v46, 9uLL, 0LL, 0LL);
+  v47 = RtlStringCbPrintfA(SourceString, 0x40uLL, "%u.%u", 6, 3);
+  if ( v47 < 0 )
+    KeBugCheckEx(0x31u, v47, 0xAuLL, 0LL, 0LL);
+  if ( !RtlCreateUnicodeStringFromAsciiz(&CmVersionString, SourceString) )
 LABEL_94:
     KeBugCheck(0x31u);
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    v47 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x800000uLL, 0x63617453u);
-    v50 = v47;
-    if ( v47 )
+    v48 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x800000uLL, 0x63617453u);
+    v51 = v48;
+    if ( v48 )
     {
-      v63[0] = v47;
-      v63[1] = 0x800000LL;
-      v63[2] = 0x800000LL;
-      if ( (int)RtlControlStackTraceDataBase(v49, v48, v63) < 0 )
-        ExFreePoolWithTag(v50, 0x63617453u);
+      v64[0] = v48;
+      v64[1] = 0x800000LL;
+      v64[2] = 0x800000LL;
+      if ( (int)RtlControlStackTraceDataBase(v50, v49, v64) < 0 )
+        ExFreePoolWithTag(v51, 0x63617453u);
     }
   }
   if ( (NtGlobalFlag & 0x800000) != 0 )

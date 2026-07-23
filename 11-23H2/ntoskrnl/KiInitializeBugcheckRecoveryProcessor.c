@@ -1,5 +1,5 @@
 /*
- * XREFs of KiInitializeBugcheckRecoveryProcessor @ 0x1403810E0
+ * XREFs of KiInitializeBugcheckRecoveryProcessor @ 0x140381280
  * Callers:
  *     KiInitPrcb @ 0x140A8BB8C (KiInitPrcb.c)
  * Callees:

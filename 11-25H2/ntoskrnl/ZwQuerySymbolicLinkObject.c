@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwQuerySymbolicLinkObject(HANDLE LinkHandle, PUNICODE_STRING 
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(LinkHandle, LinkTarget);
+  return KiServiceInternal(LinkHandle);
 }

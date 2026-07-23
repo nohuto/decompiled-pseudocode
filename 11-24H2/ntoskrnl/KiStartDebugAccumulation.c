@@ -1,10 +1,10 @@
 /*
- * XREFs of KiStartDebugAccumulation @ 0x1405C202C
+ * XREFs of KiStartDebugAccumulation @ 0x1405BF5FC
  * Callers:
- *     KeFreezeExecution @ 0x1404D5B60 (KeFreezeExecution.c)
- *     KiFreezeTargetExecution @ 0x1405C1C80 (KiFreezeTargetExecution.c)
+ *     KeFreezeExecution @ 0x1404CEFB0 (KeFreezeExecution.c)
+ *     KiFreezeTargetExecution @ 0x1405BF250 (KiFreezeTargetExecution.c)
  * Callees:
- *     KiUpdateTotalCyclesCurrentThread @ 0x14034F060 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14036D540 (KiUpdateTotalCyclesCurrentThread.c)
  */
 
 unsigned __int64 __fastcall KiStartDebugAccumulation(__int64 a1)

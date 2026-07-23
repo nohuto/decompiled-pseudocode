@@ -12,13 +12,14 @@
  *     _StringCchPrintfW @ 0x4B33B6EC (_StringCchPrintfW.c)
  */
 
-HRESULT __fastcall EtwpAddInstanceIdToLogFileName(int a1, int a2, UNICODE_STRING *DestinationString)
+HRESULT __fastcall EtwpAddInstanceIdToLogFileName(int a1, int a2, _UNICODE_STRING *DestinationString)
 {
   void *UniqueProcess; // ecx
   wchar_t *v6; // eax
   HRESULT result; // eax
-  size_t v8; // [esp+0h] [ebp-810h]
-  const wchar_t *v9; // [esp+4h] [ebp-80Ch]
+  size_t v8; // [esp-10h] [ebp-820h]
+  size_t v9; // [esp+0h] [ebp-810h]
+  const wchar_t *v10; // [esp+8h] [ebp-808h]
   wchar_t pszDest[1024]; // [esp+Ch] [ebp-804h] BYREF
 
   RtlInitUnicodeString(DestinationString, 0);
@@ -28,14 +29,20 @@ HRESULT __fastcall EtwpAddInstanceIdToLogFileName(int a1, int a2, UNICODE_STRING
   if ( a2 != 1 )
   {
     if ( *(_WORD *)(a1 + 130) > 0x800u )
-      result = StringCchCopyW(v6, v8, v9);
+    {
+      result = StringCchCopyW(v6, v9, v10);
+    }
     else
-      result = StringCchPrintfW(pszDest, 0x400u, L"%s_%d", v6, UniqueProcess);
+    {
+      HIDWORD(v8) = L"%s_%d";
+      LODWORD(v8) = 1024;
+      result = StringCchPrintfW(pszDest, v8, v6, UniqueProcess);
+    }
     if ( result < 0 )
       return (unsigned __int16)result;
     v6 = pszDest;
   }
-  if ( RtlCreateUnicodeString((int)DestinationString, v6) )
+  if ( RtlCreateUnicodeString(DestinationString, (PCWSTR)v6) )
     return 0;
   else
     return 8;

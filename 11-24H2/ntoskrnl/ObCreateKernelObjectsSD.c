@@ -1,16 +1,16 @@
 /*
- * XREFs of ObCreateKernelObjectsSD @ 0x140742EC8
+ * XREFs of ObCreateKernelObjectsSD @ 0x140740DF8
  * Callers:
- *     ObpInitializeRootNamespace @ 0x140743CA8 (ObpInitializeRootNamespace.c)
- *     MiCreatePartitionNamespace @ 0x1407FFE18 (MiCreatePartitionNamespace.c)
+ *     ObpInitializeRootNamespace @ 0x140741BD8 (ObpInitializeRootNamespace.c)
+ *     MiCreatePartitionNamespace @ 0x140800558 (MiCreatePartitionNamespace.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObCreateKernelObjectsSD(PSECURITY_DESCRIPTOR SecurityDescriptor)
@@ -28,7 +28,7 @@ __int64 __fastcall ObCreateKernelObjectsSD(PSECURITY_DESCRIPTOR SecurityDescript
     v3 = RtlLengthSid(SeWorldSid);
     v4 = RtlLengthSid(SeAliasAdminsSid) + v3;
     v5 = RtlLengthSid(SeLocalSystemSid) + 44 + v4;
-    Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
+    Pool2 = (ACL *)ExAllocatePool2(0x100uLL, v5, 0x6C636144u);
     v7 = Pool2;
     if ( Pool2 )
     {

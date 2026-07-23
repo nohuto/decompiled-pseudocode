@@ -1,10 +1,10 @@
 /*
  * XREFs of HalpHvUnmapIoApicDeviceInterrupt @ 0x140A873E8
  * Callers:
- *     HalpInterruptUnmap @ 0x1409333F8 (HalpInterruptUnmap.c)
+ *     HalpInterruptUnmap @ 0x1409335F8 (HalpInterruptUnmap.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpHvUnmapIoApicDeviceInterrupt(char a1, __int64 a2)

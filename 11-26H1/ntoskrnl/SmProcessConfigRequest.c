@@ -1,17 +1,17 @@
 /*
- * XREFs of SmProcessConfigRequest @ 0x1408195C0
+ * XREFs of SmProcessConfigRequest @ 0x14081F7D0
  * Callers:
- *     SmSetStoreInformation @ 0x140B2E9E0 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x140B307BC (SmSetStoreInformation.c)
  * Callees:
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     SmpGetProcessPartition @ 0x1404D6C0C (SmpGetProcessPartition.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     SmpSystemStoreCreate @ 0x14081A360 (SmpSystemStoreCreate.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     PsReferencePartitionByHandle @ 0x140A53F9C (PsReferencePartitionByHandle.c)
- *     SmCreatePartition @ 0x140AB0DEC (SmCreatePartition.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     SmpGetProcessPartition @ 0x1404D03DC (SmpGetProcessPartition.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     SmpSystemStoreCreate @ 0x140820570 (SmpSystemStoreCreate.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     PsReferencePartitionByHandle @ 0x140A5D28C (PsReferencePartitionByHandle.c)
+ *     SmCreatePartition @ 0x140AAEDD0 (SmCreatePartition.c)
  */
 
 __int64 __fastcall SmProcessConfigRequest(void *Src, unsigned int a2, KPROCESSOR_MODE a3)
@@ -81,7 +81,7 @@ LABEL_46:
         }
         if ( (unsigned int)(DWORD1(v17) - 4) <= 0x1C && DWORD1(v17) && ((DWORD1(v17) - 1) & DWORD1(v17)) == 0 )
         {
-          dword_140E35F54 = DWORD1(v17);
+          dword_140E360D4 = DWORD1(v17);
           goto LABEL_46;
         }
       }

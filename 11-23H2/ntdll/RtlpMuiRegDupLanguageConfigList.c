@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpMuiRegDupLanguageConfigList @ 0x180112AA8
+ * XREFs of RtlpMuiRegDupLanguageConfigList @ 0x180112A78
  * Callers:
  *     RtlpDupTebLanguageList @ 0x18008AA30 (RtlpDupTebLanguageList.c)
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of _wctomb_s_l @ 0x140197CF4
+ * XREFs of _wctomb_s_l @ 0x140197E34
  * Callers:
- *     wctomb @ 0x140197DB0 (wctomb.c)
- *     wctomb_s @ 0x140197DF0 (wctomb_s.c)
+ *     wctomb @ 0x140197EF0 (wctomb.c)
+ *     wctomb_s @ 0x140197F30 (wctomb_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
- *     RtlUnicodeToMultiByteN @ 0x1406980A0 (RtlUnicodeToMultiByteN.c)
+ *     xHalTimerWatchdogStop @ 0x140176900 (xHalTimerWatchdogStop.c)
+ *     RtlUnicodeToMultiByteN @ 0x140699260 (RtlUnicodeToMultiByteN.c)
  */
 
 errno_t __cdecl wctomb_s_l(int *SizeConverted, char *MbCh, size_t SizeInBytes, wchar_t WCh, _locale_t Locale)

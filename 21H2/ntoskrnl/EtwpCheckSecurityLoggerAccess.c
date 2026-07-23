@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpCheckSecurityLoggerAccess @ 0x1406C38A4
+ * XREFs of EtwpCheckSecurityLoggerAccess @ 0x140622484
  * Callers:
- *     EtwpQueryTrace @ 0x1406DEE18 (EtwpQueryTrace.c)
- *     EtwpCheckNotificationAccess @ 0x1406E3214 (EtwpCheckNotificationAccess.c)
+ *     EtwpQueryTrace @ 0x1406B60F8 (EtwpQueryTrace.c)
+ *     EtwpCheckNotificationAccess @ 0x1406BA4F4 (EtwpCheckNotificationAccess.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPfnLargeBitSet @ 0x1401050E4
+ * XREFs of MiPfnLargeBitSet @ 0x140102E64
  * Callers:
- *     MiPfnsWorthTrying @ 0x140104C30 (MiPfnsWorthTrying.c)
- *     MiAllocateMostlyContiguous @ 0x140105140 (MiAllocateMostlyContiguous.c)
+ *     MiPfnsWorthTrying @ 0x1401029B0 (MiPfnsWorthTrying.c)
+ *     MiAllocateMostlyContiguous @ 0x140102EC0 (MiAllocateMostlyContiguous.c)
  * Callees:
  *     <none>
  */

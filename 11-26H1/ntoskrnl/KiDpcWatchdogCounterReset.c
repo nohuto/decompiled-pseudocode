@@ -1,12 +1,12 @@
 /*
- * XREFs of KiDpcWatchdogCounterReset @ 0x14047A150
+ * XREFs of KiDpcWatchdogCounterReset @ 0x140473AC0
  * Callers:
- *     KeAccumulateTicks @ 0x14021F980 (KeAccumulateTicks.c)
- *     KiDpcWatchdog @ 0x1405FADE0 (KiDpcWatchdog.c)
+ *     KeAccumulateTicks @ 0x140221310 (KeAccumulateTicks.c)
+ *     KiDpcWatchdog @ 0x1405FD800 (KiDpcWatchdog.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     EtwTraceCumulativeDpcSoftTimeout @ 0x1406C4854 (EtwTraceCumulativeDpcSoftTimeout.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     EtwTraceCumulativeDpcSoftTimeout @ 0x1406C8494 (EtwTraceCumulativeDpcSoftTimeout.c)
  */
 
 __int64 __fastcall KiDpcWatchdogCounterReset(__int64 a1)

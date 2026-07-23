@@ -1,9 +1,9 @@
 /*
  * XREFs of MiInitializeSystemChannelOrdering @ 0x1407D1208
  * Callers:
- *     MiInitializeNuma @ 0x14054F2F4 (MiInitializeNuma.c)
+ *     MiInitializeNuma @ 0x14054F834 (MiInitializeNuma.c)
  * Callees:
- *     MiPageToChannel @ 0x14001BA40 (MiPageToChannel.c)
+ *     MiPageToChannel @ 0x14001B5C0 (MiPageToChannel.c)
  */
 
 void __fastcall MiInitializeSystemChannelOrdering(__int64 a1, unsigned int a2)
@@ -31,7 +31,7 @@ void __fastcall MiInitializeSystemChannelOrdering(__int64 a1, unsigned int a2)
     v5 = MiPageToChannel(*v4);
     *(_BYTE *)(v5 + v3 + 2169) = 2;
   }
-  for ( i = qword_1403269D0; *(_QWORD *)i != -1LL; i += 16LL )
+  for ( i = qword_140326A10; *(_QWORD *)i != -1LL; i += 16LL )
   {
     if ( *(unsigned __int16 *)(i + 10) == v2 )
     {

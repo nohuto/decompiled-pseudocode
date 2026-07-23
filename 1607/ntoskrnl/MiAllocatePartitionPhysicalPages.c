@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAllocatePartitionPhysicalPages @ 0x1401F0FD8
+ * XREFs of MiAllocatePartitionPhysicalPages @ 0x1401F0E04
  * Callers:
- *     MiManagePartition @ 0x1406609A4 (MiManagePartition.c)
+ *     MiManagePartition @ 0x140660A88 (MiManagePartition.c)
  * Callees:
- *     MiFreePagesFromMdl @ 0x140099EF8 (MiFreePagesFromMdl.c)
- *     MiAllocatePagesForMdl @ 0x140104224 (MiAllocatePagesForMdl.c)
- *     MiReleaseNonPagedResources @ 0x14013EB1C (MiReleaseNonPagedResources.c)
- *     MiAcquireNonPagedResources @ 0x1401E1B24 (MiAcquireNonPagedResources.c)
- *     MiFindLargeNodePage @ 0x1401E3320 (MiFindLargeNodePage.c)
- *     MiAddMdlToPartitionTree @ 0x1401F0CE4 (MiAddMdlToPartitionTree.c)
- *     MiAddRangeToPartitionTree @ 0x1401F0D8C (MiAddRangeToPartitionTree.c)
- *     MiFreePartitionPageRun @ 0x1401F1A20 (MiFreePartitionPageRun.c)
- *     MiFreePartitionTree @ 0x1401F1A80 (MiFreePartitionTree.c)
- *     MiInsertPartitionPages @ 0x1401F1B74 (MiInsertPartitionPages.c)
+ *     MiFreePagesFromMdl @ 0x1400996F8 (MiFreePagesFromMdl.c)
+ *     MiAllocatePagesForMdl @ 0x140101FA4 (MiAllocatePagesForMdl.c)
+ *     MiReleaseNonPagedResources @ 0x14013F08C (MiReleaseNonPagedResources.c)
+ *     MiAcquireNonPagedResources @ 0x1401E1950 (MiAcquireNonPagedResources.c)
+ *     MiFindLargeNodePage @ 0x1401E314C (MiFindLargeNodePage.c)
+ *     MiAddMdlToPartitionTree @ 0x1401F0B10 (MiAddMdlToPartitionTree.c)
+ *     MiAddRangeToPartitionTree @ 0x1401F0BB8 (MiAddRangeToPartitionTree.c)
+ *     MiFreePartitionPageRun @ 0x1401F184C (MiFreePartitionPageRun.c)
+ *     MiFreePartitionTree @ 0x1401F18AC (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x1401F19A0 (MiInsertPartitionPages.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140661134 (MiUpdatePartitionLargePfnBitMap.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140661218 (MiUpdatePartitionLargePfnBitMap.c)
  */
 
 __int64 __fastcall MiAllocatePartitionPhysicalPages(int *a1, __int64 a2, unsigned __int64 a3, unsigned int a4, BOOL a5)
@@ -78,7 +78,7 @@ __int64 __fastcall MiAllocatePartitionPhysicalPages(int *a1, __int64 a2, unsigne
       break;
     }
     if ( v5 == MiSystemPartition )
-      _InterlockedExchangeAdd64(&qword_1403278E8, v13);
+      _InterlockedExchangeAdd64(&qword_140327928, v13);
     v9 += v13;
     if ( v9 == a3 )
       goto LABEL_19;

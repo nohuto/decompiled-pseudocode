@@ -36,17 +36,17 @@ _UNKNOWN **PopFreeHiberContext()
   void *v9; // rcx
   __int64 v10; // rcx
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
-  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+40h] [rbp+8h] BYREF
 
   result = &retaddr;
   v1 = qword_140C3CE60;
-  v12 = 0LL;
+  BcdStoreHandle = 0LL;
   if ( qword_140C3CE60 )
   {
-    if ( (int)BcdOpenStore(0LL, 2u, &v12) >= 0 )
+    if ( BcdOpenStore(0LL, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, &BcdStoreHandle) >= 0 )
     {
-      PopBcdClearPendingResume(v12);
-      BcdCloseStore(v12);
+      PopBcdClearPendingResume(BcdStoreHandle);
+      BcdCloseStore(BcdStoreHandle);
     }
     v2 = *(void **)(v1 + 240);
     if ( v2 )

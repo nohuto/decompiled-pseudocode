@@ -1,7 +1,7 @@
 /*
- * XREFs of SmStoreGetId @ 0x14052785C
+ * XREFs of SmStoreGetId @ 0x140529ECC
  * Callers:
- *     SmKmCleanup @ 0x14081A5EC (SmKmCleanup.c)
+ *     SmKmCleanup @ 0x1408207FC (SmKmCleanup.c)
  * Callees:
  *     <none>
  */

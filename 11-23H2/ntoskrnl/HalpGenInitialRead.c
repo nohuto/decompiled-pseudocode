@@ -3,9 +3,9 @@
  * Callers:
  *     HalpInitializeGenericErrorSource @ 0x140A8AE9C (HalpInitializeGenericErrorSource.c)
  * Callees:
- *     HalpCheckAndReportGhes @ 0x1403354CC (HalpCheckAndReportGhes.c)
- *     HalpFindGhesEntry @ 0x140380A28 (HalpFindGhesEntry.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     HalpCheckAndReportGhes @ 0x14033575C (HalpCheckAndReportGhes.c)
+ *     HalpFindGhesEntry @ 0x140380BC8 (HalpFindGhesEntry.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall HalpGenInitialRead(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaFreeLa @ 0x140578D38
+ * XREFs of HalpDmaFreeLa @ 0x14057B268
  * Callers:
- *     HalFlushAdapterBuffersEx @ 0x14043EEB0 (HalFlushAdapterBuffersEx.c)
- *     IoFlushAdapterBuffersV3 @ 0x14058BA00 (IoFlushAdapterBuffersV3.c)
+ *     HalFlushAdapterBuffersEx @ 0x1404379C0 (HalFlushAdapterBuffersEx.c)
+ *     IoFlushAdapterBuffersV3 @ 0x14058E180 (IoFlushAdapterBuffersV3.c)
  * Callees:
- *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x14057905C (HalpDmaReturnEmergencyLogicalAddressResources.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x14057B58C (HalpDmaReturnEmergencyLogicalAddressResources.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpDmaFreeLa(__int64 a1, __int64 *a2)

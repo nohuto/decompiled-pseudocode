@@ -9,105 +9,97 @@
  *     memmove @ 0x1800A32C0 (memmove.c)
  */
 
-__int64 __fastcall RtlNtPathNameToDosPathName(int a1, unsigned __int16 *a2, _DWORD *a3, _QWORD *a4)
+NTSTATUS __cdecl RtlNtPathNameToDosPathName(
+        ULONG Flags,
+        PRTL_UNICODE_STRING_BUFFER Path,
+        PULONG Disposition,
+        PWSTR *FilePart)
 {
-  unsigned int v4; // ebx
-  _DWORD *v6; // rsi
+  NTSTATUS v4; // ebx
   unsigned __int64 v8; // rbp
-  const wchar_t *v9; // r14
-  __int64 v10; // r8
-  unsigned __int16 *v11; // r15
-  unsigned __int16 v12; // si
-  unsigned __int64 v13; // r8
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  unsigned __int16 v16; // si
-  int v18; // eax
+  const _UNICODE_STRING *v9; // r14
+  unsigned __int16 *v10; // r15
+  unsigned __int16 v11; // si
+  SIZE_T v12; // r8
+  WCHAR *Buffer; // rcx
+  __int64 Length; // r8
+  USHORT v15; // si
+  int v17; // eax
 
   v4 = 0;
-  v6 = a3;
   v8 = 0LL;
-  if ( a3 )
-    *a3 = 0;
-  if ( !a2 )
-    return (unsigned int)-1073741811;
-  if ( a1 )
-    return (unsigned int)-1073741811;
-  if ( a4 )
+  if ( Disposition )
+    *Disposition = 0;
+  if ( !Path )
+    return -1073741811;
+  if ( Flags )
+    return -1073741811;
+  if ( FilePart )
   {
-    if ( *a4 )
+    if ( *FilePart )
     {
-      v8 = (__int64)(*a4 - *((_QWORD *)a2 + 1)) >> 1;
-      if ( v8 >= (unsigned __int64)*a2 >> 1 )
-        return (unsigned int)-1073741811;
+      v8 = *FilePart - Path->String.Buffer;
+      if ( v8 >= (unsigned __int64)Path->String.Length >> 1 )
+        return -1073741811;
     }
   }
-  v9 = (const wchar_t *)&unk_180118080;
-  LOBYTE(a3) = 1;
-  if ( (unsigned __int8)RtlPrefixUnicodeString(&unk_180118080, a2, a3) )
+  v9 = &String1;
+  if ( RtlPrefixUnicodeString((PUNICODE_STRING)&String1, &Path->String, 1u) )
   {
-    v11 = (unsigned __int16 *)&unk_180119260;
-    if ( v6 )
-      *v6 = 2;
+    v10 = (unsigned __int16 *)&unk_180119260;
+    if ( Disposition )
+      *Disposition = 2;
     goto LABEL_10;
   }
-  v9 = L"\b\n";
-  LOBYTE(v10) = 1;
-  if ( !(unsigned __int8)RtlPrefixUnicodeString(L"\b\n", a2, v10) )
+  v9 = &stru_180118220;
+  if ( !RtlPrefixUnicodeString((PUNICODE_STRING)&stru_180118220, &Path->String, 1u) )
   {
-    if ( !v6 )
+    if ( !Disposition )
       return v4;
-    v18 = sub_18002891C(a2);
-    if ( v18 )
+    v17 = sub_18002891C(Path);
+    if ( v17 )
     {
-      if ( v18 <= 0 )
+      if ( v17 <= 0 )
         return v4;
-      if ( v18 <= 2 )
+      if ( v17 <= 2 )
       {
 LABEL_32:
-        *v6 = 4;
+        *Disposition = 4;
         return v4;
       }
-      if ( v18 != 3 && v18 != 4 && v18 != 5 )
+      if ( v17 != 3 && v17 != 4 && v17 != 5 )
       {
-        if ( v18 > 7 )
+        if ( v17 > 7 )
           return v4;
         goto LABEL_32;
       }
     }
-    *v6 = 1;
+    *Disposition = 1;
     return v4;
   }
-  v11 = (unsigned __int16 *)&unk_180118070;
-  if ( v6 )
-    *v6 = 3;
+  v10 = (unsigned __int16 *)&unk_180118070;
+  if ( Disposition )
+    *Disposition = 3;
 LABEL_10:
-  v12 = (*v11 >> 1) + (*a2 >> 1) - (*v9 >> 1);
-  v13 = 2LL * v12 + 2;
-  if ( v13 > 0xFFFE )
+  v11 = (*v10 >> 1) + (Path->String.Length >> 1) - (v9->Length >> 1);
+  v12 = 2LL * v11 + 2;
+  if ( v12 > 0xFFFE )
+    return -1073741562;
+  if ( (Path == (PRTL_UNICODE_STRING_BUFFER)-16LL || v12 > Path->ByteBuffer.Size)
+    && (int)RtlpEnsureBufferSize(0LL, &Path->ByteBuffer) < 0 )
   {
-    return (unsigned int)-1073741562;
+    return -1073741801;
   }
-  else if ( (a2 == (unsigned __int16 *)-16LL || v13 > *((_QWORD *)a2 + 4)) && (int)RtlpEnsureBufferSize(0LL, a2 + 8) < 0 )
-  {
-    return (unsigned int)-1073741801;
-  }
-  else
-  {
-    v14 = *((_QWORD *)a2 + 2);
-    v15 = *a2;
-    a2[1] = a2[16];
-    *((_QWORD *)a2 + 1) = v14;
-    memmove(
-      (void *)(v14 + 2 * ((unsigned __int64)*v11 >> 1)),
-      (const void *)(v14 + 2 * ((unsigned __int64)*v9 >> 1)),
-      v15 - *v9);
-    memmove(*((void **)a2 + 1), *((const void **)v11 + 1), *v11);
-    v16 = 2 * v12;
-    *a2 = v16;
-    *(_WORD *)(*((_QWORD *)a2 + 1) + 2 * ((unsigned __int64)v16 >> 1)) = 0;
-    if ( v8 )
-      *a4 = *((_QWORD *)a2 + 1) + 2 * (v8 + ((unsigned __int64)*v11 >> 1) - ((unsigned __int64)*v9 >> 1));
-  }
+  Buffer = (WCHAR *)Path->ByteBuffer.Buffer;
+  Length = Path->String.Length;
+  Path->String.MaximumLength = Path->ByteBuffer.Size;
+  Path->String.Buffer = Buffer;
+  memmove(&Buffer[(unsigned __int64)*v10 >> 1], &Buffer[(unsigned __int64)v9->Length >> 1], Length - v9->Length);
+  memmove(Path->String.Buffer, *((const void **)v10 + 1), *v10);
+  v15 = 2 * v11;
+  Path->String.Length = v15;
+  Path->String.Buffer[(unsigned __int64)v15 >> 1] = 0;
+  if ( v8 )
+    *FilePart = &Path->String.Buffer[v8 + ((unsigned __int64)*v10 >> 1) - ((unsigned __int64)v9->Length >> 1)];
   return v4;
 }

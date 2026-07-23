@@ -11,8 +11,8 @@
 
 __int64 PpmIdleDurationExpiration()
 {
-  __int64 InterruptTimePrecise; // rax
-  unsigned __int64 v1; // rbx
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LARGE_INTEGER v1; // rbx
   __int64 *v2; // rdx
   __int64 v3; // r8
   unsigned __int16 v4; // cx
@@ -29,7 +29,7 @@ __int64 PpmIdleDurationExpiration()
   __int64 v15; // rdx
   __int64 v16; // rcx
   unsigned __int16 v17; // cx
-  LARGE_INTEGER v18[2]; // [rsp+28h] [rbp-E0h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+28h] [rbp-E0h] BYREF
   __int64 v19; // [rsp+38h] [rbp-D0h] BYREF
   _QWORD v20[21]; // [rsp+40h] [rbp-C8h] BYREF
   __int64 v21; // [rsp+E8h] [rbp-20h]
@@ -37,7 +37,7 @@ __int64 PpmIdleDurationExpiration()
 
   v19 = 1310721LL;
   memset(v20, 0, 0xA0uLL);
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(v18);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v21 = 1310721LL;
   v1 = InterruptTimePrecise;
   memset(v22, 0, 0xA0uLL);
@@ -75,7 +75,7 @@ __int64 PpmIdleDurationExpiration()
         _mm_lfence();
         v12 = KiProcessorBlock[v11];
       }
-      if ( *(_QWORD *)(v12 + 23848) <= v1 )
+      if ( *(_QWORD *)(v12 + 23848) <= v1.QuadPart )
       {
         v13 = KiProcessorIndexToNumberMappingTable[v11] & 0x3F;
         v14 = (unsigned int)KiProcessorIndexToNumberMappingTable[v11] >> 6;

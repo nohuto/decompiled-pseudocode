@@ -7,21 +7,21 @@
  *     RtlpValidateContextFlags @ 0x1800531DC (RtlpValidateContextFlags.c)
  */
 
-__int64 __fastcall RtlInitializeExtendedContext(__int64 a1, unsigned int a2)
+NTSTATUS __cdecl RtlInitializeExtendedContext(PCONTEXT Context, ULONG ContextFlags, PCONTEXT_EX *ContextEx)
 {
-  __int64 result; // rax
-  unsigned int v4; // r10d
-  __int64 v5; // r11
-  __int64 v6; // r9
-  char v7; // [rsp+48h] [rbp+20h] BYREF
+  NTSTATUS result; // eax
+  ULONG v5; // r10d
+  PCONTEXT_EX *v6; // r11
+  ULONG64 v7; // r9
+  char v8; // [rsp+48h] [rbp+20h] BYREF
 
-  result = RtlpValidateContextFlags(a2, &v7);
-  v6 = 0LL;
-  if ( (int)result >= 0 )
+  result = RtlpValidateContextFlags(ContextFlags, &v8);
+  v7 = 0LL;
+  if ( result >= 0 )
   {
-    if ( (v7 & 2) != 0 )
-      v6 = MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8];
-    return RtlInitializeExtendedContext2(a1, v4, v5, v6);
+    if ( (v8 & 2) != 0 )
+      v7 = MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8];
+    return RtlInitializeExtendedContext2(Context, v5, v6, v7);
   }
   return result;
 }

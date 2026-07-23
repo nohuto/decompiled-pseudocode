@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFanAdd @ 0x1407CADD0
+ * XREFs of PopFanAdd @ 0x1407CB0F0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     PopSqmFanEnumeration @ 0x1407CAE38 (PopSqmFanEnumeration.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     PopSqmFanEnumeration @ 0x1407CB158 (PopSqmFanEnumeration.c)
  */
 
 void __fastcall PopFanAdd(__int64 a1)

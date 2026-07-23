@@ -1,7 +1,7 @@
 /*
- * XREFs of CmGetVisibleValueCount @ 0x1407D6C7C
+ * XREFs of CmGetVisibleValueCount @ 0x1407D6F4C
  * Callers:
- *     CmpQueryKeyDataFromNode @ 0x1406DAA50 (CmpQueryKeyDataFromNode.c)
+ *     CmpQueryKeyDataFromNode @ 0x1406DAA80 (CmpQueryKeyDataFromNode.c)
  * Callees:
  *     <none>
  */

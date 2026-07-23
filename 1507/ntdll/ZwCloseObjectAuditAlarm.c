@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwCloseObjectAuditAlarm()
+NTSTATUS __cdecl ZwCloseObjectAuditAlarm(PUNICODE_STRING SubsystemName, PVOID HandleId, BOOLEAN GenerateOnClose)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 59LL;
+  result = 59;
   __asm { syscall; Low latency system call }
   return result;
 }

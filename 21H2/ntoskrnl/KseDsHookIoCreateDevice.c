@@ -1,10 +1,10 @@
 /*
- * XREFs of KseDsHookIoCreateDevice @ 0x1405278E0
+ * XREFs of KseDsHookIoCreateDevice @ 0x140527B20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KsepDsEventIoCreateDevice @ 0x1405280CC (KsepDsEventIoCreateDevice.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KsepDsEventIoCreateDevice @ 0x14052830C (KsepDsEventIoCreateDevice.c)
  */
 
 __int64 __fastcall KseDsHookIoCreateDevice(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, char a6, __int64 *a7)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDereferenceWakeInfos @ 0x1404FA21C
+ * XREFs of PopDereferenceWakeInfos @ 0x1404F382C
  * Callers:
- *     PopGetWakeSource @ 0x140B322A4 (PopGetWakeSource.c)
+ *     PopGetWakeSource @ 0x140B346F8 (PopGetWakeSource.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     PopWakeInfoDereference @ 0x1404FE7D4 (PopWakeInfoDereference.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     PopWakeInfoDereference @ 0x1404F7D84 (PopWakeInfoDereference.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDereferenceWakeInfos(unsigned int a1, _QWORD *a2)
@@ -17,7 +17,7 @@ void __fastcall PopDereferenceWakeInfos(unsigned int a1, _QWORD *a2)
 
   v2 = a1;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140F11D08.Teb, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&PopWakeSourceLock, &LockHandle);
   if ( (_DWORD)v2 )
   {
     v4 = a2;

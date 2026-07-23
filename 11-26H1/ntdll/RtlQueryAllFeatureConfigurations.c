@@ -1,35 +1,46 @@
 /*
- * XREFs of RtlQueryAllFeatureConfigurations @ 0x1800143D0
+ * XREFs of RtlQueryAllFeatureConfigurations @ 0x18005FB00
  * Callers:
  *     <none>
  * Callees:
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x180013B08 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x180014134 (RtlpFcReferenceFeatureConfigurationBuffers.c)
- *     RtlpFcQueryAllFeatureConfigurationsFromBufferSet @ 0x18016F810 (RtlpFcQueryAllFeatureConfigurationsFromBufferSet.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x18005F238 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x18005F864 (RtlpFcReferenceFeatureConfigurationBuffers.c)
+ *     RtlpFcQueryAllFeatureConfigurationsFromBufferSet @ 0x18016E810 (RtlpFcQueryAllFeatureConfigurationsFromBufferSet.c)
  */
 
-__int64 __fastcall RtlQueryAllFeatureConfigurations(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlQueryAllFeatureConfigurations(
+        RTL_FEATURE_CONFIGURATION_TYPE ConfigurationType,
+        PRTL_FEATURE_CHANGE_STAMP ChangeStamp,
+        PRTL_FEATURE_CONFIGURATION Configurations,
+        PSIZE_T ConfigurationCount)
 {
-  unsigned int v7; // r15d
-  int AllFeatureConfigurationsFromBufferSet; // ebx
+  NTSTATUS AllFeatureConfigurationsFromBufferSet; // ebx
   __int64 v10; // [rsp+20h] [rbp-18h] BYREF
-  unsigned __int64 v11; // [rsp+28h] [rbp-10h] BYREF
+  ULONGLONG v11[2]; // [rsp+28h] [rbp-10h] BYREF
 
-  v11 = 0LL;
+  v11[0] = 0LL;
   v10 = 0LL;
-  v7 = a1;
-  AllFeatureConfigurationsFromBufferSet = RtlpFcReferenceFeatureConfigurationBuffers(a1, 1, &v11, &v10);
+  AllFeatureConfigurationsFromBufferSet = RtlpFcReferenceFeatureConfigurationBuffers(
+                                            *(__int64 *)&ConfigurationType,
+                                            1,
+                                            v11,
+                                            &v10);
   if ( AllFeatureConfigurationsFromBufferSet >= 0 )
   {
-    AllFeatureConfigurationsFromBufferSet = RtlpFcQueryAllFeatureConfigurationsFromBufferSet(v10, v7, a3, a4);
+    AllFeatureConfigurationsFromBufferSet = RtlpFcQueryAllFeatureConfigurationsFromBufferSet(
+                                              v10,
+                                              (unsigned int)ConfigurationType,
+                                              Configurations,
+                                              ConfigurationCount);
     if ( AllFeatureConfigurationsFromBufferSet >= 0 )
     {
-      if ( a2 )
-        *a2 = v11;
+      if ( ChangeStamp )
+        *ChangeStamp = v11[0];
       AllFeatureConfigurationsFromBufferSet = 0;
     }
   }
   if ( v10 )
-    RtlpFcBufferManagerDereferenceBuffers((volatile signed __int64 *)&xmmword_1801CCC48, v10);
-  return (unsigned int)AllFeatureConfigurationsFromBufferSet;
+    RtlpFcBufferManagerDereferenceBuffers((unsigned __int64 *)&xmmword_1801CBC88, v10);
+  return AllFeatureConfigurationsFromBufferSet;
 }

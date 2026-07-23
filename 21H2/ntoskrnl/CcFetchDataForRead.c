@@ -1,13 +1,13 @@
 /*
- * XREFs of CcFetchDataForRead @ 0x140320A30
+ * XREFs of CcFetchDataForRead @ 0x14032B780
  * Callers:
- *     CcMdlRead @ 0x1406D3BB0 (CcMdlRead.c)
- *     CcMapAndCopyFromCache @ 0x1406EF550 (CcMapAndCopyFromCache.c)
+ *     CcMdlRead @ 0x1406AAE90 (CcMdlRead.c)
+ *     CcMapAndCopyFromCache @ 0x140706930 (CcMapAndCopyFromCache.c)
  * Callees:
- *     MmWaitForCacheManagerPrefetch @ 0x1402FB588 (MmWaitForCacheManagerPrefetch.c)
- *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
- *     MmPrefetchForCacheManager @ 0x1406E898C (MmPrefetchForCacheManager.c)
- *     MmHardFaultBytesRequired @ 0x1406EF710 (MmHardFaultBytesRequired.c)
+ *     MmWaitForCacheManagerPrefetch @ 0x1403062D8 (MmWaitForCacheManagerPrefetch.c)
+ *     MmCheckCachedPageStates @ 0x14032C2E0 (MmCheckCachedPageStates.c)
+ *     MmPrefetchForCacheManager @ 0x1406FFD6C (MmPrefetchForCacheManager.c)
+ *     MmHardFaultBytesRequired @ 0x140706AF0 (MmHardFaultBytesRequired.c)
  */
 
 char __fastcall CcFetchDataForRead(__int64 a1, _QWORD *a2, int a3, char a4, _DWORD *a5, _QWORD *P, int a7)
@@ -33,7 +33,7 @@ char __fastcall CcFetchDataForRead(__int64 a1, _QWORD *a2, int a3, char a4, _DWO
     MmPrefetchForCacheManager(a1, v8, v14, v10, a7);
     *a5 = 1;
 LABEL_4:
-    MmCheckCachedPageStates(v11, v13, 0LL);
+    MmCheckCachedPageStates(v11, v13, 0LL, 0LL);
     return 1;
   }
   return 0;

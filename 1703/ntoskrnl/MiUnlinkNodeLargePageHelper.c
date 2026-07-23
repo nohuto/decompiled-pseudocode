@@ -111,7 +111,7 @@ __int64 __fastcall MiUnlinkNodeLargePageHelper(_QWORD *a1, __int64 a2, unsigned 
   {
     v25 = ((a2 + 0x58000000000LL) / 48) & 0x1F;
     v26 = v12;
-    v27 = (volatile signed __int32 *)(qword_14036C978 + 4 * (v14 >> 5));
+    v27 = (volatile signed __int32 *)stru_14036C970.Buffer + (v14 >> 5);
     if ( (unsigned __int64)(v25 + v12) <= 0x20 )
     {
       if ( v12 == 32 )

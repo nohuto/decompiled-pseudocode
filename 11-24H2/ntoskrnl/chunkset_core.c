@@ -1,9 +1,9 @@
 /*
- * XREFs of chunkset_core @ 0x1405F3E50
+ * XREFs of chunkset_core @ 0x1405F1490
  * Callers:
- *     inflate @ 0x1405F3FB0 (inflate.c)
+ *     inflate @ 0x1405F15F0 (inflate.c)
  * Callees:
- *     chunkcopy_core @ 0x1405F3E0C (chunkcopy_core.c)
+ *     chunkcopy_core @ 0x1405F144C (chunkcopy_core.c)
  */
 
 __m128i *__fastcall chunkset_core(__m128i *a1, unsigned int a2, unsigned int a3)

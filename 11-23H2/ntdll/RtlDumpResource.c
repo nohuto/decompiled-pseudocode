@@ -6,7 +6,7 @@
  *     DbgPrint @ 0x180053910 (DbgPrint.c)
  */
 
-__int64 __fastcall RtlDumpResource(_DWORD *a1)
+ULONG __fastcall RtlDumpResource(_DWORD *a1)
 {
   DbgPrint("Resource @ %p\n", a1);
   DbgPrint(" NumberOfWaitingShared = %lx\n", a1[12]);

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSimpleUnlinkHugeRange @ 0x14048E8E0
+ * XREFs of MiSimpleUnlinkHugeRange @ 0x140488420
  * Callers:
- *     MiUnlinkHugeRangeEx @ 0x14048E398 (MiUnlinkHugeRangeEx.c)
- *     MiCanBeginHugeIoPageAccessor @ 0x14052EEFC (MiCanBeginHugeIoPageAccessor.c)
+ *     MiUnlinkHugeRangeEx @ 0x140487ED8 (MiUnlinkHugeRangeEx.c)
+ *     MiCanBeginHugeIoPageAccessor @ 0x14053141C (MiCanBeginHugeIoPageAccessor.c)
  * Callees:
- *     MiHugePfnPartition @ 0x14048E180 (MiHugePfnPartition.c)
- *     MiUpdateHugeRangeZeroFreeBitmap @ 0x1406EDE8C (MiUpdateHugeRangeZeroFreeBitmap.c)
+ *     MiHugePfnPartition @ 0x140487CC0 (MiHugePfnPartition.c)
+ *     MiUpdateHugeRangeZeroFreeBitmap @ 0x1406F2B2C (MiUpdateHugeRangeZeroFreeBitmap.c)
  */
 
 unsigned __int64 __fastcall MiSimpleUnlinkHugeRange(unsigned __int64 *a1, __int64 a2, int a3)
@@ -20,14 +20,14 @@ unsigned __int64 __fastcall MiSimpleUnlinkHugeRange(unsigned __int64 *a1, __int6
   __int64 v11; // rbx
   unsigned __int64 result; // rax
 
-  MiHugePfnPartition((_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * (*(_QWORD *)&a3 & 0x3FFFFFLL)));
+  MiHugePfnPartition((_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * (*(_QWORD *)&a3 & 0x3FFFFFLL)));
   v7 = *v6 >> 15;
   v8 = *v6 >> 37;
   v9 = v7 << 15;
   v10 = v7 & 0x3FFFFF;
   if ( (v8 & 0x3FFFFF) != 0 )
   {
-    *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * (v8 & 0x3FFFFF)) = v9 ^ (*(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * (v8 & 0x3FFFFF)) ^ v9) & 0xFFFFFFE000007FFFuLL;
+    *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * (v8 & 0x3FFFFF)) = v9 ^ (*(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * (v8 & 0x3FFFFF)) ^ v9) & 0xFFFFFFE000007FFFuLL;
   }
   else
   {
@@ -46,7 +46,7 @@ LABEL_7:
   if ( !v10 )
     goto LABEL_7;
   result = 0xF800001FFFFFFFFFuLL;
-  *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v10) = v11 ^ (*(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4)
+  *(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v10) = v11 ^ (*(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4)
                                                                                          + 8 * v10) ^ v11) & 0xF800001FFFFFFFFFuLL;
   return result;
 }

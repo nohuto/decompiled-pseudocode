@@ -29,18 +29,18 @@ int __stdcall RtlSetThreadPreferredUILanguages(int a1, int a2, int *a3)
   int v11; // eax
   int v12; // eax
   int v13; // eax
-  _BYTE v14[4]; // [esp+Ch] [ebp-1Ch] BYREF
-  int v15; // [esp+10h] [ebp-18h] BYREF
+  ULONG NumberOfLanguages; // [esp+Ch] [ebp-1Ch] BYREF
+  ULONG ReturnLength; // [esp+10h] [ebp-18h] BYREF
   int v16; // [esp+14h] [ebp-14h]
   int v17; // [esp+18h] [ebp-10h] BYREF
   unsigned int v18; // [esp+1Ch] [ebp-Ch] BYREF
-  int v19; // [esp+20h] [ebp-8h] BYREF
+  PVOID BaseAddress; // [esp+20h] [ebp-8h] BYREF
   char v20; // [esp+27h] [ebp-1h]
 
   v3 = a1;
   v18 = 0;
-  v15 = 0;
-  v19 = 0;
+  ReturnLength = 0;
+  BaseAddress = 0;
   v20 = 0;
   v17 = 0;
   if ( (a1 & 0xFFFF7CF2) != 0 )
@@ -83,26 +83,26 @@ int __stdcall RtlSetThreadPreferredUILanguages(int a1, int a2, int *a3)
       return -1073741811;
     if ( v18 < 2 || *(_WORD *)a2 || *(_WORD *)(a2 + 2) )
     {
-      if ( LdrpCreateLangFallbackList(&v19, v17, 5, 0) < 0 || !v19 )
+      if ( LdrpCreateLangFallbackList(&BaseAddress, v17, 5, 0) < 0 || !BaseAddress )
         return -1073741801;
       updated = RtlpMuiRegAddMultiSzToLangFallbackList(
-                  (_DWORD *)g_RegInfo,
+                  g_RegInfo,
                   (const unsigned __int16 *)a2,
                   v18,
                   v3 | 2,
                   26,
                   5u,
-                  &v19);
+                  (int *)&BaseAddress);
       if ( updated < 0 )
       {
-        RtlpMuiRegFreeLanguageList((_BYTE *)v19);
+        RtlpMuiRegFreeLanguageList(BaseAddress);
         v6 = 0;
         goto LABEL_13;
       }
-      v13 = *(unsigned __int16 *)(v19 + 4);
+      v13 = *((unsigned __int16 *)BaseAddress + 2);
       if ( !(_WORD)v13 )
       {
-        RtlpMuiRegFreeLanguageList((_BYTE *)v19);
+        RtlpMuiRegFreeLanguageList(BaseAddress);
         return -1073741823;
       }
       if ( a3 )
@@ -112,10 +112,10 @@ int __stdcall RtlSetThreadPreferredUILanguages(int a1, int a2, int *a3)
   v6 = 0;
   if ( NtCurrentTeb()->PreferredLanguages )
   {
-    RtlpMuiRegFreeLanguageList((_BYTE *)NtCurrentTeb()->PreferredLanguages);
+    RtlpMuiRegFreeLanguageList(NtCurrentTeb()->PreferredLanguages);
     NtCurrentTeb()->PreferredLanguages = 0;
   }
-  NtCurrentTeb()->PreferredLanguages = (void *)v19;
+  NtCurrentTeb()->PreferredLanguages = BaseAddress;
 LABEL_10:
   if ( NtCurrentTeb()->MergedPrefLanguages )
   {
@@ -196,6 +196,6 @@ LABEL_22:
   }
   *(_DWORD *)(v6 + 32) = v9 & 0xFFFFFFF9;
 LABEL_26:
-  RtlGetThreadPreferredUILanguages(v3 | 0x30, (int)v14, 0, &v15);
+  RtlGetThreadPreferredUILanguages(v3 | 0x30, &NumberOfLanguages, 0, &ReturnLength);
   return updated;
 }

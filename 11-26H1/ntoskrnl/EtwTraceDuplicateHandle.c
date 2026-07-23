@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceDuplicateHandle @ 0x140AD7038
+ * XREFs of EtwTraceDuplicateHandle @ 0x140AD3AE0
  * Callers:
- *     ObDuplicateObject @ 0x1408F0680 (ObDuplicateObject.c)
- *     ObCompleteObjectDuplication @ 0x1409714E0 (ObCompleteObjectDuplication.c)
- *     ExDupHandleTable @ 0x140971D40 (ExDupHandleTable.c)
+ *     ObDuplicateObject @ 0x1408F6C40 (ObDuplicateObject.c)
+ *     ObCompleteObjectDuplication @ 0x1409BB650 (ObCompleteObjectDuplication.c)
+ *     ExDupHandleTable @ 0x1409BD030 (ExDupHandleTable.c)
  * Callees:
- *     EtwpTraceKernelEventWithFilter @ 0x1404CE4E8 (EtwpTraceKernelEventWithFilter.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x1404C7F18 (EtwpTraceKernelEventWithFilter.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceDuplicateHandle(__int64 a1, unsigned int a2, __int64 a3, int a4, int a5, __int64 a6)
@@ -18,7 +18,7 @@ __int64 __fastcall EtwTraceDuplicateHandle(__int64 a1, unsigned int a2, __int64 
   bool v13; // zf
   __int64 v14; // r11
   __int64 v15; // rdx
-  unsigned __int16 *v16; // rbx
+  unsigned __int8 *v16; // rbx
   unsigned int v17; // edi
   unsigned int v18; // r9d
   char v19; // cl
@@ -50,14 +50,14 @@ __int64 __fastcall EtwTraceDuplicateHandle(__int64 a1, unsigned int a2, __int64 
         {
           result = 5 * v14;
           v15 = 0LL;
-          v16 = (unsigned __int16 *)((char *)&EtwpObjectTypeFilter + 20 * v14);
-          v17 = *v16;
+          v16 = &stru_140F03830.WaitBlockFill5[20 * v14 + 48];
+          v17 = *(unsigned __int16 *)v16;
 LABEL_8:
           if ( (unsigned int)v15 < v17 )
           {
             v18 = 0;
             result = 0LL;
-            v21[0] = *(_DWORD *)&v16[2 * v15 + 2];
+            v21[0] = *(_DWORD *)&v16[4 * v15 + 4];
             v20[0] = v10;
             while ( v18 < 4 )
             {

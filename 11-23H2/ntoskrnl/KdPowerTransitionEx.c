@@ -1,20 +1,20 @@
 /*
- * XREFs of KdPowerTransitionEx @ 0x1403AD9F0
+ * XREFs of KdPowerTransitionEx @ 0x1403ADBD0
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402C5320 (PpmIdleExecuteTransition.c)
- *     PpmExitCoordinatedIdle @ 0x1402C6CD0 (PpmExitCoordinatedIdle.c)
- *     HalReturnToFirmware @ 0x140506960 (HalReturnToFirmware.c)
- *     KdDisableDebuggerWithLock @ 0x140567528 (KdDisableDebuggerWithLock.c)
- *     KdEnableDebuggerWithLock @ 0x14056777C (KdEnableDebuggerWithLock.c)
- *     KdPowerTransition @ 0x1405679B0 (KdPowerTransition.c)
- *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x140599B40 (PopFxDebuggerPowerCriticalTransitionCallback.c)
+ *     PpmIdleExecuteTransition @ 0x1402C55B0 (PpmIdleExecuteTransition.c)
+ *     PpmExitCoordinatedIdle @ 0x1402C6F60 (PpmExitCoordinatedIdle.c)
+ *     HalReturnToFirmware @ 0x140506EB0 (HalReturnToFirmware.c)
+ *     KdDisableDebuggerWithLock @ 0x140567BE8 (KdDisableDebuggerWithLock.c)
+ *     KdEnableDebuggerWithLock @ 0x140567E3C (KdEnableDebuggerWithLock.c)
+ *     KdPowerTransition @ 0x140568070 (KdPowerTransition.c)
+ *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x14059A030 (PopFxDebuggerPowerCriticalTransitionCallback.c)
  * Callees:
  *     ObGetCurrentIrql @ 0x14020B9A0 (ObGetCurrentIrql.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     PpmCancelExitLatencyTrace @ 0x1403ADB38 (PpmCancelExitLatencyTrace.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     PpmCancelExitLatencyTrace @ 0x1403ADD18 (PpmCancelExitLatencyTrace.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KdPowerTransitionEx(int a1, char a2)
@@ -53,9 +53,9 @@ __int64 __fastcall KdPowerTransitionEx(int a1, char a2)
         {
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
               if ( CurrentIrql == 2 )
@@ -95,10 +95,10 @@ __int64 __fastcall KdPowerTransitionEx(int a1, char a2)
         KxReleaseSpinLock((volatile signed __int64 *)&KdDebuggerLock);
         if ( CurrentIrql != 0xFF )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v15 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v17 = CurrentPrcb->SchedulerAssist;

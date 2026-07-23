@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkpInitializePhase0 @ 0x140CB5C08
+ * XREFs of DbgkpInitializePhase0 @ 0x140CBBC48
  * Callers:
- *     DbgkInitialize @ 0x140CB5B80 (DbgkInitialize.c)
+ *     DbgkInitialize @ 0x140CBBBC0 (DbgkInitialize.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
- *     DbgkpInitializePhase0SiloState @ 0x14078A5B4 (DbgkpInitializePhase0SiloState.c)
- *     DbgkpGetServerSiloState @ 0x140B1CE9C (DbgkpGetServerSiloState.c)
- *     CmSiRWLockInitialize @ 0x140B60560 (CmSiRWLockInitialize.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
+ *     DbgkpInitializePhase0SiloState @ 0x14078D0E4 (DbgkpInitializePhase0SiloState.c)
+ *     DbgkpGetServerSiloState @ 0x140B1F0AC (DbgkpGetServerSiloState.c)
+ *     CmSiRWLockInitialize @ 0x140B63600 (CmSiRWLockInitialize.c)
  */
 
 void DbgkpInitializePhase0()
@@ -33,14 +33,14 @@ void DbgkpInitializePhase0()
   *(_QWORD *)&v4.Length = 1572886LL;
   v4.Buffer = L"DebugObject";
   memset_0(&v5, 0, 0x78uLL);
-  LODWORD(EmpParseLock.ApcState.ApcListHead[0].Flink) = 1;
-  *(_QWORD *)&EmpParseLock.ApcStateFill[40] = &EmpParseLock.ApcState.Process;
-  EmpParseLock.ApcState.Process = (_KPROCESS *)&EmpParseLock.ApcStateFill[32];
-  EmpParseLock.ApcState.ApcListHead[0].Blink = 0LL;
-  *(_DWORD *)&EmpParseLock.ApcStateFill[16] = 0;
-  *(_WORD *)&EmpParseLock.ApcStateFill[24] = 1;
-  EmpParseLock.ApcStateFill[26] = 6;
-  *(_DWORD *)&EmpParseLock.ApcStateFill[28] = 0;
+  *(_DWORD *)&EmpParseLock.ApcStateFill[8] = 1;
+  EmpParseLock.WaitStatus = (volatile __int64)&EmpParseLock.ApcStateFill[40];
+  *(_QWORD *)&EmpParseLock.ApcStateFill[40] = &EmpParseLock.ApcStateFill[40];
+  EmpParseLock.ApcState.ApcListHead[1].Flink = 0LL;
+  *(_DWORD *)&EmpParseLock.ApcStateFill[24] = 0;
+  *(_WORD *)&EmpParseLock.ApcStateFill[32] = 1;
+  EmpParseLock.ApcStateFill[34] = 6;
+  *(_DWORD *)&EmpParseLock.ApcStateFill[36] = 0;
   ServerSiloState = DbgkpGetServerSiloState(0LL);
   if ( (int)DbgkpInitializePhase0SiloState(ServerSiloState) >= 0 )
   {
@@ -59,7 +59,7 @@ void DbgkpInitializePhase0()
     v14 = 0;
     if ( (int)ObCreateObjectType(&v4, &v5, 0LL, (__int64)&DbgkDebugObjectType) >= 0 )
     {
-      p_Process = &stru_140E3E928.SavedApcState.Process;
+      p_Process = &stru_140E3EAA8.SavedApcState.Process;
       do
       {
         CmSiRWLockInitialize((PRTL_RUN_ONCE)p_Process);

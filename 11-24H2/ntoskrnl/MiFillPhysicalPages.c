@@ -1,20 +1,20 @@
 /*
- * XREFs of MiFillPhysicalPages @ 0x14021EFA0
+ * XREFs of MiFillPhysicalPages @ 0x14024BCF0
  * Callers:
- *     MiInitializeSystemPageTable @ 0x140395744 (MiInitializeSystemPageTable.c)
- *     MiGetCachedPoolPages @ 0x14049F260 (MiGetCachedPoolPages.c)
- *     MiInitializeDummyPages @ 0x140C4F7E0 (MiInitializeDummyPages.c)
- *     MxMapVa @ 0x140C53144 (MxMapVa.c)
+ *     MiInitializeSystemPageTable @ 0x14038F158 (MiInitializeSystemPageTable.c)
+ *     MiGetCachedPoolPages @ 0x14049A090 (MiGetCachedPoolPages.c)
+ *     MiInitializeDummyPages @ 0x140C51970 (MiInitializeDummyPages.c)
+ *     MxMapVa @ 0x140C552D4 (MxMapVa.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     MiFlushSingleTbEntry @ 0x14022A7E0 (MiFlushSingleTbEntry.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     AccelBuildDescriptorMemoryFill @ 0x14040A6BC (AccelBuildDescriptorMemoryFill.c)
- *     AccelpSubmitWork @ 0x14040AB90 (AccelpSubmitWork.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeZeroPages @ 0x1406B3390 (KeZeroPages.c)
- *     MxGetPhase0Mapping @ 0x140BDE9E0 (MxGetPhase0Mapping.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiFlushSingleTbEntry @ 0x1402FDA50 (MiFlushSingleTbEntry.c)
+ *     AccelBuildDescriptorMemoryFill @ 0x140402B9C (AccelBuildDescriptorMemoryFill.c)
+ *     AccelpSubmitWork @ 0x140403070 (AccelpSubmitWork.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeZeroPages @ 0x1406B4330 (KeZeroPages.c)
+ *     MxGetPhase0Mapping @ 0x140BE09E0 (MxGetPhase0Mapping.c)
  */
 
 __int64 __fastcall MiFillPhysicalPages(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -34,16 +34,16 @@ __int64 __fastcall MiFillPhysicalPages(__int64 a1, __int64 a2, __int64 a3, unsig
   MmInternal = KeGetCurrentPrcb()->MmInternal;
   if ( MmInternal )
   {
-    Phase0Mapping = MiMapPageInHyperSpaceWorker(a2, &v14, 0x80000000LL, a4);
+    Phase0Mapping = MiMapPageInHyperSpaceWorker(a2, &v14, 0x80000000LL);
   }
   else
   {
     Phase0Mapping = MxGetPhase0Mapping();
     v4 = (ULONG_PTR *)(((Phase0Mapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-    ValidPte = MiMakeValidPte(v4, a2, 2684354564LL);
+    ValidPte = MiMakeValidPte((unsigned __int64)v4, a2, -1610612732);
     v13 = ValidPte;
     if ( _bittest64(&MiFlags, 0x24u) && (ValidPte & 0x20) == 0 && (unsigned __int64)v4 >= 0xFFFFF6C000000000uLL )
-      MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v4, ValidPte);
+      MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v4, ValidPte, 128LL);
     *v4 = v13;
   }
   if ( a4 )
@@ -60,7 +60,7 @@ LABEL_5:
     }
     if ( (int)AccelBuildDescriptorMemoryFill(a1, Phase0Mapping, 4096, 0, 3LL) < 0 || (int)AccelpSubmitWork(a1, 3LL) < 0 )
     {
-      ++dword_140EF4CAC;
+      ++dword_140EF4ECC;
       goto LABEL_5;
     }
   }

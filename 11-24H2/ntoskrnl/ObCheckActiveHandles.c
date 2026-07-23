@@ -1,21 +1,21 @@
 /*
- * XREFs of ObCheckActiveHandles @ 0x140A3ED84
+ * XREFs of ObCheckActiveHandles @ 0x140989DE4
  * Callers:
- *     MiFinishCreateSection @ 0x140941784 (MiFinishCreateSection.c)
+ *     MiFinishCreateSection @ 0x14098B9F0 (MiFinishCreateSection.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 bool __fastcall ObCheckActiveHandles(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v2; // rbx
-  _QWORD *v4; // rax
-  _QWORD *v5; // rdi
+  char *v4; // rax
+  char *v5; // rdi
   __int64 v6; // rdi
   signed __int64 v7; // rax
   signed __int64 v8; // rdx
@@ -24,12 +24,12 @@ bool __fastcall ObCheckActiveHandles(__int64 a1)
   CurrentThread = KeGetCurrentThread();
   v2 = (unsigned __int64 *)(a1 - 32);
   --CurrentThread->KernelApcDisable;
-  v4 = KeAbPreAcquire(a1 - 32, 0LL);
+  v4 = (char *)KeAbPreAcquire(a1 - 32, 0LL);
   v5 = v4;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v2, (__int64)v4, (__int64)v2);
+    ExfAcquirePushLockExclusiveEx(v2, v4, (__int64)v2);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
+    v5[10] = 1;
   v6 = *(_QWORD *)(a1 - 40);
   _m_prefetchw(v2);
   v7 = *v2;

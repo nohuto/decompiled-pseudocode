@@ -34,13 +34,13 @@
  *     CmpReleaseShutdownRundown @ 0x140BA9970 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtSetValueKey(
-        __int64 a1,
-        UNICODE_STRING *a2,
-        unsigned int a3,
-        unsigned int a4,
-        void *a5,
-        size_t Size)
+NTSTATUS __cdecl NtSetValueKey(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        ULONG TitleIndex,
+        ULONG Type,
+        PVOID Data,
+        ULONG DataSize)
 {
   char v6; // r13
   char v7; // r14
@@ -53,12 +53,12 @@ __int64 __fastcall NtSetValueKey(
   __int64 v14; // r9
   int v15; // r8d
   char v16; // r12
-  int v17; // edi
+  NTSTATUS v17; // edi
   unsigned __int8 v18; // cl
   __int64 v19; // rcx
   unsigned __int64 v20; // r8
   unsigned __int16 Length; // dx
-  unsigned int v22; // r14d
+  ULONG v22; // r14d
   unsigned int v23; // esi
   unsigned int v24; // edi
   unsigned int v25; // eax
@@ -78,11 +78,11 @@ __int64 __fastcall NtSetValueKey(
   void *Src; // [rsp+68h] [rbp-1D0h]
   void *v41; // [rsp+70h] [rbp-1C8h]
   int v42; // [rsp+78h] [rbp-1C0h] BYREF
-  unsigned int v43; // [rsp+7Ch] [rbp-1BCh]
+  ULONG v43; // [rsp+7Ch] [rbp-1BCh]
   PPRIVILEGE_SET Privileges; // [rsp+80h] [rbp-1B8h]
-  unsigned int v45; // [rsp+88h] [rbp-1B0h]
+  ULONG v45; // [rsp+88h] [rbp-1B0h]
   __int64 v46; // [rsp+90h] [rbp-1A8h] BYREF
-  __int64 v47; // [rsp+98h] [rbp-1A0h]
+  HANDLE v47; // [rsp+98h] [rbp-1A0h]
   _QWORD v48[2]; // [rsp+A0h] [rbp-198h] BYREF
   UNICODE_STRING *v49; // [rsp+B0h] [rbp-188h]
   __int64 v50; // [rsp+B8h] [rbp-180h]
@@ -90,11 +90,11 @@ __int64 __fastcall NtSetValueKey(
   __m128i v52; // [rsp+D0h] [rbp-168h]
   _KAFFINITY_EX v53; // [rsp+E0h] [rbp-158h] BYREF
 
-  v43 = a4;
-  v45 = a3;
-  v49 = a2;
-  v47 = a1;
-  Src = a5;
+  v43 = Type;
+  v45 = TitleIndex;
+  v49 = ValueName;
+  v47 = KeyHandle;
+  Src = Data;
   *(_OWORD *)&v53.Count = 0LL;
   DestinationString = 0LL;
   v46 = 0LL;
@@ -126,7 +126,7 @@ __int64 __fastcall NtSetValueKey(
     v37 = -1073741431;
     goto LABEL_73;
   }
-  v17 = CmObReferenceObjectByHandle(v47, 2, v15, PreviousMode, (__int64)&Object, (__int64)&v46);
+  v17 = CmObReferenceObjectByHandle((_DWORD)v47, 2, v15, PreviousMode, (__int64)&Object, (__int64)&v46);
   v37 = v17;
   if ( v17 == -1073741790 )
   {
@@ -140,7 +140,7 @@ __int64 __fastcall NtSetValueKey(
     {
       goto LABEL_100;
     }
-    v17 = CmObReferenceObjectByHandle(v47, 131097, v33, v36, (__int64)&Object, (__int64)&v46);
+    v17 = CmObReferenceObjectByHandle((_DWORD)v47, 131097, v33, v36, (__int64)&Object, (__int64)&v46);
     v37 = v17;
     if ( v17 < 0 )
       goto LABEL_73;
@@ -178,18 +178,15 @@ LABEL_100:
       if ( v52.m128i_u16[0] + v20 > 0x7FFFFFFF0000LL || v52.m128i_u16[0] + v20 < v20 )
         Length = DestinationString.Length;
     }
-    v22 = Size;
-    if ( (_DWORD)Size
-      && ((unsigned __int64)Src + (unsigned int)Size > 0x7FFFFFFF0000LL || (char *)Src + (unsigned int)Size < Src) )
-    {
+    v22 = DataSize;
+    if ( DataSize && ((unsigned __int64)Src + DataSize > 0x7FFFFFFF0000LL || (char *)Src + DataSize < Src) )
       Length = DestinationString.Length;
-    }
     goto LABEL_18;
   }
   DestinationString = *v49;
   v41 = 0LL;
-  v22 = Size;
-  if ( (_DWORD)Size )
+  v22 = DataSize;
+  if ( DataSize )
   {
     Length = DestinationString.Length;
 LABEL_18:
@@ -345,7 +342,7 @@ LABEL_26:
               v43,
               (_DWORD)Src,
               (size_t)v35,
-              v47,
+              (__int64)v47,
               (v46 & 4) != 0);
       v37 = v17;
       v10 = v8;
@@ -394,5 +391,5 @@ LABEL_73:
   if ( v16 )
     CmpReleaseShutdownRundown(v30);
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v53);
-  return (unsigned int)v17;
+  return v17;
 }

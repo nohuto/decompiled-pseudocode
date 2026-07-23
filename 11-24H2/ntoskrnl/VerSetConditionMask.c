@@ -1,8 +1,8 @@
 /*
- * XREFs of VerSetConditionMask @ 0x140463F20
+ * XREFs of VerSetConditionMask @ 0x14045A6A0
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x1407A1B08 (WdipSemLoadScenarioTable.c)
- *     AslpFileGetVersionBlock @ 0x14080E580 (AslpFileGetVersionBlock.c)
+ *     WdipSemLoadScenarioTable @ 0x1407A1C18 (WdipSemLoadScenarioTable.c)
+ *     AslpFileGetVersionBlock @ 0x14080ECC0 (AslpFileGetVersionBlock.c)
  * Callees:
  *     <none>
  */

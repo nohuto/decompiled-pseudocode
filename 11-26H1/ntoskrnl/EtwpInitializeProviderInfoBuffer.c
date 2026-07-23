@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpInitializeProviderInfoBuffer @ 0x140B45484
+ * XREFs of EtwpInitializeProviderInfoBuffer @ 0x140B474C0
  * Callers:
- *     EtwpSendDbgId @ 0x14082C740 (EtwpSendDbgId.c)
- *     EtwpRealtimeNotifyConsumers @ 0x140A15284 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpSendDbgId @ 0x140832980 (EtwpSendDbgId.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x140A14478 (EtwpRealtimeNotifyConsumers.c)
  * Callees:
- *     EtwpResetBufferHeader @ 0x140219DA4 (EtwpResetBufferHeader.c)
- *     EtwpInitializeBufferHeader @ 0x1404B4F84 (EtwpInitializeBufferHeader.c)
+ *     EtwpResetBufferHeader @ 0x14021919C (EtwpResetBufferHeader.c)
+ *     EtwpInitializeBufferHeader @ 0x1404AE3D4 (EtwpInitializeBufferHeader.c)
  */
 
 __int64 __fastcall EtwpInitializeProviderInfoBuffer(__int64 a1, __int64 a2, int a3)
@@ -27,13 +27,13 @@ __int64 __fastcall EtwpInitializeProviderInfoBuffer(__int64 a1, __int64 a2, int 
     case 1:
       goto LABEL_4;
     case 3:
-      result = v7 & 7 | (8LL * (unsigned int)EtwCPUSpeedInMHz);
+      result = v7 & 7 | (8LL * HIDWORD(stru_140F03830.CycleTime));
       *(_QWORD *)(a2 + 32) = result;
       return result;
     case 4:
 LABEL_4:
-      result = 8 * EtwPerfFreq.QuadPart;
-      *(_QWORD *)(a2 + 32) = (8 * EtwPerfFreq.QuadPart) | v7 & 7;
+      result = 8LL * *(_QWORD *)&stru_140F03830.CurrentRunTime;
+      *(_QWORD *)(a2 + 32) = (8LL * *(_QWORD *)&stru_140F03830.CurrentRunTime) | v7 & 7;
       break;
   }
   return result;

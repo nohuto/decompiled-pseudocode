@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpDoFileWrite @ 0x1406715BC
+ * XREFs of CmpDoFileWrite @ 0x1406A362C
  * Callers:
- *     CmpFileWrite @ 0x1406720B0 (CmpFileWrite.c)
- *     CmpWriteOffsetArrayToFile @ 0x14087162C (CmpWriteOffsetArrayToFile.c)
+ *     CmpFileWrite @ 0x140618FF0 (CmpFileWrite.c)
+ *     CmpWriteOffsetArrayToFile @ 0x14087178C (CmpWriteOffsetArrayToFile.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
- *     CmpSetRespectIoPriorityThread @ 0x14027F078 (CmpSetRespectIoPriorityThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     CmpSetIoPriorityThread @ 0x1402D25D4 (CmpSetIoPriorityThread.c)
- *     CmpSetPriorityThread @ 0x1402D25EC (CmpSetPriorityThread.c)
- *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     memset @ 0x140414200 (memset.c)
- *     CmpCreateEvent @ 0x140671E70 (CmpCreateEvent.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x14023EDD0 (CmpAllocateTransientPoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     CmpSetIoPriorityThread @ 0x1402509A4 (CmpSetIoPriorityThread.c)
+ *     CmpSetPriorityThread @ 0x1402509BC (CmpSetPriorityThread.c)
+ *     CmpSetRespectIoPriorityThread @ 0x1402863F4 (CmpSetRespectIoPriorityThread.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
+ *     ZwWriteFile @ 0x1403FA680 (ZwWriteFile.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmpCreateEvent @ 0x1406A3EE0 (CmpCreateEvent.c)
  */
 
 __int64 __fastcall CmpDoFileWrite(void *a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4, char a5)
@@ -40,7 +40,7 @@ __int64 __fastcall CmpDoFileWrite(void *a1, __int64 a2, __int64 a3, struct _LOOK
   char *v25; // [rsp+68h] [rbp-40h]
   char v27; // [rsp+B8h] [rbp+10h]
   unsigned int v28; // [rsp+C8h] [rbp+20h]
-  char v30; // [rsp+D8h] [rbp+30h]
+  char v29; // [rsp+D8h] [rbp+30h]
 
   v28 = (unsigned int)a4;
   ByteOffset.QuadPart = 0LL;
@@ -59,7 +59,7 @@ __int64 __fastcall CmpDoFileWrite(void *a1, __int64 a2, __int64 a3, struct _LOOK
       v23 = CmpSetPriorityThread(KeGetCurrentThread(), 4);
       v27 = 1;
     }
-    v30 = CmpSetRespectIoPriorityThread((__int64)KeGetCurrentThread(), 1);
+    v29 = CmpSetRespectIoPriorityThread((__int64)KeGetCurrentThread(), 1);
     v10 = 0;
     v22 = 0;
     if ( v6 )
@@ -157,7 +157,7 @@ LABEL_18:
       CmpSetIoPriorityThread();
       CmpSetPriorityThread(KeGetCurrentThread(), v23);
     }
-    CmpSetRespectIoPriorityThread((__int64)KeGetCurrentThread(), v30);
+    CmpSetRespectIoPriorityThread((__int64)KeGetCurrentThread(), v29);
     v17 = 0;
     v18 = (PADAPTER_OBJECT *)v9;
     do

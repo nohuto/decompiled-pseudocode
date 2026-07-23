@@ -1,32 +1,32 @@
 /*
- * XREFs of MiInitializeDynamicBitmap @ 0x140535E80
+ * XREFs of MiInitializeDynamicBitmap @ 0x1405363C0
  * Callers:
- *     MiBuildDynamicRegion @ 0x14013C940 (MiBuildDynamicRegion.c)
- *     MiSessionCreate @ 0x140535604 (MiSessionCreate.c)
- *     MiInitializeSessionPool @ 0x140535DE8 (MiInitializeSessionPool.c)
- *     MiCreateLargePfnBitMaps @ 0x140575FB0 (MiCreateLargePfnBitMaps.c)
+ *     MiBuildDynamicRegion @ 0x14013CEB0 (MiBuildDynamicRegion.c)
+ *     MiSessionCreate @ 0x140535B44 (MiSessionCreate.c)
+ *     MiInitializeSessionPool @ 0x140536328 (MiInitializeSessionPool.c)
+ *     MiCreateLargePfnBitMaps @ 0x1405764F0 (MiCreateLargePfnBitMaps.c)
  *     MiBuildPagedPool @ 0x14078E258 (MiBuildPagedPool.c)
  *     MiInitializeMirroring @ 0x1407A4334 (MiInitializeMirroring.c)
  *     MiInitializeNonPagedPool @ 0x1407A47DC (MiInitializeNonPagedPool.c)
  *     MiInitializeSystemPtes @ 0x1407A4D44 (MiInitializeSystemPtes.c)
  *     MiInitializePteInfo @ 0x1407BB960 (MiInitializePteInfo.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiGetPdeAddress @ 0x1400AB5EC (MiGetPdeAddress.c)
- *     MiFillGapAddresses @ 0x1400B53E0 (MiFillGapAddresses.c)
- *     MiInitializeTbFlushList @ 0x1400B5A30 (MiInitializeTbFlushList.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
- *     MiReturnPfnList @ 0x14013EB5C (MiReturnPfnList.c)
- *     MiReturnSplitPageCharges @ 0x14014B990 (MiReturnSplitPageCharges.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1401E1AF8 (MI_INTERLOCKED_EXCHANGE_PTE.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiGetPdeAddress @ 0x1400847A4 (MiGetPdeAddress.c)
+ *     MiFillGapAddresses @ 0x1400B3218 (MiFillGapAddresses.c)
+ *     MiInitializeTbFlushList @ 0x1400B3858 (MiInitializeTbFlushList.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
+ *     MiReturnPfnList @ 0x14013F0CC (MiReturnPfnList.c)
+ *     MiReturnSplitPageCharges @ 0x14014BF00 (MiReturnSplitPageCharges.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1401E1924 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiInitializeDynamicBitmap(_QWORD *a1, unsigned __int64 a2, __int64 a3, char a4)
@@ -73,13 +73,13 @@ LABEL_7:
     MiInitializeTbFlushList((__int64)v34, 0, 20);
     if ( (a4 & 8) != 0 )
     {
-      v15 = qword_1403276A0;
-      v16 = qword_140327710;
+      v15 = qword_1403276E0;
+      v16 = qword_140327750;
     }
     else
     {
-      v15 = qword_140327688;
-      v16 = qword_140327720;
+      v15 = qword_1403276C8;
+      v16 = qword_140327760;
     }
     v17 = qword_1403A9348 ^ (qword_1403A9348 ^ (v15 << 12)) & 0xFFFFFFFFF000LL | 0x21;
     if ( PteAddress >= 0xFFFFF6FB40000000uLL && PteAddress <= 0xFFFFF6FB7FFFFFFFuLL )
@@ -95,7 +95,7 @@ LABEL_7:
       v17 |= 0x100uLL;
     v23 = ~v22 & (v17 | 0x8000000000000000uLL);
     if ( (a4 & 1) != 0 )
-      v23 ^= (v23 ^ ((unsigned __int64)(unsigned __int8)word_140326AA8 << 8)) & 0x100;
+      v23 ^= (v23 ^ ((unsigned __int64)(unsigned __int8)word_140326AE8 << 8)) & 0x100;
     v24 = 0LL;
     if ( v11 )
     {
@@ -149,9 +149,9 @@ LABEL_7:
       return result;
     goto LABEL_7;
   }
-  v13 = &qword_1403276E8;
+  v13 = &qword_140327728;
   if ( (a4 & 8) == 0 )
-    v13 = (PVOID *)&unk_1403276C8;
+    v13 = (PVOID *)&unk_140327708;
   MiFillGapAddresses(v7, (v11 << 12) + v9 - 1, (int)v13);
   *a1 = a3;
   a1[1] = v7;

@@ -3,46 +3,63 @@
  * Callers:
  *     TppWorkerThread @ 0x180016320 (TppWorkerThread.c)
  *     EtwpWriteToPrivateBuffers @ 0x18004DFCC (EtwpWriteToPrivateBuffers.c)
- *     RtlQueryWnfStateData @ 0x180078BE0 (RtlQueryWnfStateData.c)
- *     RtlQueryWnfStateDataWithExplicitScope @ 0x180086BC0 (RtlQueryWnfStateDataWithExplicitScope.c)
+ *     RtlQueryWnfStateData @ 0x180078BF0 (RtlQueryWnfStateData.c)
+ *     RtlQueryWnfStateDataWithExplicitScope @ 0x180086BD0 (RtlQueryWnfStateDataWithExplicitScope.c)
  *     EtwpCheckForEnoughStackSpace @ 0x18010F208 (EtwpCheckForEnoughStackSpace.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     ZwAllocateVirtualMemory @ 0x1800A05E0 (ZwAllocateVirtualMemory.c)
- *     ZwQueryVirtualMemory @ 0x1800A0740 (ZwQueryVirtualMemory.c)
- *     NtQuerySystemInformation @ 0x1800A09A0 (NtQuerySystemInformation.c)
- *     ZwProtectVirtualMemory @ 0x1800A0CE0 (ZwProtectVirtualMemory.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x1800A0600 (ZwAllocateVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x1800A0760 (ZwQueryVirtualMemory.c)
+ *     NtQuerySystemInformation @ 0x1800A09C0 (NtQuerySystemInformation.c)
+ *     ZwProtectVirtualMemory @ 0x1800A0D00 (ZwProtectVirtualMemory.c)
  */
 
-char *RtlResetStackOverflow()
+int RtlResetStackOverflow()
 {
-  char *result; // rax
+  _BYTE *v0; // rax
   unsigned __int64 v1; // r8
-  unsigned __int64 v2; // rdx
-  unsigned __int64 v3; // rcx
-  char v4; // [rsp+48h] [rbp-31h] BYREF
-  __int64 v5; // [rsp+50h] [rbp-29h]
+  ULONG_PTR v2; // rdx
+  ULONG_PTR v3; // rcx
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp-49h] BYREF
+  PVOID v6; // [rsp+38h] [rbp-41h] BYREF
+  ULONG OldProtect; // [rsp+40h] [rbp-39h] BYREF
+  _BYTE BaseAddress[8]; // [rsp+48h] [rbp-31h] BYREF
+  __int64 v9; // [rsp+50h] [rbp-29h]
   _BYTE SystemInformation[8]; // [rsp+80h] [rbp+7h] BYREF
-  unsigned int v7; // [rsp+88h] [rbp+Fh]
+  unsigned int v11; // [rsp+88h] [rbp+Fh]
 
-  result = (char *)ZwQueryVirtualMemory();
-  if ( (int)result >= 0 )
+  LODWORD(v0) = ZwQueryVirtualMemory(
+                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                  BaseAddress,
+                  MemoryBasicInformation,
+                  BaseAddress,
+                  0x30uLL,
+                  0LL);
+  if ( (int)v0 >= 0 )
   {
     NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
-    v1 = ~(unsigned __int64)(v7 - 1);
-    v2 = v1 & (NtCurrentTeb()->GuaranteedStackBytes + v7 - 1LL);
+    v1 = ~(unsigned __int64)(v11 - 1);
+    v2 = v1 & (NtCurrentTeb()->GuaranteedStackBytes + v11 - 1LL);
+    RegionSize = v2;
     if ( v2 )
-      v2 += v7;
-    v3 = 3 * v7;
-    if ( v2 < v3 )
-      v2 = (unsigned int)v3;
-    result = &v4;
-    if ( ((unsigned __int64)&v4 & v1) - v2 >= v5 + (unsigned __int64)(17 * v7) )
     {
-      result = (char *)ZwAllocateVirtualMemory();
-      if ( (int)result >= 0 )
-        return (char *)ZwProtectVirtualMemory();
+      v2 += v11;
+      RegionSize = v2;
+    }
+    v3 = 3 * v11;
+    if ( v2 < v3 )
+    {
+      RegionSize = 3 * v11;
+      v2 = (unsigned int)v3;
+    }
+    v0 = BaseAddress;
+    v6 = (PVOID)(((unsigned __int64)BaseAddress & v1) - v2);
+    if ( (unsigned __int64)v6 >= v9 + (unsigned __int64)(17 * v11) )
+    {
+      LODWORD(v0) = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v6, 0LL, &RegionSize, 0x1000u, 4u);
+      if ( (int)v0 >= 0 )
+        LODWORD(v0) = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v6, &RegionSize, 0x104u, &OldProtect);
     }
   }
-  return result;
+  return (int)v0;
 }

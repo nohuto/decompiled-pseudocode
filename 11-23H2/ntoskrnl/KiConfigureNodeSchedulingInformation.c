@@ -1,5 +1,5 @@
 /*
- * XREFs of KiConfigureNodeSchedulingInformation @ 0x1403B1854
+ * XREFs of KiConfigureNodeSchedulingInformation @ 0x1403B1A34
  * Callers:
  *     KiConfigureAllSchedulingInformation @ 0x140B4C770 (KiConfigureAllSchedulingInformation.c)
  * Callees:

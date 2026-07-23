@@ -1,11 +1,11 @@
 /*
- * XREFs of IopGetNumaNodeInformation @ 0x14094B0C0
+ * XREFs of IopGetNumaNodeInformation @ 0x14094B2C0
  * Callers:
- *     NtQueryInformationFile @ 0x140725070 (NtQueryInformationFile.c)
+ *     NtQueryInformationFile @ 0x140725270 (NtQueryInformationFile.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IopGetDevicePDO @ 0x1403029B8 (IopGetDevicePDO.c)
- *     IoGetDeviceNumaNode @ 0x140863F90 (IoGetDeviceNumaNode.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IopGetDevicePDO @ 0x140302C48 (IopGetDevicePDO.c)
+ *     IoGetDeviceNumaNode @ 0x1408641D0 (IoGetDeviceNumaNode.c)
  */
 
 __int64 __fastcall IopGetNumaNodeInformation(__int64 a1, USHORT *a2)

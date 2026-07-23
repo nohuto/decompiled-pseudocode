@@ -1,24 +1,23 @@
 /*
- * XREFs of SdbpFindMatchingName @ 0x140573C7C
+ * XREFs of SdbpFindMatchingName @ 0x1405741BC
  * Callers:
- *     SdbFindFirstStringIndexedTag @ 0x140484C74 (SdbFindFirstStringIndexedTag.c)
- *     SdbFindNextStringIndexedTag @ 0x1406C4F78 (SdbFindNextStringIndexedTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x140513FFC (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindNextStringIndexedTag @ 0x1406C50B0 (SdbFindNextStringIndexedTag.c)
  * Callees:
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     SdbFindFirstTag @ 0x1405049C4 (SdbFindFirstTag.c)
- *     SdbGetStringTagPtr @ 0x140573D10 (SdbGetStringTagPtr.c)
- *     SdbpGetNextIndexedRecord @ 0x140573E58 (SdbpGetNextIndexedRecord.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     SdbFindFirstTag @ 0x1404E7954 (SdbFindFirstTag.c)
+ *     SdbGetStringTagPtr @ 0x140574250 (SdbGetStringTagPtr.c)
+ *     SdbpGetNextIndexedRecord @ 0x140574398 (SdbpGetNextIndexedRecord.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpFindMatchingName(__int64 a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int NextIndexedRecord; // ebx
   unsigned int FirstTag; // eax
-  int v7; // esi
   const wchar_t *StringTagPtr; // rcx
-  bool v9; // zf
-  int v11; // eax
+  bool v8; // zf
+  int v10; // eax
 
   NextIndexedRecord = a2;
   if ( !a2 )
@@ -26,7 +25,6 @@ __int64 __fastcall SdbpFindMatchingName(__int64 a1, unsigned int a2, unsigned in
   while ( 1 )
   {
     FirstTag = SdbFindFirstTag(a1, NextIndexedRecord, *((_WORD *)a3 + 6));
-    v7 = FirstTag;
     if ( !FirstTag )
       break;
     StringTagPtr = (const wchar_t *)SdbGetStringTagPtr(a1, FirstTag);
@@ -36,22 +34,21 @@ __int64 __fastcall SdbpFindMatchingName(__int64 a1, unsigned int a2, unsigned in
         1,
         (unsigned int)"SdbpFindMatchingName",
         266,
-        (unsigned int)"Can't get the name string for tagid 0x%x",
-        v7);
+        (unsigned int)"Can't get the name string for tagid 0x%x");
       return 0LL;
     }
     if ( (a3[5] & 1) != 0 )
     {
-      v11 = wcsicmp(*((const wchar_t **)a3 + 4), StringTagPtr);
-      v9 = v11 == 0;
-      if ( v11 < 0 )
+      v10 = wcsicmp(*((const wchar_t **)a3 + 4), StringTagPtr);
+      v8 = v10 == 0;
+      if ( v10 < 0 )
         return 0LL;
     }
     else
     {
-      v9 = wcsicmp(StringTagPtr, *((const wchar_t **)a3 + 4)) == 0;
+      v8 = wcsicmp(StringTagPtr, *((const wchar_t **)a3 + 4)) == 0;
     }
-    if ( !v9 )
+    if ( !v8 )
     {
       NextIndexedRecord = SdbpGetNextIndexedRecord(a1, *a3, a3);
       if ( NextIndexedRecord )
@@ -63,8 +60,6 @@ __int64 __fastcall SdbpFindMatchingName(__int64 a1, unsigned int a2, unsigned in
     1,
     (unsigned int)"SdbpFindMatchingName",
     256,
-    (unsigned int)"The tag 0x%x was not found under tag 0x%x",
-    NextIndexedRecord,
-    *((unsigned __int16 *)a3 + 6));
+    (unsigned int)"The tag 0x%x was not found under tag 0x%x");
   return 0LL;
 }

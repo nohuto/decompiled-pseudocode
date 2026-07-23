@@ -27,7 +27,7 @@ void __fastcall CcReferenceFileOffset(__int64 a1, __int64 a2)
     v5[0] = v5;
     v6 = 0;
     if ( !CcAllocateVacbLevels(CcMaxVacbLevelsSeen - 1, (v4 & 0x200) != 0, (__int64)v5) )
-      RtlRaiseStatus(0xC000009A);
+      RtlRaiseStatus(-1073741670);
     CcAcquireBcbLockAndVacbLock(1, (struct _FAST_MUTEX *)a1);
     SetVacb(a1, a2, 0xFFFFFFFFFFFFFFFFuLL, (__int64)v5);
     CcReleaseBcbLockAndVacbLock(1, (struct _FAST_MUTEX *)a1);

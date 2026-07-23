@@ -1,10 +1,10 @@
 /*
  * XREFs of ExWaitForRundownProtectionReleaseCacheAware @ 0x1402D3100
  * Callers:
- *     MiDrainCrossPartitionUsage @ 0x1405BE340 (MiDrainCrossPartitionUsage.c)
- *     RawVerifyVolume @ 0x1405E364C (RawVerifyVolume.c)
- *     EtwpFreeLoggerContext @ 0x1406D1830 (EtwpFreeLoggerContext.c)
- *     RawUserFsCtrl @ 0x1407FBE14 (RawUserFsCtrl.c)
+ *     sub_1405BE340 @ 0x1405BE340 (sub_1405BE340.c)
+ *     sub_1405E364C @ 0x1405E364C (sub_1405E364C.c)
+ *     sub_1406D1830 @ 0x1406D1830 (sub_1406D1830.c)
+ *     sub_1407FBE14 @ 0x1407FBE14 (sub_1407FBE14.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
  */
@@ -12,7 +12,7 @@
 void __stdcall ExWaitForRundownProtectionReleaseCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRef)
 {
   unsigned __int64 v1; // r9
-  unsigned int Number; // r8d
+  unsigned int v2; // r8d
   unsigned int v3; // r11d
   int v4; // edx
   __int64 v5; // rax
@@ -22,23 +22,23 @@ void __stdcall ExWaitForRundownProtectionReleaseCacheAware(PEX_RUNDOWN_REF_CACHE
 
   v6 = 0LL;
   v1 = 0LL;
-  Number = RunRef->Number;
+  v2 = *((_DWORD *)RunRef + 5);
   v3 = 0;
   Object = 0LL;
   v8 = 0LL;
-  if ( Number )
+  if ( v2 )
   {
     do
     {
-      v4 = v3 % Number;
+      v4 = v3 % v2;
       ++v3;
       v5 = _InterlockedExchange64(
-             (volatile __int64 *)((char *)RunRef->RunRefs + RunRef->RunRefSize * v4),
+             (volatile __int64 *)(*(_QWORD *)RunRef + (unsigned int)(*((_DWORD *)RunRef + 4) * v4)),
              (__int64)&v6 + 1);
-      Number = RunRef->Number;
+      v2 = *((_DWORD *)RunRef + 5);
       v1 += v5;
     }
-    while ( v3 < Number );
+    while ( v3 < v2 );
     if ( v1 )
     {
       DWORD1(Object) = 0;

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlValidRelativeSecurityDescriptor @ 0x14085B000
+ * XREFs of RtlValidRelativeSecurityDescriptor @ 0x140833A70
  * Callers:
- *     CmpVerifyLogRecord @ 0x1407E0D68 (CmpVerifyLogRecord.c)
- *     _CmSetInstallerClassRegPropWorker @ 0x1408192D4 (_CmSetInstallerClassRegPropWorker.c)
- *     ExpWnfLookupPermanentName @ 0x14085ACA8 (ExpWnfLookupPermanentName.c)
- *     _PnpValidatePropertyData @ 0x1408B8DD0 (_PnpValidatePropertyData.c)
- *     _CmSetDeviceRegPropWorker @ 0x140990F90 (_CmSetDeviceRegPropWorker.c)
- *     PipGetRegistrySecurityWithFallback @ 0x140994B48 (PipGetRegistrySecurityWithFallback.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x1409A0BDC (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpVerifyLogRecord @ 0x1407E12B8 (CmpVerifyLogRecord.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x140819A14 (_CmSetInstallerClassRegPropWorker.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1408328B8 (CmpValidateHiveSecurityDescriptors.c)
+ *     ExpWnfLookupPermanentName @ 0x140833714 (ExpWnfLookupPermanentName.c)
+ *     _PnpValidatePropertyData @ 0x1408B6740 (_PnpValidatePropertyData.c)
+ *     _CmSetDeviceRegPropWorker @ 0x14097BFD0 (_CmSetDeviceRegPropWorker.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x14097FB88 (PipGetRegistrySecurityWithFallback.c)
  * Callees:
- *     RtlValidAcl @ 0x14091CB10 (RtlValidAcl.c)
+ *     RtlValidAcl @ 0x140910580 (RtlValidAcl.c)
  */
 
 BOOLEAN __stdcall RtlValidRelativeSecurityDescriptor(
@@ -25,7 +25,7 @@ BOOLEAN __stdcall RtlValidRelativeSecurityDescriptor(
   unsigned int v10; // edx
   int v11; // eax
   __int64 v12; // rax
-  char *v13; // rcx
+  ACL *v13; // rcx
   __int64 v15; // rax
   unsigned int v16; // ebx
 
@@ -91,12 +91,9 @@ LABEL_20:
         return 0;
       if ( (v12 & 3) != 0 )
         return 0;
-      v13 = (char *)SecurityDescriptorInput + v12;
-      if ( SecurityDescriptorLength - (unsigned int)v12 < *((unsigned __int16 *)v13 + 1)
-        || !(unsigned __int8)RtlValidAcl(v13) )
-      {
+      v13 = (ACL *)((char *)SecurityDescriptorInput + v12);
+      if ( SecurityDescriptorLength - (unsigned int)v12 < v13->AclSize || !RtlValidAcl(v13) )
         return 0;
-      }
     }
   }
   if ( (*((_BYTE *)SecurityDescriptorInput + 2) & 0x10) == 0 )
@@ -111,5 +108,5 @@ LABEL_20:
   v16 = SecurityDescriptorLength - v15;
   if ( v16 < 8 || (v15 & 3) != 0 || v16 < *(unsigned __int16 *)((char *)SecurityDescriptorInput + v15 + 2) )
     return 0;
-  return (unsigned __int8)RtlValidAcl((char *)SecurityDescriptorInput + v15) != 0;
+  return RtlValidAcl((PACL)((char *)SecurityDescriptorInput + v15)) != 0;
 }

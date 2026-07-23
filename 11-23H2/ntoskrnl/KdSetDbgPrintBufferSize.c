@@ -1,12 +1,12 @@
 /*
- * XREFs of KdSetDbgPrintBufferSize @ 0x140567B44
+ * XREFs of KdSetDbgPrintBufferSize @ 0x140568204
  * Callers:
- *     NtSystemDebugControl @ 0x1407E10D0 (NtSystemDebugControl.c)
+ *     NtSystemDebugControl @ 0x1407E13A0 (NtSystemDebugControl.c)
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -49,7 +49,7 @@ LABEL_9:
       {
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(0xFuLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 15 )
@@ -105,10 +105,10 @@ LABEL_9:
           KdPrintWritePointer = &Pool2[v12];
           HIDWORD(KdDebuggerEnabled) = 0;
           _InterlockedExchange((volatile __int32 *)&KdpPrintSpinLock, 0);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v17 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v19 = CurrentPrcb->SchedulerAssist;
@@ -116,7 +116,7 @@ LABEL_9:
               v11 = (v20 & v19[5]) == 0;
               v19[5] &= v20;
               if ( v11 )
-                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
             }
           }
           __writecr8(CurrentIrql);
@@ -124,10 +124,10 @@ LABEL_9:
             ExFreePoolWithTag(v13, 0);
           return 0LL;
         }
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v7 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
           {
             v8 = KeGetCurrentPrcb();
             v9 = v8->SchedulerAssist;
@@ -135,7 +135,7 @@ LABEL_9:
             v11 = (v10 & v9[5]) == 0;
             v9[5] &= v10;
             if ( v11 )
-              KiRemoveSystemWorkPriorityKick(v8);
+              KiRemoveSystemWorkPriorityKick((__int64)v8);
           }
         }
         __writecr8(CurrentIrql);

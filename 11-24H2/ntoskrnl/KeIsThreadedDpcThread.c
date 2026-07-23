@@ -1,7 +1,7 @@
 /*
- * XREFs of KeIsThreadedDpcThread @ 0x14044B92C
+ * XREFs of KeIsThreadedDpcThread @ 0x140442A6C
  * Callers:
- *     MiGroupZeroHugeRange @ 0x140685AB4 (MiGroupZeroHugeRange.c)
+ *     MiGroupZeroHugeRange @ 0x140686BE4 (MiGroupZeroHugeRange.c)
  * Callees:
  *     <none>
  */

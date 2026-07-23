@@ -50,51 +50,52 @@ NTSTATUS __stdcall FsRtlCheckOplockEx(
   __int64 v17; // r8
   UCHAR MajorFunction; // cl
   ULONG_PTR v19; // rsi
-  __int64 v20; // rdi
-  int v21; // esi
-  char v22; // al
-  int v23; // edi
-  char v24; // cl
-  __int64 v25; // rsi
-  char v26; // al
+  _RTL_BALANCED_NODE *v20; // rax
+  _RTL_BALANCED_NODE *v21; // rdi
+  int v22; // esi
+  char v23; // al
+  int v24; // edi
+  char v25; // cl
+  __int64 v26; // rsi
   char v27; // al
-  int v28; // eax
+  char v28; // al
+  int v29; // eax
   ULONG Options; // eax
-  bool v30; // zf
+  bool v31; // zf
   unsigned int LowPart; // eax
-  ULONG_PTR v32; // rdi
-  unsigned __int32 v33; // eax
-  __int64 v34; // rax
-  int v35; // eax
-  __int64 v36; // rdx
-  __int64 v37; // r8
-  _QWORD *v38; // rbx
-  __int64 v39; // rcx
-  _QWORD *v40; // rax
-  __int64 v41; // rcx
-  _BYTE v42[3]; // [rsp+51h] [rbp-B7h] BYREF
-  ULONG v43; // [rsp+54h] [rbp-B4h]
-  char v44; // [rsp+58h] [rbp-B0h]
-  bool v45; // [rsp+59h] [rbp-AFh]
-  _BYTE v46[14]; // [rsp+5Ah] [rbp-AEh] BYREF
-  __int64 v47; // [rsp+68h] [rbp-A0h]
-  int v48; // [rsp+70h] [rbp-98h]
+  ULONG_PTR v33; // rdi
+  unsigned __int32 v34; // eax
+  __int64 v35; // rax
+  int v36; // eax
+  __int64 v37; // rdx
+  __int64 v38; // r8
+  _QWORD *v39; // rbx
+  __int64 v40; // rcx
+  _QWORD *v41; // rax
+  __int64 v42; // rcx
+  _BYTE v43[3]; // [rsp+51h] [rbp-B7h] BYREF
+  ULONG v44; // [rsp+54h] [rbp-B4h]
+  char v45; // [rsp+58h] [rbp-B0h]
+  bool v46; // [rsp+59h] [rbp-AFh]
+  _BYTE v47[14]; // [rsp+5Ah] [rbp-AEh] BYREF
+  __int64 v48; // [rsp+68h] [rbp-A0h]
+  int v49; // [rsp+70h] [rbp-98h]
   PVOID EcpContext; // [rsp+78h] [rbp-90h] BYREF
-  struct _IO_STACK_LOCATION *v50; // [rsp+80h] [rbp-88h]
+  struct _IO_STACK_LOCATION *v51; // [rsp+80h] [rbp-88h]
   PVOID P; // [rsp+88h] [rbp-80h] BYREF
   struct _ECP_LIST *ExtraCreateParameter; // [rsp+90h] [rbp-78h] BYREF
-  PVOID v53; // [rsp+98h] [rbp-70h]
+  PVOID v54; // [rsp+98h] [rbp-70h]
   struct _KTHREAD *CurrentThread; // [rsp+A0h] [rbp-68h]
-  struct _FILE_OBJECT *v55; // [rsp+A8h] [rbp-60h]
+  struct _FILE_OBJECT *v56; // [rsp+A8h] [rbp-60h]
   GUID EcpType; // [rsp+B0h] [rbp-58h] BYREF
 
-  v47 = (__int64)Context;
+  v48 = (__int64)Context;
   v9 = 0;
-  *(_DWORD *)&v46[6] = 0;
+  *(_DWORD *)&v47[6] = 0;
   v10 = (char *)*Oplock;
-  v53 = *Oplock;
+  v54 = *Oplock;
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-  v50 = CurrentStackLocation;
+  v51 = CurrentStackLocation;
   if ( (Flags & 4) != 0 )
   {
     P = 0LL;
@@ -108,21 +109,21 @@ NTSTATUS __stdcall FsRtlCheckOplockEx(
     else if ( (*((_DWORD *)v10 + 36) & 0x10000) != 0
            && FsRtlpCallerIsAtomicRequestor((__int64)v10, (__int64)CurrentStackLocation->FileObject, &P) )
     {
-      v38 = P;
-      FsRtlpOplockDequeueRH((__int64)P, v36, v37);
-      v39 = v38[7];
-      v40 = (_QWORD *)v38[8];
-      if ( *(_QWORD **)(v39 + 8) != v38 + 7 || (_QWORD *)*v40 != v38 + 7 )
+      v39 = P;
+      FsRtlpOplockDequeueRH((__int64)P, v37, v38);
+      v40 = v39[7];
+      v41 = (_QWORD *)v39[8];
+      if ( *(_QWORD **)(v40 + 8) != v39 + 7 || (_QWORD *)*v41 != v39 + 7 )
         __fastfail(3u);
-      *v40 = v39;
-      *(_QWORD *)(v39 + 8) = v40;
+      *v41 = v40;
+      *(_QWORD *)(v40 + 8) = v41;
       if ( *((char **)v10 + 15) == v10 + 120 )
         *((_DWORD *)v10 + 36) &= 0xFFFCFFFF;
-      if ( v38[5] )
-        FsRtlpClearOwner((__int64)v10, (__int64)v38);
-      ExFreePoolWithTag(v38, 0);
+      if ( v39[5] )
+        FsRtlpClearOwner((__int64)v10, (__int64)v39);
+      ExFreePoolWithTag(v39, 0);
       FsRtlpComputeShareableOplockState((__int64)v10);
-      FsRtlpReleaseIrpsWaitingForRH(v41);
+      FsRtlpReleaseIrpsWaitingForRH(v42);
     }
     ExReleaseFastMutexUnsafe(*((PFAST_MUTEX *)v10 + 19));
     return v9;
@@ -137,10 +138,10 @@ NTSTATUS __stdcall FsRtlCheckOplockEx(
     {
       if ( FileObjectExtension != IopRevocationExtension )
       {
-        v34 = FileObjectExtension[7];
-        if ( v34 )
+        v35 = FileObjectExtension[7];
+        if ( v35 )
         {
-          if ( (*(_BYTE *)(v34 + 2) & 3) != 0 )
+          if ( (*(_BYTE *)(v35 + 2) & 3) != 0 )
             goto LABEL_9;
         }
       }
@@ -157,16 +158,16 @@ NTSTATUS __stdcall FsRtlCheckOplockEx(
         EcpType = GUID_ECP_OPLOCK_KEY;
         if ( FsRtlRemoveExtraCreateParameter(v14, &EcpType, &EcpContext, 0LL) )
           goto LABEL_8;
-        v35 = 1;
+        v36 = 1;
       }
       else
       {
-        v35 = 2;
+        v36 = 2;
       }
-      v43 = v35;
-      CurrentStackLocation = v50;
-      v12 = IoSetOplockKeyContext(v50->FileObject, EcpContext, (unsigned __int16)v35);
-      if ( (_WORD)v43 == 1 )
+      v44 = v36;
+      CurrentStackLocation = v51;
+      v12 = IoSetOplockKeyContext(v51->FileObject, EcpContext, (unsigned __int16)v36);
+      if ( (_WORD)v44 == 1 )
         FsRtlFreeExtraCreateParameter(EcpContext);
       else
         FsRtlAcknowledgeEcp(EcpContext);
@@ -175,84 +176,85 @@ NTSTATUS __stdcall FsRtlCheckOplockEx(
       goto LABEL_9;
     }
 LABEL_8:
-    CurrentStackLocation = v50;
+    CurrentStackLocation = v51;
 LABEL_9:
-    *(_DWORD *)&v46[6] = v12;
+    *(_DWORD *)&v47[6] = v12;
   }
   FsRtlpOplockStoreKeyForDeleteOperation(Oplock, Irp, Flags);
   if ( v10 != *Oplock )
   {
     v10 = (char *)*Oplock;
-    v53 = *Oplock;
+    v54 = *Oplock;
   }
-  if ( (Flags & 2) == 0 && v10 && (Irp->Flags & 2) == 0 && !*(_DWORD *)&v46[6] )
+  if ( (Flags & 2) == 0 && v10 && (Irp->Flags & 2) == 0 && !*(_DWORD *)&v47[6] )
   {
-    v42[0] = (Flags & 0x20000000) != 0;
-    v44 = 1;
+    v43[0] = (Flags & 0x20000000) != 0;
+    v45 = 1;
     while ( 1 )
     {
-      v46[0] = 0;
+      v47[0] = 0;
       v17 = Flags & 0x10;
-      v43 = Flags & 0x10;
-      if ( (Flags & 0x10) != 0 || v42[0] )
+      v44 = Flags & 0x10;
+      if ( (Flags & 0x10) != 0 || v43[0] )
         break;
-      v48 = *((_DWORD *)v10 + 36);
+      v49 = *((_DWORD *)v10 + 36);
       v15 = (struct _FILE_OBJECT *)*((_QWORD *)v10 + 1);
-      v55 = v15;
+      v56 = v15;
       MajorFunction = CurrentStackLocation->MajorFunction;
       if ( CurrentStackLocation->MajorFunction == 3 )
       {
-        v26 = v44;
-        if ( (v48 & 0xFFFF4FFE) == 0 )
-          v26 = 0;
-        v44 = v26;
+        v27 = v45;
+        if ( (v49 & 0xFFFF4FFE) == 0 )
+          v27 = 0;
+        v45 = v27;
       }
-      if ( MajorFunction == 4 && (v48 & 0xFFFFDFFE) == 0 )
-        v44 = 0;
+      if ( MajorFunction == 4 && (v49 & 0xFFFFDFFE) == 0 )
+        v45 = 0;
       if ( (Flags & 8) != 0 || MajorFunction == 18 || !v15 || v15 != CurrentStackLocation->FileObject )
         break;
-      v44 = 0;
+      v45 = 0;
 LABEL_112:
-      if ( v42[0] && (Flags & 0x20000000) == 0 )
+      if ( v43[0] && (Flags & 0x20000000) == 0 )
       {
-        v32 = *((_QWORD *)v10 + 19);
-        *(_QWORD *)(v32 + 8) = 0LL;
-        v33 = _InterlockedCompareExchange((volatile signed __int32 *)v32, 1, 0);
-        if ( v33 )
-          ExpReleaseFastMutexContended(v32, v33);
-        KeAbPostRelease(v32);
+        v33 = *((_QWORD *)v10 + 19);
+        *(_QWORD *)(v33 + 8) = 0LL;
+        v34 = _InterlockedCompareExchange((volatile signed __int32 *)v33, 1, 0);
+        if ( v34 )
+          ExpReleaseFastMutexContended(v33, v34);
+        KeAbPostRelease(v33);
       }
-      if ( !v46[0] )
-        return *(_DWORD *)&v46[6];
+      if ( !v47[0] )
+        return *(_DWORD *)&v47[6];
     }
-    if ( !v44 )
+    if ( !v45 )
       goto LABEL_112;
-    if ( !v42[0] )
+    if ( !v43[0] )
     {
       v19 = *((_QWORD *)v10 + 19);
       CurrentThread = KeGetCurrentThread();
-      v20 = KeAbPreAcquire(v19, 0LL, 0LL);
+      v20 = KeAbPreAcquire(v19, 0LL, 0);
+      v21 = v20;
       if ( !_interlockedbittestandreset((volatile signed __int32 *)v19, 0) )
-        ExpAcquireFastMutexContended(v19);
-      if ( v20 )
-        *(_BYTE *)(v20 + 26) |= 1u;
+        ExpAcquireFastMutexContended(v19, v20);
+      if ( v21 )
+        BYTE2(v21[1].Left) |= 1u;
       *(_QWORD *)(v19 + 8) = CurrentThread;
-      v17 = v43;
+      v17 = v44;
     }
-    v42[0] = 1;
-    v21 = *((_DWORD *)v10 + 36);
-    if ( v21 == 1 )
+    v43[0] = 1;
+    v22 = *((_DWORD *)v10 + 36);
+    if ( v22 == 1 )
       goto LABEL_112;
     LOBYTE(v15) = 0;
-    v43 = (unsigned int)v15;
-    v45 = 0;
-    v22 = 0;
+    v44 = (unsigned int)v15;
+    v46 = 0;
     v23 = 0;
-    *(_DWORD *)&v46[2] = 0;
+    v24 = 0;
+    *(_DWORD *)&v47[2] = 0;
     if ( (_DWORD)v17 )
     {
-      v23 = 20480;
-      *(_DWORD *)&v46[2] = 20480;
+      v24 = 20480;
+      *(_DWORD *)&v47[2] = 20480;
       goto LABEL_38;
     }
     if ( CurrentStackLocation->MajorFunction == 18 )
@@ -264,15 +266,15 @@ LABEL_35:
         if ( (Flags & 0x20) != 0 )
         {
 LABEL_90:
-          v23 = 0x2000;
+          v24 = 0x2000;
 LABEL_91:
-          *(_DWORD *)&v46[2] = v23;
+          *(_DWORD *)&v47[2] = v24;
         }
         goto LABEL_37;
       }
-      v24 = v43;
+      v25 = v44;
 LABEL_93:
-      v22 = 0;
+      v23 = 0;
     }
     else if ( CurrentStackLocation->MajorFunction )
     {
@@ -283,18 +285,18 @@ LABEL_93:
             goto LABEL_37;
           goto LABEL_35;
         case 3u:
-          if ( (v21 & 8) != 0 )
+          if ( (v22 & 8) != 0 )
           {
-            v24 = v43;
+            v25 = v44;
           }
           else
           {
-            v24 = 1;
-            v45 = 1;
+            v25 = 1;
+            v46 = 1;
           }
-          v23 = 0x4000;
-          *(_DWORD *)&v46[2] = 0x4000;
-          v22 = 0;
+          v24 = 0x4000;
+          *(_DWORD *)&v47[2] = 0x4000;
+          v23 = 0;
           break;
         case 4u:
           goto LABEL_81;
@@ -302,7 +304,7 @@ LABEL_93:
           Options = CurrentStackLocation->Parameters.Create.Options;
           if ( Options == 20 )
           {
-            v30 = CurrentStackLocation->Parameters.SetFile.AdvanceOnly == 0;
+            v31 = CurrentStackLocation->Parameters.SetFile.AdvanceOnly == 0;
             goto LABEL_80;
           }
           if ( Options == 19 )
@@ -316,12 +318,12 @@ LABEL_93:
               goto LABEL_92;
             case 0xDu:
             case 0x40u:
-              v24 = v43;
+              v25 = v44;
               if ( !Irp->AssociatedIrp.MasterIrp->Type )
                 goto LABEL_93;
-              v23 = 0x2000;
-              *(_DWORD *)&v46[2] = 0x2000;
-              v22 = 0;
+              v24 = 0x2000;
+              *(_DWORD *)&v47[2] = 0x2000;
+              v23 = 0;
               break;
             case 0x27u:
               goto LABEL_81;
@@ -337,9 +339,9 @@ LABEL_93:
           {
             if ( LowPart != 623208 && LowPart != 623428 )
             {
-              v30 = LowPart == 639668;
+              v31 = LowPart == 639668;
 LABEL_80:
-              if ( !v30 )
+              if ( !v31 )
                 goto LABEL_37;
             }
             goto LABEL_81;
@@ -350,10 +352,10 @@ LABEL_80:
           {
             if ( LowPart == 606820 )
             {
-              LODWORD(v15) = (v21 & 8) == 0;
-              v43 = (unsigned int)v15;
-              v45 = (v21 & 8) == 0;
-              v23 = 0x4000;
+              LODWORD(v15) = (v22 & 8) == 0;
+              v44 = (unsigned int)v15;
+              v46 = (v22 & 8) == 0;
+              v24 = 0x4000;
               goto LABEL_91;
             }
             if ( LowPart == 622792 )
@@ -363,15 +365,15 @@ LABEL_80:
           if ( (FsRtlGetMarkHandleInfo(Irp) & 0x4000) == 0 )
             goto LABEL_37;
 LABEL_92:
-          v23 = 0x2000;
-          *(_DWORD *)&v46[2] = 0x2000;
-          v24 = v43;
-          if ( (v21 & 0xC) == 0 )
+          v24 = 0x2000;
+          *(_DWORD *)&v47[2] = 0x2000;
+          v25 = v44;
+          if ( (v22 & 0xC) == 0 )
             goto LABEL_93;
-          v22 = 1;
+          v23 = 1;
           break;
         case 0x11u:
-          v30 = (v21 & 8) == 0;
+          v31 = (v22 & 8) == 0;
           goto LABEL_80;
         case 0x15u:
           goto LABEL_90;
@@ -381,89 +383,89 @@ LABEL_92:
     }
     else
     {
-      if ( ((v21 & 0x7000) == 0 || (*(_DWORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 16) & 0xFFEDFE7F) == 0)
-        && ((v21 & 0x1E) == 0 || (*(_DWORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 16) & 0xFFEFFE7F) == 0)
+      if ( ((v22 & 0x7000) == 0 || (*(_DWORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 16) & 0xFFEDFE7F) == 0)
+        && ((v22 & 0x1E) == 0 || (*(_DWORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 16) & 0xFFEFFE7F) == 0)
         && (CurrentStackLocation->Parameters.Create.Options & 0x100000) == 0
-        || (v21 & 8) != 0
+        || (v22 & 8) != 0
         && (*(_DWORD *)(CurrentStackLocation->Parameters.WMI.ProviderId + 16) & 0xFFEDFE56) == 0
         && (*((_BYTE *)&CurrentStackLocation->Parameters.QuerySecurity + 18) & 1) != 0 )
       {
 LABEL_37:
-        v22 = 0;
+        v23 = 0;
 LABEL_38:
-        v24 = v43;
+        v25 = v44;
         goto LABEL_39;
       }
-      v28 = BYTE3(CurrentStackLocation->Parameters.QueryEa.EaList);
-      LODWORD(v50) = v28;
-      if ( (v28 & 0xFFFFFFFA) == 0 && v28 != 1 || (CurrentStackLocation->Parameters.Create.Options & 0x100000) != 0 )
+      v29 = BYTE3(CurrentStackLocation->Parameters.QueryEa.EaList);
+      LODWORD(v51) = v29;
+      if ( (v29 & 0xFFFFFFFA) == 0 && v29 != 1 || (CurrentStackLocation->Parameters.Create.Options & 0x100000) != 0 )
       {
 LABEL_81:
-        v22 = 1;
-        v23 = 20480;
-        *(_DWORD *)&v46[2] = 20480;
+        v23 = 1;
+        v24 = 20480;
+        *(_DWORD *)&v47[2] = 20480;
         goto LABEL_38;
       }
 LABEL_66:
-      v24 = 1;
-      v45 = 1;
-      v23 = 0x4000;
-      *(_DWORD *)&v46[2] = 0x4000;
-      v22 = 0;
+      v25 = 1;
+      v46 = 1;
+      v24 = 0x4000;
+      *(_DWORD *)&v47[2] = 0x4000;
+      v23 = 0;
     }
 LABEL_39:
-    if ( v24 )
+    if ( v25 )
     {
       if ( (*((_DWORD *)v10 + 36) & 0x1F0FFDF) != 0x10 )
       {
-        v27 = FsRtlpOplockKeysEqual((__int64)CurrentStackLocation->FileObject, *((_QWORD *)v10 + 1), 0);
-        v25 = v47;
-        if ( !v27 )
-          *(_DWORD *)&v46[6] = FsRtlpOplockBreakToII(
+        v28 = FsRtlpOplockKeysEqual((__int64)CurrentStackLocation->FileObject, *((_QWORD *)v10 + 1), 0);
+        v26 = v48;
+        if ( !v28 )
+          *(_DWORD *)&v47[6] = FsRtlpOplockBreakToII(
                                  (__int64)v10,
                                  (__int64)CurrentStackLocation,
                                  (__int64)Irp,
                                  Flags,
-                                 v47,
+                                 v48,
                                  (__int64)CompletionRoutine,
                                  (__int64)PostIrpRoutine,
-                                 v42,
-                                 (__int64)v46);
+                                 v43,
+                                 (__int64)v47);
         goto LABEL_42;
       }
     }
-    else if ( v22
+    else if ( v23
            && ((*((_DWORD *)v10 + 36) & 0x1F0FFDF) == 0x10
             || !FsRtlpOplockKeysEqual((__int64)CurrentStackLocation->FileObject, *((_QWORD *)v10 + 1), 0)) )
     {
-      v25 = v47;
-      *(_DWORD *)&v46[6] = FsRtlpOplockBreakToNone(
+      v26 = v48;
+      *(_DWORD *)&v47[6] = FsRtlpOplockBreakToNone(
                              (__int64)v10,
                              (__int64)CurrentStackLocation,
                              (__int64)Irp,
                              Flags,
-                             v47,
+                             v48,
                              (__int64)CompletionRoutine,
                              (__int64)PostIrpRoutine,
-                             v42,
-                             (__int64)v46);
+                             v43,
+                             (__int64)v47);
       goto LABEL_42;
     }
-    v25 = v47;
+    v26 = v48;
 LABEL_42:
-    if ( !*(_DWORD *)&v46[6] && (*((_DWORD *)v10 + 36) & v23) != 0 )
-      *(_DWORD *)&v46[6] = FsRtlpOplockBreakByCacheFlags(
+    if ( !*(_DWORD *)&v47[6] && (*((_DWORD *)v10 + 36) & v24) != 0 )
+      *(_DWORD *)&v47[6] = FsRtlpOplockBreakByCacheFlags(
                              (__int64)v10,
                              (__int64)CurrentStackLocation,
                              Irp,
                              Flags,
-                             v23,
-                             v25,
+                             v24,
+                             v26,
                              (__int64)CompletionRoutine,
                              (__int64)PostIrpRoutine,
-                             v42,
-                             (__int64)v46);
+                             v43,
+                             (__int64)v47);
     goto LABEL_112;
   }
-  return *(_DWORD *)&v46[6];
+  return *(_DWORD *)&v47[6];
 }

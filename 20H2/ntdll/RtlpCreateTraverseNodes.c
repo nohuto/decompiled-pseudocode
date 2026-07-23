@@ -8,12 +8,12 @@
  *     LdrpCalcAllocSize @ 0x180047404 (LdrpCalcAllocSize.c)
  */
 
-__int64 __fastcall RtlpCreateTraverseNodes(__int64 *a1)
+__int64 __fastcall RtlpCreateTraverseNodes(_QWORD *a1)
 {
   unsigned int v1; // ebx
-  __int64 v3; // rax
-  unsigned int v4; // r9d
-  __int64 Heap; // rax
+  SIZE_T v3; // rax
+  ULONG v4; // r9d
+  PVOID Heap; // rax
 
   v1 = 0;
   if ( a1 )
@@ -21,7 +21,7 @@ __int64 __fastcall RtlpCreateTraverseNodes(__int64 *a1)
     v3 = LdrpCalcAllocSize(42LL, 8LL);
     if ( v3 )
     {
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, v4, v3);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, v4, v3);
       if ( Heap )
         *a1 = Heap;
       else

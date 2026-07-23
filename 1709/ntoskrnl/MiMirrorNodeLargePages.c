@@ -110,7 +110,7 @@ LABEL_36:
                 v19 = v8;
                 v20 = (__int64)(v18 + 0xB000000000LL) / 48;
                 v21 = v20 & 0x1F;
-                v22 = (volatile signed __int32 *)(qword_140388B70 + 4 * (v20 >> 5));
+                v22 = (volatile signed __int32 *)stru_140388B68.Buffer + (v20 >> 5);
                 if ( (v20 & 0x1F) + v8 > 0x20 )
                 {
                   if ( (v20 & 0x1F) != 0 )
@@ -150,12 +150,12 @@ LABEL_28:
 LABEL_29:
                 if ( !a2 )
                 {
-                  RtlSetBitsEx((__int64)&qword_140388B58, (__int64)(v18 + 0xB000000000LL) / 48, v8);
+                  RtlSetBitsEx((__int64)&stru_140388B58, (__int64)(v18 + 0xB000000000LL) / 48, v8);
                   goto LABEL_33;
                 }
                 if ( *(_QWORD *)(a3 + 24) )
                 {
-                  RtlClearBitsEx((__int64)&qword_140388B58, (__int64)(v18 + 0xB000000000LL) / 48, v8);
+                  RtlClearBitsEx((__int64)&stru_140388B58, (__int64)(v18 + 0xB000000000LL) / 48, v8);
 LABEL_33:
                   v8 = v32;
                 }

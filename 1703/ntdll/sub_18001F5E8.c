@@ -15,22 +15,22 @@
  *     sub_1800588D4 @ 0x1800588D4 (sub_1800588D4.c)
  */
 
-unsigned __int64 __fastcall sub_18001F5E8(__int64 a1, unsigned __int64 a2, int a3, __int64 *a4)
+unsigned __int64 __fastcall sub_18001F5E8(_RTL_SRWLOCK *a1, __int64 a2, int a3, __int64 *a4)
 {
   __int64 v4; // rbx
   int v9; // eax
   __int64 v10; // rax
   int v11; // r9d
   __int64 v12; // rax
-  unsigned __int64 v13; // rax
-  unsigned __int64 v14; // rbx
+  __int64 v13; // rax
+  __int64 v14; // rbx
   int v16; // [rsp+58h] [rbp+10h] BYREF
 
   v4 = 0LL;
   if ( (_WORD)a2 )
     v9 = 0;
   else
-    v9 = sub_1800588D4(&qword_180159600, a2 >> 16, 1LL);
+    v9 = sub_1800588D4(&stru_180159600);
   if ( v9 )
   {
     v12 = sub_180008F9C(a1, a2, a3, (__int64)&v16);
@@ -40,7 +40,7 @@ unsigned __int64 __fastcall sub_18001F5E8(__int64 a1, unsigned __int64 a2, int a
     v10 = sub_180020EF0(a1, a2);
     if ( !v10 )
       return v4;
-    v12 = sub_180020FD8(a1, v10, a2, v11, (__int64)&v16);
+    v12 = sub_180020FD8((_DWORD)a1, v10, a2, v11, (__int64)&v16);
   }
   if ( v12 != -1 )
   {

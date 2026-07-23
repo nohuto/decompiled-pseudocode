@@ -1,9 +1,9 @@
 /*
  * XREFs of MiInitializeSystemChannelOrdering @ 0x140B99B14
  * Callers:
- *     MiInitializeChannelOrdering @ 0x140837C84 (MiInitializeChannelOrdering.c)
+ *     MiInitializeChannelOrdering @ 0x140837F84 (MiInitializeChannelOrdering.c)
  * Callees:
- *     MiPageToChannel @ 0x140375870 (MiPageToChannel.c)
+ *     MiPageToChannel @ 0x140375A10 (MiPageToChannel.c)
  */
 
 unsigned __int64 __fastcall MiInitializeSystemChannelOrdering(__int64 a1, unsigned int a2)

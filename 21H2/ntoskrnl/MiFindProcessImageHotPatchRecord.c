@@ -1,19 +1,19 @@
 /*
- * XREFs of MiFindProcessImageHotPatchRecord @ 0x1408C9CF0
+ * XREFs of MiFindProcessImageHotPatchRecord @ 0x1408C9E50
  * Callers:
- *     MiHotPatchImage @ 0x1408CA334 (MiHotPatchImage.c)
+ *     MiHotPatchImage @ 0x1408CA494 (MiHotPatchImage.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     SeQueryUserSidToken @ 0x140706E24 (SeQueryUserSidToken.c)
- *     MiFindHotPatchRecord @ 0x14075DAA8 (MiFindHotPatchRecord.c)
- *     MiFindUserSidHotPatchContext @ 0x1408C9E4C (MiFindUserSidHotPatchContext.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
+ *     SeQueryUserSidToken @ 0x14071E204 (SeQueryUserSidToken.c)
+ *     MiFindHotPatchRecord @ 0x14075DC68 (MiFindHotPatchRecord.c)
+ *     MiFindUserSidHotPatchContext @ 0x1408C9FAC (MiFindUserSidHotPatchContext.c)
  */
 
 __int64 __fastcall MiFindProcessImageHotPatchRecord(

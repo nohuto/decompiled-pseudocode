@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlInitializeHeapManager @ 0x18005D72C
+ * XREFs of RtlInitializeHeapManager @ 0x18005D71C
  * Callers:
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlGetSuiteMask @ 0x18002CDC0 (RtlGetSuiteMask.c)
- *     SbSelectProcedure @ 0x18002E9C0 (SbSelectProcedure.c)
- *     RtlpHeapGenerateRandomValue64 @ 0x180041770 (RtlpHeapGenerateRandomValue64.c)
- *     RtlpInitializeLowFragHeapManager @ 0x18005D598 (RtlpInitializeLowFragHeapManager.c)
- *     RtlpHpLargeSparseBmpInitialize @ 0x18005D86C (RtlpHpLargeSparseBmpInitialize.c)
- *     RtlpGetModifiedProcessCookie @ 0x18005D96C (RtlpGetModifiedProcessCookie.c)
- *     RtlpHpOptIntoSegmentHeap @ 0x18005DA38 (RtlpHpOptIntoSegmentHeap.c)
+ *     RtlGetSuiteMask @ 0x18002CDB0 (RtlGetSuiteMask.c)
+ *     SbSelectProcedure @ 0x18002E9B0 (SbSelectProcedure.c)
+ *     RtlpHeapGenerateRandomValue64 @ 0x180041760 (RtlpHeapGenerateRandomValue64.c)
+ *     RtlpInitializeLowFragHeapManager @ 0x18005D588 (RtlpInitializeLowFragHeapManager.c)
+ *     RtlpHpLargeSparseBmpInitialize @ 0x18005D85C (RtlpHpLargeSparseBmpInitialize.c)
+ *     RtlpGetModifiedProcessCookie @ 0x18005D95C (RtlpGetModifiedProcessCookie.c)
+ *     RtlpHpOptIntoSegmentHeap @ 0x18005DA28 (RtlpHpOptIntoSegmentHeap.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 RtlInitializeHeapManager()
+NTSTATUS RtlInitializeHeapManager()
 {
   struct _PEB *v0; // rbx
   int v1; // eax
@@ -61,5 +61,5 @@ __int64 RtlInitializeHeapManager()
   }
   RtlpInitializeLowFragHeapManager();
   RtlpHpLargeSparseBmpInitialize();
-  return RtlInitializeCriticalSectionEx((__int64)&RtlpProcessHeapsListLock, 0, 0x10000000);
+  return RtlInitializeCriticalSectionEx(&RtlpProcessHeapsListLock, 0, 0x10000000u);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpDestroyObjectRefsByStack @ 0x1407C49F0
+ * XREFs of ObpDestroyObjectRefsByStack @ 0x1407C7A50
  * Callers:
- *     ObpDeregisterObject @ 0x140779D4C (ObpDeregisterObject.c)
- *     ObpDestroyStackAndObjectTables @ 0x1407C4A14 (ObpDestroyStackAndObjectTables.c)
+ *     ObpDeregisterObject @ 0x14077CC7C (ObpDeregisterObject.c)
+ *     ObpDestroyStackAndObjectTables @ 0x1407C7A74 (ObpDestroyStackAndObjectTables.c)
  * Callees:
- *     ObpTraceFreeMemory @ 0x140530A70 (ObpTraceFreeMemory.c)
- *     ObpCleanupObjectRefsByStack @ 0x1407C483C (ObpCleanupObjectRefsByStack.c)
+ *     ObpTraceFreeMemory @ 0x140532F70 (ObpTraceFreeMemory.c)
+ *     ObpCleanupObjectRefsByStack @ 0x1407C789C (ObpCleanupObjectRefsByStack.c)
  */
 
 void __fastcall ObpDestroyObjectRefsByStack(PVOID P, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

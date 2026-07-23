@@ -1,11 +1,11 @@
 /*
- * XREFs of HalSetEnvironmentVariable @ 0x14057C3D0
+ * XREFs of HalSetEnvironmentVariable @ 0x14057E900
  * Callers:
- *     NtSetSystemEnvironmentValue @ 0x14083E6B0 (NtSetSystemEnvironmentValue.c)
+ *     NtSetSystemEnvironmentValue @ 0x1408448F0 (NtSetSystemEnvironmentValue.c)
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140451A74 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLock @ 0x140530540 (HalpAcquireCmosSpinLock.c)
- *     _stricmp @ 0x140536260 (_stricmp.c)
+ *     HalpReleaseCmosSpinLock @ 0x140449BA4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x140532A40 (HalpAcquireCmosSpinLock.c)
+ *     _stricmp @ 0x1405386E0 (_stricmp.c)
  */
 
 __int64 __fastcall HalSetEnvironmentVariable(const char *a1, const char *a2)
@@ -14,7 +14,7 @@ __int64 __fastcall HalSetEnvironmentVariable(const char *a1, const char *a2)
   unsigned __int8 v5; // cl
   unsigned __int8 v6; // al
 
-  if ( HalpDeviceBlockUnblockPushLock.WaitBlockFill6[104] )
+  if ( HalpDeviceBlockUnblockPushLock.WaitBlockFill6[72] )
     return 7LL;
   if ( !stricmp(a1, "LastKnownGood") )
   {

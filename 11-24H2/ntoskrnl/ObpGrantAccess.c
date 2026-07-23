@@ -1,30 +1,30 @@
 /*
- * XREFs of ObpGrantAccess @ 0x140851390
+ * XREFs of ObpGrantAccess @ 0x14084D650
  * Callers:
- *     ObDuplicateObject @ 0x14083FFB0 (ObDuplicateObject.c)
- *     ObpInsertOrLocateNamedObject @ 0x1409E45C0 (ObpInsertOrLocateNamedObject.c)
+ *     ObDuplicateObject @ 0x14083C270 (ObDuplicateObject.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1409DF020 (ObpInsertOrLocateNamedObject.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     SeComputeCreatorDeniedRights @ 0x140359A70 (SeComputeCreatorDeniedRights.c)
- *     SeAccessCheck @ 0x14035A5B0 (SeAccessCheck.c)
- *     SepPrivilegeCheck @ 0x140403670 (SepPrivilegeCheck.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1408508E0 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     CmpSecurityMethod @ 0x140852E10 (CmpSecurityMethod.c)
- *     SePrivilegedServiceAuditAlarm @ 0x140853B30 (SePrivilegedServiceAuditAlarm.c)
- *     IopGetSetSecurityObject @ 0x1408796F0 (IopGetSetSecurityObject.c)
- *     ObDereferenceSecurityDescriptor @ 0x140879D10 (ObDereferenceSecurityDescriptor.c)
- *     ObpReferenceSecurityDescriptorSlow @ 0x14087AEFC (ObpReferenceSecurityDescriptorSlow.c)
- *     SeAppendPrivileges @ 0x1409D2470 (SeAppendPrivileges.c)
- *     SepConcatenatePrivileges @ 0x1409D25C0 (SepConcatenatePrivileges.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     SeComputeCreatorDeniedRights @ 0x1403B5DC0 (SeComputeCreatorDeniedRights.c)
+ *     SeAccessCheck @ 0x1403B6900 (SeAccessCheck.c)
+ *     SepPrivilegeCheck @ 0x1403FE430 (SepPrivilegeCheck.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14084CBA0 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     CmpSecurityMethod @ 0x14084F0D0 (CmpSecurityMethod.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14084FDF0 (SePrivilegedServiceAuditAlarm.c)
+ *     IopGetSetSecurityObject @ 0x14087DA20 (IopGetSetSecurityObject.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14087E040 (ObDereferenceSecurityDescriptor.c)
+ *     ObpReferenceSecurityDescriptorSlow @ 0x14087EDAC (ObpReferenceSecurityDescriptorSlow.c)
+ *     SeAppendPrivileges @ 0x1409C22A0 (SeAppendPrivileges.c)
+ *     SepConcatenatePrivileges @ 0x1409C23F0 (SepConcatenatePrivileges.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpGrantAccess(int a1, _QWORD *a2, __int64 a3, char a4, __int16 a5, _DWORD *a6)
@@ -62,24 +62,26 @@ __int64 __fastcall ObpGrantAccess(int a1, _QWORD *a2, __int64 a3, char a4, __int
   int SetSecurityObject; // eax
   int v40; // r15d
   __int64 v41; // rcx
-  PVOID *v42; // r15
-  _DWORD *v43; // rdx
-  unsigned int v44; // eax
-  __int64 v45; // rdx
+  int v42; // eax
+  int v43; // ecx
+  PVOID *v44; // r15
+  _DWORD *v45; // rdx
+  unsigned int v46; // eax
+  __int64 v47; // rdx
   PPRIVILEGE_SET *Privileges; // [rsp+28h] [rbp-71h]
   int GenericMapping; // [rsp+30h] [rbp-69h]
   __int64 AccessMode; // [rsp+38h] [rbp-61h]
-  char v49; // [rsp+50h] [rbp-49h]
+  char v51; // [rsp+50h] [rbp-49h]
   ULONG Length; // [rsp+54h] [rbp-45h] BYREF
-  int v51; // [rsp+58h] [rbp-41h] BYREF
-  void *v52; // [rsp+60h] [rbp-39h]
+  int v53; // [rsp+58h] [rbp-41h] BYREF
+  void *v54; // [rsp+60h] [rbp-39h]
   ACCESS_MASK GrantedAccess; // [rsp+68h] [rbp-31h] BYREF
   NTSTATUS AccessStatus; // [rsp+6Ch] [rbp-2Dh] BYREF
-  PPRIVILEGE_SET v55; // [rsp+70h] [rbp-29h]
-  PPRIVILEGE_SET v56; // [rsp+78h] [rbp-21h] BYREF
-  PVOID *v57; // [rsp+80h] [rbp-19h]
-  UNICODE_STRING *v58; // [rsp+88h] [rbp-11h]
-  struct _PRIVILEGE_SET v59; // [rsp+90h] [rbp-9h] BYREF
+  PPRIVILEGE_SET v57; // [rsp+70h] [rbp-29h]
+  PPRIVILEGE_SET v58; // [rsp+78h] [rbp-21h] BYREF
+  PVOID *v59; // [rsp+80h] [rbp-19h]
+  UNICODE_STRING *v60; // [rsp+88h] [rbp-11h]
+  struct _PRIVILEGE_SET v61; // [rsp+90h] [rbp-9h] BYREF
 
   v7 = 1;
   AccessStatus = 0;
@@ -137,7 +139,7 @@ LABEL_46:
                                                (struct _SECURITY_SUBJECT_CONTEXT *)(a3 + 32),
                                                a3,
                                                *(_DWORD *)(a3 + 20),
-                                               (void *)v35);
+                                               (unsigned int *)v35);
       if ( v35 )
       {
         _m_prefetchw(a2 - 1);
@@ -153,10 +155,10 @@ LABEL_46:
       }
       goto LABEL_32;
     }
-    v59.Privilege[0].Luid = SeSecurityPrivilege;
-    v59.PrivilegeCount = 1;
-    v59.Control = 1;
-    v59.Privilege[0].Attributes = 0;
+    v61.Privilege[0].Luid = SeSecurityPrivilege;
+    v61.PrivilegeCount = 1;
+    v61.Control = 1;
+    v61.Privilege[0].Attributes = 0;
     if ( v7 )
     {
       v41 = *(_QWORD *)(a3 + 32);
@@ -169,25 +171,25 @@ LABEL_46:
       {
         v41 = *(_QWORD *)(a3 + 48);
       }
-      if ( !SepPrivilegeCheck(v41, (__int64)v59.Privilege, 1u, 1, v7) )
+      if ( !SepPrivilegeCheck(v41, (__int64)v61.Privilege, 1u, 1, v7) )
       {
 LABEL_79:
-        SePrivilegedServiceAuditAlarm(0LL, a3 + 32, &v59, 0LL);
+        SePrivilegedServiceAuditAlarm(0LL, a3 + 32, &v61, 0LL);
         return 3221225569LL;
       }
     }
     *(_DWORD *)(a3 + 16) &= ~0x1000000u;
     *(_DWORD *)(a3 + 20) |= 0x1000000u;
-    SeAppendPrivileges((PACCESS_STATE)a3, &v59);
+    SeAppendPrivileges((PACCESS_STATE)a3, &v61);
     goto LABEL_46;
   }
   v10 = *((unsigned __int8 *)a2 - 24) ^ (unsigned __int64)HIBYTE(v9);
   GrantedAccess = 0;
-  v56 = 0LL;
+  v58 = 0LL;
   Length = 0;
-  v51 = 0;
+  v53 = 0;
   v11 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v10];
-  v58 = (UNICODE_STRING *)v11;
+  v60 = (UNICODE_STRING *)v11;
   if ( *(_UNKNOWN **)(v11 + 152) == &SeDefaultObjectMethod )
   {
     _m_prefetchw(a2 - 1);
@@ -208,7 +210,7 @@ LABEL_79:
     Pool2 = v14 & 0xFFFFFFFFFFFFFFF0uLL;
     if ( (unsigned int)v15 <= 1 && Pool2 )
       Pool2 = ObpReferenceSecurityDescriptorSlow(a2 - 6, v15, Pool2);
-    v49 = 0;
+    v51 = 0;
     if ( !Pool2 )
     {
       if ( (*(_BYTE *)(v11 + 66) & 8) != 0 || (*((_BYTE *)a2 - 22) & 2) != 0 )
@@ -221,23 +223,23 @@ LABEL_32:
     }
     goto LABEL_12;
   }
-  v51 = 447;
+  v53 = 447;
   Length = ObpDefaultSecurityDescriptorLength;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, (unsigned int)ObpDefaultSecurityDescriptorLength, 0x7153624Fu);
   if ( Pool2 )
   {
     v38 = *(__int64 (__usercall **)@<rax>(ULONG_PTR@<rcx>, PULONG, int, int, __int64, char))(v11 + 152);
     AccessMode = v11 + 76;
     GenericMapping = *(_DWORD *)(v11 + 100);
     Privileges = (PPRIVILEGE_SET *)(a2 - 1);
-    v55 = (PPRIVILEGE_SET)(a2 - 1);
-    v49 = 1;
+    v57 = (PPRIVILEGE_SET)(a2 - 1);
+    v51 = 1;
     if ( (char *)v38 == (char *)CmpSecurityMethod )
     {
       SetSecurityObject = CmpSecurityMethod(
                             (_DWORD)a2,
                             1,
-                            (unsigned int)&v51,
+                            (unsigned int)&v53,
                             Pool2,
                             (__int64)&Length,
                             (__int64)Privileges,
@@ -256,7 +258,7 @@ LABEL_32:
     }
     else
     {
-      SetSecurityObject = guard_dispatch_icall_no_overrides(a2, 1LL, &v51, Pool2);
+      SetSecurityObject = guard_dispatch_icall_no_overrides(a2, 1LL);
     }
     v40 = SetSecurityObject;
     if ( SetSecurityObject != -1073741789 )
@@ -283,41 +285,60 @@ LABEL_12:
               1u,
               *(_DWORD *)(a3 + 16),
               *(_DWORD *)(a3 + 20),
-              &v56,
+              &v58,
               (PGENERIC_MAPPING)(v11 + 76),
               v7,
               &GrantedAccess,
               &AccessStatus);
-      v55 = v56;
-      if ( v56 )
+      v57 = v58;
+      if ( v58 )
       {
-        PrivilegeCount = v56->PrivilegeCount;
-        v57 = *(PVOID **)(a3 + 72);
-        v21 = *v57;
-        v22 = *(_DWORD *)*v57;
+        PrivilegeCount = v58->PrivilegeCount;
+        v59 = *(PVOID **)(a3 + 72);
+        v21 = *v59;
+        v22 = *(_DWORD *)*v59;
         if ( PrivilegeCount + v22 > 3 )
         {
-          v52 = (void *)ExAllocatePool2(0x100uLL);
-          if ( v52 )
+          v42 = 8;
+          if ( PrivilegeCount )
           {
-            v42 = v57;
-            v43 = *v57;
-            if ( *v57 )
+            v43 = 12 * PrivilegeCount + 8;
+            v42 = 8;
+          }
+          else
+          {
+            v43 = 8;
+          }
+          if ( v21 )
+          {
+            if ( v22 )
+              v42 = 12 * v22 + 8;
+          }
+          else
+          {
+            v42 = 0;
+          }
+          v54 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)(v43 + v42), 0x72506553u);
+          if ( v54 )
+          {
+            v44 = v59;
+            v45 = *v59;
+            if ( *v59 )
             {
-              if ( *v43 )
-                v44 = 12 * *v43 + 8;
+              if ( *v45 )
+                v46 = 12 * *v45 + 8;
               else
-                v44 = 8;
+                v46 = 8;
             }
             else
             {
-              v44 = 0;
+              v46 = 0;
             }
-            memmove(v52, v43, v44);
-            SepConcatenatePrivileges(v52, v45, v55);
+            memmove(v54, v45, v46);
+            SepConcatenatePrivileges(v54, v47, v57);
             if ( *(_BYTE *)(a3 + 11) )
-              ExFreePoolWithTag(*v42, 0);
-            *v42 = v52;
+              ExFreePoolWithTag(*v44, 0);
+            *v44 = v54;
             *(_BYTE *)(a3 + 11) = 1;
           }
         }
@@ -326,18 +347,18 @@ LABEL_12:
           if ( v21 )
           {
             if ( v22 )
-              LODWORD(v52) = 12 * v22 + 8;
+              LODWORD(v54) = 12 * v22 + 8;
             else
-              LODWORD(v52) = 8;
+              LODWORD(v54) = 8;
           }
           else
           {
-            LODWORD(v52) = 0;
+            LODWORD(v54) = 0;
           }
-          memmove((char *)v21 + (unsigned int)v52, v56->Privilege, 12 * PrivilegeCount);
-          *v21 += v55->PrivilegeCount;
+          memmove((char *)v21 + (unsigned int)v54, v58->Privilege, 12 * PrivilegeCount);
+          *v21 += v57->PrivilegeCount;
         }
-        CmSiFreeMemory(v56);
+        CmSiFreeMemory(v58);
       }
       if ( v19 )
       {
@@ -347,7 +368,7 @@ LABEL_12:
       }
       if ( v7 )
         SeOpenObjectAuditAlarmWithTransaction(
-          v58 + 1,
+          v60 + 1,
           a2,
           0LL,
           (PSECURITY_DESCRIPTOR)Pool2,
@@ -365,7 +386,7 @@ LABEL_12:
         ExReleaseResourceLite(*(PERESOURCE *)(v24 + 48));
         KeLeaveCriticalRegionThread();
       }
-      if ( v49 )
+      if ( v51 )
       {
         ExFreePoolWithTag((PVOID)Pool2, 0);
       }
@@ -389,11 +410,11 @@ LABEL_31:
     }
     ExFreePoolWithTag((PVOID)Pool2, 0);
     ObpDefaultSecurityDescriptorLength = Length;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, Length, 0x7153624Fu);
     if ( Pool2 )
     {
-      v49 = 1;
-      v40 = guard_dispatch_icall_no_overrides(a2, 1LL, &v51, Pool2);
+      v51 = 1;
+      v40 = guard_dispatch_icall_no_overrides(a2, 1LL);
       goto LABEL_61;
     }
   }

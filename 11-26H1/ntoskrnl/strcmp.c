@@ -1,16 +1,16 @@
 /*
- * XREFs of strcmp @ 0x14073DC40
+ * XREFs of strcmp @ 0x140742840
  * Callers:
- *     PopWatchdogDumpControlRoutine @ 0x1406137A0 (PopWatchdogDumpControlRoutine.c)
- *     ExpSetBootEntry @ 0x14083BEC0 (ExpSetBootEntry.c)
- *     MiApplyDriverHotPatch @ 0x14086DAC4 (MiApplyDriverHotPatch.c)
- *     MmCallDllInitialize @ 0x1408754D8 (MmCallDllInitialize.c)
- *     MiCompactServiceTable @ 0x14087AC6C (MiCompactServiceTable.c)
- *     NtEnumerateBootEntries @ 0x140A94460 (NtEnumerateBootEntries.c)
- *     MiUnloadApproved @ 0x140B3B1D8 (MiUnloadApproved.c)
- *     ViXdvDriverLoadImage @ 0x140C285C4 (ViXdvDriverLoadImage.c)
- *     HdlspDispatch @ 0x140C4C320 (HdlspDispatch.c)
- *     HalpAcpiFindRsdp @ 0x140CAD7DC (HalpAcpiFindRsdp.c)
+ *     PopWatchdogDumpControlRoutine @ 0x140616660 (PopWatchdogDumpControlRoutine.c)
+ *     ExpSetBootEntry @ 0x140842100 (ExpSetBootEntry.c)
+ *     MiApplyDriverHotPatch @ 0x140873E94 (MiApplyDriverHotPatch.c)
+ *     MmCallDllInitialize @ 0x14087B8BC (MmCallDllInitialize.c)
+ *     MiCompactServiceTable @ 0x14088106C (MiCompactServiceTable.c)
+ *     NtEnumerateBootEntries @ 0x140A2CCB0 (NtEnumerateBootEntries.c)
+ *     MiUnloadApproved @ 0x140B3D458 (MiUnloadApproved.c)
+ *     ViXdvDriverLoadImage @ 0x140C2E5CC (ViXdvDriverLoadImage.c)
+ *     HdlspDispatch @ 0x140C52320 (HdlspDispatch.c)
+ *     HalpAcpiFindRsdp @ 0x140CB381C (HalpAcpiFindRsdp.c)
  * Callees:
  *     <none>
  */

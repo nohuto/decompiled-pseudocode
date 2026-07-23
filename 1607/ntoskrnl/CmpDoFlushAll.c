@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpDoFlushAll @ 0x140125F38
+ * XREFs of CmpDoFlushAll @ 0x1401264A8
  * Callers:
- *     NtFlushKey @ 0x1404E88CC (NtFlushKey.c)
- *     CmReconcileAndValidateAllHives @ 0x140603084 (CmReconcileAndValidateAllHives.c)
- *     CmpForceFlushWorker @ 0x1406036F8 (CmpForceFlushWorker.c)
+ *     NtFlushKey @ 0x1404CAC58 (NtFlushKey.c)
+ *     CmReconcileAndValidateAllHives @ 0x140603138 (CmReconcileAndValidateAllHives.c)
+ *     CmpForceFlushWorker @ 0x1406037AC (CmpForceFlushWorker.c)
  * Callees:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     CmpGetNextActiveHive @ 0x1403FB6D0 (CmpGetNextActiveHive.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     CmpGetNextActiveHive @ 0x1403FA590 (CmpGetNextActiveHive.c)
  */
 
 void CmpDoFlushAll()

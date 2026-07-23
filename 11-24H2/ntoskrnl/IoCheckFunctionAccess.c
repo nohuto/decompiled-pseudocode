@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCheckFunctionAccess @ 0x1409EAD50
+ * XREFs of IoCheckFunctionAccess @ 0x1409E5640
  * Callers:
  *     <none>
  * Callees:
- *     SeQuerySecurityAccessMask @ 0x1409EAEF8 (SeQuerySecurityAccessMask.c)
- *     SeSetSecurityAccessMask @ 0x140A19B78 (SeSetSecurityAccessMask.c)
+ *     SeQuerySecurityAccessMask @ 0x1409E57E8 (SeQuerySecurityAccessMask.c)
+ *     SeSetSecurityAccessMask @ 0x140A12CE8 (SeSetSecurityAccessMask.c)
  */
 
 NTSTATUS __stdcall IoCheckFunctionAccess(

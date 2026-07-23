@@ -1,24 +1,24 @@
 /*
- * XREFs of CcSetDirtyPinnedData @ 0x14006F270
+ * XREFs of CcSetDirtyPinnedData @ 0x14006EDF0
  * Callers:
- *     CcZeroDataInCache @ 0x14006D5D0 (CcZeroDataInCache.c)
- *     CcReleaseByteRangeFromWrite @ 0x1400CEE30 (CcReleaseByteRangeFromWrite.c)
- *     CcUnpinRepinnedBcb @ 0x1401B1E6C (CcUnpinRepinnedBcb.c)
- *     CcPreparePinWrite @ 0x140458274 (CcPreparePinWrite.c)
- *     HvViewMapFlush @ 0x14060FB24 (HvViewMapFlush.c)
+ *     CcZeroDataInCache @ 0x14006D150 (CcZeroDataInCache.c)
+ *     CcReleaseByteRangeFromWrite @ 0x1400CCCD0 (CcReleaseByteRangeFromWrite.c)
+ *     CcUnpinRepinnedBcb @ 0x1401B1D50 (CcUnpinRepinnedBcb.c)
+ *     CcPreparePinWrite @ 0x140457144 (CcPreparePinWrite.c)
+ *     HvViewMapFlush @ 0x14060FBD8 (HvViewMapFlush.c)
  * Callees:
- *     ExpReleaseFastMutexContended @ 0x14000CA8C (ExpReleaseFastMutexContended.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     CcChargeDirtyPages @ 0x14006FBF4 (CcChargeDirtyPages.c)
- *     CcScheduleLazyWriteScan @ 0x14007091C (CcScheduleLazyWriteScan.c)
- *     CcInsertIntoDirtySharedCacheMapList @ 0x1400709A0 (CcInsertIntoDirtySharedCacheMapList.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExpAcquireFastMutexContended @ 0x1400C7E28 (ExpAcquireFastMutexContended.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     ExpReleaseFastMutexContended @ 0x14000C60C (ExpReleaseFastMutexContended.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     CcChargeDirtyPages @ 0x14006F774 (CcChargeDirtyPages.c)
+ *     CcScheduleLazyWriteScan @ 0x14007049C (CcScheduleLazyWriteScan.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x140070520 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExpAcquireFastMutexContended @ 0x1400C5CC8 (ExpAcquireFastMutexContended.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __stdcall CcSetDirtyPinnedData(PVOID BcbVoid, PLARGE_INTEGER Lsn)
@@ -95,7 +95,7 @@ void __stdcall CcSetDirtyPinnedData(PVOID BcbVoid, PLARGE_INTEGER Lsn)
       v13 = (char *)CurrentThread->LockEntries + v6;
       if ( v13 )
       {
-        if ( v10 < qword_140326910 || v10 >= qword_140326910 + 0x8000000000LL )
+        if ( v10 < qword_140326950 || v10 >= qword_140326950 + 0x8000000000LL )
           SessionId = -1;
         else
           SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);

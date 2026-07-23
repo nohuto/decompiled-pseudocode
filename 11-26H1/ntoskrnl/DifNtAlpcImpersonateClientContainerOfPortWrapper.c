@@ -1,17 +1,20 @@
 /*
- * XREFs of DifNtAlpcImpersonateClientContainerOfPortWrapper @ 0x14066CCA0
+ * XREFs of DifNtAlpcImpersonateClientContainerOfPortWrapper @ 0x140670880
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtAlpcImpersonateClientContainerOfPort @ 0x1407C0410 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x1407C3470 (NtAlpcImpersonateClientContainerOfPort.c)
  */
 
-__int64 __fastcall DifNtAlpcImpersonateClientContainerOfPortWrapper(HANDLE Handle, __int64 a2, int a3)
+__int64 __fastcall DifNtAlpcImpersonateClientContainerOfPortWrapper(
+        HANDLE PortHandle,
+        PPORT_MESSAGE Message,
+        ULONG Flags)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v7; // rdx
@@ -45,9 +48,9 @@ __int64 __fastcall DifNtAlpcImpersonateClientContainerOfPortWrapper(HANDLE Handl
       *(_QWORD *)&v17 = DifGetReturnAddressForWrappers();
     }
     v10 = 0;
-    *((_QWORD *)&v18 + 1) = Handle;
-    *(_QWORD *)&v18 = a2;
-    DWORD2(v17) = a3;
+    *((_QWORD *)&v18 + 1) = PortHandle;
+    *(_QWORD *)&v18 = Message;
+    DWORD2(v17) = Flags;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v10 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -60,7 +63,7 @@ __int64 __fastcall DifNtAlpcImpersonateClientContainerOfPortWrapper(HANDLE Handl
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v19) = NtAlpcImpersonateClientContainerOfPort(Handle);
+  LODWORD(v19) = NtAlpcImpersonateClientContainerOfPort(PortHandle, Message, Flags);
   if ( v8 )
   {
     if ( (v13 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

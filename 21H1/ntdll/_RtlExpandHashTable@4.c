@@ -9,119 +9,125 @@
  *     _RtlpGetChainHead@8 @ 0x4B35B57F (_RtlpGetChainHead@8.c)
  */
 
-char __stdcall RtlExpandHashTable(_DWORD *a1)
+BOOLEAN __cdecl RtlExpandHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
 {
-  int v1; // ecx
+  unsigned int TableSize; // ecx
   unsigned int v2; // eax
   char v3; // dl
   int v4; // ebx
-  int v5; // ebx
+  void *Directory; // ebx
   _DWORD *Heap; // eax
   _DWORD *v7; // edi
-  _DWORD *v8; // edi
-  int v9; // eax
-  int v11; // edx
-  _DWORD **ChainHead; // ebx
-  _DWORD *v13; // edi
-  _DWORD *v14; // edx
+  void **v8; // edi
+  char *v9; // eax
+  unsigned int Pivot; // edx
+  char *ChainHead; // ebx
+  char *v13; // edi
+  char *v14; // edx
   int v15; // eax
   int v16; // eax
-  _DWORD *v17; // ecx
-  _DWORD *v18; // eax
-  _DWORD **v19; // eax
-  int v20; // edx
-  int v21; // [esp+Ch] [ebp-Ch]
-  char v22; // [esp+10h] [ebp-8h]
-  int v23; // [esp+14h] [ebp-4h]
-  int v24; // [esp+14h] [ebp-4h]
-  _DWORD **v25; // [esp+14h] [ebp-4h]
+  char **v17; // ecx
+  char **v18; // eax
+  char **v19; // eax
+  unsigned int DivisorMask; // edx
+  SIZE_T v21; // [esp-4h] [ebp-1Ch]
+  size_t v22; // [esp-4h] [ebp-1Ch]
+  int v23; // [esp+Ch] [ebp-Ch]
+  char v24; // [esp+10h] [ebp-8h]
+  int v25; // [esp+14h] [ebp-4h]
+  char *v26; // [esp+14h] [ebp-4h]
+  char *v27; // [esp+14h] [ebp-4h]
 
-  v1 = a1[2];
-  if ( v1 == 8388480 || a1[7] )
+  TableSize = HashTable->TableSize;
+  if ( TableSize == 8388480 || HashTable->NumEnumerators )
     return 0;
-  _BitScanReverse(&v2, v1 + 128);
-  v21 = (v1 + 128) ^ (1 << v2);
+  _BitScanReverse(&v2, TableSize + 128);
+  v23 = (TableSize + 128) ^ (1 << v2);
   v3 = v2 - 7;
-  v22 = v2 - 7;
+  v24 = v2 - 7;
   v4 = v2 - 7;
-  v23 = v2 - 7;
-  if ( v1 == 128 )
+  v25 = v2 - 7;
+  if ( TableSize == 128 )
   {
-    v5 = a1[8];
-    Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 64);
+    Directory = HashTable->Directory;
+    LODWORD(v21) = 64;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v21);
     v7 = Heap;
     if ( !Heap )
       return 0;
-    memset(Heap, 0, 0x40u);
-    v3 = v22;
-    *v7 = v5;
-    v4 = v23;
-    a1[8] = v7;
+    LODWORD(v22) = 64;
+    memset(Heap, 0, v22);
+    v3 = v24;
+    *v7 = Directory;
+    v4 = v25;
+    HashTable->Directory = v7;
   }
-  v8 = (_DWORD *)a1[8];
-  v24 = v8[v4];
-  if ( !v24 )
+  v8 = (void **)HashTable->Directory;
+  v26 = (char *)v8[v4];
+  if ( !v26 )
   {
-    v9 = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 8 * (1 << (v3 + 7)));
-    v24 = v9;
+    LODWORD(v21) = 8 * (1 << (v3 + 7));
+    v9 = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v21);
+    v26 = v9;
     if ( !v9 )
     {
-      if ( a1[2] == 128 )
+      if ( HashTable->TableSize == 128 )
       {
-        a1[8] = *v8;
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v8);
+        HashTable->Directory = *v8;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
       }
       return 0;
     }
     v8[v4] = v9;
   }
-  v11 = a1[3];
-  ++a1[2];
-  ChainHead = (_DWORD **)RtlpGetChainHead(a1, v11);
-  ++a1[3];
-  v13 = (_DWORD *)(v24 + 8 * v21);
-  v13[1] = v13;
-  *v13 = v13;
-  v14 = *ChainHead;
-  if ( *ChainHead != ChainHead )
+  Pivot = HashTable->Pivot;
+  ++HashTable->TableSize;
+  ChainHead = (char *)RtlpGetChainHead(HashTable, Pivot);
+  ++HashTable->Pivot;
+  v13 = &v26[8 * v23];
+  *((_DWORD *)v13 + 1) = v13;
+  *(_DWORD *)v13 = v13;
+  v14 = *(char **)ChainHead;
+  if ( *(char **)ChainHead != ChainHead )
   {
-    v25 = ChainHead;
+    v27 = ChainHead;
     do
     {
-      v15 = v14[2] >> a1[1];
-      if ( (((2 * a1[4]) | 1) & ((69069 * v15 + 1) & 0xFFFF0000 | ((unsigned int)(1103515245 * v15 + 12345) >> 16))) == a1[2] - 1 )
+      v15 = *((_DWORD *)v14 + 2) >> HashTable->Shift;
+      if ( (((2 * HashTable->DivisorMask) | 1) & ((69069 * v15 + 1) & 0xFFFF0000 | ((unsigned int)(1103515245 * v15
+                                                                                                 + 12345) >> 16))) == HashTable->TableSize - 1 )
       {
-        v16 = *v14;
-        if ( *(_DWORD **)(*v14 + 4) != v14
-          || (v17 = (_DWORD *)v14[1], (_DWORD *)*v17 != v14)
-          || (*v17 = v16, *(_DWORD *)(v16 + 4) = v17, v18 = (_DWORD *)v13[1], (_DWORD *)*v18 != v13) )
+        v16 = *(_DWORD *)v14;
+        if ( *(char **)(*(_DWORD *)v14 + 4) != v14
+          || (v17 = (char **)*((_DWORD *)v14 + 1), *v17 != v14)
+          || (*v17 = (char *)v16, *(_DWORD *)(v16 + 4) = v17, v18 = (char **)*((_DWORD *)v13 + 1), *v18 != v13) )
         {
           __fastfail(3u);
         }
-        v14[1] = v18;
-        *v14 = v13;
+        *((_DWORD *)v14 + 1) = v18;
+        *(_DWORD *)v14 = v13;
         *v18 = v14;
-        v19 = v25;
-        v13[1] = v14;
+        v19 = (char **)v27;
+        *((_DWORD *)v13 + 1) = v14;
       }
       else
       {
-        v19 = (_DWORD **)v14;
-        v25 = (_DWORD **)v14;
+        v19 = (char **)v14;
+        v27 = v14;
       }
       v14 = *v19;
     }
     while ( *v19 != ChainHead );
-    if ( (_DWORD *)*v13 != v13 )
-      ++a1[6];
-    if ( *ChainHead == ChainHead )
-      --a1[6];
+    if ( *(char **)v13 != v13 )
+      ++HashTable->NonEmptyBuckets;
+    if ( *(char **)ChainHead == ChainHead )
+      --HashTable->NonEmptyBuckets;
   }
-  v20 = a1[4];
-  if ( a1[3] == v20 + 1 )
+  DivisorMask = HashTable->DivisorMask;
+  if ( HashTable->Pivot == DivisorMask + 1 )
   {
-    a1[3] = 0;
-    a1[4] = (2 * v20) | 1;
+    HashTable->Pivot = 0;
+    HashTable->DivisorMask = (2 * DivisorMask) | 1;
   }
   return 1;
 }

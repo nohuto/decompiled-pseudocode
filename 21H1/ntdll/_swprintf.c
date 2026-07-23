@@ -17,13 +17,13 @@ int swprintf(wchar_t *const Buffer, const size_t BufferCount, const wchar_t *con
   wchar_t *v8; // [esp+Ch] [ebp-18h]
   int v9; // [esp+10h] [ebp-14h]
 
-  if ( BufferCount && Buffer )
+  if ( (_DWORD)BufferCount && Buffer )
   {
     v8 = Buffer;
     v6 = Buffer;
     v9 = 66;
     v7 = 0x7FFFFFFF;
-    v3 = _woutput_l(&v6, BufferCount, 0, &Format);
+    v3 = _woutput_l(&v6, BufferCount, 0, (char *)&BufferCount + 4);
     if ( --v7 < 0 )
     {
       _flsbuf_s(0, &v6);

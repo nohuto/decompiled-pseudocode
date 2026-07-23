@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpReadExtendedContextLayout @ 0x1409EE61C
+ * XREFs of RtlpReadExtendedContextLayout @ 0x1409EADEC
  * Callers:
- *     RtlpReadExtendedContext @ 0x1409EE360 (RtlpReadExtendedContext.c)
+ *     RtlpReadExtendedContext @ 0x1409EAB30 (RtlpReadExtendedContext.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpReadExtendedContextLayout(__int64 a1, int a2, __int64 a3, int a4, int *a5)

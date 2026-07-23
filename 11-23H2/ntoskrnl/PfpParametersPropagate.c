@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpParametersPropagate @ 0x140980050
+ * XREFs of PfpParametersPropagate @ 0x140980250
  * Callers:
- *     PfpParametersWatcher @ 0x140980180 (PfpParametersWatcher.c)
+ *     PfpParametersWatcher @ 0x140980380 (PfpParametersWatcher.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     PfTStart @ 0x140845ED0 (PfTStart.c)
- *     PfTInitialize @ 0x140846F2C (PfTInitialize.c)
- *     PfTCleanup @ 0x14097F168 (PfTCleanup.c)
- *     PfpRpShutdown @ 0x14097F464 (PfpRpShutdown.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     PfTStart @ 0x1408461D0 (PfTStart.c)
+ *     PfTInitialize @ 0x14084722C (PfTInitialize.c)
+ *     PfTCleanup @ 0x14097F368 (PfTCleanup.c)
+ *     PfpRpShutdown @ 0x14097F664 (PfpRpShutdown.c)
  */
 
 void __fastcall PfpParametersPropagate(_DWORD *a1)

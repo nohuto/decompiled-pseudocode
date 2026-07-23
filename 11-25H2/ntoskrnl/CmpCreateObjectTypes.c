@@ -27,7 +27,7 @@ __int64 CmpCreateObjectTypes()
   _KAFFINITY_EX *(__fastcall *v15)(__int64, __int64, __int64, unsigned __int64); // [rsp+60h] [rbp+7h]
   _KAFFINITY_EX *(__fastcall *v16)(__int64); // [rsp+68h] [rbp+Fh]
   __int64 (__fastcall *v17)(__int64, __int64, __int64, unsigned __int8, int, __int64, __int128 *, __int64, __int64, __int64, __int64 *); // [rsp+70h] [rbp+17h]
-  __int64 (__fastcall *v18)(ULONG_PTR *, int, ULONG *, void *, ULONG *, __int64, int, __int64); // [rsp+78h] [rbp+1Fh]
+  __int64 (__fastcall *v18)(ULONG_PTR *, int, DWORD *, void *, ULONG *, __int64, int, __int64); // [rsp+78h] [rbp+1Fh]
   __int64 (__fastcall *v19)(__int64, __int64, __int64, unsigned int, _DWORD *); // [rsp+80h] [rbp+27h]
 
   memset_0(&v1, 0, 0x78uLL);

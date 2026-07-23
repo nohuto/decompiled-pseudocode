@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpTraceDatabaseAllocate @ 0x18014A1EC
+ * XREFs of RtlpTraceDatabaseAllocate @ 0x18014A09C
  * Callers:
- *     RtlTraceDatabaseCreate @ 0x180149E20 (RtlTraceDatabaseCreate.c)
- *     RtlpTraceDatabaseInternalAdd @ 0x18014A274 (RtlpTraceDatabaseInternalAdd.c)
+ *     RtlTraceDatabaseCreate @ 0x180149CD0 (RtlTraceDatabaseCreate.c)
+ *     RtlpTraceDatabaseInternalAdd @ 0x18014A124 (RtlpTraceDatabaseInternalAdd.c)
  * Callees:
- *     ZwAllocateVirtualMemory @ 0x18015F240 (ZwAllocateVirtualMemory.c)
+ *     ZwAllocateVirtualMemory @ 0x18015F140 (ZwAllocateVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpTraceDatabaseAllocate(__int64 a1)
+PVOID __fastcall RtlpTraceDatabaseAllocate(ULONG_PTR a1)
 {
   __int64 v1; // rbx
-  __int64 v3; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v4; // [rsp+58h] [rbp+20h] BYREF
+  PVOID v3; // [rsp+40h] [rbp+8h] BYREF
+  ULONG_PTR v4; // [rsp+58h] [rbp+20h] BYREF
 
   v4 = a1;
   v1 = 0LL;
   v3 = 0LL;
-  if ( (int)ZwAllocateVirtualMemory(-1LL, &v3, 0LL, &v4, 12288, 4) >= 0 )
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v3, 0LL, &v4, 0x3000u, 4u) >= 0 )
     return v3;
-  return v1;
+  return (PVOID)v1;
 }

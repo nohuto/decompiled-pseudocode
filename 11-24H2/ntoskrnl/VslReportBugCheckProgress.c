@@ -1,12 +1,12 @@
 /*
- * XREFs of VslReportBugCheckProgress @ 0x14058DF40
+ * XREFs of VslReportBugCheckProgress @ 0x14058B2F0
  * Callers:
- *     PopCheckpointSystemSleepUnsafe @ 0x140B60210 (PopCheckpointSystemSleepUnsafe.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x140B622DC (PopCheckpointSystemSleepUnsafe.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslReportBugCheckProgress(char *a1, __int128 *a2, const void *a3, unsigned int a4, int a5)
@@ -63,7 +63,7 @@ LABEL_12:
   if ( (a5 & 0x40) != 0 )
     result = 3221225485LL;
   else
-    result = VslpEnterIumSecureMode(2u, 264LL, 0, (__int64)v17);
+    result = VslpEnterIumSecureMode(2u, 0x108u, 0, (__int64)v17);
   if ( (_DWORD)v6 )
   {
     memmove(&v20, a3, v6);
@@ -72,7 +72,7 @@ LABEL_12:
     v21 = v6;
     v22 = a5 | 6u;
     v19 = v16;
-    return VslpEnterIumSecureMode(2u, 264LL, 0, (__int64)v17);
+    return VslpEnterIumSecureMode(2u, 0x108u, 0, (__int64)v17);
   }
   return result;
 }

@@ -1,27 +1,27 @@
 /*
- * XREFs of MmResetDriverPaging @ 0x140AC9400
+ * XREFs of MmResetDriverPaging @ 0x140ACB510
  * Callers:
- *     DifMmResetDriverPagingWrapper @ 0x140668240 (DifMmResetDriverPagingWrapper.c)
+ *     DifMmResetDriverPagingWrapper @ 0x14066BE20 (DifMmResetDriverPagingWrapper.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiLockCode @ 0x14029602C (MiLockCode.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     MiLockLoadedDataTableEntryIfNecessary @ 0x1404ABD44 (MiLockLoadedDataTableEntryIfNecessary.c)
- *     MmUnlockLoadedDataTableEntry @ 0x14051E3A8 (MmUnlockLoadedDataTableEntry.c)
- *     MmImageSectionPagable @ 0x140AC9A1C (MmImageSectionPagable.c)
- *     MiCancelPhase0Locking @ 0x140AC9B58 (MiCancelPhase0Locking.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiLockCode @ 0x14029558C (MiLockCode.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     MiLockLoadedDataTableEntryIfNecessary @ 0x1404A53D4 (MiLockLoadedDataTableEntryIfNecessary.c)
+ *     MmUnlockLoadedDataTableEntry @ 0x1405209B8 (MmUnlockLoadedDataTableEntry.c)
+ *     MmImageSectionPagable @ 0x140ACBB2C (MmImageSectionPagable.c)
+ *     MiCancelPhase0Locking @ 0x140ACBC68 (MiCancelPhase0Locking.c)
  */
 
 void __stdcall MmResetDriverPaging(PVOID AddressWithinSection)
 {
   struct _LIST_ENTRY *v2; // rax
   __int64 v3; // rsi
-  unsigned __int64 Flink; // rbp
-  _DWORD *v5; // rbx
-  __int64 v6; // rcx
-  _DWORD *v7; // rdi
-  int v8; // ebx
+  struct _LIST_ENTRY *Flink; // rbp
+  PIMAGE_NT_HEADERS v5; // rbx
+  __int64 SizeOfOptionalHeader; // rcx
+  _IMAGE_OPTIONAL_HEADER64 *p_OptionalHeader; // rdi
+  int NumberOfSections; // ebx
   _DWORD *i; // rdi
   unsigned int v10; // eax
   __int64 v11; // r9
@@ -36,23 +36,23 @@ void __stdcall MmResetDriverPaging(PVOID AddressWithinSection)
     v3 = (__int64)v2;
     if ( v2 )
     {
-      if ( (dword_140FBE204 & 1) == 0 )
+      if ( (dword_140FBF204 & 1) == 0 )
       {
-        Flink = (unsigned __int64)v2[3].Flink;
+        Flink = v2[3].Flink;
         v5 = RtlImageNtHeader(Flink);
         MiCancelPhase0Locking(v3);
-        v6 = *((unsigned __int16 *)v5 + 10);
-        v7 = v5 + 6;
-        v8 = *((unsigned __int16 *)v5 + 3);
-        for ( i = (_DWORD *)((char *)v7 + v6); v8; --v8 )
+        SizeOfOptionalHeader = v5->FileHeader.SizeOfOptionalHeader;
+        p_OptionalHeader = &v5->OptionalHeader;
+        NumberOfSections = v5->FileHeader.NumberOfSections;
+        for ( i = (_DWORD *)((char *)&p_OptionalHeader->Magic + SizeOfOptionalHeader); NumberOfSections; --NumberOfSections )
         {
           if ( (i[9] & 0x2000000) == 0 && !(unsigned int)MmImageSectionPagable(i) )
           {
             v10 = i[4];
             if ( v10 < i[2] )
               v10 = i[2];
-            MiGetPteAddress(Flink + i[3] + v10 - 1);
-            PteAddress = (ULONG_PTR *)MiGetPteAddress(v11 + Flink);
+            MiGetPteAddress((unsigned __int64)Flink + i[3] + v10 - 1);
+            PteAddress = (ULONG_PTR *)MiGetPteAddress((unsigned __int64)Flink + v11);
             MiLockCode(v3, PteAddress, v13, 2);
           }
           i += 10;

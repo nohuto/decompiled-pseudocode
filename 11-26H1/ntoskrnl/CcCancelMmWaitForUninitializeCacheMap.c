@@ -1,10 +1,10 @@
 /*
- * XREFs of CcCancelMmWaitForUninitializeCacheMap @ 0x140511DAC
+ * XREFs of CcCancelMmWaitForUninitializeCacheMap @ 0x14050B81C
  * Callers:
- *     CcWriteBehindPreProcess @ 0x1403848C4 (CcWriteBehindPreProcess.c)
- *     CcWriteBehindPostProcess @ 0x140384CD4 (CcWriteBehindPostProcess.c)
+ *     CcWriteBehindPreProcess @ 0x140386674 (CcWriteBehindPreProcess.c)
+ *     CcWriteBehindPostProcess @ 0x140386A84 (CcWriteBehindPostProcess.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 LONG __fastcall CcCancelMmWaitForUninitializeCacheMap(__int64 a1)
@@ -25,7 +25,7 @@ LONG __fastcall CcCancelMmWaitForUninitializeCacheMap(__int64 a1)
       v3 = v5 & 0xFFFFFFFFFFFFFFFEuLL;
       *v2 = *(_QWORD *)v3;
       result = KeSetEvent((PRKEVENT)(v3 + 8), 0, 0);
-      ++LODWORD(EmpParseLock.AutoBoostThreadState);
+      ++LODWORD(EmpParseLock.SchedulerAssistLastYieldBoostTime);
       *(_DWORD *)(a1 + 152) |= 0x8000u;
     }
     else

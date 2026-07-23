@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetSessionVm @ 0x1400C0E60
+ * XREFs of MiGetSessionVm @ 0x1400BECF0
  * Callers:
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
- *     MmPrefetchVirtualMemory @ 0x1404F4680 (MmPrefetchVirtualMemory.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
+ *     MmPrefetchVirtualMemory @ 0x1404D760C (MmPrefetchVirtualMemory.c)
  * Callees:
  *     <none>
  */

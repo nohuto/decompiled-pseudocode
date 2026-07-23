@@ -1,28 +1,28 @@
 /*
- * XREFs of ZwAlertThreadByThreadId @ 0x18015FD50
+ * XREFs of ZwAlertThreadByThreadId @ 0x18015FC50
  * Callers:
- *     RtlWakeConditionVariable @ 0x18002A8A0 (RtlWakeConditionVariable.c)
- *     RtlpWakeConditionVariable @ 0x18002B160 (RtlpWakeConditionVariable.c)
- *     TppBarrierAdjust @ 0x18002D290 (TppBarrierAdjust.c)
- *     TppCallbackEpilog @ 0x18003FD40 (TppCallbackEpilog.c)
- *     TppWorkPost @ 0x180041770 (TppWorkPost.c)
- *     TppWorkCallbackPrologRelease @ 0x180053AB0 (TppWorkCallbackPrologRelease.c)
- *     TppAlpcpExecuteCallback @ 0x180054320 (TppAlpcpExecuteCallback.c)
- *     TppIteWakeWaiters @ 0x180067C70 (TppIteWakeWaiters.c)
- *     RtlRunOnceComplete @ 0x18006EFF0 (RtlRunOnceComplete.c)
- *     RtlWakeAllConditionVariable @ 0x1800784D0 (RtlWakeAllConditionVariable.c)
- *     RtlpWaitOnCriticalSection @ 0x18007A720 (RtlpWaitOnCriticalSection.c)
- *     RtlpWaitOnAddressWakeEntireList @ 0x18007BA14 (RtlpWaitOnAddressWakeEntireList.c)
- *     RtlpTpTimerQueueRundown @ 0x1800FBE04 (RtlpTpTimerQueueRundown.c)
+ *     RtlWakeConditionVariable @ 0x1800159A0 (RtlWakeConditionVariable.c)
+ *     RtlpWakeConditionVariable @ 0x180016260 (RtlpWakeConditionVariable.c)
+ *     TppBarrierAdjust @ 0x180018390 (TppBarrierAdjust.c)
+ *     TppCallbackEpilog @ 0x18002A2B0 (TppCallbackEpilog.c)
+ *     TppWorkPost @ 0x18002BCE0 (TppWorkPost.c)
+ *     TppWorkCallbackPrologRelease @ 0x18003E030 (TppWorkCallbackPrologRelease.c)
+ *     TppAlpcpExecuteCallback @ 0x18003E8A0 (TppAlpcpExecuteCallback.c)
+ *     RtlWakeAllConditionVariable @ 0x180066CF0 (RtlWakeAllConditionVariable.c)
+ *     RtlpWaitOnCriticalSection @ 0x180068F40 (RtlpWaitOnCriticalSection.c)
+ *     RtlpWaitOnAddressWakeEntireList @ 0x18006A234 (RtlpWaitOnAddressWakeEntireList.c)
+ *     TppIteWakeWaiters @ 0x1800880C0 (TppIteWakeWaiters.c)
+ *     RtlRunOnceComplete @ 0x18008F440 (RtlRunOnceComplete.c)
+ *     RtlpTpTimerQueueRundown @ 0x1800FB554 (RtlpTpTimerQueueRundown.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwAlertThreadByThreadId()
+NTSTATUS __cdecl ZwAlertThreadByThreadId(HANDLE ThreadId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 113LL;
+  result = 113;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

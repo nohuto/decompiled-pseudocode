@@ -1,20 +1,20 @@
 /*
- * XREFs of MiExtendPagingFileMaximum @ 0x1401EE330
+ * XREFs of MiExtendPagingFileMaximum @ 0x1401EE15C
  * Callers:
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
  * Callees:
- *     RtlSetAllBits @ 0x1400055D0 (RtlSetAllBits.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x140116F54 (MiDerefPageFileSpaceBitmaps.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     RtlSetAllBits @ 0x140005744 (RtlSetAllBits.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x1401174C4 (MiDerefPageFileSpaceBitmaps.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -133,6 +133,6 @@ void __fastcall MiExtendPagingFileMaximum(_QWORD *a1, unsigned __int64 a2, unsig
       LODWORD(v10) = v27;
       v8 = v30;
     }
-    MiReleasePtes((__int64)&qword_140327870, (__int64)v8, v10);
+    MiReleasePtes((__int64)&qword_1403278B0, (__int64)v8, v10);
   }
 }

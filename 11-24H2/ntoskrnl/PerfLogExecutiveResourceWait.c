@@ -1,14 +1,14 @@
 /*
- * XREFs of PerfLogExecutiveResourceWait @ 0x1404AF714
+ * XREFs of PerfLogExecutiveResourceWait @ 0x1404AA110
  * Callers:
- *     ExpAcquireSharedStarveExclusive @ 0x1402744C0 (ExpAcquireSharedStarveExclusive.c)
- *     ExpWaitForResource @ 0x140277840 (ExpWaitForResource.c)
- *     ExpWaitForFastResource @ 0x1403DD7C0 (ExpWaitForFastResource.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1403E8C80 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x140229A50 (ExpAcquireSharedStarveExclusive.c)
+ *     ExpWaitForResource @ 0x14022CDD0 (ExpWaitForResource.c)
+ *     ExpWaitForFastResource @ 0x1403BD4B0 (ExpWaitForFastResource.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1403D6820 (ExAcquireSharedWaitForExclusive.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     EtwpGetTrackingLockSlotForThread @ 0x140277718 (EtwpGetTrackingLockSlotForThread.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwpGetTrackingLockSlotForThread @ 0x14022CCA8 (EtwpGetTrackingLockSlotForThread.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PerfLogExecutiveResourceWait(int a1, __int64 a2, unsigned int a3)

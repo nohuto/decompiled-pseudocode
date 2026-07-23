@@ -68,9 +68,9 @@ __int64 __fastcall HalpCmcPollProcessor(__int64 a1, char a2, __int64 a3, __int64
       v12 = 1;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 2 )
@@ -90,10 +90,13 @@ __int64 __fastcall HalpCmcPollProcessor(__int64 a1, char a2, __int64 a3, __int64
     {
       if ( v12 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v9 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v9 <= 0xFu && CurrentIrql <= 0xFu && (unsigned __int8)v9 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && (unsigned __int8)v9 <= 0xFu
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v9 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v9 = (unsigned int)CurrentIrql + 1;
@@ -120,10 +123,10 @@ LABEL_25:
             result = (unsigned int)_InterlockedExchange(&HalpCmcLock, 0);
           if ( v12 )
           {
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v25 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
               {
                 v26 = KeGetCurrentPrcb();
                 v27 = v26->SchedulerAssist;
@@ -157,10 +160,10 @@ LABEL_25:
           _InterlockedExchange(&HalpCmcLock, 0);
         if ( v12 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v9 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
               && (unsigned __int8)v9 <= 0xFu
               && CurrentIrql <= 0xFu
               && (unsigned __int8)v9 >= 2u )

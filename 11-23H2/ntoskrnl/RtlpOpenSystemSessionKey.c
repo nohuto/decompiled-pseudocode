@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpOpenSystemSessionKey @ 0x1409B8DE8
+ * XREFs of RtlpOpenSystemSessionKey @ 0x1409B8FE8
  * Callers:
- *     RtlQueryImageXfgFilter @ 0x1405A7114 (RtlQueryImageXfgFilter.c)
+ *     RtlQueryImageXfgFilter @ 0x1405A7684 (RtlQueryImageXfgFilter.c)
  * Callees:
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall RtlpOpenSystemSessionKey(__int64 a1, HANDLE *a2)

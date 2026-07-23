@@ -1,17 +1,18 @@
 /*
- * XREFs of WheaRemoveErrorSource @ 0x1408479F0
+ * XREFs of WheaRemoveErrorSource @ 0x14084DC80
  * Callers:
- *     WheaUnregisterErrorSourceOverride @ 0x1406D7E20 (WheaUnregisterErrorSourceOverride.c)
- *     WheaRemoveErrorSourceDeviceDriver @ 0x140847DC0 (WheaRemoveErrorSourceDeviceDriver.c)
+ *     WheaUnregisterErrorSourceOverride @ 0x1406DBFB0 (WheaUnregisterErrorSourceOverride.c)
+ *     WheaRemoveErrorSourceDeviceDriver @ 0x14084E090 (WheaRemoveErrorSourceDeviceDriver.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     WheapGetErrorSource @ 0x1403DE1E0 (WheapGetErrorSource.c)
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     WheapIsErrorSourceTypeAddable @ 0x1406D4D9C (WheapIsErrorSourceTypeAddable.c)
- *     WheapCallErrorSourceUninitialize @ 0x1406D6864 (WheapCallErrorSourceUninitialize.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     WheapGetErrorSource @ 0x1403E13D0 (WheapGetErrorSource.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     Feature_1631842619__private_IsEnabledDeviceUsageNoInline @ 0x1406D8B68 (Feature_1631842619__private_IsEnabledDeviceUsageNoInline.c)
+ *     WheapIsErrorSourceTypeAddable @ 0x1406D8E7C (WheapIsErrorSourceTypeAddable.c)
+ *     WheapCallErrorSourceUninitialize @ 0x1406DA944 (WheapCallErrorSourceUninitialize.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall WheaRemoveErrorSource(unsigned int a1)
@@ -32,11 +33,16 @@ char __fastcall WheaRemoveErrorSource(unsigned int a1)
   int v16; // [rsp+44h] [rbp-BCh]
   int v17; // [rsp+48h] [rbp-B8h]
   int v18; // [rsp+4Ch] [rbp-B4h]
-  _BYTE v19[972]; // [rsp+50h] [rbp-B0h] BYREF
-  int v20; // [rsp+41Ch] [rbp+31Ch]
-  char v21; // [rsp+420h] [rbp+320h]
+  _BYTE v19[72]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v20; // [rsp+98h] [rbp-68h]
+  __int64 v21; // [rsp+A0h] [rbp-60h]
+  __int64 v22; // [rsp+A8h] [rbp-58h]
+  __int64 v23; // [rsp+B0h] [rbp-50h]
+  __int64 v24; // [rsp+E0h] [rbp-20h]
+  int v25; // [rsp+41Ch] [rbp+31Ch]
+  char v26; // [rsp+420h] [rbp+320h]
 
-  memset_0(v19, 0, sizeof(v19));
+  memset_0(v19, 0, 0x3CCuLL);
   ErrorSource = WheapGetErrorSource((__int64)&WheapErrorSourceTable, a1);
   v3 = (__int64)ErrorSource;
   if ( ErrorSource )
@@ -91,8 +97,16 @@ char __fastcall WheaRemoveErrorSource(unsigned int a1)
         v15 = 1280201291;
         v17 = 2;
         v18 = 977;
-        v20 = v10;
-        v21 = 1;
+        if ( (unsigned int)Feature_1631842619__private_IsEnabledDeviceUsageNoInline() && *(_DWORD *)(v3 + 104) == 16 )
+        {
+          v21 = 0LL;
+          v22 = 0LL;
+          v23 = 0LL;
+          v20 = 0LL;
+          v24 = 0LL;
+        }
+        v25 = v10;
+        v26 = 1;
         LOBYTE(ErrorSource) = WheaLogInternalEvent(Src);
       }
     }

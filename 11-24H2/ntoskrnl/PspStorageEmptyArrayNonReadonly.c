@@ -1,14 +1,14 @@
 /*
- * XREFs of PspStorageEmptyArrayNonReadonly @ 0x140498A80
+ * XREFs of PspStorageEmptyArrayNonReadonly @ 0x140493408
  * Callers:
- *     PspCompleteHardDereferenceSiloDeferred @ 0x140AA5740 (PspCompleteHardDereferenceSiloDeferred.c)
+ *     PspCompleteHardDereferenceSiloDeferred @ 0x140AA07B0 (PspCompleteHardDereferenceSiloDeferred.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall PspStorageEmptyArrayNonReadonly(unsigned __int64 *BugCheckParameter2, unsigned int a2)
@@ -16,8 +16,8 @@ __int64 __fastcall PspStorageEmptyArrayNonReadonly(unsigned __int64 *BugCheckPar
   unsigned int v2; // esi
   __int64 v4; // rbp
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v6; // rax
-  _QWORD *v7; // rdi
+  char *v6; // rax
+  char *v7; // rdi
   unsigned __int64 v8; // rdi
   void *v9; // rdi
 
@@ -29,12 +29,12 @@ __int64 __fastcall PspStorageEmptyArrayNonReadonly(unsigned __int64 *BugCheckPar
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v6 = KeAbPreAcquire((__int64)BugCheckParameter2, 0LL);
+      v6 = (char *)KeAbPreAcquire((__int64)BugCheckParameter2, 0LL);
       v7 = v6;
       if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-        ExfAcquirePushLockExclusiveEx(BugCheckParameter2, (__int64)v6, (__int64)BugCheckParameter2);
+        ExfAcquirePushLockExclusiveEx(BugCheckParameter2, v6, (__int64)BugCheckParameter2);
       if ( v7 )
-        *((_BYTE *)v7 + 10) = 1;
+        v7[10] = 1;
       v8 = BugCheckParameter2[1];
       if ( (v8 & 1) != 0 )
       {

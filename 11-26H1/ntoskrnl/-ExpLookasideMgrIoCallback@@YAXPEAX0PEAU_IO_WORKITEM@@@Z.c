@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ExpLookasideMgrIoCallback@@YAXPEAX0PEAU_IO_WORKITEM@@@Z @ 0x140B2C6A0
+ * XREFs of ?ExpLookasideMgrIoCallback@@YAXPEAX0PEAU_IO_WORKITEM@@@Z @ 0x140B2E720
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ?ExpLookasideMgrSetTimer@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K@Z @ 0x140B2C780 (-ExpLookasideMgrSetTimer@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K@Z.c)
- *     ?ExpLookasideMgrTraceScanFinished@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K1@Z @ 0x140B2C7B8 (-ExpLookasideMgrTraceScanFinished@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K1@Z.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ?ExpLookasideMgrSetTimer@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K@Z @ 0x140B2E800 (-ExpLookasideMgrSetTimer@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K@Z.c)
+ *     ?ExpLookasideMgrTraceScanFinished@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K1@Z @ 0x140B2E838 (-ExpLookasideMgrTraceScanFinished@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K1@Z.c)
  */
 
 void __fastcall ExpLookasideMgrIoCallback(void *a1, __int64 *a2, struct _IO_WORKITEM *a3)

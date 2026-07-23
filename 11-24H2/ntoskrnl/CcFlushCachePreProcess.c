@@ -1,27 +1,27 @@
 /*
- * XREFs of CcFlushCachePreProcess @ 0x1402AC290
+ * XREFs of CcFlushCachePreProcess @ 0x140278C74
  * Callers:
- *     CcWriteBehindInternal @ 0x1402A81F0 (CcWriteBehindInternal.c)
- *     CcWriteBehindAsync @ 0x1402A91A8 (CcWriteBehindAsync.c)
- *     CcFlushCachePriv @ 0x1402AC810 (CcFlushCachePriv.c)
- *     CcAsyncLazywriteWorkerMulti @ 0x1404C768C (CcAsyncLazywriteWorkerMulti.c)
+ *     CcFlushCachePriv @ 0x1402771F0 (CcFlushCachePriv.c)
+ *     CcWriteBehindInternal @ 0x140279FE0 (CcWriteBehindInternal.c)
+ *     CcWriteBehindAsync @ 0x14027B44C (CcWriteBehindAsync.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1404C0AEC (CcAsyncLazywriteWorkerMulti.c)
  * Callees:
- *     CcUnmapVacbArray @ 0x14023F290 (CcUnmapVacbArray.c)
- *     MmFlushSection @ 0x140240CC4 (MmFlushSection.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcIncrementOpenCount @ 0x1402AAADC (CcIncrementOpenCount.c)
- *     KeRcuReadUnlock @ 0x1402CE230 (KeRcuReadUnlock.c)
- *     KeRcuReadLock @ 0x1402CE360 (KeRcuReadLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D84E0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     CcPerfLogFlushCache @ 0x14046E2B0 (CcPerfLogFlushCache.c)
- *     CcPerfLogFlushSection @ 0x140470CF4 (CcPerfLogFlushSection.c)
- *     CcSerializeWithLazyWriter @ 0x1404AADF4 (CcSerializeWithLazyWriter.c)
- *     CcBoostLowPriorityWorkerThread @ 0x1404DAE88 (CcBoostLowPriorityWorkerThread.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140AC25B4 (CcSetTelemetryPeriodicTimer.c)
+ *     CcUnmapVacbArray @ 0x1402073E0 (CcUnmapVacbArray.c)
+ *     MmFlushSection @ 0x140208E14 (MmFlushSection.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcIncrementOpenCount @ 0x14027516C (CcIncrementOpenCount.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140359760 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KeRcuReadUnlock @ 0x14040C230 (KeRcuReadUnlock.c)
+ *     KeRcuReadLock @ 0x14040C360 (KeRcuReadLock.c)
+ *     CcPerfLogFlushCache @ 0x140468A8C (CcPerfLogFlushCache.c)
+ *     CcPerfLogFlushSection @ 0x14046B5A0 (CcPerfLogFlushSection.c)
+ *     CcSerializeWithLazyWriter @ 0x1404A4FF4 (CcSerializeWithLazyWriter.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x1404D48A8 (CcBoostLowPriorityWorkerThread.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140ABD89C (CcSetTelemetryPeriodicTimer.c)
  */
 
 char __fastcall CcFlushCachePreProcess(__int64 a1)
@@ -50,13 +50,13 @@ char __fastcall CcFlushCachePreProcess(__int64 a1)
   char v24; // al
   struct _KLOCK_QUEUE_HANDLE v25; // [rsp+40h] [rbp-30h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+58h] [rbp-18h] BYREF
-  __int64 *v27; // [rsp+A0h] [rbp+30h]
+  __int64 v27; // [rsp+A0h] [rbp+30h]
 
   v1 = *(int **)(a1 + 112);
   v2 = *(unsigned int *)(a1 + 104);
   v3 = *(_BYTE *)(a1 + 108);
   v5 = 0;
-  v27 = *(__int64 **)(a1 + 24);
+  v27 = *(_QWORD *)(a1 + 24);
   v6 = 0LL;
   v7 = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
@@ -70,8 +70,8 @@ char __fastcall CcFlushCachePreProcess(__int64 a1)
         KeBugCheckEx(0x34u, 0x16ABuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
     }
   }
-  ++qword_140F8E540;
-  if ( !byte_140F8E501 && CcTelemetryGlobalData && !dword_140F8E620 && !dword_140F8E624 )
+  ++qword_140F8E720;
+  if ( !byte_140F8E6E1 && CcTelemetryGlobalData && !dword_140F8E800 && !dword_140F8E804 )
     CcSetTelemetryPeriodicTimer(DueTime);
   *v1 = 0;
   v9 = *(void **)(a1 + 96);
@@ -98,7 +98,7 @@ LABEL_16:
   *((_QWORD *)v1 + 1) = 0LL;
   KeRcuReadLock();
   KeAcquireInStackQueuedSpinLock(&CcMasterLock, &LockHandle);
-  v12 = v27[1];
+  v12 = *(_QWORD *)(v27 + 8);
   *(_QWORD *)(a1 + 16) = v12;
   if ( v12 )
   {
@@ -177,7 +177,7 @@ LABEL_24:
   KeRcuReadUnlock();
   if ( v12 && (*(_DWORD *)(v12 + 152) & 0x40000000) != 0 )
     *(_BYTE *)(a1 + 134) = 1;
-  if ( (xmmword_140FC5B10 & 0x20000) != 0 )
+  if ( (xmmword_140FC6B50 & 0x20000) != 0 )
     CcPerfLogFlushCache(
       *(_QWORD *)(a1 + 176),
       v12,
@@ -210,7 +210,7 @@ LABEL_64:
   {
 LABEL_68:
     *(_BYTE *)(a1 + 135) = 1;
-    if ( (xmmword_140FC5B10 & 0x20000) != 0 )
+    if ( (xmmword_140FC6B50 & 0x20000) != 0 )
       CcPerfLogFlushSection(*(_QWORD *)(a1 + 176), v12, *(_QWORD *)(a1 + 96), v2, *(_DWORD *)(a1 + 56));
     if ( v12 )
       CcUnmapVacbArray(v12, *(__int64 **)(a1 + 96), v2, 0, 0, 0);

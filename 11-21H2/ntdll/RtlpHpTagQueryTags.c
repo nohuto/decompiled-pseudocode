@@ -10,7 +10,7 @@
  *     RtlpHpTagQueryHeapsRemote @ 0x180118054 (RtlpHpTagQueryHeapsRemote.c)
  */
 
-__int64 __fastcall RtlpHpTagQueryTags(_QWORD *a1, unsigned __int64 a2, _QWORD *a3)
+__int64 __fastcall RtlpHpTagQueryTags(_QWORD *a1, SIZE_T a2, _QWORD *a3)
 {
   int v5; // ecx
   __int64 v6; // r8
@@ -141,7 +141,7 @@ LABEL_16:
   }
   else
   {
-    return (unsigned int)RtlpHpTagQueryHeapsRemote(a1);
+    return (unsigned int)RtlpHpTagQueryHeapsRemote(a1, a2);
   }
   return v7;
 }

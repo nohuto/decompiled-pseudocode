@@ -1,31 +1,31 @@
 /*
- * XREFs of MiProtectDriverSectionPte @ 0x1406E5D50
+ * XREFs of MiProtectDriverSectionPte @ 0x1406EAA00
  * Callers:
  *     <none>
  * Callees:
- *     MiReplenishSlabAllocator @ 0x14020607C (MiReplenishSlabAllocator.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x14028DF90 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiTradeActivePage @ 0x140295898 (MiTradeActivePage.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiReacquireWalkLocks @ 0x140301220 (MiReacquireWalkLocks.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MiReleaseWalkLocks @ 0x140362F00 (MiReleaseWalkLocks.c)
- *     MiMakeDriverPageStayResident @ 0x14038A698 (MiMakeDriverPageStayResident.c)
- *     MiCheckSlabPage @ 0x14038A86C (MiCheckSlabPage.c)
- *     MiMarkPfnVerified @ 0x14038C9E8 (MiMarkPfnVerified.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiWriteValidPteVolatile @ 0x14044AF20 (MiWriteValidPteVolatile.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MiUnlockLoaderEntry @ 0x1404A4C7C (MiUnlockLoaderEntry.c)
- *     MiAcquireLoadLock @ 0x1404AB9EC (MiAcquireLoadLock.c)
- *     KeSetPagePrivilege @ 0x1404B0F70 (KeSetPagePrivilege.c)
- *     MiLockLoaderEntry @ 0x14051E298 (MiLockLoaderEntry.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     sub_1405C3818 @ 0x1405C3818 (sub_1405C3818.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiReplenishSlabAllocator @ 0x14020615C (MiReplenishSlabAllocator.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x14028D4F0 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiTradeActivePage @ 0x140294DF8 (MiTradeActivePage.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiReacquireWalkLocks @ 0x1402E32A0 (MiReacquireWalkLocks.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MiReleaseWalkLocks @ 0x140364CA0 (MiReleaseWalkLocks.c)
+ *     MiMakeDriverPageStayResident @ 0x14038C448 (MiMakeDriverPageStayResident.c)
+ *     MiCheckSlabPage @ 0x14038C61C (MiCheckSlabPage.c)
+ *     MiMarkPfnVerified @ 0x14038E794 (MiMarkPfnVerified.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiWriteValidPteVolatile @ 0x140443050 (MiWriteValidPteVolatile.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MiUnlockLoaderEntry @ 0x14049E30C (MiUnlockLoaderEntry.c)
+ *     MiAcquireLoadLock @ 0x1404A507C (MiAcquireLoadLock.c)
+ *     KeSetPagePrivilege @ 0x1404AA600 (KeSetPagePrivilege.c)
+ *     MiLockLoaderEntry @ 0x1405208A8 (MiLockLoaderEntry.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     sub_1405C6088 @ 0x1405C6088 (sub_1405C6088.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiProtectDriverSectionPte(__int64 *a1, volatile signed __int64 *a2, int a3)
@@ -128,12 +128,12 @@ __int64 __fastcall MiProtectDriverSectionPte(__int64 *a1, volatile signed __int6
     if ( (int)KeSetPagePrivilege(v15 / 48, (__int64)((_QWORD)a2 << 25) >> 16, 0LL, 0x80u) < 0 )
       KeBugCheckEx(0x1Au, 0x902uLL, v15 - 0x220000000000LL, (__int64)((_QWORD)a2 << 25) >> 16, 0LL);
     MiWriteValidPteVolatile(a2, 1, 0);
-    if ( (int)sub_1405C3818(v15 / 48, (__int64)((_QWORD)a2 << 25) >> 16) < 0 )
+    if ( (int)sub_1405C6088(v15 / 48, (__int64)((_QWORD)a2 << 25) >> 16) < 0 )
       KeBugCheckEx(0x1Au, 0x903uLL, (__int64)((_QWORD)a2 << 25) >> 16, 0LL, 0LL);
     MiMarkPfnVerified(v15 - 0x220000000000LL, 64);
     goto LABEL_37;
   }
-  v19 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v16 + 40) >> 43) & 0x3FFLL));
+  v19 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v16 + 40) >> 43) & 0x3FFLL));
   if ( (unsigned __int16)*(_DWORD *)(v16 + 32) != 1
     || (unsigned int)MiGetPfnSlabType(v15 - 0x220000000000LL) != 9
     && (unsigned int)MiCheckSlabPage(v15 - 0x220000000000LL, v20, 4) )

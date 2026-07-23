@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFormatMessage @ 0x140891340
+ * XREFs of RtlFormatMessage @ 0x1408925A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlFormatMessageEx @ 0x140891394 (RtlFormatMessageEx.c)
+ *     RtlFormatMessageEx @ 0x1408925F4 (RtlFormatMessageEx.c)
  */
 
 NTSTATUS __stdcall RtlFormatMessage(
@@ -17,14 +17,17 @@ NTSTATUS __stdcall RtlFormatMessage(
         ULONG BufferSize,
         PULONG ReturnLength)
 {
+  _PARSE_MESSAGE_CONTEXT *v10; // [rsp+48h] [rbp-10h]
+
   return RtlFormatMessageEx(
-           (int)Message,
+           Message,
            MaxWidth,
            IgnoreInserts,
            ArgumentsAreAnsi,
            ArgumentsAreAnArray,
-           (__int64)Arguments,
+           Arguments,
            Buffer,
            BufferSize,
-           (__int64)ReturnLength);
+           ReturnLength,
+           v10);
 }

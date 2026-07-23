@@ -41,44 +41,46 @@
  *     sub_18007D794 @ 0x18007D794 (sub_18007D794.c)
  */
 
-__int64 __fastcall sub_18001F5FC(unsigned __int64 a1)
+int __fastcall sub_18001F5FC(char *BaseAddress)
 {
-  __int64 result; // rax
-  __int64 v3; // r8
-  _QWORD *v4; // rdx
+  __int64 *v1; // rax
+  char **v3; // r8
+  PVOID *v4; // rdx
   _QWORD *v5; // rdi
   _QWORD *v6; // rsi
+  _ACTIVATION_CONTEXT *v7; // rcx
 
-  result = *(_QWORD *)(a1 + 152);
-  if ( *(_DWORD *)(result + 24) != -1 )
+  v1 = (__int64 *)*((_QWORD *)BaseAddress + 19);
+  if ( *((_DWORD *)v1 + 6) != -1 )
   {
-    result = *(_QWORD *)result;
-    if ( (*(_BYTE *)(result - 56) & 0x20) == 0 )
+    v1 = (__int64 *)*v1;
+    if ( (*(_BYTE *)(v1 - 7) & 0x20) == 0 )
     {
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 276), 0xFFFFFFFF);
-      if ( (_DWORD)result == 1 )
+      LODWORD(v1) = _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress + 69, 0xFFFFFFFF);
+      if ( (_DWORD)v1 == 1 )
       {
-        RtlAcquireSRWLockExclusive(&qword_18015D070);
-        v3 = *(_QWORD *)(a1 + 160);
-        if ( *(_QWORD *)(v3 + 8) != a1 + 160 || (v4 = *(_QWORD **)(a1 + 168), *v4 != a1 + 160) )
+        RtlAcquireSRWLockExclusive(&stru_18015D070);
+        v3 = (char **)*((_QWORD *)BaseAddress + 20);
+        if ( v3[1] != BaseAddress + 160 || (v4 = (PVOID *)*((_QWORD *)BaseAddress + 21), *v4 != BaseAddress + 160) )
           __fastfail(3u);
         *v4 = v3;
-        *(_QWORD *)(v3 + 8) = v4;
-        v5 = *(_QWORD **)(a1 + 152);
+        v3[1] = (char *)v4;
+        v5 = (_QWORD *)*((_QWORD *)BaseAddress + 19);
         v6 = (_QWORD *)*v5;
-        RtlReleaseSRWLockExclusive(&qword_18015D070);
-        if ( *(_WORD *)(a1 + 110) )
-          sub_18007D794(a1, 0LL);
-        sub_180074114(a1);
-        if ( (unsigned __int64)(*(_QWORD *)(a1 + 136) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
-          RtlReleaseActivationContext();
-        if ( *(_QWORD *)(a1 + 80) )
-          sub_180042420(a1 + 72);
-        result = RtlFreeHeap(qword_18015C288, 0, a1);
+        RtlReleaseSRWLockExclusive(&stru_18015D070);
+        if ( *((_WORD *)BaseAddress + 55) )
+          sub_18007D794(BaseAddress, 0LL);
+        sub_180074114(BaseAddress);
+        v7 = (_ACTIVATION_CONTEXT *)*((_QWORD *)BaseAddress + 17);
+        if ( (unsigned __int64)&v7[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
+          RtlReleaseActivationContext(v7);
+        if ( *((_QWORD *)BaseAddress + 10) )
+          sub_180042420(BaseAddress + 72);
+        LODWORD(v1) = RtlFreeHeap(HeapHandle, 0, BaseAddress);
         if ( v6 == v5 )
-          return sub_180071914(v5);
+          LODWORD(v1) = sub_180071914(v5);
       }
     }
   }
-  return result;
+  return (int)v1;
 }

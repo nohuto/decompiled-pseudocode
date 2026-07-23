@@ -45,15 +45,15 @@
  *     CmpDetachFromRegistryProcess @ 0x140BA9A10 (CmpDetachFromRegistryProcess.c)
  */
 
-__int64 __fastcall NtEnumerateValueKey(
-        HANDLE Handle,
-        unsigned int a2,
-        unsigned int a3,
-        unsigned __int64 a4,
-        size_t Size,
-        void *a6)
+NTSTATUS __cdecl NtEnumerateValueKey(
+        HANDLE KeyHandle,
+        ULONG Index,
+        KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass,
+        PVOID KeyValueInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  unsigned int v8; // r13d
+  ULONG v8; // r13d
   _QWORD *v10; // rdi
   __int64 v11; // rdx
   __int64 v12; // rcx
@@ -63,8 +63,8 @@ __int64 __fastcall NtEnumerateValueKey(
   char v16; // r15
   unsigned __int8 v17; // r14
   int v18; // r15d
-  int KeyValueData; // ebx
-  unsigned int v20; // r13d
+  NTSTATUS KeyValueData; // ebx
+  ULONG v20; // r13d
   __int64 v21; // rcx
   PVOID v22; // rbx
   struct _KTHREAD *CurrentThread; // rax
@@ -87,13 +87,13 @@ __int64 __fastcall NtEnumerateValueKey(
   __int64 v40; // rcx
   __int64 v41; // rcx
   struct _KAPC_STATE *p_ApcState; // rcx
-  unsigned int v43; // eax
+  ULONG v43; // eax
   __int64 v44; // r14
   PVOID v45; // rcx
   PVOID v47; // rax
   unsigned __int64 v48; // rdi
   unsigned int v50; // edx
-  unsigned int v51; // eax
+  ULONG v51; // eax
   char v52; // cl
   __int64 (__fastcall *v53)(_DWORD, _DWORD, _DWORD, _DWORD, __int64, __int64); // rcx
   KPROCESSOR_MODE PreviousMode; // r9
@@ -107,7 +107,7 @@ __int64 __fastcall NtEnumerateValueKey(
   _DWORD v63[3]; // [rsp+6Ch] [rbp-26Ch] BYREF
   __int64 v64; // [rsp+78h] [rbp-260h] BYREF
   PVOID v65; // [rsp+80h] [rbp-258h] BYREF
-  unsigned int v66; // [rsp+88h] [rbp-250h]
+  ULONG v66; // [rsp+88h] [rbp-250h]
   __int64 v67; // [rsp+90h] [rbp-248h] BYREF
   PVOID Object; // [rsp+98h] [rbp-240h] BYREF
   __int64 v69; // [rsp+A0h] [rbp-238h] BYREF
@@ -115,7 +115,7 @@ __int64 __fastcall NtEnumerateValueKey(
   _QWORD v71[2]; // [rsp+B0h] [rbp-228h] BYREF
   __int64 v72; // [rsp+C0h] [rbp-218h] BYREF
   __int64 v73; // [rsp+C8h] [rbp-210h] BYREF
-  size_t v74; // [rsp+D0h] [rbp-208h]
+  size_t Size; // [rsp+D0h] [rbp-208h]
   _KAFFINITY_EX v75; // [rsp+D8h] [rbp-200h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+1E0h] [rbp-F8h] BYREF
   struct _KAPC_STATE v77; // [rsp+210h] [rbp-C8h] BYREF
@@ -127,10 +127,10 @@ __int64 __fastcall NtEnumerateValueKey(
   __int64 *v83; // [rsp+280h] [rbp-58h]
   __int64 v84; // [rsp+288h] [rbp-50h]
 
-  v62 = a3;
-  v8 = a2;
-  v65 = a6;
-  v66 = a2;
+  v62 = KeyValueInformationClass;
+  v8 = Index;
+  v65 = ResultLength;
+  v66 = Index;
   *(_OWORD *)&v75.Count = 0LL;
   LODWORD(v64) = 0;
   memset(&v77, 0, sizeof(v77));
@@ -160,13 +160,13 @@ LABEL_89:
     v44 = 0LL;
     goto LABEL_62;
   }
-  if ( a3 > 2 )
+  if ( (unsigned int)KeyValueInformationClass > KeyValuePartialInformation )
   {
-    if ( CmpTraceRoutine && Handle )
+    if ( CmpTraceRoutine && KeyHandle )
     {
       PreviousMode = KeGetCurrentThread()->PreviousMode;
       v65 = 0LL;
-      if ( ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &v65, 0LL) >= 0 )
+      if ( ObReferenceObjectByHandle(KeyHandle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &v65, 0LL) >= 0 )
       {
         v44 = *((_QWORD *)v65 + 1);
         ObfDereferenceObject(v65);
@@ -182,7 +182,7 @@ LABEL_122:
   }
   v17 = KeGetCurrentThread()->PreviousMode;
   v18 = 1;
-  KeyValueData = CmObReferenceObjectByHandle((_DWORD)Handle, 1, v15, v17, (__int64)&v61, 0LL);
+  KeyValueData = CmObReferenceObjectByHandle((_DWORD)KeyHandle, 1, v15, v17, (__int64)&v61, 0LL);
   if ( KeyValueData < 0 )
   {
     v10 = v61;
@@ -196,10 +196,10 @@ LABEL_122:
   }
   if ( v17 == 1 )
   {
-    v20 = Size;
-    if ( (_DWORD)Size )
+    v20 = Length;
+    if ( Length )
     {
-      if ( (a4 & 3) != 0 )
+      if ( ((unsigned __int8)KeyValueInformation & 3) != 0 )
         ExRaiseDatatypeMisalignment();
       v21 = 0x7FFFFFFF0000LL;
     }
@@ -214,7 +214,7 @@ LABEL_122:
   }
   else
   {
-    v20 = Size;
+    v20 = Length;
     v22 = v65;
   }
   CurrentThread = KeGetCurrentThread();
@@ -226,15 +226,15 @@ LABEL_20:
     KeyValueData = CmKeyBodyRemapToVirtualForEnum(&v61, v17, 1LL, &Object);
     if ( KeyValueData < 0 )
       goto LABEL_107;
-    v75.StaticBitmap[16] = a4;
+    v75.StaticBitmap[16] = (unsigned __int64)KeyValueInformation;
     if ( !v20 )
     {
       v75.StaticBitmap[17] = 0LL;
       goto LABEL_28;
     }
-    if ( !*((_QWORD *)&CmpRegistryProcess + 1) || !v17 && a4 > 0x7FFFFFFEFFFFLL )
+    if ( !*((_QWORD *)&CmpRegistryProcess + 1) || !v17 && (unsigned __int64)KeyValueInformation > 0x7FFFFFFEFFFFLL )
     {
-      v75.StaticBitmap[17] = a4;
+      v75.StaticBitmap[17] = (unsigned __int64)KeyValueInformation;
       goto LABEL_28;
     }
     if ( (unsigned int)dword_140E09E08 > 5 && (qword_140E09E18 & 4) != 0 && (qword_140E09E20 & 4) == qword_140E09E20 )
@@ -292,7 +292,7 @@ LABEL_29:
                              (int)v61,
                              (int)Object,
                              0,
-                             a2,
+                             Index,
                              v62,
                              v75.StaticBitmap[17],
                              v20,
@@ -313,19 +313,19 @@ LABEL_55:
                   memmove((void *)v75.StaticBitmap[16], (const void *)v75.StaticBitmap[17], v20);
               }
               v16 = v55;
-              v8 = a2;
+              v8 = Index;
               v44 = *(_QWORD *)&v63[1];
             }
             else
             {
               v16 = v55;
-              v8 = a2;
+              v8 = Index;
               v44 = *(_QWORD *)&v63[1];
             }
             goto LABEL_62;
           }
           v28 = v75.StaticBitmap[17];
-          v74 = v75.StaticBitmap[17];
+          Size = v75.StaticBitmap[17];
           v67 = 0LL;
           memset(&ApcState, 0, sizeof(ApcState));
           v64 = 0LL;
@@ -340,7 +340,7 @@ LABEL_55:
           v30 = *((_QWORD *)v61 + 1);
           if ( *(_WORD *)(v30 + 66) )
           {
-            KeyValueData = CmEnumerateValueFromLayeredKey((__int64)v61, a2, v62, v28, v20, (__int64)v63);
+            KeyValueData = CmEnumerateValueFromLayeredKey((__int64)v61, Index, v62, v28, v20, (__int64)v63);
             v36 = 0LL;
             goto LABEL_46;
           }
@@ -359,7 +359,7 @@ LABEL_38:
                 v33 = 280LL;
               else
                 v33 = 96LL;
-              if ( a2 < *(_DWORD *)(v30 + v33) )
+              if ( Index < *(_DWORD *)(v30 + v33) )
               {
                 v34 = *(_QWORD *)(v30 + 32);
                 if ( (*(_BYTE *)(v34 + 140) & 1) != 0 )
@@ -367,14 +367,14 @@ LABEL_38:
                 else
                   CellFlat = HvpGetCellPaged(v34);
                 v36 = CellFlat;
-                v37 = *(_DWORD *)(CellFlat + 4LL * a2);
+                v37 = *(_DWORD *)(CellFlat + 4LL * Index);
                 v38 = *(_QWORD *)(v30 + 32);
                 if ( (*(_BYTE *)(v38 + 140) & 1) != 0 )
                   CellPaged = HvpGetCellFlat(v38, v37);
                 else
                   CellPaged = HvpGetCellPaged(v38);
                 v29 = CellPaged;
-                KeyValueData = CmpQueryKeyValueData(v30, v37, CellPaged, v62, v74, v20, (__int64)v63);
+                KeyValueData = CmpQueryKeyValueData(v30, v37, CellPaged, v62, Size, v20, (__int64)v63);
                 goto LABEL_46;
               }
               KeyValueData = -2147483622;
@@ -421,7 +421,7 @@ LABEL_46:
 LABEL_107:
         v10 = v61;
         v16 = v55;
-        v8 = a2;
+        v8 = Index;
         v44 = *(_QWORD *)&v63[1];
         goto LABEL_62;
       }
@@ -438,8 +438,8 @@ LABEL_28:
   }
   v10 = v61;
   v75.StaticBitmap[8] = (unsigned __int64)v61;
-  v75.StaticBitmap[9] = __PAIR64__(v62, a2);
-  v75.StaticBitmap[10] = a4;
+  v75.StaticBitmap[9] = __PAIR64__(v62, Index);
+  v75.StaticBitmap[10] = (unsigned __int64)KeyValueInformation;
   LODWORD(v75.StaticBitmap[11]) = v20;
   v75.StaticBitmap[12] = (unsigned __int64)v22;
   LOBYTE(v24) = 1;
@@ -451,7 +451,7 @@ LABEL_28:
     goto LABEL_20;
   }
   v16 = v55;
-  v8 = a2;
+  v8 = Index;
   v44 = *(_QWORD *)&v63[1];
   if ( v25 == -1073740541 )
     KeyValueData = 0;
@@ -497,5 +497,5 @@ LABEL_62:
   if ( v16 )
     CmpReleaseShutdownRundown(v45);
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v75);
-  return (unsigned int)KeyValueData;
+  return KeyValueData;
 }

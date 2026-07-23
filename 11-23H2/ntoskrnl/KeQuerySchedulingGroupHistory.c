@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQuerySchedulingGroupHistory @ 0x140293748
+ * XREFs of KeQuerySchedulingGroupHistory @ 0x1402939D8
  * Callers:
- *     PspQueryRateControlHistory @ 0x140706E4C (PspQueryRateControlHistory.c)
+ *     PspQueryRateControlHistory @ 0x14070705C (PspQueryRateControlHistory.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQuerySchedulingGroupHistory(__int64 a1, _QWORD *a2, _DWORD *a3, _DWORD *a4)
@@ -57,10 +57,10 @@ __int64 __fastcall KeQuerySchedulingGroupHistory(__int64 a1, _QWORD *a2, _DWORD 
   *a4 = v16 / PerformanceFrequency.QuadPart / v14;
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v22);
   OldIrql = v22.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v22.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

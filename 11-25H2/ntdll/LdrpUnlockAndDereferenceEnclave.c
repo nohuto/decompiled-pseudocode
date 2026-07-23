@@ -12,6 +12,6 @@
 
 __int64 __fastcall LdrpUnlockAndDereferenceEnclave(__int64 a1)
 {
-  RtlLeaveCriticalSection(a1 + 16);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 16));
   return LdrpDereferenceEnclave(a1);
 }

@@ -12,7 +12,7 @@ NTSTATUS __stdcall RtlGetFirstRange(PRTL_RANGE_LIST RangeList, PRTL_RANGE_LIST_I
 {
   NTSTATUS v3; // r9d
   struct _LIST_ENTRY *Flink; // rax
-  struct _LIST_ENTRY *v5; // rcx
+  _LIST_ENTRY *v5; // rcx
 
   Iterator->RangeListHead = &RangeList->ListHead;
   v3 = 0;

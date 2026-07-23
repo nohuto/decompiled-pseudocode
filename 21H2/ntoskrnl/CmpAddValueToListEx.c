@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpAddValueToListEx @ 0x140667464
+ * XREFs of CmpAddValueToListEx @ 0x14065C284
  * Callers:
- *     CmpCopyKeyPartial @ 0x14076F88C (CmpCopyKeyPartial.c)
- *     CmpMergeKeyValues @ 0x140879480 (CmpMergeKeyValues.c)
- *     CmpAddValueToList @ 0x14087B3B8 (CmpAddValueToList.c)
+ *     CmpCopyKeyPartial @ 0x14076FA4C (CmpCopyKeyPartial.c)
+ *     CmpMergeKeyValues @ 0x1408795E0 (CmpMergeKeyValues.c)
+ *     CmpAddValueToList @ 0x14087B518 (CmpAddValueToList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvReallocateCell @ 0x1406663B0 (HvReallocateCell.c)
- *     HvAllocateCell @ 0x140709404 (HvAllocateCell.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvReallocateCell @ 0x14065B1D0 (HvReallocateCell.c)
+ *     HvAllocateCell @ 0x1407207E4 (HvAllocateCell.c)
  */
 
 __int64 __fastcall CmpAddValueToListEx(ULONG_PTR a1, int a2, unsigned int a3, int a4, unsigned int *a5, int a6)

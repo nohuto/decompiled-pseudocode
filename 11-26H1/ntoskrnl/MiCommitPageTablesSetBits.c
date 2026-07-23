@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCommitPageTablesSetBits @ 0x1409C7A4C
+ * XREFs of MiCommitPageTablesSetBits @ 0x140998A2C
  * Callers:
- *     MiCommitPageTablesForVad @ 0x1409C6018 (MiCommitPageTablesForVad.c)
- *     MiCommitVadGetCharges @ 0x1409C7650 (MiCommitVadGetCharges.c)
+ *     MiCommitPageTablesForVad @ 0x140996FF8 (MiCommitPageTablesForVad.c)
+ *     MiCommitVadGetCharges @ 0x140998630 (MiCommitVadGetCharges.c)
  * Callees:
- *     RtlAreBitsClearEx @ 0x140431D80 (RtlAreBitsClearEx.c)
- *     MmGetMinWsPagePriority @ 0x1404B1660 (MmGetMinWsPagePriority.c)
+ *     RtlAreBitsClearEx @ 0x14041EDB0 (RtlAreBitsClearEx.c)
+ *     MmGetMinWsPagePriority @ 0x1404AACF0 (MmGetMinWsPagePriority.c)
  */
 
 char __fastcall MiCommitPageTablesSetBits(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4)

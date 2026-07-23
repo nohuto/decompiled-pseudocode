@@ -1,10 +1,10 @@
 /*
- * XREFs of atan @ 0x180091F80
+ * XREFs of atan @ 0x180091F90
  * Callers:
  *     <none>
  * Callees:
- *     _controlfp @ 0x180097CD8 (_controlfp.c)
- *     _handle_error @ 0x180097E14 (_handle_error.c)
+ *     _controlfp @ 0x180097CE8 (_controlfp.c)
+ *     _handle_error @ 0x180097E24 (_handle_error.c)
  */
 
 double __cdecl atan(double X)

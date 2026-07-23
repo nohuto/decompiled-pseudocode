@@ -1,5 +1,5 @@
 /*
- * XREFs of KeCopyAffinityEx2 @ 0x140411DC0
+ * XREFs of KeCopyAffinityEx2 @ 0x140404EE0
  * Callers:
  *     <none>
  * Callees:

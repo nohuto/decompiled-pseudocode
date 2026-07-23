@@ -2,9 +2,9 @@
  * XREFs of MiFreeMdlPageRun @ 0x140029DE0
  * Callers:
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
- *     MiDeleteAweInfoPages @ 0x14084FD38 (MiDeleteAweInfoPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x14085FE64 (MiAllocatePartitionPhysicalPages.c)
- *     MiFreePartitionPageRun @ 0x140860344 (MiFreePartitionPageRun.c)
+ *     MiDeleteAweInfoPages @ 0x140850F98 (MiDeleteAweInfoPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408610C4 (MiAllocatePartitionPhysicalPages.c)
+ *     MiFreePartitionPageRun @ 0x1408615A4 (MiFreePartitionPageRun.c)
  * Callees:
  *     MiFreeLargePageMemory @ 0x140026200 (MiFreeLargePageMemory.c)
  *     MiUpdateLargePageBitMap @ 0x140027BE8 (MiUpdateLargePageBitMap.c)
@@ -33,7 +33,7 @@ LABEL_3:
       {
         v3 = a1 & 0xFFFFFFFFFFFFFE00uLL;
         MiUpdateLargePageBitMap(
-          *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(48 * a1 - 0x57FFFFFFFD8LL) >> 40) & 0x3FFLL)),
+          *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(48 * a1 - 0x57FFFFFFFD8LL) >> 40) & 0x3FFLL)),
           a1 & 0xFFFFFFFFFFFFFE00uLL,
           0x200uLL,
           0,

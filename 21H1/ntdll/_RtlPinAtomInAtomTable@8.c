@@ -9,24 +9,24 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall RtlPinAtomInAtomTable(volatile signed __int32 *a1, unsigned __int16 a2)
+NTSTATUS __cdecl RtlPinAtomInAtomTable(PVOID AtomTableHandle, RTL_ATOM Atom)
 {
-  int v3; // esi
-  int v4; // eax
-  int v5; // eax
+  NTSTATUS v3; // esi
+  ULONG v4; // eax
+  ULONG v5; // eax
 
-  if ( !RtlpLockAtomTable(a1) )
+  if ( !RtlpLockAtomTable((_RTL_SRWLOCK *)AtomTableHandle) )
     return -1073741811;
   v3 = -1073741816;
-  if ( a2 < 0xC000u )
+  if ( Atom < 0xC000u )
   {
-    if ( a2 )
+    if ( Atom )
       v3 = 0;
   }
   else
   {
-    v4 = RtlpAtomMapAtomToHandleEntry((int)a1, a2 & 0x3FFF);
-    if ( v4 && *(_WORD *)(v4 + 6) == a2 )
+    v4 = RtlpAtomMapAtomToHandleEntry((int)AtomTableHandle, Atom & 0x3FFF);
+    if ( v4 && *(_WORD *)(v4 + 6) == Atom )
     {
       v5 = v4 + 8;
       if ( v5 )
@@ -36,6 +36,6 @@ int __stdcall RtlPinAtomInAtomTable(volatile signed __int32 *a1, unsigned __int1
       }
     }
   }
-  RtlReleaseSRWLockExclusive(a1 + 2);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 2);
   return v3;
 }

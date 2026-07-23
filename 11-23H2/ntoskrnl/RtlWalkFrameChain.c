@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlWalkFrameChain @ 0x140227760
+ * XREFs of RtlWalkFrameChain @ 0x140227870
  * Callers:
- *     RtlCaptureStackBackTrace @ 0x1402276E0 (RtlCaptureStackBackTrace.c)
- *     SepCreateTokenEx @ 0x140229710 (SepCreateTokenEx.c)
- *     EtwpTraceStackWalk @ 0x140468FCC (EtwpTraceStackWalk.c)
- *     KiDpcWatchdogCaptureStack @ 0x14056B214 (KiDpcWatchdogCaptureStack.c)
- *     SepGetStackTraceHash @ 0x1405B7C3C (SepGetStackTraceHash.c)
- *     EtwpGetStackExtendedHeaderItem @ 0x1405FFB3C (EtwpGetStackExtendedHeaderItem.c)
- *     EtwpCovSampCaptureKernelStack @ 0x1406033B8 (EtwpCovSampCaptureKernelStack.c)
- *     CmpThreadInfoLogStack @ 0x14061600C (CmpThreadInfoLogStack.c)
- *     SepDuplicateToken @ 0x140729B80 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x1407F1C00 (SepFilterToken.c)
- *     PoDiagCaptureUsermodeStack @ 0x140865128 (PoDiagCaptureUsermodeStack.c)
- *     EtwpCovSampCaptureUserStack @ 0x1408A87B6 (EtwpCovSampCaptureUserStack.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1409EA688 (EtwTimLogRedirectionTrustPolicy.c)
- *     ExpUpdateDebugInfo @ 0x1409F9258 (ExpUpdateDebugInfo.c)
+ *     RtlCaptureStackBackTrace @ 0x1402277F0 (RtlCaptureStackBackTrace.c)
+ *     SepCreateTokenEx @ 0x140229820 (SepCreateTokenEx.c)
+ *     EtwpTraceStackWalk @ 0x1404693CC (EtwpTraceStackWalk.c)
+ *     KiDpcWatchdogCaptureStack @ 0x14056B8D4 (KiDpcWatchdogCaptureStack.c)
+ *     SepGetStackTraceHash @ 0x1405B81AC (SepGetStackTraceHash.c)
+ *     EtwpGetStackExtendedHeaderItem @ 0x1406000AC (EtwpGetStackExtendedHeaderItem.c)
+ *     EtwpCovSampCaptureKernelStack @ 0x140603908 (EtwpCovSampCaptureKernelStack.c)
+ *     CmpThreadInfoLogStack @ 0x14061655C (CmpThreadInfoLogStack.c)
+ *     SepDuplicateToken @ 0x140729D80 (SepDuplicateToken.c)
+ *     SepFilterToken @ 0x1407F1ED0 (SepFilterToken.c)
+ *     PoDiagCaptureUsermodeStack @ 0x140865368 (PoDiagCaptureUsermodeStack.c)
+ *     EtwpCovSampCaptureUserStack @ 0x1408A8A06 (EtwpCovSampCaptureUserStack.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x1409EA918 (EtwTimLogRedirectionTrustPolicy.c)
+ *     ExpUpdateDebugInfo @ 0x1409F94E8 (ExpUpdateDebugInfo.c)
  * Callees:
- *     RtlEnoughStackSpaceForStackCapture @ 0x140227800 (RtlEnoughStackSpaceForStackCapture.c)
- *     MmCanThreadFault @ 0x14022784C (MmCanThreadFault.c)
- *     RtlpWalkFrameChain @ 0x1402A42A0 (RtlpWalkFrameChain.c)
+ *     RtlEnoughStackSpaceForStackCapture @ 0x140227910 (RtlEnoughStackSpaceForStackCapture.c)
+ *     MmCanThreadFault @ 0x14022795C (MmCanThreadFault.c)
+ *     RtlpWalkFrameChain @ 0x1402A4530 (RtlpWalkFrameChain.c)
  */
 
 ULONG __stdcall RtlWalkFrameChain(PVOID *Callers, ULONG Count, ULONG Flags)

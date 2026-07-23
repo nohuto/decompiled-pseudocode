@@ -1,30 +1,30 @@
 /*
- * XREFs of MiBuildReservationCluster @ 0x14011603C
+ * XREFs of MiBuildReservationCluster @ 0x1401165AC
  * Callers:
- *     MiGatherPagefilePages @ 0x140119444 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1401199B4 (MiGatherPagefilePages.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
- *     MiLockNestedPageAtDpcInline @ 0x14009E2E0 (MiLockNestedPageAtDpcInline.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
- *     MiReferencePageForModifiedWrite @ 0x140101FB8 (MiReferencePageForModifiedWrite.c)
- *     MiGetPageFileSectionForReservation @ 0x140115A88 (MiGetPageFileSectionForReservation.c)
- *     MiReleasePageFileSectionInfo @ 0x140115B2C (MiReleasePageFileSectionInfo.c)
- *     MiAddToReservationCluster @ 0x140115DF4 (MiAddToReservationCluster.c)
- *     MiGetPageForWriteCluster @ 0x140116654 (MiGetPageForWriteCluster.c)
- *     MiRefPageFileSpaceBitmaps @ 0x140116EE8 (MiRefPageFileSpaceBitmaps.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x140116F54 (MiDerefPageFileSpaceBitmaps.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     MiGetPageFileReservationOffset @ 0x1401EE980 (MiGetPageFileReservationOffset.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14009DAE0 (MiLockNestedPageAtDpcInline.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
+ *     MiReferencePageForModifiedWrite @ 0x1400FFD38 (MiReferencePageForModifiedWrite.c)
+ *     MiGetPageFileSectionForReservation @ 0x140115FF8 (MiGetPageFileSectionForReservation.c)
+ *     MiReleasePageFileSectionInfo @ 0x14011609C (MiReleasePageFileSectionInfo.c)
+ *     MiAddToReservationCluster @ 0x140116364 (MiAddToReservationCluster.c)
+ *     MiGetPageForWriteCluster @ 0x140116BC4 (MiGetPageForWriteCluster.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x140117458 (MiRefPageFileSpaceBitmaps.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x1401174C4 (MiDerefPageFileSpaceBitmaps.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     MiGetPageFileReservationOffset @ 0x1401EE7AC (MiGetPageFileReservationOffset.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -180,7 +180,7 @@ LABEL_14:
   {
     v69 = 0LL;
   }
-  v22 = MiReservePtes((__int64)&qword_140327870, 1uLL, v19);
+  v22 = MiReservePtes((__int64)&qword_1403278B0, 1uLL, v19);
   v64 = v22;
   v23 = v22;
   if ( !v22 )
@@ -223,7 +223,7 @@ LABEL_14:
       --v35;
       ++v14;
       *++v70 = v43;
-      if ( v43 == qword_140327688 )
+      if ( v43 == qword_1403276C8 )
         ++v40;
       if ( v60 == 3 && v14 >= 0x10 )
         break;
@@ -263,7 +263,7 @@ LABEL_14:
       LODWORD(v44) = v44 - 1;
       ++v14;
       *v49 = v51;
-      if ( v51 == qword_140327688 )
+      if ( v51 == qword_1403276C8 )
         ++v40;
     }
     while ( (v60 != 3 || v14 < 0x10) && (_DWORD)v44 );
@@ -277,7 +277,7 @@ LABEL_14:
     v20 = a1;
   }
   v12 = MiGetPageFileReservationOffset(48 * *v20 - 0x57FFFFFFFF0LL);
-  MiReleasePtes((__int64)&qword_140327870, v64, 1u);
+  MiReleasePtes((__int64)&qword_1403278B0, v64, 1u);
 LABEL_15:
   v21 = (unsigned __int8)MiLockPageInline(v62);
   MiDecrementShareCount(v62);

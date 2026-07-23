@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsUmDirectedFxRemoveTestDevice @ 0x1407648B4
+ * XREFs of PopDirectedDripsUmDirectedFxRemoveTestDevice @ 0x140764284
  * Callers:
- *     PopDirectedDripsUmPowerInformationInternal @ 0x1406F8004 (PopDirectedDripsUmPowerInformationInternal.c)
+ *     PopDirectedDripsUmPowerInformationInternal @ 0x1406F6004 (PopDirectedDripsUmPowerInformationInternal.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PopDirectedDripsUmDirectedFxRemoveTestDevice(unsigned int a1, __int64 a2)
@@ -29,13 +29,13 @@ __int64 __fastcall PopDirectedDripsUmDirectedFxRemoveTestDevice(unsigned int a1,
     Buffer[0] = 1;
     v8 = a2 + 12;
     Buffer[1] = v3;
-    PopAcquireRwLockExclusive(&PopDirectedDripsUmLock);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopDirectedDripsUmLock);
     v5 = 0;
     if ( RtlDeleteElementGenericTableAvl(&PopDirectedDripsUmTestDeviceTable, Buffer) )
       _InterlockedDecrement(&PopDirectedDripsUmTestDeviceCount);
     else
       v5 = -1073741275;
-    PopReleaseRwLock((signed __int64 *)&PopDirectedDripsUmLock);
+    PopReleaseRwLock(&PopDirectedDripsUmLock);
   }
   return v5;
 }

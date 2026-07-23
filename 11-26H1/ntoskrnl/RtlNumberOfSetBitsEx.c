@@ -4,18 +4,18 @@
  *     KeFindBiasedSetBitGroupMask @ 0x1402005D0 (KeFindBiasedSetBitGroupMask.c)
  *     KeFindFirstSetLeftGroupMask @ 0x140200760 (KeFindFirstSetLeftGroupMask.c)
  *     KeCountSetBitsGroupMask @ 0x1402007F0 (KeCountSetBitsGroupMask.c)
- *     IopLiveDumpWriteDumpFile @ 0x140343D08 (IopLiveDumpWriteDumpFile.c)
- *     MiCreateFileOnlyImageFixupExtents @ 0x140507310 (MiCreateFileOnlyImageFixupExtents.c)
- *     HvlIsSingleGroupRequired @ 0x1405B87E4 (HvlIsSingleGroupRequired.c)
- *     IoWriteCrashDump @ 0x1405C7FAC (IoWriteCrashDump.c)
- *     IopLiveDumpCollectPages @ 0x1405CE958 (IopLiveDumpCollectPages.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x1405CF098 (IopLiveDumpEstimateMemoryPages.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D304C (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     RtlNumberOfClearBitsEx @ 0x140618B50 (RtlNumberOfClearBitsEx.c)
- *     MiMakeEntireHugePfnGood @ 0x1406EC6B8 (MiMakeEntireHugePfnGood.c)
- *     MiInsertPartitionPageNodes @ 0x140708F28 (MiInsertPartitionPageNodes.c)
- *     MiFinishChildPartitionHotAdd @ 0x14087BDA0 (MiFinishChildPartitionHotAdd.c)
- *     MiInsertPartitionPages @ 0x14087C1C4 (MiInsertPartitionPages.c)
+ *     IopLiveDumpWriteDumpFile @ 0x140345D88 (IopLiveDumpWriteDumpFile.c)
+ *     MiCreateFileOnlyImageFixupExtents @ 0x140500CE0 (MiCreateFileOnlyImageFixupExtents.c)
+ *     HvlIsSingleGroupRequired @ 0x1405BB054 (HvlIsSingleGroupRequired.c)
+ *     IoWriteCrashDump @ 0x1405CA87C (IoWriteCrashDump.c)
+ *     IopLiveDumpCollectPages @ 0x1405D1168 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1405D18A8 (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D583C (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     RtlNumberOfClearBitsEx @ 0x14061BBA0 (RtlNumberOfClearBitsEx.c)
+ *     MiMakeEntireHugePfnGood @ 0x1406F1358 (MiMakeEntireHugePfnGood.c)
+ *     MiInsertPartitionPageNodes @ 0x14070DBDC (MiInsertPartitionPageNodes.c)
+ *     MiFinishChildPartitionHotAdd @ 0x1408821A0 (MiFinishChildPartitionHotAdd.c)
+ *     MiInsertPartitionPages @ 0x1408825C4 (MiInsertPartitionPages.c)
  * Callees:
  *     <none>
  */
@@ -68,7 +68,7 @@ __int64 __fastcall RtlNumberOfSetBitsEx(__int64 *a1)
     v12 = *(_BYTE *)v3;
     v3 = (unsigned __int64 *)((char *)v3 + 1);
     if ( i == v7 - 1 && v4 )
-      v12 &= byte_140032340[v4];
+      v12 &= byte_1400327C0[v4];
     ++i;
     result += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v12);
   }
@@ -95,7 +95,7 @@ __int64 __fastcall RtlNumberOfSetBitsEx(__int64 *a1)
       if ( i == v15 )
       {
         if ( v16 )
-          v17 &= byte_140032340[v16];
+          v17 &= byte_1400327C0[v16];
       }
       ++i;
       result += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v17);

@@ -12,9 +12,9 @@ __int64 __fastcall SC_DISK::GetStoragePropertyPost(
         struct _STORAGE_DESCRIPTOR_HEADER *a3)
 {
   unsigned int v3; // r9d
-  ULONG Version; // ecx
-  ULONG v5; // ecx
-  ULONG Size; // eax
+  DWORD Version; // ecx
+  DWORD v5; // ecx
+  DWORD Size; // eax
 
   v3 = 0;
   if ( a2 != StorageDeviceWriteCacheProperty )

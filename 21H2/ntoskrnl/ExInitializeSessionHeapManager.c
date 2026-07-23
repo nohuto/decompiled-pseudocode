@@ -1,16 +1,16 @@
 /*
- * XREFs of ExInitializeSessionHeapManager @ 0x14039D5C4
+ * XREFs of ExInitializeSessionHeapManager @ 0x14039D714
  * Callers:
- *     MiSessionCreate @ 0x14078620C (MiSessionCreate.c)
+ *     MiSessionCreate @ 0x1407863CC (MiSessionCreate.c)
  * Callees:
- *     ExCleanupSessionHeapManager @ 0x140389810 (ExCleanupSessionHeapManager.c)
- *     ExCreateHeap @ 0x14039D748 (ExCreateHeap.c)
- *     RtlHpHeapManagerStart @ 0x14039D788 (RtlHpHeapManagerStart.c)
- *     RtlHpHeapManagerInitialize @ 0x14039DD3C (RtlHpHeapManagerInitialize.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiSessionPoolTrackTable @ 0x1406C3F90 (MiSessionPoolTrackTable.c)
- *     MiSessionPoolTrackTableSize @ 0x1407D4EE8 (MiSessionPoolTrackTableSize.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExCleanupSessionHeapManager @ 0x140389960 (ExCleanupSessionHeapManager.c)
+ *     ExCreateHeap @ 0x14039D898 (ExCreateHeap.c)
+ *     RtlHpHeapManagerStart @ 0x14039D8D8 (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerInitialize @ 0x14039DE8C (RtlHpHeapManagerInitialize.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiSessionPoolTrackTable @ 0x140622B50 (MiSessionPoolTrackTable.c)
+ *     MiSessionPoolTrackTableSize @ 0x1407D5058 (MiSessionPoolTrackTableSize.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExInitializeSessionHeapManager(int a1, int a2)

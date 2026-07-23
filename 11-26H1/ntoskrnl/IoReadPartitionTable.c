@@ -1,16 +1,16 @@
 /*
- * XREFs of IoReadPartitionTable @ 0x140790F90
+ * XREFs of IoReadPartitionTable @ 0x140793AC0
  * Callers:
- *     DifIoReadPartitionTableWrapper @ 0x14065DA80 (DifIoReadPartitionTableWrapper.c)
+ *     DifIoReadPartitionTableWrapper @ 0x140661660 (DifIoReadPartitionTableWrapper.c)
  * Callees:
- *     ??0SC_DISK@@QEAA@XZ @ 0x14071AC64 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x14071AD4C (--1SC_DISK@@UEAA@XZ.c)
- *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14071B498 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x140790B20 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140790C5C (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x14071F8F4 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x14071F9DC (--1SC_DISK@@UEAA@XZ.c)
+ *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x140720128 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x140793650 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14079378C (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoReadPartitionTable(
@@ -25,13 +25,13 @@ NTSTATUS __stdcall IoReadPartitionTable(
   int PartitionTable; // eax
   __int64 v10; // rdx
   __int64 v11; // r8
-  ULONG *v12; // rbx
+  DWORD *v12; // rbx
   size_t v13; // rbp
   struct _DRIVE_LAYOUT_INFORMATION *v14; // rax
   __int64 v15; // r8
   struct _DRIVE_LAYOUT_INFORMATION *v16; // r10
   __int64 v17; // rcx
-  ULONG *v18; // r9
+  DWORD *v18; // r9
   char v19; // al
   PVOID P; // [rsp+20h] [rbp-1C8h] BYREF
   _QWORD v22[50]; // [rsp+30h] [rbp-1B8h] BYREF
@@ -45,7 +45,7 @@ NTSTATUS __stdcall IoReadPartitionTable(
   if ( v8 >= 0 )
   {
     PartitionTable = SC_DISK::ReadPartitionTable((SC_DISK *)v22, (struct SC_DISK_LAYOUT **)&P);
-    v12 = (ULONG *)P;
+    v12 = (DWORD *)P;
     v8 = PartitionTable;
     if ( PartitionTable >= 0 )
     {

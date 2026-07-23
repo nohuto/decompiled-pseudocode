@@ -8,7 +8,7 @@
  *     MiCheckProtoPtePageState @ 0x140030780 (MiCheckProtoPtePageState.c)
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
  *     MiMigratePfn @ 0x14003C640 (MiMigratePfn.c)
- *     MiUnlockCodePage @ 0x14009C770 (MiUnlockCodePage.c)
+ *     MiUnlockCodePage @ 0x14009C6B0 (MiUnlockCodePage.c)
  * Callees:
  *     <none>
  */

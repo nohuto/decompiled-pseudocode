@@ -1,21 +1,21 @@
 /*
- * XREFs of AslpFileGetImageNtHeader @ 0x14088D430
+ * XREFs of AslpFileGetImageNtHeader @ 0x14089382C
  * Callers:
- *     AslFileMappingGetImageTypeEx @ 0x140888D50 (AslFileMappingGetImageTypeEx.c)
- *     AslpFileGetClrVersion @ 0x14088C754 (AslpFileGetClrVersion.c)
- *     AslpFileGetExeWrapper @ 0x14088CBA4 (AslpFileGetExeWrapper.c)
- *     AslpFileGetImageResourceDirectoryRoot @ 0x14088D570 (AslpFileGetImageResourceDirectoryRoot.c)
- *     AslpFileGetNtHeaderAttributes @ 0x14088D740 (AslpFileGetNtHeaderAttributes.c)
- *     AslpFileGetVersionBlockFromResourceRoot @ 0x14088E12C (AslpFileGetVersionBlockFromResourceRoot.c)
- *     AslpFileIsArm64XBinary @ 0x14088E8A8 (AslpFileIsArm64XBinary.c)
- *     AslpFileQueryExportName @ 0x14088EF6C (AslpFileQueryExportName.c)
- *     AslpImageFirstSectionUma @ 0x14088F438 (AslpImageFirstSectionUma.c)
+ *     AslFileMappingGetImageTypeEx @ 0x14088F14C (AslFileMappingGetImageTypeEx.c)
+ *     AslpFileGetClrVersion @ 0x140892B50 (AslpFileGetClrVersion.c)
+ *     AslpFileGetExeWrapper @ 0x140892FA0 (AslpFileGetExeWrapper.c)
+ *     AslpFileGetImageResourceDirectoryRoot @ 0x14089396C (AslpFileGetImageResourceDirectoryRoot.c)
+ *     AslpFileGetNtHeaderAttributes @ 0x140893B3C (AslpFileGetNtHeaderAttributes.c)
+ *     AslpFileGetVersionBlockFromResourceRoot @ 0x140894528 (AslpFileGetVersionBlockFromResourceRoot.c)
+ *     AslpFileIsArm64XBinary @ 0x140894CA4 (AslpFileIsArm64XBinary.c)
+ *     AslpFileQueryExportName @ 0x140895368 (AslpFileQueryExportName.c)
+ *     AslpImageFirstSectionUma @ 0x140895834 (AslpImageFirstSectionUma.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileGetImageNtHeader(_QWORD *a1, __int64 a2)

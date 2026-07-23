@@ -12,16 +12,16 @@
  *     LdrpLogDbgPrint @ 0x1800CDCC8 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpFindKnownDll(unsigned __int16 *a1, __int64 a2, unsigned __int16 *a3, HANDLE *a4)
+__int64 __fastcall LdrpFindKnownDll(
+        UNICODE_STRING *Source,
+        PUNICODE_STRING DestinationString,
+        PUNICODE_STRING Destination,
+        PHANDLE SectionHandle)
 {
-  int v8; // eax
+  NTSTATUS v8; // eax
   int UnicodeString; // ebx
-  __int64 v10; // rbx
-  int v12; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v13; // [rsp+38h] [rbp-30h]
-  unsigned __int16 *v14; // [rsp+40h] [rbp-28h]
-  int v15; // [rsp+48h] [rbp-20h]
-  __int128 v16; // [rsp+50h] [rbp-18h]
+  const WCHAR *v10; // rbx
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
 
   if ( (LdrpDebugFlags & 9) != 0 )
     LdrpLogDbgPrint(
@@ -30,19 +30,19 @@ __int64 __fastcall LdrpFindKnownDll(unsigned __int16 *a1, __int64 a2, unsigned _
       (unsigned int)"LdrpFindKnownDll",
       3,
       (__int64)"DLL name: %wZ\n",
-      a1);
+      Source);
   if ( !LdrpKnownDllDirectoryHandle )
   {
 LABEL_11:
     UnicodeString = -1073741515;
     goto LABEL_7;
   }
-  v12 = 48;
-  v13 = LdrpKnownDllDirectoryHandle;
-  v15 = 64;
-  v14 = a1;
-  v16 = 0LL;
-  v8 = NtOpenSection(a4, 13LL, &v12);
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = LdrpKnownDllDirectoryHandle;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.ObjectName = Source;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v8 = NtOpenSection(SectionHandle, 0xDu, &ObjectAttributes);
   UnicodeString = v8;
   if ( v8 < 0 )
   {
@@ -50,18 +50,18 @@ LABEL_11:
       goto LABEL_7;
     goto LABEL_11;
   }
-  UnicodeString = LdrpAllocateUnicodeString(a3, *a1 + (unsigned int)(unsigned __int16)LdrpKnownDllPath + 2);
+  UnicodeString = LdrpAllocateUnicodeString(Destination, Source->Length + (unsigned int)LdrpKnownDllPath.Length + 2);
   if ( UnicodeString < 0 )
   {
-    NtClose(*a4);
+    NtClose(*SectionHandle);
   }
   else
   {
-    RtlAppendUnicodeStringToString(a3, &LdrpKnownDllPath);
-    RtlAppendUnicodeToString(a3, L"\\");
-    v10 = *((_QWORD *)a3 + 1) + *a3;
-    RtlAppendUnicodeStringToString(a3, a1);
-    RtlInitUnicodeStringEx(a2, v10);
+    RtlAppendUnicodeStringToString(Destination, &LdrpKnownDllPath);
+    RtlAppendUnicodeToString(Destination, L"\\");
+    v10 = (wchar_t *)((char *)Destination->Buffer + Destination->Length);
+    RtlAppendUnicodeStringToString(Destination, Source);
+    RtlInitUnicodeStringEx(DestinationString, v10);
     UnicodeString = 0;
   }
 LABEL_7:

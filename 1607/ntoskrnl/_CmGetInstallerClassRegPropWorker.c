@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetInstallerClassRegPropWorker @ 0x140504104
+ * XREFs of _CmGetInstallerClassRegPropWorker @ 0x1404E7094
  * Callers:
- *     _CmGetInstallerClassRegProp @ 0x140504368 (_CmGetInstallerClassRegProp.c)
+ *     _CmGetInstallerClassRegProp @ 0x1404E72F8 (_CmGetInstallerClassRegProp.c)
  * Callees:
- *     _MapCmClassPropertyToRegValue @ 0x1400C45C8 (_MapCmClassPropertyToRegValue.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _CmOpenInstallerClassRegKey @ 0x1404F7A60 (_CmOpenInstallerClassRegKey.c)
- *     _PnpOpenPropertiesKey @ 0x1404FAC30 (_PnpOpenPropertiesKey.c)
- *     _PnpCtxRegQueryValueIndirect @ 0x140501594 (_PnpCtxRegQueryValueIndirect.c)
+ *     _MapCmClassPropertyToRegValue @ 0x1400C2468 (_MapCmClassPropertyToRegValue.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1404DA9EC (_CmOpenInstallerClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1404DDBBC (_PnpOpenPropertiesKey.c)
+ *     _PnpCtxRegQueryValueIndirect @ 0x1404E4524 (_PnpCtxRegQueryValueIndirect.c)
  */
 
 __int64 __fastcall CmGetInstallerClassRegPropWorker(
@@ -26,7 +26,7 @@ __int64 __fastcall CmGetInstallerClassRegPropWorker(
   unsigned int v11; // r13d
   const wchar_t *v12; // rax
   int ValueIndirect; // eax
-  HANDLE v15; // rdx
+  int v15; // edx
   __int64 v16; // [rsp+28h] [rbp-38h]
   HANDLE Handle; // [rsp+48h] [rbp-18h] BYREF
   HANDLE v18; // [rsp+50h] [rbp-10h] BYREF
@@ -65,10 +65,10 @@ LABEL_11:
     }
     else
     {
-      v15 = Handle;
+      v15 = (int)Handle;
       if ( v9 )
-        v15 = v9;
-      v8 = PnpOpenPropertiesKey(a1, (__int64)v15, 0LL, 1u, 0, v16, &v18);
+        v15 = (int)v9;
+      v8 = PnpOpenPropertiesKey(a1, v15, 0LL, 1, 0, v16, &v18);
       if ( v8 < 0 )
       {
 LABEL_37:

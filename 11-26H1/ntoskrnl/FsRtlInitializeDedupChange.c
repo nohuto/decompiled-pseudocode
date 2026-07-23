@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlInitializeDedupChange @ 0x14078FB30
+ * XREFs of FsRtlInitializeDedupChange @ 0x140792660
  * Callers:
- *     FsRtlInitSystem @ 0x140CB8A6C (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140CBEAB0 (FsRtlInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140260870 (ExInitializeResourceLite.c)
+ *     ExInitializeResourceLite @ 0x14021A0F0 (ExInitializeResourceLite.c)
  */
 
 NTSTATUS FsRtlInitializeDedupChange()
 {
-  VslpReservedTransferLock.KernelWaitTime = (unsigned __int64)&VslpReservedTransferLock.ReservedPreviousReadyTimeValue;
-  *(_QWORD *)&VslpReservedTransferLock.ReservedPreviousReadyTimeValue = &VslpReservedTransferLock.ReservedPreviousReadyTimeValue;
-  return ExInitializeResourceLite((PERESOURCE)&VslpReservedTransferLock.UserWaitTime);
+  VslpReservedTransferLock.KernelShadowStackInitial = &VslpReservedTransferLock.KernelShadowStack;
+  VslpReservedTransferLock.KernelShadowStack = &VslpReservedTransferLock.KernelShadowStack;
+  return ExInitializeResourceLite((PERESOURCE)&VslpReservedTransferLock.KernelShadowStackBase);
 }

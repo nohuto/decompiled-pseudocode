@@ -1,11 +1,11 @@
 /*
  * XREFs of RtlLookupElementGenericTableFullAvl @ 0x1402DF320
  * Callers:
- *     VfAvlLookupTreeNode @ 0x1402D8518 (VfAvlLookupTreeNode.c)
- *     PiDmAddCacheReferenceForObject @ 0x14076A3C4 (PiDmAddCacheReferenceForObject.c)
- *     PiPnpRtlObjectEventCreate @ 0x14077A750 (PiPnpRtlObjectEventCreate.c)
+ *     sub_1402D8518 @ 0x1402D8518 (sub_1402D8518.c)
+ *     sub_14076A3C4 @ 0x14076A3C4 (sub_14076A3C4.c)
+ *     sub_14077A750 @ 0x14077A750 (sub_14077A750.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
 PVOID __stdcall RtlLookupElementGenericTableFullAvl(
@@ -15,7 +15,7 @@ PVOID __stdcall RtlLookupElementGenericTableFullAvl(
         TABLE_SEARCH_RESULT *SearchResult)
 {
   _RTL_BALANCED_LINKS *i; // rbx
-  _RTL_GENERIC_COMPARE_RESULTS v9; // eax
+  int v9; // eax
 
   if ( Table->NumberGenericTableElements )
   {
@@ -23,7 +23,7 @@ PVOID __stdcall RtlLookupElementGenericTableFullAvl(
     {
       while ( 1 )
       {
-        v9 = Table->CompareRoutine(Table, Buffer, &i[1]);
+        v9 = sub_14042A5E0(Table, Buffer);
         if ( v9 )
           break;
         if ( !i->LeftChild )
@@ -34,7 +34,7 @@ PVOID __stdcall RtlLookupElementGenericTableFullAvl(
         }
         i = i->LeftChild;
       }
-      if ( v9 != GenericGreaterThan )
+      if ( v9 != 1 )
         break;
       if ( !i->RightChild )
       {

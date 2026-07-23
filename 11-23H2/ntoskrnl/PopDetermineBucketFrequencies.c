@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDetermineBucketFrequencies @ 0x1405836F0
+ * XREFs of PopDetermineBucketFrequencies @ 0x140583BE0
  * Callers:
- *     PopRegisterEnergyEstimation @ 0x1403B56D0 (PopRegisterEnergyEstimation.c)
+ *     PopRegisterEnergyEstimation @ 0x1403B58B0 (PopRegisterEnergyEstimation.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     __report_rangecheckfailure @ 0x1404FE0EC (__report_rangecheckfailure.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     __report_rangecheckfailure @ 0x1404FE63C (__report_rangecheckfailure.c)
  */
 
 __int64 PopDetermineBucketFrequencies()
@@ -81,7 +81,7 @@ LABEL_55:
     }
     while ( v0 < (unsigned int)v1 );
   }
-  *((_QWORD *)&v42 + 1) = qword_140C0BD58;
+  *((_QWORD *)&v42 + 1) = qword_140C0BD68;
   *(_QWORD *)&v42 = &PpmPerfStatesRegistered;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v46, (unsigned __int16 **)&v42) )
   {
@@ -194,7 +194,7 @@ LABEL_55:
     }
     while ( v15 );
   }
-  *((_QWORD *)&v42 + 1) = qword_140C0BD58;
+  *((_QWORD *)&v42 + 1) = qword_140C0BD68;
   *(_QWORD *)&v42 = &PpmPerfStatesRegistered;
   LOWORD(v43) = 0;
   while ( 1 )

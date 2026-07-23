@@ -1,9 +1,9 @@
 /*
- * XREFs of VmSecureBackingMemory @ 0x140A9ADB0
+ * XREFs of VmSecureBackingMemory @ 0x140A96320
  * Callers:
  *     <none>
  * Callees:
- *     MmSecureVirtualMemoryEx @ 0x1409EA790 (MmSecureVirtualMemoryEx.c)
+ *     MmSecureVirtualMemoryEx @ 0x1409E5080 (MmSecureVirtualMemoryEx.c)
  */
 
 __int64 __fastcall VmSecureBackingMemory(unsigned __int64 a1, __int64 a2)
@@ -12,6 +12,6 @@ __int64 __fastcall VmSecureBackingMemory(unsigned __int64 a1, __int64 a2)
 
   result = 0LL;
   if ( (a1 & 0xFFF) == 0 && a2 && (a2 & 0xFFF) == 0 )
-    return MmSecureVirtualMemoryEx(a1, a2, 1u, 14);
+    return MmSecureVirtualMemoryEx(a1, a2, 1u, 14LL);
   return result;
 }

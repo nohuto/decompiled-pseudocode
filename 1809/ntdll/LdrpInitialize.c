@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpInitialize @ 0x1800786F8
+ * XREFs of LdrpInitialize @ 0x180078708
  * Callers:
- *     LdrInitializeThunk @ 0x1800786D0 (LdrInitializeThunk.c)
+ *     LdrInitializeThunk @ 0x1800786E0 (LdrInitializeThunk.c)
  * Callees:
- *     _LdrpInitialize @ 0x18007874C (_LdrpInitialize.c)
+ *     _LdrpInitialize @ 0x18007875C (_LdrpInitialize.c)
  *     InitSecurityCookie @ 0x1800D24DC (InitSecurityCookie.c)
  */
 

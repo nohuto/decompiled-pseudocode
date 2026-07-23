@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTpSetupCompletion @ 0x1408BD370
+ * XREFs of KiTpSetupCompletion @ 0x1408BD4D0
  * Callers:
- *     KeSetTracepoint @ 0x1408BC370 (KeSetTracepoint.c)
+ *     KeSetTracepoint @ 0x1408BC4D0 (KeSetTracepoint.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     KiTpReadImageData @ 0x1408BD28C (KiTpReadImageData.c)
- *     KiTpParseInstruction @ 0x140A132AC (KiTpParseInstruction.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     KiTpReadImageData @ 0x1408BD3EC (KiTpReadImageData.c)
+ *     KiTpParseInstruction @ 0x140A142AC (KiTpParseInstruction.c)
  */
 
 __int64 __fastcall KiTpSetupCompletion(_KPROCESS *a1, char a2, const void *a3, void *a4, unsigned int Size, __int64 a6)
@@ -19,7 +19,7 @@ __int64 __fastcall KiTpSetupCompletion(_KPROCESS *a1, char a2, const void *a3, v
   v10 = 4096 - ((unsigned __int16)a3 & 0xFFF);
   if ( v10 > 0xF )
     v10 = 15;
-  ImageData = KiTpReadImageData(a1, a2, a3, (_DWORD *)(a6 + 6), v10);
+  ImageData = KiTpReadImageData(a1, a2, a3, (void *)(a6 + 6), v10);
   if ( ImageData >= 0 )
   {
     *(_BYTE *)(a6 + 5) = v10;
@@ -31,7 +31,7 @@ __int64 __fastcall KiTpSetupCompletion(_KPROCESS *a1, char a2, const void *a3, v
       *(_OWORD *)a6 = 0LL;
       *(_OWORD *)(a6 + 16) = 0LL;
       *(_QWORD *)(a6 + 32) = 0LL;
-      ImageData = KiTpReadImageData(a1, a2, a3, (_DWORD *)(a6 + 6), 0xFu);
+      ImageData = KiTpReadImageData(a1, a2, a3, (void *)(a6 + 6), 0xFu);
       if ( ImageData < 0 )
         return (unsigned int)ImageData;
       *(_BYTE *)(a6 + 5) = 15;

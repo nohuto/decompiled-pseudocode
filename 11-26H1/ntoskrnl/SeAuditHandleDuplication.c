@@ -1,19 +1,19 @@
 /*
- * XREFs of SeAuditHandleDuplication @ 0x1409F9428
+ * XREFs of SeAuditHandleDuplication @ 0x140B2A79C
  * Callers:
- *     ObAuditInheritedHandleProcedure @ 0x1407C20D0 (ObAuditInheritedHandleProcedure.c)
- *     ObDuplicateObject @ 0x1408F0680 (ObDuplicateObject.c)
- *     ObCompleteObjectDuplication @ 0x1409714E0 (ObCompleteObjectDuplication.c)
+ *     ObAuditInheritedHandleProcedure @ 0x1407C5130 (ObAuditInheritedHandleProcedure.c)
+ *     ObDuplicateObject @ 0x1408F6C40 (ObDuplicateObject.c)
+ *     ObCompleteObjectDuplication @ 0x1409BB650 (ObCompleteObjectDuplication.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x1402153F8 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     ObNormalizeHandleValue @ 0x1409FA514 (ObNormalizeHandleValue.c)
+ *     SepAdtLogAuditRecord @ 0x140215728 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     ObNormalizeHandleValue @ 0x14091F114 (ObNormalizeHandleValue.c)
  */
 
-void __fastcall SeAuditHandleDuplication(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall SeAuditHandleDuplication(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v8; // rsi
   __int64 v9; // rax
@@ -34,13 +34,13 @@ void __fastcall SeAuditHandleDuplication(__int64 a1, __int64 a2, __int64 a3, __i
   __int64 v24; // [rsp+A8h] [rbp-60h]
   int v25; // [rsp+C0h] [rbp-48h]
   int v26; // [rsp+C4h] [rbp-44h]
-  __int64 v27; // [rsp+C8h] [rbp-40h]
+  unsigned __int64 v27; // [rsp+C8h] [rbp-40h]
   int v28; // [rsp+E0h] [rbp-28h]
   int v29; // [rsp+E4h] [rbp-24h]
   __int64 v30; // [rsp+E8h] [rbp-20h]
   int v31; // [rsp+100h] [rbp-8h]
   int v32; // [rsp+104h] [rbp-4h]
-  __int64 v33; // [rsp+108h] [rbp+0h]
+  unsigned __int64 v33; // [rsp+108h] [rbp+0h]
   int v34; // [rsp+120h] [rbp+18h]
   int v35; // [rsp+124h] [rbp+1Ch]
   __int64 v36; // [rsp+128h] [rbp+20h]

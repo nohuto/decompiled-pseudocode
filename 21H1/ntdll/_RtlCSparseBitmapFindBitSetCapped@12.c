@@ -109,7 +109,7 @@ LABEL_9:
             v28 = v13;
             if ( v13 )
             {
-              v14 += 31 - (char)RtlFindMostSignificantBit((unsigned int)v13);
+              v14 += 31 - RtlFindMostSignificantBit((unsigned int)v13);
               v35 = v14;
               v16 = v30;
               goto LABEL_26;

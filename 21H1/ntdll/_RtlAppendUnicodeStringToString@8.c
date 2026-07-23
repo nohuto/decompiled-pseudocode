@@ -23,23 +23,25 @@
  *     _memmove @ 0x4B2F8BF0 (_memmove.c)
  */
 
-int __stdcall RtlAppendUnicodeStringToString(unsigned __int16 *a1, const void **a2)
+NTSTATUS __cdecl RtlAppendUnicodeStringToString(PUNICODE_STRING Destination, PCUNICODE_STRING Source)
 {
-  size_t v2; // ebx
-  unsigned int v4; // [esp+Ch] [ebp-4h]
-  void *v5; // [esp+Ch] [ebp-4h]
+  unsigned int Length; // ebx
+  size_t v4; // [esp-4h] [ebp-14h]
+  unsigned int v5; // [esp+Ch] [ebp-4h]
+  wchar_t *v6; // [esp+Ch] [ebp-4h]
 
-  v2 = *(unsigned __int16 *)a2;
-  if ( !(_WORD)v2 )
+  Length = Source->Length;
+  if ( !(_WORD)Length )
     return 0;
-  v4 = *a1;
-  if ( v2 + v4 <= a1[1] )
+  v5 = Destination->Length;
+  if ( Length + v5 <= Destination->MaximumLength )
   {
-    v5 = (void *)(*((_DWORD *)a1 + 1) + 2 * (v4 >> 1));
-    memmove(v5, a2[1], v2);
-    *a1 += v2;
-    if ( (unsigned int)*a1 + 1 < a1[1] )
-      *((_WORD *)v5 + (v2 >> 1)) = 0;
+    LODWORD(v4) = Source->Length;
+    v6 = &Destination->Buffer[v5 >> 1];
+    memmove(v6, Source->Buffer, v4);
+    Destination->Length += Length;
+    if ( (unsigned int)Destination->Length + 1 < Destination->MaximumLength )
+      v6[Length >> 1] = 0;
     return 0;
   }
   return -1073741789;

@@ -1,18 +1,18 @@
 /*
- * XREFs of MmFreeSecureKernelPages @ 0x140553704
+ * XREFs of MmFreeSecureKernelPages @ 0x140553944
  * Callers:
- *     MmAllocateSecureKernelPages @ 0x1405533D4 (MmAllocateSecureKernelPages.c)
- *     PspIumAllocatePhysicalPages @ 0x140583854 (PspIumAllocatePhysicalPages.c)
- *     PspIumFreePartitionState @ 0x140583CF0 (PspIumFreePartitionState.c)
- *     PspIumFreePhysicalPages @ 0x140583DCC (PspIumFreePhysicalPages.c)
+ *     MmAllocateSecureKernelPages @ 0x140553614 (MmAllocateSecureKernelPages.c)
+ *     PspIumAllocatePhysicalPages @ 0x140583A84 (PspIumAllocatePhysicalPages.c)
+ *     PspIumFreePartitionState @ 0x140583F20 (PspIumFreePartitionState.c)
+ *     PspIumFreePhysicalPages @ 0x140583FFC (PspIumFreePhysicalPages.c)
  * Callees:
- *     MmFreePagesFromMdl @ 0x1402D0000 (MmFreePagesFromMdl.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiFreeSmallPageFromMdl @ 0x1402FFEA4 (MiFreeSmallPageFromMdl.c)
- *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MmFreePagesFromMdl @ 0x14024E380 (MmFreePagesFromMdl.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiFreeSmallPageFromMdl @ 0x14030ABF4 (MiFreeSmallPageFromMdl.c)
+ *     MiIsPfnFromSlabAllocation @ 0x14030DC40 (MiIsPfnFromSlabAllocation.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __fastcall MmFreeSecureKernelPages(PMDL MemoryDescriptorList, int a2)
@@ -38,7 +38,7 @@ void __fastcall MmFreeSecureKernelPages(PMDL MemoryDescriptorList, int a2)
   memset(MemoryDescriptorLista, 0, sizeof(MemoryDescriptorLista));
   v4 = (ULONG_PTR *)&v3[1];
   v5 = (unsigned __int64)&v3[1] + 8 * ((unsigned __int64)v3->ByteCount >> 12);
-  if ( (*(_DWORD *)(*(_QWORD *)(qword_140C4E648
+  if ( (*(_DWORD *)(*(_QWORD *)(qword_140C4E688
                               + 8 * ((*(_QWORD *)(48 * (__int64)v3[1].Next - 0x57FFFFFFFD8LL) >> 39) & 0x3FFLL))
                   + 4LL) & 8) != 0 )
   {
@@ -75,7 +75,7 @@ void __fastcall MmFreeSecureKernelPages(PMDL MemoryDescriptorList, int a2)
             }
             __writecr8(v11);
           }
-          _InterlockedDecrement64(&qword_140C4E000);
+          _InterlockedDecrement64(&qword_140C4E040);
           MiFreeSmallPageFromMdl(*v4, 0LL, v9, SchedulerAssist);
         }
         else

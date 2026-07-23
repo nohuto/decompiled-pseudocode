@@ -6,7 +6,7 @@
  *     _RtlpQueryTimeZoneInformationWorker@8 @ 0x4B2F13A9 (_RtlpQueryTimeZoneInformationWorker@8.c)
  */
 
-int __stdcall RtlQueryTimeZoneInformation(char *a1)
+NTSTATUS __cdecl RtlQueryTimeZoneInformation(PRTL_TIME_ZONE_INFORMATION TimeZoneInformation)
 {
-  return RtlpQueryTimeZoneInformationWorker(a1, 0xACu);
+  return RtlpQueryTimeZoneInformationWorker((char *)TimeZoneInformation, 0xACu);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of KiInterruptMessageDispatch @ 0x14000C484
+ * XREFs of KiInterruptMessageDispatch @ 0x14000C004
  * Callers:
  *     <none>
  * Callees:

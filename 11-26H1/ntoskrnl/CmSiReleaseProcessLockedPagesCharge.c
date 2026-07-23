@@ -1,19 +1,19 @@
 /*
- * XREFs of CmSiReleaseProcessLockedPagesCharge @ 0x1403BC32C
+ * XREFs of CmSiReleaseProcessLockedPagesCharge @ 0x1403C619C
  * Callers:
- *     HvpViewMapFreeView @ 0x1408B7E00 (HvpViewMapFreeView.c)
- *     HvpViewMapAcquireChargesAndLockViewPages @ 0x1408B7E5C (HvpViewMapAcquireChargesAndLockViewPages.c)
- *     HvpViewMapReleaseChargesAndUnlockViewPages @ 0x1408B95E4 (HvpViewMapReleaseChargesAndUnlockViewPages.c)
+ *     HvpViewMapFreeView @ 0x1408BE3D0 (HvpViewMapFreeView.c)
+ *     HvpViewMapAcquireChargesAndLockViewPages @ 0x1408BE42C (HvpViewMapAcquireChargesAndLockViewPages.c)
+ *     HvpViewMapReleaseChargesAndUnlockViewPages @ 0x1408BFBB4 (HvpViewMapReleaseChargesAndUnlockViewPages.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1403BC3E8 (MmAdjustWorkingSetSizeEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     CmSiRWLockReleaseExclusive @ 0x140905AA4 (CmSiRWLockReleaseExclusive.c)
- *     CmpVolumeManagerLockContextListExclusive @ 0x140905BD0 (CmpVolumeManagerLockContextListExclusive.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x1403C6258 (MmAdjustWorkingSetSizeEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     CmpVolumeManagerLockContextListExclusive @ 0x140A2E304 (CmpVolumeManagerLockContextListExclusive.c)
+ *     CmSiRWLockReleaseExclusive @ 0x140A8992C (CmSiRWLockReleaseExclusive.c)
  */
 
-$7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall CmSiReleaseProcessLockedPagesCharge(__int64 a1, __int64 a2)
+$241382875694CED3D471BC5892DE3337 *__fastcall CmSiReleaseProcessLockedPagesCharge(__int64 a1, __int64 a2)
 {
   struct _KPROCESS *v4; // rcx
   __int64 v5; // rdx

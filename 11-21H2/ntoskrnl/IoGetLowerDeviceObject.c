@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     IoGetLowerDeviceObjectWithTag @ 0x14036CCBC (IoGetLowerDeviceObjectWithTag.c)
+ *     sub_14036CCBC @ 0x14036CCBC (sub_14036CCBC.c)
  */
 
 PDEVICE_OBJECT __stdcall IoGetLowerDeviceObject(PDEVICE_OBJECT DeviceObject)
 {
-  return (PDEVICE_OBJECT)IoGetLowerDeviceObjectWithTag(DeviceObject, 1953261124LL);
+  return (PDEVICE_OBJECT)sub_14036CCBC(DeviceObject, 1953261124LL);
 }

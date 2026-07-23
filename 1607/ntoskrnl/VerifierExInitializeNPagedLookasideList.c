@@ -4,10 +4,10 @@
  *     <none>
  * Callees:
  *     XdvExInitializePagedLookasideListInternal @ 0x1406FE394 (XdvExInitializePagedLookasideListInternal.c)
- *     VfUtilSynchronizationObjectSanityChecks @ 0x140703048 (VfUtilSynchronizationObjectSanityChecks.c)
- *     VfCheckPoolType @ 0x1407042B0 (VfCheckPoolType.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
- *     VfTargetDriversIsEnabled @ 0x14070FFFC (VfTargetDriversIsEnabled.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x140703078 (VfUtilSynchronizationObjectSanityChecks.c)
+ *     VfCheckPoolType @ 0x1407042E0 (VfCheckPoolType.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
+ *     VfTargetDriversIsEnabled @ 0x14071002C (VfTargetDriversIsEnabled.c)
  */
 
 __int64 __fastcall VerifierExInitializeNPagedLookasideList(

@@ -1,7 +1,7 @@
 /*
- * XREFs of EmonFindCounterToAllocateEnhanced @ 0x14055B520
+ * XREFs of EmonFindCounterToAllocateEnhanced @ 0x140559150
  * Callers:
- *     EmonAllocateCounterEnhanced @ 0x14055AA30 (EmonAllocateCounterEnhanced.c)
+ *     EmonAllocateCounterEnhanced @ 0x140558660 (EmonAllocateCounterEnhanced.c)
  * Callees:
  *     <none>
  */

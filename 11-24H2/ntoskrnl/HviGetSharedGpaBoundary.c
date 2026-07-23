@@ -1,10 +1,10 @@
 /*
- * XREFs of HviGetSharedGpaBoundary @ 0x140663CC4
+ * XREFs of HviGetSharedGpaBoundary @ 0x1406625B4
  * Callers:
- *     HalpDmaInitializeCvmSupport @ 0x140C10AE4 (HalpDmaInitializeCvmSupport.c)
+ *     HalpDmaInitializeCvmSupport @ 0x140C12AE4 (HalpDmaInitializeCvmSupport.c)
  * Callees:
- *     HviIsHypervisorMicrosoftCompatible @ 0x140663D48 (HviIsHypervisorMicrosoftCompatible.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x140662638 (HviIsHypervisorMicrosoftCompatible.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HviGetSharedGpaBoundary(__int64 a1, __int64 a2)

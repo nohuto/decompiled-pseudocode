@@ -1,13 +1,13 @@
 /*
- * XREFs of IopIoRateStartRateControl @ 0x1403627A4
+ * XREFs of IopIoRateStartRateControl @ 0x140362944
  * Callers:
- *     IoStartIoRateControl @ 0x14036269C (IoStartIoRateControl.c)
+ *     IoStartIoRateControl @ 0x14036283C (IoStartIoRateControl.c)
  * Callees:
  *     IoDiskIoAttributionQuery @ 0x14020C224 (IoDiskIoAttributionQuery.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ExGetExtensionTable @ 0x1402FA6D0 (ExGetExtensionTable.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IopIoRateStartRateControl(

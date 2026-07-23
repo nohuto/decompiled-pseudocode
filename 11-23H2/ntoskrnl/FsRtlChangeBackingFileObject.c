@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlChangeBackingFileObject @ 0x1403D6760
+ * XREFs of FsRtlChangeBackingFileObject @ 0x1403D6940
  * Callers:
  *     <none>
  * Callees:
- *     MmChangeSectionBackingFile @ 0x14035EFB8 (MmChangeSectionBackingFile.c)
- *     CcChangeBackingFileObject @ 0x140535168 (CcChangeBackingFileObject.c)
+ *     MmChangeSectionBackingFile @ 0x14035F158 (MmChangeSectionBackingFile.c)
+ *     CcChangeBackingFileObject @ 0x1405356B8 (CcChangeBackingFileObject.c)
  */
 
 NTSTATUS __stdcall FsRtlChangeBackingFileObject(

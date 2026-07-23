@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrInitializeMrdata @ 0x1800966EC
+ * XREFs of LdrInitializeMrdata @ 0x1800966DC
  * Callers:
- *     _LdrpInitialize @ 0x1800787B4 (_LdrpInitialize.c)
+ *     _LdrpInitialize @ 0x1800787A4 (_LdrpInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtQuerySystemInformation @ 0x1800A6AE0 (NtQuerySystemInformation.c)
  */
 
@@ -14,7 +14,7 @@ NTSTATUS LdrInitializeMrdata()
   unsigned int v2; // [rsp+28h] [rbp-50h]
   unsigned int v3; // [rsp+38h] [rbp-40h]
 
-  LdrpMrdataLock = 0LL;
+  LdrpMrdataLock.0 = 0LL;
   result = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
   if ( result >= 0 )
   {

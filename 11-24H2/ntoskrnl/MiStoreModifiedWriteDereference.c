@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStoreModifiedWriteDereference @ 0x1403371B8
+ * XREFs of MiStoreModifiedWriteDereference @ 0x1402DF2DC
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x1402281F4 (MiStoreWriteModifiedPages.c)
- *     MiStoreModifiedWriteComplete @ 0x14045C418 (MiStoreModifiedWriteComplete.c)
+ *     MiStoreModifiedWriteComplete @ 0x1402DD72C (MiStoreModifiedWriteComplete.c)
+ *     MiStoreWriteModifiedPages @ 0x1402FB3F4 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
  */
 
 __int64 __fastcall MiStoreModifiedWriteDereference(__int64 a1)

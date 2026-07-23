@@ -1,9 +1,9 @@
 /*
- * XREFs of MinAsn1ParseECCSignature @ 0x14071CEA4
+ * XREFs of MinAsn1ParseECCSignature @ 0x140721B34
  * Callers:
- *     MinCryptVerifySignedHash2 @ 0x1408A04B0 (MinCryptVerifySignedHash2.c)
+ *     MinCryptVerifySignedHash2 @ 0x1408A68C0 (MinCryptVerifySignedHash2.c)
  * Callees:
- *     MinAsn1ParseRSAPublicKey @ 0x1408A3564 (MinAsn1ParseRSAPublicKey.c)
+ *     MinAsn1ParseRSAPublicKey @ 0x1408A9974 (MinAsn1ParseRSAPublicKey.c)
  */
 
 __int64 __fastcall MinAsn1ParseECCSignature(__int64 a1, __int64 a2)

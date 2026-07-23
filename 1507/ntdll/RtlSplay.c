@@ -13,160 +13,160 @@
  *     <none>
  */
 
-__int64 __fastcall RtlSplay(__int64 a1)
+PRTL_SPLAY_LINKS __cdecl RtlSplay(PRTL_SPLAY_LINKS Links)
 {
-  _QWORD *v2; // rax
-  _QWORD *v3; // rdx
-  _QWORD *v4; // rdx
-  _QWORD *v5; // r8
-  _QWORD *v6; // r8
-  _QWORD *v7; // r8
-  _QWORD *v8; // r8
-  _QWORD *v9; // r8
-  _QWORD *v10; // r8
-  _QWORD *v11; // r8
-  _QWORD *v12; // rdx
-  _QWORD *v13; // r8
-  _QWORD *v14; // r8
-  _QWORD *v15; // r8
-  _QWORD *v16; // r8
-  _QWORD *v17; // r8
+  _RTL_SPLAY_LINKS *Parent; // rax
+  _RTL_SPLAY_LINKS *v3; // rdx
+  _RTL_SPLAY_LINKS *v4; // rdx
+  _RTL_SPLAY_LINKS *v5; // r8
+  _RTL_SPLAY_LINKS *v6; // r8
+  _RTL_SPLAY_LINKS *v7; // r8
+  _RTL_SPLAY_LINKS *v8; // r8
+  _RTL_SPLAY_LINKS *LeftChild; // r8
+  _RTL_SPLAY_LINKS *v10; // r8
+  _RTL_SPLAY_LINKS **p_RightChild; // r8
+  _RTL_SPLAY_LINKS *RightChild; // rdx
+  _RTL_SPLAY_LINKS **p_LeftChild; // r8
+  _RTL_SPLAY_LINKS **v14; // r8
+  _RTL_SPLAY_LINKS *v15; // r8
+  _RTL_SPLAY_LINKS *v16; // r8
+  _RTL_SPLAY_LINKS **v17; // r8
 
-  while ( *(_QWORD *)a1 != a1 )
+  while ( Links->Parent != Links )
   {
-    v2 = *(_QWORD **)a1;
-    v3 = **(_QWORD ***)a1;
-    if ( *(_QWORD *)(*(_QWORD *)a1 + 8LL) == a1 )
+    Parent = Links->Parent;
+    v3 = Links->Parent->Parent;
+    if ( Links->Parent->LeftChild == Links )
     {
-      if ( v3 == v2 )
+      if ( v3 == Parent )
       {
-        v12 = *(_QWORD **)(a1 + 16);
-        v2[1] = v12;
-        if ( v12 )
-          *v12 = v2;
-        *(_QWORD *)(a1 + 16) = v2;
+        RightChild = Links->RightChild;
+        Parent->LeftChild = RightChild;
+        if ( RightChild )
+          RightChild->Parent = Parent;
+        Links->RightChild = Parent;
 LABEL_8:
-        *v2 = a1;
-        *(_QWORD *)a1 = a1;
+        Parent->Parent = Links;
+        Links->Parent = Links;
       }
-      else if ( (_QWORD *)v3[1] == v2 )
+      else if ( v3->LeftChild == Parent )
       {
-        v5 = *(_QWORD **)(a1 + 16);
-        v2[1] = v5;
+        v5 = Links->RightChild;
+        Parent->LeftChild = v5;
         if ( v5 )
-          *v5 = v2;
-        v6 = (_QWORD *)v2[2];
-        v3[1] = v6;
+          v5->Parent = Parent;
+        v6 = Parent->RightChild;
+        v3->LeftChild = v6;
         if ( v6 )
-          *v6 = v3;
-        if ( (_QWORD *)*v3 == v3 )
+          v6->Parent = v3;
+        if ( v3->Parent == v3 )
         {
-          *(_QWORD *)a1 = a1;
+          Links->Parent = Links;
         }
         else
         {
-          *(_QWORD *)a1 = *v3;
-          v13 = (_QWORD *)(*v3 + 8LL);
-          if ( (_QWORD *)*v13 != v3 )
-            v13 = (_QWORD *)(*v3 + 16LL);
-          *v13 = a1;
+          Links->Parent = v3->Parent;
+          p_LeftChild = &v3->Parent->LeftChild;
+          if ( *p_LeftChild != v3 )
+            p_LeftChild = &v3->Parent->RightChild;
+          *p_LeftChild = Links;
         }
-        *(_QWORD *)(a1 + 16) = v2;
-        v2[2] = v3;
+        Links->RightChild = Parent;
+        Parent->RightChild = v3;
 LABEL_18:
-        *v2 = a1;
-        *v3 = v2;
+        Parent->Parent = Links;
+        v3->Parent = Parent;
       }
       else
       {
-        v9 = *(_QWORD **)(a1 + 8);
-        v3[2] = v9;
-        if ( v9 )
-          *v9 = v3;
-        v10 = *(_QWORD **)(a1 + 16);
-        v2[1] = v10;
+        LeftChild = Links->LeftChild;
+        v3->RightChild = LeftChild;
+        if ( LeftChild )
+          LeftChild->Parent = v3;
+        v10 = Links->RightChild;
+        Parent->LeftChild = v10;
         if ( v10 )
-          *v10 = v2;
-        if ( (_QWORD *)*v3 == v3 )
+          v10->Parent = Parent;
+        if ( v3->Parent == v3 )
         {
-          *(_QWORD *)a1 = a1;
+          Links->Parent = Links;
         }
         else
         {
-          *(_QWORD *)a1 = *v3;
-          v11 = (_QWORD *)(*v3 + 8LL);
-          if ( (_QWORD *)*v11 != v3 )
-            v11 = (_QWORD *)(*v3 + 16LL);
-          *v11 = a1;
+          Links->Parent = v3->Parent;
+          p_RightChild = &v3->Parent->LeftChild;
+          if ( *p_RightChild != v3 )
+            p_RightChild = &v3->Parent->RightChild;
+          *p_RightChild = Links;
         }
-        *(_QWORD *)(a1 + 8) = v3;
-        *v3 = a1;
-        *(_QWORD *)(a1 + 16) = v2;
-        *v2 = a1;
+        Links->LeftChild = v3;
+        v3->Parent = Links;
+        Links->RightChild = Parent;
+        Parent->Parent = Links;
       }
     }
     else
     {
-      if ( v3 == v2 )
+      if ( v3 == Parent )
       {
-        v4 = *(_QWORD **)(a1 + 8);
-        v2[2] = v4;
+        v4 = Links->LeftChild;
+        Parent->RightChild = v4;
         if ( v4 )
-          *v4 = v2;
-        *(_QWORD *)(a1 + 8) = v2;
+          v4->Parent = Parent;
+        Links->LeftChild = Parent;
         goto LABEL_8;
       }
-      if ( (_QWORD *)v3[2] == v2 )
+      if ( v3->RightChild == Parent )
       {
-        v7 = (_QWORD *)v2[1];
-        v3[2] = v7;
+        v7 = Parent->LeftChild;
+        v3->RightChild = v7;
         if ( v7 )
-          *v7 = v3;
-        v8 = *(_QWORD **)(a1 + 8);
-        v2[2] = v8;
+          v7->Parent = v3;
+        v8 = Links->LeftChild;
+        Parent->RightChild = v8;
         if ( v8 )
-          *v8 = v2;
-        if ( (_QWORD *)*v3 == v3 )
+          v8->Parent = Parent;
+        if ( v3->Parent == v3 )
         {
-          *(_QWORD *)a1 = a1;
+          Links->Parent = Links;
         }
         else
         {
-          *(_QWORD *)a1 = *v3;
-          v14 = (_QWORD *)(*v3 + 8LL);
-          if ( (_QWORD *)*v14 != v3 )
-            v14 = (_QWORD *)(*v3 + 16LL);
-          *v14 = a1;
+          Links->Parent = v3->Parent;
+          v14 = &v3->Parent->LeftChild;
+          if ( *v14 != v3 )
+            v14 = &v3->Parent->RightChild;
+          *v14 = Links;
         }
-        *(_QWORD *)(a1 + 8) = v2;
-        v2[1] = v3;
+        Links->LeftChild = Parent;
+        Parent->LeftChild = v3;
         goto LABEL_18;
       }
-      v15 = *(_QWORD **)(a1 + 8);
-      v2[2] = v15;
+      v15 = Links->LeftChild;
+      Parent->RightChild = v15;
       if ( v15 )
-        *v15 = v2;
-      v16 = *(_QWORD **)(a1 + 16);
-      v3[1] = v16;
+        v15->Parent = Parent;
+      v16 = Links->RightChild;
+      v3->LeftChild = v16;
       if ( v16 )
-        *v16 = v3;
-      if ( (_QWORD *)*v3 == v3 )
+        v16->Parent = v3;
+      if ( v3->Parent == v3 )
       {
-        *(_QWORD *)a1 = a1;
+        Links->Parent = Links;
       }
       else
       {
-        *(_QWORD *)a1 = *v3;
-        v17 = (_QWORD *)(*v3 + 8LL);
-        if ( (_QWORD *)*v17 != v3 )
-          v17 = (_QWORD *)(*v3 + 16LL);
-        *v17 = a1;
+        Links->Parent = v3->Parent;
+        v17 = &v3->Parent->LeftChild;
+        if ( *v17 != v3 )
+          v17 = &v3->Parent->RightChild;
+        *v17 = Links;
       }
-      *(_QWORD *)(a1 + 8) = v2;
-      *v2 = a1;
-      *(_QWORD *)(a1 + 16) = v3;
-      *v3 = a1;
+      Links->LeftChild = Parent;
+      Parent->Parent = Links;
+      Links->RightChild = v3;
+      v3->Parent = Links;
     }
   }
-  return a1;
+  return Links;
 }

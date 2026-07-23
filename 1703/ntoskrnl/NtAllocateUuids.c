@@ -20,8 +20,8 @@ NTSTATUS __stdcall NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Se
   __int64 v10; // rcx
   __int64 v11; // rcx
   struct _KTHREAD *CurrentThread; // rsi
-  _BYTE *v13; // rax
-  _BYTE *v14; // rdi
+  PRTL_BALANCED_NODE v13; // rax
+  PRTL_BALANCED_NODE v14; // rdi
   NTSTATUS v15; // edi
   char v16; // di
   ULONG v18; // [rsp+24h] [rbp-44h] BYREF
@@ -57,12 +57,12 @@ NTSTATUS __stdcall NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Se
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v13 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&ExpUuidLock, 0LL, 0LL);
+  v13 = KeAbPreAcquire((ULONG_PTR)&ExpUuidLock, 0LL, 0);
   v14 = v13;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpUuidLock, 0LL) )
     ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v13, (ULONG_PTR)&ExpUuidLock);
   if ( v14 )
-    v14[26] |= 1u;
+    BYTE2(v14[1].Left) |= 1u;
   v15 = ExpAllocateUuids(v20, &v18, &v19);
   if ( v15 < 0 )
   {
@@ -80,7 +80,7 @@ NTSTATUS __stdcall NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Se
       ExfTryToWakePushLock((volatile signed __int64 *)&ExpUuidLock);
     KeAbPostRelease((ULONG_PTR)&ExpUuidLock);
     KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
-    *Time = (union _ULARGE_INTEGER)v20[0];
+    *Time = (ULARGE_INTEGER)v20[0];
     *Range = v18;
     *Sequence = v19;
     *(_DWORD *)Seed = *(int *)((char *)&dword_1407AC2AC + 2);

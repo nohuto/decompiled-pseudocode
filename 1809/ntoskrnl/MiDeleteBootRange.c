@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDeleteBootRange @ 0x140181100
+ * XREFs of MiDeleteBootRange @ 0x140181240
  * Callers:
- *     MmFreeBootRegistry @ 0x1407366D8 (MmFreeBootRegistry.c)
- *     MmFreeLoaderBlock @ 0x1409C5164 (MmFreeLoaderBlock.c)
+ *     MmFreeBootRegistry @ 0x1407378C8 (MmFreeBootRegistry.c)
+ *     MmFreeLoaderBlock @ 0x1409C6164 (MmFreeLoaderBlock.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
@@ -11,13 +11,13 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiDeleteSystemPagableVm @ 0x140079F00 (MiDeleteSystemPagableVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 unsigned __int64 __fastcall MiDeleteBootRange(unsigned __int64 a1, unsigned __int64 a2, int a3)
@@ -184,7 +184,7 @@ LABEL_20:
   MiReturnResidentAvailable(v3);
   v26 = v3 - v37[1];
   MiReturnCommit((__int64)&MiSystemPartition, v26);
-  result = qword_14043B010 - v26;
-  qword_14043B010 -= v26;
+  result = qword_14043C0D0 - v26;
+  qword_14043C0D0 -= v26;
   return result;
 }

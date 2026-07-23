@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit @ 0x180144F80
+ * XREFs of RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit @ 0x180144E30
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetSuiteMask @ 0x180063C60 (RtlGetSuiteMask.c)
+ *     RtlGetSuiteMask @ 0x1800840B0 (RtlGetSuiteMask.c)
  */
 
-__int64 RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit()
+ULONG RtlpHpAppCompatEnablePaddingAndLFHSubsegmentCommit()
 {
-  __int64 result; // rax
+  ULONG result; // eax
 
   result = RtlGetSuiteMask();
   if ( (result & 0x10000) != 0 )

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SmFatalPageErrorDumpCallback@@YAXW4_KBUGCHECK_CALLBACK_REASON@@PEAU_KBUGCHECK_REASON_CALLBACK_RECORD@@PEAXK@Z @ 0x1405CC590
+ * XREFs of ?SmFatalPageErrorDumpCallback@@YAXW4_KBUGCHECK_CALLBACK_REASON@@PEAU_KBUGCHECK_REASON_CALLBACK_RECORD@@PEAXK@Z @ 0x1405CCB00
  * Callers:
  *     <none>
  * Callees:
@@ -20,7 +20,7 @@ void __fastcall SmFatalPageErrorDumpCallback(
   if ( v5 <= *((_DWORD *)ReasonSpecificData + 3) )
   {
     ReasonSpecificData[4] = v4;
-    *((_OWORD *)ReasonSpecificData + 1) = xmmword_140046E18;
+    *((_OWORD *)ReasonSpecificData + 1) = xmmword_140046F08;
   }
   else
   {

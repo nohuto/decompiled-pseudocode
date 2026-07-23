@@ -48,7 +48,7 @@ __int64 __fastcall MiTrimOrAgeWorkingSet(__int64 a1, __int64 a2, unsigned int a3
   char v22; // al
   signed __int64 v23; // rsi
   int v25; // r8d
-  struct _SLIST_ENTRY *v26; // rcx
+  _SLIST_ENTRY *v26; // rcx
   signed __int32 v27; // eax
   __int64 v28; // rcx
   __int64 v29; // rax
@@ -215,13 +215,13 @@ LABEL_23:
           return v13;
         if ( v14 - *(_QWORD *)(v23 + 16) > (unsigned __int64)PfKernelGlobals || (a3 & 0x18) != 0 )
         {
-          v26 = (struct _SLIST_ENTRY *)v23;
+          v26 = (_SLIST_ENTRY *)v23;
         }
         else
         {
           if ( !qword_14036CA40 && !_InterlockedCompareExchange64(&qword_14036CA40, v23, 0LL) )
             return v13;
-          v26 = (struct _SLIST_ENTRY *)v23;
+          v26 = (_SLIST_ENTRY *)v23;
           if ( *(_QWORD *)(v23 + 32) == v23 + 72 )
           {
             MmFreeAccessPfnBuffer(v23, 1);

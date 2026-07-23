@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpLogSetLastWin32ErrorEvent @ 0x1801465A4
+ * XREFs of RtlpLogSetLastWin32ErrorEvent @ 0x180144954
  * Callers:
- *     RtlSetLastWin32Error @ 0x18001C5D0 (RtlSetLastWin32Error.c)
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
- *     RtlQueryUnbiasedInterruptTime @ 0x18009F930 (RtlQueryUnbiasedInterruptTime.c)
+ *     RtlSetLastWin32Error @ 0x180048FD0 (RtlSetLastWin32Error.c)
+ *     RtlQueryUnbiasedInterruptTime @ 0x180087220 (RtlQueryUnbiasedInterruptTime.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
  * Callees:
- *     EtwpEventWriteFull @ 0x18003B0D0 (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     EtwpEventWriteFull @ 0x18001B350 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpLogSetLastWin32ErrorEvent(int a1)

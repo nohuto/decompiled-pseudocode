@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAbProcessThreadPriorityModification @ 0x140307920
+ * XREFs of KiAbProcessThreadPriorityModification @ 0x140307BB0
  * Callers:
- *     KiInitializeForegroundBoostThread @ 0x1402BDE58 (KiInitializeForegroundBoostThread.c)
- *     KiApplyForegroundBoostThread @ 0x1403504D8 (KiApplyForegroundBoostThread.c)
+ *     KiInitializeForegroundBoostThread @ 0x1402BE0E8 (KiInitializeForegroundBoostThread.c)
+ *     KiApplyForegroundBoostThread @ 0x140350678 (KiApplyForegroundBoostThread.c)
  * Callees:
- *     KiAbQueueAutoBoostDpc @ 0x140307D48 (KiAbQueueAutoBoostDpc.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140307FD8 (KiAbQueueAutoBoostDpc.c)
  */
 
 void __fastcall KiAbProcessThreadPriorityModification(__int64 a1, char a2, int a3)

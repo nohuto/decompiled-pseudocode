@@ -1,11 +1,11 @@
 /*
  * XREFs of IoGetDriverDirectory @ 0x140943930
  * Callers:
- *     DifIoGetDriverDirectoryWrapper @ 0x14060F590 (DifIoGetDriverDirectoryWrapper.c)
+ *     sub_14060F590 @ 0x14060F590 (sub_14060F590.c)
  * Callees:
  *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     PiGetDriverImageDirectory @ 0x1409440D0 (PiGetDriverImageDirectory.c)
- *     PiGetDriverMutableStateDirectory @ 0x140944218 (PiGetDriverMutableStateDirectory.c)
+ *     sub_1409440D0 @ 0x1409440D0 (sub_1409440D0.c)
+ *     sub_140944218 @ 0x140944218 (sub_140944218.c)
  */
 
 __int64 __fastcall IoGetDriverDirectory(__int64 a1, int a2, __int64 a3, _QWORD *a4)
@@ -15,7 +15,7 @@ __int64 __fastcall IoGetDriverDirectory(__int64 a1, int a2, __int64 a3, _QWORD *
   int v8; // edx
   unsigned int v9; // ebx
   const wchar_t *v10; // rdx
-  int DriverMutableStateDirectory; // eax
+  int v11; // eax
   void *v13; // [rsp+30h] [rbp+8h] BYREF
 
   v5 = 0LL;
@@ -37,14 +37,14 @@ __int64 __fastcall IoGetDriverDirectory(__int64 a1, int a2, __int64 a3, _QWORD *
         a3 = 0LL;
         v10 = L"Data";
       }
-      DriverMutableStateDirectory = PiGetDriverMutableStateDirectory(a1, v10, a3, &v13);
+      v11 = sub_140944218(a1, v10, a3, &v13);
     }
     else
     {
-      DriverMutableStateDirectory = PiGetDriverImageDirectory(a1, &v13);
+      v11 = sub_1409440D0(a1, &v13);
     }
-    v9 = DriverMutableStateDirectory;
-    if ( DriverMutableStateDirectory >= 0 )
+    v9 = v11;
+    if ( v11 >= 0 )
     {
       *a4 = v13;
       return v9;

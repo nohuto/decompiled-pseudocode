@@ -7,13 +7,12 @@
  *     _FindNodeOrParent@12 @ 0x4B2A707D (_FindNodeOrParent@12.c)
  */
 
-char __thiscall RtlDeleteElementGenericTableAvl(void *this, int a2, int a3)
+BOOLEAN __cdecl RtlDeleteElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer)
 {
-  void *v4; // [esp+0h] [ebp-4h] BYREF
+  int v3; // [esp+0h] [ebp-4h] BYREF
 
-  v4 = this;
-  if ( FindNodeOrParent(&v4) != 1 )
+  if ( FindNodeOrParent(&v3) != 1 )
     return 0;
-  RtlDeleteElementGenericTableAvlEx(a2, v4);
+  RtlDeleteElementGenericTableAvlEx(Table, v3);
   return 1;
 }

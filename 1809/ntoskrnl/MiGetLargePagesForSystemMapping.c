@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetLargePagesForSystemMapping @ 0x140851F70
+ * XREFs of MiGetLargePagesForSystemMapping @ 0x1408531D0
  * Callers:
  *     MiMakeZeroedPageTablesEx @ 0x140028584 (MiMakeZeroedPageTablesEx.c)
  * Callees:
  *     MiObtainSystemCharges @ 0x140026DC8 (MiObtainSystemCharges.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiReturnSystemCharges @ 0x1401207D4 (MiReturnSystemCharges.c)
- *     MiThreadIdealNode @ 0x1402BB86C (MiThreadIdealNode.c)
- *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiReturnSystemCharges @ 0x1401208A4 (MiReturnSystemCharges.c)
+ *     MiThreadIdealNode @ 0x1402BBA5C (MiThreadIdealNode.c)
+ *     MiAllocateLargeZeroPages @ 0x14085DB40 (MiAllocateLargeZeroPages.c)
  */
 
 void __fastcall MiGetLargePagesForSystemMapping(__int64 a1, unsigned __int64 a2)
@@ -48,7 +48,7 @@ void __fastcall MiGetLargePagesForSystemMapping(__int64 a1, unsigned __int64 a2)
     else
       v12 = MiThreadIdealNode();
     v13 = (unsigned __int16)KeNumberNodes;
-    v14 = (unsigned __int16 *)((char *)qword_14043A050 + 2 * v12 * (unsigned int)(unsigned __int16)KeNumberNodes);
+    v14 = (unsigned __int16 *)((char *)qword_14043B110 + 2 * v12 * (unsigned int)(unsigned __int16)KeNumberNodes);
     v15 = &v14[(unsigned __int16)KeNumberNodes];
     while ( 1 )
     {

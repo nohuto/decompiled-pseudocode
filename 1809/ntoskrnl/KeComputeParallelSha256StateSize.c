@@ -1,7 +1,7 @@
 /*
- * XREFs of KeComputeParallelSha256StateSize @ 0x140193FB0
+ * XREFs of KeComputeParallelSha256StateSize @ 0x1401940F0
  * Callers:
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
  * Callees:
  *     <none>
  */

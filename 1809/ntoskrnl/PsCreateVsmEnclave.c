@@ -1,19 +1,19 @@
 /*
- * XREFs of PsCreateVsmEnclave @ 0x14088DB9C
+ * XREFs of PsCreateVsmEnclave @ 0x14088EDFC
  * Callers:
- *     MiCreateVsmEnclave @ 0x140859DA8 (MiCreateVsmEnclave.c)
+ *     MiCreateVsmEnclave @ 0x14085B008 (MiCreateVsmEnclave.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406C2880 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     VslCreateEnclave @ 0x140817F4C (VslCreateEnclave.c)
- *     PspVsmEnclaveHashAllocator @ 0x14088E96C (PspVsmEnclaveHashAllocator.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406C3B20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     VslCreateEnclave @ 0x14081914C (VslCreateEnclave.c)
+ *     PspVsmEnclaveHashAllocator @ 0x14088FBCC (PspVsmEnclaveHashAllocator.c)
  */
 
 __int64 __fastcall PsCreateVsmEnclave(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, ULONG a6, _QWORD *a7)

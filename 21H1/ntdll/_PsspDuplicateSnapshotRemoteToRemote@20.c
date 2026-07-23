@@ -15,119 +15,215 @@
  *     _PssNtFreeRemoteSnapshot@8 @ 0x4B386950 (_PssNtFreeRemoteSnapshot@8.c)
  */
 
-int __fastcall PsspDuplicateSnapshotRemoteToRemote(int a1, int a2, int a3, _DWORD *a4, char a5)
+int __fastcall PsspDuplicateSnapshotRemoteToRemote(
+        HANDLE ProcessHandle,
+        _DWORD *BaseAddress,
+        HANDLE SourceProcessHandle,
+        _DWORD *a4,
+        char a5)
 {
   int VirtualMemory; // esi
-  int v8; // edi
+  unsigned int v8; // edi
   unsigned int i; // edi
-  int v11; // ecx
-  int v13; // [esp+14h] [ebp-7D0h] BYREF
-  unsigned int v14; // [esp+18h] [ebp-7CCh]
-  int v15; // [esp+1Ch] [ebp-7C8h]
-  unsigned int v16; // [esp+20h] [ebp-7C4h] BYREF
-  int v17; // [esp+24h] [ebp-7C0h] BYREF
-  int v18; // [esp+28h] [ebp-7BCh] BYREF
-  int v19; // [esp+2Ch] [ebp-7B8h] BYREF
-  unsigned int v20; // [esp+30h] [ebp-7B4h] BYREF
-  unsigned int v21; // [esp+34h] [ebp-7B0h] BYREF
-  _DWORD v22[244]; // [esp+38h] [ebp-7ACh] BYREF
-  _DWORD v23[245]; // [esp+408h] [ebp-3DCh] BYREF
+  unsigned int v11; // ecx
+  ULONG_PTR v12; // [esp-10h] [ebp-7F4h]
+  ULONG_PTR v13; // [esp-10h] [ebp-7F4h]
+  SIZE_T v14; // [esp-8h] [ebp-7ECh]
+  size_t v15; // [esp-4h] [ebp-7E8h]
+  PSIZE_T v16; // [esp+0h] [ebp-7E4h]
+  ULONG v17; // [esp+0h] [ebp-7E4h]
+  ULONG_PTR *v18; // [esp+0h] [ebp-7E4h]
+  ULONG v19; // [esp+0h] [ebp-7E4h]
+  ULONG_PTR *v20; // [esp+0h] [ebp-7E4h]
+  ULONG_PTR *v21; // [esp+0h] [ebp-7E4h]
+  int v23; // [esp+14h] [ebp-7D0h] BYREF
+  unsigned int v24; // [esp+18h] [ebp-7CCh]
+  HANDLE ProcessHandlea; // [esp+1Ch] [ebp-7C8h]
+  unsigned int v26; // [esp+20h] [ebp-7C4h] BYREF
+  unsigned int BufferSize; // [esp+24h] [ebp-7C0h] BYREF
+  char *BufferSize_4; // [esp+28h] [ebp-7BCh] BYREF
+  PVOID BaseAddressa; // [esp+2Ch] [ebp-7B8h] BYREF
+  ULONG_PTR RegionSize; // [esp+30h] [ebp-7B4h] BYREF
+  _DWORD Buffer[244]; // [esp+38h] [ebp-7ACh] BYREF
+  _DWORD v32[245]; // [esp+408h] [ebp-3DCh] BYREF
 
-  v15 = a1;
+  ProcessHandlea = ProcessHandle;
+  LODWORD(v15) = 976;
   *a4 = 0;
-  v18 = 0;
-  v21 = 0;
-  v19 = 0;
-  memset(v23, 0, 0x3D0u);
-  VirtualMemory = NtReadVirtualMemory(a1, a2, (int)v22, 976, (int)&v17);
+  BufferSize_4 = 0;
+  HIDWORD(RegionSize) = 0;
+  BaseAddressa = 0;
+  memset(v32, 0, v15);
+  HIDWORD(v14) = &BufferSize;
+  LODWORD(v14) = 976;
+  VirtualMemory = NtReadVirtualMemory(ProcessHandle, BaseAddress, Buffer, v14, v16);
   if ( VirtualMemory >= 0 )
   {
-    if ( v17 == 976 )
+    if ( BufferSize == 976 )
     {
-      if ( v22[0] == 1146311504 )
+      if ( Buffer[0] == 1146311504 )
       {
-        VirtualMemory = RtlULongLongToUInt((int *)&v16, 40 * v22[192], (40 * (unsigned __int64)v22[192]) >> 32);
+        VirtualMemory = RtlULongLongToUInt((int *)&v26, 40 * Buffer[192], (40 * (unsigned __int64)Buffer[192]) >> 32);
         if ( VirtualMemory >= 0 )
         {
-          VirtualMemory = RtlULongPtrAdd(0x3D0u, v16, (int *)&v21);
+          VirtualMemory = RtlULongPtrAdd(0x3D0u, v26, (int *)&RegionSize + 1);
           if ( VirtualMemory >= 0 )
           {
-            qmemcpy(v23, v22, 0x3D0u);
-            v23[188] = 0;
-            v23[193] = 0;
-            v23[197] = 0;
-            v23[201] = 0;
-            v23[206] = 0;
-            v23[212] = 0;
-            v23[242] = 0;
-            if ( !v22[188]
-              || (VirtualMemory = ZwDuplicateObject(v15, v22[188], a3, (int)&v23[188], 0, 0, 2), VirtualMemory >= 0) )
+            qmemcpy(v32, Buffer, 0x3D0u);
+            v32[188] = 0;
+            v32[193] = 0;
+            v32[197] = 0;
+            v32[201] = 0;
+            v32[206] = 0;
+            v32[212] = 0;
+            v32[242] = 0;
+            if ( !Buffer[188]
+              || (VirtualMemory = ZwDuplicateObject(
+                                    ProcessHandlea,
+                                    (HANDLE)Buffer[188],
+                                    SourceProcessHandle,
+                                    (PHANDLE)&v32[188],
+                                    0,
+                                    0,
+                                    2u),
+                  VirtualMemory >= 0) )
             {
-              if ( !v22[193]
-                || (VirtualMemory = ZwDuplicateObject(v15, v22[193], a3, (int)&v23[193], 0, 0, 2), VirtualMemory >= 0) )
+              if ( !Buffer[193]
+                || (VirtualMemory = ZwDuplicateObject(
+                                      ProcessHandlea,
+                                      (HANDLE)Buffer[193],
+                                      SourceProcessHandle,
+                                      (PHANDLE)&v32[193],
+                                      0,
+                                      0,
+                                      2u),
+                    VirtualMemory >= 0) )
               {
-                if ( !v22[197]
-                  || (VirtualMemory = ZwDuplicateObject(v15, v22[197], a3, (int)&v23[197], 0, 0, 2), VirtualMemory >= 0) )
+                if ( !Buffer[197]
+                  || (VirtualMemory = ZwDuplicateObject(
+                                        ProcessHandlea,
+                                        (HANDLE)Buffer[197],
+                                        SourceProcessHandle,
+                                        (PHANDLE)&v32[197],
+                                        0,
+                                        0,
+                                        2u),
+                      VirtualMemory >= 0) )
                 {
-                  if ( !v22[201]
-                    || (VirtualMemory = ZwDuplicateObject(v15, v22[201], a3, (int)&v23[201], 0, 0, 2), VirtualMemory >= 0) )
+                  if ( !Buffer[201]
+                    || (VirtualMemory = ZwDuplicateObject(
+                                          ProcessHandlea,
+                                          (HANDLE)Buffer[201],
+                                          SourceProcessHandle,
+                                          (PHANDLE)&v32[201],
+                                          0,
+                                          0,
+                                          2u),
+                        VirtualMemory >= 0) )
                   {
-                    if ( !v22[206]
-                      || (VirtualMemory = ZwDuplicateObject(v15, v22[206], a3, (int)&v23[206], 0, 0, 2),
+                    if ( !Buffer[206]
+                      || (VirtualMemory = ZwDuplicateObject(
+                                            ProcessHandlea,
+                                            (HANDLE)Buffer[206],
+                                            SourceProcessHandle,
+                                            (PHANDLE)&v32[206],
+                                            0,
+                                            0,
+                                            2u),
                           VirtualMemory >= 0) )
                     {
-                      if ( !v22[212]
-                        || (VirtualMemory = ZwDuplicateObject(v15, v22[212], a3, (int)&v23[212], 0, 0, 2),
+                      if ( !Buffer[212]
+                        || (VirtualMemory = ZwDuplicateObject(
+                                              ProcessHandlea,
+                                              (HANDLE)Buffer[212],
+                                              SourceProcessHandle,
+                                              (PHANDLE)&v32[212],
+                                              0,
+                                              0,
+                                              2u),
                             VirtualMemory >= 0) )
                       {
-                        if ( !v22[242]
-                          || (VirtualMemory = ZwDuplicateObject(v15, v22[242], a3, (int)&v23[242], 0, 0, 2),
+                        if ( !Buffer[242]
+                          || (VirtualMemory = ZwDuplicateObject(
+                                                ProcessHandlea,
+                                                (HANDLE)Buffer[242],
+                                                SourceProcessHandle,
+                                                (PHANDLE)&v32[242],
+                                                0,
+                                                0,
+                                                2u),
                               VirtualMemory >= 0) )
                         {
-                          v8 = v21;
-                          v20 = v21;
-                          VirtualMemory = NtAllocateVirtualMemory(a3, (int)&v18, 0, (int)&v20, 4096, 4);
+                          v8 = HIDWORD(RegionSize);
+                          HIDWORD(v12) = &RegionSize;
+                          LODWORD(v12) = 0;
+                          LODWORD(RegionSize) = HIDWORD(RegionSize);
+                          VirtualMemory = NtAllocateVirtualMemory(
+                                            SourceProcessHandle,
+                                            (PVOID *)&BufferSize_4,
+                                            v12,
+                                            (PSIZE_T)0x1000,
+                                            4u,
+                                            v17);
                           if ( VirtualMemory < 0 )
                             goto LABEL_5;
-                          v23[1] = v23[1] & 0xFFFFFFF8 | 1;
-                          if ( v23[194] )
-                            v23[194] = v18 + 976;
-                          if ( LOWORD(v23[50]) )
-                            v23[51] = v18 + 208;
-                          VirtualMemory = NtWriteVirtualMemory(a3, v18, (int)v23, v8, 0);
+                          v32[1] = v32[1] & 0xFFFFFFF8 | 1;
+                          if ( v32[194] )
+                            v32[194] = BufferSize_4 + 976;
+                          if ( LOWORD(v32[50]) )
+                            v32[51] = BufferSize_4 + 208;
+                          VirtualMemory = NtWriteVirtualMemory(SourceProcessHandle, BufferSize_4, v32, v8, v18);
                           if ( VirtualMemory < 0 )
                             goto LABEL_5;
-                          if ( v22[194] )
+                          if ( Buffer[194] )
                           {
-                            v20 = 1;
-                            VirtualMemory = NtAllocateVirtualMemory(-1, (int)&v19, 0, (int)&v20, 4096, 4);
+                            LODWORD(RegionSize) = 1;
+                            HIDWORD(v13) = &RegionSize;
+                            LODWORD(v13) = 0;
+                            VirtualMemory = NtAllocateVirtualMemory(
+                                              (HANDLE)0xFFFFFFFF,
+                                              &BaseAddressa,
+                                              v13,
+                                              (PSIZE_T)0x1000,
+                                              4u,
+                                              v19);
                             if ( VirtualMemory < 0 )
                               goto LABEL_5;
-                            for ( i = 0; i < v16; i += v13 )
+                            for ( i = 0; i < v26; i += v23 )
                             {
-                              v11 = v20;
-                              v14 = v20;
-                              if ( v20 > v16 - i )
+                              v11 = RegionSize;
+                              v24 = RegionSize;
+                              if ( (unsigned int)RegionSize > v26 - i )
                               {
-                                v11 = v16 - i;
-                                v14 = v16 - i;
+                                v11 = v26 - i;
+                                v24 = v26 - i;
                               }
-                              VirtualMemory = NtReadVirtualMemory(v15, i + v22[194], v19, v11, (int)&v17);
+                              VirtualMemory = NtReadVirtualMemory(
+                                                ProcessHandlea,
+                                                (PVOID)(i + Buffer[194]),
+                                                BaseAddressa,
+                                                __PAIR64__(&BufferSize, v11),
+                                                v20);
                               if ( VirtualMemory < 0 )
                                 goto LABEL_4;
-                              if ( v17 != v14 )
+                              if ( BufferSize != v24 )
                                 goto LABEL_3;
-                              VirtualMemory = NtWriteVirtualMemory(a3, i + v18 + 976, v19, v17, (int)&v13);
+                              VirtualMemory = NtWriteVirtualMemory(
+                                                SourceProcessHandle,
+                                                &BufferSize_4[i + 976],
+                                                BaseAddressa,
+                                                __PAIR64__(&v23, BufferSize),
+                                                v21);
                               if ( VirtualMemory < 0 )
                                 goto LABEL_4;
-                              if ( v13 != v17 )
+                              if ( v23 != BufferSize )
                                 goto LABEL_3;
                             }
-                            NtFreeVirtualMemory(-1, (int)&v19, (int)&v20, 0x8000);
-                            v19 = 0;
+                            NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddressa, &RegionSize, 0x8000u);
+                            BaseAddressa = 0;
                           }
                           VirtualMemory = 0;
-                          *a4 = v18;
+                          *a4 = BufferSize_4;
                           goto LABEL_23;
                         }
                       }
@@ -151,34 +247,34 @@ LABEL_3:
     }
   }
 LABEL_4:
-  v8 = v21;
+  v8 = HIDWORD(RegionSize);
 LABEL_5:
-  if ( v19 )
+  if ( BaseAddressa )
   {
-    v20 = 0;
-    NtFreeVirtualMemory(-1, (int)&v19, (int)&v20, 0x8000);
+    LODWORD(RegionSize) = 0;
+    NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddressa, &RegionSize, 0x8000u);
   }
-  if ( v18 )
+  if ( BufferSize_4 )
   {
-    v20 = v8;
-    NtFreeVirtualMemory(-1, (int)&v18, (int)&v20, 0x8000);
+    LODWORD(RegionSize) = v8;
+    NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&BufferSize_4, &RegionSize, 0x8000u);
   }
-  if ( v23[212] )
-    ZwDuplicateObject(a3, v23[212], 0, 0, 0, 0, 1);
-  if ( v23[206] )
-    ZwDuplicateObject(a3, v23[206], 0, 0, 0, 0, 1);
-  if ( v23[197] )
-    ZwDuplicateObject(a3, v23[197], 0, 0, 0, 0, 1);
-  if ( v23[201] )
-    ZwDuplicateObject(a3, v23[201], 0, 0, 0, 0, 1);
-  if ( v23[193] )
-    ZwDuplicateObject(a3, v23[193], 0, 0, 0, 0, 1);
-  if ( v23[188] )
-    ZwDuplicateObject(a3, v23[188], 0, 0, 0, 0, 1);
-  if ( v23[242] )
-    ZwDuplicateObject(a3, v23[242], 0, 0, 0, 0, 1);
+  if ( v32[212] )
+    ZwDuplicateObject(SourceProcessHandle, (HANDLE)v32[212], 0, 0, 0, 0, 1u);
+  if ( v32[206] )
+    ZwDuplicateObject(SourceProcessHandle, (HANDLE)v32[206], 0, 0, 0, 0, 1u);
+  if ( v32[197] )
+    ZwDuplicateObject(SourceProcessHandle, (HANDLE)v32[197], 0, 0, 0, 0, 1u);
+  if ( v32[201] )
+    ZwDuplicateObject(SourceProcessHandle, (HANDLE)v32[201], 0, 0, 0, 0, 1u);
+  if ( v32[193] )
+    ZwDuplicateObject(SourceProcessHandle, (HANDLE)v32[193], 0, 0, 0, 0, 1u);
+  if ( v32[188] )
+    ZwDuplicateObject(SourceProcessHandle, (HANDLE)v32[188], 0, 0, 0, 0, 1u);
+  if ( v32[242] )
+    ZwDuplicateObject(SourceProcessHandle, (HANDLE)v32[242], 0, 0, 0, 0, 1u);
 LABEL_23:
   if ( (a5 & 1) != 0 )
-    PssNtFreeRemoteSnapshot(v15, a2);
+    PssNtFreeRemoteSnapshot(ProcessHandlea, BaseAddress);
   return VirtualMemory;
 }

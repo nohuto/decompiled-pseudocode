@@ -1,24 +1,24 @@
 /*
- * XREFs of KiResumeThread @ 0x1400CB420
+ * XREFs of KiResumeThread @ 0x1400C92C0
  * Callers:
- *     KeResumeThread @ 0x1400A2840 (KeResumeThread.c)
- *     KiThawSingleThread @ 0x1400C7560 (KiThawSingleThread.c)
- *     KeForceResumeThread @ 0x1400CB374 (KeForceResumeThread.c)
+ *     KeResumeThread @ 0x1400A1168 (KeResumeThread.c)
+ *     KiThawSingleThread @ 0x1400C5400 (KiThawSingleThread.c)
+ *     KeForceResumeThread @ 0x1400C9214 (KeForceResumeThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiTryUnwaitThread @ 0x140057DA0 (KiTryUnwaitThread.c)
- *     KiComputeDueTime @ 0x140057FA0 (KiComputeDueTime.c)
- *     KiTimerWaitTest @ 0x140058C90 (KiTimerWaitTest.c)
- *     KiInsertTimerTable @ 0x140059E30 (KiInsertTimerTable.c)
- *     KiSignalThread @ 0x14005E720 (KiSignalThread.c)
- *     KiTestForAlertPending @ 0x1400AEFA0 (KiTestForAlertPending.c)
- *     KiSignalThreadForApc @ 0x1400CA134 (KiSignalThreadForApc.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1400EE800 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x1400F9DBC (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x1401D2C78 (KeIsThreadRunning.c)
- *     KiTraceSetTimer @ 0x1401DACC0 (KiTraceSetTimer.c)
- *     EtwTraceEnqueueWork @ 0x140225C20 (EtwTraceEnqueueWork.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiTryUnwaitThread @ 0x140057920 (KiTryUnwaitThread.c)
+ *     KiComputeDueTime @ 0x140057B20 (KiComputeDueTime.c)
+ *     KiTimerWaitTest @ 0x140058810 (KiTimerWaitTest.c)
+ *     KiInsertTimerTable @ 0x1400599B0 (KiInsertTimerTable.c)
+ *     KiSignalThread @ 0x14005E2A0 (KiSignalThread.c)
+ *     KiTestForAlertPending @ 0x1400AD508 (KiTestForAlertPending.c)
+ *     KiSignalThreadForApc @ 0x1400C7FD4 (KiSignalThreadForApc.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1400EC680 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400F7B48 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x1401D2AA4 (KeIsThreadRunning.c)
+ *     KiTraceSetTimer @ 0x1401DAAEC (KiTraceSetTimer.c)
+ *     EtwTraceEnqueueWork @ 0x140225A4C (EtwTraceEnqueueWork.c)
  */
 
 char __fastcall KiResumeThread(__int64 a1, __int64 a2, char a3)

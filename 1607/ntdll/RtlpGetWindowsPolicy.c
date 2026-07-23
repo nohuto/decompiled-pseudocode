@@ -3,63 +3,63 @@
  * Callers:
  *     RtlpMuiRegLoadLicInformation @ 0x1800F4FE8 (RtlpMuiRegLoadLicInformation.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     ZwQueryLicenseValue @ 0x1800A8C10 (ZwQueryLicenseValue.c)
  */
 
-__int64 __fastcall RtlpGetWindowsPolicy(PCWSTR SourceString, __int64 a2, unsigned int *a3, unsigned __int64 *a4)
+__int64 __fastcall RtlpGetWindowsPolicy(PCWSTR SourceString, PULONG Type, PULONG ResultDataSize, _QWORD *a4)
 {
-  unsigned __int64 Heap; // rbx
-  int LicenseValue; // eax
-  unsigned int v8; // edi
-  unsigned int v9; // eax
-  UNICODE_STRING v11; // [rsp+30h] [rbp-18h] BYREF
+  PVOID Heap; // rbx
+  NTSTATUS v8; // eax
+  unsigned __int32 v9; // edi
+  ULONG v10; // eax
+  _UNICODE_STRING ValueName; // [rsp+30h] [rbp-18h] BYREF
 
   Heap = 0LL;
-  if ( a2 && a3 && a4 && SourceString )
+  if ( Type && ResultDataSize && a4 && SourceString )
   {
-    RtlInitUnicodeString(&v11, SourceString);
-    LicenseValue = ZwQueryLicenseValue();
-    v8 = LicenseValue;
-    if ( LicenseValue >= 0 )
+    RtlInitUnicodeString(&ValueName, SourceString);
+    v8 = ZwQueryLicenseValue(&ValueName, Type, 0LL, 0, ResultDataSize);
+    v9 = v8;
+    if ( v8 >= 0 )
     {
-      v9 = *a3;
-      if ( !*a3 )
+      v10 = *ResultDataSize;
+      if ( !*ResultDataSize )
       {
         *a4 = 0LL;
-        return v8;
+        return v9;
       }
     }
     else
     {
-      if ( LicenseValue != -1073741789 )
+      if ( v8 != -1073741789 )
       {
 LABEL_13:
-        v8 = ZwQueryLicenseValue();
-        if ( (v8 & 0x80000000) == 0 )
+        v9 = ZwQueryLicenseValue(&ValueName, Type, Heap, *ResultDataSize, ResultDataSize);
+        if ( (v9 & 0x80000000) == 0 )
         {
           *a4 = Heap;
-          return v8;
+          return v9;
         }
         goto LABEL_16;
       }
-      v9 = *a3;
-      if ( !*a3 )
+      v10 = *ResultDataSize;
+      if ( !*ResultDataSize )
       {
 LABEL_9:
         if ( !Heap )
-          return (unsigned int)-1073741801;
+          return (unsigned __int32)-1073741801;
         goto LABEL_13;
       }
     }
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v9);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v10);
     goto LABEL_9;
   }
-  v8 = -1073741811;
+  v9 = -1073741811;
 LABEL_16:
   if ( Heap )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
-  return v8;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  return v9;
 }

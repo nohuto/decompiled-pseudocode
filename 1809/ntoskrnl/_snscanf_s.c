@@ -1,10 +1,10 @@
 /*
- * XREFs of _snscanf_s @ 0x14019AC20
+ * XREFs of _snscanf_s @ 0x14019AD60
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
- *     _sinput_s @ 0x14019E278 (_sinput_s.c)
+ *     xHalTimerWatchdogStop @ 0x140176900 (xHalTimerWatchdogStop.c)
+ *     _sinput_s @ 0x14019E3B8 (_sinput_s.c)
  */
 
 int snscanf_s(const char *Src, size_t MaxCount, const char *Format, ...)

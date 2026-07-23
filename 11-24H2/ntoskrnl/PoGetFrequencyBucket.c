@@ -1,7 +1,7 @@
 /*
- * XREFs of PoGetFrequencyBucket @ 0x140251E40
+ * XREFs of PoGetFrequencyBucket @ 0x140282450
  * Callers:
- *     KiRetireDpcList @ 0x140251EB0 (KiRetireDpcList.c)
+ *     KiRetireDpcList @ 0x1402824C0 (KiRetireDpcList.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of PfpPartitionCreate @ 0x1405CC80C
+ * XREFs of PfpPartitionCreate @ 0x1405C9F7C
  * Callers:
- *     PfpPartitionFindOrCreate @ 0x1407473E0 (PfpPartitionFindOrCreate.c)
+ *     PfpPartitionFindOrCreate @ 0x1407456D0 (PfpPartitionFindOrCreate.c)
  * Callees:
- *     ExAcquireRundownProtectionCacheAware @ 0x140283A10 (ExAcquireRundownProtectionCacheAware.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PfpPartitionInsertToGlobals @ 0x1405CC9C0 (PfpPartitionInsertToGlobals.c)
- *     PfpTraceLogPartitionId @ 0x1405CCB30 (PfpTraceLogPartitionId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PfpPartitionAllocateState @ 0x14074736C (PfpPartitionAllocateState.c)
- *     PfpPartitionCleanup @ 0x1407473B0 (PfpPartitionCleanup.c)
- *     PfpPartitionInitialize @ 0x14074757C (PfpPartitionInitialize.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x140238FA0 (ExAcquireRundownProtectionCacheAware.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PfpPartitionInsertToGlobals @ 0x1405CA130 (PfpPartitionInsertToGlobals.c)
+ *     PfpTraceLogPartitionId @ 0x1405CA2A0 (PfpTraceLogPartitionId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PfpPartitionAllocateState @ 0x14074565C (PfpPartitionAllocateState.c)
+ *     PfpPartitionCleanup @ 0x1407456A0 (PfpPartitionCleanup.c)
+ *     PfpPartitionInitialize @ 0x14074586C (PfpPartitionInitialize.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpPartitionCreate(PEX_RUNDOWN_REF_CACHE_AWARE **a1, __int64 a2, __int64 a3)
@@ -41,9 +41,9 @@ __int64 __fastcall PfpPartitionCreate(PEX_RUNDOWN_REF_CACHE_AWARE **a1, __int64 
     v13 = v7;
     v17 = 4;
     v16 = &v13;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&dword_14004812C, 0LL, 0LL, 3u, v15);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&dword_14004859C, 0LL, 0LL, 3u, v15);
   }
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x320uLL, 0x74506650u);
   v9 = (PEX_RUNDOWN_REF_CACHE_AWARE *)Pool2;
   if ( Pool2 )
   {
@@ -76,7 +76,7 @@ __int64 __fastcall PfpPartitionCreate(PEX_RUNDOWN_REF_CACHE_AWARE **a1, __int64 
     v14 = State;
     v19 = &v14;
     v20 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&word_1400481F6, 0LL, 0LL, 4u, v15);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E074B8, (unsigned __int8 *)&word_1400485F6, 0LL, 0LL, 4u, v15);
   }
   return (unsigned int)State;
 }

@@ -14,8 +14,8 @@ __int64 __fastcall KsepGetModuleInfoByName(PCWSTR SourceString, unsigned int *a2
 {
   NTSTATUS v5; // ebx
   unsigned int i; // ebx
-  const char *v7; // rbp
-  STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
+  const CHAR *v7; // rbp
+  _STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
   UNICODE_STRING SourceStringa; // [rsp+30h] [rbp-28h] BYREF
   STRING String1; // [rsp+40h] [rbp-18h] BYREF
 
@@ -30,7 +30,7 @@ __int64 __fastcall KsepGetModuleInfoByName(PCWSTR SourceString, unsigned int *a2
   {
     for ( i = 0; i < *a2; ++i )
     {
-      v7 = (const char *)&a2[74 * i + 2];
+      v7 = (const CHAR *)&a2[74 * i + 2];
       RtlInitAnsiString(&String1, &v7[*((unsigned __int16 *)v7 + 19) + 40]);
       if ( !RtlCompareString(&String1, &DestinationString, 1u) )
       {

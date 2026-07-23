@@ -9,43 +9,41 @@
  *     RtlAcquireSRWLockExclusive @ 0x18002DA60 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlpRemoveVectoredHandler(__int64 a1, char *a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpRemoveVectoredHandler(_RTL_SRWLOCK *a1, unsigned int a2)
 {
-  int v4; // r14d
-  char *v6; // rdi
-  unsigned __int64 i; // rbx
-  _QWORD *v9; // rdx
-  _QWORD *v10; // rax
+  _RTL_SRWLOCK *v4; // rdi
+  _RTL_SRWLOCK *i; // rbx
+  _RTL_SRWLOCK *Value; // rdx
+  _RTL_SRWLOCK *v8; // rax
 
-  v4 = (int)a2;
-  v6 = (char *)&LdrpVectorHandlerList + 24 * (unsigned int)a2;
-  RtlAcquireSRWLockExclusive((unsigned __int64)v6, a2, 3LL * (unsigned int)a2, a4);
-  for ( i = *((_QWORD *)v6 + 1); ; i = *(_QWORD *)i )
+  v4 = (_RTL_SRWLOCK *)((char *)&LdrpVectorHandlerList + 24 * a2);
+  RtlAcquireSRWLockExclusive(v4);
+  for ( i = (_RTL_SRWLOCK *)v4[1].Value; ; i = (_RTL_SRWLOCK *)i->Value )
   {
-    if ( (char *)i == v6 + 8 )
+    if ( i == &v4[1] )
     {
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)v6);
+      RtlReleaseSRWLockExclusive(v4);
       return 0LL;
     }
     if ( i == a1 )
       break;
   }
-  if ( (*(_DWORD *)(i + 16))-- == 1 )
+  if ( (*(_DWORD *)&i[2].0)-- == 1 )
   {
-    v9 = *(_QWORD **)i;
-    v10 = *(_QWORD **)(i + 8);
-    if ( *(_QWORD *)(*(_QWORD *)i + 8LL) != i || *v10 != i )
+    Value = (_RTL_SRWLOCK *)i->Value;
+    v8 = (_RTL_SRWLOCK *)i[1].Value;
+    if ( *(_RTL_SRWLOCK **)(i->Value + 8) != i || (_RTL_SRWLOCK *)v8->Value != i )
       __fastfail(3u);
-    *v10 = v9;
-    v9[1] = v10;
-    if ( v10 == v9 )
-      _interlockedbittestandreset((volatile signed __int32 *)&NtCurrentPeb()->80, v4 + 2);
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)v6);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, i);
+    v8->Value = (unsigned __int64)Value;
+    Value[1].Value = (unsigned __int64)v8;
+    if ( v8 == Value )
+      _interlockedbittestandreset((volatile signed __int32 *)&NtCurrentPeb()->80, a2 + 2);
+    RtlReleaseSRWLockExclusive(v4);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, i);
   }
   else
   {
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)v6);
+    RtlReleaseSRWLockExclusive(v4);
   }
   return 1LL;
 }

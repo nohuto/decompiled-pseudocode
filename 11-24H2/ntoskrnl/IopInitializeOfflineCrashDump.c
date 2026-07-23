@@ -1,18 +1,18 @@
 /*
- * XREFs of IopInitializeOfflineCrashDump @ 0x140594AD0
+ * XREFs of IopInitializeOfflineCrashDump @ 0x140591AF4
  * Callers:
- *     IopInitCrashDumpDuringSysInit @ 0x140C1C8B4 (IopInitCrashDumpDuringSysInit.c)
+ *     IopInitCrashDumpDuringSysInit @ 0x140C1E8F4 (IopInitCrashDumpDuringSysInit.c)
  * Callees:
- *     IopConstructInMemoryDumpHeader @ 0x140593950 (IopConstructInMemoryDumpHeader.c)
- *     IopInitializeInMemoryDumpData @ 0x14059488C (IopInitializeInMemoryDumpData.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     IoSetEnvironmentVariableEx @ 0x1409664F0 (IoSetEnvironmentVariableEx.c)
- *     IoGetEnvironmentVariableEx @ 0x140966F70 (IoGetEnvironmentVariableEx.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     IopOpenRegistryKey @ 0x140A77340 (IopOpenRegistryKey.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     IopCachePreviousBootData @ 0x140C1A560 (IopCachePreviousBootData.c)
+ *     IopConstructInMemoryDumpHeader @ 0x140590974 (IopConstructInMemoryDumpHeader.c)
+ *     IopInitializeInMemoryDumpData @ 0x1405918B0 (IopInitializeInMemoryDumpData.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     IoSetEnvironmentVariableEx @ 0x14094EF80 (IoSetEnvironmentVariableEx.c)
+ *     IoGetEnvironmentVariableEx @ 0x14094FA00 (IoGetEnvironmentVariableEx.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     IopOpenRegistryKey @ 0x140A71460 (IopOpenRegistryKey.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     IopCachePreviousBootData @ 0x140C1C5A0 (IopCachePreviousBootData.c)
  */
 
 void __fastcall IopInitializeOfflineCrashDump(__int64 a1)
@@ -31,7 +31,7 @@ void __fastcall IopInitializeOfflineCrashDump(__int64 a1)
   v1 = 0;
   v9[0] = 2012912317;
   Handle = 0LL;
-  dword_140E65E40 = 0;
+  dword_140E65F90 = 0;
   v9[1] = 1295123289;
   v9[2] = -198680387;
   v9[3] = 1266192359;
@@ -44,12 +44,12 @@ void __fastcall IopInitializeOfflineCrashDump(__int64 a1)
   {
     if ( (unsigned int)(*(_DWORD *)(a1 + 2808) - 1) > 2 )
     {
-      dword_140E65E40 = -1073741736;
+      dword_140E65F90 = -1073741736;
     }
     else
     {
       PoOffCrashConfigTable = *(_OWORD *)(a1 + 2808);
-      xmmword_140F0E3F0 = *(_OWORD *)(a1 + 2824);
+      xmmword_140F0E630 = *(_OWORD *)(a1 + 2824);
       v2 = IopOpenRegistryKey(&Handle, 0LL, v8, 131097LL, 0);
       if ( v2 >= 0 )
       {
@@ -100,7 +100,7 @@ LABEL_11:
       }
       else
       {
-        dword_140E65E40 = v2;
+        dword_140E65F90 = v2;
       }
     }
     if ( Handle )
@@ -108,6 +108,6 @@ LABEL_11:
   }
   else
   {
-    dword_140E65E40 = -1073741275;
+    dword_140E65F90 = -1073741275;
   }
 }

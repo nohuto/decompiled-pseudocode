@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmCreateDeviceContainer @ 0x140A54BFC
+ * XREFs of _CmCreateDeviceContainer @ 0x140A4CB4C
  * Callers:
- *     _CmAddDeviceToContainerWorker @ 0x140A547D0 (_CmAddDeviceToContainerWorker.c)
+ *     _CmAddDeviceToContainerWorker @ 0x140A4C720 (_CmAddDeviceToContainerWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmCreateDeviceContainerWorker @ 0x140A54D7C (_CmCreateDeviceContainerWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmCreateDeviceContainerWorker @ 0x140A4CCCC (_CmCreateDeviceContainerWorker.c)
  */
 
 __int64 __fastcall CmCreateDeviceContainer(__int64 a1, __int64 a2, __int64 a3, HANDLE *a4, _BYTE *a5)
@@ -29,7 +29,7 @@ __int64 __fastcall CmCreateDeviceContainer(__int64 a1, __int64 a2, __int64 a3, H
   v15 = 4;
   if ( v8 )
   {
-    v9 = guard_dispatch_icall_no_overrides(a1, a2, 5LL, 2LL);
+    v9 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v9 == -1073741822 )
     {
       v8 = 0LL;
@@ -51,7 +51,7 @@ LABEL_19:
   if ( !v8 )
     goto LABEL_6;
   v14[0] = DeviceContainerWorker;
-  v13 = guard_dispatch_icall_no_overrides(a1, a2, 5LL, 2LL);
+  v13 = guard_dispatch_icall_no_overrides(a1, a2);
   if ( v13 == -1073741822 )
     goto LABEL_6;
   if ( v13 == -1073741536 )

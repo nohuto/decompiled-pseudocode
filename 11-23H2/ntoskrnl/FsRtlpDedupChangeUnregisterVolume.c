@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlpDedupChangeUnregisterVolume @ 0x14093EABC
+ * XREFs of FsRtlpDedupChangeUnregisterVolume @ 0x14093ECBC
  * Callers:
- *     FsRtlDedupChangeUninit @ 0x14093E780 (FsRtlDedupChangeUninit.c)
+ *     FsRtlDedupChangeUninit @ 0x14093E980 (FsRtlDedupChangeUninit.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

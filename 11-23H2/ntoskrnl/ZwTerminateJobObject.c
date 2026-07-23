@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwTerminateJobObject @ 0x14041E740
+ * XREFs of ZwTerminateJobObject @ 0x14041EAD0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwTerminateJobObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwTerminateJobObject(HANDLE JobHandle, NTSTATUS ExitStatus)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(JobHandle);
 }

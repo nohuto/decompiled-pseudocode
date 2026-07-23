@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareMemory @ 0x1800A1FF0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1800A1FB0 (RtlCompareMemory.c)
  */
 
-bool __fastcall RtlIsPackageSid(__int64 a1)
+BOOLEAN __cdecl RtlIsPackageSid(PSID Sid)
 {
-  return *(_BYTE *)(a1 + 1) >= 2u
-      && *(_BYTE *)a1 == 1
-      && RtlCompareMemory((const void *)(a1 + 2), &RtlpAppPackageAuthority, 6uLL) == 6
-      && *(_DWORD *)(a1 + 8) == 2;
+  return *((_BYTE *)Sid + 1) >= 2u
+      && *(_BYTE *)Sid == 1
+      && RtlCompareMemory((char *)Sid + 2, &RtlpAppPackageAuthority, 6uLL) == 6
+      && *((_DWORD *)Sid + 2) == 2;
 }

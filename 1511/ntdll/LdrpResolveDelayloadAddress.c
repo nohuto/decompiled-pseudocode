@@ -17,43 +17,41 @@
 
 __int64 __fastcall LdrpResolveDelayloadAddress(
         __int64 a1,
-        __int64 a2,
+        _QWORD *a2,
         __int64 a3,
         __int64 a4,
-        void (__fastcall *a5)(__int64 *, __int64, __int64, _QWORD, _QWORD),
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
         int *a6)
 {
   __int64 v7; // rdx
   __int64 v8; // r9
   __int64 v9; // rax
   __int64 v10; // rdi
-  unsigned int v11; // r14d
-  __int64 v12; // rbx
-  __int64 v13; // rsi
+  int v11; // r14d
+  WCHAR *v12; // rbx
+  _QWORD *v13; // rsi
   unsigned int v14; // r15d
   int ProcedureAddress; // eax
-  char *v16; // rdx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  __int64 v19; // rbx
+  __int64 v16; // rbx
   int ForwardedDll; // edi
-  __int64 v21; // rdi
-  unsigned int v23; // eax
-  unsigned int v24; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v25; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v26; // [rsp+40h] [rbp-C0h]
-  __int64 v27; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v28; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v29; // [rsp+58h] [rbp-A8h] BYREF
-  int *v30; // [rsp+60h] [rbp-A0h]
-  _BYTE v31[24]; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v32[16]; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v18; // rdi
+  unsigned int v20; // eax
+  __int64 v21; // [rsp+20h] [rbp-E0h]
+  int v22; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 v23; // [rsp+38h] [rbp-C8h] BYREF
+  __int64 v24; // [rsp+40h] [rbp-C0h]
+  __int64 v25; // [rsp+48h] [rbp-B8h] BYREF
+  PVOID BaseAddress; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v27; // [rsp+58h] [rbp-A8h] BYREF
+  int *v28; // [rsp+60h] [rbp-A0h]
+  _BYTE v29[24]; // [rsp+68h] [rbp-98h] BYREF
+  PWSTR Path[16]; // [rsp+80h] [rbp-80h] BYREF
 
   v7 = *(_QWORD *)(a1 + 48);
   v8 = a4 - *(unsigned int *)(a3 + 12);
-  v25 = 0LL;
-  v26 = a1;
-  v30 = a6;
+  v23 = 0LL;
+  v24 = a1;
+  v28 = a6;
   v9 = *(_QWORD *)(v7 + *(unsigned int *)(a3 + 16) + 8 * ((v8 - v7) >> 3));
   if ( v9 < 0 )
   {
@@ -65,58 +63,68 @@ __int64 __fastcall LdrpResolveDelayloadAddress(
     v10 = v9 + v7 + 2;
     v11 = 0;
   }
-  v12 = *(_QWORD *)(a2 + 80);
-  v29 = v10;
-  v24 = v11;
+  v12 = (WCHAR *)a2[10];
+  v27 = v10;
+  v22 = v11;
   v13 = a2;
-  v28 = a2;
+  BaseAddress = a2;
   v14 = 0;
-  memset(v32, 0, sizeof(v32));
-  LODWORD(v32[3]) = 0;
-  v32[4] = v12;
+  memset(Path, 0, sizeof(Path));
+  LODWORD(Path[3]) = 0;
+  Path[4] = v12;
   while ( 1 )
   {
-    ProcedureAddress = LdrpGetProcedureAddress(*(_QWORD *)(v13 + 48), v10, v11, &v25);
-    v19 = v25;
+    ProcedureAddress = LdrpGetProcedureAddress(v13[6]);
+    v16 = v23;
     ForwardedDll = ProcedureAddress;
     if ( ProcedureAddress != -1073741267 )
       break;
-    v23 = v14++;
-    if ( v23 >= 0x20 )
+    v20 = v14++;
+    if ( v20 >= 0x20 )
     {
       ForwardedDll = -1073741701;
       break;
     }
-    ForwardedDll = LdrpParseForwarderDescription(v25, v31, &v29, &v24);
+    ForwardedDll = LdrpParseForwarderDescription(v23, v29, &v27, &v22);
     if ( ForwardedDll < 0 )
       break;
-    LODWORD(v32[3]) = *(_DWORD *)(v13 + 272);
-    ForwardedDll = LdrpLoadForwardedDll((__int64)v31, (int)v32, a2, v13, 2, (__int64)&v28);
+    LODWORD(Path[3]) = *((_DWORD *)v13 + 68);
+    LODWORD(v21) = 2;
+    ForwardedDll = LdrpLoadForwardedDll(
+                     (__int64)v29,
+                     (__int64)Path,
+                     (__int64)a2,
+                     (__int64)v13,
+                     v21,
+                     (__int64)&BaseAddress);
     if ( ForwardedDll < 0 )
       break;
-    v13 = v28;
-    LdrpDereferenceModule(v28);
-    v10 = v29;
-    v11 = v24;
+    v13 = BaseAddress;
+    LdrpDereferenceModule(BaseAddress);
   }
-  if ( BYTE4(v32[15]) )
-    RtlReleasePath(v32[0], v16, v17, v18);
-  *v30 = ForwardedDll;
+  if ( BYTE4(Path[15]) )
+    RtlReleasePath(Path[0]);
+  *v28 = ForwardedDll;
   if ( ForwardedDll >= 0 )
   {
-    v21 = v26;
+    v18 = v24;
     if ( AvrfpAPILookupCallbacksEnabled )
     {
-      AVrfCallAPILookupCallback(*(_QWORD *)(v26 + 48), *(_QWORD *)(a2 + 48), v19, 1, (__int64)&v25);
-      v19 = v25;
+      AVrfCallAPILookupCallback(*(_QWORD *)(v24 + 48), a2[6], v16, 1, (__int64)&v23);
+      v16 = v23;
     }
-    if ( a5 )
+    if ( HashTable )
     {
-      v27 = 0LL;
-      a5(&v27, a2, v19, *(_QWORD *)(v21 + 48), 0LL);
-      if ( v27 )
-        return v27;
+      v25 = 0LL;
+      ((void (__fastcall *)(__int64 *, _QWORD *, __int64, _QWORD, _QWORD))HashTable)(
+        &v25,
+        a2,
+        v16,
+        *(_QWORD *)(v18 + 48),
+        0LL);
+      if ( v25 )
+        return v25;
     }
   }
-  return v19;
+  return v16;
 }

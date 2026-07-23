@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMakeCombineCandidateClean @ 0x140369D8C
+ * XREFs of MiMakeCombineCandidateClean @ 0x140369F3C
  * Callers:
- *     MiCrcStillIntact @ 0x140367B74 (MiCrcStillIntact.c)
- *     MiSharePages @ 0x140368360 (MiSharePages.c)
+ *     MiCrcStillIntact @ 0x140367D24 (MiCrcStillIntact.c)
+ *     MiSharePages @ 0x140368510 (MiSharePages.c)
  * Callees:
- *     MiCaptureWriteWatchDirtyBit @ 0x14025B15C (MiCaptureWriteWatchDirtyBit.c)
- *     MiWriteValidPteNewProtection @ 0x14030FA00 (MiWriteValidPteNewProtection.c)
- *     MiLockPageAndSetDirty @ 0x14030FA6C (MiLockPageAndSetDirty.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x14027C6CC (MiCaptureWriteWatchDirtyBit.c)
+ *     MiWriteValidPteNewProtection @ 0x14031A750 (MiWriteValidPteNewProtection.c)
+ *     MiLockPageAndSetDirty @ 0x14031A7BC (MiLockPageAndSetDirty.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 void __fastcall MiMakeCombineCandidateClean(unsigned __int64 a1, __int64 a2)

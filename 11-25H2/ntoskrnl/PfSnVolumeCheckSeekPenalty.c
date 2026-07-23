@@ -25,7 +25,7 @@ __int64 __fastcall PfSnVolumeCheckSeekPenalty(HANDLE *a1, void *a2)
   InputBuffer[0] = 7;
   v4 = 1;
   IoStatusBlock = 0LL;
-  ZwResetEvent((__int64)a2, 0LL);
+  ZwResetEvent(a2, 0LL);
   Status = ZwDeviceIoControlFile(*a1, a2, 0LL, 0LL, &IoStatusBlock, 0x2D1400u, InputBuffer, 0xCu, &OutputBuffer, 0xCu);
   if ( Status == 259 )
   {

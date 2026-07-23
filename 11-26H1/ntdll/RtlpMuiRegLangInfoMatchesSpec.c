@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpMuiRegLangInfoMatchesSpec @ 0x1800E0C44
+ * XREFs of RtlpMuiRegLangInfoMatchesSpec @ 0x1800DE4E4
  * Callers:
- *     RtlpMuiRegConfigMatchesInstalled @ 0x1800E0938 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x1800DE1D8 (RtlpMuiRegConfigMatchesInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180001AA0 (RtlInitUnicodeString.c)
- *     _MuiRegAllocArray @ 0x180002AB0 (_MuiRegAllocArray.c)
- *     RtlCultureNameToLCID @ 0x180004710 (RtlCultureNameToLCID.c)
- *     RtlpInitAndCallLcidToCultureName @ 0x180004E70 (RtlpInitAndCallLcidToCultureName.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     _wcsicmp @ 0x180128F40 (_wcsicmp.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlInitUnicodeString @ 0x18004D1D0 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x18004E1E0 (_MuiRegAllocArray.c)
+ *     RtlCultureNameToLCID @ 0x18004FE40 (RtlCultureNameToLCID.c)
+ *     RtlpInitAndCallLcidToCultureName @ 0x1800505A0 (RtlpInitAndCallLcidToCultureName.c)
+ *     _wcsicmp @ 0x180128CB0 (_wcsicmp.c)
  */
 
 bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, __int16 a4)
 {
   __int64 v4; // rbx
   char v5; // bp
-  __int64 v8; // rsi
+  wchar_t *v8; // rsi
   int v9; // eax
   __int64 v12; // rdx
   __int64 v13; // r8
@@ -25,14 +25,14 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
   const WCHAR *v17; // rdx
   __int64 v18; // r8
   const wchar_t *v19; // rdx
-  __int64 v20; // rax
+  wchar_t *v20; // rax
   __int64 v21; // rdx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
-  int v23; // [rsp+60h] [rbp+18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
+  DWORD Lcid; // [rsp+60h] [rbp+18h] BYREF
 
   v4 = a4;
   v5 = 1;
-  v23 = 0;
+  Lcid = 0;
   v8 = 0LL;
   DestinationString = 0LL;
   if ( a3 == 1 )
@@ -52,8 +52,8 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
           if ( v14 )
           {
             RtlInitUnicodeString(&DestinationString, v14);
-            if ( RtlCultureNameToLCID(&DestinationString.Length, &v23) )
-              return (_WORD)v23 == (unsigned __int16)v4;
+            if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
+              return (_WORD)Lcid == (unsigned __int16)v4;
           }
         }
       }
@@ -75,14 +75,11 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
   {
     if ( *(_WORD *)(a2 + 4) )
     {
-      v20 = MuiRegAllocArray(a1, 0x55u);
+      v20 = (wchar_t *)MuiRegAllocArray(a1, 0x55u);
       v8 = v20;
       if ( v20 )
       {
-        if ( (unsigned __int8)RtlpInitAndCallLcidToCultureName(
-                                (__int64)&DestinationString,
-                                v20,
-                                *(unsigned __int16 *)(a2 + 4)) )
+        if ( RtlpInitAndCallLcidToCultureName(&DestinationString, v20, *(unsigned __int16 *)(a2 + 4)) )
         {
 LABEL_19:
           v18 = *(_QWORD *)(a1 + 32);
@@ -95,10 +92,10 @@ LABEL_19:
             v5 = 0;
           }
           if ( v8 )
-            RtlFreeHeap_0();
+            RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v8);
           return v5;
         }
-        RtlFreeHeap_0();
+        RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v8);
       }
     }
     return 0;

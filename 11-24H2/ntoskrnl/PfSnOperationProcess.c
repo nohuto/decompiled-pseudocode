@@ -1,16 +1,16 @@
 /*
- * XREFs of PfSnOperationProcess @ 0x140963294
+ * XREFs of PfSnOperationProcess @ 0x14094AD54
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x14096308C (PfSnSetPrefetcherInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x14094AB4C (PfSnSetPrefetcherInformation.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PfSnEndProcessTrace @ 0x140939A40 (PfSnEndProcessTrace.c)
- *     PfSnCheckScenario @ 0x140960C4C (PfSnCheckScenario.c)
- *     PfSnBeginScenario @ 0x140960CB0 (PfSnBeginScenario.c)
- *     PfCalculateProcessHash @ 0x140962000 (PfCalculateProcessHash.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PfSnCheckScenario @ 0x14094870C (PfSnCheckScenario.c)
+ *     PfSnBeginScenario @ 0x140948770 (PfSnBeginScenario.c)
+ *     PfCalculateProcessHash @ 0x140949AC0 (PfCalculateProcessHash.c)
+ *     PfSnEndProcessTrace @ 0x14094BF24 (PfSnEndProcessTrace.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnOperationProcess(__int64 a1)
@@ -100,7 +100,7 @@ __int64 __fastcall PfSnOperationProcess(__int64 a1)
             }
             else
             {
-              PfSnEndProcessTrace((__int64)Process, v15 + 8, (unsigned __int64)pszDest);
+              PfSnEndProcessTrace(Process, v15 + 8, pszDest);
             }
             v9 = 0;
           }

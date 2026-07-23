@@ -1,13 +1,21 @@
 /*
  * XREFs of LdrAccessResource @ 0x1408550E0
  * Callers:
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
- *     FindBitmapResource @ 0x140B25A50 (FindBitmapResource.c)
+ *     sub_140AFB264 @ 0x140AFB264 (sub_140AFB264.c)
+ *     sub_140B25A50 @ 0x140B25A50 (sub_140B25A50.c)
  * Callees:
- *     LdrpAccessResourceData @ 0x14075883C (LdrpAccessResourceData.c)
+ *     sub_14075883C @ 0x14075883C (sub_14075883C.c)
  */
 
-__int64 __fastcall LdrAccessResource(unsigned __int64 a1, unsigned int *a2, unsigned __int64 *a3, _DWORD *a4)
+NTSTATUS __cdecl LdrAccessResource(
+        PVOID DllHandle,
+        PIMAGE_RESOURCE_DATA_ENTRY ResourceDataEntry,
+        PVOID *ResourceBuffer,
+        ULONG *ResourceLength)
 {
-  return LdrpAccessResourceData(a1, a2, a3, a4);
+  return sub_14075883C(
+           (unsigned __int64)DllHandle,
+           &ResourceDataEntry->OffsetToData,
+           (unsigned __int64 *)ResourceBuffer,
+           ResourceLength);
 }

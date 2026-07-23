@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptGetHighestPriorityInterrupt @ 0x14057D340
+ * XREFs of HalpInterruptGetHighestPriorityInterrupt @ 0x14057F860
  * Callers:
- *     HalpTimerOnlyClockInterruptPending @ 0x140581720 (HalpTimerOnlyClockInterruptPending.c)
+ *     HalpTimerOnlyClockInterruptPending @ 0x140583C40 (HalpTimerOnlyClockInterruptPending.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x1404265EC (HalpInterruptFindLines.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpInterruptFindLines @ 0x1404336FC (HalpInterruptFindLines.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpInterruptGetHighestPriorityInterrupt(_DWORD *a1)

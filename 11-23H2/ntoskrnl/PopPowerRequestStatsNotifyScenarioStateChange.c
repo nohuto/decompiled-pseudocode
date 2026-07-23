@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerRequestStatsNotifyScenarioStateChange @ 0x14085550C
+ * XREFs of PopPowerRequestStatsNotifyScenarioStateChange @ 0x14085580C
  * Callers:
- *     PopWnfAudioCallback @ 0x1408553A0 (PopWnfAudioCallback.c)
- *     PopPowerRequestNotifyMobileHotspotChanged @ 0x140981708 (PopPowerRequestNotifyMobileHotspotChanged.c)
+ *     PopWnfAudioCallback @ 0x1408556A0 (PopWnfAudioCallback.c)
+ *     PopPowerRequestNotifyMobileHotspotChanged @ 0x140981908 (PopPowerRequestNotifyMobileHotspotChanged.c)
  * Callees:
- *     SleepstudyHelperBlockerActiveDereference @ 0x14032D600 (SleepstudyHelperBlockerActiveDereference.c)
- *     SleepstudyHelperBlockerActiveReference @ 0x14032D6F0 (SleepstudyHelperBlockerActiveReference.c)
+ *     SleepstudyHelperBlockerActiveDereference @ 0x14032D890 (SleepstudyHelperBlockerActiveDereference.c)
+ *     SleepstudyHelperBlockerActiveReference @ 0x14032D980 (SleepstudyHelperBlockerActiveReference.c)
  */
 
 __int64 __fastcall PopPowerRequestStatsNotifyScenarioStateChange(int a1, char a2)

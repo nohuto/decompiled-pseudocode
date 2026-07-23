@@ -4,10 +4,10 @@
  *     EmClientQueryRuleState @ 0x1403C84A8 (EmClientQueryRuleState.c)
  *     EmClientRuleEvaluate @ 0x1403C8598 (EmClientRuleEvaluate.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 char EmpAcquirePagingReference()
@@ -25,10 +25,10 @@ char EmpAcquirePagingReference()
     ExfAcquirePushLockExclusiveEx(&EmpPagingLock, v1, (ULONG_PTR)&EmpPagingLock);
   if ( v3 )
     v3[26] |= 1u;
-  if ( dword_140322548 < 0 )
+  if ( dword_140322568 < 0 )
   {
     v0 = 1;
-    dword_140322548 ^= (dword_140322548 ^ (dword_140322548 + 1)) & 0x7FFFFFFF;
+    dword_140322568 ^= (dword_140322568 ^ (dword_140322568 + 1)) & 0x7FFFFFFF;
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpPagingLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&EmpPagingLock);

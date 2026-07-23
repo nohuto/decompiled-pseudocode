@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpPCIConfig @ 0x14043A4F0
+ * XREFs of HalpPCIConfig @ 0x14042CDA0
  * Callers:
- *     HalpAcpiAccessSecureAddress @ 0x14024D0F0 (HalpAcpiAccessSecureAddress.c)
- *     HalpWritePCIConfig @ 0x140439BC0 (HalpWritePCIConfig.c)
- *     HalpReadPCIConfig @ 0x14043A340 (HalpReadPCIConfig.c)
- *     HaliPciInterfaceWriteConfig @ 0x14043A4B0 (HaliPciInterfaceWriteConfig.c)
+ *     HalpAcpiAccessSecureAddress @ 0x14024EA50 (HalpAcpiAccessSecureAddress.c)
+ *     HalpWritePCIConfig @ 0x14042C470 (HalpWritePCIConfig.c)
+ *     HalpReadPCIConfig @ 0x14042CBF0 (HalpReadPCIConfig.c)
+ *     HaliPciInterfaceWriteConfig @ 0x14042CD60 (HaliPciInterfaceWriteConfig.c)
  * Callees:
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     HalpPCIReleaseConfigSpaceLock @ 0x14043A8A0 (HalpPCIReleaseConfigSpaceLock.c)
- *     HalpPciMapMmConfigPhysicalAddress @ 0x14043A908 (HalpPciMapMmConfigPhysicalAddress.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpPciAccessIoConfigSpace @ 0x14058C0A8 (HalpPciAccessIoConfigSpace.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     HalpPCIReleaseConfigSpaceLock @ 0x14042D150 (HalpPCIReleaseConfigSpaceLock.c)
+ *     HalpPciMapMmConfigPhysicalAddress @ 0x14042D1B8 (HalpPciMapMmConfigPhysicalAddress.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpPciAccessIoConfigSpace @ 0x14058E828 (HalpPciAccessIoConfigSpace.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 ULONG_PTR *__fastcall HalpPCIConfig(
@@ -83,7 +83,7 @@ ULONG_PTR *__fastcall HalpPCIConfig(
   {
 LABEL_6:
     v13 = Size;
-    if ( qword_140FBB108 )
+    if ( qword_140FBB4A8 )
     {
       v14 = BugCheckParameter3;
       v38 = v7;
@@ -101,7 +101,7 @@ LABEL_6:
     {
       v14 = BugCheckParameter3;
     }
-    if ( LOBYTE(HalpDeviceBlockUnblockPushLock.Timer.TimerListEntry.Flink) )
+    if ( LOBYTE(HalpDeviceBlockUnblockPushLock.Timer.DueTime.LowPart) )
     {
       CurrentIrql = 15;
     }
@@ -115,7 +115,7 @@ LABEL_6:
         LOBYTE(a2) = 15;
         KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
       }
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         if ( _interlockedbittestandset64((volatile signed __int32 *)&HalpPCIConfigLock, 0LL) )
           KxWaitForSpinLockAndAcquire((volatile signed __int32 *)&HalpPCIConfigLock);

@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpExtractNotificationSpecificData @ 0x140720620
+ * XREFs of PnpExtractNotificationSpecificData @ 0x14071E1B0
  * Callers:
- *     PnpNotifyDriverCallback @ 0x1409EEDB0 (PnpNotifyDriverCallback.c)
+ *     PnpNotifyDriverCallback @ 0x1409EC7F0 (PnpNotifyDriverCallback.c)
  * Callees:
  *     <none>
  */

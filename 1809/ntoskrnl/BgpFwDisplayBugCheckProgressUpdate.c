@@ -1,13 +1,13 @@
 /*
- * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x140328924
+ * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x140328B14
  * Callers:
- *     KiBugCheckProgress @ 0x140292420 (KiBugCheckProgress.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140328924 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     KiBugCheckProgress @ 0x140292610 (KiBugCheckProgress.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140328B14 (BgpFwDisplayBugCheckProgressUpdate.c)
  * Callees:
- *     BcpConvertProgressToString @ 0x140327B8C (BcpConvertProgressToString.c)
- *     BcpDisplayProgress @ 0x140328330 (BcpDisplayProgress.c)
- *     BcpGetDisplayType @ 0x1403286B8 (BcpGetDisplayType.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140328924 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BcpConvertProgressToString @ 0x140327D7C (BcpConvertProgressToString.c)
+ *     BcpDisplayProgress @ 0x140328520 (BcpDisplayProgress.c)
+ *     BcpGetDisplayType @ 0x1403288A8 (BcpGetDisplayType.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140328B14 (BgpFwDisplayBugCheckProgressUpdate.c)
  */
 
 __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_STRING **a2, char a3)
@@ -29,7 +29,7 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_S
   int v21; // [rsp+28h] [rbp-20h]
   LARGE_INTEGER v22; // [rsp+68h] [rbp+20h] BYREF
 
-  if ( (dword_140405AD0 & 0x400000) != 0 || (dword_140405AD0 & 0x10) == 0 )
+  if ( (dword_140406AD0 & 0x400000) != 0 || (dword_140406AD0 & 0x10) == 0 )
     return 0LL;
   v6 = KeQueryPerformanceCounter(&v22);
   v7 = 0;
@@ -51,7 +51,7 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_S
     v20 = __PAIR64__(DWORD1(BgInternal), DWORD2(BgInternal));
     v21 = HIDWORD(BgInternal);
     DisplayType = BcpGetDisplayType(&v20);
-    dword_140438740 = dword_1404059F8;
+    dword_140439800 = dword_1404069F8;
     BcpCursor = BcpProgressOffset;
     BcpDisplayProgress(v11, DisplayType, v13);
     BcpLastProgressUpdateTicks = KeQueryPerformanceCounter(0LL).QuadPart;
@@ -59,17 +59,17 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_S
   }
   if ( a1 != 100 || (_DWORD)v11 == 100 )
   {
-    v16 = &stru_14043FA70;
+    v16 = &stru_140440B30;
     if ( !a3 )
-      v16 = &stru_14043FA80;
+      v16 = &stru_140440B40;
     *a2 = v16;
     BcpConvertProgressToString(v11, (__int64)(a2 + 3));
-    v17 = &stru_14043FAC0;
+    v17 = &stru_140440B80;
     if ( a1 != 1 )
-      v17 = &stru_14043FAE0;
-    v18 = &stru_14043FAB0;
+      v17 = &stru_140440BA0;
+    v18 = &stru_140440B70;
     if ( a1 != 1 )
-      v18 = &stru_14043FAD0;
+      v18 = &stru_140440B90;
     a2[1] = v18;
     a2[2] = v17;
   }

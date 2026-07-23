@@ -24,44 +24,45 @@
  *     LdrInitializeMrdata @ 0x1800D6C08 (LdrInitializeMrdata.c)
  */
 
-__int64 __fastcall LdrpInitialize(__int64 a1, char *a2, __int64 a3, __int64 a4)
+int __fastcall LdrpInitialize(__int64 a1, __int64 a2, __int64 a3)
 {
-  struct _TEB *v5; // r13
-  __int64 result; // rax
+  struct _TEB *v4; // r13
+  struct _PEB *v5; // rax
   _PEB *ProcessEnvironmentBlock; // r14
-  int v8; // edi
-  __int64 v9; // rcx
-  int v10; // r8d
-  int v11; // r9d
-  __int64 v12; // rcx
-  int v13; // eax
-  char v14; // cl
-  struct _PEB *v15; // rax
-  __int64 v16; // rcx
+  int v7; // edi
+  __int64 v8; // rcx
+  int v9; // r8d
+  int v10; // r9d
+  __int64 v11; // rcx
+  NTSTATUS v12; // eax
+  char v13; // cl
+  struct _PEB *v14; // rax
+  __int64 v15; // rcx
+  int v16; // r9d
   __int64 v17; // rcx
-  __int64 v18; // [rsp+40h] [rbp-58h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+40h] [rbp-58h] BYREF
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // [rsp+48h] [rbp-50h]
-  int v21; // [rsp+B0h] [rbp+18h]
+  int v22; // [rsp+B0h] [rbp+18h]
 
-  v5 = NtCurrentTeb();
+  v4 = NtCurrentTeb();
   while ( 1 )
   {
-    result = (unsigned int)_InterlockedCompareExchange(&LdrpProcessInitialized, 1, 0);
-    if ( (_DWORD)result != 1 || (v5->SameTebFlags & 0x2000) != 0 )
+    LODWORD(v5) = _InterlockedCompareExchange(&LdrpProcessInitialized, 1, 0);
+    if ( (_DWORD)v5 != 1 || (v4->SameTebFlags & 0x2000) != 0 )
     {
-      ProcessEnvironmentBlock = v5->ProcessEnvironmentBlock;
-      if ( !(_DWORD)result )
+      ProcessEnvironmentBlock = v4->ProcessEnvironmentBlock;
+      if ( !(_DWORD)v5 )
       {
-        v5->SameTebFlags |= 0x20u;
-        ProcessEnvironmentBlock->LoaderLock = (_RTL_CRITICAL_SECTION *)&LdrpLoaderLock;
+        v4->SameTebFlags |= 0x20u;
+        ProcessEnvironmentBlock->LoaderLock = &LdrpLoaderLock;
         LdrInitState = 0;
         _interlockedbittestandset((volatile signed __int32 *)&ProcessEnvironmentBlock->80, 1u);
         qword_18016F2A0 = (__int64)&RtlpDynamicFunctionTable;
         RtlpDynamicFunctionTable = (__int64)&RtlpDynamicFunctionTable;
-        RtlpDynamicFunctionTableLock = 0LL;
+        RtlpDynamicFunctionTableLock.0 = 0LL;
         RtlpDynamicFunctionTableTree = 0LL;
-        v8 = LdrInitializeMrdata();
-        if ( v8 >= 0 )
+        v7 = LdrInitializeMrdata();
+        if ( v7 >= 0 )
         {
           ProcessParameters = ProcessEnvironmentBlock->ProcessParameters;
           if ( (ProcessParameters->Flags & 0x80000000) != 0 )
@@ -69,59 +70,59 @@ __int64 __fastcall LdrpInitialize(__int64 a1, char *a2, __int64 a3, __int64 a4)
             LdrpIsSecureProcess = 1;
             LdrpDetourExist = 1;
           }
-          v8 = LdrpInitializeProcess(a1, a2);
-          v21 = v8;
-          if ( v8 >= 0 )
+          v7 = LdrpInitializeProcess(a1, a2);
+          v22 = v7;
+          if ( v7 >= 0 )
           {
             LdrpLogDllState(*(_QWORD *)(LdrpImageEntry + 48), LdrpImageEntry + 72, 0x14AEu);
             if ( ProcessEnvironmentBlock->MinimumStackCommit )
-              v21 = LdrpTouchThreadStack();
+              v22 = LdrpTouchThreadStack();
             LdrInitState = 3;
             _interlockedbittestandreset((volatile signed __int32 *)&ProcessEnvironmentBlock->80, 1u);
-            result = RtlInitializeHeapGC(LdrpThreadPool);
-            v8 = v21;
-            if ( v21 >= 0 && (!UseWOW64 || LdrpProcessInitialized == 1) )
+            LODWORD(v5) = RtlInitializeHeapGC(LdrpThreadPool);
+            v7 = v22;
+            if ( v22 >= 0 && (!UseWOW64 || LdrpProcessInitialized == 1) )
             {
-              result = (__int64)RtlGetCurrentServiceSessionId();
-              if ( (_DWORD)result )
+              LODWORD(v5) = RtlGetCurrentServiceSessionId();
+              if ( (_DWORD)v5 )
               {
-                result = (__int64)NtCurrentPeb();
-                v9 = *(_QWORD *)(result + 144) + 554LL;
+                v5 = NtCurrentPeb();
+                v8 = (__int64)v5->SharedData + 554;
               }
               else
               {
-                v9 = 2147353476LL;
+                v8 = 2147353476LL;
               }
-              if ( *(_BYTE *)v9 )
+              if ( *(_BYTE *)v8 )
               {
-                result = (__int64)NtCurrentPeb();
-                if ( (*(_BYTE *)(result + 888) & 4) != 0 )
+                v5 = NtCurrentPeb();
+                if ( (v5->TracingFlags & 4) != 0 )
                 {
-                  result = (__int64)RtlGetCurrentServiceSessionId();
-                  if ( (_DWORD)result )
+                  LODWORD(v5) = RtlGetCurrentServiceSessionId();
+                  if ( (_DWORD)v5 )
                   {
-                    result = (__int64)NtCurrentPeb();
-                    v12 = *(_QWORD *)(result + 144) + 555LL;
+                    v5 = NtCurrentPeb();
+                    v11 = (__int64)v5->SharedData + 555;
                   }
                   else
                   {
-                    v12 = 2147353477LL;
+                    v11 = 2147353477LL;
                   }
-                  if ( (*(_BYTE *)v12 & 0x20) != 0 )
+                  if ( (*(_BYTE *)v11 & 0x20) != 0 )
                   {
-                    LOBYTE(v11) = -1;
                     LOBYTE(v10) = -1;
-                    result = LdrpLogEtwEvent(5252, -1, v10, v11, 0LL, 0LL);
+                    LOBYTE(v9) = -1;
+                    LODWORD(v5) = LdrpLogEtwEvent(5252, -1, v9, v10, 0LL, 0LL);
                   }
                 }
               }
               _InterlockedAdd(&LdrpProcessInitialized, 1u);
-              v8 = v21;
+              v7 = v22;
             }
           }
           else
           {
-            result = (unsigned int)LdrpDebugFlags;
+            LODWORD(v5) = LdrpDebugFlags;
             if ( (LdrpDebugFlags & 3) != 0 )
             {
               LdrpLogDbgPrint(
@@ -130,16 +131,16 @@ __int64 __fastcall LdrpInitialize(__int64 a1, char *a2, __int64 a3, __int64 a4)
                 (unsigned int)"_LdrpInitialize",
                 0,
                 "Process initialization failed with status 0x%08lx\n",
-                v8);
-              result = (unsigned int)LdrpDebugFlags;
+                v7);
+              LODWORD(v5) = LdrpDebugFlags;
             }
-            if ( (result & 0x10) != 0 )
+            if ( ((unsigned __int8)v5 & 0x10) != 0 )
               __debugbreak();
           }
         }
         else
         {
-          result = (unsigned int)LdrpDebugFlags;
+          LODWORD(v5) = LdrpDebugFlags;
           if ( (LdrpDebugFlags & 3) != 0 )
           {
             LdrpLogDbgPrint(
@@ -148,27 +149,27 @@ __int64 __fastcall LdrpInitialize(__int64 a1, char *a2, __int64 a3, __int64 a4)
               (unsigned int)"_LdrpInitialize",
               0,
               "LDR:MRDATA: Process initialization failed with status 0x%08lx\n",
-              v8);
-            result = (unsigned int)LdrpDebugFlags;
+              v7);
+            LODWORD(v5) = LdrpDebugFlags;
           }
-          if ( (result & 0x10) != 0 )
+          if ( ((unsigned __int8)v5 & 0x10) != 0 )
             __debugbreak();
         }
         goto LABEL_67;
       }
-      v8 = 0;
+      v7 = 0;
       if ( !ProcessEnvironmentBlock->InheritedAddressSpace )
         goto LABEL_58;
       if ( _InterlockedCompareExchange(&LdrpProcessInitialized, 1, 2) == 2 )
         break;
     }
-    v18 = -300000LL;
+    DelayInterval.QuadPart = -300000LL;
     while ( LdrpProcessInitialized == 1 )
     {
-      v13 = ZwDelayExecution(0LL, &v18);
-      if ( v13 < 0 )
+      v12 = ZwDelayExecution(0, &DelayInterval);
+      if ( v12 < 0 )
       {
-        v14 = LdrpDebugFlags;
+        v13 = LdrpDebugFlags;
         if ( (LdrpDebugFlags & 3) != 0 )
         {
           LdrpLogDbgPrint(
@@ -177,43 +178,43 @@ __int64 __fastcall LdrpInitialize(__int64 a1, char *a2, __int64 a3, __int64 a4)
             (unsigned int)"_LdrpInitialize",
             1,
             "Delaying execution failed with status 0x%08lx\n",
-            v13);
-          v14 = LdrpDebugFlags;
+            v12);
+          v13 = LdrpDebugFlags;
         }
-        if ( (v14 & 0x40) != 0 )
+        if ( (v13 & 0x40) != 0 )
           __debugbreak();
       }
     }
   }
   if ( ProcessEnvironmentBlock->InheritedAddressSpace )
   {
-    v15 = NtCurrentPeb();
-    LdrpForkActiveLock = 0LL;
-    LdrpForkConditionVariable = 0LL;
-    v15->InheritedAddressSpace = 0;
-    if ( v15->BeingDebugged )
+    v14 = NtCurrentPeb();
+    LdrpForkActiveLock.0 = 0LL;
+    LdrpForkConditionVariable.Ptr = 0LL;
+    v14->InheritedAddressSpace = 0;
+    if ( v14->BeingDebugged )
       LdrpDoDebuggerBreak();
   }
-  result = (__int64)RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+  LODWORD(v5) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)v5 )
   {
-    result = (__int64)NtCurrentPeb();
-    v16 = *(_QWORD *)(result + 144) + 554LL;
+    v5 = NtCurrentPeb();
+    v15 = (__int64)v5->SharedData + 554;
   }
   else
   {
-    v16 = 2147353476LL;
+    v15 = 2147353476LL;
   }
-  if ( *(_BYTE *)v16 )
+  if ( *(_BYTE *)v15 )
   {
-    result = (__int64)NtCurrentPeb();
-    if ( (*(_BYTE *)(result + 888) & 4) != 0 )
+    v5 = NtCurrentPeb();
+    if ( (v5->TracingFlags & 4) != 0 )
     {
-      result = (__int64)RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(v5) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v5 )
       {
-        result = (__int64)NtCurrentPeb();
-        v17 = *(_QWORD *)(result + 144) + 555LL;
+        v5 = NtCurrentPeb();
+        v17 = (__int64)v5->SharedData + 555;
       }
       else
       {
@@ -221,36 +222,36 @@ __int64 __fastcall LdrpInitialize(__int64 a1, char *a2, __int64 a3, __int64 a4)
       }
       if ( (*(_BYTE *)v17 & 0x20) != 0 )
       {
-        LOBYTE(a4) = -1;
+        LOBYTE(v16) = -1;
         LOBYTE(a3) = -1;
-        result = LdrpLogEtwEvent(5252, -1, a3, a4, 0LL, 0LL);
+        LODWORD(v5) = LdrpLogEtwEvent(5252, -1, a3, v16, 0LL, 0LL);
       }
     }
   }
   _InterlockedAdd(&LdrpProcessInitialized, 1u);
-  v8 = 0;
+  v7 = 0;
 LABEL_58:
-  if ( (v5->SameTebFlags & 0x40) == 0 )
+  if ( (v4->SameTebFlags & 0x40) == 0 )
   {
     if ( LdrpForkInProgress )
     {
-      RtlAcquireSRWLockShared(&LdrpForkActiveLock, a2, a3, a4);
+      RtlAcquireSRWLockShared(&LdrpForkActiveLock);
       while ( LdrpForkInProgress )
-        RtlSleepConditionVariableSRW(&LdrpForkConditionVariable, (__int64)&LdrpForkActiveLock, 0LL, 1);
+        RtlSleepConditionVariableSRW(&LdrpForkConditionVariable, &LdrpForkActiveLock, 0LL, 1u);
       RtlReleaseSRWLockShared(&LdrpForkActiveLock);
     }
     if ( UseWOW64 )
       g_LdrpWow64LdrpInitialize(a1);
-    result = LdrpInitializeThread(a1, (__int64)a2, a3);
+    LODWORD(v5) = LdrpInitializeThread(a1, a2, a3);
   }
 LABEL_67:
-  if ( v8 < 0 )
+  if ( v7 < 0 )
   {
-    LdrpInitializationFailure(v8);
-    ZwTerminateProcess(-1LL, (unsigned int)v8);
-    RtlRaiseStatus(v8);
+    LdrpInitializationFailure(v7);
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v7);
+    RtlRaiseStatus(v7);
   }
-  if ( (v5->SameTebFlags & 0x2000) == 0 )
-    return ZwTestAlert();
-  return result;
+  if ( (v4->SameTebFlags & 0x2000) == 0 )
+    LODWORD(v5) = ZwTestAlert();
+  return (int)v5;
 }

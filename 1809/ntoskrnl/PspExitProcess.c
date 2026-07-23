@@ -1,19 +1,19 @@
 /*
- * XREFs of PspExitProcess @ 0x140608E0C
+ * XREFs of PspExitProcess @ 0x140609E0C
  * Callers:
- *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
- *     PspProcessDelete @ 0x140607590 (PspProcessDelete.c)
+ *     PspExitThread @ 0x1405F85E0 (PspExitThread.c)
+ *     PspProcessDelete @ 0x140608590 (PspProcessDelete.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     PspProcessUnbindVirtualizedTimers @ 0x1400902C0 (PspProcessUnbindVirtualizedTimers.c)
- *     PfpLogApplicationEvent @ 0x1400D8498 (PfpLogApplicationEvent.c)
- *     ExCleanTimerResolutionRequest @ 0x14013F858 (ExCleanTimerResolutionRequest.c)
- *     PsSetProcessTelemetryAppState @ 0x1405B1974 (PsSetProcessTelemetryAppState.c)
- *     PspCallProcessNotifyRoutines @ 0x1405F4C14 (PspCallProcessNotifyRoutines.c)
- *     PfSnEndProcessTrace @ 0x140606950 (PfSnEndProcessTrace.c)
- *     DbgkFlushErrorPort @ 0x140607444 (DbgkFlushErrorPort.c)
- *     EtwTraceProcess @ 0x14066C528 (EtwTraceProcess.c)
+ *     PspProcessUnbindVirtualizedTimers @ 0x140090200 (PspProcessUnbindVirtualizedTimers.c)
+ *     PfpLogApplicationEvent @ 0x1400D8518 (PfpLogApplicationEvent.c)
+ *     ExCleanTimerResolutionRequest @ 0x14013F958 (ExCleanTimerResolutionRequest.c)
+ *     PsSetProcessTelemetryAppState @ 0x1405B2974 (PsSetProcessTelemetryAppState.c)
+ *     PspCallProcessNotifyRoutines @ 0x1405F5C14 (PspCallProcessNotifyRoutines.c)
+ *     PfSnEndProcessTrace @ 0x140607950 (PfSnEndProcessTrace.c)
+ *     DbgkFlushErrorPort @ 0x140608444 (DbgkFlushErrorPort.c)
+ *     EtwTraceProcess @ 0x14066D6E8 (EtwTraceProcess.c)
  */
 
 __int64 __fastcall PspExitProcess(char a1, ULONG_PTR a2)

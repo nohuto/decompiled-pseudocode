@@ -9,14 +9,18 @@
 
 int __stdcall RtlpQueryTimeZoneKeyNameRoutine(int a1, int a2, wchar_t *Source, unsigned int a4, int a5, int a6)
 {
-  size_t v6; // edi
+  int v6; // edi
   unsigned int v7; // eax
+  size_t v9; // [esp-4h] [ebp-10h]
+  size_t v10; // [esp-4h] [ebp-10h]
 
-  v6 = wcsnlen(Source, a4 >> 1);
+  LODWORD(v9) = a4 >> 1;
+  v6 = wcsnlen(Source, v9);
   v7 = *(unsigned __int16 *)(a6 + 2);
   if ( 2 * v6 + 2 > v7 )
     v6 = (v7 >> 1) - 1;
-  memcpy(*(void **)(a6 + 4), Source, 2 * v6);
+  LODWORD(v10) = 2 * v6;
+  memcpy(*(void **)(a6 + 4), Source, v10);
   *(_WORD *)(2 * v6 + *(_DWORD *)(a6 + 4)) = 0;
   *(_WORD *)a6 = 2 * v6;
   return 0;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHeteroHgsEvalAndRegisterContainmentGroups @ 0x14060B3A0
+ * XREFs of PpmHeteroHgsEvalAndRegisterContainmentGroups @ 0x14060E08C
  * Callers:
- *     PpmHeteroHgsUpdateContainmentConfiguration @ 0x14025D3AC (PpmHeteroHgsUpdateContainmentConfiguration.c)
+ *     PpmHeteroHgsUpdateContainmentConfiguration @ 0x14051704C (PpmHeteroHgsUpdateContainmentConfiguration.c)
  * Callees:
- *     PpmHeteroHgsRegisterContainmentGroups @ 0x14060B540 (PpmHeteroHgsRegisterContainmentGroups.c)
+ *     PpmHeteroHgsRegisterContainmentGroups @ 0x14060E258 (PpmHeteroHgsRegisterContainmentGroups.c)
  */
 
 __int64 PpmHeteroHgsEvalAndRegisterContainmentGroups()
@@ -15,9 +15,9 @@ __int64 PpmHeteroHgsEvalAndRegisterContainmentGroups()
   result = (unsigned int)PpmHeteroHgsContainmentState;
   if ( (PpmHeteroHgsContainmentState & 2) != 0 )
   {
-    for ( i = 0; i < PopModernStandbyStateNotify.SystemCallNumber; result = i )
+    for ( i = 0; i < (unsigned int)PpmParkNumNodes; result = i )
     {
-      v2 = *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1264LL * i;
+      v2 = PpmParkNodes + 1264LL * i;
       if ( !*(_QWORD *)(v2 + 1240) )
         PpmHeteroHgsRegisterContainmentGroups(v2, 0LL);
       ++i;

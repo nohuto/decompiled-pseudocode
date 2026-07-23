@@ -1,12 +1,12 @@
 /*
- * XREFs of RawFileSystemControl @ 0x1409A2E78
+ * XREFs of RawFileSystemControl @ 0x1408AE108
  * Callers:
- *     RawDispatch @ 0x1409A2210 (RawDispatch.c)
+ *     RawDispatch @ 0x1408AD4A0 (RawDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     RawVerifyVolume @ 0x1405E6F0C (RawVerifyVolume.c)
- *     RawUserFsCtrl @ 0x1409A2EE4 (RawUserFsCtrl.c)
- *     RawMountVolume @ 0x1409A3134 (RawMountVolume.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     RawVerifyVolume @ 0x1405E4500 (RawVerifyVolume.c)
+ *     RawMountVolume @ 0x1408ACB4C (RawMountVolume.c)
+ *     RawUserFsCtrl @ 0x1408AE174 (RawUserFsCtrl.c)
  */
 
 __int64 __fastcall RawFileSystemControl(__int64 a1, IRP *a2, __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall RawFileSystemControl(__int64 a1, IRP *a2, __int64 a3)
   {
     if ( *(_BYTE *)(a3 + 1) == 1 )
     {
-      v4 = RawMountVolume(a3);
+      v4 = RawMountVolume((_QWORD *)a3);
     }
     else
     {

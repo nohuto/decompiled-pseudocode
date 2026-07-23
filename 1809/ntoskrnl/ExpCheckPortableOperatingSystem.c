@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpCheckPortableOperatingSystem @ 0x1406C75AC
+ * XREFs of ExpCheckPortableOperatingSystem @ 0x1406C884C
  * Callers:
- *     ExIsWindowsToGo @ 0x1406C7580 (ExIsWindowsToGo.c)
- *     ExInitLicenseData @ 0x1409C43A0 (ExInitLicenseData.c)
+ *     ExIsWindowsToGo @ 0x1406C8820 (ExIsWindowsToGo.c)
+ *     ExInitLicenseData @ 0x1409C53A0 (ExInitLicenseData.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlCheckPortableOperatingSystem @ 0x140135E30 (RtlCheckPortableOperatingSystem.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IoGetDevicePropertyData @ 0x140586930 (IoGetDevicePropertyData.c)
- *     ExpHwidSendSynchronousIrpToDevice @ 0x140587074 (ExpHwidSendSynchronousIrpToDevice.c)
+ *     PsGetHostSilo @ 0x140091BB0 (PsGetHostSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1400922CC (PsGetServerSiloGlobals.c)
+ *     RtlStringCchPrintfW @ 0x1400922E8 (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlCheckPortableOperatingSystem @ 0x140135F00 (RtlCheckPortableOperatingSystem.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IoGetDevicePropertyData @ 0x140587930 (IoGetDevicePropertyData.c)
+ *     ExpHwidSendSynchronousIrpToDevice @ 0x140588074 (ExpHwidSendSynchronousIrpToDevice.c)
  */
 
 __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
@@ -33,7 +33,7 @@ __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
   char v13; // dl
   char *v14; // rcx
   char *v15; // r8
-  bool v16; // [rsp+40h] [rbp-C0h] BYREF
+  BOOLEAN IsPortable; // [rsp+40h] [rbp-C0h] BYREF
   _BYTE Data[7]; // [rsp+41h] [rbp-BFh] BYREF
   ULONG_PTR v18; // [rsp+48h] [rbp-B8h] BYREF
   _BYTE v19[4]; // [rsp+50h] [rbp-B0h] BYREF
@@ -50,8 +50,8 @@ __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
   *a1 = 0;
   v2 = 0LL;
   *(_QWORD *)&NumberOfBytes[1] = 0LL;
-  DevicePropertyData = RtlCheckPortableOperatingSystem(&v16);
-  if ( DevicePropertyData >= 0 && v16 )
+  DevicePropertyData = RtlCheckPortableOperatingSystem(&IsPortable);
+  if ( DevicePropertyData >= 0 && IsPortable )
   {
     wcscpy(SourceString, L"\\??\\x:");
     HostSilo = PsGetHostSilo();

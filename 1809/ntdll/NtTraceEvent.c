@@ -1,5 +1,5 @@
 /*
- * XREFs of NtTraceEvent @ 0x1800A0E90
+ * XREFs of NtTraceEvent @ 0x1800A0EB0
  * Callers:
  *     RtlSetThreadSubProcessTag @ 0x180015920 (RtlSetThreadSubProcessTag.c)
  *     LdrpLogDelayLoadTrigger @ 0x180022110 (LdrpLogDelayLoadTrigger.c)
@@ -12,10 +12,10 @@
  *     RtlpHpHeapDestroy @ 0x1800652CC (RtlpHpHeapDestroy.c)
  *     RtlInitializeCriticalSection @ 0x18006BE00 (RtlInitializeCriticalSection.c)
  *     RtlInitializeCriticalSectionAndSpinCount @ 0x18006CBD0 (RtlInitializeCriticalSectionAndSpinCount.c)
- *     EtwWriteUMSecurityEvent @ 0x18007BFF0 (EtwWriteUMSecurityEvent.c)
- *     EtwEventWriteNoRegistration @ 0x180086E70 (EtwEventWriteNoRegistration.c)
- *     LdrpLogDllRelocationEtwEvent @ 0x18008757C (LdrpLogDllRelocationEtwEvent.c)
- *     EtwSetMark @ 0x18008C330 (EtwSetMark.c)
+ *     EtwWriteUMSecurityEvent @ 0x18007C000 (EtwWriteUMSecurityEvent.c)
+ *     EtwEventWriteNoRegistration @ 0x180086E80 (EtwEventWriteNoRegistration.c)
+ *     LdrpLogDllRelocationEtwEvent @ 0x18008758C (LdrpLogDllRelocationEtwEvent.c)
+ *     EtwSetMark @ 0x18008C340 (EtwSetMark.c)
  *     LdrpLogEtwDllSearchResults @ 0x1800D0F84 (LdrpLogEtwDllSearchResults.c)
  *     LdrpLogEtwEvent @ 0x1800D1238 (LdrpLogEtwEvent.c)
  *     LdrpLogNewDllLoadInternal @ 0x1800D1BD4 (LdrpLogNewDllLoadInternal.c)
@@ -75,11 +75,11 @@
  *     <none>
  */
 
-__int64 NtTraceEvent()
+NTSTATUS __cdecl NtTraceEvent(HANDLE TraceHandle, ULONG Flags, ULONG FieldSize, PVOID Fields)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 94LL;
+  result = 94;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

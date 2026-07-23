@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpDmaGetMasterAdapterVersion @ 0x14038D824
+ * XREFs of HalpDmaGetMasterAdapterVersion @ 0x140387164
  * Callers:
- *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x14038D3F8 (HalpDmaAllocateScatterPagesFromContiguousPool.c)
- *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x14038D660 (HalpDmaAllocateScatterPagesFromScatterPool.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x140386D38 (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x140386FA0 (HalpDmaAllocateScatterPagesFromScatterPool.c)
  * Callees:
  *     <none>
  */

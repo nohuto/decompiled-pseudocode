@@ -48,7 +48,7 @@ __int64 __fastcall TppWorkPost(__int64 a1)
         *(_QWORD *)(a1 + 80),
         *(_QWORD *)(a1 + 88),
         *(_QWORD *)(a1 + 104));
-    TpPostTask(a1 + 200, *(_QWORD *)(a1 + 144), *(unsigned int *)(a1 + 192), 0LL);
+    TpPostTask(a1 + 200, *(char **)(a1 + 144), *(_DWORD *)(a1 + 192), 0LL);
     result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
     if ( (_DWORD)result == 1 )
       return (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);

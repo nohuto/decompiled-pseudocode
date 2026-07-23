@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLogPeriodicTelemetry @ 0x1402A8770
+ * XREFs of MiLogPeriodicTelemetry @ 0x1402A7B80
  * Callers:
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     MiEnumerateSlabAllocatorsEx @ 0x1404A0C04 (MiEnumerateSlabAllocatorsEx.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14049A754 (MiEnumerateSlabAllocatorsEx.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall MiLogPeriodicTelemetry(ULONG *a1)
@@ -92,7 +92,7 @@ unsigned __int64 __fastcall MiLogPeriodicTelemetry(ULONG *a1)
   result = 0LL;
   v43 = 0LL;
   v42 = 0LL;
-  if ( !stru_140E36558.FirstArgument )
+  if ( !stru_140E366D8.FirstArgument )
     return result;
   v3 = KeQueryUnbiasedInterruptTimePrecise(&QpcTimeStamp);
   QpcTimeStamp = v3;
@@ -113,8 +113,8 @@ unsigned __int64 __fastcall MiLogPeriodicTelemetry(ULONG *a1)
     KiRaiseIrqlProcessIrqlFlags(v4, 2LL);
   }
   if ( a1[4513]
-    && *(_DWORD *)stru_140E36558.FirstArgument > 5u
-    && (unsigned __int8)tlgKeywordOn(stru_140E36558.FirstArgument, 0x400000000400LL) )
+    && *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+    && (unsigned __int8)tlgKeywordOn(stru_140E366D8.FirstArgument, 0x400000000400LL) )
   {
     v35 = v7;
     p_QpcTimeStamp = &v35;
@@ -125,11 +125,11 @@ unsigned __int64 __fastcall MiLogPeriodicTelemetry(ULONG *a1)
     v52 = 4LL;
     v37 = 0x1000000LL;
     v54 = 8LL;
-    tlgWriteAgg(v6, (int)&unk_140059AD0, v6, 5, &v48);
+    tlgWriteAgg(v6, (int)&word_14005A9B6, v6, 5, &v48);
   }
   if ( *((_QWORD *)a1 + 2135)
-    && *(_DWORD *)stru_140E36558.FirstArgument > 5u
-    && (unsigned __int8)tlgKeywordOn(stru_140E36558.FirstArgument, 0x400000000400LL) )
+    && *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+    && (unsigned __int8)tlgKeywordOn(stru_140E366D8.FirstArgument, 0x400000000400LL) )
   {
     v37 = v9;
     p_QpcTimeStamp = &v37;
@@ -140,10 +140,10 @@ unsigned __int64 __fastcall MiLogPeriodicTelemetry(ULONG *a1)
     v52 = 4LL;
     v35 = 0x1000000LL;
     v54 = 8LL;
-    tlgWriteAgg(v8, (int)&byte_140059A6D, v8, 5, &v48);
+    tlgWriteAgg(v8, (int)&word_14005AE3A, v8, 5, &v48);
   }
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-    && (unsigned __int8)tlgKeywordOn(stru_140E36558.FirstArgument, 0x400000000400LL) )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+    && (unsigned __int8)tlgKeywordOn(stru_140E366D8.FirstArgument, 0x400000000400LL) )
   {
     v37 = *((_QWORD *)a1 + 2137);
     v50 = 8LL;
@@ -184,7 +184,7 @@ unsigned __int64 __fastcall MiLogPeriodicTelemetry(ULONG *a1)
     v72 = 4LL;
     v33 = 0x1000000LL;
     v74 = 8LL;
-    tlgWriteAgg(v10, (int)&word_1400598A2, v10, 15, &v48);
+    tlgWriteAgg(v10, (int)&byte_14005AE9D, v10, 15, &v48);
   }
   MiEnumerateSlabAllocatorsEx((_DWORD)a1, (unsigned int)MiLogPeriodicTelemetryForSlabAllocator, 0, -1, 9);
   v11 = 0;
@@ -216,8 +216,8 @@ unsigned __int64 __fastcall MiLogPeriodicTelemetry(ULONG *a1)
     {
       goto LABEL_33;
     }
-    if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-      && (unsigned __int8)tlgKeywordOn(stru_140E36558.FirstArgument, 0x400000000800LL) )
+    if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+      && (unsigned __int8)tlgKeywordOn(stru_140E366D8.FirstArgument, 0x400000000800LL) )
     {
       v36 = v16;
       p_QpcTimeStamp = &v33;
@@ -240,7 +240,7 @@ unsigned __int64 __fastcall MiLogPeriodicTelemetry(ULONG *a1)
       v60 = 4LL;
       v38 = 0x1000000LL;
       v62 = 8LL;
-      tlgWriteAgg(v15, (int)&byte_1400597C7, v15, 9, &v48);
+      tlgWriteAgg(v15, (int)&byte_14005ACD9, v15, 9, &v48);
     }
 LABEL_33:
     ++v11;
@@ -250,8 +250,8 @@ LABEL_33:
   v19 = QpcTimeStamp;
   if ( a1 == &MiSystemPartition )
   {
-    if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-      && (unsigned __int8)tlgKeywordOn(stru_140E36558.FirstArgument, 0x400000000800LL) )
+    if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+      && (unsigned __int8)tlgKeywordOn(stru_140E366D8.FirstArgument, 0x400000000800LL) )
     {
       QpcTimeStamp = v21;
       p_QpcTimeStamp = (__int64 *)&QpcTimeStamp;
@@ -262,11 +262,11 @@ LABEL_33:
       v52 = 8LL;
       v36 = 0x1000000LL;
       v54 = 8LL;
-      tlgWriteAgg(v20, (int)&byte_140059CA3, v20, 5, &v48);
+      tlgWriteAgg(v20, (int)&dword_14005ADB4, v20, 5, &v48);
     }
-    if ( _InterlockedExchange(&dword_140E2C754, 0)
-      && *(_DWORD *)stru_140E36558.FirstArgument > 5u
-      && (unsigned __int8)tlgKeywordOn(stru_140E36558.FirstArgument, 0x400000008000LL) )
+    if ( _InterlockedExchange(&dword_140E2C8D4, 0)
+      && *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+      && (unsigned __int8)tlgKeywordOn(stru_140E366D8.FirstArgument, 0x400000008000LL) )
     {
       QpcTimeStamp = v22;
       v50 = 8LL;
@@ -274,9 +274,9 @@ LABEL_33:
       v33 = 0x1000000LL;
       v51 = &v33;
       v52 = 8LL;
-      tlgWriteAgg(v23, (int)&dword_140059C4C, v22, 4, &v48);
+      tlgWriteAgg(v23, (int)&unk_14005ABB0, v22, 4, &v48);
     }
-    v24 = &unk_140E2C758;
+    v24 = &unk_140E2C8D8;
     v25 = 0LL;
     v26 = 6LL;
     do
@@ -287,8 +287,8 @@ LABEL_33:
       --v26;
     }
     while ( v26 );
-    if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-      && (unsigned __int8)tlgKeywordOn(stru_140E36558.FirstArgument, 0x400000008000LL) )
+    if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+      && (unsigned __int8)tlgKeywordOn(stru_140E366D8.FirstArgument, 0x400000008000LL) )
     {
       QpcTimeStamp = (unsigned int)v42;
       v50 = 8LL;
@@ -311,11 +311,11 @@ LABEL_33:
       v60 = 8LL;
       v41 = 0x1000000LL;
       v62 = 8LL;
-      tlgWriteAgg(v27, (int)&word_140059B7A, v27, 9, &v48);
+      tlgWriteAgg(v27, (int)&byte_14005AC07, v27, 9, &v48);
     }
     if ( !*((_QWORD *)a1 + 2776)
-      && *(_DWORD *)stru_140E36558.FirstArgument > 5u
-      && (unsigned __int8)tlgKeywordOn(stru_140E36558.FirstArgument, 0x400000000000LL) )
+      && *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+      && (unsigned __int8)tlgKeywordOn(stru_140E366D8.FirstArgument, 0x400000000000LL) )
     {
       QpcTimeStamp = v28;
       p_QpcTimeStamp = (__int64 *)&QpcTimeStamp;
@@ -323,7 +323,7 @@ LABEL_33:
       v33 = 0x80000000LL;
       v52 = 8LL;
       v51 = &v33;
-      tlgWriteEx_EtwWriteEx(v29, (int)&word_140059B3A, v28, 1, v30, v31, 4u, (__int64)&v48);
+      tlgWriteEx_EtwWriteEx(v29, (int)&byte_14005AB70, v28, 1, v30, v31, 4u, (__int64)&v48);
     }
   }
   if ( KiIrqlFlags )

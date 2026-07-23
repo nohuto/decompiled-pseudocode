@@ -8,11 +8,17 @@
  *     <none>
  */
 
-__int64 NtGetCompleteWnfStateSubscription()
+NTSTATUS __cdecl NtGetCompleteWnfStateSubscription(
+        PWNF_STATE_NAME OldDescriptorStateName,
+        ULONG64 *OldSubscriptionId,
+        ULONG OldDescriptorEventMask,
+        ULONG OldDescriptorStatus,
+        PWNF_DELIVERY_DESCRIPTOR NewDeliveryDescriptor,
+        ULONG DescriptorSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 226LL;
+  result = 226;
   __asm { syscall; Low latency system call }
   return result;
 }

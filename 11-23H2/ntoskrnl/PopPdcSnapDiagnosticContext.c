@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPdcSnapDiagnosticContext @ 0x140883678
+ * XREFs of PopPdcSnapDiagnosticContext @ 0x1408838B8
  * Callers:
- *     PopIdlePhaseWatchdogCallback @ 0x1403D5810 (PopIdlePhaseWatchdogCallback.c)
+ *     PopIdlePhaseWatchdogCallback @ 0x1403D59F0 (PopIdlePhaseWatchdogCallback.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 (*PopPdcSnapDiagnosticContext())(void)

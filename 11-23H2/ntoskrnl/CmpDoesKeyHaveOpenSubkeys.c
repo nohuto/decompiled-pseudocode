@@ -3,7 +3,7 @@
  * Callers:
  *     CmpTryToRundownHive @ 0x1402092DC (CmpTryToRundownHive.c)
  *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
- *     CmRestoreKey @ 0x140A0AC44 (CmRestoreKey.c)
+ *     CmRestoreKey @ 0x140A0AEF4 (CmRestoreKey.c)
  * Callees:
  *     CmpEnumerateAllOpenSubKeys @ 0x140699ABC (CmpEnumerateAllOpenSubKeys.c)
  */

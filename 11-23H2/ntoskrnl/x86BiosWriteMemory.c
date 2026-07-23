@@ -1,9 +1,9 @@
 /*
- * XREFs of x86BiosWriteMemory @ 0x1403A0900
+ * XREFs of x86BiosWriteMemory @ 0x1403A0AE0
  * Callers:
  *     <none>
  * Callees:
- *     x86BiosTranslateAddress @ 0x1403BEFC0 (x86BiosTranslateAddress.c)
+ *     x86BiosTranslateAddress @ 0x1403BF1A0 (x86BiosTranslateAddress.c)
  */
 
 __int64 __fastcall x86BiosWriteMemory(unsigned __int16 a1, unsigned __int16 a2, char *a3, int a4)

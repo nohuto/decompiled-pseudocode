@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTscSynchronizationWorker @ 0x140549960
+ * XREFs of HalpTscSynchronizationWorker @ 0x140547220
  * Callers:
- *     HalpPostSleepMP @ 0x140B6886C (HalpPostSleepMP.c)
+ *     HalpPostSleepMP @ 0x140B70824 (HalpPostSleepMP.c)
  * Callees:
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
- *     HalpTscAdvSynchTarget @ 0x140486C20 (HalpTscAdvSynchTarget.c)
- *     HalpTscAdvSynchLeader @ 0x140548F60 (HalpTscAdvSynchLeader.c)
- *     HalpTscCompatibilitySynchronization @ 0x1405493E4 (HalpTscCompatibilitySynchronization.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
+ *     HalpTscAdvSynchTarget @ 0x140481B44 (HalpTscAdvSynchTarget.c)
+ *     HalpTscAdvSynchLeader @ 0x140546820 (HalpTscAdvSynchLeader.c)
+ *     HalpTscCompatibilitySynchronization @ 0x140546CA4 (HalpTscCompatibilitySynchronization.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall HalpTscSynchronizationWorker(ULONG_PTR Argument)

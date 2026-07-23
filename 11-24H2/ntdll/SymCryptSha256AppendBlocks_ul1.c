@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptSha256AppendBlocks_ul1 @ 0x18015A3B4
+ * XREFs of SymCryptSha256AppendBlocks_ul1 @ 0x180158774
  * Callers:
- *     SymCryptSha256Append @ 0x18015A2E0 (SymCryptSha256Append.c)
- *     SymCryptSha256Result @ 0x18015B604 (SymCryptSha256Result.c)
+ *     SymCryptSha256Append @ 0x1801586A0 (SymCryptSha256Append.c)
+ *     SymCryptSha256Result @ 0x1801599C4 (SymCryptSha256Result.c)
  * Callees:
  *     <none>
  */
@@ -280,7 +280,7 @@ __int64 __fastcall SymCryptSha256AppendBlocks_ul1(__m128i *a1, __int64 a2, unsig
       v66 = v64 + v53;
       v121 = v64 + v53;
       v67 = v64 + (__ROR4__(v63, 2) ^ __ROR4__(v63, 13) ^ __ROR4__(v63, 22)) + (v56 & v60 | v63 & (v56 | v60));
-      v112 = &unk_18019A548;
+      v112 = &unk_180199648;
       while ( 1 )
       {
         v123 += ((v58 >> 10) ^ __ROR4__(v58, 17) ^ __ROR4__(v58, 19))
@@ -443,7 +443,7 @@ __int64 __fastcall SymCryptSha256AppendBlocks_ul1(__m128i *a1, __int64 a2, unsig
         v121 = v103 + v108;
         v67 = v108 + (__ROR4__(v63, 2) ^ __ROR4__(v63, 13) ^ __ROR4__(v63, 22)) + (v60 & v56 | v63 & (v60 | v56));
         v58 = v122;
-        if ( (__int64)v112 >= (__int64)"__2025-07-25T01:19:34+00:00_ac2c15c_2026-02-17T21:56:42" )
+        if ( (__int64)v112 >= (__int64)"0__2026-05-07T00:16:03+00:00_0df2f18_2026-05-07T21:50:22" )
           break;
         v66 = v109;
       }

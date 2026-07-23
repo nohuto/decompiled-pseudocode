@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtQuerySystemEnvironmentValue()
+NTSTATUS __cdecl NtQuerySystemEnvironmentValue(
+        PUNICODE_STRING VariableName,
+        PWSTR VariableValue,
+        USHORT ValueLength,
+        PUSHORT ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 325LL;
+  result = 325;
   __asm { syscall; Low latency system call }
   return result;
 }

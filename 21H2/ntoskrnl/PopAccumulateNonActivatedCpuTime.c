@@ -1,12 +1,12 @@
 /*
- * XREFs of PopAccumulateNonActivatedCpuTime @ 0x14057648C
+ * XREFs of PopAccumulateNonActivatedCpuTime @ 0x1405766CC
  * Callers:
- *     PopUpdateNonAttributedCpuTimeReference @ 0x140576858 (PopUpdateNonAttributedCpuTimeReference.c)
- *     PopDripsWatchdogUpdateMetrics @ 0x1408EF720 (PopDripsWatchdogUpdateMetrics.c)
- *     PopPdcIdleResiliencyCallback @ 0x1408F004C (PopPdcIdleResiliencyCallback.c)
+ *     PopUpdateNonAttributedCpuTimeReference @ 0x140576A98 (PopUpdateNonAttributedCpuTimeReference.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x1408EF880 (PopDripsWatchdogUpdateMetrics.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1408F01AC (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     PpmParkSnapNodeIdleTime @ 0x14057DB78 (PpmParkSnapNodeIdleTime.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     PpmParkSnapNodeIdleTime @ 0x14057DDB8 (PpmParkSnapNodeIdleTime.c)
  */
 
 __int64 __fastcall PopAccumulateNonActivatedCpuTime(char a1, _QWORD *a2, _QWORD *a3)

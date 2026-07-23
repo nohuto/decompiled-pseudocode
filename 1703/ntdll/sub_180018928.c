@@ -15,28 +15,28 @@
  *     TpReleasePool @ 0x1800827E0 (TpReleasePool.c)
  */
 
-__int64 __fastcall sub_180018928(const void **a1, __int64 a2)
+void __fastcall sub_180018928(const void **a1, _RTL_SRWLOCK *a2)
 {
-  unsigned int *v4; // rcx
-  __int64 result; // rax
-  int v6; // edx
-  int v7; // ett
+  signed __int32 *v4; // rcx
+  signed __int32 v5; // eax
+  signed __int32 v6; // edx
+  signed __int32 v7; // ett
   volatile signed __int32 *v8; // rcx
   signed __int32 v9; // eax
   signed __int32 v10; // edx
   signed __int32 v11; // ett
-  const void *v12; // [rsp+30h] [rbp+8h]
+  _TP_POOL *Pool; // [rsp+30h] [rbp+8h]
 
-  v12 = 0LL;
-  v4 = (unsigned int *)*a1;
+  Pool = 0LL;
+  v4 = (signed __int32 *)*a1;
   _m_prefetchw(v4);
-  result = *v4;
-  while ( (int)result > 1 )
+  v5 = *v4;
+  while ( v5 > 1 )
   {
-    v6 = result - 1;
-    v7 = result;
-    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)v4, result - 1, result);
-    if ( v7 == (_DWORD)result )
+    v6 = v5 - 1;
+    v7 = v5;
+    v5 = _InterlockedCompareExchange(v4, v5 - 1, v5);
+    if ( v7 == v5 )
       goto LABEL_4;
   }
   v6 = 0;
@@ -59,12 +59,11 @@ LABEL_4:
 LABEL_12:
     if ( !v10 )
     {
-      v12 = *a1;
+      Pool = (_TP_POOL *)*a1;
       *a1 = 0LL;
     }
-    result = RtlReleaseSRWLockExclusive(a2);
-    if ( v12 )
-      return TpReleasePool(v12);
+    RtlReleaseSRWLockExclusive(a2);
+    if ( Pool )
+      TpReleasePool(Pool);
   }
-  return result;
 }

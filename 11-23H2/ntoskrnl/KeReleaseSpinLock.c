@@ -1,14 +1,14 @@
 /*
- * XREFs of KeReleaseSpinLock @ 0x14023E450
+ * XREFs of KeReleaseSpinLock @ 0x14023E520
  * Callers:
- *     FsRtlPrivateLock @ 0x140327530 (FsRtlPrivateLock.c)
- *     NtCancelWaitCompletionPacket @ 0x140349A30 (NtCancelWaitCompletionPacket.c)
- *     PpmParkRegisterParking @ 0x1403918C0 (PpmParkRegisterParking.c)
+ *     FsRtlPrivateLock @ 0x1403277C0 (FsRtlPrivateLock.c)
+ *     NtCancelWaitCompletionPacket @ 0x140349980 (NtCancelWaitCompletionPacket.c)
+ *     PpmParkRegisterParking @ 0x140391AA0 (PpmParkRegisterParking.c)
  *     sub_140B19730 @ 0x140B19730 (sub_140B19730.c)
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseSpinLockInstrumented @ 0x140571848 (KiReleaseSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140571D88 (KiReleaseSpinLockInstrumented.c)
  */
 
 void __stdcall KeReleaseSpinLock(PKSPIN_LOCK SpinLock, KIRQL NewIrql)
@@ -26,10 +26,13 @@ void __stdcall KeReleaseSpinLock(PKSPIN_LOCK SpinLock, KIRQL NewIrql)
     KiReleaseSpinLockInstrumented(SpinLock, retaddr);
   else
     _InterlockedAnd64((volatile signed __int64 *)SpinLock, 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

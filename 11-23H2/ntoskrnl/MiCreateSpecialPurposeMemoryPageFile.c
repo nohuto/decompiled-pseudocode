@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreateSpecialPurposeMemoryPageFile @ 0x140A4715C
+ * XREFs of MiCreateSpecialPurposeMemoryPageFile @ 0x140A4740C
  * Callers:
- *     MiCreatePagingFile @ 0x1408330DC (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x1408333DC (MiCreatePagingFile.c)
  * Callees:
- *     MiCreatePagefile @ 0x140833A94 (MiCreatePagefile.c)
- *     MiInsertPageFileInList @ 0x140834090 (MiInsertPageFileInList.c)
- *     MiDeletePagefile @ 0x140A32800 (MiDeletePagefile.c)
- *     MiCreatePagefileMemoryExtents @ 0x140A46EF8 (MiCreatePagefileMemoryExtents.c)
+ *     MiCreatePagefile @ 0x140833D94 (MiCreatePagefile.c)
+ *     MiInsertPageFileInList @ 0x140834390 (MiInsertPageFileInList.c)
+ *     MiDeletePagefile @ 0x140A32AB0 (MiDeletePagefile.c)
+ *     MiCreatePagefileMemoryExtents @ 0x140A471A8 (MiCreatePagefileMemoryExtents.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

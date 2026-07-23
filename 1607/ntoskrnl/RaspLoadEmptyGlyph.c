@@ -1,10 +1,10 @@
 /*
- * XREFs of RaspLoadEmptyGlyph @ 0x140127198
+ * XREFs of RaspLoadEmptyGlyph @ 0x140127708
  * Callers:
- *     RaspLoadGlyphData @ 0x140129874 (RaspLoadGlyphData.c)
+ *     RaspLoadGlyphData @ 0x140129DE4 (RaspLoadGlyphData.c)
  * Callees:
- *     RaspAllocateMemory @ 0x1401294CC (RaspAllocateMemory.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RaspAllocateMemory @ 0x140129A3C (RaspAllocateMemory.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall RaspLoadEmptyGlyph(_QWORD *a1)

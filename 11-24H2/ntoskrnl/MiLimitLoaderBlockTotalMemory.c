@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLimitLoaderBlockTotalMemory @ 0x140C55FF4
+ * XREFs of MiLimitLoaderBlockTotalMemory @ 0x140C58184
  * Callers:
- *     MiMemoryLicense @ 0x140C561FC (MiMemoryLicense.c)
+ *     MiMemoryLicense @ 0x140C5838C (MiMemoryLicense.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiLimitLoaderBlockTotalMemory(__int64 a1, ULONG_PTR a2)
@@ -147,7 +147,7 @@ LABEL_18:
           }
           else
           {
-            RtlRbRemoveNode((unsigned __int64 *)v2, v22);
+            RtlRbRemoveNode((PRTL_RB_TREE)v2, (PRTL_BALANCED_NODE)v22);
             v18 -= v22[5];
             v22[5] = 0LL;
           }

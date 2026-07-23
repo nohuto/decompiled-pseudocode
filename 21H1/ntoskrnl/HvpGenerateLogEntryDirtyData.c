@@ -18,7 +18,7 @@ __int64 __fastcall HvpGenerateLogEntryDirtyData(
         unsigned int *a5,
         __int64 a6)
 {
-  RTL_BITMAP *v6; // rdi
+  _RTL_BITMAP *v6; // rdi
   __int64 v10; // r9
   unsigned int *v11; // rbx
   ULONG v12; // ebx
@@ -26,7 +26,7 @@ __int64 __fastcall HvpGenerateLogEntryDirtyData(
   __int64 v15; // [rsp+90h] [rbp+40h] BYREF
 
   LODWORD(v15) = 0;
-  v6 = (RTL_BITMAP *)(BugCheckParameter2 + 88);
+  v6 = (_RTL_BITMAP *)(BugCheckParameter2 + 88);
   LODWORD(a6) = 0;
   if ( (unsigned __int8)HvpFindNextDirtyBlock(BugCheckParameter2, (__int64)&v15, (__int64)&a6, 0) )
   {

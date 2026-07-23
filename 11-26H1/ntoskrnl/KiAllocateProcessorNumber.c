@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAllocateProcessorNumber @ 0x1405EF1A4
+ * XREFs of KiAllocateProcessorNumber @ 0x1405F1B14
  * Callers:
- *     KiAllocateProcessorStateInitializationParameters @ 0x1405EA1C0 (KiAllocateProcessorStateInitializationParameters.c)
- *     KiConfigureInitialNodes @ 0x1405EF678 (KiConfigureInitialNodes.c)
+ *     KiAllocateProcessorStateInitializationParameters @ 0x1405ECB30 (KiAllocateProcessorStateInitializationParameters.c)
+ *     KiConfigureInitialNodes @ 0x1405F1FE8 (KiConfigureInitialNodes.c)
  * Callees:
- *     KiAdjustGroupConfiguration @ 0x1405EECD0 (KiAdjustGroupConfiguration.c)
- *     KiAllocateProcessorNumberFromGroup @ 0x1405EF2EC (KiAllocateProcessorNumberFromGroup.c)
- *     KiAllocateSchedulerSubNode @ 0x1405EF38C (KiAllocateSchedulerSubNode.c)
- *     KiCommitGroupSubNodeAssignments @ 0x1405EF5B0 (KiCommitGroupSubNodeAssignments.c)
- *     KiUncommitGroupSubNodeAssignments @ 0x1405EFFC0 (KiUncommitGroupSubNodeAssignments.c)
+ *     KiAdjustGroupConfiguration @ 0x1405F1640 (KiAdjustGroupConfiguration.c)
+ *     KiAllocateProcessorNumberFromGroup @ 0x1405F1C5C (KiAllocateProcessorNumberFromGroup.c)
+ *     KiAllocateSchedulerSubNode @ 0x1405F1CFC (KiAllocateSchedulerSubNode.c)
+ *     KiCommitGroupSubNodeAssignments @ 0x1405F1F20 (KiCommitGroupSubNodeAssignments.c)
+ *     KiUncommitGroupSubNodeAssignments @ 0x1405F2930 (KiUncommitGroupSubNodeAssignments.c)
  */
 
 __int64 __fastcall KiAllocateProcessorNumber(int a1, __int64 a2)

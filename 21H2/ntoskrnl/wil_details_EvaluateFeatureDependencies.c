@@ -2,23 +2,23 @@
  * XREFs of wil_details_EvaluateFeatureDependencies @ 0x1405CC62C
  * Callers:
  *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1405CC7E0 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
- *     CmInitBootFeatureConfigurations @ 0x140A38340 (CmInitBootFeatureConfigurations.c)
+ *     CmInitBootFeatureConfigurations @ 0x140A39340 (CmInitBootFeatureConfigurations.c)
  * Callees:
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1403F0554 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1403F06C4 (wil_details_FeatureDescriptors_SkipPadding.c)
  *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1405CC6E0 (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
  */
 
-__int64 *wil_details_EvaluateFeatureDependencies()
+__int64 (__fastcall **wil_details_EvaluateFeatureDependencies())()
 {
-  __int64 *v0; // rdx
+  __int64 (__fastcall **v0)(); // rdx
   int v1; // r9d
   int v2; // r8d
   int v3; // eax
-  __int64 *i; // rcx
-  __int64 *result; // rax
-  __int64 *v6; // rbx
+  __int64 (__fastcall **i)(); // rcx
+  __int64 (__fastcall **result)(); // rax
+  __int64 (__fastcall **v6)(); // rbx
 
-  v0 = wil_details_FeatureDescriptors_SkipPadding((__int64 *)&wil_details_featureDescriptors_a);
+  v0 = wil_details_FeatureDescriptors_SkipPadding((__int64 (__fastcall **)())&wil_details_featureDescriptors_a);
   if ( v0 )
   {
     v1 = 0;
@@ -37,7 +37,7 @@ __int64 *wil_details_EvaluateFeatureDependencies()
     }
     while ( v0 );
   }
-  for ( i = (__int64 *)&wil_details_featureDescriptors_a; ; i = v6 + 5 )
+  for ( i = (__int64 (__fastcall **)())&wil_details_featureDescriptors_a; ; i = v6 + 5 )
   {
     result = wil_details_FeatureDescriptors_SkipPadding(i);
     v6 = result;

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiResetVirtualMemory @ 0x140AB1600
+ * XREFs of MiResetVirtualMemory @ 0x140AAF5F0
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1409F3464 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1409EFC34 (MiAllocateVirtualMemory.c)
  * Callees:
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     MiWalkVaRange @ 0x1402D3560 (MiWalkVaRange.c)
- *     MiTrimSection @ 0x1404651E0 (MiTrimSection.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiVadDeleted @ 0x140480A68 (MiVadDeleted.c)
- *     MiReleaseFaultCharges @ 0x1404AC0A0 (MiReleaseFaultCharges.c)
- *     MiRetainSubsection @ 0x1406FF8C8 (MiRetainSubsection.c)
- *     MiCheckResetDiscardVirtualMemory @ 0x140AB1810 (MiCheckResetDiscardVirtualMemory.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     MiWalkVaRange @ 0x1402B5320 (MiWalkVaRange.c)
+ *     MiTrimSection @ 0x14045E1A0 (MiTrimSection.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiVadDeleted @ 0x14047A3A8 (MiVadDeleted.c)
+ *     MiReleaseFaultCharges @ 0x1404A5730 (MiReleaseFaultCharges.c)
+ *     MiRetainSubsection @ 0x140704598 (MiRetainSubsection.c)
+ *     MiCheckResetDiscardVirtualMemory @ 0x140AAF800 (MiCheckResetDiscardVirtualMemory.c)
  */
 
 __int64 __fastcall MiResetVirtualMemory(int a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4, int a5, char a6)

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentCountEmptyUnits @ 0x1800958D0
+ * XREFs of RtlpHpLfhSubsegmentCountEmptyUnits @ 0x180063270
  * Callers:
- *     RtlpHpLfhSubsegmentFree @ 0x18009480C (RtlpHpLfhSubsegmentFree.c)
- *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x180094FF0 (RtlpHpLfhSubsegmentReformatAsMulti.c)
+ *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x180062990 (RtlpHpLfhSubsegmentReformatAsMulti.c)
+ *     RtlpHpLfhSubsegmentFree @ 0x180073998 (RtlpHpLfhSubsegmentFree.c)
  * Callees:
  *     <none>
  */

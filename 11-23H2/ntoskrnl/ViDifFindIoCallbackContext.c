@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDifFindIoCallbackContext @ 0x1405CF184
+ * XREFs of ViDifFindIoCallbackContext @ 0x1405CF6F4
  * Callers:
- *     VfDifRecoverIoCallbacks @ 0x1405CECF4 (VfDifRecoverIoCallbacks.c)
- *     ViDifCaptureDriverEntry @ 0x1405CEF4C (ViDifCaptureDriverEntry.c)
- *     ViDifCaptureIoCallbacks @ 0x1405CEFBC (ViDifCaptureIoCallbacks.c)
+ *     VfDifRecoverIoCallbacks @ 0x1405CF264 (VfDifRecoverIoCallbacks.c)
+ *     ViDifCaptureDriverEntry @ 0x1405CF4BC (ViDifCaptureDriverEntry.c)
+ *     ViDifCaptureIoCallbacks @ 0x1405CF52C (ViDifCaptureIoCallbacks.c)
  * Callees:
  *     <none>
  */

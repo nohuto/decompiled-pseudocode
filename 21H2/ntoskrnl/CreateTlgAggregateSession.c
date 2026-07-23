@@ -1,13 +1,13 @@
 /*
- * XREFs of CreateTlgAggregateSession @ 0x1407A4DC0
+ * XREFs of CreateTlgAggregateSession @ 0x1407A4FC0
  * Callers:
- *     TlgRegisterAggregateProviderEx @ 0x1407A4BEC (TlgRegisterAggregateProviderEx.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1407A4DEC (TlgRegisterAggregateProviderEx.c)
  * Callees:
- *     ExAllocateTimer @ 0x140280410 (ExAllocateTimer.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     memset @ 0x140414200 (memset.c)
- *     DestroyAggregateSession @ 0x14097FFD8 (DestroyAggregateSession.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocateTimer @ 0x14026E650 (ExAllocateTimer.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     DestroyAggregateSession @ 0x1409801B8 (DestroyAggregateSession.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 *__fastcall CreateTlgAggregateSession(char a1, char a2)

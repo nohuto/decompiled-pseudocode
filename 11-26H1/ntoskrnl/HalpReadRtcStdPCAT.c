@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpReadRtcStdPCAT @ 0x140451740
+ * XREFs of HalpReadRtcStdPCAT @ 0x140449870
  * Callers:
  *     <none>
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140451A74 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLock @ 0x140530540 (HalpAcquireCmosSpinLock.c)
+ *     HalpReleaseCmosSpinLock @ 0x140449BA4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x140532A40 (HalpAcquireCmosSpinLock.c)
  */
 
 __int64 __fastcall HalpReadRtcStdPCAT(unsigned int a1, __int64 a2, int a3)

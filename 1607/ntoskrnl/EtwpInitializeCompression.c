@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpInitializeCompression @ 0x14022AC24
+ * XREFs of EtwpInitializeCompression @ 0x14022AA50
  * Callers:
- *     EtwpInitLoggerContext @ 0x1404931B0 (EtwpInitLoggerContext.c)
+ *     EtwpInitLoggerContext @ 0x140493C40 (EtwpInitLoggerContext.c)
  * Callees:
- *     RtlGetCompressionWorkSpaceSize @ 0x14000634C (RtlGetCompressionWorkSpaceSize.c)
- *     EtwpFreePlaceholderList @ 0x140085DC8 (EtwpFreePlaceholderList.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x1400064BC (RtlGetCompressionWorkSpaceSize.c)
+ *     EtwpFreePlaceholderList @ 0x1400876B8 (EtwpFreePlaceholderList.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

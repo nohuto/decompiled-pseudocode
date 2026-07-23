@@ -1,13 +1,13 @@
 /*
- * XREFs of PopTraceEsBgActivityPolicyUpdate @ 0x1408EC2AC
+ * XREFs of PopTraceEsBgActivityPolicyUpdate @ 0x1408EC40C
  * Callers:
- *     PopEsInStandbyEvaluate @ 0x1408F27A0 (PopEsInStandbyEvaluate.c)
+ *     PopEsInStandbyEvaluate @ 0x1408F2900 (PopEsInStandbyEvaluate.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceEsBgActivityPolicyUpdate(int a1)
@@ -51,7 +51,7 @@ char __fastcall PopTraceEsBgActivityPolicyUpdate(int a1)
       v18 = 4;
       LOBYTE(v1) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140C02228,
-                     (unsigned __int8 *)&dword_140027BF4,
+                     (unsigned __int8 *)&dword_140028424,
                      0LL,
                      0LL,
                      4u,

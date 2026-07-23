@@ -1,18 +1,18 @@
 /*
- * XREFs of SdbpCloseLocalDatabaseEx @ 0x1406C4190
+ * XREFs of SdbpCloseLocalDatabaseEx @ 0x1406C42C8
  * Callers:
- *     SdbReleaseDatabase @ 0x140499BF8 (SdbReleaseDatabase.c)
- *     SdbpOpenLocalDatabaseEx @ 0x1406C421C (SdbpOpenLocalDatabaseEx.c)
+ *     SdbReleaseDatabase @ 0x1404CEA90 (SdbReleaseDatabase.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x1406C4354 (SdbpOpenLocalDatabaseEx.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     SdbCloseDatabaseRead @ 0x140499CD8 (SdbCloseDatabaseRead.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SdbCloseDatabaseRead @ 0x1404CEB70 (SdbCloseDatabaseRead.c)
  */
 
 __int64 __fastcall SdbpCloseLocalDatabaseEx(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // rbp
   __int64 v5; // rbx
-  __int64 v6; // rcx
+  _QWORD *v6; // rcx
 
   v3 = a3;
   if ( a3 >= 0x10 || ((1 << a3) & *(_DWORD *)(a1 + 28)) == 0 )
@@ -20,7 +20,7 @@ __int64 __fastcall SdbpCloseLocalDatabaseEx(__int64 a1, __int64 a2, unsigned int
   v5 = a1 + 32 * (a3 + 1LL);
   if ( (*(_DWORD *)(v5 + 24) & 2) != 0 )
   {
-    v6 = *(_QWORD *)(v5 + 16);
+    v6 = *(_QWORD **)(v5 + 16);
     if ( v6 )
       SdbCloseDatabaseRead(v6);
   }

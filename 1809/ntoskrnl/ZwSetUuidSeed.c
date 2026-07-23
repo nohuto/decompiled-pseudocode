@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetUuidSeed @ 0x1401BB6D0
+ * XREFs of ZwSetUuidSeed @ 0x1401BB830
  * Callers:
  *     <none>
  * Callees:
@@ -8,10 +8,7 @@
 
 NTSTATUS __stdcall ZwSetUuidSeed(PUCHAR UuidSeed)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(UuidSeed, v1, v2);
+  return KiServiceInternal(UuidSeed);
 }

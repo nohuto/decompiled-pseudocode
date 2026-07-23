@@ -1,21 +1,21 @@
 /*
- * XREFs of Pdcv2ActivationClientActivate @ 0x1409EDF3C
+ * XREFs of Pdcv2ActivationClientActivate @ 0x1409EB97C
  * Callers:
- *     PopAdaptiveStandbyQueryReserveConfiguration @ 0x1405DB334 (PopAdaptiveStandbyQueryReserveConfiguration.c)
- *     PiPdcActivate @ 0x1409EDEC0 (PiPdcActivate.c)
- *     PopWin32kActivatorWorker @ 0x1409EE3D0 (PopWin32kActivatorWorker.c)
+ *     PopAdaptiveStandbyQueryReserveConfiguration @ 0x14076146C (PopAdaptiveStandbyQueryReserveConfiguration.c)
+ *     PiPdcActivate @ 0x1409EB900 (PiPdcActivate.c)
+ *     PopWin32kActivatorWorker @ 0x1409EBE10 (PopWin32kActivatorWorker.c)
  * Callees:
- *     Pdcv2EventWrite_ACTIVATION_CLIENT_ACTIVATE @ 0x14032FFE4 (Pdcv2EventWrite_ACTIVATION_CLIENT_ACTIVATE.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     PdcPortSendMessageSynchronously @ 0x14048F5DC (PdcPortSendMessageSynchronously.c)
- *     Pdcv2pValidateExtraActivationParameters @ 0x1404A1940 (Pdcv2pValidateExtraActivationParameters.c)
- *     PdcpResizeDiagnosticContext @ 0x1406075C0 (PdcpResizeDiagnosticContext.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     Pdcv2pValidateActivationParameters @ 0x1409EE374 (Pdcv2pValidateActivationParameters.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     Pdcv2EventWrite_ACTIVATION_CLIENT_ACTIVATE @ 0x1402B885C (Pdcv2EventWrite_ACTIVATION_CLIENT_ACTIVATE.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     PdcPortSendMessageSynchronously @ 0x1404897EC (PdcPortSendMessageSynchronously.c)
+ *     Pdcv2pValidateExtraActivationParameters @ 0x14049C8CC (Pdcv2pValidateExtraActivationParameters.c)
+ *     PdcpResizeDiagnosticContext @ 0x140604BC8 (PdcpResizeDiagnosticContext.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     Pdcv2pValidateActivationParameters @ 0x1409EBDB4 (Pdcv2pValidateActivationParameters.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall Pdcv2ActivationClientActivate(
@@ -122,7 +122,7 @@ LABEL_41:
     v30 = -1073740032;
     goto LABEL_40;
   }
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x258uLL, 0x41434450u);
   v15 = (_QWORD *)Pool2;
   if ( !Pool2 )
   {

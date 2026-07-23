@@ -1,12 +1,12 @@
 /*
- * XREFs of ObInitializeProcessor @ 0x1407431B8
+ * XREFs of ObInitializeProcessor @ 0x1407410E8
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     ObInitSystem @ 0x140C612B4 (ObInitSystem.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     ObInitSystem @ 0x140C63408 (ObInitSystem.c)
  * Callees:
- *     MmIsThisAnNtAsSystem @ 0x1404A8FD0 (MmIsThisAnNtAsSystem.c)
- *     ExInitializeSystemLookasideList @ 0x140B6E3BC (ExInitializeSystemLookasideList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     MmIsThisAnNtAsSystem @ 0x1404A33F0 (MmIsThisAnNtAsSystem.c)
+ *     ExInitializeSystemLookasideList @ 0x140B6FF6C (ExInitializeSystemLookasideList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ObInitializeProcessor(_QWORD *a1)
@@ -20,7 +20,7 @@ __int64 __fastcall ObInitializeProcessor(_QWORD *a1)
 
   IsThisAnNtAsSystem = MmIsThisAnNtAsSystem();
   a1[265] = &ObpCreateInfoLookasideList;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x80uLL, 0x4943624Fu);
   v4 = (void *)Pool2;
   if ( Pool2 )
     ExInitializeSystemLookasideList(
@@ -34,7 +34,7 @@ __int64 __fastcall ObInitializeProcessor(_QWORD *a1)
     v4 = &ObpCreateInfoLookasideList;
   a1[264] = v4;
   a1[267] = &ObpNameBufferLookasideList;
-  v5 = ExAllocatePool2(0x40uLL);
+  v5 = ExAllocatePool2(0x40uLL, 0x80uLL, 0x4D4E624Fu);
   v6 = (void *)v5;
   if ( v5 )
     ExInitializeSystemLookasideList(

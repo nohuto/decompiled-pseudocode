@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSecureThreadStartup @ 0x140955DE0
+ * XREFs of PspSecureThreadStartup @ 0x140949BA0
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     VslStartSecureThread @ 0x140955D78 (VslStartSecureThread.c)
- *     PspTerminateThreadByPointer @ 0x1409575E0 (PspTerminateThreadByPointer.c)
- *     PspNotifyThreadCreation @ 0x1409EAC38 (PspNotifyThreadCreation.c)
- *     PspDisablePrimaryTokenExchange @ 0x1409EB314 (PspDisablePrimaryTokenExchange.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     PspTerminateThreadByPointer @ 0x14094B010 (PspTerminateThreadByPointer.c)
+ *     VslStartSecureThread @ 0x14094BA60 (VslStartSecureThread.c)
+ *     PspNotifyThreadCreation @ 0x1409E7408 (PspNotifyThreadCreation.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1409E7AE4 (PspDisablePrimaryTokenExchange.c)
  */
 
 __int64 PspSecureThreadStartup()

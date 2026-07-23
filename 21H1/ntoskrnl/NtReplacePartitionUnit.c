@@ -12,11 +12,14 @@
  *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtReplacePartitionUnit(unsigned __int64 a1, unsigned __int64 a2, int a3)
+NTSTATUS __cdecl NtReplacePartitionUnit(
+        PUNICODE_STRING TargetInstancePath,
+        PUNICODE_STRING SpareInstancePath,
+        ULONG Flags)
 {
   struct _DEVICE_OBJECT *v6; // rsi
   struct _DEVICE_OBJECT *v7; // rdi
-  NTSTATUS UserModeCallersCopy; // ebx
+  int UserModeCallersCopy; // ebx
   ULONG v9; // r8d
   struct _DEVICE_OBJECT *v10; // rdx
   struct _DEVICE_OBJECT *v11; // rcx
@@ -26,8 +29,8 @@ __int64 __fastcall NtReplacePartitionUnit(unsigned __int64 a1, unsigned __int64 
   __int64 v15; // rax
   int v17; // [rsp+20h] [rbp-68h]
   PVOID v18[3]; // [rsp+30h] [rbp-58h] BYREF
-  __int128 v19; // [rsp+48h] [rbp-40h] BYREF
-  __int128 v20; // [rsp+58h] [rbp-30h] BYREF
+  UNICODE_STRING v19; // [rsp+48h] [rbp-40h] BYREF
+  UNICODE_STRING v20; // [rsp+58h] [rbp-30h] BYREF
   PVOID P; // [rsp+A8h] [rbp+20h] BYREF
 
   v19 = 0LL;
@@ -48,7 +51,7 @@ __int64 __fastcall NtReplacePartitionUnit(unsigned __int64 a1, unsigned __int64 
     goto LABEL_35;
   }
   v9 = 0x80000000;
-  if ( a3 == 0x80000000 )
+  if ( Flags == 0x80000000 )
   {
     v10 = 0LL;
     v11 = 0LL;
@@ -56,46 +59,40 @@ LABEL_7:
     UserModeCallersCopy = IoReplacePartitionUnit(v11, v10, v9);
     goto LABEL_35;
   }
-  if ( a3 )
+  if ( Flags )
   {
     UserModeCallersCopy = -1073741583;
     goto LABEL_35;
   }
-  if ( (a2 & 7) != 0 )
+  if ( ((unsigned __int8)SpareInstancePath & 7) != 0 )
     ExRaiseDatatypeMisalignment();
-  if ( a2 + 16 > 0x7FFFFFFF0000LL || a2 + 16 < a2 )
+  if ( (unsigned __int64)&SpareInstancePath[1] > 0x7FFFFFFF0000LL || &SpareInstancePath[1] < SpareInstancePath )
     MEMORY[0x7FFFFFFF0000] = 0;
-  if ( (a1 & 7) != 0 )
+  if ( ((unsigned __int8)TargetInstancePath & 7) != 0 )
     ExRaiseDatatypeMisalignment();
-  if ( a1 + 16 > 0x7FFFFFFF0000LL || a1 + 16 < a1 )
+  if ( (unsigned __int64)&TargetInstancePath[1] > 0x7FFFFFFF0000LL || &TargetInstancePath[1] < TargetInstancePath )
     MEMORY[0x7FFFFFFF0000] = 0;
-  v19 = *(_OWORD *)a2;
-  v20 = *(_OWORD *)a1;
-  if ( (unsigned __int16)(v20 - 1) > 0xC8u || (BYTE2(v20) & 1) != 0 )
+  v19 = *SpareInstancePath;
+  v20 = *TargetInstancePath;
+  if ( (unsigned __int16)(v20.Length - 1) > 0xC8u || (v20.MaximumLength & 1) != 0 )
     goto LABEL_34;
-  if ( (unsigned __int16)(v19 - 1) > 0xC8u || (BYTE2(v19) & 1) != 0 )
+  if ( (unsigned __int16)(v19.Length - 1) > 0xC8u || (v19.MaximumLength & 1) != 0 )
   {
 LABEL_33:
     UserModeCallersCopy = -1073741584;
     goto LABEL_35;
   }
-  UserModeCallersCopy = PiControlMakeUserModeCallersCopy(&P, *((_QWORD *)&v19 + 1), (unsigned __int16)v19, 2LL, 1, 1);
+  UserModeCallersCopy = PiControlMakeUserModeCallersCopy(&P, v19.Buffer, v19.Length, 2LL, 1, 1);
   if ( UserModeCallersCopy >= 0 )
   {
     LOBYTE(v17) = 1;
-    UserModeCallersCopy = PiControlMakeUserModeCallersCopy(
-                            v18,
-                            *((_QWORD *)&v20 + 1),
-                            (unsigned __int16)v20,
-                            2LL,
-                            v17,
-                            1);
+    UserModeCallersCopy = PiControlMakeUserModeCallersCopy(v18, v20.Buffer, v20.Length, 2LL, v17, 1);
     if ( UserModeCallersCopy >= 0 )
     {
-      *((_QWORD *)&v19 + 1) = P;
-      WORD1(v19) = v19;
-      *((PVOID *)&v20 + 1) = v18[0];
-      WORD1(v20) = v20;
+      v19.Buffer = (wchar_t *)P;
+      v19.MaximumLength = v19.Length;
+      v20.Buffer = (wchar_t *)v18[0];
+      v20.MaximumLength = v20.Length;
       v12 = PnpDeviceObjectFromDeviceInstanceWithTag(&v19, 1953261124LL);
       v6 = (struct _DEVICE_OBJECT *)v12;
       if ( v12 )
@@ -139,5 +136,5 @@ LABEL_35:
     ExFreePoolWithTag(P, 0);
   if ( v18[0] )
     ExFreePoolWithTag(v18[0], 0);
-  return (unsigned int)UserModeCallersCopy;
+  return UserModeCallersCopy;
 }

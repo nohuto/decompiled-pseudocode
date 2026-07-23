@@ -29,7 +29,7 @@ void __fastcall MiFreePoolPages(ULONG_PTR BugCheckParameter2, unsigned __int64 a
   v3 = BugCheckParameter2;
   if ( (unsigned int)MiGetSystemRegionType(BugCheckParameter2) == 5 )
   {
-    if ( (unsigned int)MiInsertNonPagedPoolOnSlist((struct _SLIST_ENTRY *)v3, (a2 >> 12) + ((a2 & 0xFFF) != 0)) != 1 )
+    if ( (unsigned int)MiInsertNonPagedPoolOnSlist((_SLIST_ENTRY *)v3, (a2 >> 12) + ((a2 & 0xFFF) != 0)) != 1 )
     {
       v12 = v3;
       v6 = (((v3 + a2 - 1) >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;

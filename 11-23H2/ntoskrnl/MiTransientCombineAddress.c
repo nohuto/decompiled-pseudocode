@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTransientCombineAddress @ 0x140653704
+ * XREFs of MiTransientCombineAddress @ 0x140653C54
  * Callers:
- *     MiRaisedIrqlFault @ 0x140341BE0 (MiRaisedIrqlFault.c)
+ *     MiRaisedIrqlFault @ 0x140341E70 (MiRaisedIrqlFault.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiTransientCombineAddress(unsigned __int64 a1, unsigned __int64 a2)
@@ -42,10 +42,13 @@ __int64 __fastcall MiTransientCombineAddress(unsigned __int64 a1, unsigned __int
   if ( v6 && v6[5] != ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
     v6 = 0LL;
   ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67240);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

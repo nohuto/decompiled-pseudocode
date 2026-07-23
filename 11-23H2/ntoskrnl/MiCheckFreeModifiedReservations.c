@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCheckFreeModifiedReservations @ 0x140638D00
+ * XREFs of MiCheckFreeModifiedReservations @ 0x140639250
  * Callers:
- *     MiModifiedPageWriter @ 0x1403B2760 (MiModifiedPageWriter.c)
+ *     MiModifiedPageWriter @ 0x1403B2940 (MiModifiedPageWriter.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     MiInitializePagefileBitmapsCache @ 0x140395ED0 (MiInitializePagefileBitmapsCache.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreeModifiedReservations @ 0x140639F2C (MiFreeModifiedReservations.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     MiInitializePagefileBitmapsCache @ 0x1403960B0 (MiInitializePagefileBitmapsCache.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeModifiedReservations @ 0x14063A47C (MiFreeModifiedReservations.c)
  */
 
 __int64 __fastcall MiCheckFreeModifiedReservations(__int64 a1)
@@ -73,10 +73,10 @@ __int64 __fastcall MiCheckFreeModifiedReservations(__int64 a1)
                     *(_DWORD *)(v10 + 124) = dword_140D1D1DC;
                   }
                   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v10 + 232));
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     CurrentIrql = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0
+                    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
                       && CurrentIrql <= 0xFu
                       && (unsigned __int8)v13 <= 0xFu
                       && CurrentIrql >= 2u )

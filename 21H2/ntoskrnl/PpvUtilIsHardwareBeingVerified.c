@@ -1,7 +1,7 @@
 /*
- * XREFs of PpvUtilIsHardwareBeingVerified @ 0x1409C5B4C
+ * XREFs of PpvUtilIsHardwareBeingVerified @ 0x1409C6B4C
  * Callers:
- *     VfIsVerificationEnabled @ 0x1403A7210 (VfIsVerificationEnabled.c)
+ *     VfIsVerificationEnabled @ 0x1403A7360 (VfIsVerificationEnabled.c)
  * Callees:
  *     <none>
  */

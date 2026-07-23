@@ -1,15 +1,15 @@
 /*
- * XREFs of MmChangeSectionBackingFile @ 0x1404816CC
+ * XREFs of MmChangeSectionBackingFile @ 0x14047B03C
  * Callers:
- *     FsRtlChangeBackingFileObject @ 0x140481680 (FsRtlChangeBackingFileObject.c)
- *     MiShareExistingControlArea @ 0x140A56A00 (MiShareExistingControlArea.c)
+ *     FsRtlChangeBackingFileObject @ 0x14047AFF0 (FsRtlChangeBackingFileObject.c)
+ *     MiShareExistingControlArea @ 0x140A63F80 (MiShareExistingControlArea.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiLockSectionControlArea @ 0x14044FAD0 (MiLockSectionControlArea.c)
- *     ObFastReplaceObject @ 0x1404819D8 (ObFastReplaceObject.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x140447C00 (MiLockSectionControlArea.c)
+ *     ObFastReplaceObject @ 0x14047B348 (ObFastReplaceObject.c)
  */
 
 __int64 __fastcall MmChangeSectionBackingFile(__int64 **a1, __int64 **a2, int a3)

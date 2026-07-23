@@ -1,12 +1,12 @@
 /*
- * XREFs of TppJobpStopCallbackGeneration @ 0x180159150
+ * XREFs of TppJobpStopCallbackGeneration @ 0x180159020
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall TppJobpStopCallbackGeneration(__int64 a1, __int64 a2)
+void __fastcall TppJobpStopCallbackGeneration(__int64 a1)
 {
-  TppJobpRundownJob(a1 - 72, a2);
+  TppJobpRundownJob(a1 - 72);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiGenericCallDpcInitiatorDpc @ 0x1404B6360
+ * XREFs of KiGenericCallDpcInitiatorDpc @ 0x1402700D0
  * Callers:
  *     <none>
  * Callees:
- *     KeSignalGate @ 0x14030AB68 (KeSignalGate.c)
- *     KiInitiateGenericCallDpc @ 0x140414ED0 (KiInitiateGenericCallDpc.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiInitiateGenericCallDpc @ 0x140270D30 (KiInitiateGenericCallDpc.c)
+ *     KeSignalGate @ 0x140314A48 (KeSignalGate.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiGenericCallDpcInitiatorDpc(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall KiGenericCallDpcInitiatorDpc(__int64 a1, __int64 a2)
 
   CurrentPrcb = KeGetCurrentPrcb();
   DpcWatchdogCount = CurrentPrcb->DpcWatchdogCount;
-  KiInitiateGenericCallDpc((__int64)CurrentPrcb, (PKDEFERRED_ROUTINE *)a2);
+  KiInitiateGenericCallDpc(CurrentPrcb);
   CurrentIrql = KeGetCurrentIrql();
   v7 = 13LL;
   __writecr8(0xDuLL);
@@ -36,5 +36,5 @@ __int64 __fastcall KiGenericCallDpcInitiatorDpc(__int64 a1, __int64 a2)
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v7);
   }
   __writecr8(CurrentIrql);
-  return KeSignalGate((_DWORD *)(a2 + 80), 0LL);
+  return KeSignalGate((PVOID)(a2 + 80));
 }

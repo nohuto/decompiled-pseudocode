@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaAllocateMappingResources @ 0x140CB0220
+ * XREFs of HalpDmaAllocateMappingResources @ 0x140CB6260
  * Callers:
- *     HalpDmaInit @ 0x140CB0700 (HalpDmaInit.c)
+ *     HalpDmaInit @ 0x140CB6740 (HalpDmaInit.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     MmFreeMappingAddress @ 0x140B12E50 (MmFreeMappingAddress.c)
- *     HalpDmaAllocateReservedMapping @ 0x140CB03C4 (HalpDmaAllocateReservedMapping.c)
- *     HalpDmaAllocateReservedMappingArray @ 0x140CB0424 (HalpDmaAllocateReservedMappingArray.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     MmFreeMappingAddress @ 0x140B14CF0 (MmFreeMappingAddress.c)
+ *     HalpDmaAllocateReservedMapping @ 0x140CB6404 (HalpDmaAllocateReservedMapping.c)
+ *     HalpDmaAllocateReservedMappingArray @ 0x140CB6464 (HalpDmaAllocateReservedMappingArray.c)
  */
 
 __int64 HalpDmaAllocateMappingResources()
@@ -39,21 +39,21 @@ __int64 HalpDmaAllocateMappingResources()
 
   MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
   v1 = MaximumProcessorCount;
-  *(_QWORD *)&stru_140E3E928.ThreadFlags2 = HalpMmAllocCtxAlloc(v2, 8 * MaximumProcessorCount);
-  if ( !*(_QWORD *)&stru_140E3E928.ThreadFlags2 )
+  *(_QWORD *)&stru_140E3EAA8.ThreadFlags2 = HalpMmAllocCtxAlloc(v2, 8 * MaximumProcessorCount);
+  if ( !*(_QWORD *)&stru_140E3EAA8.ThreadFlags2 )
     return 3221225626LL;
   v5 = HalpMmAllocCtxAlloc(v3, 4144 * MaximumProcessorCount);
   v8 = v5;
   if ( !v5 )
   {
-    v9 = *(_QWORD *)&stru_140E3E928.ThreadFlags2;
+    v9 = *(_QWORD *)&stru_140E3EAA8.ThreadFlags2;
 LABEL_5:
     HalpMmAllocCtxFree((__int64)v6, v9);
     return 3221225626LL;
   }
   if ( (_DWORD)MaximumProcessorCount )
   {
-    v7 = *(_QWORD **)&stru_140E3E928.ThreadFlags2;
+    v7 = *(_QWORD **)&stru_140E3EAA8.ThreadFlags2;
     v6 = (_QWORD *)(v5 + 32);
     do
     {
@@ -69,15 +69,15 @@ LABEL_5:
     while ( v1 );
   }
   v11 = 4LL;
-  stru_140E3E928.WaitBlock[2].Object = 0LL;
+  stru_140E3EAA8.WaitBlock[2].Object = 0LL;
   if ( (unsigned int)MaximumProcessorCount <= 4 )
   {
-    stru_140E3E928.QueueListEntry.Flink = (struct _LIST_ENTRY *)HalpMmAllocCtxAlloc(
+    stru_140E3EAA8.QueueListEntry.Flink = (struct _LIST_ENTRY *)HalpMmAllocCtxAlloc(
                                                                   (__int64)v6,
                                                                   8 * MaximumProcessorCount);
-    if ( !stru_140E3E928.QueueListEntry.Flink )
+    if ( !stru_140E3EAA8.QueueListEntry.Flink )
     {
-      HalpMmAllocCtxFree(v12, *(__int64 *)&stru_140E3E928.ThreadFlags2);
+      HalpMmAllocCtxFree(v12, *(__int64 *)&stru_140E3EAA8.ThreadFlags2);
       v9 = v8;
       goto LABEL_5;
     }
@@ -85,13 +85,13 @@ LABEL_5:
     {
       if ( (unsigned int)i >= (unsigned int)MaximumProcessorCount )
       {
-        stru_140E3E928.WaitBlockFill7[144] = 1;
+        stru_140E3EAA8.WaitBlockFill7[144] = 1;
         return 0LL;
       }
       ReservedMapping = HalpDmaAllocateReservedMapping();
-      Flink = stru_140E3E928.QueueListEntry.Flink;
+      Flink = stru_140E3EAA8.QueueListEntry.Flink;
       v17 = (unsigned int)i;
-      *((_QWORD *)&stru_140E3E928.QueueListEntry.Flink->Flink + i) = ReservedMapping;
+      *((_QWORD *)&stru_140E3EAA8.QueueListEntry.Flink->Flink + i) = ReservedMapping;
       if ( !ReservedMapping )
         break;
     }
@@ -103,7 +103,7 @@ LABEL_5:
         v19 = *(__int64 *)((char *)&Flink->Flink + v18);
         MmFreeMappingAddress(*(PVOID *)(v19 + 16), 0x446C6148u);
         HalpMmAllocCtxFree(v20, v19);
-        Flink = stru_140E3E928.QueueListEntry.Flink;
+        Flink = stru_140E3EAA8.QueueListEntry.Flink;
         v18 += 8LL;
         --v17;
       }
@@ -115,7 +115,7 @@ LABEL_5:
   ReservedMappingArray = HalpDmaAllocateReservedMappingArray((unsigned int)MaximumProcessorCount, v11, v7);
   if ( ReservedMappingArray < 0 )
   {
-    HalpMmAllocCtxFree(v21, *(__int64 *)&stru_140E3E928.ThreadFlags2);
+    HalpMmAllocCtxFree(v21, *(__int64 *)&stru_140E3EAA8.ThreadFlags2);
     HalpMmAllocCtxFree(v23, v8);
   }
   return (unsigned int)ReservedMappingArray;

@@ -1,26 +1,26 @@
 /*
- * XREFs of EmpClientRuleRegisterNotification @ 0x1407096E4
+ * XREFs of EmpClientRuleRegisterNotification @ 0x1407072A4
  * Callers:
- *     EmClientRuleRegisterNotification @ 0x1407096C0 (EmClientRuleRegisterNotification.c)
+ *     EmClientRuleRegisterNotification @ 0x140707280 (EmClientRuleRegisterNotification.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EmpSearchTargetRuleList @ 0x14044FA4C (EmpSearchTargetRuleList.c)
- *     EmpSearchRuleDatabase @ 0x14045273C (EmpSearchRuleDatabase.c)
- *     EmpQueueRuleUpdateState @ 0x14057F200 (EmpQueueRuleUpdateState.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EmpSearchTargetRuleList @ 0x140445014 (EmpSearchTargetRuleList.c)
+ *     EmpSearchRuleDatabase @ 0x1404477EC (EmpSearchRuleDatabase.c)
+ *     EmpQueueRuleUpdateState @ 0x14057C690 (EmpQueueRuleUpdateState.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EmpClientRuleRegisterNotification(void *a1, __int64 a2, unsigned int a3, _QWORD *a4)
 {
   __int64 v4; // r14
   unsigned int v8; // edi
-  _QWORD *v9; // rax
-  _QWORD *v10; // rbx
+  char *v9; // rax
+  char *v10; // rbx
   _QWORD *Pool2; // rsi
   __int64 v12; // rax
   __int64 i; // rbp
@@ -40,18 +40,18 @@ __int64 __fastcall EmpClientRuleRegisterNotification(void *a1, __int64 a2, unsig
 
   v4 = a3;
   v8 = 0;
-  v9 = KeAbPreAcquire((__int64)&EmpDatabaseLock, 0LL);
+  v9 = (char *)KeAbPreAcquire((__int64)&EmpDatabaseLock, 0LL);
   v10 = v9;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&EmpDatabaseLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&EmpDatabaseLock, (__int64)v9, (__int64)&EmpDatabaseLock);
+    ExfAcquirePushLockExclusiveEx(&EmpDatabaseLock, v9, (__int64)&EmpDatabaseLock);
   if ( v10 )
-    *((_BYTE *)v10 + 10) = 1;
+    v10[10] = 1;
   if ( a4 && (_DWORD)v4 && a2 )
   {
-    Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x18uLL, 0x6C634D45u);
     if ( Pool2 )
     {
-      v12 = ExAllocatePool2(0x100uLL);
+      v12 = ExAllocatePool2(0x100uLL, (unsigned int)(40 * v4), 0x6C634D45u);
       Pool2[1] = v12;
       if ( v12 )
       {

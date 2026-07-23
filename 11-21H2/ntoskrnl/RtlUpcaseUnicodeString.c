@@ -2,23 +2,23 @@
  * XREFs of RtlUpcaseUnicodeString @ 0x1407E5410
  * Callers:
  *     RtlDeriveCapabilitySidsFromName @ 0x1402E0B30 (RtlDeriveCapabilitySidsFromName.c)
- *     DifRtlUpcaseUnicodeStringWrapper @ 0x14061C370 (DifRtlUpcaseUnicodeStringWrapper.c)
- *     PfSnLogVolumeCreate @ 0x1406CE4C4 (PfSnLogVolumeCreate.c)
- *     AslStringUpcaseToMultiByteN @ 0x14075B0E4 (AslStringUpcaseToMultiByteN.c)
- *     SdbMakeIndexKeyFromStringEx @ 0x14075B9CC (SdbMakeIndexKeyFromStringEx.c)
- *     PfCalculateProcessHash @ 0x1407DB510 (PfCalculateProcessHash.c)
- *     PfSnLogStreamCreate @ 0x1407E5234 (PfSnLogStreamCreate.c)
- *     PipMakeGloballyUniqueId @ 0x14080E438 (PipMakeGloballyUniqueId.c)
- *     PiCMOpenClassKey @ 0x14081C354 (PiCMOpenClassKey.c)
+ *     sub_14061C370 @ 0x14061C370 (sub_14061C370.c)
+ *     sub_1406CE4C4 @ 0x1406CE4C4 (sub_1406CE4C4.c)
+ *     sub_14075B0E4 @ 0x14075B0E4 (sub_14075B0E4.c)
+ *     sub_14075B9CC @ 0x14075B9CC (sub_14075B9CC.c)
+ *     sub_1407DB510 @ 0x1407DB510 (sub_1407DB510.c)
+ *     sub_1407E5234 @ 0x1407E5234 (sub_1407E5234.c)
+ *     sub_14080E438 @ 0x14080E438 (sub_14080E438.c)
+ *     sub_14081C354 @ 0x14081C354 (sub_14081C354.c)
  *     IoReportDetectedDevice @ 0x14081EB20 (IoReportDetectedDevice.c)
- *     PiDevCfgResolveVariableGenerateGuid @ 0x14094E390 (PiDevCfgResolveVariableGenerateGuid.c)
- *     PiCMGenerateDeviceInstance @ 0x140955848 (PiCMGenerateDeviceInstance.c)
- *     ViCreateProcessCallbackInternal @ 0x140A96D84 (ViCreateProcessCallbackInternal.c)
- *     ViFaultsAddAppNoDuplicates @ 0x140A9700C (ViFaultsAddAppNoDuplicates.c)
- *     PipInitComputerIds @ 0x140B0F20C (PipInitComputerIds.c)
+ *     sub_14094E390 @ 0x14094E390 (sub_14094E390.c)
+ *     sub_140955848 @ 0x140955848 (sub_140955848.c)
+ *     sub_140A96D84 @ 0x140A96D84 (sub_140A96D84.c)
+ *     sub_140A9700C @ 0x140A9700C (sub_140A9700C.c)
+ *     sub_140B0F20C @ 0x140B0F20C (sub_140B0F20C.c)
  * Callees:
- *     AllocateOrValidateCharStringBuffer @ 0x1402D7DE0 (AllocateOrValidateCharStringBuffer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_1402D7DE0 @ 0x1402D7DE0 (sub_1402D7DE0.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -37,12 +37,8 @@ NTSTATUS __stdcall RtlUpcaseUnicodeString(
 
   if ( AllocateDestinationString || SourceString->Length )
   {
-    v5 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 154);
-    result = AllocateOrValidateCharStringBuffer(
-               v7,
-               *v6,
-               (__int64 *)&DestinationString->Buffer,
-               &DestinationString->MaximumLength);
+    v5 = *((_QWORD *)sub_140347DB0() + 154);
+    result = sub_1402D7DE0(v7, *v6, (__int64 *)&DestinationString->Buffer, &DestinationString->MaximumLength);
     if ( result < 0 )
       return result;
     v9 = SourceString->Length >> 1;

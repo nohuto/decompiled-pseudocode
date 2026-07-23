@@ -18,18 +18,18 @@
 __int64 __fastcall EtwpSetProviderTraits(__int64 a1, __int64 a2, __int16 a3)
 {
   __int64 v5; // rbx
-  int v6; // r15d
+  ULONG OutputBufferLength; // r15d
   __int64 v7; // rax
   _BYTE *v8; // rsi
   int v9; // r14d
   NTSTATUS v10; // eax
   NTSTATUS v11; // edi
-  ULONG v12; // edi
-  __int64 Heap; // rax
-  unsigned int v15; // [rsp+30h] [rbp-79h] BYREF
-  _QWORD v16[2]; // [rsp+38h] [rbp-71h] BYREF
+  unsigned __int32 v12; // edi
+  _BYTE *Heap; // rax
+  ULONG ReturnLength; // [rsp+30h] [rbp-79h] BYREF
+  _QWORD InputBuffer[2]; // [rsp+38h] [rbp-71h] BYREF
   __int16 v17; // [rsp+48h] [rbp-61h]
-  _BYTE v18[120]; // [rsp+50h] [rbp-59h] BYREF
+  _BYTE OutputBuffer[120]; // [rsp+50h] [rbp-59h] BYREF
 
   if ( !HIWORD(a1)
     || (v5 = a1 & 0xFFFFFFFFFFFFLL, (a1 & 1) != 0)
@@ -40,27 +40,27 @@ LABEL_15:
     RtlSetLastWin32Error(v12);
     return v12;
   }
-  RtlAcquireSRWLockExclusive(v5 + 64);
-  v6 = 120;
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v5 + 64));
+  OutputBufferLength = 120;
   *(_DWORD *)(v5 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
-  memset(v18, 0, sizeof(v18));
+  memset(OutputBuffer, 0, sizeof(OutputBuffer));
   v7 = *(_QWORD *)(v5 + 88);
-  v8 = v18;
+  v8 = OutputBuffer;
   v17 = a3;
   v9 = 0;
-  v16[0] = v7;
-  v16[1] = a2;
+  InputBuffer[0] = v7;
+  InputBuffer[1] = a2;
   while ( 1 )
   {
-    v10 = NtTraceControl(30LL, v16, 24LL, v8, v6, &v15);
+    v10 = NtTraceControl(EtwSetProviderTraitsCode, InputBuffer, 0x18u, v8, OutputBufferLength, &ReturnLength);
     v11 = v10;
     if ( v10 != -1073741789 )
       break;
-    if ( v8 != v18 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v8);
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v15);
-    v6 = v15;
-    v8 = (_BYTE *)Heap;
+    if ( v8 != OutputBuffer )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, ReturnLength);
+    OutputBufferLength = ReturnLength;
+    v8 = Heap;
     if ( !Heap )
     {
       v11 = -1073741801;
@@ -80,13 +80,13 @@ LABEL_22:
     goto LABEL_10;
 LABEL_8:
   *(_WORD *)(v5 + 98) |= 0x4000u;
-  if ( v15 )
+  if ( ReturnLength )
     EtwpUpdateEnableInfoAndCallback(v5, v8);
 LABEL_10:
   *(_DWORD *)(v5 + 80) = 0;
-  RtlReleaseSRWLockExclusive(v5 + 64);
-  if ( v8 && v8 != v18 )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v8);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v5 + 64));
+  if ( v8 && v8 != OutputBuffer )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
   if ( v12 )
     goto LABEL_15;
   return v12;

@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptFdefIntDivMod @ 0x14052ECB0
+ * XREFs of SymCryptFdefIntDivMod @ 0x140529158
  * Callers:
- *     SymCryptIntDivMod @ 0x14052385C (SymCryptIntDivMod.c)
+ *     SymCryptIntDivMod @ 0x140521174 (SymCryptIntDivMod.c)
  * Callees:
- *     SymCryptWipe @ 0x14051DC34 (SymCryptWipe.c)
- *     SymCryptFdefRawDivMod @ 0x14052F378 (SymCryptFdefRawDivMod.c)
+ *     SymCryptWipe @ 0x14051B504 (SymCryptWipe.c)
+ *     SymCryptFdefRawDivMod @ 0x140529820 (SymCryptFdefRawDivMod.c)
  */
 
 __int64 __fastcall SymCryptFdefIntDivMod(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)

@@ -17,10 +17,10 @@ __int64 __fastcall RtlpHpVsContextFreeList(__int64 a1, unsigned int a2, _QWORD *
   __int64 result; // rax
   int v8; // r15d
   unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r8
+  __int64 v10; // r8
   _QWORD *v11; // rcx
   __int64 v12; // rax
-  unsigned __int64 v13; // r10
+  __int64 v13; // r10
   int v14; // edx
   unsigned __int64 v15; // r10
   __int64 v16; // rdi
@@ -44,7 +44,7 @@ __int64 __fastcall RtlpHpVsContextFreeList(__int64 a1, unsigned int a2, _QWORD *
     while ( 1 )
     {
       v9 = *(a3 - 2);
-      v10 = (unsigned __int64)(a3 - 2);
+      v10 = (__int64)(a3 - 2);
       v11 = a3 - 2;
       a3 = (_QWORD *)*a3;
       v12 = v10 ^ RtlpHpHeapGlobals ^ v9;

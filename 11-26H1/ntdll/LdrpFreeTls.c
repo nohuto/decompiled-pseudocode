@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpFreeTls @ 0x1800D72A0
+ * XREFs of LdrpFreeTls @ 0x1800D4260
  * Callers:
- *     LdrShutdownThread @ 0x180086CA0 (LdrShutdownThread.c)
+ *     LdrShutdownThread @ 0x18007E040 (LdrShutdownThread.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
  */
 
 __int64 LdrpFreeTls()
@@ -14,7 +14,8 @@ __int64 LdrpFreeTls()
   void **p_ThreadLocalStoragePointer; // rdi
   void **ThreadLocalStoragePointer; // rbx
   unsigned int v3; // eax
-  __int64 v4; // rdi
+  void **v4; // rsi
+  __int64 v5; // rdi
 
   v0 = NtCurrentTeb();
   RtlAcquireSRWLockShared(&LdrpTlsLock);
@@ -28,19 +29,20 @@ __int64 LdrpFreeTls()
     if ( ThreadLocalStoragePointer != p_ThreadLocalStoragePointer )
     {
       v3 = *((_DWORD *)ThreadLocalStoragePointer - 4);
+      v4 = ThreadLocalStoragePointer - 2;
       if ( v3 )
       {
-        v4 = v3;
+        v5 = v3;
         do
         {
           if ( *ThreadLocalStoragePointer )
-            RtlFreeHeap_0();
+            RtlFreeHeap_0(LdrpTlsHeap, 0, *((PVOID *)*ThreadLocalStoragePointer - 1));
           ++ThreadLocalStoragePointer;
-          --v4;
+          --v5;
         }
-        while ( v4 );
+        while ( v5 );
       }
-      RtlFreeHeap_0();
+      RtlFreeHeap_0(LdrpTlsHeap, 0, v4);
     }
   }
   else

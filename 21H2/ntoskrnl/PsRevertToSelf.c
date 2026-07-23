@@ -1,9 +1,9 @@
 /*
- * XREFs of PsRevertToSelf @ 0x1406E0D40
+ * XREFs of PsRevertToSelf @ 0x1406B8020
  * Callers:
- *     EtwpCreateLogFile @ 0x1406DFAAC (EtwpCreateLogFile.c)
+ *     EtwpCreateLogFile @ 0x1406B6D8C (EtwpCreateLogFile.c)
  * Callees:
- *     PsImpersonateClient @ 0x14065AEA0 (PsImpersonateClient.c)
+ *     PsImpersonateClient @ 0x14064FCC0 (PsImpersonateClient.c)
  */
 
 void PsRevertToSelf(void)

@@ -10,52 +10,54 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall RtlIsUntrustedObject(int a1, int a2, _BYTE *a3)
+NTSTATUS __cdecl RtlIsUntrustedObject(HANDLE Handle, PVOID Object, PBOOLEAN IsUntrustedObject)
 {
   _BYTE *Heap; // edi
-  int result; // eax
-  int SecurityObject; // ebx
+  NTSTATUS result; // eax
+  int v5; // ebx
   __int16 v6; // ax
-  int v7; // esi
-  unsigned __int8 *AceByType; // eax
-  unsigned __int8 *v9; // ecx
+  ACL *v7; // esi
+  _BYTE *AceByType; // eax
+  _BYTE *v9; // ecx
   unsigned __int8 v10; // al
-  unsigned int v11; // [esp+10h] [ebp-78h] BYREF
-  int v12; // [esp+14h] [ebp-74h] BYREF
-  char v13; // [esp+1Bh] [ebp-6Dh]
-  _BYTE v14[104]; // [esp+1Ch] [ebp-6Ch] BYREF
+  SIZE_T v11; // [esp-4h] [ebp-8Ch]
+  ULONG Index; // [esp+10h] [ebp-78h] BYREF
+  ULONG LengthNeeded; // [esp+14h] [ebp-74h] BYREF
+  char v14; // [esp+1Bh] [ebp-6Dh]
+  _BYTE SecurityDescriptor[104]; // [esp+1Ch] [ebp-6Ch] BYREF
 
-  Heap = v14;
-  *a3 = 1;
-  if ( a2 || !a1 )
+  Heap = SecurityDescriptor;
+  *IsUntrustedObject = 1;
+  if ( Object || !Handle )
     return -1073741811;
-  v13 = 0;
-  result = NtQuerySecurityObject(a1, 16, (int)v14, 104, (int)&v12);
-  SecurityObject = result;
+  v14 = 0;
+  result = NtQuerySecurityObject(Handle, 0x10u, SecurityDescriptor, 0x68u, &LengthNeeded);
+  v5 = result;
   if ( result < 0 )
   {
     if ( result != -1073741789 )
       return result;
-    Heap = (_BYTE *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v12);
+    LODWORD(v11) = LengthNeeded;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v11);
     if ( !Heap )
       return -1073741801;
-    v13 = 1;
-    SecurityObject = NtQuerySecurityObject(a1, 16, (int)Heap, 104, (int)&v12);
-    if ( SecurityObject < 0 )
+    v14 = 1;
+    v5 = NtQuerySecurityObject(Handle, 0x10u, Heap, 0x68u, &LengthNeeded);
+    if ( v5 < 0 )
       goto LABEL_19;
   }
   v6 = *((_WORD *)Heap + 1);
   if ( (v6 & 0x10) != 0 )
   {
-    v7 = *((_DWORD *)Heap + 3);
+    v7 = (ACL *)*((_DWORD *)Heap + 3);
     if ( v6 < 0 )
-      v7 = v7 != 0 ? (unsigned int)&Heap[v7] : 0;
+      v7 = v7 != 0 ? (ACL *)&Heap[(_DWORD)v7] : 0;
     if ( v7 )
     {
-      v11 = 0;
+      Index = 0;
       while ( 1 )
       {
-        AceByType = RtlFindAceByType(v7, 17, &v11);
+        AceByType = RtlFindAceByType(v7, 0x11u, &Index);
         v9 = AceByType;
         if ( !AceByType )
           break;
@@ -69,10 +71,10 @@ int __stdcall RtlIsUntrustedObject(int a1, int a2, _BYTE *a3)
       }
     }
   }
-  *a3 = 0;
+  *IsUntrustedObject = 0;
 LABEL_18:
-  if ( v13 )
+  if ( v14 )
 LABEL_19:
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
-  return SecurityObject;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  return v5;
 }

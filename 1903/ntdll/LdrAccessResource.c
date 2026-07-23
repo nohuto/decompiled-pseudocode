@@ -7,7 +7,11 @@
  */
 
 // attributes: thunk
-__int64 __fastcall LdrAccessResource(unsigned __int64 a1, unsigned int *a2, unsigned __int64 *a3, _DWORD *a4)
+NTSTATUS __cdecl LdrAccessResource(
+        PVOID DllHandle,
+        PIMAGE_RESOURCE_DATA_ENTRY ResourceDataEntry,
+        PVOID *ResourceBuffer,
+        ULONG *ResourceLength)
 {
-  return LdrAccessResource_0(a1, a2, a3, a4);
+  return LdrAccessResource_0(DllHandle, ResourceDataEntry, ResourceBuffer, ResourceLength);
 }

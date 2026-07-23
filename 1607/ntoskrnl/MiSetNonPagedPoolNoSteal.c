@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSetNonPagedPoolNoSteal @ 0x140124900
+ * XREFs of MiSetNonPagedPoolNoSteal @ 0x140124E70
  * Callers:
- *     MiGetPhysicalAddress @ 0x140025030 (MiGetPhysicalAddress.c)
+ *     MiGetPhysicalAddress @ 0x140024BB0 (MiGetPhysicalAddress.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 signed __int64 __fastcall MiSetNonPagedPoolNoSteal(__int64 a1)

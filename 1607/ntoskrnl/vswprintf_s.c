@@ -1,10 +1,10 @@
 /*
- * XREFs of vswprintf_s @ 0x140151980
+ * XREFs of vswprintf_s @ 0x140151F40
  * Callers:
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     _swoutput_s @ 0x140153E4C (_swoutput_s.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     _swoutput_s @ 0x1401543BC (_swoutput_s.c)
  */
 
 int __cdecl vswprintf_s(wchar_t *Dst, size_t SizeInWords, const wchar_t *Format, va_list ArgList)

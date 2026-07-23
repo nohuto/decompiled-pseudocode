@@ -1,21 +1,21 @@
 /*
- * XREFs of PiCMReleaseObjectInputData @ 0x14059D6AC
+ * XREFs of PiCMReleaseObjectInputData @ 0x14059E6AC
  * Callers:
- *     PiCMGetObjectList @ 0x14059D4EC (PiCMGetObjectList.c)
- *     PiCMGetDeviceStatus @ 0x14059E358 (PiCMGetDeviceStatus.c)
- *     PiCMValidateDeviceInstance @ 0x14059F414 (PiCMValidateDeviceInstance.c)
- *     PiCMGetRelatedDeviceInstance @ 0x1406E91A4 (PiCMGetRelatedDeviceInstance.c)
- *     PiCMCreateObject @ 0x140836EF8 (PiCMCreateObject.c)
- *     PiCMDeleteClassKey @ 0x14083709C (PiCMDeleteClassKey.c)
- *     PiCMDeleteDevice @ 0x140837188 (PiCMDeleteDevice.c)
- *     PiCMDeleteDeviceInterfaceKey @ 0x1408374B0 (PiCMDeleteDeviceInterfaceKey.c)
- *     PiCMDeleteDeviceKey @ 0x14083758C (PiCMDeleteDeviceKey.c)
- *     PiCMDeleteObject @ 0x1408377B0 (PiCMDeleteObject.c)
- *     PiCMDeviceAction @ 0x140837978 (PiCMDeviceAction.c)
- *     PiCMGetDeviceDepth @ 0x140838148 (PiCMGetDeviceDepth.c)
- *     PiCMGetObjectPropertyKeys @ 0x140838224 (PiCMGetObjectPropertyKeys.c)
- *     PiCMQueryRemove @ 0x140838634 (PiCMQueryRemove.c)
- *     PiCMUnregisterDeviceInterface @ 0x140839040 (PiCMUnregisterDeviceInterface.c)
+ *     PiCMGetObjectList @ 0x14059E4EC (PiCMGetObjectList.c)
+ *     PiCMGetDeviceStatus @ 0x14059F358 (PiCMGetDeviceStatus.c)
+ *     PiCMValidateDeviceInstance @ 0x1405A0414 (PiCMValidateDeviceInstance.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1406EA444 (PiCMGetRelatedDeviceInstance.c)
+ *     PiCMCreateObject @ 0x140838158 (PiCMCreateObject.c)
+ *     PiCMDeleteClassKey @ 0x1408382FC (PiCMDeleteClassKey.c)
+ *     PiCMDeleteDevice @ 0x1408383E8 (PiCMDeleteDevice.c)
+ *     PiCMDeleteDeviceInterfaceKey @ 0x140838710 (PiCMDeleteDeviceInterfaceKey.c)
+ *     PiCMDeleteDeviceKey @ 0x1408387EC (PiCMDeleteDeviceKey.c)
+ *     PiCMDeleteObject @ 0x140838A10 (PiCMDeleteObject.c)
+ *     PiCMDeviceAction @ 0x140838BD8 (PiCMDeviceAction.c)
+ *     PiCMGetDeviceDepth @ 0x1408393A8 (PiCMGetDeviceDepth.c)
+ *     PiCMGetObjectPropertyKeys @ 0x140839484 (PiCMGetObjectPropertyKeys.c)
+ *     PiCMQueryRemove @ 0x140839894 (PiCMQueryRemove.c)
+ *     PiCMUnregisterDeviceInterface @ 0x14083A2A0 (PiCMUnregisterDeviceInterface.c)
  * Callees:
  *     PiControlFreeUserModeCallersBuffer @ 0x140006AF0 (PiControlFreeUserModeCallersBuffer.c)
  */

@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwSetIoCompletionEx @ 0x140726A90
+ * XREFs of ZwSetIoCompletionEx @ 0x14072B660
  * Callers:
- *     DifZwSetIoCompletionExWrapper @ 0x1406BB430 (DifZwSetIoCompletionExWrapper.c)
+ *     DifZwSetIoCompletionExWrapper @ 0x1406BF010 (DifZwSetIoCompletionExWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetIoCompletionEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetIoCompletionEx(
+        HANDLE IoCompletionHandle,
+        HANDLE IoCompletionPacketHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(IoCompletionHandle);
 }

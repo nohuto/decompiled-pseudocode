@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalRundown @ 0x1409AA8C4
+ * XREFs of TtmiLogTerminalRundown @ 0x1409AAAC4
  * Callers:
- *     TtmiTerminalsRundown @ 0x1409AB658 (TtmiTerminalsRundown.c)
+ *     TtmiTerminalsRundown @ 0x1409AB858 (TtmiTerminalsRundown.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void TtmiLogTerminalRundown()
@@ -123,7 +123,7 @@ void TtmiLogTerminalRundown()
       v52 = &v14;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140D53918,
-        (unsigned __int8 *)word_140032E62,
+        (unsigned __int8 *)byte_140033275,
         0LL,
         0LL,
         0x13u,

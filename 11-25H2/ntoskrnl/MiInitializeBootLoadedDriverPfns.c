@@ -35,7 +35,7 @@ __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
     if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(v3) )
     {
       if ( (MiFlags & 0x8000) != 0 )
-        MiActOnLargeKernelHalPages(v3);
+        MiActOnLargeKernelHalPages((char *)v3);
       v6 = (unsigned __int64)(unsigned int)dword_140E3726C >> 12;
       if ( v6 )
         MiInitializeBootLoadedDriverPfnRange(&v4[(v5 + 511) & 0xFFFFFFFFFFFFFE00uLL], v6, 1);
@@ -46,7 +46,7 @@ __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
       v8 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
       v9 = &v4[v5];
       v10 = v7;
-      if ( v3 == v8 || v3 == PsHalImageBase )
+      if ( v3 == v8 || (PVOID)v3 == PsHalImageBase )
         v11 = (unsigned int)dword_140E3726C;
       else
         v11 = (unsigned int)(dword_140E37270 + dword_140E3726C);
@@ -58,7 +58,7 @@ __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
         v9 += v12;
       }
       v13 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
-      if ( v3 != v13 && v3 != PsHalImageBase && dword_140E2D4F8 )
+      if ( v3 != v13 && (PVOID)v3 != PsHalImageBase && dword_140E2D4F8 )
       {
         v5 += (unsigned int)dword_140E2D4F8;
         MiInitializeBootLoadedDriverPfnRange(v9, (unsigned int)dword_140E2D4F8, 0);
@@ -70,7 +70,7 @@ __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
         _InterlockedAdd64(&qword_140E37398, v10);
       }
       v14 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
-      if ( v3 != v14 && v3 != PsHalImageBase )
+      if ( v3 != v14 && (PVOID)v3 != PsHalImageBase )
       {
         _InterlockedAdd(&dword_140E373B0, v5);
         _InterlockedAdd64(&qword_140E37398, -(__int64)v5);

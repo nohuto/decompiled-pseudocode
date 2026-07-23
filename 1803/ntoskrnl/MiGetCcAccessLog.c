@@ -33,7 +33,7 @@ PVOID __fastcall MiGetCcAccessLog(__int64 a1, __int64 a2)
   v5 = *(_QWORD *)(v4 + 40);
   if ( *(_QWORD *)(v4 + 32) + 8 * a2 > v5 || (__int64)((*(_QWORD *)(v4 + 48) - v5) & 0xFFFFFFFFFFFFFFF8uLL) >= 4096 )
   {
-    MiQueuePageAccessLog((struct _SLIST_ENTRY *)v4);
+    MiQueuePageAccessLog((_SLIST_ENTRY *)v4);
     v4 = 0LL;
   }
   if ( !v4 )

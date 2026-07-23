@@ -7,20 +7,20 @@
  *     RtlRaiseStatus @ 0x18010F220 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall RtlDecodePointer(__int64 a1)
+PVOID __cdecl RtlDecodePointer(PVOID Ptr)
 {
   unsigned int v1; // edx
-  NTSTATUS v4; // eax
+  int v4; // eax
   int ProcessInformation; // [rsp+48h] [rbp+10h] BYREF
 
   v1 = `RtlpGetCookieValue'::`2'::CookieValue;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
   {
-    v4 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &ProcessInformation, 4u, 0LL);
+    v4 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
     if ( v4 < 0 )
-      RtlRaiseStatus((unsigned int)v4);
+      RtlRaiseStatus(v4);
     v1 = ProcessInformation;
     `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
   }
-  return __ROR8__(a1, 64 - (v1 & 0x3F)) ^ v1;
+  return (PVOID)(__ROR8__(Ptr, 64 - (v1 & 0x3F)) ^ v1);
 }

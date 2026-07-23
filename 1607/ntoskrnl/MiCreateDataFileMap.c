@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateDataFileMap @ 0x140522664
+ * XREFs of MiCreateDataFileMap @ 0x1405056C4
  * Callers:
- *     MiCreateNewSection @ 0x140522048 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1405050A8 (MiCreateNewSection.c)
  * Callees:
- *     MiInsertSubsectionNode @ 0x1400FD4B8 (MiInsertSubsectionNode.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiInsertSubsectionNode @ 0x1400FB238 (MiInsertSubsectionNode.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     FsRtlGetFileSize @ 0x14042C454 (FsRtlGetFileSize.c)
- *     FsRtlSetFileSize @ 0x1404ED434 (FsRtlSetFileSize.c)
+ *     FsRtlGetFileSize @ 0x14042B324 (FsRtlGetFileSize.c)
+ *     FsRtlSetFileSize @ 0x1404CF4EC (FsRtlSetFileSize.c)
  */
 
 int __fastcall MiCreateDataFileMap(
@@ -141,7 +141,7 @@ LABEL_44:
           *(_QWORD *)(v15 + 112) = 1LL;
           *(_QWORD *)(v15 + 24) = 1LL;
           *(_DWORD *)(v15 + 60) ^= (*(_DWORD *)(v15 + 60) ^ MiSystemPartition[0]) & 0x3FF;
-          _InterlockedAdd64(&qword_140323BC8, 1uLL);
+          _InterlockedAdd64(&qword_140323C08, 1uLL);
           *(_QWORD *)(v15 + 104) = 0LL;
           if ( (a8 & 1) != 0 )
             *(_DWORD *)(v15 + 56) |= 0x8000u;

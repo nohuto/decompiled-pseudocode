@@ -1,20 +1,20 @@
 /*
- * XREFs of IovCallDriver @ 0x140BA7D40
+ * XREFs of IovCallDriver @ 0x140BA9D40
  * Callers:
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     IofCallDriverSpecifyReturn @ 0x140375990 (IofCallDriverSpecifyReturn.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IofCallDriverSpecifyReturn @ 0x1404999F0 (IofCallDriverSpecifyReturn.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14024A9C0 (ExFreeToNPagedLookasideList.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopfCallDriver @ 0x1403741A0 (IopfCallDriver.c)
- *     IopPerfCallDriver @ 0x14049F664 (IopPerfCallDriver.c)
- *     VfBugCheckNoStackUsage @ 0x140611F88 (VfBugCheckNoStackUsage.c)
- *     IovpCallDriverNoIrpTracking @ 0x140B82908 (IovpCallDriverNoIrpTracking.c)
- *     IovpCallDriverWithStackBuffer @ 0x140B82950 (IovpCallDriverWithStackBuffer.c)
- *     IovpValidateDeviceObject @ 0x140B82C20 (IovpValidateDeviceObject.c)
- *     VfAfterCallDriver @ 0x140B8DA94 (VfAfterCallDriver.c)
- *     VfBeforeCallDriver @ 0x140B8DC68 (VfBeforeCallDriver.c)
- *     VfIrpAllocateCallDriverData @ 0x140B8DEA0 (VfIrpAllocateCallDriverData.c)
+ *     IopfCallDriver @ 0x14025CA60 (IopfCallDriver.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402E4C00 (ExFreeToNPagedLookasideList.c)
+ *     IopPerfCallDriver @ 0x14049A4AC (IopPerfCallDriver.c)
+ *     VfBugCheckNoStackUsage @ 0x140610548 (VfBugCheckNoStackUsage.c)
+ *     IovpCallDriverNoIrpTracking @ 0x140B84908 (IovpCallDriverNoIrpTracking.c)
+ *     IovpCallDriverWithStackBuffer @ 0x140B84950 (IovpCallDriverWithStackBuffer.c)
+ *     IovpValidateDeviceObject @ 0x140B84C20 (IovpValidateDeviceObject.c)
+ *     VfAfterCallDriver @ 0x140B8FA94 (VfAfterCallDriver.c)
+ *     VfBeforeCallDriver @ 0x140B8FC68 (VfBeforeCallDriver.c)
+ *     VfIrpAllocateCallDriverData @ 0x140B8FEA0 (VfIrpAllocateCallDriverData.c)
  */
 
 __int64 __fastcall IovCallDriver(PVOID Object, ULONG_PTR a2, __int64 a3)
@@ -62,8 +62,8 @@ __int64 __fastcall IovCallDriver(PVOID Object, ULONG_PTR a2, __int64 a3)
       BugCheckParameter1 = 4LL;
 LABEL_21:
       *(_QWORD *)&VfBugcheckTmpData = 201LL;
-      *(_OWORD *)&xmmword_140FFCA48 = 0LL;
-      qword_140FFCA40 = v8;
+      *(_OWORD *)&xmmword_140FFDA48 = 0LL;
+      qword_140FFDA40 = v8;
       VfBugCheckNoStackUsage();
     }
     v10 = *(_QWORD *)(a2 + 184);
@@ -75,9 +75,9 @@ LABEL_21:
         if ( (*(_DWORD *)(v11 + 80) & 0x204000) == 0x204000 && !_bittest((const signed __int32 *)&VfRuleClasses, 0x16u) )
         {
           *((_BYTE *)v9 + 157) = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
-          qword_140FFCA40 = *((_QWORD *)v9 + 20);
-          xmmword_140FFCA48 = *((_QWORD *)v9 + 21);
-          *(&xmmword_140FFCA48 + 1) = *(_QWORD *)(v10 - 24);
+          qword_140FFDA40 = *((_QWORD *)v9 + 20);
+          xmmword_140FFDA48 = *((_QWORD *)v9 + 21);
+          *(&xmmword_140FFDA48 + 1) = *(_QWORD *)(v10 - 24);
           *(_QWORD *)&VfBugcheckTmpData = 201LL;
           BugCheckParameter1 = 15LL;
           VfBugCheckNoStackUsage();

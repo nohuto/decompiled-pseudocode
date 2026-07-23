@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpGetSystemControlValues @ 0x1409CE008
+ * XREFs of CmpGetSystemControlValues @ 0x1409CF008
  * Callers:
- *     CmInitSystem0 @ 0x1409CCCF0 (CmInitSystem0.c)
+ *     CmInitSystem0 @ 0x1409CDCF0 (CmInitSystem0.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpInitSecurityCache @ 0x1405A7210 (CmpInitSecurityCache.c)
- *     HvHiveInitialize @ 0x1405A724C (HvHiveInitialize.c)
- *     HvHiveStartMemoryBacked @ 0x14073CB0C (HvHiveStartMemoryBacked.c)
- *     CmpFindSubKeyByName @ 0x14073D0DC (CmpFindSubKeyByName.c)
- *     CmpFindControlSet @ 0x14073D2BC (CmpFindControlSet.c)
- *     CmpWalkPath @ 0x14073D690 (CmpWalkPath.c)
- *     CmpFindValueByName @ 0x14073D858 (CmpFindValueByName.c)
- *     CmpInitializeSystemPoliciesFeatureOverrides @ 0x1409AABC0 (CmpInitializeSystemPoliciesFeatureOverrides.c)
- *     CmSelectQualifiedInstallLanguage @ 0x1409CD3F0 (CmSelectQualifiedInstallLanguage.c)
- *     CmpGetBootValueData @ 0x1409CE7FC (CmpGetBootValueData.c)
- *     CmpConvertLangId @ 0x1409CEABC (CmpConvertLangId.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpInitSecurityCache @ 0x1405A8210 (CmpInitSecurityCache.c)
+ *     HvHiveInitialize @ 0x1405A824C (HvHiveInitialize.c)
+ *     HvHiveStartMemoryBacked @ 0x14073DCFC (HvHiveStartMemoryBacked.c)
+ *     CmpFindSubKeyByName @ 0x14073E2CC (CmpFindSubKeyByName.c)
+ *     CmpFindControlSet @ 0x14073E4AC (CmpFindControlSet.c)
+ *     CmpWalkPath @ 0x14073E880 (CmpWalkPath.c)
+ *     CmpFindValueByName @ 0x14073EA48 (CmpFindValueByName.c)
+ *     CmpInitializeSystemPoliciesFeatureOverrides @ 0x1409ABBC0 (CmpInitializeSystemPoliciesFeatureOverrides.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x1409CE3F0 (CmSelectQualifiedInstallLanguage.c)
+ *     CmpGetBootValueData @ 0x1409CF7FC (CmpGetBootValueData.c)
+ *     CmpConvertLangId @ 0x1409CFABC (CmpConvertLangId.c)
  */
 
 PVOID __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
@@ -68,7 +68,7 @@ PVOID __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
   CmpInitSecurityCache((__int64)&CmControlHive);
   HvHiveInitialize(&CmControlHive);
   v35[0] = &CmControlHive;
-  qword_140A0DFE8 = (__int64)v35;
+  qword_140A0EFE8 = (__int64)v35;
   started = HvHiveStartMemoryBacked(
               (ULONG_PTR)&CmControlHive,
               4LL,
@@ -85,11 +85,11 @@ PVOID __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
               (__int64)v35);
   if ( started < 0 )
     KeBugCheckEx(0x74u, 1uLL, 1uLL, (ULONG_PTR)&CmControlHive, started);
-  qword_140A0DFE8 = 0LL;
+  qword_140A0EFE8 = 0LL;
   v8 = a1[9];
   if ( a3 == 1 )
   {
-    v9 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0DFB8)(&CmControlHive, v8, v30);
+    v9 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0EFB8)(&CmControlHive, v8, v30);
     if ( !v9 )
       return CmCleanupThreadInfo(v34);
     RtlInitUnicodeString(&DestinationString, L"ControlSetOverride");
@@ -103,7 +103,7 @@ PVOID __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
     ControlSet = CmpFindControlSet((ULONG_PTR)&CmControlHive, v8, (int)&DestinationString, &v29);
     if ( ControlSet == -1 )
       KeBugCheckEx(0x74u, 1uLL, 2uLL, (ULONG_PTR)&CmControlHive, (ULONG_PTR)&DestinationString);
-    v24 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0DFB8)(&CmControlHive, ControlSet, v30);
+    v24 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0EFB8)(&CmControlHive, ControlSet, v30);
     if ( !v24 )
       return CmCleanupThreadInfo(v34);
     RtlInitUnicodeString(&DestinationString, L"control");
@@ -111,7 +111,7 @@ PVOID __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
     if ( SubKeyByName == -1 )
       KeBugCheckEx(0x74u, 1uLL, 3uLL, v24, (ULONG_PTR)&DestinationString);
   }
-  ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v30);
+  ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v30);
   for ( i = CmControlVector[0] == 0LL; !i; i = *v3 == 0LL )
   {
     if ( a3 != 1 || *((_BYTE *)v3 + 40) )
@@ -120,20 +120,20 @@ PVOID __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
       v14 = CmpWalkPath((__int64)&CmControlHive, SubKeyByName, *v3);
       if ( v14 != -1 )
       {
-        v15 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0DFB8)(&CmControlHive, v14, v30);
+        v15 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0EFB8)(&CmControlHive, v14, v30);
         v16 = v15;
         if ( !v15 )
           return CmCleanupThreadInfo(v34);
         RtlInitUnicodeString(&DestinationString, v3[1]);
         ValueByName = CmpFindValueByName((int)&CmControlHive, v16, (int)&DestinationString);
-        ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v30);
+        ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v30);
         if ( ValueByName != -1 )
         {
           v18 = (unsigned int *)v3[3];
           v13 = 4;
           if ( v18 )
             v13 = *v18;
-          v19 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0DFB8)(
+          v19 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0EFB8)(
                   &CmControlHive,
                   ValueByName,
                   v31);
@@ -148,13 +148,13 @@ PVOID __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
             v13 = v22;
           if ( v13 && !(unsigned __int8)CmpGetBootValueData(v21, v19, v3[2], v13) )
           {
-            ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v31);
+            ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v31);
             return CmCleanupThreadInfo(v34);
           }
           v23 = v3[4];
           if ( v23 )
             *(_DWORD *)v23 = *(_DWORD *)(v20 + 12);
-          ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v31);
+          ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v31);
         }
       }
       v25 = (unsigned int *)v3[3];

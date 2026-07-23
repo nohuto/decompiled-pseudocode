@@ -1,12 +1,12 @@
 /*
- * XREFs of PopInitializeHighPerfPowerRequest @ 0x140CCFC98
+ * XREFs of PopInitializeHighPerfPowerRequest @ 0x140CD5E40
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PoCaptureReasonContext @ 0x140436EC8 (PoCaptureReasonContext.c)
- *     PopPowerRequestCreateCommon @ 0x140436FDC (PopPowerRequestCreateCommon.c)
- *     PoDestroyReasonContext @ 0x14050A3C0 (PoDestroyReasonContext.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PoCaptureReasonContext @ 0x140425E58 (PoCaptureReasonContext.c)
+ *     PopPowerRequestCreateCommon @ 0x140425F6C (PopPowerRequestCreateCommon.c)
+ *     PoDestroyReasonContext @ 0x140503E30 (PoDestroyReasonContext.c)
  */
 
 __int64 PopInitializeHighPerfPowerRequest()
@@ -20,22 +20,22 @@ __int64 PopInitializeHighPerfPowerRequest()
   __int128 v7; // [rsp+48h] [rbp-20h]
   PVOID P; // [rsp+70h] [rbp+8h] BYREF
 
-  *(_DWORD *)&stru_140F10828.WaitBlockFill11[152] = 275;
-  *(_QWORD *)&stru_140F10828.NextProcessor = 8LL;
-  stru_140F10828.Spare18 = (unsigned __int64)PpmHighPerfRequestExpiration;
+  PpmHighPerfEndDpc = 275;
+  *(_QWORD *)&PpmHighPerfEndTimer.Header.Lock = 8LL;
+  qword_140F112D8 = (__int64)PpmHighPerfRequestExpiration;
   v0 = PpmHighPerfDuration;
   P = 0LL;
-  stru_140F10828.UserAffinity = (_KAFFINITY_EX *)&stru_140F10828.Process;
+  PpmHighPerfEndTimer.Header.WaitListHead.Blink = &PpmHighPerfEndTimer.Header.WaitListHead;
   v1 = 4LL;
-  stru_140F10828.Process = (_KPROCESS *)&stru_140F10828.Process;
-  stru_140F10828.WaitBlock[2].Thread = 0LL;
-  stru_140F10828.LastXStateSaveDebugInfo = 0LL;
-  stru_140F10828.QueueListEntry.Blink = 0LL;
-  stru_140F10828.WaitBlock[3].Thread = 0LL;
-  *(_QWORD *)&stru_140F10828.UserAffinityPrimaryGroup = 0LL;
-  HIDWORD(stru_140F10828.NpxState) = 0;
-  LOWORD(stru_140F10828.NpxState) = 0;
-  BYTE3(stru_140F10828.NpxState) = 0;
+  PpmHighPerfEndTimer.Header.WaitListHead.Flink = &PpmHighPerfEndTimer.Header.WaitListHead;
+  PpmHighPerfRequestLock = 0LL;
+  qword_140F112E0 = 0LL;
+  qword_140F112F8 = 0LL;
+  qword_140F112D0 = 0LL;
+  PpmHighPerfEndTimer.DueTime.QuadPart = 0LL;
+  PpmHighPerfEndTimer.Period = 0;
+  PpmHighPerfEndTimer.Processor = 0;
+  PpmHighPerfEndTimer.TimerDifObjTracking = 0;
   do
   {
     v2 = 300000;
@@ -53,7 +53,7 @@ __int64 PopInitializeHighPerfPowerRequest()
   Common = PoCaptureReasonContext(Src, 0LL, 0LL, 1, 0LL, &P);
   if ( Common >= 0 )
   {
-    Common = PopPowerRequestCreateCommon(P, 0, (unsigned int **)&stru_140F10828.WaitBlock[2].WaitListEntry.Blink);
+    Common = PopPowerRequestCreateCommon(P, 0, &PpmHighPerfPowerRequest);
     if ( Common < 0 )
       PoDestroyReasonContext(P);
   }

@@ -10,45 +10,49 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpLookupCurDirSetting(__int64 a1, unsigned __int32 a2, volatile signed __int32 *a3)
+__int64 __fastcall RtlpLookupCurDirSetting(PUNICODE_STRING ValueName, unsigned __int32 a2, volatile signed __int32 *a3)
 {
   HANDLE v6; // rbx
   unsigned __int32 v7; // ecx
   __int64 result; // rax
-  HANDLE Handle; // [rsp+30h] [rbp-30h] BYREF
-  int v10; // [rsp+38h] [rbp-28h] BYREF
-  __int128 v11; // [rsp+40h] [rbp-20h] BYREF
+  HANDLE KeyHandle; // [rsp+30h] [rbp-30h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-28h] BYREF
+  __int128 KeyValueInformation; // [rsp+40h] [rbp-20h] BYREF
 
-  Handle = 0LL;
-  v10 = 0;
-  v11 = 0LL;
+  KeyHandle = 0LL;
+  ResultLength = 0;
+  KeyValueInformation = 0LL;
   if ( !LdrpIsSecureProcess )
   {
-    v6 = (HANDLE)qword_1801D43D0;
-    Handle = (HANDLE)qword_1801D43D0;
-    if ( !qword_1801D43D0 )
+    v6 = ::KeyHandle;
+    KeyHandle = ::KeyHandle;
+    if ( !::KeyHandle )
     {
-      if ( (int)NtOpenKey(&Handle, 1LL, &unk_180175968) < 0 )
+      if ( NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_180175968) < 0 )
       {
 LABEL_7:
         v7 = a2;
         goto LABEL_8;
       }
-      v6 = (HANDLE)_InterlockedCompareExchange64(&qword_1801D43D0, (signed __int64)Handle, 0LL);
+      v6 = (HANDLE)_InterlockedCompareExchange64(
+                     (volatile signed __int64 *)&::KeyHandle,
+                     (signed __int64)KeyHandle,
+                     0LL);
       if ( v6 )
       {
-        NtClose(Handle);
-        Handle = v6;
+        NtClose(KeyHandle);
+        KeyHandle = v6;
       }
       else
       {
-        v6 = Handle;
+        v6 = KeyHandle;
       }
     }
-    if ( (int)NtQueryValueKey(v6, a1, 2LL, &v11, 16, &v10) >= 0 && v10 == 16 )
+    if ( NtQueryValueKey(v6, ValueName, KeyValuePartialInformation, &KeyValueInformation, 0x10u, &ResultLength) >= 0
+      && ResultLength == 16 )
     {
-      v7 = HIDWORD(v11);
-      if ( HIDWORD(v11) <= 1 )
+      v7 = HIDWORD(KeyValueInformation);
+      if ( HIDWORD(KeyValueInformation) <= 1 )
         goto LABEL_8;
     }
     goto LABEL_7;

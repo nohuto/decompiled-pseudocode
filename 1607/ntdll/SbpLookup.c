@@ -3,7 +3,7 @@
  * Callers:
  *     SbpResolveBasedOnName @ 0x1800FEBF4 (SbpResolveBasedOnName.c)
  * Callees:
- *     _strnicmp @ 0x180097ED0 (_strnicmp.c)
+ *     _strnicmp @ 0x180097EC0 (_strnicmp.c)
  */
 
 __int64 __fastcall SbpLookup(__int64 a1, unsigned __int16 *a2)

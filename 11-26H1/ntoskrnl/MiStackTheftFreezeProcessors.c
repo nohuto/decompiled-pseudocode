@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStackTheftFreezeProcessors @ 0x1406F355C
+ * XREFs of MiStackTheftFreezeProcessors @ 0x1406F81CC
  * Callers:
- *     MiJumpStackTarget @ 0x1403E4C40 (MiJumpStackTarget.c)
+ *     MiJumpStackTarget @ 0x1403E7E30 (MiJumpStackTarget.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiWritePteHighLevel @ 0x1406F2B98 (MiWritePteHighLevel.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiWritePteHighLevel @ 0x1406F7808 (MiWritePteHighLevel.c)
  */
 
 __int64 __fastcall MiStackTheftFreezeProcessors(__int64 *a1)

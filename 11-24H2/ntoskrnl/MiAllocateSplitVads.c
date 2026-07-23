@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllocateSplitVads @ 0x140A245C0
+ * XREFs of MiAllocateSplitVads @ 0x140919FC8
  * Callers:
- *     MiDeletePartialVad @ 0x1403CDE5C (MiDeletePartialVad.c)
+ *     MiDeletePartialVad @ 0x1402675A0 (MiDeletePartialVad.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     MiUpControlAreaRefs @ 0x1404172CC (MiUpControlAreaRefs.c)
- *     MiDeleteNewlyCreatedPartialVads @ 0x1407FF044 (MiDeleteNewlyCreatedPartialVads.c)
- *     MiInsertVadCharges @ 0x1408E2418 (MiInsertVadCharges.c)
- *     MiInsertSharedCommitNode @ 0x1408E2BF0 (MiInsertSharedCommitNode.c)
- *     MiInitializePartialVad @ 0x140A246FC (MiInitializePartialVad.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     MiUpControlAreaRefs @ 0x1404B355C (MiUpControlAreaRefs.c)
+ *     MiDeleteNewlyCreatedPartialVads @ 0x1407FF7B4 (MiDeleteNewlyCreatedPartialVads.c)
+ *     MiInsertVadCharges @ 0x140918FC8 (MiInsertVadCharges.c)
+ *     MiInsertSharedCommitNode @ 0x1409197A0 (MiInsertSharedCommitNode.c)
+ *     MiInitializePartialVad @ 0x14091A104 (MiInitializePartialVad.c)
  */
 
 __int64 __fastcall MiAllocateSplitVads(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PspGetSystemDllSecureHandle @ 0x1409F8298
+ * XREFs of PspGetSystemDllSecureHandle @ 0x1409F9298
  * Callers:
- *     PspInitPhase3 @ 0x1409DF584 (PspInitPhase3.c)
+ *     PspInitPhase3 @ 0x1409E0584 (PspInitPhase3.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
- *     PspReferenceSystemDll @ 0x140677B28 (PspReferenceSystemDll.c)
- *     MmGetSectionStrongImageReference @ 0x14085C348 (MmGetSectionStrongImageReference.c)
+ *     PspReferenceSystemDll @ 0x140678CE8 (PspReferenceSystemDll.c)
+ *     MmGetSectionStrongImageReference @ 0x14085D5A8 (MmGetSectionStrongImageReference.c)
  */
 
 __int64 __fastcall PspGetSystemDllSecureHandle(signed __int64 *a1, _QWORD *a2)

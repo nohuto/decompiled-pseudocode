@@ -21,7 +21,7 @@ __int64 __fastcall RtlpMUIRegPatchLicenseInfortmation(__int64 a1)
   __int64 v7; // r12
   __int64 v8; // rax
   int InstalledLanguageIndexByName; // eax
-  UNICODE_STRING v11; // [rsp+20h] [rbp-38h] BYREF
+  _UNICODE_STRING v11; // [rsp+20h] [rbp-38h] BYREF
   __int16 v12; // [rsp+60h] [rbp+8h] BYREF
 
   v12 = 0;
@@ -31,7 +31,7 @@ __int64 __fastcall RtlpMUIRegPatchLicenseInfortmation(__int64 a1)
   *(_QWORD *)(a1 + 32) = 0LL;
   if ( !v2 )
     return 3221225473LL;
-  Heap = (unsigned __int16 *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 170LL);
+  Heap = (unsigned __int16 *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
   if ( !Heap )
     return 3221225495LL;
   v4 = *(unsigned __int16 *)(a1 + 4) - 1;
@@ -47,17 +47,21 @@ __int64 __fastcall RtlpMUIRegPatchLicenseInfortmation(__int64 a1)
         goto LABEL_13;
       v11.Buffer = Heap;
       *(_DWORD *)&v11.Length = 11141120;
-      if ( (int)GetNameFromLangListNode(g_RegInfo, (_WORD *)(v7 + v8), &v11) < 0 )
+      if ( (int)GetNameFromLangListNode((__int64)g_RegInfo, (_WORD *)(v7 + v8), &v11) < 0 )
         goto LABEL_13;
-      if ( *(_DWORD *)(g_RegInfo + 120) < 0x3E8u )
+      if ( *((_DWORD *)g_RegInfo + 30) < 0x3E8u )
       {
-        InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(g_RegInfo, v11.Buffer, 1, &v12);
+        InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(
+                                         (__int64)g_RegInfo,
+                                         v11.Buffer,
+                                         1,
+                                         &v12);
       }
       else
       {
         if ( (int)RtlpIsALicensedRegularLanguage(g_RegInfo, v11.Buffer) >= 0 )
           goto LABEL_12;
-        InstalledLanguageIndexByName = RtlpIsALicensedLIPLanguage(g_RegInfo, v11.Buffer);
+        InstalledLanguageIndexByName = RtlpIsALicensedLIPLanguage((__int64)g_RegInfo, v11.Buffer);
       }
       if ( InstalledLanguageIndexByName >= 0 )
 LABEL_12:
@@ -70,6 +74,6 @@ LABEL_13:
     }
     while ( v4 >= 0 );
   }
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return 0LL;
 }

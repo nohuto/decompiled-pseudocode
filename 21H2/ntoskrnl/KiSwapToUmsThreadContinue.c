@@ -1,38 +1,39 @@
 /*
- * XREFs of KiSwapToUmsThreadContinue @ 0x140526520
+ * XREFs of KiSwapToUmsThreadContinue @ 0x140526760
  * Callers:
- *     KiUmsTrapEntryContinue @ 0x1404136C0 (KiUmsTrapEntryContinue.c)
- *     KiUmsCallEntryContinue @ 0x140413880 (KiUmsCallEntryContinue.c)
- *     KeSynchronizeUmsThread @ 0x1408BD688 (KeSynchronizeUmsThread.c)
+ *     KiUmsTrapEntryContinue @ 0x1404137C0 (KiUmsTrapEntryContinue.c)
+ *     KiUmsCallEntryContinue @ 0x140413980 (KiUmsCallEntryContinue.c)
+ *     KeSynchronizeUmsThread @ 0x1408BD7E8 (KeSynchronizeUmsThread.c)
  * Callees:
- *     KiSwitchQueue @ 0x14029F478 (KiSwitchQueue.c)
- *     KeInsertQueue @ 0x1402CCD30 (KeInsertQueue.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     KiSwitchQueue @ 0x14021C9D8 (KiSwitchQueue.c)
+ *     KeInsertQueue @ 0x14029EAA0 (KeInsertQueue.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall KiSwapToUmsThreadContinue(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
+char KiSwapToUmsThreadContinue()
 {
   struct _KTHREAD *CurrentThread; // rbx
   PVOID Object; // rsi
-  int v6; // eax
-  struct _KQUEUE *v7; // rbp
+  int v2; // eax
+  struct _KQUEUE *v3; // rbp
   unsigned __int8 CurrentIrql; // di
+  _DWORD *SchedulerAssist; // r9
   __int64 Queue; // r8
-  unsigned __int8 v10; // al
+  unsigned __int8 v7; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v12; // r8
-  int v13; // eax
-  bool v14; // zf
+  _DWORD *v9; // r8
+  int v10; // eax
+  bool v11; // zf
 
   CurrentThread = KeGetCurrentThread();
   Object = CurrentThread->WaitBlock[3].Object;
-  v6 = *((_DWORD *)Object + 20);
-  if ( (v6 & 2) == 0 )
+  v2 = *((_DWORD *)Object + 20);
+  if ( (v2 & 2) == 0 )
   {
-    *((_DWORD *)Object + 20) = v6 | 2;
+    *((_DWORD *)Object + 20) = v2 | 2;
     CurrentThread->MiscFlags = ~(*((_DWORD *)CurrentThread->WaitBlock[3].SparePtr + 18) << 16) & 0x10000 | CurrentThread->MiscFlags & 0xFFFEFFFF;
-    v7 = (struct _KQUEUE *)*((_QWORD *)Object + 4);
+    v3 = (struct _KQUEUE *)*((_QWORD *)Object + 4);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -41,22 +42,22 @@ char __fastcall KiSwapToUmsThreadContinue(__int64 a1, __int64 a2, __int64 a3, _D
       SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     Queue = (__int64)CurrentThread->Queue;
-    if ( v7 != (struct _KQUEUE *)Queue )
-      KiSwitchQueue((__int64)CurrentThread, (__int64)v7, Queue, (__int64)SchedulerAssist);
-    KeInsertQueue(v7, *((PLIST_ENTRY *)Object + 5));
+    if ( v3 != (struct _KQUEUE *)Queue )
+      KiSwitchQueue((__int64)CurrentThread, (__int64)v3, Queue);
+    KeInsertQueue(v3, *((PLIST_ENTRY *)Object + 5));
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v10 = KeGetCurrentIrql();
-        if ( v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+        v7 = KeGetCurrentIrql();
+        if ( v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v12 = CurrentPrcb->SchedulerAssist;
-          v13 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v14 = (v13 & v12[5]) == 0;
-          v12[5] &= v13;
-          if ( v14 )
+          v9 = CurrentPrcb->SchedulerAssist;
+          v10 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v11 = (v10 & v9[5]) == 0;
+          v9[5] &= v10;
+          if ( v11 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }

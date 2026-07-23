@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscExfAcquirePushLockExclusive_Entry @ 0x140ADFCA0
+ * XREFs of VfMiscExfAcquirePushLockExclusive_Entry @ 0x140ADFC90
  * Callers:
  *     <none>
  * Callees:
- *     ViMiscExCheckAPCsDisabled @ 0x140AE15A4 (ViMiscExCheckAPCsDisabled.c)
+ *     ViMiscExCheckAPCsDisabled @ 0x140AE1594 (ViMiscExCheckAPCsDisabled.c)
  */
 
 __int64 __fastcall VfMiscExfAcquirePushLockExclusive_Entry(__int64 a1)

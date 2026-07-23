@@ -4,16 +4,16 @@
  *     NtReadFileScatter @ 0x1406C6AF0 (NtReadFileScatter.c)
  *     NtWriteFileGather @ 0x1406E3F70 (NtWriteFileGather.c)
  * Callees:
- *     MiLockProbePacketWorkingSet @ 0x14023CB20 (MiLockProbePacketWorkingSet.c)
- *     MiUnlockProbePacketWorkingSet @ 0x14023CB68 (MiUnlockProbePacketWorkingSet.c)
- *     MiProbeLeafFrame @ 0x140247F34 (MiProbeLeafFrame.c)
- *     MiProbePacketContended @ 0x140274818 (MiProbePacketContended.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
+ *     sub_14023CB20 @ 0x14023CB20 (sub_14023CB20.c)
+ *     sub_14023CB68 @ 0x14023CB68 (sub_14023CB68.c)
+ *     sub_140247F34 @ 0x140247F34 (sub_140247F34.c)
+ *     sub_140274818 @ 0x140274818 (sub_140274818.c)
+ *     sub_1402828F0 @ 0x1402828F0 (sub_1402828F0.c)
  *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiProbeAndLockPrepare @ 0x140319F70 (MiProbeAndLockPrepare.c)
- *     MiProbeAndLockComplete @ 0x14031A4F0 (MiProbeAndLockComplete.c)
- *     MiProbeLockFrame @ 0x14031BAB0 (MiProbeLockFrame.c)
+ *     sub_140317A10 @ 0x140317A10 (sub_140317A10.c)
+ *     sub_140319F70 @ 0x140319F70 (sub_140319F70.c)
+ *     sub_14031A4F0 @ 0x14031A4F0 (sub_14031A4F0.c)
+ *     sub_14031BAB0 @ 0x14031BAB0 (sub_14031BAB0.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     memset @ 0x140435E00 (memset.c)
@@ -26,14 +26,14 @@ void __stdcall MmProbeAndLockSelectedPages(
         KPROCESSOR_MODE AccessMode,
         LOCK_OPERATION Operation)
 {
-  unsigned __int64 *Pool; // rdi
+  unsigned __int64 *v7; // rdi
   BOOL v8; // esi
   unsigned __int64 v9; // rax
   size_t v10; // rbx
   unsigned __int64 *v11; // r13
   unsigned int v12; // r12d
   KPROCESSOR_MODE v13; // r15
-  int v14; // ebx
+  NTSTATUS v14; // ebx
   unsigned __int64 *v15; // r14
   _QWORD *v16; // rsi
   unsigned __int64 v17; // rcx
@@ -44,25 +44,25 @@ void __stdcall MmProbeAndLockSelectedPages(
   _BYTE P[4096]; // [rsp+100h] [rbp+0h] BYREF
 
   memset(v22, 0, sizeof(v22));
-  Pool = (unsigned __int64 *)P;
+  v7 = (unsigned __int64 *)P;
   v8 = Operation != IoReadAccess;
   v9 = (MemoryDescriptorList->ByteCount >> 12) + ((MemoryDescriptorList->ByteCount & 0xFFF) != 0);
   v10 = v9;
   if ( v9 > 0x200 )
   {
-    Pool = (unsigned __int64 *)MiAllocatePool(64LL, 8 * v9, 1917873485LL);
-    if ( !Pool )
-      RtlRaiseStatus(3221225626LL);
+    v7 = (unsigned __int64 *)sub_1402828F0(64LL, 8 * v9, 1917873485LL);
+    if ( !v7 )
+      RtlRaiseStatus(-1073741670);
   }
-  v11 = &Pool[v10];
+  v11 = &v7[v10];
   v12 = 0;
-  memmove(Pool, SegmentArray, v10 * 8);
+  memmove(v7, SegmentArray, v10 * 8);
   v13 = AccessMode;
-  v14 = MiProbeAndLockPrepare((unsigned int)v22, (_DWORD)MemoryDescriptorList, *Pool, 1, AccessMode, v8, 1);
+  v14 = sub_140319F70((unsigned int)v22, (_DWORD)MemoryDescriptorList, *v7, 1, AccessMode, v8, 1);
   if ( v14 >= 0 )
   {
-    v15 = Pool;
-    if ( Pool < v11 )
+    v15 = v7;
+    if ( v7 < v11 )
     {
       v16 = (_QWORD *)v22[7];
       while ( 1 )
@@ -81,8 +81,8 @@ void __stdcall MmProbeAndLockSelectedPages(
         {
           if ( v22[21] == -1LL )
           {
-            v21 = MI_READ_PTE_LOCK_FREE(((v17 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-            v22[17] = ((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v21) >> 12) & 0xFFFFFFFFFFLL;
+            v21 = sub_140317A10(((v17 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+            v22[17] = ((unsigned __int64)sub_140317A10(&v21) >> 12) & 0xFFFFFFFFFFLL;
           }
           else
           {
@@ -92,12 +92,12 @@ void __stdcall MmProbeAndLockSelectedPages(
         }
         else
         {
-          v14 = MiProbeLeafFrame(v22);
+          v14 = sub_140247F34(v22);
           if ( v14 < 0 )
             goto LABEL_18;
           v18 = 16;
         }
-        v14 = MiProbeLockFrame(v22, 1LL);
+        v14 = sub_14031BAB0(v22, 1LL);
         if ( v14 < 0 )
           goto LABEL_18;
         v19 = v22[7];
@@ -105,10 +105,10 @@ void __stdcall MmProbeAndLockSelectedPages(
         *(_QWORD *)v22[7] = v22[17];
         v16 = (_QWORD *)(v19 + 8);
         v22[7] = v16;
-        if ( !(v12 % v18) && (unsigned int)MiProbePacketContended(v22) )
+        if ( !(v12 % v18) && (unsigned int)sub_140274818(v22) )
         {
-          MiUnlockProbePacketWorkingSet((__int64)v22);
-          MiLockProbePacketWorkingSet((__int64)v22);
+          sub_14023CB68((__int64)v22);
+          sub_14023CB20((__int64)v22);
           v16 = (_QWORD *)v22[7];
         }
         if ( ++v15 >= v11 )
@@ -119,10 +119,10 @@ void __stdcall MmProbeAndLockSelectedPages(
       v14 = -1073741819;
     }
 LABEL_18:
-    v14 = MiProbeAndLockComplete(v22, (unsigned int)v14, 7LL);
+    v14 = sub_14031A4F0(v22, (unsigned int)v14, 7LL);
   }
-  if ( Pool != (unsigned __int64 *)P )
-    ExFreePoolWithTag(Pool, 0);
+  if ( v7 != (unsigned __int64 *)P )
+    ExFreePoolWithTag(v7, 0);
   if ( v14 < 0 )
-    RtlRaiseStatus((unsigned int)v14);
+    RtlRaiseStatus(v14);
 }

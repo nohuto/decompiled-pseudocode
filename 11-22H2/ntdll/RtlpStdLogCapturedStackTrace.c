@@ -14,7 +14,7 @@ PSLIST_ENTRY __fastcall RtlpStdLogCapturedStackTrace(__int64 a1, __int64 a2, uns
 {
   SIZE_T v4; // rbp
   __int64 v7; // rbx
-  __int64 v8; // r14
+  _RTL_SRWLOCK *v8; // r14
   PSLIST_ENTRY i; // rbx
   PSLIST_ENTRY SpaceForTrace; // rax
   __int16 v11; // cx
@@ -24,8 +24,8 @@ PSLIST_ENTRY __fastcall RtlpStdLogCapturedStackTrace(__int64 a1, __int64 a2, uns
   v4 = 8LL * *(unsigned __int16 *)(a2 + 14);
   v7 = 2LL * (a3 % *(_DWORD *)(a1 + 720));
   _InterlockedAdd((volatile signed __int32 *)(a1 + 176), 1u);
-  v8 = a1 + 8 * v7;
-  RtlpStdLockAcquire((volatile signed __int64 *)(v8 + 736));
+  v8 = (_RTL_SRWLOCK *)(a1 + 8 * v7);
+  RtlpStdLockAcquire(v8 + 92);
   for ( i = *(PSLIST_ENTRY *)(a1 + 8 * v7 + 728); i; i = i->Next )
   {
     if ( *((_WORD *)&i->Next + 7) == *(_WORD *)(a2 + 14) && RtlCompareMemory(&i[1], (const void *)(a2 + 16), v4) == v4 )
@@ -50,6 +50,6 @@ LABEL_8:
   if ( (v13 & 0x7FF) != 0x7FF )
     *((_WORD *)&i->Next + 4) = v13 ^ (v13 ^ (v13 + 1)) & 0x7FF;
 LABEL_11:
-  RtlpStdLockRelease((volatile signed __int64 *)(v8 + 736));
+  RtlpStdLockRelease(v8 + 92);
   return i;
 }

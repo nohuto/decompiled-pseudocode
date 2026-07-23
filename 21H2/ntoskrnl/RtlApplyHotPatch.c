@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlApplyHotPatch @ 0x1409B2744
+ * XREFs of RtlApplyHotPatch @ 0x1409B3674
  * Callers:
- *     MiApplyDriverHotPatch @ 0x1408C8DB4 (MiApplyDriverHotPatch.c)
- *     MiApplyImageHotPatch @ 0x1408C955C (MiApplyImageHotPatch.c)
- *     MiPerformImageHotPatch @ 0x1408CCEC4 (MiPerformImageHotPatch.c)
- *     MiApplyImageHotPatchDpc @ 0x1409B08F0 (MiApplyImageHotPatchDpc.c)
+ *     MiApplyDriverHotPatch @ 0x1408C8F14 (MiApplyDriverHotPatch.c)
+ *     MiApplyImageHotPatch @ 0x1408C96BC (MiApplyImageHotPatch.c)
+ *     MiPerformImageHotPatch @ 0x1408CD024 (MiPerformImageHotPatch.c)
+ *     MiApplyImageHotPatchDpc @ 0x1409B1820 (MiApplyImageHotPatchDpc.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     RtlGetHotPatchSize @ 0x14058FD0C (RtlGetHotPatchSize.c)
- *     RtlpDetermineHotPatchExtent @ 0x14091B31C (RtlpDetermineHotPatchExtent.c)
- *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x1409B2B10 (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
+ *     RtlFindClearBitsAndSet @ 0x1402F5970 (RtlFindClearBitsAndSet.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     RtlGetHotPatchSize @ 0x14058FF3C (RtlGetHotPatchSize.c)
+ *     RtlpDetermineHotPatchExtent @ 0x14091B47C (RtlpDetermineHotPatchExtent.c)
+ *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x1409B3A40 (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
  */
 
 __int64 __fastcall RtlApplyHotPatch(

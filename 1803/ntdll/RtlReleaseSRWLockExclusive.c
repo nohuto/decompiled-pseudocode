@@ -180,7 +180,7 @@
  *     RtlCompleteProcessCloning @ 0x1800D1950 (RtlCompleteProcessCloning.c)
  *     RtlPrepareForProcessCloning @ 0x1800D1BD0 (RtlPrepareForProcessCloning.c)
  *     sub_1800D1EA8 @ 0x1800D1EA8 (sub_1800D1EA8.c)
- *     sub_1800D8F60 @ 0x1800D8F60 (sub_1800D8F60.c)
+ *     Callback @ 0x1800D8F60 (Callback.c)
  *     LdrUpdatePackageSearchPath @ 0x1800D9180 (LdrUpdatePackageSearchPath.c)
  *     sub_1800D97E4 @ 0x1800D97E4 (sub_1800D97E4.c)
  *     AlpcGetMessageFromCompletionList @ 0x1800DAC80 (AlpcGetMessageFromCompletionList.c)
@@ -230,30 +230,29 @@
  *     <none>
  */
 
-signed __int64 __fastcall RtlReleaseSRWLockExclusive(volatile signed __int64 *a1)
+void __cdecl RtlReleaseSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  signed __int64 result; // rax
+  signed __int64 v1; // rax
   signed __int64 v2; // r8
   __int64 v3; // rdx
   signed __int64 v4; // rdx
   signed __int64 v5; // rtt
 
-  result = _InterlockedCompareExchange64(a1, 0LL, 1LL);
-  if ( result != 1 )
+  v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 1LL);
+  if ( v1 != 1 )
   {
     do
     {
-      v2 = result & 6;
+      v2 = v1 & 6;
       v3 = 3LL;
       if ( v2 != 2 )
         v3 = -1LL;
-      v4 = result + v3;
-      v5 = result;
-      result = _InterlockedCompareExchange64(a1, v4, result);
+      v4 = v1 + v3;
+      v5 = v1;
+      v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v4, v1);
     }
-    while ( v5 != result );
+    while ( v5 != v1 );
     if ( v2 == 2 )
-      return sub_180070AAC(a1, v4, 0LL);
+      sub_180070AAC(SRWLock, v4, 0LL);
   }
-  return result;
 }

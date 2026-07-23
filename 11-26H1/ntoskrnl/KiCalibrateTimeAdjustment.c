@@ -1,25 +1,25 @@
 /*
- * XREFs of KiCalibrateTimeAdjustment @ 0x140C078A0
+ * XREFs of KiCalibrateTimeAdjustment @ 0x140C0DAB0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KeInsertQueueDpc @ 0x1402BDB30 (KeInsertQueueDpc.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     KeRemoveQueueDpc @ 0x140423350 (KeRemoveQueueDpc.c)
- *     KiUpdateSystemTime @ 0x14046AA24 (KiUpdateSystemTime.c)
- *     RtlWriteAcquireTickLock @ 0x14046AC24 (RtlWriteAcquireTickLock.c)
- *     RtlWriteReleaseTickLock @ 0x140485188 (RtlWriteReleaseTickLock.c)
- *     KeRebaselineInterruptTime @ 0x140514E68 (KeRebaselineInterruptTime.c)
- *     KiPollFreezeExecution @ 0x14052C910 (KiPollFreezeExecution.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     HalCalibratePerformanceCounter @ 0x140576AC0 (HalCalibratePerformanceCounter.c)
- *     KiRebaselineProcessorStartCycles @ 0x1405E5274 (KiRebaselineProcessorStartCycles.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KeInsertQueueDpc @ 0x1403087F0 (KeInsertQueueDpc.c)
+ *     KeRemoveQueueDpc @ 0x140430440 (KeRemoveQueueDpc.c)
+ *     KiUpdateSystemTime @ 0x1404641A4 (KiUpdateSystemTime.c)
+ *     RtlWriteAcquireTickLock @ 0x1404643A4 (RtlWriteAcquireTickLock.c)
+ *     RtlWriteReleaseTickLock @ 0x14047EAF8 (RtlWriteReleaseTickLock.c)
+ *     KeRebaselineInterruptTime @ 0x14050E8D8 (KeRebaselineInterruptTime.c)
+ *     KiPollFreezeExecution @ 0x14052EE30 (KiPollFreezeExecution.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalCalibratePerformanceCounter @ 0x140578FF0 (HalCalibratePerformanceCounter.c)
+ *     KiRebaselineProcessorStartCycles @ 0x1405E7BE4 (KiRebaselineProcessorStartCycles.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
-ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
+void __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
 {
   struct _KPRCB *CurrentPrcb; // r14
   int v3; // eax
@@ -27,11 +27,11 @@ ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
   bool v5; // r15
   unsigned __int64 *v6; // r8
   __int64 v7; // rax
-  ULONG_PTR result; // rax
-  __int64 v9; // rbx
-  struct _KPRCB *v10; // rcx
-  _DWORD *SchedulerAssist; // r8
-  int v12; // ett
+  __int64 v8; // rbx
+  struct _KPRCB *v9; // rcx
+  signed __int32 *SchedulerAssist; // r8
+  signed __int32 v11; // eax
+  signed __int32 v12; // ett
   unsigned __int64 v13; // rbx
   bool v14; // al
   _QWORD *v15; // r8
@@ -75,7 +75,7 @@ ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
       *(_QWORD *)(Argument + 16) += v18.QuadPart;
     }
     v20 = *(_QWORD *)(Argument + 8);
-    KiTickOffset = KeMaximumIncrement - v17 % (unsigned int)KeMaximumIncrement;
+    KiTickOffset = KeMaximumIncrement - v17 % KeMaximumIncrement;
     *(_QWORD *)(MmWriteableSharedUserData + 944) += v20;
     if ( MEMORY[0xFFFFF780000003B0] < 0 )
       __fastfail(5u);
@@ -114,43 +114,41 @@ ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
     KeInsertQueueDpc(&CurrentPrcb->TimerExpirationDpc, (PVOID)((unsigned int)(v13 >> 18) - 256), 0LL);
   }
 LABEL_9:
-  result = MEMORY[0xFFFFF78000000320];
   CurrentPrcb->LastTick = MEMORY[0xFFFFF78000000320];
-  v9 = *(_QWORD *)(Argument + 8);
+  v8 = *(_QWORD *)(Argument + 8);
   if ( *(_BYTE *)Argument )
   {
     HalCalibratePerformanceCounter((volatile signed __int32 *)(Argument + 24), *(_QWORD *)(Argument + 16), (__int64)v6);
-    result = KeRebaselineInterruptTime().QuadPart;
+    KeRebaselineInterruptTime();
     if ( CurrentPrcb->CycleAccumulationInitialized )
-      result = KiRebaselineProcessorStartCycles((__int64)CurrentPrcb);
-    if ( (xmmword_140FBFC10 & 0x8000) != 0 )
+      KiRebaselineProcessorStartCycles((__int64)CurrentPrcb);
+    if ( (xmmword_140FC0C10 & 0x8000) != 0 )
     {
       PerformanceCounter = KeQueryPerformanceCounter(0LL);
       v26[1] = 8LL;
       v26[0] = &PerformanceCounter;
-      result = EtwTraceKernelEvent((int)v26, 1, 0x80008000, 4658, 5249026);
+      EtwTraceKernelEvent((int)v26, 1, 0x80008000, 4658, 5249026);
     }
   }
   if ( CurrentPrcb->ClockOwner )
-    result = KiUpdateSystemTime(v9, 0LL, 3);
+    KiUpdateSystemTime(v8, 0LL, 3);
   if ( v5 )
   {
-    v10 = KeGetCurrentPrcb();
-    SchedulerAssist = v10->SchedulerAssist;
+    v9 = KeGetCurrentPrcb();
+    SchedulerAssist = (signed __int32 *)v9->SchedulerAssist;
     if ( SchedulerAssist )
     {
       _m_prefetchw(SchedulerAssist);
-      LODWORD(result) = *SchedulerAssist;
+      v11 = *SchedulerAssist;
       do
       {
-        v12 = result;
-        result = (unsigned int)_InterlockedCompareExchange(SchedulerAssist, result & 0xFFDFFFFF, result);
+        v12 = v11;
+        v11 = _InterlockedCompareExchange(SchedulerAssist, v11 & 0xFFDFFFFF, v11);
       }
-      while ( v12 != (_DWORD)result );
-      if ( (result & 0x200000) != 0 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)v10);
+      while ( v12 != v11 );
+      if ( (v11 & 0x200000) != 0 )
+        KiRemoveSystemWorkPriorityKick((__int64)v9);
     }
     _enable();
   }
-  return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeVadBitMap @ 0x1406B2CE4
+ * XREFs of MiInitializeVadBitMap @ 0x1406B2D14
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406B2ACC (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     MiInitializeVadCellBitMap @ 0x1406B2D54 (MiInitializeVadCellBitMap.c)
+ *     MiInitializeVadCellBitMap @ 0x1406B2D84 (MiInitializeVadCellBitMap.c)
  */
 
 __int64 MiInitializeVadBitMap()

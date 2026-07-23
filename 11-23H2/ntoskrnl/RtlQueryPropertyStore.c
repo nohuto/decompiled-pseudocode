@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlQueryPropertyStore @ 0x1405AA930
+ * XREFs of RtlQueryPropertyStore @ 0x1405AAEA0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     bsearch @ 0x1403D9E00 (bsearch.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpAcquirePropStoreLockShared @ 0x1405AAD24 (RtlpAcquirePropStoreLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     bsearch @ 0x1403D9FE0 (bsearch.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpAcquirePropStoreLockShared @ 0x1405AB294 (RtlpAcquirePropStoreLockShared.c)
  */
 
-__int64 __fastcall RtlQueryPropertyStore(void *Key, _QWORD *a2)
+NTSTATUS __cdecl RtlQueryPropertyStore(ULONG_PTR Key, PULONG_PTR Context)
 {
   unsigned __int64 v4; // rbx
   _QWORD *v5; // rax
-  unsigned int v6; // edi
+  NTSTATUS v6; // edi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rax
   _DWORD *SchedulerAssist; // r9
@@ -23,13 +23,13 @@ __int64 __fastcall RtlQueryPropertyStore(void *Key, _QWORD *a2)
   v4 = (unsigned __int8)RtlpAcquirePropStoreLockShared(&RtlpPropStoreLock);
   if ( RtlpPropStoreEntries
     && (v5 = bsearch(
-               Key,
+               (const void *)Key,
                RtlpPropStoreEntries,
                (unsigned int)RtlpPropStoreEntriesActiveCount,
                0x18uLL,
                RtlpComparePropertyEntry)) != 0LL )
   {
-    *a2 = v5[2];
+    *Context = v5[2];
     v6 = 0;
   }
   else
@@ -37,10 +37,13 @@ __int64 __fastcall RtlQueryPropertyStore(void *Key, _QWORD *a2)
     v6 = -1073741275;
   }
   ExReleaseSpinLockSharedFromDpcLevel(&RtlpPropStoreLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

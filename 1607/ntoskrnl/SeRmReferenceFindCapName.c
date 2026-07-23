@@ -1,11 +1,11 @@
 /*
- * XREFs of SeRmReferenceFindCapName @ 0x14021B430
+ * XREFs of SeRmReferenceFindCapName @ 0x14021B25C
  * Callers:
- *     AdtpBuildContextFromSecurityDescriptor @ 0x140238C70 (AdtpBuildContextFromSecurityDescriptor.c)
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x140238A9C (AdtpBuildContextFromSecurityDescriptor.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     SepRmReferenceFindCap @ 0x14021B670 (SepRmReferenceFindCap.c)
- *     SepValidateCAPIDs @ 0x14021B734 (SepValidateCAPIDs.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     SepRmReferenceFindCap @ 0x14021B49C (SepRmReferenceFindCap.c)
+ *     SepValidateCAPIDs @ 0x14021B560 (SepValidateCAPIDs.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockTargetPageForTrade @ 0x140295360
+ * XREFs of MiLockTargetPageForTrade @ 0x1402948C0
  * Callers:
- *     MiTradePageMarkedActive @ 0x1402931C0 (MiTradePageMarkedActive.c)
+ *     MiTradePageMarkedActive @ 0x140292720 (MiTradePageMarkedActive.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiPrepareToTradeUsingAccessedBit @ 0x140314C54 (MiPrepareToTradeUsingAccessedBit.c)
- *     MiCheckSameSlabType @ 0x140415E50 (MiCheckSameSlabType.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiPrepareToTradeUsingAccessedBit @ 0x140316C84 (MiPrepareToTradeUsingAccessedBit.c)
+ *     MiCheckSameSlabType @ 0x14040A460 (MiCheckSameSlabType.c)
  */
 
 __int64 __fastcall MiLockTargetPageForTrade(__int64 a1, __int64 a2, __int64 a3)
@@ -51,7 +51,7 @@ __int64 __fastcall MiLockTargetPageForTrade(__int64 a1, __int64 a2, __int64 a3)
   }
   if ( (*(_DWORD *)(v3 + 32) & 0x40000000) != 0 && (*(_DWORD *)(a1 + 8) & 0x10000000) == 0 )
   {
-    _InterlockedIncrement(&dword_140EF8D6C);
+    _InterlockedIncrement(&dword_140EF90CC);
 LABEL_42:
     _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     return 1LL;
@@ -62,7 +62,7 @@ LABEL_42:
   if ( (unsigned __int16)*(_DWORD *)(v3 + 32) != 1 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    _InterlockedIncrement(&dword_140EF8CC0);
+    _InterlockedIncrement(&dword_140EF9020);
     return 1LL;
   }
   if ( ((*(_DWORD *)(v3 + 32) & 0x8000000) != 0 || (*(_QWORD *)v3 & 1) == 0)
@@ -70,13 +70,13 @@ LABEL_42:
     && (*(_DWORD *)(a1 + 16) & 0x26) == 0 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    _InterlockedIncrement(&dword_140EF8CC4);
+    _InterlockedIncrement(&dword_140EF9024);
     return 1LL;
   }
   if ( (*(_BYTE *)(v3 + 34) & 7) != 6 || (v6 = *(_WORD **)(a1 + 216), ((*(_QWORD *)(v3 + 40) >> 43) & 0x3FF) != *v6) )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    _InterlockedIncrement(&dword_140EF8CCC);
+    _InterlockedIncrement(&dword_140EF902C);
     return 1LL;
   }
   if ( (*(_DWORD *)a1 & 4) != 0 && (*(_DWORD *)(a1 + 8) & 0x410000) == 0x410000 )
@@ -86,7 +86,7 @@ LABEL_42:
     if ( !(unsigned int)MiCheckSameSlabType(v3, PfnSlabType, v18, v19, 1) )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      _InterlockedIncrement(&dword_140EF8CD0);
+      _InterlockedIncrement(&dword_140EF9030);
       return 1LL;
     }
   }
@@ -135,7 +135,7 @@ LABEL_16:
     *(_DWORD *)(a1 + 16) = v16 | 0x108;
     goto LABEL_16;
   }
-  _InterlockedIncrement(&dword_140EF8CDC);
+  _InterlockedIncrement(&dword_140EF903C);
   _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   return 1LL;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapQueryPshedForErrorSources @ 0x140CE82F8
+ * XREFs of WheapQueryPshedForErrorSources @ 0x140CEE698
  * Callers:
- *     WheaInitialize @ 0x140CE7AB8 (WheaInitialize.c)
+ *     WheaInitialize @ 0x140CEDE58 (WheaInitialize.c)
  * Callees:
  *     <none>
  */

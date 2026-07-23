@@ -577,7 +577,9 @@ LABEL_173:
   }
 LABEL_35:
   MiInsertPagesInList(v112, 0LL);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v44 = v92;
     if ( v92 <= 0xFu && CurrentIrql >= 2u )
@@ -603,7 +605,7 @@ LABEL_35:
   __writecr8(2uLL);
   if ( v40 )
   {
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
     {
       v73 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v47 == 2 )
@@ -627,7 +629,7 @@ LABEL_35:
   else
   {
     v49 = v47;
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
     {
       v75 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v47 == 2 )

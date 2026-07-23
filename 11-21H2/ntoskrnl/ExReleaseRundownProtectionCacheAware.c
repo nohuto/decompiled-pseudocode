@@ -1,35 +1,36 @@
 /*
  * XREFs of ExReleaseRundownProtectionCacheAware @ 0x140221D90
  * Callers:
- *     MiProbeUnlockPage @ 0x1402B7320 (MiProbeUnlockPage.c)
+ *     sub_1402B7320 @ 0x1402B7320 (sub_1402B7320.c)
  * Callees:
  *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
  */
 
 void __stdcall ExReleaseRundownProtectionCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware)
 {
-  _EX_RUNDOWN_REF *RunRefs; // rdx
-  signed __int64 Count; // r8
+  signed __int64 *v1; // rdx
+  signed __int64 v2; // r8
   unsigned __int64 v3; // r8
 
-  RunRefs = (_EX_RUNDOWN_REF *)((char *)RunRefCacheAware->RunRefs
-                              + RunRefCacheAware->RunRefSize * (KeGetPcr()->Prcb.Number % RunRefCacheAware->Number));
-  _m_prefetchw(RunRefs);
+  v1 = (signed __int64 *)(*(_QWORD *)RunRefCacheAware
+                        + (unsigned int)(*((_DWORD *)RunRefCacheAware + 4)
+                                       * (HIDWORD(KeGetPcr()[1].LockArray) % *((_DWORD *)RunRefCacheAware + 5))));
+  _m_prefetchw(v1);
   while ( 1 )
   {
     while ( 1 )
     {
-      Count = RunRefs->Count;
-      if ( (RunRefs->Count & 1) != 0 )
+      v2 = *v1;
+      if ( (*v1 & 1) != 0 )
         break;
-      if ( Count == _InterlockedCompareExchange64((volatile signed __int64 *)RunRefs, Count - 2, Count) )
+      if ( v2 == _InterlockedCompareExchange64(v1, v2 - 2, v2) )
         return;
     }
-    if ( Count != 1 )
+    if ( v2 != 1 )
       break;
-    RunRefs = RunRefCacheAware->RunRefs;
+    v1 = *(signed __int64 **)RunRefCacheAware;
   }
-  v3 = Count & 0xFFFFFFFFFFFFFFFEuLL;
+  v3 = v2 & 0xFFFFFFFFFFFFFFFEuLL;
   if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v3, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
     KeSetEvent((PRKEVENT)(v3 + 8), 0, 0);
 }

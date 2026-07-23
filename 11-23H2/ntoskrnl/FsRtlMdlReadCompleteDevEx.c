@@ -1,14 +1,14 @@
 /*
  * XREFs of FsRtlMdlReadCompleteDevEx @ 0x140AFA010
  * Callers:
- *     KiDecodeMcaFault @ 0x1403E36F0 (KiDecodeMcaFault.c)
- *     sub_1403F1970 @ 0x1403F1970 (sub_1403F1970.c)
+ *     KiDecodeMcaFault @ 0x1403E38D0 (KiDecodeMcaFault.c)
+ *     sub_1403F1B50 @ 0x1403F1B50 (sub_1403F1B50.c)
  *     FsRtlUninitializeSmallMcb @ 0x140B13540 (FsRtlUninitializeSmallMcb.c)
  * Callees:
- *     sub_1403F1B8C @ 0x1403F1B8C (sub_1403F1B8C.c)
- *     sub_1403F1C6C @ 0x1403F1C6C (sub_1403F1C6C.c)
- *     sub_1403F2BA0 @ 0x1403F2BA0 (sub_1403F2BA0.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     sub_1403F1D6C @ 0x1403F1D6C (sub_1403F1D6C.c)
+ *     sub_1403F1E4C @ 0x1403F1E4C (sub_1403F1E4C.c)
+ *     sub_1403F2D80 @ 0x1403F2D80 (sub_1403F2D80.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     sub_140B0D7A8 @ 0x140B0D7A8 (sub_140B0D7A8.c)
  *     sub_140B0F838 @ 0x140B0F838 (sub_140B0F838.c)
  *     sub_140B11020 @ 0x140B11020 (sub_140B11020.c)
@@ -4770,7 +4770,7 @@
  * 0000000140AFED4D: add     r9, 1Ch
  * 0000000140AFED51: mov     rdx, r13
  * 0000000140AFED54: mov     rcx, rbx
- * 0000000140AFED57: call    sub_1403F1B8C
+ * 0000000140AFED57: call    sub_1403F1D6C
  * 0000000140AFED5C: mov     rax, [rbp+0A70h+var_998]
  * 0000000140AFED63: xor     ecx, ecx
  * 0000000140AFED65: mov     [rbp+0A70h+var_A30], rbx
@@ -6378,7 +6378,7 @@
  * 0000000140B0074B: mov     rdx, [r13+8]
  * 0000000140B0074F: lea     r9, [rbp+0A70h+var_2D8]
  * 0000000140B00756: mov     rcx, rsi
- * 0000000140B00759: call    sub_1403F1B8C
+ * 0000000140B00759: call    sub_1403F1D6C
  * 0000000140B0075E: mov     r8d, 10h
  * 0000000140B00764: lea     r9, [r13+1Ch]
  * 0000000140B00768: lea     r10, [rbp+0A70h+var_2D8]
@@ -7655,11 +7655,11 @@
  * 0000000140B01C28: jmp     loc_140AFB413
  * 0000000140B01C2D: mov     rdx, r13
  * 0000000140B01C30: mov     rcx, rsi
- * 0000000140B01C33: call    sub_1403F1C6C
+ * 0000000140B01C33: call    sub_1403F1E4C
  * 0000000140B01C38: jmp     loc_140AFB39B
  * 0000000140B01C3D: mov     rdx, r13
  * 0000000140B01C40: mov     rcx, rsi
- * 0000000140B01C43: call    sub_1403F2BA0
+ * 0000000140B01C43: call    sub_1403F2D80
  * 0000000140B01C48: jmp     loc_140AFB39B
  * 0000000140B01C4D: mov     eax, [rsi+830h]
  * 0000000140B01C53: mov     r12d, 1
@@ -10749,7 +10749,7 @@
  * 0000000140B0507D: mov     qword ptr [rbp+0A70h+var_880], r8
  * 0000000140B05084: jmp     short loc_140B050A9
  * 0000000140B05086: movups  xmm0, xmmword ptr cs:VfExcludeSections
- * 0000000140B0508D: movups  xmm1, xmmword ptr cs:off_140C094B8; "INIT"
+ * 0000000140B0508D: movups  xmm1, xmmword ptr cs:off_140C094A8; "INIT"
  * 0000000140B05094: movups  [rbp+0A70h+var_880], xmm0
  * 0000000140B0509B: mov     r8, qword ptr [rbp+0A70h+var_880]
  * 0000000140B050A2: movups  [rbp+0A70h+var_870], xmm1
@@ -13096,7 +13096,7 @@
  * 0000000140B076ED: mov     rdx, r13
  * 0000000140B076F0: lea     r8d, [r12+19h]
  * 0000000140B076F5: mov     rcx, rsi
- * 0000000140B076F8: call    sub_1403F1B8C
+ * 0000000140B076F8: call    sub_1403F1D6C
  * 0000000140B076FD: mov     rcx, [rbp+0A70h+var_AA8]
  * 0000000140B07701: mov     r11d, 20h ; ' '
  * 0000000140B07707: mov     [rbx+10h], r11d
@@ -13418,7 +13418,7 @@
  * 0000000140B07BD9: mov     rdx, r13
  * 0000000140B07BDC: lea     r8d, [r12+19h]
  * 0000000140B07BE1: mov     rcx, rsi
- * 0000000140B07BE4: call    sub_1403F1B8C
+ * 0000000140B07BE4: call    sub_1403F1D6C
  * 0000000140B07BE9: mov     rcx, [rsp+0B70h+var_B18]
  * 0000000140B07BEE: mov     r11d, 20h ; ' '
  * 0000000140B07BF4: mov     [rbx+10h], r11d
@@ -14961,7 +14961,7 @@
  * 0000000140B09420: lea     r9, [r15+1Ch]
  * 0000000140B09424: mov     r8d, r13d
  * 0000000140B09427: mov     rcx, rsi
- * 0000000140B0942A: call    sub_1403F1B8C
+ * 0000000140B0942A: call    sub_1403F1D6C
  * 0000000140B0942F: mov     r14, [rbp+0A70h+var_AC8]
  * 0000000140B09433: mov     r13d, 1
  * 0000000140B09439: mov     [r15+18h], r13d
@@ -16130,7 +16130,7 @@
  * 0000000140B0A6B4: mov     r8d, 8
  * 0000000140B0A6BA: mov     rdx, r15
  * 0000000140B0A6BD: mov     rcx, r14
- * 0000000140B0A6C0: call    sub_1403F1B8C
+ * 0000000140B0A6C0: call    sub_1403F1D6C
  * 0000000140B0A6C5: xor     r11d, r11d
  * 0000000140B0A6C8: mov     dword ptr [rbx+10h], 8
  * 0000000140B0A6CF: lea     r8, [r15+8]
@@ -16368,7 +16368,7 @@
  * 0000000140B0AA81: mov     r8d, r12d
  * 0000000140B0AA84: mov     rdx, r15
  * 0000000140B0AA87: mov     rcx, r14
- * 0000000140B0AA8A: call    sub_1403F1B8C
+ * 0000000140B0AA8A: call    sub_1403F1D6C
  * 0000000140B0AA8F: mov     [rbx+10h], r12d
  * 0000000140B0AA93: mov     r9, r15
  * 0000000140B0AA96: add     [r14+828h], r12d

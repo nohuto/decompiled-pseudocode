@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpSelectLeaf @ 0x14060ACEC
+ * XREFs of CmpSelectLeaf @ 0x14060ADA0
  * Callers:
- *     CmpAddSubKeyToList @ 0x1404B0C8C (CmpAddSubKeyToList.c)
+ *     CmpAddSubKeyToList @ 0x14049B06C (CmpAddSubKeyToList.c)
  * Callees:
- *     CmpDoCompareKeyName @ 0x140512350 (CmpDoCompareKeyName.c)
- *     CmpFindSubKeyInRoot @ 0x140512460 (CmpFindSubKeyInRoot.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmpSplitLeaf @ 0x14060AFB4 (CmpSplitLeaf.c)
+ *     CmpDoCompareKeyName @ 0x1404F5740 (CmpDoCompareKeyName.c)
+ *     CmpFindSubKeyInRoot @ 0x1404F5850 (CmpFindSubKeyInRoot.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmpSplitLeaf @ 0x14060B068 (CmpSplitLeaf.c)
  */
 
 __int64 __fastcall CmpSelectLeaf(

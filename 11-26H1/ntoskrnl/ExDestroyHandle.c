@@ -1,21 +1,21 @@
 /*
- * XREFs of ExDestroyHandle @ 0x14092C030
+ * XREFs of ExDestroyHandle @ 0x140907B60
  * Callers:
- *     PspJobDelete @ 0x140615810 (PspJobDelete.c)
- *     PspProcessDelete @ 0x1407FB2E0 (PspProcessDelete.c)
- *     AlpcpFreeMessageFunction @ 0x140A86940 (AlpcpFreeMessageFunction.c)
- *     PspThreadDelete @ 0x140AA21E0 (PspThreadDelete.c)
- *     RtlpInsertStringAtom @ 0x140AAEF58 (RtlpInsertStringAtom.c)
- *     RtlpFreeHandleForAtom @ 0x140ABFF80 (RtlpFreeHandleForAtom.c)
+ *     PspJobDelete @ 0x1406187E0 (PspJobDelete.c)
+ *     PspProcessDelete @ 0x140800D10 (PspProcessDelete.c)
+ *     AlpcpFreeMessageFunction @ 0x140A8B8C0 (AlpcpFreeMessageFunction.c)
+ *     PspThreadDelete @ 0x140AA3CB0 (PspThreadDelete.c)
+ *     RtlpInsertStringAtom @ 0x140AACBA8 (RtlpInsertStringAtom.c)
+ *     RtlpFreeHandleForAtom @ 0x140AC2020 (RtlpFreeHandleForAtom.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     ExpUpdateDebugInfo @ 0x14092C6E0 (ExpUpdateDebugInfo.c)
- *     ExpGetHandleExtraInfo @ 0x14092C97C (ExpGetHandleExtraInfo.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     ExpUpdateDebugInfo @ 0x140908210 (ExpUpdateDebugInfo.c)
+ *     ExpGetHandleExtraInfo @ 0x1409084AC (ExpGetHandleExtraInfo.c)
  */
 
 __int64 __fastcall ExDestroyHandle(__int64 a1, __int64 a2, _QWORD *a3, struct _KLOCK_ENTRIES *a4)

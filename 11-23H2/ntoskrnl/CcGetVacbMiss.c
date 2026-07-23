@@ -1,29 +1,29 @@
 /*
- * XREFs of CcGetVacbMiss @ 0x14029F110
+ * XREFs of CcGetVacbMiss @ 0x14029F3A0
  * Callers:
- *     CcGetVirtualAddress @ 0x140264DF0 (CcGetVirtualAddress.c)
+ *     CcGetVirtualAddress @ 0x140265080 (CcGetVirtualAddress.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     CcGetVacbLargeOffset @ 0x14029F090 (CcGetVacbLargeOffset.c)
- *     CcGetVacbFromFreeList @ 0x14029F538 (CcGetVacbFromFreeList.c)
- *     MmMapViewInSystemCache @ 0x14029F630 (MmMapViewInSystemCache.c)
- *     CcIncrementVacbActiveCount @ 0x1402A04BC (CcIncrementVacbActiveCount.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1402A0A70 (KxAcquireQueuedSpinLock.c)
- *     SetVacb @ 0x1402A0B08 (SetVacb.c)
- *     CcSetVacbInFreeList @ 0x1402A0C00 (CcSetVacbInFreeList.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x1402A1030 (CcReleaseBcbLockAndVacbLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     FsRtlIsNtstatusExpected @ 0x140359D00 (FsRtlIsNtstatusExpected.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     CcUnmapInactiveViews @ 0x140538278 (CcUnmapInactiveViews.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     CcUnmapVacb @ 0x140721E10 (CcUnmapVacb.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     CcGetVacbLargeOffset @ 0x14029F320 (CcGetVacbLargeOffset.c)
+ *     CcGetVacbFromFreeList @ 0x14029F7C8 (CcGetVacbFromFreeList.c)
+ *     MmMapViewInSystemCache @ 0x14029F8C0 (MmMapViewInSystemCache.c)
+ *     CcIncrementVacbActiveCount @ 0x1402A074C (CcIncrementVacbActiveCount.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402A0D00 (KxAcquireQueuedSpinLock.c)
+ *     SetVacb @ 0x1402A0D98 (SetVacb.c)
+ *     CcSetVacbInFreeList @ 0x1402A0E90 (CcSetVacbInFreeList.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x1402A12C0 (CcReleaseBcbLockAndVacbLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     FsRtlIsNtstatusExpected @ 0x140359EA0 (FsRtlIsNtstatusExpected.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     CcUnmapInactiveViews @ 0x1405387C8 (CcUnmapInactiveViews.c)
+ *     CcUnmapVacb @ 0x140722010 (CcUnmapVacb.c)
  */
 
 _QWORD *__fastcall CcGetVacbMiss(__int64 a1, __int64 a2, unsigned int a3, int a4)
@@ -71,7 +71,7 @@ _QWORD *__fastcall CcGetVacbMiss(__int64 a1, __int64 a2, unsigned int a3, int a4
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -86,10 +86,10 @@ _QWORD *__fastcall CcGetVacbMiss(__int64 a1, __int64 a2, unsigned int a3, int a4
       v29 = v5 | 2;
     VacbFromFreeList = (_QWORD *)CcGetVacbFromFreeList(v4, v6);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)KeGetPcr()->NtTib.ArbitraryUserPointer + 8);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v15 = -1LL << (CurrentIrql + 1);
@@ -117,7 +117,7 @@ _QWORD *__fastcall CcGetVacbMiss(__int64 a1, __int64 a2, unsigned int a3, int a4
     v22 = -1073741670;
 LABEL_42:
     if ( v6 || v7 != 1 )
-      RtlRaiseStatus((unsigned int)v22);
+      RtlRaiseStatus(v22);
     v5 = v29;
     v6 = 1;
   }

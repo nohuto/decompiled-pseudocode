@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpPartitionCreatePoolInternal @ 0x140B6C40C
+ * XREFs of ExpPartitionCreatePoolInternal @ 0x140B6F508
  * Callers:
- *     ExpPartitionCreatePool @ 0x14077211C (ExpPartitionCreatePool.c)
- *     ExpPartitionCreatePoolDelayed @ 0x140772290 (ExpPartitionCreatePoolDelayed.c)
- *     ExpPartitionInitialize @ 0x14083FCA4 (ExpPartitionInitialize.c)
+ *     ExpPartitionCreatePool @ 0x14077511C (ExpPartitionCreatePool.c)
+ *     ExpPartitionCreatePoolDelayed @ 0x140775290 (ExpPartitionCreatePoolDelayed.c)
+ *     ExpPartitionInitialize @ 0x140845EE4 (ExpPartitionInitialize.c)
  * Callees:
- *     ExpWorkQueueHealthMetricsEnabled @ 0x14051FCC8 (ExpWorkQueueHealthMetricsEnabled.c)
- *     ExpWorkQueueDestroy @ 0x14083FEE0 (ExpWorkQueueDestroy.c)
- *     ExpWorkQueueHealthMetricsAllocate @ 0x14083FF78 (ExpWorkQueueHealthMetricsAllocate.c)
- *     ExpWorkQueueHealthMetricsFree @ 0x140840068 (ExpWorkQueueHealthMetricsFree.c)
- *     ExpWorkQueueInitializeWithMinimumThreads @ 0x140840240 (ExpWorkQueueInitializeWithMinimumThreads.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExpWorkQueueHealthMetricsEnabled @ 0x14052236C (ExpWorkQueueHealthMetricsEnabled.c)
+ *     ExpWorkQueueDestroy @ 0x140846120 (ExpWorkQueueDestroy.c)
+ *     ExpWorkQueueHealthMetricsAllocate @ 0x1408461B8 (ExpWorkQueueHealthMetricsAllocate.c)
+ *     ExpWorkQueueHealthMetricsFree @ 0x1408462A8 (ExpWorkQueueHealthMetricsFree.c)
+ *     ExpWorkQueueInitializeWithMinimumThreads @ 0x140846480 (ExpWorkQueueInitializeWithMinimumThreads.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpPartitionCreatePoolInternal(
@@ -50,7 +50,7 @@ __int64 __fastcall ExpPartitionCreatePoolInternal(
       {
         v6 = 0LL;
         *(_QWORD *)(*(_QWORD *)(a1 + 8)
-                  + 8LL * (a6 + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32] * (a5 + 8 * *a4))) = Pool2;
+                  + 8LL * (a6 + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72] * (a5 + 8 * *a4))) = Pool2;
         Pool2 = 0LL;
         v11 = 0;
       }

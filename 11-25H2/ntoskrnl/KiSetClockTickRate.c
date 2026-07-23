@@ -19,11 +19,11 @@ __int64 __fastcall KiSetClockTickRate(unsigned int a1, unsigned __int8 a2)
   int v5; // ebx
   __int64 v6; // rcx
   int v7; // eax
-  __int64 InterruptTimePrecise; // r14
+  LARGE_INTEGER InterruptTimePrecise; // r14
   LARGE_INTEGER *v9; // rbx
   int v10; // eax
   __int64 ClockIncrementTraceIndex; // rbx
-  _BYTE v13[8]; // [rsp+38h] [rbp-38h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp-38h] BYREF
   _BYTE v14[2]; // [rsp+40h] [rbp-30h] BYREF
   int v15; // [rsp+42h] [rbp-2Eh]
   __int16 v16; // [rsp+46h] [rbp-2Ah]
@@ -52,10 +52,10 @@ __int64 __fastcall KiSetClockTickRate(unsigned int a1, unsigned __int8 a2)
     KeTimeIncrement = 0;
     KiLastRequestedTimeIncrement = v2;
     if ( KiClockTimerPerCpuTickScheduling )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(v13);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     else
-      InterruptTimePrecise = MEMORY[0xFFFFF78000000008];
-    KiClockTimerNextTickTime = InterruptTimePrecise + (unsigned int)KeTimeIncrement;
+      InterruptTimePrecise.QuadPart = MEMORY[0xFFFFF78000000008];
+    KiClockTimerNextTickTime = InterruptTimePrecise.QuadPart + (unsigned int)KeTimeIncrement;
     KiClockOwnerOneShotRequestState = a2 != 0;
     if ( v5 == 2 )
       LOBYTE(v5) = _InterlockedExchange(&KiClockState, 0);
@@ -74,7 +74,7 @@ __int64 __fastcall KiSetClockTickRate(unsigned int a1, unsigned __int8 a2)
   }
   else
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(v13);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   }
   CurrentPrcb->ClockTimerState.TimeIncrement = 0;
   CurrentPrcb->ClockTimerState.LastRequestedTimeIncrement = v2;
@@ -93,7 +93,7 @@ __int64 __fastcall KiSetClockTickRate(unsigned int a1, unsigned __int8 a2)
     v10 = KiLastRequestedTimeIncrement;
     v9->LowPart = KeTimeIncrement;
     v9->HighPart = v10;
-    v9[1].QuadPart = InterruptTimePrecise;
+    v9[1] = InterruptTimePrecise;
     v9[2] = KeQueryPerformanceCounter(0LL);
     LOBYTE(v9[3].LowPart) = a2;
   }
@@ -102,7 +102,7 @@ __int64 __fastcall KiSetClockTickRate(unsigned int a1, unsigned __int8 a2)
                                                          + 1) & 0xF;
   CurrentPrcb->ClockTimerState.ClockIncrementTraces[ClockIncrementTraceIndex].ActualIncrement = 0;
   CurrentPrcb->ClockTimerState.ClockIncrementTraces[ClockIncrementTraceIndex].RequestedIncrement = v2;
-  CurrentPrcb->ClockTimerState.ClockIncrementTraces[ClockIncrementTraceIndex].InterruptTime = InterruptTimePrecise;
+  CurrentPrcb->ClockTimerState.ClockIncrementTraces[ClockIncrementTraceIndex].InterruptTime = InterruptTimePrecise.QuadPart;
   CurrentPrcb->ClockTimerState.ClockIncrementTraces[ClockIncrementTraceIndex].PerformanceCounter = KeQueryPerformanceCounter(0LL).QuadPart;
   CurrentPrcb->ClockTimerState.ClockIncrementTraces[ClockIncrementTraceIndex].OneShot = a2;
   return 0LL;

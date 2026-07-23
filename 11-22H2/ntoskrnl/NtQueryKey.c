@@ -31,7 +31,12 @@
  *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtQueryKey(HANDLE Handle, unsigned int a2, unsigned __int64 a3, unsigned int a4, unsigned int *a5)
+NTSTATUS __cdecl NtQueryKey(
+        HANDLE KeyHandle,
+        KEY_INFORMATION_CLASS KeyInformationClass,
+        PVOID KeyInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
   __int64 v5; // r13
   __int64 v9; // rdx
@@ -42,7 +47,7 @@ __int64 __fastcall NtQueryKey(HANDLE Handle, unsigned int a2, unsigned __int64 a
   unsigned __int64 v14; // rax
   unsigned __int64 v15; // rax
   __int64 v16; // rcx
-  NTSTATUS Key; // ebx
+  int Key; // ebx
   _QWORD *v18; // rax
   struct _KTHREAD *CurrentThread; // rax
   int v20; // r9d
@@ -58,7 +63,7 @@ __int64 __fastcall NtQueryKey(HANDLE Handle, unsigned int a2, unsigned __int64 a
   char v31; // [rsp+42h] [rbp-1A6h]
   char v32; // [rsp+43h] [rbp-1A5h]
   PVOID Object; // [rsp+58h] [rbp-190h] BYREF
-  unsigned int v34; // [rsp+60h] [rbp-188h] BYREF
+  ULONG v34; // [rsp+60h] [rbp-188h] BYREF
   PVOID v35; // [rsp+68h] [rbp-180h] BYREF
   PVOID v36; // [rsp+70h] [rbp-178h] BYREF
   __int64 v37; // [rsp+78h] [rbp-170h]
@@ -66,10 +71,10 @@ __int64 __fastcall NtQueryKey(HANDLE Handle, unsigned int a2, unsigned __int64 a
   struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+90h] [rbp-158h] BYREF
   __int128 v40; // [rsp+98h] [rbp-150h] BYREF
   PVOID v41; // [rsp+A8h] [rbp-140h] BYREF
-  NTSTATUS v42; // [rsp+B0h] [rbp-138h]
+  int v42; // [rsp+B0h] [rbp-138h]
   int v43; // [rsp+B4h] [rbp-134h]
   _QWORD *v44; // [rsp+B8h] [rbp-130h]
-  NTSTATUS v45; // [rsp+C0h] [rbp-128h]
+  int v45; // [rsp+C0h] [rbp-128h]
   __int128 v46; // [rsp+C4h] [rbp-124h]
   __int64 v47; // [rsp+D4h] [rbp-114h]
   int v48; // [rsp+DCh] [rbp-10Ch]
@@ -79,7 +84,7 @@ __int64 __fastcall NtQueryKey(HANDLE Handle, unsigned int a2, unsigned __int64 a
   _BYTE v52[71]; // [rsp+131h] [rbp-B7h] BYREF
   _OWORD v53[2]; // [rsp+180h] [rbp-68h] BYREF
 
-  v5 = a4;
+  v5 = Length;
   v40 = 0LL;
   HandleInformation = 0LL;
   v34 = 0;
@@ -104,15 +109,15 @@ __int64 __fastcall NtQueryKey(HANDLE Handle, unsigned int a2, unsigned __int64 a
     Key = -1073741431;
     goto LABEL_33;
   }
-  if ( a2 > 8 )
+  if ( (unsigned int)KeyInformationClass > KeyTrustInformation )
   {
     if ( CmpTraceRoutine )
     {
-      if ( Handle )
+      if ( KeyHandle )
       {
         PreviousMode = KeGetCurrentThread()->PreviousMode;
         Object = 0LL;
-        if ( ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &Object, 0LL) >= 0 )
+        if ( ObReferenceObjectByHandle(KeyHandle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &Object, 0LL) >= 0 )
         {
           v37 = *((_QWORD *)Object + 1);
           ObfDereferenceObject(Object);
@@ -128,11 +133,11 @@ __int64 __fastcall NtQueryKey(HANDLE Handle, unsigned int a2, unsigned __int64 a
   {
     if ( (_DWORD)v5 )
     {
-      v13 = a3;
-      if ( (a3 & 3) != 0 )
+      v13 = (unsigned __int64)KeyInformation;
+      if ( ((unsigned __int8)KeyInformation & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v14 = a3 + v5 - 1;
-      if ( a3 > v14 || v14 >= 0x7FFFFFFF0000LL )
+      v14 = (unsigned __int64)KeyInformation + v5 - 1;
+      if ( (unsigned __int64)KeyInformation > v14 || v14 >= 0x7FFFFFFF0000LL )
         ExRaiseAccessViolation();
       v15 = (v14 & 0xFFFFFFFFFFFFF000uLL) + 4096;
       do
@@ -142,16 +147,16 @@ __int64 __fastcall NtQueryKey(HANDLE Handle, unsigned int a2, unsigned __int64 a
       }
       while ( v13 != v15 );
     }
-    v16 = (__int64)a5;
-    if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+    v16 = (__int64)ResultLength;
+    if ( (unsigned __int64)ResultLength >= 0x7FFFFFFF0000LL )
       v16 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v16 = *(_DWORD *)v16;
     v12 = 1;
   }
   Object = 0LL;
   Key = ObReferenceObjectByHandle(
-          Handle,
-          ((a2 - 3) & 0xFFFFFFFB) != 0,
+          KeyHandle,
+          ((KeyInformationClass - 3) & 0xFFFFFFFB) != 0,
           (POBJECT_TYPE)CmKeyObjectType,
           v12,
           &Object,
@@ -162,28 +167,28 @@ __int64 __fastcall NtQueryKey(HANDLE Handle, unsigned int a2, unsigned __int64 a
     goto LABEL_33;
   if ( *(_DWORD *)Object != 1803104306 )
   {
-    if ( a2 != 4 )
+    if ( KeyInformationClass != KeyCachedInformation )
     {
       Key = -1073741816;
       goto LABEL_33;
     }
-    *a5 = 40;
+    *ResultLength = 40;
     if ( (unsigned int)v5 < 0x28 )
     {
       Key = -1073741789;
       goto LABEL_33;
     }
-    *(_OWORD *)a3 = 0LL;
-    *(_OWORD *)(a3 + 16) = 0LL;
-    *(_QWORD *)(a3 + 32) = 0LL;
-    *(_DWORD *)(a3 + 20) = *(_DWORD *)(v18[1] + 96LL);
+    *(_OWORD *)KeyInformation = 0LL;
+    *((_OWORD *)KeyInformation + 1) = 0LL;
+    *((_QWORD *)KeyInformation + 4) = 0LL;
+    *((_DWORD *)KeyInformation + 5) = *(_DWORD *)(v18[1] + 96LL);
 LABEL_32:
     Key = 0;
     goto LABEL_33;
   }
   if ( CmpTraceRoutine )
     v37 = *((_QWORD *)Object + 1);
-  if ( ((a2 - 3) & 0xFFFFFFFB) == 0 && !HandleInformation.GrantedAccess )
+  if ( ((KeyInformationClass - 3) & 0xFFFFFFFB) == 0 && !HandleInformation.GrantedAccess )
   {
     Key = -1073741790;
     goto LABEL_33;
@@ -198,10 +203,10 @@ LABEL_32:
   }
   v21 = (unsigned __int16 *)Object;
   v49[0] = Object;
-  LODWORD(v49[1]) = a2;
-  v49[2] = a3;
+  LODWORD(v49[1]) = KeyInformationClass;
+  v49[2] = KeyInformation;
   LODWORD(v49[3]) = v5;
-  v49[4] = a5;
+  v49[4] = ResultLength;
   LOBYTE(v20) = 1;
   v22 = CmpCallCallBacksEx(7, (unsigned int)v49, 0, v20, 22, (__int64)Object, (__int64)v38);
   Key = v22;
@@ -213,28 +218,28 @@ LABEL_32:
   }
   v30 = 1;
 LABEL_28:
-  if ( a2 == 7 )
+  if ( KeyInformationClass == KeyHandleTagsInformation )
   {
-    *a5 = 4;
+    *ResultLength = 4;
     if ( (unsigned int)v5 < 4 )
     {
       Key = -1073741789;
       goto LABEL_33;
     }
-    *(_DWORD *)a3 = v21[25];
+    *(_DWORD *)KeyInformation = v21[25];
     goto LABEL_32;
   }
-  Key = CmKeyBodyRemapToVirtualForEnum(&v35, (unsigned __int8)v29, ((a2 - 3) & 0xFFFFFFFB) != 0, &v36);
+  Key = CmKeyBodyRemapToVirtualForEnum(&v35, (unsigned __int8)v29, ((KeyInformationClass - 3) & 0xFFFFFFFB) != 0, &v36);
   if ( Key >= 0 )
   {
-    Key = CmpBounceContextStart(Src, a3, v5, (unsigned int)v29, 2);
+    Key = CmpBounceContextStart(Src, KeyInformation, v5, (unsigned int)v29, 2);
     if ( Key >= 0 )
     {
       Key = CmQueryKey((_DWORD)v35, (_DWORD)v36, v5, (__int64)&v34);
       if ( Key >= 0 || Key == -1073741789 || Key == -2147483643 )
       {
         v26 = v34;
-        *a5 = v34;
+        *ResultLength = v34;
         if ( Key != -1073741789 )
         {
           if ( (unsigned int)v5 >= v26 )
@@ -278,10 +283,10 @@ LABEL_33:
   {
     v28 = v37;
     LOBYTE(v28) = 13;
-    CmpTraceRoutine(v28, v53, (unsigned int)Key, a2);
+    CmpTraceRoutine(v28, v53, (unsigned int)Key, (unsigned int)KeyInformationClass);
   }
   if ( v32 )
     CmpReleaseShutdownRundown(v23, v24);
   CmCleanupThreadInfo((__int64 *)&v40);
-  return (unsigned int)Key;
+  return Key;
 }

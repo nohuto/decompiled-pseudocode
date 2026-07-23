@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAbTryDecrementIoWaiterCounts @ 0x140417E40
+ * XREFs of KiAbTryDecrementIoWaiterCounts @ 0x140407BF0
  * Callers:
- *     KiAbProcessPostContextSwitch @ 0x14020FA80 (KiAbProcessPostContextSwitch.c)
+ *     KiAbProcessPostContextSwitch @ 0x140338DE0 (KiAbProcessPostContextSwitch.c)
  * Callees:
  *     <none>
  */

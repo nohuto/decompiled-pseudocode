@@ -10,7 +10,7 @@
 
 __int64 __fastcall KeHwPolicyLocateResource(__int64 a1, __int64 a2, __int64 a3, unsigned int **a4, __int64 *a5)
 {
-  __int64 v7; // rcx
+  unsigned __int64 v7; // rcx
   _QWORD v11[5]; // [rsp+40h] [rbp-28h] BYREF
 
   v7 = KiHwPolicyDriverImageBase;

@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlIsDbcsInExpression @ 0x1409892A0
+ * XREFs of FsRtlIsDbcsInExpression @ 0x140972D50
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall FsRtlIsDbcsInExpression(PANSI_STRING Expression, PANSI_STRING Name)
@@ -196,7 +196,7 @@ LABEL_49:
 LABEL_30:
                 if ( v21 >= 0xE && !P )
                 {
-                  P = (_OWORD *)ExAllocatePool2(0x122uLL);
+                  P = (_OWORD *)ExAllocatePool2(0x122uLL, 8LL * Expression->Length + 8, 0x64725346u);
                   v27 = (__int16 *)P;
                   v51 = v63;
                   v63 = (char *)P;
@@ -334,7 +334,7 @@ LABEL_41:
     {
       ++v10;
     }
-    else if ( (v12 & 0x80u) == 0LL && (*((_BYTE *)qword_140013B40 + (char)v12) & 8) != 0 )
+    else if ( (v12 & 0x80u) == 0LL && (*((_BYTE *)qword_140013670 + (char)v12) & 8) != 0 )
     {
       v5 = Name;
       goto LABEL_11;

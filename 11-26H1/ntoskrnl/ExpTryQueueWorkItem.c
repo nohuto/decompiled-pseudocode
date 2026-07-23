@@ -1,17 +1,17 @@
 /*
  * XREFs of ExpTryQueueWorkItem @ 0x1402020DC
  * Callers:
- *     IoTryQueueWorkItem @ 0x1405CBA50 (IoTryQueueWorkItem.c)
+ *     IoTryQueueWorkItem @ 0x1405CE2C0 (IoTryQueueWorkItem.c)
  * Callees:
- *     ExpValidateWorkItem @ 0x140203F4C (ExpValidateWorkItem.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeInsertPriQueue @ 0x1403814C0 (KeInsertPriQueue.c)
- *     KeIsNodeInitialized @ 0x14038227C (KeIsNodeInitialized.c)
- *     ExpEnumerateNextActiveWorkSubQueue @ 0x1403822A8 (ExpEnumerateNextActiveWorkSubQueue.c)
- *     ExpTypeToPriority @ 0x1403831D0 (ExpTypeToPriority.c)
- *     ExpWorkQueueHealthMetricsEnabled @ 0x14051FCC8 (ExpWorkQueueHealthMetricsEnabled.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExpWorkQueueUpdateHealthMetricsOnRemove @ 0x1406D0E94 (ExpWorkQueueUpdateHealthMetricsOnRemove.c)
+ *     ExpValidateWorkItem @ 0x14020402C (ExpValidateWorkItem.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeInsertPriQueue @ 0x140383270 (KeInsertPriQueue.c)
+ *     KeIsNodeInitialized @ 0x14038402C (KeIsNodeInitialized.c)
+ *     ExpEnumerateNextActiveWorkSubQueue @ 0x140384058 (ExpEnumerateNextActiveWorkSubQueue.c)
+ *     ExpTypeToPriority @ 0x140384F80 (ExpTypeToPriority.c)
+ *     ExpWorkQueueHealthMetricsEnabled @ 0x14052236C (ExpWorkQueueHealthMetricsEnabled.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpWorkQueueUpdateHealthMetricsOnRemove @ 0x1406D4EC4 (ExpWorkQueueUpdateHealthMetricsOnRemove.c)
  */
 
 char __fastcall ExpTryQueueWorkItem(__int64 a1, ULONG_PTR a2, unsigned int a3, unsigned int a4)

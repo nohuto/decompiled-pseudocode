@@ -1,32 +1,32 @@
 /*
- * XREFs of NtGetCurrentProcessorNumberEx @ 0x1407F0B60
+ * XREFs of NtGetCurrentProcessorNumberEx @ 0x1407F66C0
  * Callers:
- *     DifNtGetCurrentProcessorNumberExWrapper @ 0x140678E60 (DifNtGetCurrentProcessorNumberExWrapper.c)
+ *     DifNtGetCurrentProcessorNumberExWrapper @ 0x14067CA40 (DifNtGetCurrentProcessorNumberExWrapper.c)
  * Callees:
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
  */
 
-__int64 __fastcall NtGetCurrentProcessorNumberEx(__int64 a1)
+ULONG __cdecl NtGetCurrentProcessorNumberEx(PPROCESSOR_NUMBER ProcessorNumber)
 {
   char PreviousMode; // bl
   struct _KPRCB *CurrentPrcb; // rsi
-  unsigned __int8 *v4; // rcx
+  unsigned __int8 *p_Number; // rcx
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   CurrentPrcb = KeGetCurrentPrcb();
   if ( PreviousMode )
-    RtlWriteUShortToUser((_WORD *)a1, CurrentPrcb->Group);
+    RtlWriteUShortToUser(ProcessorNumber, CurrentPrcb->Group);
   else
-    *(_WORD *)a1 = CurrentPrcb->Group;
-  v4 = (unsigned __int8 *)(a1 + 2);
+    ProcessorNumber->Group = CurrentPrcb->Group;
+  p_Number = &ProcessorNumber->Number;
   if ( PreviousMode )
-    RtlWriteUCharToUser(v4, CurrentPrcb->GroupIndex);
+    RtlWriteUCharToUser(p_Number, CurrentPrcb->GroupIndex);
   else
-    *v4 = CurrentPrcb->GroupIndex;
+    *p_Number = CurrentPrcb->GroupIndex;
   if ( PreviousMode )
-    RtlWriteUCharToUser((_BYTE *)(a1 + 3), 0);
+    RtlWriteUCharToUser(&ProcessorNumber->Reserved, 0);
   else
-    *(_BYTE *)(a1 + 3) = 0;
-  return 0LL;
+    ProcessorNumber->Reserved = 0;
+  return 0;
 }

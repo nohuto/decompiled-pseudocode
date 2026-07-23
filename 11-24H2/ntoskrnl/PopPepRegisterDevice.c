@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPepRegisterDevice @ 0x140A96C70
+ * XREFs of PopPepRegisterDevice @ 0x140A934A0
  * Callers:
- *     PopFxRegisterDeviceWithPep @ 0x1404C36C0 (PopFxRegisterDeviceWithPep.c)
+ *     PopFxRegisterDeviceWithPep @ 0x1404BEBF8 (PopFxRegisterDeviceWithPep.c)
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     PopPepComponentGetResidencyIdleState @ 0x140452CA0 (PopPepComponentGetResidencyIdleState.c)
- *     PopPepComponentGetLatencyIdleState @ 0x14045868C (PopPepComponentGetLatencyIdleState.c)
- *     PopPepInsertDevice @ 0x1404C0068 (PopPepInsertDevice.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x140447D50 (PopPepComponentGetResidencyIdleState.c)
+ *     PopPepComponentGetLatencyIdleState @ 0x14044DB3C (PopPepComponentGetLatencyIdleState.c)
+ *     PopPepInsertDevice @ 0x1404BB598 (PopPepInsertDevice.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 *a5)
@@ -44,7 +44,7 @@ char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4,
   int LatencyIdleState; // eax
   unsigned __int64 v36; // rdx
   int v37; // eax
-  __int64 v39; // [rsp+30h] [rbp-48h]
+  ULONG_PTR v39; // [rsp+30h] [rbp-48h]
   _QWORD *v40; // [rsp+90h] [rbp+18h]
 
   v5 = 0;
@@ -68,7 +68,7 @@ char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4,
       v14 += 24LL * v10;
     }
     v39 = v14 + 60LL * (v9 + 1);
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, v39, 0x54706550u);
     v16 = Pool2;
     if ( Pool2 )
     {
@@ -96,7 +96,7 @@ char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4,
         ++v19;
         v20 += 17;
       }
-      while ( (__int64)v20 < (__int64)AlpcConnectionType );
+      while ( (__int64)v20 < (__int64)&SeSubsystemName );
       *(_QWORD *)(v16 + 16) |= 1uLL;
       v22 = 0;
 LABEL_16:
@@ -130,7 +130,7 @@ LABEL_16:
           ++v23;
           v26 += 17;
         }
-        while ( (__int64)v26 < (__int64)AlpcConnectionType );
+        while ( (__int64)v26 < (__int64)&SeSubsystemName );
         KeInitializeEvent((PRKEVENT)(v27 + 32), NotificationEvent, 0);
         v29 = v40;
         *(_QWORD *)(v27 + 16) = *(_QWORD *)(v24 + 16);

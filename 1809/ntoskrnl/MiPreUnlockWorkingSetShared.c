@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPreUnlockWorkingSetShared @ 0x140130C48
+ * XREFs of MiPreUnlockWorkingSetShared @ 0x140130D18
  * Callers:
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
- *     MiMoveDirtyBitsToPfns @ 0x140074A40 (MiMoveDirtyBitsToPfns.c)
- *     NtGetWriteWatch @ 0x140086AD0 (NtGetWriteWatch.c)
+ *     MiTrimOrAgeWorkingSet @ 0x14006D570 (MiTrimOrAgeWorkingSet.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140074A30 (MiMoveDirtyBitsToPfns.c)
+ *     NtGetWriteWatch @ 0x140086AC0 (NtGetWriteWatch.c)
  * Callees:
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReduceWs @ 0x140130D9C (MiReduceWs.c)
- *     MiForcedTrim @ 0x14013F210 (MiForcedTrim.c)
- *     MiForceAgeWorkingSet @ 0x1402B3120 (MiForceAgeWorkingSet.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReduceWs @ 0x140130E6C (MiReduceWs.c)
+ *     MiForcedTrim @ 0x14013F310 (MiForcedTrim.c)
+ *     MiForceAgeWorkingSet @ 0x1402B3310 (MiForceAgeWorkingSet.c)
  */
 
 char __fastcall MiPreUnlockWorkingSetShared(__int64 a1, char a2)

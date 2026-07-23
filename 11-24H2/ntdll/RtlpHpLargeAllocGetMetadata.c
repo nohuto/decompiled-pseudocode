@@ -1,12 +1,11 @@
 /*
- * XREFs of RtlpHpLargeAllocGetMetadata @ 0x1800477C0
+ * XREFs of RtlpHpLargeAllocGetMetadata @ 0x18009EE8C
  * Callers:
- *     RtlpQueryExtendedInformationHeap @ 0x1800480F0 (RtlpQueryExtendedInformationHeap.c)
- *     RtlpHpLargeFree @ 0x1800938E4 (RtlpHpLargeFree.c)
- *     RtlpHpLargeReAlloc @ 0x180093AA4 (RtlpHpLargeReAlloc.c)
- *     RtlpHpExtrasAppend @ 0x1800B7EC0 (RtlpHpExtrasAppend.c)
- *     RtlpHpExtrasSetPresent @ 0x1800C2830 (RtlpHpExtrasSetPresent.c)
- *     RtlpHpLargeWalkHeap @ 0x18010D2FC (RtlpHpLargeWalkHeap.c)
+ *     RtlpHpLargeReAlloc @ 0x18009E474 (RtlpHpLargeReAlloc.c)
+ *     RtlpHpLargeFree @ 0x18009E878 (RtlpHpLargeFree.c)
+ *     RtlpHpExtrasSetPresent @ 0x18009EA20 (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpExtrasAppend @ 0x18009EC10 (RtlpHpExtrasAppend.c)
+ *     RtlpHpLargeWalkHeap @ 0x18009F9A0 (RtlpHpLargeWalkHeap.c)
  * Callees:
  *     <none>
  */

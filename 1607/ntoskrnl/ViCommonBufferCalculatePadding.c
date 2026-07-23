@@ -1,7 +1,7 @@
 /*
- * XREFs of ViCommonBufferCalculatePadding @ 0x140709008
+ * XREFs of ViCommonBufferCalculatePadding @ 0x140709038
  * Callers:
- *     ViSpecialAllocateCommonBuffer @ 0x14070A3DC (ViSpecialAllocateCommonBuffer.c)
+ *     ViSpecialAllocateCommonBuffer @ 0x14070A40C (ViSpecialAllocateCommonBuffer.c)
  * Callees:
  *     <none>
  */

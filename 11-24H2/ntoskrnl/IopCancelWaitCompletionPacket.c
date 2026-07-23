@@ -1,15 +1,15 @@
 /*
- * XREFs of IopCancelWaitCompletionPacket @ 0x1404285C4
+ * XREFs of IopCancelWaitCompletionPacket @ 0x14041B244
  * Callers:
- *     IopCloseWaitCompletionPacket @ 0x1404E5B40 (IopCloseWaitCompletionPacket.c)
- *     NtCancelWaitCompletionPacket @ 0x1404E5EF0 (NtCancelWaitCompletionPacket.c)
+ *     IopCloseWaitCompletionPacket @ 0x14041B150 (IopCloseWaitCompletionPacket.c)
+ *     NtCancelWaitCompletionPacket @ 0x1404DC5F0 (NtCancelWaitCompletionPacket.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     ?KiDeregisterObjectWaitBlock@@YAEPEAXPEAU_KWAIT_BLOCK@@@Z @ 0x1402A40EC (-KiDeregisterObjectWaitBlock@@YAEPEAXPEAU_KWAIT_BLOCK@@@Z.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObGetAssociatedWaitObject @ 0x140428690 (ObGetAssociatedWaitObject.c)
- *     KeRemoveQueueEntry @ 0x140428720 (KeRemoveQueueEntry.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ?KiDeregisterObjectWaitBlock@@YAEPEAXPEAU_KWAIT_BLOCK@@@Z @ 0x1402D381C (-KiDeregisterObjectWaitBlock@@YAEPEAXPEAU_KWAIT_BLOCK@@@Z.c)
+ *     ObGetAssociatedWaitObject @ 0x14041B310 (ObGetAssociatedWaitObject.c)
+ *     KeRemoveQueueEntry @ 0x14041B3A0 (KeRemoveQueueEntry.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall IopCancelWaitCompletionPacket(struct _KWAIT_BLOCK *a1, char a2, unsigned __int8 a3)

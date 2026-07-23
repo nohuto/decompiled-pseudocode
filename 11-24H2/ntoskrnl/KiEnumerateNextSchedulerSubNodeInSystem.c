@@ -1,15 +1,15 @@
 /*
- * XREFs of KiEnumerateNextSchedulerSubNodeInSystem @ 0x140208D20
+ * XREFs of KiEnumerateNextSchedulerSubNodeInSystem @ 0x140330300
  * Callers:
- *     KiRemoveForceParkedProcessorsFromAffinity @ 0x1404387E0 (KiRemoveForceParkedProcessorsFromAffinity.c)
- *     KeConfigureHeteroProcessors @ 0x140438880 (KeConfigureHeteroProcessors.c)
- *     KiGetNumberOfActiveSubNodes @ 0x1404397E8 (KiGetNumberOfActiveSubNodes.c)
- *     KiChooseTargetProcessor @ 0x1404E7710 (KiChooseTargetProcessor.c)
- *     KiConfigureCooperativeIdleSearchContextTargets @ 0x1405B6868 (KiConfigureCooperativeIdleSearchContextTargets.c)
- *     KiGetNextClockOwner @ 0x1405BA1EC (KiGetNextClockOwner.c)
+ *     KiRemoveForceParkedProcessorsFromAffinity @ 0x14042B3A0 (KiRemoveForceParkedProcessorsFromAffinity.c)
+ *     KeConfigureHeteroProcessors @ 0x14042B440 (KeConfigureHeteroProcessors.c)
+ *     KiGetNumberOfActiveSubNodes @ 0x14042C3A8 (KiGetNumberOfActiveSubNodes.c)
+ *     KiChooseTargetProcessor @ 0x1404DE410 (KiChooseTargetProcessor.c)
+ *     KiConfigureCooperativeIdleSearchContextTargets @ 0x1405B3B28 (KiConfigureCooperativeIdleSearchContextTargets.c)
+ *     KiGetNextClockOwner @ 0x1405B781C (KiGetNextClockOwner.c)
  * Callees:
- *     KeFindFirstSetRightGroupMask @ 0x140208F44 (KeFindFirstSetRightGroupMask.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
+ *     KeFindFirstSetRightGroupMask @ 0x140330524 (KeFindFirstSetRightGroupMask.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
  */
 
 __int64 __fastcall KiEnumerateNextSchedulerSubNodeInSystem(unsigned __int16 *a1, _QWORD *a2)
@@ -99,7 +99,7 @@ LABEL_19:
         *a1 = -1;
         return 2147483674LL;
       }
-      v17 = *(unsigned int *)(qword_140E2DAD0 + 4LL * (unsigned int)(v20 + v19 * v16));
+      v17 = *(unsigned int *)(qword_140E2DC10 + 4LL * (unsigned int)(v20 + v19 * v16));
     }
     else
     {

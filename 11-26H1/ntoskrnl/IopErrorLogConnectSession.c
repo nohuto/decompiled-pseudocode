@@ -1,11 +1,11 @@
 /*
- * XREFs of IopErrorLogConnectSession @ 0x140ADC230
+ * XREFs of IopErrorLogConnectSession @ 0x140AD9780
  * Callers:
- *     IopErrorLogThread @ 0x140ADBA70 (IopErrorLogThread.c)
+ *     IopErrorLogThread @ 0x140AD8FC0 (IopErrorLogThread.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     IopErrorLogQueueRequest @ 0x140ADC288 (IopErrorLogQueueRequest.c)
- *     EtwQueryTraceHandleByLoggerName @ 0x140B2AA20 (EtwQueryTraceHandleByLoggerName.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     IopErrorLogQueueRequest @ 0x140AD97D8 (IopErrorLogQueueRequest.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x140B2CAA0 (EtwQueryTraceHandleByLoggerName.c)
  */
 
 char IopErrorLogConnectSession()

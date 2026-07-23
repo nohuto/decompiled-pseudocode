@@ -14,11 +14,11 @@ char HvlpTryToLockCpuManagementVersion()
 
   v2 = 1LL;
   v0 = 0;
-  HvlpSetRegister64(589831LL, 1LL);
-  HvlpGetRegister64(589831LL, &v2);
+  HvlpSetRegister64(589831, 1uLL);
+  HvlpGetRegister64(589831, &v2);
   if ( (v2 & 0x4000000000000000LL) != 0 )
   {
-    HvlpSetRegister64(589831LL, 0x8000000000000001uLL);
+    HvlpSetRegister64(589831, 0x8000000000000001uLL);
     return 1;
   }
   return v0;

@@ -1,13 +1,13 @@
 /*
  * XREFs of PoFxCompleteIdleState @ 0x14045DD10
  * Callers:
- *     DifPoFxCompleteIdleStateWrapper @ 0x1406192D0 (DifPoFxCompleteIdleStateWrapper.c)
+ *     sub_1406192D0 @ 0x1406192D0 (sub_1406192D0.c)
  * Callees:
- *     PopFxProcessWork @ 0x140354CBC (PopFxProcessWork.c)
- *     PopFxAddLogEntry @ 0x140355058 (PopFxAddLogEntry.c)
+ *     sub_140354CBC @ 0x140354CBC (sub_140354CBC.c)
+ *     sub_140355058 @ 0x140355058 (sub_140355058.c)
  *     memset @ 0x140435E00 (memset.c)
- *     PopPluginComponentIdleState @ 0x14045DEFE (PopPluginComponentIdleState.c)
- *     PopDiagTraceFxComponentIdleState @ 0x14045E1D6 (PopDiagTraceFxComponentIdleState.c)
+ *     sub_14045DEFE @ 0x14045DEFE (sub_14045DEFE.c)
+ *     sub_14045E1D6 @ 0x14045E1D6 (sub_14045E1D6.c)
  */
 
 __int64 __fastcall PoFxCompleteIdleState(__int64 a1, unsigned int a2)
@@ -25,11 +25,11 @@ __int64 __fastcall PoFxCompleteIdleState(__int64 a1, unsigned int a2)
   result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v4 + 140), 0xFFFFFFFF);
   if ( (_DWORD)result == 1 )
   {
-    PopFxAddLogEntry(*(_QWORD *)(a1 + 48), v2, 14, 1LL);
-    PopDiagTraceFxComponentIdleState(*(_QWORD *)(a1 + 48), (unsigned int)v2, *(unsigned int *)(v4 + 152));
-    result = PopPluginComponentIdleState(a1, (unsigned int)v2, v6, v8);
+    sub_140355058(*(_QWORD *)(a1 + 48), v2, 14, 1LL);
+    sub_14045E1D6(*(_QWORD *)(a1 + 48), (unsigned int)v2, *(unsigned int *)(v4 + 152));
+    result = sub_14045DEFE(a1, (unsigned int)v2, v6, v8);
     if ( (_BYTE)result )
-      return PopFxProcessWork(0LL, v8, v7);
+      return sub_140354CBC(0LL, v8, v7);
   }
   return result;
 }

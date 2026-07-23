@@ -8,32 +8,30 @@
  *     RtlReleaseSRWLockExclusive @ 0x180033DA0 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlpHpHeapUnlock(__int64 a1, unsigned int a2)
+void __fastcall RtlpHpHeapUnlock(__int64 a1, int a2)
 {
-  __int64 result; // rax
-  _QWORD *v4; // rsi
+  _RTL_SRWLOCK *v4; // rsi
   _DWORD *v5; // r8
-  __int64 v6; // rdi
+  _RTL_SRWLOCK *v6; // rdi
   _WORD *v7; // rdx
-  __int64 v8; // rcx
+  _RTL_SRWLOCK *v8; // rcx
   _QWORD *v10; // rax
   __int64 v11; // rcx
 
-  result = a2;
   if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
   {
-    v4 = (_QWORD *)(a1 + 704);
+    v4 = (_RTL_SRWLOCK *)(a1 + 704);
     v5 = (_DWORD *)(a1 + 220);
-    v6 = a1 + 384;
+    v6 = (_RTL_SRWLOCK *)(a1 + 384);
     v7 = (_WORD *)(a1 + 216);
-    if ( (_DWORD)result )
+    if ( a2 )
     {
       v10 = (_QWORD *)(a1 + 384);
       *v5 = NtCurrentTeb()->ClientId.UniqueThread;
       v11 = 2LL;
       *v7 = 1;
       *(_QWORD *)(a1 + 968) = 1LL;
-      *v4 = 1LL;
+      v4->Value = 1LL;
       do
       {
         *v10 = 1LL;
@@ -41,14 +39,13 @@ __int64 __fastcall RtlpHpHeapUnlock(__int64 a1, unsigned int a2)
         --v11;
       }
       while ( v11 );
-      v8 = a1 + 64;
+      v8 = (_RTL_SRWLOCK *)(a1 + 64);
       *(_QWORD *)(a1 + 64) = 1LL;
     }
     else
     {
-      v8 = a1 + 64;
+      v8 = (_RTL_SRWLOCK *)(a1 + 64);
     }
-    result = 0xFFFFLL;
     if ( (*v7)-- == 1 )
     {
       *v5 = 0;
@@ -60,14 +57,13 @@ __int64 __fastcall RtlpHpHeapUnlock(__int64 a1, unsigned int a2)
           RtlReleaseSRWLockExclusive(v6);
           if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
           {
-            RtlReleaseSRWLockExclusive(a1 + 576);
+            RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 576));
             if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
               RtlReleaseSRWLockExclusive(v4);
           }
         }
       }
-      return RtlReleaseSRWLockExclusive(a1 + 968);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 968));
     }
   }
-  return result;
 }

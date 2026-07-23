@@ -1,5 +1,5 @@
 /*
- * XREFs of VhdDeferredAutoAttachVirtualDisks @ 0x14041A3F4
+ * XREFs of VhdDeferredAutoAttachVirtualDisks @ 0x14041A784
  * Callers:
  *     PipOobeCompleteAsyncCallback @ 0x14067E970 (PipOobeCompleteAsyncCallback.c)
  * Callees:

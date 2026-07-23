@@ -1,11 +1,11 @@
 /*
- * XREFs of KiInitializeDynamicProcessor @ 0x140BF4FC4
+ * XREFs of KiInitializeDynamicProcessor @ 0x140BFAFC4
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
  * Callees:
- *     KeGenericCallDpc @ 0x1404D1460 (KeGenericCallDpc.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KiStartDpcThread @ 0x1407B98EC (KiStartDpcThread.c)
+ *     KeGenericCallDpc @ 0x1404CAE90 (KeGenericCallDpc.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KiStartDpcThread @ 0x1407BC94C (KiStartDpcThread.c)
  */
 
 __int64 __fastcall KiInitializeDynamicProcessor(__int64 a1)

@@ -8,29 +8,29 @@
  *     NtTraceControl @ 0x180095360 (NtTraceControl.c)
  */
 
-__int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *a2)
+ULONG __cdecl EtwEventActivityIdControl(ULONG ControlCode, LPGUID ActivityId)
 {
   NTSTATUS v2; // r8d
-  int v3; // ecx
-  int v4; // ecx
+  ULONG v3; // ecx
+  ULONG v4; // ecx
   ULONG v5; // ebx
-  int v7; // ecx
+  ULONG v7; // ecx
   _GUID *p_ActivityId; // r9
-  int v9; // ecx
-  _GUID ActivityId; // xmm1
-  ULONG v11; // eax
-  char v12; // [rsp+48h] [rbp+10h] BYREF
+  ULONG v9; // ecx
+  _GUID v10; // xmm1
+  LONG v11; // eax
+  ULONG ReturnLength; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = 0;
-  if ( a2 )
+  if ( ActivityId )
   {
-    v3 = a1 - 1;
+    v3 = ControlCode - 1;
     if ( v3 )
     {
       v4 = v3 - 1;
       if ( !v4 )
       {
-        NtCurrentTeb()->ActivityId = *a2;
+        NtCurrentTeb()->ActivityId = *ActivityId;
         return 0;
       }
       v7 = v4 - 1;
@@ -39,9 +39,9 @@ __int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *a2)
         v9 = v7 - 1;
         if ( !v9 )
         {
-          ActivityId = NtCurrentTeb()->ActivityId;
-          NtCurrentTeb()->ActivityId = *a2;
-          *a2 = ActivityId;
+          v10 = NtCurrentTeb()->ActivityId;
+          NtCurrentTeb()->ActivityId = *ActivityId;
+          *ActivityId = v10;
           return 0;
         }
         if ( v9 != 1 )
@@ -49,18 +49,18 @@ __int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *a2)
           v2 = -1073741811;
           goto LABEL_19;
         }
-        *a2 = NtCurrentTeb()->ActivityId;
+        *ActivityId = NtCurrentTeb()->ActivityId;
         p_ActivityId = &NtCurrentTeb()->ActivityId;
       }
       else
       {
-        p_ActivityId = a2;
+        p_ActivityId = ActivityId;
       }
-      v2 = NtTraceControl(12LL, 0LL, 0LL, p_ActivityId, 16, &v12);
+      v2 = NtTraceControl(EtwActivityIdCreate, 0LL, 0, p_ActivityId, 0x10u, &ReturnLength);
     }
     else
     {
-      *a2 = NtCurrentTeb()->ActivityId;
+      *ActivityId = NtCurrentTeb()->ActivityId;
     }
     if ( !v2 )
       return 0;
@@ -71,5 +71,5 @@ LABEL_19:
       RtlSetLastWin32Error(v11);
     return v5;
   }
-  return 87LL;
+  return 87;
 }

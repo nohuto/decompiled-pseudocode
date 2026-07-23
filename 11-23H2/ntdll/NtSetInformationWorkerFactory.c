@@ -14,17 +14,21 @@
  *     TpSetPoolMaxThreadsSoftLimit @ 0x180083F40 (TpSetPoolMaxThreadsSoftLimit.c)
  *     TpSetPoolMinThreads @ 0x180085B80 (TpSetPoolMinThreads.c)
  *     TpSetPoolThreadBasePriority @ 0x180089640 (TpSetPoolThreadBasePriority.c)
- *     TpSetPoolThreadCpuSets @ 0x180126CC0 (TpSetPoolThreadCpuSets.c)
- *     TppAdjustRunningThreadGoalWithLock @ 0x180126D70 (TppAdjustRunningThreadGoalWithLock.c)
+ *     TpSetPoolThreadCpuSets @ 0x180126C90 (TpSetPoolThreadCpuSets.c)
+ *     TppAdjustRunningThreadGoalWithLock @ 0x180126D40 (TppAdjustRunningThreadGoalWithLock.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtSetInformationWorkerFactory()
+NTSTATUS __cdecl NtSetInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 430LL;
+  result = 430;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

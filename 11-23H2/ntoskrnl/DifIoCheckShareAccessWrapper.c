@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoCheckShareAccessWrapper @ 0x1405DDAC0
+ * XREFs of DifIoCheckShareAccessWrapper @ 0x1405DE030
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoCheckShareAccess @ 0x1407E1BA0 (IoCheckShareAccess.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoCheckShareAccess @ 0x1407E1E70 (IoCheckShareAccess.c)
  */
 
 NTSTATUS __fastcall DifIoCheckShareAccessWrapper(

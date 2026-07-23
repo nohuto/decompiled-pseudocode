@@ -1,10 +1,10 @@
 /*
- * XREFs of PopNotifyShutdownListener @ 0x14057DFB4
+ * XREFs of PopNotifyShutdownListener @ 0x14057EFB4
  * Callers:
- *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
- *     PopShutdownSystem @ 0x14057E014 (PopShutdownSystem.c)
+ *     PopSaveHiberContext @ 0x14056B060 (PopSaveHiberContext.c)
+ *     PopShutdownSystem @ 0x14057F014 (PopShutdownSystem.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 PopNotifyShutdownListener()

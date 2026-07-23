@@ -1,9 +1,9 @@
 /*
- * XREFs of MmAddPhysicalMemory @ 0x140867350
+ * XREFs of MmAddPhysicalMemory @ 0x14086D730
  * Callers:
- *     WheapClearPoison @ 0x140848C30 (WheapClearPoison.c)
+ *     WheapClearPoison @ 0x14084EF00 (WheapClearPoison.c)
  * Callees:
- *     MiAddPhysicalMemoryChunks @ 0x140865468 (MiAddPhysicalMemoryChunks.c)
+ *     MiAddPhysicalMemoryChunks @ 0x14086B848 (MiAddPhysicalMemoryChunks.c)
  */
 
 NTSTATUS __stdcall MmAddPhysicalMemory(PPHYSICAL_ADDRESS StartAddress, PLARGE_INTEGER NumberOfBytes)

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpPutAcpiHacksInRegistry @ 0x140785984
+ * XREFs of HalpPutAcpiHacksInRegistry @ 0x1407884B4
  * Callers:
- *     HaliInitPowerManagement @ 0x140785870 (HaliInitPowerManagement.c)
+ *     HaliInitPowerManagement @ 0x1407883A0 (HaliInitPowerManagement.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
  */
 
 int HalpPutAcpiHacksInRegistry()
@@ -21,7 +21,7 @@ int HalpPutAcpiHacksInRegistry()
   UNICODE_STRING v6; // [rsp+80h] [rbp-9h] BYREF
   UNICODE_STRING v7; // [rsp+90h] [rbp+7h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp+17h] BYREF
-  unsigned int Data; // [rsp+F0h] [rbp+67h] BYREF
+  int Data; // [rsp+F0h] [rbp+67h] BYREF
   ULONG Disposition; // [rsp+F8h] [rbp+6Fh] BYREF
   HANDLE Handle; // [rsp+100h] [rbp+77h] BYREF
   HANDLE KeyHandle; // [rsp+108h] [rbp+7Fh] BYREF
@@ -60,13 +60,13 @@ int HalpPutAcpiHacksInRegistry()
     result = ZwClose(KeyHandle);
     if ( v1 >= 0 )
     {
-      Data = LOBYTE(HalpDeviceBlockUnblockPushLock.AbCompletedIoQoSBoostCount);
+      Data = HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[4];
       ZwSetValueKey(Handle, &ValueName, 0, 4u, &Data, 4u);
-      Data = HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[18];
+      Data = LOBYTE(HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next);
       ZwSetValueKey(Handle, &v5, 0, 4u, &Data, 4u);
-      Data = HalpDeviceBlockUnblockPushLock.ForegroundLossTime | (HalpDeviceBlockUnblockPushLock.AbCompletedIoBoostCount << 16);
+      Data = *(_DWORD *)&HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[12] | (*(_DWORD *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts << 16);
       ZwSetValueKey(Handle, &v6, 0, 4u, &Data, 4u);
-      Data = HalpDeviceBlockUnblockPushLock.PriorityFloorSummary;
+      Data = HIDWORD(HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next);
       ZwSetValueKey(Handle, &v7, 0, 4u, &Data, 4u);
       return ZwClose(Handle);
     }

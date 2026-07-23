@@ -123,7 +123,7 @@ __int64 __fastcall PopFxClearDeviceConstraints(__int64 a1)
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 244), 0xFFFFFFFF) == 1 )
       KeSetEvent((PRKEVENT)(a1 + 248), 0, 0);
     if ( !v3 )
-      ZwUpdateWnfStateData((__int64)&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL);
+      ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v3;
 }

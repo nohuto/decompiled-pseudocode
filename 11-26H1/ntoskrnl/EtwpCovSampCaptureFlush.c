@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpCovSampCaptureFlush @ 0x14093FB64
+ * XREFs of EtwpCovSampCaptureFlush @ 0x140A32C74
  * Callers:
- *     EtwpCoverageSamplerQuery @ 0x14093FBF0 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCoverageSamplerQuery @ 0x140A32D00 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     EtwpCovSampCaptureQueueBuffer @ 0x140488DF0 (EtwpCovSampCaptureQueueBuffer.c)
- *     EtwpCovSampCaptureFlushSampleBuffers @ 0x1405250F8 (EtwpCovSampCaptureFlushSampleBuffers.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     EtwpCovSampCaptureQueueBuffer @ 0x140482930 (EtwpCovSampCaptureQueueBuffer.c)
+ *     EtwpCovSampCaptureFlushSampleBuffers @ 0x140527768 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 NTSTATUS __fastcall EtwpCovSampCaptureFlush(__int64 a1)
 {
-  struct _SLIST_ENTRY v3; // [rsp+30h] [rbp-58h] BYREF
+  _SLIST_ENTRY v3; // [rsp+30h] [rbp-58h] BYREF
   __int64 v4; // [rsp+40h] [rbp-48h]
   struct _KEVENT Event; // [rsp+60h] [rbp-28h] BYREF
 

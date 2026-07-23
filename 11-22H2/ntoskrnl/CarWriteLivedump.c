@@ -11,7 +11,7 @@
 
 __int64 __fastcall CarWriteLivedump(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5, bool *a6)
 {
-  struct _CONTEXT *Pool2; // rax
+  _CONTEXT *Pool2; // rax
   int v11; // r8d
 
   if ( CarPreviousDumpTime && MEMORY[0xFFFFF78000000014] - CarPreviousDumpTime < 36000000000LL
@@ -20,7 +20,7 @@ __int64 __fastcall CarWriteLivedump(__int64 a1, unsigned int a2, __int64 a3, __i
     v11 = -2147483631;
     goto LABEL_11;
   }
-  Pool2 = (struct _CONTEXT *)ExAllocatePool2(64LL, 1232LL, 1316118851LL);
+  Pool2 = (_CONTEXT *)ExAllocatePool2(64LL, 1232LL, 1316118851LL);
   qword_140C34F08 = Pool2;
   if ( !Pool2 )
   {

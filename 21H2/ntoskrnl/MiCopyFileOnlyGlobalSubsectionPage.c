@@ -1,25 +1,25 @@
 /*
- * XREFs of MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FD78
+ * XREFs of MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FFB8
  * Callers:
- *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
+ *     MiResolveMappedFileFault @ 0x1403241D0 (MiResolveMappedFileFault.c)
  * Callees:
- *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
- *     MiCopyPage @ 0x140240220 (MiCopyPage.c)
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiInitializeTransitionPfn @ 0x14026E22C (MiInitializeTransitionPfn.c)
- *     MiAdvanceFaultList @ 0x14028E148 (MiAdvanceFaultList.c)
- *     MiHandleInPageError @ 0x1402A2D84 (MiHandleInPageError.c)
- *     MiFlowThroughInsertNode @ 0x1402D006C (MiFlowThroughInsertNode.c)
- *     MiTryLockLeafPage @ 0x140303978 (MiTryLockLeafPage.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x140304CB4 (MiTryLockProtoPoolPageAtDpc.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiObtainProtoReference @ 0x14031A00C (MiObtainProtoReference.c)
- *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x140328BC0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     MiAdvanceFaultList @ 0x14020B2E8 (MiAdvanceFaultList.c)
+ *     MiHandleInPageError @ 0x1402201C4 (MiHandleInPageError.c)
+ *     MiFlowThroughInsertNode @ 0x14024E3EC (MiFlowThroughInsertNode.c)
+ *     MiInitializeTransitionPfn @ 0x14025C1CC (MiInitializeTransitionPfn.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DE040 (MiUnlockProtoPoolPage.c)
+ *     MiCopyPage @ 0x1402E4A70 (MiCopyPage.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiTryLockLeafPage @ 0x14030E6C8 (MiTryLockLeafPage.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x14030FA04 (MiTryLockProtoPoolPageAtDpc.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiObtainProtoReference @ 0x140324D5C (MiObtainProtoReference.c)
+ *     MiStartingOffset @ 0x140329160 (MiStartingOffset.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140333910 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  */
 
 __int64 __fastcall MiCopyFileOnlyGlobalSubsectionPage(
@@ -52,16 +52,17 @@ __int64 __fastcall MiCopyFileOnlyGlobalSubsectionPage(
   __int64 v29; // rax
   __int64 v30; // r8
   __int64 v31; // r9
-  __int64 v33; // [rsp+20h] [rbp-10h] BYREF
-  __int64 v34; // [rsp+28h] [rbp-8h]
-  int v35; // [rsp+70h] [rbp+40h] BYREF
-  __int64 *v36; // [rsp+78h] [rbp+48h]
-  __int64 v37; // [rsp+80h] [rbp+50h] BYREF
+  __int64 v32; // r8
+  __int64 v34; // [rsp+20h] [rbp-10h] BYREF
+  __int64 v35; // [rsp+28h] [rbp-8h]
+  int v36; // [rsp+70h] [rbp+40h] BYREF
+  __int64 *v37; // [rsp+78h] [rbp+48h]
+  __int64 v38; // [rsp+80h] [rbp+50h] BYREF
 
-  v36 = a2;
+  v37 = a2;
   v7 = a5;
-  v37 = 0LL;
-  v33 = 0LL;
+  v38 = 0LL;
+  v34 = 0LL;
   v12 = 48 * a5 - 0x58000000000LL;
   LODWORD(a5) = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(v12 + 24), 0x3FuLL) )
@@ -77,12 +78,12 @@ __int64 __fastcall MiCopyFileOnlyGlobalSubsectionPage(
   }
   else
   {
-    if ( qword_140C4DF40 )
+    if ( qword_140C4DF80 )
     {
       if ( (v13 & 0x10) != 0 )
         v13 &= ~0x10uLL;
       else
-        v13 &= ~qword_140C4DF40;
+        v13 &= ~qword_140C4DF80;
     }
     v14 = (v13 >> 12) & 0xFFFFFFFFFLL;
   }
@@ -93,36 +94,36 @@ __int64 __fastcall MiCopyFileOnlyGlobalSubsectionPage(
   *(_QWORD *)v12 = (a1 + 32) & -(__int64)(a1 != 0);
   *(_BYTE *)(v12 + 35) ^= (*(_BYTE *)(v12 + 35) ^ (*(_DWORD *)(a1 + 192) >> 9)) & 7;
   _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  v34 = *a2;
-  v15 = (volatile LONG *)(v34 + 72);
-  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v34 + 72));
-  ++*(_QWORD *)(v34 + 32);
+  v35 = *a2;
+  v15 = (volatile LONG *)(v35 + 72);
+  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v35 + 72));
+  ++*(_QWORD *)(v35 + 32);
   ExReleaseSpinLockExclusiveFromDpcLevel(v15);
-  v16 = v36[1] + 8LL * (unsigned int)((__int64)(a3 - *(_QWORD *)(a7 + 72)) >> 3);
+  v16 = v37[1] + 8LL * (unsigned int)((__int64)(a3 - *(_QWORD *)(a7 + 72)) >> 3);
   if ( ((a3 ^ v16) & 0xFFFFFFFFF000LL) != 0 )
-    v17 = MiTryLockProtoPoolPageAtDpc((__int64 *)v16, 0xFFFFFFFFF000LL, &v33, &v37);
+    v17 = MiTryLockProtoPoolPageAtDpc((__int64 *)v16, 0xFFFFFFFFF000LL, &v34, &v38);
   else
-    v17 = MiTryLockLeafPage((__int64 *)v16, 0xFFFFFFFFF000LL, &v37);
+    v17 = MiTryLockLeafPage((__int64 *)v16, 0xFFFFFFFFF000LL, &v38);
   v21 = v17;
   if ( v17 < 0 )
     goto LABEL_30;
-  v22 = v37;
-  if ( (*(_BYTE *)(v37 + 35) & 0x40) != 0 )
+  v22 = v38;
+  if ( (*(_BYTE *)(v38 + 35) & 0x40) != 0 )
   {
-    _InterlockedAnd64((volatile signed __int64 *)(v37 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( v33 )
-      MiUnlockProtoPoolPage(v33, 2u);
-    v22 = v37;
+    _InterlockedAnd64((volatile signed __int64 *)(v38 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    if ( v34 )
+      MiUnlockProtoPoolPage(v34, 2u);
+    v22 = v38;
     v21 = -1073740023;
   }
   if ( v21 < 0 )
   {
 LABEL_30:
-    v35 = 0;
+    v36 = 0;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(v12 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v35, v18, v19, v20);
+        KeYieldProcessorEx(&v36, v18, v19, v20);
       while ( *(__int64 *)(v12 + 24) < 0 );
     }
     MiHandleInPageError(v12);
@@ -147,7 +148,7 @@ LABEL_30:
     if ( (int)PsGetIoPriorityThread((__int64)KeGetCurrentThread()) < 2 )
       *(_DWORD *)(a1 + 192) |= 0x80u;
     v25 = a7;
-    v26 = v36;
+    v26 = v37;
     *(_QWORD *)(a1 + 272) = 0LL;
     *(_DWORD *)(a1 + 280) = 4325432;
     *(_QWORD *)(a1 + 304) = 0LL;
@@ -157,7 +158,7 @@ LABEL_30:
     *(_QWORD *)(a1 + 248) = v12;
     v28 = a6;
     *(_QWORD *)(a1 + 96) = v27;
-    v29 = v34;
+    v29 = v35;
     *(_QWORD *)(a1 + 240) = a3;
     *(_QWORD *)(a1 + 208) = v29;
     *(_QWORD *)(a1 + 200) = 0LL;
@@ -166,10 +167,10 @@ LABEL_30:
     *(_QWORD *)(a1 + 160) = v28;
     MiCopyPage(v7, v23, 0LL, 68);
     if ( v14 != -1 )
-      MiFlowThroughInsertNode(a1, (_QWORD *)(48 * v14 - 0x58000000000LL));
-    _InterlockedAnd64((volatile signed __int64 *)(v37 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( v33 )
-      MiUnlockProtoPoolPage(v33, 2u);
+      MiFlowThroughInsertNode(a1, (_QWORD *)(48 * v14 - 0x58000000000LL), v32);
+    _InterlockedAnd64((volatile signed __int64 *)(v38 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    if ( v34 )
+      MiUnlockProtoPoolPage(v34, 2u);
     MiUnlockProtoPoolPage(v28, 2u);
     __incgsdword(0x2E98u);
     *(_DWORD *)(a1 + 80) = 0;

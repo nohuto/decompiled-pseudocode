@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteCloneDescriptor @ 0x1404AFC48
+ * XREFs of MiDeleteCloneDescriptor @ 0x1404A92D8
  * Callers:
- *     MiDecrementCloneBlockReference @ 0x1404AFB30 (MiDecrementCloneBlockReference.c)
- *     MiDeleteCloneTree @ 0x1405267A4 (MiDeleteCloneTree.c)
+ *     MiDecrementCloneBlockReference @ 0x1404A91C0 (MiDecrementCloneBlockReference.c)
+ *     MiDeleteCloneTree @ 0x140528E14 (MiDeleteCloneTree.c)
  * Callees:
- *     MiRemoveClone @ 0x1404AFC88 (MiRemoveClone.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     MiRemoveClone @ 0x1404A9318 (MiRemoveClone.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall MiDeleteCloneDescriptor(__int64 a1, struct _SLIST_ENTRY *a2)
+PSLIST_ENTRY __fastcall MiDeleteCloneDescriptor(__int64 a1, _SLIST_ENTRY *a2)
 {
   MiRemoveClone();
   return RtlpInterlockedPushEntrySList((PSLIST_HEADER)(*(_QWORD *)(a1 + 1040) + 1216LL), a2 + 5);

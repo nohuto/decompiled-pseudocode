@@ -1,12 +1,12 @@
 /*
- * XREFs of PopAvlFreePowerRequestStats @ 0x1406D06C0
+ * XREFs of PopAvlFreePowerRequestStats @ 0x1406D1960
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PopAvlFreePowerRequestStats(struct _RTL_AVL_TABLE *Table, PVOID Buffer)
+void __fastcall PopAvlFreePowerRequestStats(_RTL_AVL_TABLE *a1, PVOID a2)
 {
-  ExFreePoolWithTag(Buffer, 0x54515750u);
+  ExFreePoolWithTag(a2, 0x54515750u);
 }

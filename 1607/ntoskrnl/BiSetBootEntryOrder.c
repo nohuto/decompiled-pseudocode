@@ -1,18 +1,18 @@
 /*
- * XREFs of BiSetBootEntryOrder @ 0x1406D5730
+ * XREFs of BiSetBootEntryOrder @ 0x1406D5868
  * Callers:
- *     BiAddBootEntryToNvramDisplayOrder @ 0x1406D3524 (BiAddBootEntryToNvramDisplayOrder.c)
- *     BiExportEfiBootManager @ 0x1406D4A80 (BiExportEfiBootManager.c)
+ *     BiAddBootEntryToNvramDisplayOrder @ 0x1406D365C (BiAddBootEntryToNvramDisplayOrder.c)
+ *     BiExportEfiBootManager @ 0x1406D4BB8 (BiExportEfiBootManager.c)
  * Callees:
- *     ZwSetBootEntryOrder @ 0x14015CB00 (ZwSetBootEntryOrder.c)
- *     BiReleasePrivilege @ 0x14053BD20 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x14053BD6C (BiAcquirePrivilege.c)
+ *     ZwSetBootEntryOrder @ 0x14015D070 (ZwSetBootEntryOrder.c)
+ *     BiReleasePrivilege @ 0x14053C260 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x14053C2AC (BiAcquirePrivilege.c)
  */
 
 __int64 __fastcall BiSetBootEntryOrder(PULONG Ids, PULONG Count)
 {
   unsigned int v2; // edi
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   unsigned int v6; // [rsp+40h] [rbp+18h] BYREF
 
   v2 = (unsigned int)Count;

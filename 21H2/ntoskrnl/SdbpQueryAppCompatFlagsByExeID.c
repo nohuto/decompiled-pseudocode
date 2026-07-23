@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpQueryAppCompatFlagsByExeID @ 0x1407C1CFC
+ * XREFs of SdbpQueryAppCompatFlagsByExeID @ 0x1407C221C
  * Callers:
- *     SdbGetEntryFlags @ 0x1407C1C48 (SdbGetEntryFlags.c)
+ *     SdbGetEntryFlags @ 0x1407C2168 (SdbGetEntryFlags.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslRegistryGetKey @ 0x1407C1D7C (AslRegistryGetKey.c)
- *     AslRegistryGetUInt32 @ 0x140967D60 (AslRegistryGetUInt32.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslRegistryGetKey @ 0x1407C229C (AslRegistryGetKey.c)
+ *     AslRegistryGetUInt32 @ 0x140967F40 (AslRegistryGetUInt32.c)
  */
 
 __int64 __fastcall SdbpQueryAppCompatFlagsByExeID(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)

@@ -64,7 +64,7 @@ __int64 __fastcall PpmIdleSelectStates(
   unsigned int v36; // ecx
   unsigned int v37; // edx
   unsigned int i; // eax
-  unsigned int v39; // eax
+  ULONG v39; // eax
   char v40; // al
   int v41; // edi
   __int64 (__fastcall *v42)(_QWORD, __int64); // rax
@@ -91,7 +91,7 @@ __int64 __fastcall PpmIdleSelectStates(
   unsigned int v63; // edx
   unsigned int v64; // eax
   unsigned int j; // ecx
-  unsigned int v66; // eax
+  ULONG v66; // eax
   __int64 v67; // r8
   __int64 v68; // rcx
   __int64 v69; // rdx

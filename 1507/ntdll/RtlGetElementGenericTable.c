@@ -6,61 +6,61 @@
  *     <none>
  */
 
-_QWORD *__fastcall RtlGetElementGenericTable(__int64 a1, int a2)
+PVOID __cdecl RtlGetElementGenericTable(PRTL_GENERIC_TABLE Table, ULONG I)
 {
-  unsigned int v2; // eax
-  unsigned int v3; // r11d
-  unsigned int v4; // r10d
-  _QWORD *j; // r8
-  int v6; // r9d
-  unsigned int v8; // edx
+  ULONG NumberGenericTableElements; // eax
+  ULONG v3; // r11d
+  ULONG WhichOrderedElement; // r10d
+  PLIST_ENTRY OrderedPointer; // r8
+  ULONG v6; // r9d
+  ULONG v8; // edx
   unsigned int v9; // eax
-  unsigned int i; // r10d
+  ULONG i; // r10d
 
-  v2 = *(_DWORD *)(a1 + 36);
-  v3 = a2 + 1;
-  v4 = *(_DWORD *)(a1 + 32);
-  j = *(_QWORD **)(a1 + 24);
-  v6 = a2 + 1;
-  if ( a2 + 1 > v2 || a2 == -1 )
+  NumberGenericTableElements = Table->NumberGenericTableElements;
+  v3 = I + 1;
+  WhichOrderedElement = Table->WhichOrderedElement;
+  OrderedPointer = Table->OrderedPointer;
+  v6 = I + 1;
+  if ( I + 1 > NumberGenericTableElements || I == -1 )
     return 0LL;
-  if ( v4 != v3 )
+  if ( WhichOrderedElement != v3 )
   {
-    if ( v4 > v3 )
+    if ( WhichOrderedElement > v3 )
     {
-      if ( v3 <= v4 >> 1 )
+      if ( v3 <= WhichOrderedElement >> 1 )
       {
-        j = (_QWORD *)(a1 + 8);
+        OrderedPointer = &Table->InsertOrderList;
         do
         {
-          j = (_QWORD *)*j;
+          OrderedPointer = OrderedPointer->Flink;
           --v6;
         }
         while ( v6 );
       }
       else
       {
-        for ( i = v4 - v3; i; --i )
-          j = (_QWORD *)j[1];
+        for ( i = WhichOrderedElement - v3; i; --i )
+          OrderedPointer = OrderedPointer->Blink;
       }
     }
     else
     {
-      v8 = v3 - v4;
-      v9 = v2 - v3 + 1;
-      if ( v3 - v4 > v9 )
+      v8 = v3 - WhichOrderedElement;
+      v9 = NumberGenericTableElements - v3 + 1;
+      if ( v3 - WhichOrderedElement > v9 )
       {
-        for ( j = (_QWORD *)(a1 + 8); v9; --v9 )
-          j = (_QWORD *)j[1];
+        for ( OrderedPointer = &Table->InsertOrderList; v9; --v9 )
+          OrderedPointer = OrderedPointer->Blink;
       }
       else
       {
         for ( ; v8; --v8 )
-          j = (_QWORD *)*j;
+          OrderedPointer = OrderedPointer->Flink;
       }
     }
-    *(_QWORD *)(a1 + 24) = j;
-    *(_DWORD *)(a1 + 32) = v3;
+    Table->OrderedPointer = OrderedPointer;
+    Table->WhichOrderedElement = v3;
   }
-  return j + 2;
+  return &OrderedPointer[1];
 }

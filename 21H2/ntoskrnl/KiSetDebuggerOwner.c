@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetDebuggerOwner @ 0x14051E414
+ * XREFs of KiSetDebuggerOwner @ 0x14051E654
  * Callers:
- *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
- *     KeFreezeExecution @ 0x14051D6F0 (KeFreezeExecution.c)
- *     KeSwitchFrozenProcessor @ 0x14051DB00 (KeSwitchFrozenProcessor.c)
- *     KiFreezeTargetExecution @ 0x14051DE60 (KiFreezeTargetExecution.c)
- *     KiSendThawExecution @ 0x14051E250 (KiSendThawExecution.c)
+ *     KeBugCheck2 @ 0x140516D10 (KeBugCheck2.c)
+ *     KeFreezeExecution @ 0x14051D930 (KeFreezeExecution.c)
+ *     KeSwitchFrozenProcessor @ 0x14051DD40 (KeSwitchFrozenProcessor.c)
+ *     KiFreezeTargetExecution @ 0x14051E0A0 (KiFreezeTargetExecution.c)
+ *     KiSendThawExecution @ 0x14051E490 (KiSendThawExecution.c)
  * Callees:
  *     <none>
  */

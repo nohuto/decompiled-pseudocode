@@ -1,20 +1,20 @@
 /*
- * XREFs of SepSetTokenCachedHandles @ 0x140717C04
+ * XREFs of SepSetTokenCachedHandles @ 0x1406C6254
  * Callers:
- *     SepSetTokenBnoIsolation @ 0x140251968 (SepSetTokenBnoIsolation.c)
- *     NtCreateLowBoxToken @ 0x140676580 (NtCreateLowBoxToken.c)
+ *     SepSetTokenBnoIsolation @ 0x1402F6178 (SepSetTokenBnoIsolation.c)
+ *     NtCreateLowBoxToken @ 0x140669C50 (NtCreateLowBoxToken.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     SepReferenceCachedTokenHandles @ 0x140360534 (SepReferenceCachedTokenHandles.c)
- *     SepCloseCachedTokenHandles @ 0x1403605C4 (SepCloseCachedTokenHandles.c)
- *     RtlCreateHashTable @ 0x1403767C0 (RtlCreateHashTable.c)
- *     SepGetCachedHandlesEntry @ 0x140717DC4 (SepGetCachedHandlesEntry.c)
- *     SepValidateReferencedCachedHandles @ 0x1407182A0 (SepValidateReferencedCachedHandles.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     SepReferenceCachedTokenHandles @ 0x1402A5464 (SepReferenceCachedTokenHandles.c)
+ *     SepCloseCachedTokenHandles @ 0x1402A54F4 (SepCloseCachedTokenHandles.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     RtlCreateHashTable @ 0x140376310 (RtlCreateHashTable.c)
+ *     SepGetCachedHandlesEntry @ 0x1406C6414 (SepGetCachedHandlesEntry.c)
+ *     SepValidateReferencedCachedHandles @ 0x1406C68F0 (SepValidateReferencedCachedHandles.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepSetTokenCachedHandles(_QWORD *a1, _DWORD *a2, unsigned int a3, HANDLE *a4)
@@ -30,14 +30,17 @@ __int64 __fastcall SepSetTokenCachedHandles(_QWORD *a1, _DWORD *a2, unsigned int
   char v16; // cl
   HANDLE *v17; // rax
   char v18; // bl
-  bool v20; // zf
-  _QWORD v21[7]; // [rsp+20h] [rbp-38h] BYREF
-  char v22; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  bool v23; // zf
+  _QWORD v24[7]; // [rsp+20h] [rbp-38h] BYREF
+  char v25; // [rsp+70h] [rbp+18h] BYREF
 
   v4 = 0LL;
-  v21[0] = 0LL;
+  v24[0] = 0LL;
   v6 = 0;
-  v22 = 0;
+  v25 = 0;
   if ( !a3 )
     goto LABEL_5;
   PoolWithTag = (HANDLE *)ExAllocatePoolWithTag(PagedPool, 8LL * a3, 0x63486553u);
@@ -61,11 +64,11 @@ LABEL_5:
         CachedHandlesEntry = -1073741670;
         goto LABEL_27;
       }
-      CachedHandlesEntry = SepGetCachedHandlesEntry(v13, a2, &v22, v21);
+      CachedHandlesEntry = SepGetCachedHandlesEntry(v13, a2, &v25, v24);
       if ( CachedHandlesEntry )
       {
 LABEL_27:
-        v20 = (_InterlockedExchangeAdd64((volatile signed __int64 *)v13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2;
+        v23 = (_InterlockedExchangeAdd64((volatile signed __int64 *)v13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2;
         goto LABEL_31;
       }
       v14 = 0;
@@ -85,25 +88,25 @@ LABEL_13:
           v18 = _InterlockedExchangeAdd64((volatile signed __int64 *)v13, 0xFFFFFFFFFFFFFFFFuLL);
           if ( (v18 & 2) == 0 )
             goto LABEL_18;
-          v20 = (v18 & 4) == 0;
+          v23 = (v18 & 4) == 0;
 LABEL_31:
-          if ( v20 )
+          if ( v23 )
             ExfTryToWakePushLock(v13);
 LABEL_18:
           KeAbPostRelease(v13);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v19, v20, v21);
           goto LABEL_19;
         }
-        v14 = v22 == 0;
-        v15 = v21[0];
-        a1[144] = v21[0];
+        v14 = v25 == 0;
+        v15 = v24[0];
+        a1[144] = v24[0];
       }
       else
       {
-        v15 = v21[0];
+        v15 = v24[0];
         if ( a3 )
-          v14 = *(_DWORD *)(v21[0] + 56LL) == 0;
-        a1[136] = v21[0];
+          v14 = *(_DWORD *)(v24[0] + 56LL) == 0;
+        a1[136] = v24[0];
       }
       if ( v14 )
       {

@@ -1,14 +1,14 @@
 /*
- * XREFs of IoQueryDeviceDescription @ 0x140A74360
+ * XREFs of IoQueryDeviceDescription @ 0x140A4AE00
  * Callers:
  *     <none>
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     pIoQueryBusDescription @ 0x140A744A8 (pIoQueryBusDescription.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     pIoQueryBusDescription @ 0x140A4AF48 (pIoQueryBusDescription.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoQueryDeviceDescription(
@@ -46,7 +46,7 @@ NTSTATUS __stdcall IoQueryDeviceDescription(
   Destination.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
   if ( !Destination.Buffer )
     return -1073741670;
-  RtlAppendUnicodeStringToString(&Destination, (PCUNICODE_STRING)&PspSiloMonitorLock.648);
+  RtlAppendUnicodeStringToString(&Destination, (PCUNICODE_STRING)&PspSiloMonitorLock.SavedApcStateFill[32]);
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = &Destination;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;

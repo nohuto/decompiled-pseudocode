@@ -1,13 +1,13 @@
 /*
- * XREFs of KasanIsEnabled @ 0x140516570
+ * XREFs of KasanIsEnabled @ 0x14050FFE0
  * Callers:
- *     ExpPoolHeapCreate @ 0x1408465EC (ExpPoolHeapCreate.c)
- *     ExInitializeSystemLookasideList @ 0x140C0D4C0 (ExInitializeSystemLookasideList.c)
+ *     ExpPoolHeapCreate @ 0x14084C84C (ExpPoolHeapCreate.c)
+ *     ExInitializeSystemLookasideList @ 0x140C136D0 (ExInitializeSystemLookasideList.c)
  * Callees:
  *     <none>
  */
 
 __int64 KasanIsEnabled()
 {
-  return (unsigned __int8)byte_140FC7BE8;
+  return (unsigned __int8)byte_140FC8BD8;
 }

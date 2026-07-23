@@ -9,15 +9,16 @@
  *     RtlIsValidProcessTrustLabelSid @ 0x14042536C (RtlIsValidProcessTrustLabelSid.c)
  */
 
-void __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, _BYTE *a2, _BYTE *a3, _QWORD *a4)
+void __fastcall SepReconcileTrustSidWithProcessProtection(PSID Sid, _BYTE *a2, _BYTE *a3, _QWORD *a4)
 {
-  __int64 v4; // r10
+  PSID v4; // r10
   PSID v6; // r11
-  __int64 v7; // r11
-  __int64 v8; // r10
+  _QWORD *v7; // r9
+  __int64 v8; // r11
+  __int64 v9; // r10
 
   *a3 = 0;
-  v4 = a1;
+  v4 = Sid;
   *a4 = 0LL;
   if ( (unsigned __int8)*a2 >= 0x51u )
   {
@@ -38,23 +39,23 @@ void __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, _BYTE *a2,
       default:
         goto LABEL_2;
     }
-    if ( v6 && !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v6, a2, a3, a4) )
+    if ( v6 && !RtlIsValidProcessTrustLabelSid(v6) )
       goto LABEL_21;
   }
 LABEL_2:
   if ( !v4 )
     return;
-  if ( !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v4, a2, a3, a4) )
+  if ( !RtlIsValidProcessTrustLabelSid(v4) )
     goto LABEL_21;
-  if ( !v7 )
+  if ( !v8 )
   {
-    if ( !*(_DWORD *)(v8 + 8) )
+    if ( !*(_DWORD *)(v9 + 8) )
       return;
 LABEL_21:
     *a3 = 1;
-    *a4 = v7;
+    *v7 = v8;
     return;
   }
-  if ( *(_DWORD *)(v7 + 8) < *(_DWORD *)(v8 + 8) || *(_DWORD *)(v7 + 12) < *(_DWORD *)(v8 + 12) )
+  if ( *(_DWORD *)(v8 + 8) < *(_DWORD *)(v9 + 8) || *(_DWORD *)(v8 + 12) < *(_DWORD *)(v9 + 12) )
     goto LABEL_21;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpMcUpdateMicrocode @ 0x14037FF58
+ * XREFs of HalpMcUpdateMicrocode @ 0x1403800F8
  * Callers:
- *     HalpMcLoadMicrocodeWorker @ 0x14051BAA0 (HalpMcLoadMicrocodeWorker.c)
- *     HalpLoadMicrocodeSerialized @ 0x140934CD8 (HalpLoadMicrocodeSerialized.c)
+ *     HalpMcLoadMicrocodeWorker @ 0x14051BFF0 (HalpMcLoadMicrocodeWorker.c)
+ *     HalpLoadMicrocodeSerialized @ 0x140934ED8 (HalpLoadMicrocodeSerialized.c)
  *     HalpProcInitSystem @ 0x140A8A680 (HalpProcInitSystem.c)
- *     HalpPostSleepMP @ 0x140A96FA8 (HalpPostSleepMP.c)
- *     HalpDpPostReplaceInitialization @ 0x140A975F4 (HalpDpPostReplaceInitialization.c)
+ *     HalpPostSleepMP @ 0x140A96E18 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x140A97464 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpMcUpdateMicrocode(__int64 a1, __int64 a2, __int64 a3)

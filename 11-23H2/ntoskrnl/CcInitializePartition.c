@@ -1,17 +1,17 @@
 /*
- * XREFs of CcInitializePartition @ 0x1403A0390
+ * XREFs of CcInitializePartition @ 0x1403A0570
  * Callers:
- *     CcCreatePartition @ 0x1403A02E0 (CcCreatePartition.c)
+ *     CcCreatePartition @ 0x1403A04C0 (CcCreatePartition.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x1402AD250 (ExpAllocatePoolWithTagFromNode.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     CcInitializePartitionVacbs @ 0x1403A0810 (CcInitializePartitionVacbs.c)
- *     CcForEachNumaNode @ 0x1403C3BBC (CcForEachNumaNode.c)
- *     memset @ 0x140435A00 (memset.c)
- *     CcInitializeNumaNode @ 0x14053A838 (CcInitializeNumaNode.c)
- *     PsCreateSystemThread @ 0x1407B8100 (PsCreateSystemThread.c)
- *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x14086B248 (MmGetNumberOfPhysicalPagesForPartitionObject.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402AD4E0 (ExpAllocatePoolWithTagFromNode.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     CcInitializePartitionVacbs @ 0x1403A09F0 (CcInitializePartitionVacbs.c)
+ *     CcForEachNumaNode @ 0x1403C3D9C (CcForEachNumaNode.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CcInitializeNumaNode @ 0x14053AD88 (CcInitializeNumaNode.c)
+ *     PsCreateSystemThread @ 0x1407B83E0 (PsCreateSystemThread.c)
+ *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x14086B488 (MmGetNumberOfPhysicalPagesForPartitionObject.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateControlAreaCommitCount @ 0x1402B7EC0
+ * XREFs of MiUpdateControlAreaCommitCount @ 0x1402360D0
  * Callers:
- *     MiSetPagesModified @ 0x1405350B0 (MiSetPagesModified.c)
- *     MiCreatePagingFileMap @ 0x14061C548 (MiCreatePagingFileMap.c)
- *     MiChargeSegmentCommit @ 0x14061FED0 (MiChargeSegmentCommit.c)
- *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
+ *     MiSetPagesModified @ 0x1405352F0 (MiSetPagesModified.c)
+ *     MiCreatePagingFileMap @ 0x1406861B8 (MiCreatePagingFileMap.c)
+ *     MiChargeSegmentCommit @ 0x140689B40 (MiChargeSegmentCommit.c)
+ *     MiRelocateImage @ 0x1406AC790 (MiRelocateImage.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14025C6E4 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14027DC54 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -24,7 +24,7 @@ __int64 __fastcall MiUpdateControlAreaCommitCount(__int64 a1, unsigned __int64 a
   bool v12; // zf
 
   _InterlockedExchangeAdd64(
-    (volatile signed __int64 *)(*(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)) + 7624LL),
+    (volatile signed __int64 *)(*(_QWORD *)(qword_140C4E688 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)) + 7624LL),
     a2);
   if ( *(_QWORD *)(a1 + 64) )
   {

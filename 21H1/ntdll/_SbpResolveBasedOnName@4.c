@@ -12,21 +12,22 @@
  *     _SbpParseFuncName@20 @ 0x4B385FBD (_SbpParseFuncName@20.c)
  */
 
-int __thiscall SbpResolveBasedOnName(wchar_t *this)
+int __thiscall SbpResolveBasedOnName(_WORD *this)
 {
   int v1; // esi
-  unsigned __int16 v3[4]; // [esp+4h] [ebp-A14h] BYREF
-  int v4; // [esp+Ch] [ebp-A0Ch] BYREF
+  _UNICODE_STRING DestinationString; // [esp+4h] [ebp-A14h] BYREF
+  PVOID DllHandle; // [esp+Ch] [ebp-A0Ch] BYREF
   unsigned __int16 v5[1024]; // [esp+10h] [ebp-A08h] BYREF
-  _WORD v6[258]; // [esp+810h] [ebp-208h] BYREF
+  WCHAR SourceString[258]; // [esp+810h] [ebp-208h] BYREF
 
   v1 = 0;
   if ( this
-    && SbpParseFuncName(this, v6, (int)this, v5, (int)this)
-    && RtlInitUnicodeStringEx((int)v3, v6) >= 0
-    && (LdrGetDllHandleEx(1, 1, 0, (int)v3, &v4) >= 0 || LdrLoadDll(0, 0, v3, &v4) >= 0) )
+    && SbpParseFuncName(this, SourceString, (int)this, v5, (int)this)
+    && RtlInitUnicodeStringEx(&DestinationString, SourceString) >= 0
+    && (LdrGetDllHandleEx(1u, (PWSTR)1, 0, &DestinationString, &DllHandle) >= 0
+     || LdrLoadDll(0, 0, &DestinationString, &DllHandle) >= 0) )
   {
-    return SbpLookup(v4, v5);
+    return SbpLookup((int)DllHandle, v5);
   }
   return v1;
 }

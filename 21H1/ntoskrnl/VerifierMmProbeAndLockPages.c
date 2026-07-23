@@ -34,7 +34,7 @@ char __fastcall VerifierMmProbeAndLockPages(ULONG_PTR BugCheckParameter2, char a
       *(__int16 *)(BugCheckParameter2 + 10),
       (unsigned __int16)(v8 & v7));
   if ( (unsigned int)VfFaultsInjectResourceFailure(0) == 1 )
-    RtlRaiseStatus(0xC00000A1);
+    RtlRaiseStatus(-1073741663);
   LOBYTE(v9) = a2;
   result = ((__int64 (__fastcall *)(ULONG_PTR, __int64, _QWORD))pXdvMmProbeAndLockPages)(BugCheckParameter2, v9, a3);
   if ( (MmVerifierData & 0x1000) != 0 )

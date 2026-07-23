@@ -9,20 +9,17 @@
  *     SbpTraceContextUpdate @ 0x18010B4D8 (SbpTraceContextUpdate.c)
  */
 
-__int64 __fastcall SbObtainTraceHandle(signed __int64 *a1)
+__int64 __fastcall SbObtainTraceHandle(_QWORD *a1)
 {
   unsigned int v1; // ebx
   char *pShimData; // rsi
   char *v4; // rsi
-  signed __int64 v6; // rax
-  unsigned __int64 *v7; // r8
-  __int64 v8; // r9
-  signed __int64 v9; // rbp
-  _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rcx
-  unsigned __int64 v11; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v6; // rax
+  signed __int64 v7; // rbp
+  ULONGLONG RegHandle; // [rsp+48h] [rbp+10h] BYREF
 
   v1 = 0;
-  v11 = 0LL;
+  RegHandle = 0LL;
   pShimData = (char *)NtCurrentPeb()->pShimData;
   if ( pShimData )
   {
@@ -43,26 +40,20 @@ __int64 __fastcall SbObtainTraceHandle(signed __int64 *a1)
         }
         else
         {
-          if ( (unsigned int)EtwEventRegister(MS_Windows_AeSwitchBack_Provider, 0LL, 0LL, &v11) )
+          if ( EtwEventRegister(&MS_Windows_AeSwitchBack_Provider, 0LL, 0LL, &RegHandle) )
             return v1;
-          v9 = _InterlockedCompareExchange64((volatile signed __int64 *)v4 + 2, v11, 0LL);
-          if ( v9 )
+          v7 = _InterlockedCompareExchange64((volatile signed __int64 *)v4 + 2, RegHandle, 0LL);
+          if ( v7 )
           {
-            EtwNotificationUnregister(v11, 0LL, v7, v8);
+            EtwNotificationUnregister(RegHandle, 0LL);
             if ( a1 )
-              *a1 = v9;
+              *a1 = v7;
           }
           else
           {
             if ( a1 )
-              *a1 = v11;
-            ProcessParameters = NtCurrentPeb()->ProcessParameters;
-            SbpTraceContextUpdate(
-              v11,
-              (_DWORD)v4 + 48,
-              0,
-              ProcessParameters->ImagePathName.Length,
-              (__int64)ProcessParameters->ImagePathName.Buffer);
+              *a1 = RegHandle;
+            SbpTraceContextUpdate(RegHandle, (__int64)NtCurrentPeb()->ProcessParameters->ImagePathName.Buffer);
           }
         }
         return 1;

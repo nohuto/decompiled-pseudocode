@@ -35,7 +35,7 @@ void HalpHvInitMcaPcrContext()
   __int64 v15; // rax
   __int64 j; // rbx
   unsigned int v17; // [rsp+70h] [rbp+8h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+78h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+78h] [rbp+10h] BYREF
   unsigned __int64 v19; // [rsp+80h] [rbp+18h]
 
   v17 = 0;

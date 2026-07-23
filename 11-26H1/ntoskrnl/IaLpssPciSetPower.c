@@ -1,13 +1,13 @@
 /*
- * XREFs of IaLpssPciSetPower @ 0x1407216F8
+ * XREFs of IaLpssPciSetPower @ 0x1407262C8
  * Callers:
- *     IaLpssSetPowerD0 @ 0x140721950 (IaLpssSetPowerD0.c)
- *     IaLpssSetPowerD3 @ 0x140721A00 (IaLpssSetPowerD3.c)
+ *     IaLpssSetPowerD0 @ 0x140726520 (IaLpssSetPowerD0.c)
+ *     IaLpssSetPowerD3 @ 0x1407265D0 (IaLpssSetPowerD3.c)
  * Callees:
- *     IaLpssReadCmdStatus @ 0x140721898 (IaLpssReadCmdStatus.c)
- *     IaLpssReadPmcsr @ 0x1407218D8 (IaLpssReadPmcsr.c)
- *     IaLpssWriteCmdStatus @ 0x140721ABC (IaLpssWriteCmdStatus.c)
- *     IaLpssWritePmcsr @ 0x140721AF8 (IaLpssWritePmcsr.c)
+ *     IaLpssReadCmdStatus @ 0x140726468 (IaLpssReadCmdStatus.c)
+ *     IaLpssReadPmcsr @ 0x1407264A8 (IaLpssReadPmcsr.c)
+ *     IaLpssWriteCmdStatus @ 0x14072668C (IaLpssWriteCmdStatus.c)
+ *     IaLpssWritePmcsr @ 0x1407266C8 (IaLpssWritePmcsr.c)
  */
 
 __int64 __fastcall IaLpssPciSetPower(int a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of PipCreateEntry @ 0x140C20608
+ * XREFs of PipCreateEntry @ 0x140C22648
  * Callers:
- *     PipLookupGroupName @ 0x140C21358 (PipLookupGroupName.c)
+ *     PipLookupGroupName @ 0x140C23398 (PipLookupGroupName.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-ULONG_PTR __fastcall PipCreateEntry(const void **a1)
+__int64 __fastcall PipCreateEntry(const void **a1)
 {
-  ULONG_PTR result; // rax
-  ULONG_PTR v3; // rbx
+  __int64 result; // rax
+  __int64 v3; // rbx
 
   result = ExAllocatePool2(0x100uLL, *(unsigned __int16 *)a1 + 48LL, 0x6E697050uLL);
   v3 = result;

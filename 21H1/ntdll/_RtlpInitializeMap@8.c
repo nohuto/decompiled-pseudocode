@@ -10,8 +10,10 @@
 void *__fastcall RtlpInitializeMap(_DWORD *a1, _DWORD *a2)
 {
   void *result; // eax
+  size_t v5; // [esp-4h] [ebp-Ch]
 
-  result = memset(a1, 0, 0x42Cu);
+  LODWORD(v5) = 1068;
+  result = memset(a1, 0, v5);
   a1[267] = a2;
   if ( a2 )
   {

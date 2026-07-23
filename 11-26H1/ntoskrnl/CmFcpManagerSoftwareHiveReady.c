@@ -1,16 +1,16 @@
 /*
- * XREFs of CmFcpManagerSoftwareHiveReady @ 0x1408619C0
+ * XREFs of CmFcpManagerSoftwareHiveReady @ 0x140867DA0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     CmFcpSubscribeScmWnfStateChange @ 0x1406E2D6C (CmFcpSubscribeScmWnfStateChange.c)
- *     CmFcpManagerDrainUsageNotifications @ 0x140ABFB10 (CmFcpManagerDrainUsageNotifications.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     CmFcpSubscribeScmWnfStateChange @ 0x1406E704C (CmFcpSubscribeScmWnfStateChange.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x140AC1BB0 (CmFcpManagerDrainUsageNotifications.c)
  */
 
 void __fastcall CmFcpManagerSoftwareHiveReady(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -21,7 +21,7 @@ void __fastcall CmFcpManagerSoftwareHiveReady(__int64 a1, __int64 a2, __int64 a3
   AutoBoost *v8; // rbp
 
   *(_BYTE *)(a1 + 408) = 1;
-  if ( *(_BYTE *)(a1 + 1784) )
+  if ( *(_BYTE *)(a1 + 1856) )
     CmFcpSubscribeScmWnfStateChange(a1);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpTimerUnmapInterrupt @ 0x1404C0588
+ * XREFs of HalpTimerUnmapInterrupt @ 0x1404C07C8
  * Callers:
- *     HalpTimerConfigureInterrupt @ 0x1403A2584 (HalpTimerConfigureInterrupt.c)
- *     HalpTimerInitializeClock @ 0x1403A8454 (HalpTimerInitializeClock.c)
- *     HalpTimerTestHypervisorTimer @ 0x1404C1B2C (HalpTimerTestHypervisorTimer.c)
+ *     HalpTimerConfigureInterrupt @ 0x1403A26D4 (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerInitializeClock @ 0x1403A91E4 (HalpTimerInitializeClock.c)
+ *     HalpTimerTestHypervisorTimer @ 0x1404C1D6C (HalpTimerTestHypervisorTimer.c)
  * Callees:
- *     HalpInterruptApplyOverrides @ 0x140378E24 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpInterruptLineToGsi @ 0x1404BC704 (HalpInterruptLineToGsi.c)
- *     HalpInterruptUnmap @ 0x140761838 (HalpInterruptUnmap.c)
+ *     HalpInterruptApplyOverrides @ 0x140378974 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptGsiToLine @ 0x140378AAC (HalpInterruptGsiToLine.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpInterruptLineToGsi @ 0x1404BC944 (HalpInterruptLineToGsi.c)
+ *     HalpInterruptUnmap @ 0x1407619F8 (HalpInterruptUnmap.c)
  */
 
 void __fastcall HalpTimerUnmapInterrupt(__int64 a1, int a2, int a3, char a4)

@@ -1,5 +1,5 @@
 /*
- * XREFs of _guard_dispatch_icall$thunk$10345483385596137414 @ 0x140BC0030
+ * XREFs of _guard_dispatch_icall$thunk$10345483385596137414 @ 0x140BC2030
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall guard_dispatch_icall_thunk_10345483385596137414(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall guard_dispatch_icall_thunk_10345483385596137414(__int64 a1, __int64 a2)
 {
-  return guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+  return guard_dispatch_icall_no_overrides(a1, a2);
 }

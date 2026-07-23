@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDisarmIdlePhaseWatchdog @ 0x1408EFD2C
+ * XREFs of PopDisarmIdlePhaseWatchdog @ 0x1408EFE8C
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x1405763C0 (PdcPoCurrentPdcPhase.c)
- *     PopProcessSessionDisplayStateChange @ 0x1408F0228 (PopProcessSessionDisplayStateChange.c)
+ *     PdcPoCurrentPdcPhase @ 0x140576600 (PdcPoCurrentPdcPhase.c)
+ *     PopProcessSessionDisplayStateChange @ 0x1408F0388 (PopProcessSessionDisplayStateChange.c)
  * Callees:
- *     ZwPowerInformation @ 0x1403FAF80 (ZwPowerInformation.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopResetIdlePhaseWatchdogDiagnosticContext @ 0x1408F0278 (PopResetIdlePhaseWatchdogDiagnosticContext.c)
+ *     ZwPowerInformation @ 0x1403FB160 (ZwPowerInformation.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopResetIdlePhaseWatchdogDiagnosticContext @ 0x1408F03D8 (PopResetIdlePhaseWatchdogDiagnosticContext.c)
  */
 
 __int64 PopDisarmIdlePhaseWatchdog()

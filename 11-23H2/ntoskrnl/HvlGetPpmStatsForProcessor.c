@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlGetPpmStatsForProcessor @ 0x1403C854C
+ * XREFs of HvlGetPpmStatsForProcessor @ 0x1403C872C
  * Callers:
- *     PpmUpdatePerformanceFeedback @ 0x1402C6D40 (PpmUpdatePerformanceFeedback.c)
+ *     PpmUpdatePerformanceFeedback @ 0x1402C6FD0 (PpmUpdatePerformanceFeedback.c)
  * Callees:
- *     HvlGetReferenceTime @ 0x1403C85E4 (HvlGetReferenceTime.c)
+ *     HvlGetReferenceTime @ 0x1403C87C4 (HvlGetReferenceTime.c)
  */
 
 __int64 __fastcall HvlGetPpmStatsForProcessor(struct _KPRCB *a1, _QWORD *a2, _QWORD *a3)

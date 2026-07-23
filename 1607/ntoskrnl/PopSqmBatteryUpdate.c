@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSqmBatteryUpdate @ 0x140676794
+ * XREFs of PopSqmBatteryUpdate @ 0x140676878
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140543EB0 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x1405443F0 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PopSqmCreateDwordStreamEntry @ 0x140171918 (PopSqmCreateDwordStreamEntry.c)
- *     PopSqmAddToStream @ 0x14020E9C8 (PopSqmAddToStream.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PopSqmCreateDwordStreamEntry @ 0x140171E14 (PopSqmCreateDwordStreamEntry.c)
+ *     PopSqmAddToStream @ 0x14020E7F4 (PopSqmAddToStream.c)
  */
 
 NTSTATUS __fastcall PopSqmBatteryUpdate(int a1)

@@ -1,20 +1,20 @@
 /*
- * XREFs of BiConvertBootEnvironmentDeviceToNt @ 0x1407825D4
+ * XREFs of BiConvertBootEnvironmentDeviceToNt @ 0x140782794
  * Callers:
- *     BiConvertBootEnvironmentDeviceToNt @ 0x1407825D4 (BiConvertBootEnvironmentDeviceToNt.c)
- *     BiConvertRegistryDataToElement @ 0x140784DB0 (BiConvertRegistryDataToElement.c)
- *     BiVerifyBootPartition @ 0x1407858A0 (BiVerifyBootPartition.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140782794 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertRegistryDataToElement @ 0x140784F70 (BiConvertRegistryDataToElement.c)
+ *     BiVerifyBootPartition @ 0x140785A60 (BiVerifyBootPartition.c)
  * Callees:
- *     strcpy_s @ 0x1403D7D70 (strcpy_s.c)
- *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x1407825D4 (BiConvertBootEnvironmentDeviceToNt.c)
- *     BiGetNtPartitionPath @ 0x140782748 (BiGetNtPartitionPath.c)
- *     BiVerifyBootPartition @ 0x1407858A0 (BiVerifyBootPartition.c)
- *     BiConvertBootEnvironmentDeviceToUnknown @ 0x14096FA30 (BiConvertBootEnvironmentDeviceToUnknown.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     strcpy_s @ 0x1403D7EE0 (strcpy_s.c)
+ *     wcscpy_s @ 0x1403D83E0 (wcscpy_s.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140782794 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiGetNtPartitionPath @ 0x140782908 (BiGetNtPartitionPath.c)
+ *     BiVerifyBootPartition @ 0x140785A60 (BiVerifyBootPartition.c)
+ *     BiConvertBootEnvironmentDeviceToUnknown @ 0x14096FC10 (BiConvertBootEnvironmentDeviceToUnknown.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiConvertBootEnvironmentDeviceToNt(char *Src, int a2, char a3, wchar_t **a4, unsigned int *a5)

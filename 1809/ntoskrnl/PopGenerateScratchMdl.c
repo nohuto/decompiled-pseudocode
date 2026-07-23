@@ -1,7 +1,7 @@
 /*
- * XREFs of PopGenerateScratchMdl @ 0x140144AA0
+ * XREFs of PopGenerateScratchMdl @ 0x140144BA0
  * Callers:
- *     PopGenerateUnHibernatedMdl @ 0x14056BCDC (PopGenerateUnHibernatedMdl.c)
+ *     PopGenerateUnHibernatedMdl @ 0x14056CCDC (PopGenerateUnHibernatedMdl.c)
  * Callees:
  *     MmAllocatePagesForMdlEx @ 0x140010EE0 (MmAllocatePagesForMdlEx.c)
  */

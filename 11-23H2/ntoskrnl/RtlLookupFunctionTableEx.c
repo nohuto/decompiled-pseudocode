@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlLookupFunctionTableEx @ 0x1403D66F0
+ * XREFs of RtlLookupFunctionTableEx @ 0x1403D68D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x1402A3C80 (RtlpxLookupFunctionTable.c)
+ *     RtlpxLookupFunctionTable @ 0x1402A3F10 (RtlpxLookupFunctionTable.c)
  */
 
 PVOID __fastcall RtlLookupFunctionTableEx(unsigned __int64 a1, _QWORD *a2)

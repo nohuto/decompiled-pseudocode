@@ -18,7 +18,7 @@ _BOOL8 __fastcall sub_18010D960(__int64 a1, __int16 a2, wchar_t *a3)
   int v3; // edi
   const wchar_t *v6; // r12
   const wchar_t *v7; // r15
-  unsigned __int64 v8; // r14
+  void *v8; // r14
   int v9; // ebx
   const wchar_t *v10; // rax
   const wchar_t *v11; // rax
@@ -26,8 +26,8 @@ _BOOL8 __fastcall sub_18010D960(__int64 a1, __int16 a2, wchar_t *a3)
   int v13; // eax
   const wchar_t *v14; // rax
   const wchar_t *v15; // r8
-  __int64 v16; // rax
-  __int64 Heap; // rax
+  PVOID v16; // rax
+  PVOID Heap; // rax
   int v18; // eax
   const wchar_t *v20; // [rsp+28h] [rbp-30h]
 
@@ -111,7 +111,7 @@ LABEL_63:
     {
       if ( v3 != 1024 )
         goto LABEL_67;
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 520LL);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
       v8 = Heap;
       if ( !Heap || !(unsigned int)sub_18010DDF0(a1, Heap) )
         goto LABEL_67;
@@ -136,7 +136,7 @@ LABEL_63:
       v15 = L"%s\\%s*";
       goto LABEL_64;
     }
-    v16 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 520LL);
+    v16 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
     v8 = v16;
     if ( !v16 || !(unsigned int)sub_18010DDF0(a1, v16) )
       goto LABEL_67;
@@ -220,6 +220,6 @@ LABEL_72:
 LABEL_73:
   a3[259] = 0;
   if ( v8 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
   return v9 >= 0;
 }

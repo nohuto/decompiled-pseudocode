@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetPicoThreadDescriptorBase @ 0x1402EAAB0
+ * XREFs of PspSetPicoThreadDescriptorBase @ 0x1402EACA0
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PspSetPicoThreadDescriptorBase(int a1, unsigned __int64 a2)

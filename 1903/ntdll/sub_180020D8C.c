@@ -11,23 +11,23 @@
  *     RtlAcquireSRWLockExclusive @ 0x180039340 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall sub_180020D8C(unsigned __int64 a1, int a2)
+void __fastcall sub_180020D8C(unsigned __int64 a1, int a2)
 {
   int v3; // esi
-  int v4; // eax
+  NTSTATUS v4; // eax
   int v5; // ebx
   int v6; // ecx
-  int v8; // [rsp+50h] [rbp+18h] BYREF
-  __int64 v9; // [rsp+58h] [rbp+20h] BYREF
+  DWORD v7; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v8; // [rsp+58h] [rbp+20h] BYREF
 
   v3 = a1;
-  v4 = sub_18001C4DC(a1, 1, 3u, &v8, &v9);
-  v5 = v9;
+  v4 = sub_18001C4DC(a1, 1, 3u, &v7, &v8);
+  v5 = v8;
   if ( v4 < 0 )
     v5 = 0;
-  RtlAcquireSRWLockExclusive(&qword_180166338);
+  RtlAcquireSRWLockExclusive(&Address);
   sub_180035F18(0LL);
-  sub_180020E1C(v6, v3, v5, a2, v8);
+  sub_180020E1C(v6, v3, v5, a2, v7);
   sub_180035F18(1LL);
-  return RtlReleaseSRWLockExclusive(&qword_180166338);
+  RtlReleaseSRWLockExclusive(&Address);
 }

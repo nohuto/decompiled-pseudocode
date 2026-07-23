@@ -21,12 +21,12 @@
  *     _LdrpLogEtwEvent@24 @ 0x4B330117 (_LdrpLogEtwEvent@24.c)
  */
 
-int __stdcall LdrpAcquireLoaderLock()
+NTSTATUS __stdcall LdrpAcquireLoaderLock()
 {
   int v0; // esi
   int v1; // eax
   int v2; // edi
-  int v3; // ebx
+  NTSTATUS v3; // ebx
   char *v5; // eax
 
   v0 = 2147353476;
@@ -41,7 +41,7 @@ int __stdcall LdrpAcquireLoaderLock()
     if ( (*v5 & 0x20) != 0 )
       LdrpLogEtwEvent(-1, -1, 0, 0);
   }
-  v3 = RtlEnterCriticalSection((int)&LdrpLoaderLock);
+  v3 = RtlEnterCriticalSection(&LdrpLoaderLock);
   if ( RtlGetCurrentServiceSessionId() )
     v0 = (int)NtCurrentPeb()->SharedData + 554;
   if ( *(_BYTE *)v0 && (NtCurrentPeb()->TracingFlags & 4) != 0 )

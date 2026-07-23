@@ -1,45 +1,45 @@
 /*
- * XREFs of CmpDoParseKey @ 0x1406E9100
+ * XREFs of CmpDoParseKey @ 0x1406E9130
  * Callers:
- *     CmpParseKey @ 0x1406E6980 (CmpParseKey.c)
+ *     CmpParseKey @ 0x1406E69B0 (CmpParseKey.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
  *     PsGetCurrentThreadProcess @ 0x14020BB00 (PsGetCurrentThreadProcess.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     _tlgWriteAgg @ 0x140212E94 (_tlgWriteAgg.c)
- *     CmpFreeTransientPoolWithTag @ 0x14022CED4 (CmpFreeTransientPoolWithTag.c)
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     NLS_UPCASE @ 0x14022D310 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     CmpDrainDelayDerefContext @ 0x14022D4F0 (CmpDrainDelayDerefContext.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     CmpInitializeDelayDerefContext @ 0x1402314A4 (CmpInitializeDelayDerefContext.c)
- *     CmpTransSilentIgnore @ 0x1402314C0 (CmpTransSilentIgnore.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SeAccessCheck @ 0x140231650 (SeAccessCheck.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287470 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetProcessServerSilo @ 0x14028C180 (PsGetProcessServerSilo.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     CmpArmDelayedCloseTimer @ 0x1402B956C (CmpArmDelayedCloseTimer.c)
- *     ExpReleaseFastMutexContended @ 0x1402BBF60 (ExpReleaseFastMutexContended.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     PsGetServerSiloServiceSessionId @ 0x1402C0880 (PsGetServerSiloServiceSessionId.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExpAcquireFastMutexContended @ 0x1402FCD4C (ExpAcquireFastMutexContended.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14022CFE4 (CmpFreeTransientPoolWithTag.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     NLS_UPCASE @ 0x14022D420 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     CmpDrainDelayDerefContext @ 0x14022D600 (CmpDrainDelayDerefContext.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     CmpInitializeDelayDerefContext @ 0x140231594 (CmpInitializeDelayDerefContext.c)
+ *     CmpTransSilentIgnore @ 0x1402315B0 (CmpTransSilentIgnore.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     SeAccessCheck @ 0x140231720 (SeAccessCheck.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140287700 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetProcessServerSilo @ 0x14028C410 (PsGetProcessServerSilo.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     CmpArmDelayedCloseTimer @ 0x1402B97FC (CmpArmDelayedCloseTimer.c)
+ *     ExpReleaseFastMutexContended @ 0x1402BC1F0 (ExpReleaseFastMutexContended.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     PsGetServerSiloServiceSessionId @ 0x1402C0B10 (PsGetServerSiloServiceSessionId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExpAcquireFastMutexContended @ 0x1402FCFDC (ExpAcquireFastMutexContended.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     CmpGetSecurityDescriptorForKcbStackEx @ 0x14067F19C (CmpGetSecurityDescriptorForKcbStackEx.c)
  *     CmRmIsKcbStackVisible @ 0x140680480 (CmRmIsKcbStackVisible.c)
  *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
@@ -51,65 +51,65 @@
  *     CmpFreeKeyControlBlock @ 0x140699D40 (CmpFreeKeyControlBlock.c)
  *     CmpCheckExeOwnerForPca @ 0x14069A314 (CmpCheckExeOwnerForPca.c)
  *     CmpCheckKeyOwnerForPca @ 0x14069E2E4 (CmpCheckKeyOwnerForPca.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0530 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     CmpCheckCreateAccessOnKcbStack @ 0x1406C0730 (CmpCheckCreateAccessOnKcbStack.c)
- *     CmpCleanUpKcbCachedSymlink @ 0x1406D0F00 (CmpCleanUpKcbCachedSymlink.c)
- *     CmpCreateChild @ 0x1406D0F70 (CmpCreateChild.c)
- *     CmpIsKeyStackSymlink @ 0x1406D3200 (CmpIsKeyStackSymlink.c)
- *     CmpIsKeyStackDeleted @ 0x1406D3EAC (CmpIsKeyStackDeleted.c)
- *     CmpUnlockKcbStack @ 0x1406D5368 (CmpUnlockKcbStack.c)
- *     CmpGetKcbAtLayerHeight @ 0x1406D57A0 (CmpGetKcbAtLayerHeight.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B6C (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpConstructNameWithStatus @ 0x1406D7BB0 (CmpConstructNameWithStatus.c)
- *     CmpLockKcbExclusive @ 0x1406D8468 (CmpLockKcbExclusive.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1406D8510 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpCreateKeyControlBlock @ 0x1406D8790 (CmpCreateKeyControlBlock.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1406D92C8 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpVEExecuteOpenLogic @ 0x1406DD4D0 (CmpVEExecuteOpenLogic.c)
- *     CmpWalkOneLevel @ 0x1406DD820 (CmpWalkOneLevel.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7E90 (CmpPerformCompleteKcbCacheLookup.c)
- *     HvResetDirtyData @ 0x14070546C (HvResetDirtyData.c)
- *     CmpLockKcbStackTopExclusiveRestShared @ 0x14070FB48 (CmpLockKcbStackTopExclusiveRestShared.c)
- *     CmpGetKeyNodeForKcb @ 0x140710664 (CmpGetKeyNodeForKcb.c)
- *     SeQueryInformationToken @ 0x1407196A0 (SeQueryInformationToken.c)
- *     CmpCreateKeyBody @ 0x14072F810 (CmpCreateKeyBody.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140737CA0 (SeCaptureSubjectContextEx.c)
- *     CmpDoesProcessBelongToServiceSession @ 0x1407406E0 (CmpDoesProcessBelongToServiceSession.c)
- *     HvpMarkCellDirty @ 0x140746FA0 (HvpMarkCellDirty.c)
- *     CmpDeleteHive @ 0x14074E6D4 (CmpDeleteHive.c)
- *     CmpDoQueueLateUnloadWorker @ 0x140751D34 (CmpDoQueueLateUnloadWorker.c)
- *     CmpTransSearchAddTransFromHive @ 0x1407687A8 (CmpTransSearchAddTransFromHive.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x140768EF0 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmEqualTrans @ 0x1407691C0 (CmEqualTrans.c)
- *     CmpLockRegistryExclusive @ 0x1407691EC (CmpLockRegistryExclusive.c)
- *     CmpLockHashEntrySharedByKcb @ 0x14076A06C (CmpLockHashEntrySharedByKcb.c)
- *     CmpUnlockHashEntry @ 0x14076A5C0 (CmpUnlockHashEntry.c)
- *     CmpUnlockHashEntryByKcb @ 0x14076A7B0 (CmpUnlockHashEntryByKcb.c)
- *     CmpRebuildKcbCacheFromNode @ 0x14076A8BC (CmpRebuildKcbCacheFromNode.c)
- *     CmpDereferenceKeyControlBlock @ 0x14076AB10 (CmpDereferenceKeyControlBlock.c)
- *     CmRmIsKCBVisible @ 0x1407B39E0 (CmRmIsKCBVisible.c)
- *     SeAppendPrivileges @ 0x1407B63E0 (SeAppendPrivileges.c)
- *     CmpVEPerformOpenAccessCheck @ 0x1407BA398 (CmpVEPerformOpenAccessCheck.c)
- *     CmpVEExecuteCreateLogic @ 0x1407BA444 (CmpVEExecuteCreateLogic.c)
- *     CmpEnlistKeyBody @ 0x1407C026C (CmpEnlistKeyBody.c)
- *     CmListGetPrevElement @ 0x1407C5000 (CmListGetPrevElement.c)
- *     CmpSetKcbAtLayerHeight @ 0x1407D4E2C (CmpSetKcbAtLayerHeight.c)
- *     CmpUpdateHiveRootCellFlags @ 0x1407D7F84 (CmpUpdateHiveRootCellFlags.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     CmpTryToLockHashEntryExclusive @ 0x1407DD7A8 (CmpTryToLockHashEntryExclusive.c)
- *     CmpGetComponentHashAtIndex @ 0x1407E62C4 (CmpGetComponentHashAtIndex.c)
- *     CmpWaitForHiveMount @ 0x14084DA8C (CmpWaitForHiveMount.c)
- *     CmpCreateHiveRootCell @ 0x14087448C (CmpCreateHiveRootCell.c)
- *     CmpSetAccessStateForBackupRestore @ 0x140880648 (CmpSetAccessStateForBackupRestore.c)
- *     CmpPublishEventForPcaResolver @ 0x140A12B18 (CmpPublishEventForPcaResolver.c)
- *     CmpCleanupPathInfo @ 0x140A13AA0 (CmpCleanupPathInfo.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x140A17744 (CmpSearchKeyControlBlockTreeEx.c)
- *     CmpVEExecuteRealStoreParseLogic @ 0x140A1A208 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A1A404 (CmpVEExecuteVirtualStoreParseLogic.c)
- *     CmpLogUnsupportedOperation @ 0x140A1FDF0 (CmpLogUnsupportedOperation.c)
- *     CmpPromoteKey @ 0x140A265AC (CmpPromoteKey.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0560 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     CmpCheckCreateAccessOnKcbStack @ 0x1406C0760 (CmpCheckCreateAccessOnKcbStack.c)
+ *     CmpCleanUpKcbCachedSymlink @ 0x1406D0F30 (CmpCleanUpKcbCachedSymlink.c)
+ *     CmpCreateChild @ 0x1406D0FA0 (CmpCreateChild.c)
+ *     CmpIsKeyStackSymlink @ 0x1406D3230 (CmpIsKeyStackSymlink.c)
+ *     CmpIsKeyStackDeleted @ 0x1406D3EDC (CmpIsKeyStackDeleted.c)
+ *     CmpUnlockKcbStack @ 0x1406D5398 (CmpUnlockKcbStack.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1406D57D0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B9C (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpConstructNameWithStatus @ 0x1406D7BE0 (CmpConstructNameWithStatus.c)
+ *     CmpLockKcbExclusive @ 0x1406D8498 (CmpLockKcbExclusive.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1406D8540 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpCreateKeyControlBlock @ 0x1406D87C0 (CmpCreateKeyControlBlock.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1406D92F8 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpVEExecuteOpenLogic @ 0x1406DD500 (CmpVEExecuteOpenLogic.c)
+ *     CmpWalkOneLevel @ 0x1406DD850 (CmpWalkOneLevel.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7EC0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     HvResetDirtyData @ 0x14070567C (HvResetDirtyData.c)
+ *     CmpLockKcbStackTopExclusiveRestShared @ 0x14070FD58 (CmpLockKcbStackTopExclusiveRestShared.c)
+ *     CmpGetKeyNodeForKcb @ 0x140710874 (CmpGetKeyNodeForKcb.c)
+ *     SeQueryInformationToken @ 0x1407198A0 (SeQueryInformationToken.c)
+ *     CmpCreateKeyBody @ 0x14072FA00 (CmpCreateKeyBody.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x140737E90 (SeCaptureSubjectContextEx.c)
+ *     CmpDoesProcessBelongToServiceSession @ 0x1407408D0 (CmpDoesProcessBelongToServiceSession.c)
+ *     HvpMarkCellDirty @ 0x140747190 (HvpMarkCellDirty.c)
+ *     CmpDeleteHive @ 0x14074E8C4 (CmpDeleteHive.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x140751F24 (CmpDoQueueLateUnloadWorker.c)
+ *     CmpTransSearchAddTransFromHive @ 0x140768998 (CmpTransSearchAddTransFromHive.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x1407690E0 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmEqualTrans @ 0x1407693B0 (CmEqualTrans.c)
+ *     CmpLockRegistryExclusive @ 0x1407693DC (CmpLockRegistryExclusive.c)
+ *     CmpLockHashEntrySharedByKcb @ 0x14076A25C (CmpLockHashEntrySharedByKcb.c)
+ *     CmpUnlockHashEntry @ 0x14076A7B0 (CmpUnlockHashEntry.c)
+ *     CmpUnlockHashEntryByKcb @ 0x14076A9A0 (CmpUnlockHashEntryByKcb.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x14076AAAC (CmpRebuildKcbCacheFromNode.c)
+ *     CmpDereferenceKeyControlBlock @ 0x14076AD00 (CmpDereferenceKeyControlBlock.c)
+ *     CmRmIsKCBVisible @ 0x1407B3BD0 (CmRmIsKCBVisible.c)
+ *     SeAppendPrivileges @ 0x1407B66C0 (SeAppendPrivileges.c)
+ *     CmpVEPerformOpenAccessCheck @ 0x1407BA678 (CmpVEPerformOpenAccessCheck.c)
+ *     CmpVEExecuteCreateLogic @ 0x1407BA724 (CmpVEExecuteCreateLogic.c)
+ *     CmpEnlistKeyBody @ 0x1407C053C (CmpEnlistKeyBody.c)
+ *     CmListGetPrevElement @ 0x1407C52D0 (CmListGetPrevElement.c)
+ *     CmpSetKcbAtLayerHeight @ 0x1407D50FC (CmpSetKcbAtLayerHeight.c)
+ *     CmpUpdateHiveRootCellFlags @ 0x1407D8254 (CmpUpdateHiveRootCellFlags.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     CmpTryToLockHashEntryExclusive @ 0x1407DDA78 (CmpTryToLockHashEntryExclusive.c)
+ *     CmpGetComponentHashAtIndex @ 0x1407E6594 (CmpGetComponentHashAtIndex.c)
+ *     CmpWaitForHiveMount @ 0x14084DD8C (CmpWaitForHiveMount.c)
+ *     CmpCreateHiveRootCell @ 0x1408746CC (CmpCreateHiveRootCell.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x140880888 (CmpSetAccessStateForBackupRestore.c)
+ *     CmpPublishEventForPcaResolver @ 0x140A12DC8 (CmpPublishEventForPcaResolver.c)
+ *     CmpCleanupPathInfo @ 0x140A13D50 (CmpCleanupPathInfo.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A179F4 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x140A1A4B8 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A1A6B4 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpLogUnsupportedOperation @ 0x140A200A0 (CmpLogUnsupportedOperation.c)
+ *     CmpPromoteKey @ 0x140A2685C (CmpPromoteKey.c)
  *     HvpGetBinContextInitialize @ 0x140AF5200 (HvpGetBinContextInitialize.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)
@@ -459,7 +459,7 @@ __int64 __fastcall CmpDoParseKey(
   __int64 v333; // r8
   __int64 v334; // r9
   PACCESS_STATE v335; // rbx
-  struct _SLIST_ENTRY *v336; // rdx
+  _SLIST_ENTRY *v336; // rdx
   struct _KPRCB *v337; // r8
   _GENERAL_LOOKASIDE *P; // rcx
   signed __int64 v339; // rcx
@@ -2720,20 +2720,20 @@ LABEL_230:
               KeAbPostRelease((ULONG_PTR)&CmpHiveListHeadLock);
               v19 = BugCheckParameter4;
             }
-            if ( PsIsCurrentThreadInServerSilo() && (unsigned int)dword_140C043C8 > 5 )
+            if ( PsIsCurrentThreadInServerSilo() && (unsigned int)dword_140C04390 > 5 )
             {
-              if ( tlgKeywordOn((__int64)&dword_140C043C8, 0x200000010000LL) )
+              if ( tlgKeywordOn((__int64)&dword_140C04390, 0x200000010000LL) )
               {
                 v412 = 0x1000000LL;
                 v450 = &v412;
                 v451 = 8LL;
-                tlgWriteAgg((__int64)&dword_140C043C8, (unsigned __int8 *)&dword_140036C64, v132, 3u, &v449);
-                v133 = dword_140C043C8;
+                tlgWriteAgg((__int64)&dword_140C04390, (unsigned __int8 *)&byte_140036D15, v132, 3u, &v449);
+                v133 = dword_140C04390;
               }
               if ( v133 > 5 )
                 tlgWriteTransfer_EtwWriteTransfer(
-                  (__int64)&dword_140C043C8,
-                  (unsigned __int8 *)byte_140036C2D,
+                  (__int64)&dword_140C04390,
+                  (unsigned __int8 *)&byte_140036D67,
                   0LL,
                   0LL,
                   2u,
@@ -3164,10 +3164,10 @@ LABEL_835:
           v379 = _InterlockedCompareExchange((volatile signed __int32 *)&CmpDelayedCloseTableLock, 1, 0);
           if ( v379 )
             ExpReleaseFastMutexContended((volatile signed __int32 *)&CmpDelayedCloseTableLock, v379);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v380 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v380 <= 0xFu && (unsigned __int8)v377 <= 0xFu && v380 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v380 <= 0xFu && (unsigned __int8)v377 <= 0xFu && v380 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -3230,7 +3230,7 @@ LABEL_738:
     CmpDetachFromRegistryProcess(v9 + 168);
   if ( Object )
     ObfDereferenceObject(Object);
-  v336 = *(struct _SLIST_ENTRY **)&v448[40];
+  v336 = *(_SLIST_ENTRY **)&v448[40];
   if ( *(_QWORD *)&v448[40] )
   {
     v337 = KeGetCurrentPrcb();
@@ -3244,7 +3244,7 @@ LABEL_738:
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v336);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v336);
     }
   }
   return (unsigned int)Child;

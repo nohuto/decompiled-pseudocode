@@ -1,13 +1,13 @@
 /*
- * XREFs of CcQueryRegKeyValue @ 0x14057B3AC
+ * XREFs of CcQueryRegKeyValue @ 0x14057883C
  * Callers:
- *     CcUpdateDynamicRegistrySettings @ 0x14057B8A0 (CcUpdateDynamicRegistrySettings.c)
+ *     CcUpdateDynamicRegistrySettings @ 0x140578D30 (CcUpdateDynamicRegistrySettings.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CcQueryRegKeyValue(UNICODE_STRING *a1, UNICODE_STRING *a2, ULONG *a3, PVOID *a4, _BYTE *a5)

@@ -1,19 +1,19 @@
 /*
- * XREFs of IopFindDiskIoAttribution @ 0x14001F2F8
+ * XREFs of IopFindDiskIoAttribution @ 0x14001EE78
  * Callers:
- *     IoRecordIoAttribution @ 0x14001F26C (IoRecordIoAttribution.c)
- *     IopAcquireReferencesFromIoAttributionHandle @ 0x1400B610C (IopAcquireReferencesFromIoAttributionHandle.c)
+ *     IoRecordIoAttribution @ 0x14001EDEC (IoRecordIoAttribution.c)
+ *     IopAcquireReferencesFromIoAttributionHandle @ 0x1400B3F34 (IopAcquireReferencesFromIoAttributionHandle.c)
  * Callees:
- *     IopDiskIoAttributionTreeCompare @ 0x14001F390 (IopDiskIoAttributionTreeCompare.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
+ *     IopDiskIoAttributionTreeCompare @ 0x14001EF10 (IopDiskIoAttributionTreeCompare.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
  */
 
-__int64 *__fastcall IopFindDiskIoAttribution(__int64 a1)
+_RTL_BALANCED_NODE *__fastcall IopFindDiskIoAttribution(__int64 a1)
 {
-  __int64 *v1; // rdi
+  _RTL_BALANCED_NODE *v1; // rdi
   KIRQL v2; // al
-  __int64 *v3; // rbx
+  _RTL_BALANCED_NODE *Root; // rbx
   KIRQL v4; // si
   int v5; // eax
   __int64 v7; // [rsp+30h] [rbp+8h] BYREF
@@ -21,29 +21,29 @@ __int64 *__fastcall IopFindDiskIoAttribution(__int64 a1)
   v7 = a1;
   v1 = 0LL;
   v2 = ExAcquireSpinLockShared(&IopDiskIoAttributionLock);
-  v3 = (__int64 *)IopDiskIoAttributionTree;
+  Root = IopDiskIoAttributionTree.Root;
   v4 = v2;
-  if ( (_QWORD)IopDiskIoAttributionTree )
+  if ( IopDiskIoAttributionTree.Root )
   {
     do
     {
-      v5 = IopDiskIoAttributionTreeCompare(&v7, v3);
+      v5 = IopDiskIoAttributionTreeCompare(&v7, Root);
       if ( v5 < 0 )
       {
-        v3 = (__int64 *)*v3;
+        Root = Root->Children[0];
       }
       else
       {
         if ( v5 <= 0 )
           break;
-        v3 = (__int64 *)v3[1];
+        Root = Root->Children[1];
       }
     }
-    while ( v3 );
-    if ( v3 )
+    while ( Root );
+    if ( Root )
     {
-      v1 = v3;
-      if ( _InterlockedIncrement64(v3 + 4) <= 1 )
+      v1 = Root;
+      if ( _InterlockedIncrement64((volatile signed __int64 *)&Root[1].Children[1]) <= 1 )
         __fastfail(0xEu);
     }
   }

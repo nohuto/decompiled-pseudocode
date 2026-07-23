@@ -5,26 +5,26 @@
  * Callees:
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
- *     KeAbPostReleaseEx @ 0x140353BB0 (KeAbPostReleaseEx.c)
- *     KeAbMarkCrossThreadReleasable @ 0x14039C41C (KeAbMarkCrossThreadReleasable.c)
- *     ExpAddFastOwnerEntryToThreadList @ 0x14039C474 (ExpAddFastOwnerEntryToThreadList.c)
- *     ExpRotateFastOwnerEntrySublistHead @ 0x14039CEC8 (ExpRotateFastOwnerEntrySublistHead.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_1403119F0 @ 0x1403119F0 (sub_1403119F0.c)
+ *     sub_140353BB0 @ 0x140353BB0 (sub_140353BB0.c)
+ *     sub_14039C41C @ 0x14039C41C (sub_14039C41C.c)
+ *     sub_14039C474 @ 0x14039C474 (sub_14039C474.c)
+ *     sub_14039CEC8 @ 0x14039CEC8 (sub_14039CEC8.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
 LONG_PTR __fastcall ExDisownFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
 {
   char v2; // r12
-  unsigned __int64 *CurrentThread; // r13
+  KSPIN_LOCK *CurrentThread; // r13
   unsigned int v6; // esi
   unsigned __int8 CurrentIrql; // al
   struct _KTHREAD *v8; // rcx
   ULONG_PTR v9; // r9
   unsigned __int8 v10; // r15
   __int64 v11; // r8
-  unsigned __int64 *v12; // r14
+  KSPIN_LOCK *v12; // r14
   _QWORD *v13; // r15
   volatile __int64 *v14; // rdx
   _QWORD *v15; // rax
@@ -35,7 +35,7 @@ LONG_PTR __fastcall ExDisownFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR
   _QWORD *v20; // r14
   ULONG_PTR *v21; // rax
   LONG_PTR result; // rax
-  _DWORD *SchedulerAssist; // r9
+  __int64 v23; // r9
   _QWORD *v24; // rax
   unsigned int v25; // r14d
   __int64 v26; // rdx
@@ -57,7 +57,7 @@ LONG_PTR __fastcall ExDisownFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR
   _QWORD *v42; // rax
   unsigned __int8 v43; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v45; // r8
+  __int64 v45; // r8
   int v46; // eax
   bool v47; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-30h] BYREF
@@ -67,7 +67,7 @@ LONG_PTR __fastcall ExDisownFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR
   *(_QWORD *)&v49.OldIrql = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   v2 = 0;
-  CurrentThread = (unsigned __int64 *)KeGetCurrentThread();
+  CurrentThread = (KSPIN_LOCK *)KeGetCurrentThread();
   v6 = 0;
   if ( (*(_BYTE *)(BugCheckParameter2 + 26) & 1) == 0 )
     KeBugCheckEx(0x1C6u, 3uLL, BugCheckParameter2, 0LL, 0LL);
@@ -75,7 +75,7 @@ LONG_PTR __fastcall ExDisownFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR
   v8 = KeGetCurrentThread();
   if ( CurrentIrql > 2u )
     KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 2uLL, 0LL);
-  if ( !CurrentIrql && (v8->MiscFlags & 0x400) == 0 && !v8->WaitBlock[3].SpareLong )
+  if ( !CurrentIrql && (*((_DWORD *)v8 + 29) & 0x400) == 0 && !*((_DWORD *)v8 + 121) )
     KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
   v9 = *(_QWORD *)(a2 + 32);
   if ( (struct _KTHREAD *)v9 != v8 )
@@ -87,23 +87,23 @@ LONG_PTR __fastcall ExDisownFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR
   v10 = KeGetCurrentIrql();
   v50 = v10;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v10 <= 0xFu )
+  if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && v10 <= 0xFu )
   {
-    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    SchedulerAssist[5] |= (-1 << (v10 + 1)) & 4;
+    v23 = *((_QWORD *)KeGetCurrentPrcb() + 4375);
+    *(_DWORD *)(v23 + 20) |= (-1 << (v10 + 1)) & 4;
   }
   if ( *(char *)(BugCheckParameter2 + 26) < 0 && (!*(_BYTE *)(a2 + 18) || *(_QWORD *)(a2 + 40) != a2 + 40) )
     KeBugCheckEx(0x1C6u, 0x12uLL, BugCheckParameter2, 0LL, 0LL);
   *(_BYTE *)(a2 + 17) |= 1u;
   v49.LockQueue.Lock = CurrentThread + 209;
   v49.LockQueue.Next = 0LL;
-  KxAcquireQueuedSpinLock((__int64)&v49, (volatile __int64 *)CurrentThread + 209);
-  v12 = (unsigned __int64 *)CurrentThread[210];
+  sub_1403119F0((__int64)&v49, (volatile __int64 *)CurrentThread + 209);
+  v12 = (KSPIN_LOCK *)CurrentThread[210];
   if ( v12 != CurrentThread + 210 )
   {
     while ( v12[3] != BugCheckParameter2 )
     {
-      v12 = (unsigned __int64 *)*v12;
+      v12 = (KSPIN_LOCK *)*v12;
       if ( v12 == CurrentThread + 210 )
         goto LABEL_32;
     }
@@ -113,11 +113,11 @@ LONG_PTR __fastcall ExDisownFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR
       {
         v13 = (_QWORD *)(a2 + 40);
         v14 = (volatile __int64 *)(BugCheckParameter2 + 96);
-        LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(BugCheckParameter2 + 96);
+        LockHandle.LockQueue.Lock = (volatile PKSPIN_LOCK)(BugCheckParameter2 + 96);
         if ( (_QWORD *)*v13 == v13 )
         {
           LockHandle.LockQueue.Next = 0LL;
-          KxAcquireQueuedSpinLock((__int64)&LockHandle, v14);
+          sub_1403119F0((__int64)&LockHandle, v14);
           --*(_DWORD *)(BugCheckParameter2 + 64);
           v15 = (_QWORD *)(a2 + 56);
           v16 = *(_QWORD *)(a2 + 56);
@@ -161,9 +161,9 @@ LABEL_21:
         else
         {
           LockHandle.LockQueue.Next = 0LL;
-          KxAcquireQueuedSpinLock((__int64)&LockHandle, v14);
+          sub_1403119F0((__int64)&LockHandle, v14);
           LOBYTE(v33) = 1;
-          ExpRotateFastOwnerEntrySublistHead(BugCheckParameter2, a2, v33);
+          sub_14039CEC8(BugCheckParameter2, a2, v33);
           KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
           v34 = *(_QWORD *)a2;
           v35 = *(_QWORD **)(a2 + 8);
@@ -219,8 +219,8 @@ LABEL_32:
     *(_QWORD *)a2 = 0LL;
     *(_QWORD *)(a2 + 8) = 0LL;
     LockHandle.LockQueue.Next = 0LL;
-    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(BugCheckParameter2 + 96);
-    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(BugCheckParameter2 + 96));
+    LockHandle.LockQueue.Lock = (volatile PKSPIN_LOCK)(BugCheckParameter2 + 96);
+    sub_1403119F0((__int64)&LockHandle, (volatile __int64 *)(BugCheckParameter2 + 96));
     ++*(_DWORD *)(BugCheckParameter2 + 64);
     v38 = *(_QWORD **)(BugCheckParameter2 + 56);
     v39 = (_QWORD *)(a2 + 56);
@@ -237,10 +237,10 @@ LABEL_32:
   v24 = (_QWORD *)(a2 + 40);
   if ( (_QWORD *)*v24 != v24 )
   {
-    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(BugCheckParameter2 + 96);
+    LockHandle.LockQueue.Lock = (volatile PKSPIN_LOCK)(BugCheckParameter2 + 96);
     LockHandle.LockQueue.Next = 0LL;
-    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(BugCheckParameter2 + 96));
-    ExpRotateFastOwnerEntrySublistHead(BugCheckParameter2, a2, 0LL);
+    sub_1403119F0((__int64)&LockHandle, (volatile __int64 *)(BugCheckParameter2 + 96));
+    sub_14039CEC8(BugCheckParameter2, a2, 0LL);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     v41 = *(_QWORD *)a2;
     v2 = 1;
@@ -252,7 +252,7 @@ LABEL_32:
     *(_QWORD *)a2 = 0LL;
     *(_QWORD *)(a2 + 8) = 0LL;
 LABEL_63:
-    ExpAddFastOwnerEntryToThreadList(CurrentThread, v40, 1LL, a2);
+    sub_14039C474(CurrentThread, v40, 1LL, a2);
     goto LABEL_64;
   }
   v25 = *(unsigned __int8 *)(a2 + 16);
@@ -268,26 +268,26 @@ LABEL_63:
   *(_QWORD *)(a2 + 8) = 0LL;
   *v24 = 0LL;
   *(_QWORD *)(a2 + 48) = 0LL;
-  ExpAddFastOwnerEntryToThreadList(CurrentThread, v26, v11, a2);
+  sub_14039C474(CurrentThread, v26, v11, a2);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&v49);
   v2 = 1;
   if ( (_BYTE)v25 )
-    KeAbMarkCrossThreadReleasable(v28, v25);
+    sub_14039C41C(v28, v25);
 LABEL_22:
-  if ( KiIrqlFlags )
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       v43 = KeGetCurrentIrql();
       if ( v43 <= 0xFu && v10 <= 0xFu && v43 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v45 = CurrentPrcb->SchedulerAssist;
+        v45 = *((_QWORD *)CurrentPrcb + 4375);
         v46 = ~(unsigned __int16)(-1LL << (v10 + 1));
-        v47 = (v46 & v45[5]) == 0;
-        v45[5] &= v46;
+        v47 = (v46 & *(_DWORD *)(v45 + 20)) == 0;
+        *(_DWORD *)(v45 + 20) &= v46;
         if ( v47 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          sub_140418E4C(CurrentPrcb);
       }
     }
   }
@@ -296,6 +296,6 @@ LABEL_22:
   if ( v2 )
     result = ObfReferenceObjectWithTag(CurrentThread, 0x746C6644u);
   if ( v6 )
-    return KeAbPostReleaseEx(BugCheckParameter2, v6);
+    return sub_140353BB0(BugCheckParameter2, v6);
   return result;
 }

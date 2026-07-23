@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFreezeThawDpcRoutine @ 0x1404ECA00
+ * XREFs of CmpFreezeThawDpcRoutine @ 0x1404ECC40
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
  */
 
 void __fastcall CmpFreezeThawDpcRoutine(

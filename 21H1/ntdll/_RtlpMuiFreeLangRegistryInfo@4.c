@@ -10,13 +10,13 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __stdcall RtlpMuiFreeLangRegistryInfo(int a1)
+int __stdcall RtlpMuiFreeLangRegistryInfo(PVOID BaseAddress)
 {
   int v2; // esi
 
-  if ( !a1 )
+  if ( !BaseAddress )
     return -1073741811;
-  v2 = RtlpMuiRegFreeRegistryInfo(a1, 4095);
-  RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, a1);
+  v2 = RtlpMuiRegFreeRegistryInfo((int)BaseAddress, 4095);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   return v2;
 }

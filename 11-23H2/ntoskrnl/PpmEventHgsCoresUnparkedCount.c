@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventHgsCoresUnparkedCount @ 0x14046332E
+ * XREFs of PpmEventHgsCoresUnparkedCount @ 0x14046372E
  * Callers:
- *     PpmParkCalculateUnparkCount @ 0x140357E50 (PpmParkCalculateUnparkCount.c)
+ *     PpmParkCalculateUnparkCount @ 0x140357FF0 (PpmParkCalculateUnparkCount.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventHgsCoresUnparkedCount(__int64 a1)

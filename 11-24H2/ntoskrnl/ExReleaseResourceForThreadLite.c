@@ -1,12 +1,12 @@
 /*
- * XREFs of ExReleaseResourceForThreadLite @ 0x1402D6820
+ * XREFs of ExReleaseResourceForThreadLite @ 0x140357AA0
  * Callers:
- *     DifExReleaseResourceForThreadLiteWrapper @ 0x140620E00 (DifExReleaseResourceForThreadLiteWrapper.c)
- *     CcUnpinDataForThread @ 0x140706D10 (CcUnpinDataForThread.c)
+ *     DifExReleaseResourceForThreadLiteWrapper @ 0x14061F3C0 (DifExReleaseResourceForThreadLiteWrapper.c)
+ *     CcUnpinDataForThread @ 0x1407048D0 (CcUnpinDataForThread.c)
  * Callees:
- *     ExpReleaseResourceForThreadLite @ 0x1402D6BE0 (ExpReleaseResourceForThreadLite.c)
- *     ExpFastResourceLegacyRelease @ 0x140469BD0 (ExpFastResourceLegacyRelease.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExpReleaseResourceForThreadLite @ 0x140357E60 (ExpReleaseResourceForThreadLite.c)
+ *     ExpFastResourceLegacyRelease @ 0x140462AF4 (ExpFastResourceLegacyRelease.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __stdcall ExReleaseResourceForThreadLite(PERESOURCE Resource, ERESOURCE_THREAD ResourceThreadId)

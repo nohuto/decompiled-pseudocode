@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSelectImageMapAddress @ 0x1409CDB18
+ * XREFs of MiSelectImageMapAddress @ 0x14099EAF8
  * Callers:
- *     MiMapViewOfImageSection @ 0x1409CD37C (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x14099E35C (MiMapViewOfImageSection.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiSelectUserAddress @ 0x1409C4FA0 (MiSelectUserAddress.c)
- *     MiIsVaRangeAvailable @ 0x1409CE424 (MiIsVaRangeAvailable.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiSelectUserAddress @ 0x140995F80 (MiSelectUserAddress.c)
+ *     MiIsVaRangeAvailable @ 0x14099F404 (MiIsVaRangeAvailable.c)
  */
 
 __int64 __fastcall MiSelectImageMapAddress(__int64 a1)

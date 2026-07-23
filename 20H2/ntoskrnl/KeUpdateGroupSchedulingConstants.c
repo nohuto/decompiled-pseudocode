@@ -28,9 +28,7 @@ __int64 __fastcall KeUpdateGroupSchedulingConstants(char a1)
   KiCycleDivisorLongTerm = v2 * (unsigned int)PsDfssLongTermSharingMS;
   KiCyclesPerGeneration = v2 * (unsigned int)PsDfssGenerationLengthMS;
   KiGroupSchedulingNumerator = PsDfssLongTermFraction1024;
-  KiGenerationTicks = 10000
-                    * (unsigned __int64)(unsigned int)PsDfssGenerationLengthMS
-                    / (unsigned int)KeMaximumIncrement;
+  KiGenerationTicks = 10000 * (unsigned __int64)(unsigned int)PsDfssGenerationLengthMS / KeMaximumIncrement;
   result = KiAssignSchedulingGroupWeights(0, 1, 0LL);
   if ( !a1 )
   {

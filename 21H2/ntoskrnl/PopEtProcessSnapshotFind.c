@@ -1,7 +1,7 @@
 /*
- * XREFs of PopEtProcessSnapshotFind @ 0x140619280
+ * XREFs of PopEtProcessSnapshotFind @ 0x140682EE0
  * Callers:
- *     PopEtProcessSnapshotUpdate @ 0x1406190C8 (PopEtProcessSnapshotUpdate.c)
+ *     PopEtProcessSnapshotUpdate @ 0x140682D28 (PopEtProcessSnapshotUpdate.c)
  * Callees:
  *     <none>
  */

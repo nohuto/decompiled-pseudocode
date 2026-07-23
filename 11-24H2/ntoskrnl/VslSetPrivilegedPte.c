@@ -1,12 +1,12 @@
 /*
- * XREFs of VslSetPrivilegedPte @ 0x14036C358
+ * XREFs of VslSetPrivilegedPte @ 0x140492280
  * Callers:
- *     MiAllocateWsle @ 0x14021F980 (MiAllocateWsle.c)
- *     KeSetPagePrivilege @ 0x14036C260 (KeSetPagePrivilege.c)
+ *     MiAllocateWsle @ 0x14024C6D0 (MiAllocateWsle.c)
+ *     KeSetPagePrivilege @ 0x140492188 (KeSetPagePrivilege.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslSetPrivilegedPte(__int64 a1, __int64 a2, __int128 *a3, int a4)
@@ -24,5 +24,5 @@ __int64 __fastcall VslSetPrivilegedPte(__int64 a1, __int64 a2, __int128 *a3, int
   v12 = a2;
   v14 = a4;
   v13 = v8;
-  return VslpEnterIumSecureMode(2u, 247LL, 0, (__int64)v10);
+  return VslpEnterIumSecureMode(2u, 0xF7u, 0, (__int64)v10);
 }

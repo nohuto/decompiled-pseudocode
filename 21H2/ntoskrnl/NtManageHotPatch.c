@@ -1,26 +1,26 @@
 /*
- * XREFs of NtManageHotPatch @ 0x1408CED40
+ * XREFs of NtManageHotPatch @ 0x1408CEEA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
- *     RtlDuplicateUnicodeString @ 0x14068B130 (RtlDuplicateUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     MiLoadHotPatch @ 0x1408CABD0 (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x1408CAF30 (MiLoadHotPatchForUserSid.c)
- *     MiLogHotPatchManagement @ 0x1408CB2C0 (MiLogHotPatchManagement.c)
- *     MiQueryLoadedPatches @ 0x1408CDC58 (MiQueryLoadedPatches.c)
- *     MiQueryProcessActivePatches @ 0x1408CDEE8 (MiQueryProcessActivePatches.c)
- *     MiUnloadHotPatch @ 0x1408CE7C8 (MiUnloadHotPatch.c)
- *     MiUnloadHotPatchForUserSid @ 0x1408CE914 (MiUnloadHotPatchForUserSid.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlDuplicateUnicodeString @ 0x1405EAFA0 (RtlDuplicateUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     RtlValidSid @ 0x140651540 (RtlValidSid.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     MiLoadHotPatch @ 0x1408CAD30 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x1408CB090 (MiLoadHotPatchForUserSid.c)
+ *     MiLogHotPatchManagement @ 0x1408CB420 (MiLogHotPatchManagement.c)
+ *     MiQueryLoadedPatches @ 0x1408CDDB8 (MiQueryLoadedPatches.c)
+ *     MiQueryProcessActivePatches @ 0x1408CE048 (MiQueryProcessActivePatches.c)
+ *     MiUnloadHotPatch @ 0x1408CE928 (MiUnloadHotPatch.c)
+ *     MiUnloadHotPatchForUserSid @ 0x1408CEA74 (MiUnloadHotPatchForUserSid.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtManageHotPatch(int a1, char *a2, unsigned int a3, unsigned __int64 a4)
@@ -60,7 +60,7 @@ __int64 __fastcall NtManageHotPatch(int a1, char *a2, unsigned int a3, unsigned 
   RtlInitUnicodeString(&DestinationString, 0LL);
   v23 = 0;
   AccessMode = KeGetCurrentThread()->PreviousMode;
-  if ( !dword_140C4CCB0 )
+  if ( !dword_140C4CCF0 )
   {
     active = -1073741637;
 LABEL_3:

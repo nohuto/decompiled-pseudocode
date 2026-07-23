@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpLogUnsupportedOperation @ 0x14087634C
+ * XREFs of CmpLogUnsupportedOperation @ 0x1408764AC
  * Callers:
- *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
- *     CmpPerformUnloadKey @ 0x14071A1B8 (CmpPerformUnloadKey.c)
- *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
- *     NtCompactKeys @ 0x140868000 (NtCompactKeys.c)
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
- *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
- *     CmSaveMergedKeys @ 0x14087CA90 (CmSaveMergedKeys.c)
+ *     CmpPerformUnloadKey @ 0x1405DFA8C (CmpPerformUnloadKey.c)
+ *     CmpCreateChild @ 0x14065C8F4 (CmpCreateChild.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
+ *     CmSaveKey @ 0x14072907C (CmSaveKey.c)
+ *     NtCompactKeys @ 0x140868160 (NtCompactKeys.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
+ *     CmRestoreKey @ 0x14087C090 (CmRestoreKey.c)
+ *     CmSaveMergedKeys @ 0x14087CBF0 (CmSaveMergedKeys.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     CmpSendUnsupportedOperationTelemetryEvent @ 0x1408765DC (CmpSendUnsupportedOperationTelemetryEvent.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     CmpSendUnsupportedOperationTelemetryEvent @ 0x14087673C (CmpSendUnsupportedOperationTelemetryEvent.c)
  */
 
 NTSTATUS __fastcall CmpLogUnsupportedOperation(unsigned int a1)
@@ -35,7 +35,7 @@ NTSTATUS __fastcall CmpLogUnsupportedOperation(unsigned int a1)
     v6 = 4;
     return tlgWriteTransfer_EtwWriteTransfer(
              (__int64)&dword_140C02130,
-             (unsigned __int8 *)&word_140023A86,
+             (unsigned __int8 *)&word_140023B46,
              0LL,
              0LL,
              3u,

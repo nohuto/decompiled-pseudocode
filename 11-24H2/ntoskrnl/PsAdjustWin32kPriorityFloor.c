@@ -1,11 +1,11 @@
 /*
- * XREFs of PsAdjustWin32kPriorityFloor @ 0x140474BA0
+ * XREFs of PsAdjustWin32kPriorityFloor @ 0x1404709B0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeAdjustPriorityFloor @ 0x140474C2C (KeAdjustPriorityFloor.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAdjustPriorityFloor @ 0x140470A3C (KeAdjustPriorityFloor.c)
  */
 
 __int64 __fastcall PsAdjustWin32kPriorityFloor(ULONG_PTR BugCheckParameter1, unsigned int a2)

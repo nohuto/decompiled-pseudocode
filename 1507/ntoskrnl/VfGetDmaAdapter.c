@@ -17,7 +17,7 @@ struct _DMA_ADAPTER *__fastcall VfGetDmaAdapter(
         struct _DEVICE_DESCRIPTION *DeviceDescription,
         PULONG NumberOfMapRegisters)
 {
-  ULONG_PTR *v6; // rax
+  _LIST_ENTRY *v6; // rax
   struct _DMA_ADAPTER *DmaAdapter; // rax
   struct _DMA_ADAPTER *v8; // rdi
   __int64 v10; // rax
@@ -31,7 +31,7 @@ struct _DMA_ADAPTER *__fastcall VfGetDmaAdapter(
   {
     while ( 1 )
     {
-      v6 = VF_FIND_INACTIVE_ADAPTER_AND_REMOVE((__int64)PhysicalDeviceObject);
+      v6 = VF_FIND_INACTIVE_ADAPTER_AND_REMOVE((struct _LIST_ENTRY *)PhysicalDeviceObject);
       if ( !v6 )
         break;
       ViReleaseDmaAdapter((ULONG_PTR)v6);

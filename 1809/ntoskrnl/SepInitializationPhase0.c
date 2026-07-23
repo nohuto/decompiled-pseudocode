@@ -1,14 +1,14 @@
 /*
- * XREFs of SepInitializationPhase0 @ 0x1409AD8C0
+ * XREFs of SepInitializationPhase0 @ 0x1409AE8C0
  * Callers:
- *     SeInitSystem @ 0x1409AB3BC (SeInitSystem.c)
+ *     SeInitSystem @ 0x1409AC3BC (SeInitSystem.c)
  * Callees:
- *     ObInitializeFastReference @ 0x14064E9E4 (ObInitializeFastReference.c)
- *     SepVariableInitialization @ 0x1409AB3EC (SepVariableInitialization.c)
- *     SeMakeSystemToken @ 0x1409ADE18 (SeMakeSystemToken.c)
- *     SepInitializeWorkList @ 0x1409AE8B8 (SepInitializeWorkList.c)
- *     SepTokenInitialization @ 0x1409AE964 (SepTokenInitialization.c)
- *     SepRmDbInitialization @ 0x1409D8F90 (SepRmDbInitialization.c)
+ *     ObInitializeFastReference @ 0x14064FBA4 (ObInitializeFastReference.c)
+ *     SepVariableInitialization @ 0x1409AC3EC (SepVariableInitialization.c)
+ *     SeMakeSystemToken @ 0x1409AEE18 (SeMakeSystemToken.c)
+ *     SepInitializeWorkList @ 0x1409AF8B8 (SepInitializeWorkList.c)
+ *     SepTokenInitialization @ 0x1409AF964 (SepTokenInitialization.c)
+ *     SepRmDbInitialization @ 0x1409D9F90 (SepRmDbInitialization.c)
  */
 
 bool SepInitializationPhase0()
@@ -30,6 +30,6 @@ bool SepInitializationPhase0()
   SystemToken = SeMakeSystemToken();
   ObInitializeFastReference(&Process[1].Affinity.Bitmap[5], SystemToken);
   SepMandatoryObjectTypePolicyLock = 0LL;
-  SepDefaultMandatorySid = *(PSID *)&SeMediumMandatorySid;
+  SepDefaultMandatorySid = SeMediumMandatorySid;
   return KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[5] != 0;
 }

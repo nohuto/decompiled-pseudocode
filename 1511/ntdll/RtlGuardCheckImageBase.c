@@ -11,7 +11,7 @@ PVOID __fastcall RtlGuardCheckImageBase(PVOID a1)
   PVOID result; // rax
   PVOID BaseOfImage; // [rsp+38h] [rbp+10h] BYREF
 
-  if ( qword_1801552F0 )
+  if ( LdrSystemDllInitBlock.Wow64SharedInformation[9] )
   {
     result = RtlPcToFileHeader(a1, &BaseOfImage);
     if ( BaseOfImage != a1 )

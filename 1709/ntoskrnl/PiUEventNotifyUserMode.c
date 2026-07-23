@@ -157,7 +157,7 @@ LABEL_18:
         v15 = KeWaitForMultipleObjects(2u, Object, WaitAny, Executive, 0, 1u, &Timeout, 0LL);
         LODWORD(Size) = 0;
         v16 = v15;
-        ZwUpdateWnfStateData((__int64)&WNF_PNPB_AWAITING_RESPONSE, (__int64)&Size, 4LL);
+        ZwUpdateWnfStateData(&WNF_PNPB_AWAITING_RESPONSE, &Size, 4u, 0LL, 0LL, 0, 0);
         if ( v16 )
         {
           if ( v16 == 1 )

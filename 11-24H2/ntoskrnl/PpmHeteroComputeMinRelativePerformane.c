@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmHeteroComputeMinRelativePerformane @ 0x140A2A838
+ * XREFs of PpmHeteroComputeMinRelativePerformane @ 0x140A3C090
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A2A138 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140AC57E0 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void PpmHeteroComputeMinRelativePerformane()
@@ -31,7 +31,7 @@ void PpmHeteroComputeMinRelativePerformane()
 
   if ( !PpmHeteroMinRelativePerformance )
   {
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 4LL * (unsigned __int8)PpmMaxCoreClasses, 0x704D5050u);
     PpmHeteroMinRelativePerformance = Pool2;
     if ( !Pool2 )
       goto LABEL_13;
@@ -71,8 +71,8 @@ void PpmHeteroComputeMinRelativePerformane()
   }
 LABEL_13:
   if ( !PpmHeteroMinRelativePerformance
-    && (unsigned int)dword_140E076F0 > 5
-    && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+    && (unsigned int)dword_140E07680 > 5
+    && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v13 = 0;
     v16 = 0;
@@ -82,6 +82,12 @@ LABEL_13:
     v14 = &v9;
     v9 = 0x1000000LL;
     v15 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)&word_14004B906, 0LL, 0LL, 4u, &v10);
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140E07680,
+      (unsigned __int8 *)&dword_14004BE2C,
+      0LL,
+      0LL,
+      4u,
+      &v10);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpGetCellPaged @ 0x1406843E0
+ * XREFs of HvpGetCellPaged @ 0x1406855A0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall HvpGetCellPaged(ULONG_PTR BugCheckParameter3, unsigned int a2, __int64 a3)

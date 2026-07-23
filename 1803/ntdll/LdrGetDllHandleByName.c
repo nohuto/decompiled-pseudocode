@@ -9,32 +9,29 @@
  *     sub_1800D0A98 @ 0x1800D0A98 (sub_1800D0A98.c)
  */
 
-__int64 __fastcall LdrGetDllHandleByName(unsigned __int16 *a1, unsigned __int64 a2, _QWORD *a3)
+NTSTATUS __cdecl LdrGetDllHandleByName(PUNICODE_STRING BaseDllName, PUNICODE_STRING FullDllName, PVOID *DllHandle)
 {
-  unsigned __int64 v4; // rdx
-  int v5; // ebx
-  unsigned __int64 *v6; // r8
-  __int64 v7; // r9
-  unsigned __int64 v8; // rdi
-  unsigned __int64 v10; // [rsp+38h] [rbp-10h] BYREF
-  int v11; // [rsp+68h] [rbp+20h] BYREF
+  NTSTATUS v4; // ebx
+  PVOID v5; // rdi
+  PVOID BaseAddress[2]; // [rsp+38h] [rbp-10h] BYREF
+  int v8; // [rsp+68h] [rbp+20h] BYREF
 
-  v5 = sub_1800385D0(a1, a2, 0LL, (unsigned __int16 *)&v10, &v11);
-  if ( v5 >= 0 )
+  v4 = sub_1800385D0(BaseDllName, FullDllName, 0, (__int64)BaseAddress, &v8);
+  if ( v4 >= 0 )
   {
-    if ( v11 < 7 )
+    if ( v8 < 7 )
     {
-      v5 = -1073741515;
-      v8 = v10;
+      v4 = -1073741515;
+      v5 = BaseAddress[0];
     }
     else
     {
-      v8 = v10;
-      v5 = sub_1800389D0(v10, v4, v6, v7);
-      if ( v5 >= 0 )
-        *a3 = *(_QWORD *)(v8 + 48);
+      v5 = BaseAddress[0];
+      v4 = sub_1800389D0((__int64)BaseAddress[0]);
+      if ( v4 >= 0 )
+        *DllHandle = (PVOID)*((_QWORD *)v5 + 6);
     }
-    sub_18001F5FC(v8);
+    sub_18001F5FC((char *)v5);
   }
-  return (unsigned int)v5;
+  return v4;
 }

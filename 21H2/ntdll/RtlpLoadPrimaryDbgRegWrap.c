@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpLoadPrimaryDbgRegWrap @ 0x1800A27A0
+ * XREFs of RtlpLoadPrimaryDbgRegWrap @ 0x1800A2760
  * Callers:
- *     RtlpUmsExecuteYieldThreadEnd @ 0x1800A2716 (RtlpUmsExecuteYieldThreadEnd.c)
+ *     RtlpUmsExecuteYieldThreadEnd @ 0x1800A26D6 (RtlpUmsExecuteYieldThreadEnd.c)
  * Callees:
- *     RtlpLoadUmsDebugRegisterState @ 0x18010DC50 (RtlpLoadUmsDebugRegisterState.c)
+ *     RtlpLoadUmsDebugRegisterState @ 0x18010DC10 (RtlpLoadUmsDebugRegisterState.c)
  */
 
 __int64 __fastcall RtlpLoadPrimaryDbgRegWrap()

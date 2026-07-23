@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpBlkInitializeProcessorState @ 0x1409A93A4
+ * XREFs of HalpBlkInitializeProcessorState @ 0x1409AA2D4
  * Callers:
- *     HalpBlkStartBlockedProcessor @ 0x1409A95A4 (HalpBlkStartBlockedProcessor.c)
+ *     HalpBlkStartBlockedProcessor @ 0x1409AA4D4 (HalpBlkStartBlockedProcessor.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpBlkInitializeIdt @ 0x1409A92C8 (HalpBlkInitializeIdt.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpBlkInitializeIdt @ 0x1409AA1F8 (HalpBlkInitializeIdt.c)
  */
 
 unsigned __int64 __fastcall HalpBlkInitializeProcessorState(

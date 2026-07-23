@@ -1,26 +1,26 @@
 /*
- * XREFs of MiMapContiguousMemory @ 0x14009B8AC
+ * XREFs of MiMapContiguousMemory @ 0x14009B0AC
  * Callers:
- *     MiAllocateContiguousMemory @ 0x14009AF40 (MiAllocateContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x14009B870 (MmMapIoSpaceEx.c)
+ *     MiAllocateContiguousMemory @ 0x14009A740 (MiAllocateContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x14009B070 (MmMapIoSpaceEx.c)
  * Callees:
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiZeroAndFlushPtes @ 0x14009B608 (MiZeroAndFlushPtes.c)
- *     MiDereferenceIoPages @ 0x14009BF70 (MiDereferenceIoPages.c)
- *     MiReferenceIoPages @ 0x14009C300 (MiReferenceIoPages.c)
- *     MiIoSpaceIsConstant @ 0x14009C758 (MiIoSpaceIsConstant.c)
- *     MiMappingHasIoReferences @ 0x14009C774 (MiMappingHasIoReferences.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     MiMapWithLargePages @ 0x14012E28C (MiMapWithLargePages.c)
- *     MiAssignInitialPageAttribute @ 0x140146D38 (MiAssignInitialPageAttribute.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiShowBadMapper @ 0x1401E14D4 (MiShowBadMapper.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiInsertPteTracker @ 0x1401FC7EC (MiInsertPteTracker.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiZeroAndFlushPtes @ 0x14009AE08 (MiZeroAndFlushPtes.c)
+ *     MiDereferenceIoPages @ 0x14009B770 (MiDereferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x14009BB00 (MiReferenceIoPages.c)
+ *     MiIoSpaceIsConstant @ 0x14009BF58 (MiIoSpaceIsConstant.c)
+ *     MiMappingHasIoReferences @ 0x14009BF74 (MiMappingHasIoReferences.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     MiMapWithLargePages @ 0x14012E7FC (MiMapWithLargePages.c)
+ *     MiAssignInitialPageAttribute @ 0x1401472A8 (MiAssignInitialPageAttribute.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiShowBadMapper @ 0x1401E1300 (MiShowBadMapper.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiInsertPteTracker @ 0x1401FC618 (MiInsertPteTracker.c)
  */
 
 unsigned __int64 __fastcall MiMapContiguousMemory(unsigned __int64 a1, __int64 a2, unsigned int a3, int a4)
@@ -242,7 +242,7 @@ LABEL_52:
       return 0LL;
   }
 LABEL_54:
-  v30 = MiReservePtes(&qword_140327870, v25);
+  v30 = MiReservePtes(&qword_1403278B0, v25);
   v31 = (_QWORD *)v30;
   if ( !v30 )
     return 0LL;
@@ -337,7 +337,7 @@ LABEL_72:
         if ( (int)MiReferenceIoPages(1, v50, v47, v64, 0LL, (__int64)&v65) < 0 )
         {
           MiZeroAndFlushPtes(v29);
-          MiReleasePtes((__int64)&qword_140327870, (__int64)v70, v71);
+          MiReleasePtes((__int64)&qword_1403278B0, (__int64)v70, v71);
           return 0LL;
         }
         v36 = v65;

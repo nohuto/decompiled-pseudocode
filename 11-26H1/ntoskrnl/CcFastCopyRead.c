@@ -1,9 +1,9 @@
 /*
- * XREFs of CcFastCopyRead @ 0x140B0DB80
+ * XREFs of CcFastCopyRead @ 0x140B0F2D0
  * Callers:
  *     <none>
  * Callees:
- *     CcCopyReadEx @ 0x14021CC00 (CcCopyReadEx.c)
+ *     CcCopyReadEx @ 0x14021E590 (CcCopyReadEx.c)
  */
 
 void __stdcall CcFastCopyRead(

@@ -1,9 +1,9 @@
 /*
- * XREFs of PipWaitCriticalDevices @ 0x140C2255C
+ * XREFs of PipWaitCriticalDevices @ 0x140C2459C
  * Callers:
- *     IopInitializeBootDrivers @ 0x140C1E4C4 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140C20504 (IopInitializeBootDrivers.c)
  * Callees:
- *     PnpBootDeviceWait @ 0x1405A3D68 (PnpBootDeviceWait.c)
+ *     PnpBootDeviceWait @ 0x1405A0CA8 (PnpBootDeviceWait.c)
  */
 
 __int64 __fastcall PipWaitCriticalDevices(__int64 a1)

@@ -135,7 +135,7 @@ LABEL_17:
     v45 = v29 >> v30;
     v41 = ((v29 + (unsigned __int16)v46 - 1) >> v30) + 1;
     v44 = a2 + *(unsigned __int16 *)(a2 + 30);
-    RtlAcquireSRWLockShared((volatile signed __int32 *)(a2 + 12));
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a2 + 12));
     v31 = v45;
     if ( v45 < v41 )
     {
@@ -151,7 +151,7 @@ LABEL_17:
       v45 = -1;
     }
 LABEL_29:
-    RtlReleaseSRWLockShared((volatile signed __int32 *)(a2 + 12));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a2 + 12));
     if ( v45 == -1 )
     {
       v18 += 2;

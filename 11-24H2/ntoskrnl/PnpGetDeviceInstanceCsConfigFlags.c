@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpGetDeviceInstanceCsConfigFlags @ 0x140A5DEE0
+ * XREFs of PnpGetDeviceInstanceCsConfigFlags @ 0x140A56300
  * Callers:
- *     PnpIsDeviceInstanceEnabled @ 0x140A5DBC0 (PnpIsDeviceInstanceEnabled.c)
- *     PiCMCreateDevice @ 0x140AB4970 (PiCMCreateDevice.c)
+ *     PnpIsDeviceInstanceEnabled @ 0x140A55FE0 (PnpIsDeviceInstanceEnabled.c)
+ *     PiCMCreateDevice @ 0x140AB39A4 (PiCMCreateDevice.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetDeviceInstanceCsConfigFlags(unsigned __int16 *a1, __int64 a2, _DWORD *a3)
@@ -46,7 +46,7 @@ __int64 __fastcall PnpGetDeviceInstanceCsConfigFlags(unsigned __int16 *a1, __int
       && ((_WORD)v7 != (_WORD)v5 || v6[((unsigned __int64)(unsigned int)v7 >> 1) - 1])
       && (v7 > v5 - 2 || v6[(v7 >> 1) - 1] && v6[v7 >> 1]) )
     {
-      Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, v7 + 2, 0x75737050u);
       v6 = Pool2;
       if ( Pool2 )
       {
@@ -59,7 +59,7 @@ __int64 __fastcall PnpGetDeviceInstanceCsConfigFlags(unsigned __int16 *a1, __int
   }
   else if ( *v6 )
   {
-    v9 = (_WORD *)ExAllocatePool2(0x100uLL);
+    v9 = (_WORD *)ExAllocatePool2(0x100uLL, 2uLL, 0x75737050u);
     v6 = v9;
     if ( !v9 )
       return 3221225626LL;

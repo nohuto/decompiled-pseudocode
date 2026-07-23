@@ -1,7 +1,7 @@
 /*
- * XREFs of CcGetVacbLargeOffset @ 0x140415070
+ * XREFs of CcGetVacbLargeOffset @ 0x1404096A0
  * Callers:
- *     CcUnmapInactiveViewsInternal @ 0x140414910 (CcUnmapInactiveViewsInternal.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140408F40 (CcUnmapInactiveViewsInternal.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCompleteBuffer @ 0x1407FD9A8
+ * XREFs of EtwpCompleteBuffer @ 0x1407FDC78
  * Callers:
- *     EtwpCompressPendingBuffers @ 0x1406024E4 (EtwpCompressPendingBuffers.c)
+ *     EtwpCompressPendingBuffers @ 0x140602A34 (EtwpCompressPendingBuffers.c)
  * Callees:
- *     EtwpEnqueueAvailableBuffer @ 0x140227FA8 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x1402280B8 (EtwpEnqueueAvailableBuffer.c)
  */
 
 __int64 __fastcall EtwpCompleteBuffer(__int64 a1, __int64 a2)

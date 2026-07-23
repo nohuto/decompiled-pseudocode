@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpMuiRegLoadLicInformation @ 0x14038CE88
+ * XREFs of RtlpMuiRegLoadLicInformation @ 0x14038D068
  * Callers:
- *     RtlpMuiRegLoadRegistryInfo @ 0x140845360 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x140845660 (RtlpMuiRegLoadRegistryInfo.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     wcspbrk @ 0x1403DC040 (wcspbrk.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlCultureNameToLCID @ 0x1408257A0 (RtlCultureNameToLCID.c)
- *     RtlpGetWindowsPolicy @ 0x140825860 (RtlpGetWindowsPolicy.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     wcspbrk @ 0x1403DC220 (wcspbrk.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlCultureNameToLCID @ 0x140825AA0 (RtlCultureNameToLCID.c)
+ *     RtlpGetWindowsPolicy @ 0x140825B60 (RtlpGetWindowsPolicy.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -36,18 +36,20 @@ __int64 __fastcall RtlpMuiRegLoadLicInformation(__int64 a1)
   __int64 v21; // [rsp+2Ch] [rbp-2Ch]
   wchar_t *v22; // [rsp+38h] [rbp-20h]
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-18h] BYREF
-  int v24; // [rsp+A8h] [rbp+50h] BYREF
-  int v25; // [rsp+B0h] [rbp+58h]
-  int v26; // [rsp+B8h] [rbp+60h]
+  size_t Size; // [rsp+A0h] [rbp+48h] BYREF
+  DWORD Lcid; // [rsp+A8h] [rbp+50h] BYREF
+  ULONG Type; // [rsp+B0h] [rbp+58h] BYREF
+  int v27; // [rsp+B8h] [rbp+60h]
 
   LODWORD(v21) = -1;
-  v24 = 0;
-  v25 = 0;
+  Lcid = 0;
+  Type = 0;
+  LODWORD(Size) = 0;
   v2 = 0LL;
   v3 = 0LL;
   v18 = 0;
   v4 = 0;
-  v26 = 0;
+  v27 = 0;
   v22 = 0LL;
   v19 = 0;
   v20 = 0;
@@ -55,40 +57,40 @@ __int64 __fastcall RtlpMuiRegLoadLicInformation(__int64 a1)
   if ( !a1 )
   {
     v16 = -1073741811;
-    goto LABEL_35;
+    goto LABEL_38;
   }
-  v20 = (int)RtlpGetWindowsPolicy(L"WindowsExcludedProcs") >= 0;
-  if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Number-Allowed") >= 0 )
+  v20 = (int)RtlpGetWindowsPolicy(L"WindowsExcludedProcs", &Type, (PULONG)&Size) >= 0;
+  if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Number-Allowed", &Type, (PULONG)&Size) >= 0 )
   {
     v21 = MEMORY[0];
     ExFreePoolWithTag(0LL, 0);
   }
-  if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Language-Allowed") >= 0 )
+  if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Language-Allowed", &Type, (PULONG)&Size) >= 0 )
   {
-    v18 = 4;
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, 4LL, 1920232557LL);
-    v6 = Pool2;
-    v2 = Pool2;
-    if ( !Pool2 )
+    v18 = Size + 4;
+    if ( (_DWORD)Size == -4
+      || (Pool2 = (wchar_t *)ExAllocatePool2(256LL, (unsigned int)(Size + 4), 1920232557LL),
+          v6 = Pool2,
+          (v2 = Pool2) == 0LL) )
     {
       v18 = 0;
-LABEL_43:
+LABEL_47:
       v16 = -1073741801;
-      goto LABEL_34;
+      goto LABEL_37;
     }
-    memmove(Pool2, 0LL, 0LL);
+    memmove(Pool2, 0LL, (unsigned int)Size);
     for ( i = wcspbrk(v6, L";"); i; i = wcspbrk(i + 1, L";") )
     {
       *i = 0;
       RtlInitUnicodeString(&DestinationString, v6);
-      if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v24) )
+      if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
         ++v4;
       v6 = i + 1;
     }
     if ( *v6 )
     {
       RtlInitUnicodeString(&DestinationString, v6);
-      if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v24) )
+      if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
         ++v4;
     }
     if ( !v4 )
@@ -98,94 +100,109 @@ LABEL_43:
       v2 = 0LL;
     }
   }
-  if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Language-Disallowed") < 0 )
-    goto LABEL_20;
-  v26 = 4;
-  v8 = (wchar_t *)ExAllocatePool2(256LL, 4LL, 1920232557LL);
+  if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Language-Disallowed", &Type, (PULONG)&Size) < 0 )
+    goto LABEL_22;
+  v27 = Size + 4;
+  if ( (_DWORD)Size == -4 )
+  {
+    v3 = 0LL;
+    goto LABEL_46;
+  }
+  v8 = (wchar_t *)ExAllocatePool2(256LL, (unsigned int)(Size + 4), 1920232557LL);
   v9 = v8;
   v3 = v8;
   if ( !v8 )
   {
+LABEL_46:
     v4 = 0;
-    goto LABEL_43;
+    goto LABEL_47;
   }
-  memmove(v8, 0LL, 0LL);
+  memmove(v8, 0LL, (unsigned int)Size);
   v10 = 0;
   for ( j = wcspbrk(v9, L";"); j; j = wcspbrk(j + 1, L";") )
   {
     *j = 0;
     RtlInitUnicodeString(&DestinationString, v9);
-    if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v24) )
+    if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
       ++v10;
     v9 = j + 1;
   }
   if ( *v9 )
   {
     RtlInitUnicodeString(&DestinationString, v9);
-    if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v24) )
+    if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
       ++v10;
   }
   if ( !v10 )
   {
     ExFreePoolWithTag(v3, 0);
-    v26 = 0;
+    v27 = 0;
     v3 = 0LL;
   }
-LABEL_20:
-  if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Language-SKU") >= 0 )
+LABEL_22:
+  if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Language-SKU", &Type, (PULONG)&Size) >= 0 )
   {
-    v19 = 4;
-    v12 = (wchar_t *)ExAllocatePool2(256LL, 4LL, 1920232557LL);
-    v22 = v12;
-    v13 = v12;
-    if ( !v12 )
+    v19 = Size + 4;
+    if ( (_DWORD)Size == -4 )
     {
-      v19 = 0;
-      v16 = -1073741801;
-      goto LABEL_33;
-    }
-    memmove(v12, 0LL, 0LL);
-    v14 = 0;
-    v22 = (wchar_t *)v13;
-    v15 = wcspbrk(v13, L";");
-    if ( v15 )
-    {
-      v22 = (wchar_t *)v13;
-      do
-      {
-        *v15 = 0;
-        RtlInitUnicodeString(&DestinationString, v13);
-        if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v24) )
-          ++v14;
-        v13 = v15 + 1;
-        v15 = wcspbrk(v15 + 1, L";");
-      }
-      while ( v15 );
-    }
-    if ( *v13 )
-    {
-      RtlInitUnicodeString(&DestinationString, v13);
-      if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v24) )
-        ++v14;
-    }
-    if ( !v14 )
-    {
-      ExFreePoolWithTag(v22, 0);
-      v19 = 0;
       v22 = 0LL;
     }
+    else
+    {
+      v12 = (wchar_t *)ExAllocatePool2(256LL, (unsigned int)(Size + 4), 1920232557LL);
+      v22 = v12;
+      v13 = v12;
+      if ( v12 )
+      {
+        memmove(v12, 0LL, (unsigned int)Size);
+        v14 = 0;
+        v22 = (wchar_t *)v13;
+        v15 = wcspbrk(v13, L";");
+        if ( v15 )
+        {
+          v22 = (wchar_t *)v13;
+          do
+          {
+            *v15 = 0;
+            RtlInitUnicodeString(&DestinationString, v13);
+            if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
+              ++v14;
+            v13 = v15 + 1;
+            v15 = wcspbrk(v15 + 1, L";");
+          }
+          while ( v15 );
+        }
+        if ( *v13 )
+        {
+          RtlInitUnicodeString(&DestinationString, v13);
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
+            ++v14;
+        }
+        if ( !v14 )
+        {
+          ExFreePoolWithTag(v22, 0);
+          v19 = 0;
+          v22 = 0LL;
+        }
+        goto LABEL_35;
+      }
+    }
+    v19 = 0;
+    v16 = -1073741801;
+    goto LABEL_36;
   }
+LABEL_35:
   v16 = 0;
-LABEL_33:
-  v4 = v26;
-LABEL_34:
+LABEL_36:
+  v4 = v27;
+LABEL_37:
   if ( v2 && v3 )
   {
     ExFreePoolWithTag(v3, 0);
     v3 = 0LL;
     v4 = 0;
   }
-LABEL_35:
+LABEL_38:
   *(_DWORD *)a1 |= 0x800u;
   *(_DWORD *)(a1 + 116) = v20;
   *(_DWORD *)(a1 + 120) = v21;

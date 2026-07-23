@@ -1,17 +1,17 @@
 /*
- * XREFs of PfSnCheckActionsNeeded @ 0x140667E3C
+ * XREFs of PfSnCheckActionsNeeded @ 0x140668FFC
  * Callers:
- *     PfSnBeginScenario @ 0x140667284 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x140668444 (PfSnBeginScenario.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     MmQueryMemoryListInformation @ 0x1400A89D0 (MmQueryMemoryListInformation.c)
- *     PsGetPagePriorityThread @ 0x1400B5BE0 (PsGetPagePriorityThread.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     MmGetDefaultPagePriority @ 0x1400E219C (MmGetDefaultPagePriority.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PfpGetPageListCount @ 0x140662400 (PfpGetPageListCount.c)
- *     PfSnPrefetchCacheEntryGet @ 0x140668138 (PfSnPrefetchCacheEntryGet.c)
+ *     MmQueryMemoryListInformation @ 0x1400A8910 (MmQueryMemoryListInformation.c)
+ *     PsGetPagePriorityThread @ 0x1400B5B20 (PsGetPagePriorityThread.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MmGetDefaultPagePriority @ 0x1400E221C (MmGetDefaultPagePriority.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PfpGetPageListCount @ 0x1406635C0 (PfpGetPageListCount.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x1406692F8 (PfSnPrefetchCacheEntryGet.c)
  */
 
 __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, __int64 a2, __int64 a3, int *a4, int *a5)
@@ -54,7 +54,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, __int64 a2, __int
   v35 = a4;
   v7 = 23;
   v8 = 3;
-  if ( (dword_14043C070 & 8) != 0 )
+  if ( (dword_14043D130 & 8) != 0 )
   {
     v7 = 22;
     v5 = 22;
@@ -74,7 +74,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, __int64 a2, __int
     }
     else
     {
-      if ( (dword_14043C310 & 0x10) != 0 && !v11 )
+      if ( (dword_14043D3D0 & 0x10) != 0 && !v11 )
       {
         v8 = 1;
         v7 = 14;
@@ -103,8 +103,8 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, __int64 a2, __int
       CurrentThread = KeGetCurrentThread();
       v24 = (unsigned __int64)(PageListCount << 12) >> 18;
       --CurrentThread->KernelApcDisable;
-      ExAcquireResourceExclusiveLite(&stru_14043C2A0, 1u);
-      v25 = PfSnPrefetchCacheEntryGet(&unk_14043C278, a1, v15, &v32);
+      ExAcquireResourceExclusiveLite(&stru_14043D360, 1u);
+      v25 = PfSnPrefetchCacheEntryGet(&unk_14043D338, a1, v15, &v32);
       v26 = (_DWORD *)v25;
       if ( v25 )
       {
@@ -128,7 +128,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, __int64 a2, __int
             v7 = 4;
             if ( v27 >= v26[29] )
             {
-              if ( (dword_14043C070 & 2) == 0 )
+              if ( (dword_14043D130 & 2) == 0 )
               {
                 if ( v27 >= 0x1B7740 )
                 {
@@ -164,7 +164,7 @@ __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, __int64 a2, __int
       {
         v7 = 3;
       }
-      ExReleaseResourceLite(&stru_14043C2A0);
+      ExReleaseResourceLite(&stru_14043D360);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
     }
   }

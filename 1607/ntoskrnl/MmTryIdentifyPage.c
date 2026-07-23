@@ -1,10 +1,10 @@
 /*
- * XREFs of MmTryIdentifyPage @ 0x1401E55C8
+ * XREFs of MmTryIdentifyPage @ 0x1401E53F4
  * Callers:
  *     IopLiveDumpFilterAndMarkPage @ 0x1403DAF74 (IopLiveDumpFilterAndMarkPage.c)
  * Callees:
- *     MiIdentifyPfn @ 0x14000FC90 (MiIdentifyPfn.c)
- *     MiIsPageSecured @ 0x1401E4BEC (MiIsPageSecured.c)
+ *     MiIdentifyPfn @ 0x14000F810 (MiIdentifyPfn.c)
+ *     MiIsPageSecured @ 0x1401E4A18 (MiIsPageSecured.c)
  */
 
 __int64 __fastcall MmTryIdentifyPage(__int64 a1, _QWORD *a2)

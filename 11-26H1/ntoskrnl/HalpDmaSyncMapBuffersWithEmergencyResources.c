@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140441650
+ * XREFs of HalpDmaSyncMapBuffersWithEmergencyResources @ 0x14043A160
  * Callers:
- *     HalpDmaSyncMapBuffers @ 0x14035BE40 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaSyncMapBuffers @ 0x14035DBE0 (HalpDmaSyncMapBuffers.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     MmUnmapReservedMapping @ 0x1403C1C70 (MmUnmapReservedMapping.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x140440B80 (HalpDmaGetAdapterCacheAlignment.c)
- *     KeFlushIoBuffers @ 0x140441180 (KeFlushIoBuffers.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1404B5970 (MmMapLockedPagesWithReservedMapping.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     MmUnmapReservedMapping @ 0x1403CBB70 (MmUnmapReservedMapping.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x140439690 (HalpDmaGetAdapterCacheAlignment.c)
+ *     KeFlushIoBuffers @ 0x140439C90 (KeFlushIoBuffers.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1404AECD0 (MmMapLockedPagesWithReservedMapping.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
@@ -56,13 +56,13 @@ void __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
   v8 = a4;
   memset(&LockHandle, 0, sizeof(LockHandle));
   AdapterCacheAlignment = HalpDmaGetAdapterCacheAlignment(a1);
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140E3E928.QueueListEntry.Blink, &LockHandle);
-  Object = (struct _MDL *)stru_140E3E928.WaitBlock[3].Object;
-  Thread = (struct _MDL *)stru_140E3E928.WaitBlock[2].Thread;
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140E3EAA8.QueueListEntry.Blink, &LockHandle);
+  Object = (struct _MDL *)stru_140E3EAA8.WaitBlock[3].Object;
+  Thread = (struct _MDL *)stru_140E3EAA8.WaitBlock[2].Thread;
   v13 = a3 & 0xFFF;
   v14 = Size;
   v15 = (unsigned __int64)(a3 - *(_QWORD *)(a2 + 32)) >> 12;
-  *(_DWORD *)(stru_140E3E928.Spare18 + 44) = v13;
+  *(_DWORD *)(stru_140E3EAA8.Spare18 + 44) = v13;
   Object->ByteCount = 4096 - v13;
   Object->StartVa = (PVOID)(a3 & 0xFFFFFFFFFFFFF000uLL);
   Thread->StartVa = (PVOID)(a3 & 0xFFFFFFFFFFFFF000uLL);
@@ -80,7 +80,7 @@ void __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
     }
     else
     {
-      SparePtr = stru_140E3E928.WaitBlock[3].SparePtr;
+      SparePtr = stru_140E3EAA8.WaitBlock[3].SparePtr;
       Thread[1].Next = (struct _MDL *)(*v8 >> 12);
       v18 = (unsigned __int64)MmMapLockedPagesWithReservedMapping(SparePtr, 0x446C6148u, Thread, MmCached);
       if ( !v18 )
@@ -92,7 +92,7 @@ void __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
     Object[1].Next = *v16;
     while ( 1 )
     {
-      v21 = MmMapLockedPagesWithReservedMapping(stru_140E3E928.WaitBlock[2].SparePtr, 0x446C6148u, Object, v20);
+      v21 = MmMapLockedPagesWithReservedMapping(stru_140E3EAA8.WaitBlock[2].SparePtr, 0x446C6148u, Object, v20);
       v22 = v21;
       if ( v21 )
         break;

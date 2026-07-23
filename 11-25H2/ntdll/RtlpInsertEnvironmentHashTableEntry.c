@@ -23,7 +23,7 @@ __int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, _QWORD *a2)
   _QWORD **v14; // r10
   _QWORD *v15; // r9
   unsigned __int64 v16; // rcx
-  __int64 v17; // rcx
+  void *v17; // rcx
   int v18; // eax
 
   if ( RtlpFindEnvironmentHashEntry(a1, a2[2], a2[4]) )
@@ -88,7 +88,7 @@ __int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, _QWORD *a2)
         }
         while ( v12 < *(_DWORD *)(a1 + 4) >> 5 );
       }
-      v17 = *(_QWORD *)(a1 + 8);
+      v17 = *(void **)(a1 + 8);
       v18 = (32 * v5) | *(_DWORD *)(a1 + 4) & 0x1F;
       *(_QWORD *)(a1 + 8) = EnvironmentHashTable;
       *(_DWORD *)(a1 + 4) = v18;

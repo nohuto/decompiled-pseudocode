@@ -3,7 +3,7 @@
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     PoRegisterPowerSettingCallback @ 0x1407A7060 (PoRegisterPowerSettingCallback.c)
+ *     PoRegisterPowerSettingCallback @ 0x1407A7250 (PoRegisterPowerSettingCallback.c)
  *     PpmInfoRegisterCallbacks @ 0x140B67D78 (PpmInfoRegisterCallbacks.c)
  */
 
@@ -32,19 +32,19 @@ NTSTATUS PopInitializePowerSettingCallbacks()
     PoRegisterPowerSettingCallback(
       0LL,
       *(GUID **)((char *)GUIDS_BATTERY_DISCHARGE_ACTION + v1),
-      (PPOWER_SETTING_CALLBACK)PopBatteryAlarmPowerSettingCallback,
+      PopBatteryAlarmPowerSettingCallback,
       v2,
       0LL);
     PoRegisterPowerSettingCallback(
       0LL,
       *(GUID **)((char *)GUIDS_BATTERY_DISCHARGE_LEVEL + v1),
-      (PPOWER_SETTING_CALLBACK)PopBatteryAlarmPowerSettingCallback,
+      PopBatteryAlarmPowerSettingCallback,
       v2,
       0LL);
     result = PoRegisterPowerSettingCallback(
                0LL,
                *(GUID **)((char *)GUIDS_BATTERY_DISCHARGE_FLAGS + v1),
-               (PPOWER_SETTING_CALLBACK)PopBatteryAlarmPowerSettingCallback,
+               PopBatteryAlarmPowerSettingCallback,
                v2++,
                0LL);
     v1 += 8LL;

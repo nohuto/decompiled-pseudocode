@@ -1,22 +1,22 @@
 /*
- * XREFs of IoRaiseInformationalHardError @ 0x140283500
+ * XREFs of IoRaiseInformationalHardError @ 0x1402836F0
  * Callers:
- *     MiCauseOverCommitPopup @ 0x1402C01E0 (MiCauseOverCommitPopup.c)
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     FsRtlLogCcFlushError @ 0x140814620 (FsRtlLogCcFlushError.c)
+ *     MiCauseOverCommitPopup @ 0x1402C03D0 (MiCauseOverCommitPopup.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
+ *     FsRtlLogCcFlushError @ 0x140815820 (FsRtlLogCcFlushError.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeInitializeApc @ 0x14008A360 (KeInitializeApc.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     KeReleaseSemaphoreEx @ 0x1400D2970 (KeReleaseSemaphoreEx.c)
- *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeInitializeApc @ 0x14008A350 (KeInitializeApc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     KeReleaseSemaphoreEx @ 0x1400D29F0 (KeReleaseSemaphoreEx.c)
+ *     KeInsertQueueApc @ 0x1400F1500 (KeInsertQueueApc.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall IoRaiseInformationalHardError(NTSTATUS ErrorStatus, PUNICODE_STRING String, PKTHREAD Thread)
@@ -56,7 +56,7 @@ BOOLEAN __stdcall IoRaiseInformationalHardError(NTSTATUS ErrorStatus, PUNICODE_S
   {
     return 0;
   }
-  if ( dword_140435F3C > 25 )
+  if ( dword_140436FDC > 25 )
     return 0;
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x72456F49u);
   v8 = PoolWithTag;
@@ -80,7 +80,7 @@ LABEL_45:
   }
   if ( !Thread )
   {
-    v11 = KeAcquireSpinLockRaiseToDpc(&qword_140435F10);
+    v11 = KeAcquireSpinLockRaiseToDpc(&qword_140436FB0);
     if ( Semaphore.Header.SignalState < 25 )
     {
       if ( !IopCurrentHardError
@@ -89,24 +89,24 @@ LABEL_45:
         && ((v14 = *((_WORD *)v8 + 12), v14 != *(_WORD *)(IopCurrentHardError + 24))
          || memcmp(v13, *(const void **)(IopCurrentHardError + 32), v14)) )
       {
-        v15 = qword_140435F00;
-        if ( (__int64 *)qword_140435F00 == &qword_140435F00 )
+        v15 = qword_140436FA0;
+        if ( (__int64 *)qword_140436FA0 == &qword_140436FA0 )
         {
 LABEL_35:
-          v19 = (_QWORD *)qword_140435F08;
-          if ( *(__int64 **)qword_140435F08 != &qword_140435F00 )
+          v19 = (_QWORD *)qword_140436FA8;
+          if ( *(__int64 **)qword_140436FA8 != &qword_140436FA0 )
             __fastfail(3u);
-          *v8 = &qword_140435F00;
+          *v8 = &qword_140436FA0;
           v8[1] = v19;
           *v19 = v8;
-          qword_140435F08 = (__int64)v8;
+          qword_140436FA8 = (__int64)v8;
           KeReleaseSemaphoreEx((__int64)&Semaphore, 0LL, 1, v12, 0);
-          if ( !byte_140435F38 )
+          if ( !byte_140436FD8 )
           {
-            byte_140435F38 = 1;
+            byte_140436FD8 = 1;
             ExQueueWorkItem(&IopHardError, DelayedWorkQueue);
           }
-          KxReleaseSpinLock(&qword_140435F10);
+          KxReleaseSpinLock(&qword_140436FB0);
           if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v11 < 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
@@ -129,12 +129,12 @@ LABEL_35:
               break;
           }
           v15 = *(_QWORD *)v15;
-          if ( (__int64 *)v15 == &qword_140435F00 )
+          if ( (__int64 *)v15 == &qword_140436FA0 )
             goto LABEL_35;
         }
       }
     }
-    KxReleaseSpinLock(&qword_140435F10);
+    KxReleaseSpinLock(&qword_140436FB0);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v11 < 2u )
     {
       v20 = KeGetCurrentPrcb();
@@ -153,7 +153,7 @@ LABEL_43:
       ExFreePoolWithTag(v21, 0);
     goto LABEL_45;
   }
-  _InterlockedIncrement(&dword_140435F3C);
+  _InterlockedIncrement(&dword_140436FDC);
   KeInitializeApc(
     (__int64)v10,
     (__int64)Thread,

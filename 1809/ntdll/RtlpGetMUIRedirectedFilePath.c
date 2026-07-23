@@ -7,54 +7,61 @@
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
  *     GetOverlayFilePath @ 0x180032BEC (GetOverlayFilePath.c)
  *     RtlpGetMUIRedirectedFilePathInternal @ 0x180035530 (RtlpGetMUIRedirectedFilePathInternal.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 
-__int64 __fastcall RtlpGetMUIRedirectedFilePath(__m128i *a1, __int64 a2, int a3, int a4, char a5, char a6, void *a7)
+__int64 __fastcall RtlpGetMUIRedirectedFilePath(
+        __m128i *a1,
+        const WCHAR *a2,
+        const WCHAR *a3,
+        __int64 a4,
+        char a5,
+        char a6,
+        void *a7)
 {
   __m128i v7; // xmm6
-  int *v11; // rbx
+  WCHAR *v10; // rbx
   unsigned int MUIRedirectedFilePathInternal; // edi
-  __int64 v14; // xmm0_8
-  int OverlayFilePath; // eax
-  __int64 Heap; // rax
-  int v17; // eax
-  unsigned int v18; // [rsp+38h] [rbp-D0h] BYREF
-  int v19[4]; // [rsp+48h] [rbp-C0h] BYREF
-  int v20[4]; // [rsp+58h] [rbp-B0h] BYREF
-  int v21[132]; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 v13; // xmm0_8
+  NTSTATUS OverlayFilePath; // eax
+  WCHAR *Heap; // rax
+  int v16; // eax
+  unsigned int v17; // [rsp+38h] [rbp-D0h] BYREF
+  UNICODE_STRING v18; // [rsp+48h] [rbp-C0h] BYREF
+  UNICODE_STRING Source_8; // [rsp+58h] [rbp-B0h] BYREF
+  _BYTE BaseAddress[528]; // [rsp+68h] [rbp-A0h] BYREF
 
   v7 = *a1;
-  memset(v21, 0, 0x208uLL);
-  v18 = 520;
-  v11 = v21;
+  memset(BaseAddress, 0, 0x208uLL);
+  v17 = 520;
+  v10 = (WCHAR *)BaseAddress;
   if ( !a6 )
     goto LABEL_2;
-  v14 = _mm_srli_si128(v7, 8).m128i_u64[0];
-  OverlayFilePath = GetOverlayFilePath(v14, a2, (__int64)&v18, (__int64)v21);
+  v13 = _mm_srli_si128(v7, 8).m128i_u64[0];
+  OverlayFilePath = GetOverlayFilePath(v13, a2, (__int64)&v17, (__int64)BaseAddress);
   if ( OverlayFilePath == -1073741789 )
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v18);
-    v11 = (int *)Heap;
+    Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v17);
+    v10 = Heap;
     if ( !Heap )
     {
 LABEL_2:
-      *(__m128i *)v20 = v7;
-      MUIRedirectedFilePathInternal = RtlpGetMUIRedirectedFilePathInternal((int)v20, a2, a3, a4, a5, a7);
+      Source_8 = (UNICODE_STRING)v7;
+      MUIRedirectedFilePathInternal = RtlpGetMUIRedirectedFilePathInternal(&Source_8, a2, a3, a5, a7);
       goto LABEL_3;
     }
-    OverlayFilePath = GetOverlayFilePath(v14, a2, (__int64)&v18, Heap);
+    OverlayFilePath = GetOverlayFilePath(v13, a2, (__int64)&v17, (__int64)Heap);
   }
   if ( OverlayFilePath < 0 )
     goto LABEL_2;
-  *(__m128i *)v19 = v7;
-  v17 = RtlpGetMUIRedirectedFilePathInternal((int)v19, (int)v11, a3, a4, a5, a7);
-  MUIRedirectedFilePathInternal = v17;
-  if ( v17 < 0 )
+  v18 = (UNICODE_STRING)v7;
+  v16 = RtlpGetMUIRedirectedFilePathInternal(&v18, v10, a3, a5, a7);
+  MUIRedirectedFilePathInternal = v16;
+  if ( v16 < 0 )
     goto LABEL_2;
 LABEL_3:
-  if ( v11 != v21 && v11 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v11);
+  if ( v10 != (WCHAR *)BaseAddress && v10 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
   return MUIRedirectedFilePathInternal;
 }

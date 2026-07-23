@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkpResumeProcess @ 0x1409535CC
+ * XREFs of DbgkpResumeProcess @ 0x1409CEF0C
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     DbgkpSendApiMessage @ 0x1409534DC (DbgkpSendApiMessage.c)
- *     DbgkpSendErrorMessage @ 0x140954DF4 (DbgkpSendErrorMessage.c)
- *     DbgkpSendApiMessageLpc @ 0x1409552D4 (DbgkpSendApiMessageLpc.c)
- *     DbgkExitThread @ 0x14095559C (DbgkExitThread.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
+ *     DbgkpSendApiMessage @ 0x1409CEE1C (DbgkpSendApiMessage.c)
+ *     DbgkpSendApiMessageLpc @ 0x140ACD5FC (DbgkpSendApiMessageLpc.c)
+ *     DbgkExitThread @ 0x140B3C484 (DbgkExitThread.c)
+ *     DbgkpSendErrorMessage @ 0x140B5CE74 (DbgkpSendErrorMessage.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PsThawMultiProcess @ 0x14051967C (PsThawMultiProcess.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PsThawMultiProcess @ 0x1405130EC (PsThawMultiProcess.c)
  */
 
 void __fastcall DbgkpResumeProcess(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

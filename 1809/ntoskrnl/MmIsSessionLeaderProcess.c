@@ -1,10 +1,10 @@
 /*
- * XREFs of MmIsSessionLeaderProcess @ 0x140716340
+ * XREFs of MmIsSessionLeaderProcess @ 0x1407175E0
  * Callers:
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
- *     MiInitializeSessionGlobals @ 0x140716204 (MiInitializeSessionGlobals.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
+ *     MiInitializeSessionGlobals @ 0x1407174A4 (MiInitializeSessionGlobals.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
  */
 
 _BOOL8 __fastcall MmIsSessionLeaderProcess(__int64 a1)

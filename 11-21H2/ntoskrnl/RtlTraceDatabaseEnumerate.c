@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpTraceDatabaseAcquireLock @ 0x1405EE200 (RtlpTraceDatabaseAcquireLock.c)
- *     RtlpTraceDatabaseReleaseLock @ 0x1405EE4E0 (RtlpTraceDatabaseReleaseLock.c)
+ *     sub_1405EE200 @ 0x1405EE200 (sub_1405EE200.c)
+ *     sub_1405EE4E0 @ 0x1405EE4E0 (sub_1405EE4E0.c)
  */
 
 char __fastcall RtlTraceDatabaseEnumerate(__int64 a1, __int64 a2, _QWORD *a3)
@@ -14,7 +14,7 @@ char __fastcall RtlTraceDatabaseEnumerate(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v8; // rdx
   unsigned int i; // eax
 
-  RtlpTraceDatabaseAcquireLock();
+  sub_1405EE200();
   v6 = 0;
   if ( *(_QWORD *)a2 )
   {
@@ -61,6 +61,6 @@ LABEL_13:
     *(_QWORD *)(a2 + 16) = *(_QWORD *)(*(_QWORD *)(a2 + 16) + 40LL);
   }
 LABEL_14:
-  RtlpTraceDatabaseReleaseLock(a1);
+  sub_1405EE4E0(a1);
   return v6;
 }

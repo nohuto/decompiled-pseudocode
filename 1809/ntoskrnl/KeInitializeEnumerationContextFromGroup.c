@@ -1,5 +1,5 @@
 /*
- * XREFs of KeInitializeEnumerationContextFromGroup @ 0x140176A50
+ * XREFs of KeInitializeEnumerationContextFromGroup @ 0x140176B50
  * Callers:
  *     <none>
  * Callees:

@@ -13,41 +13,41 @@
  *     LdrpCodeAuthzInitialize @ 0x18007C370 (LdrpCodeAuthzInitialize.c)
  *     LdrpInitializePerUserWindowsDirectory @ 0x180082DF4 (LdrpInitializePerUserWindowsDirectory.c)
  *     LdrpLoadWow64 @ 0x180083824 (LdrpLoadWow64.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
- *     AVrfOpenCurrentUserImageFileOptionsKey @ 0x1800DA44C (AVrfOpenCurrentUserImageFileOptionsKey.c)
- *     AVrfpLoadAndInitializeProvider @ 0x1800DADA8 (AVrfpLoadAndInitializeProvider.c)
- *     WerEscalationLazyInit @ 0x1800DE1B8 (WerEscalationLazyInit.c)
- *     LdrpMUIEtwOutput @ 0x1800E14AC (LdrpMUIEtwOutput.c)
- *     RtlpConstructCrossVmObjectPath @ 0x1800F5BDC (RtlpConstructCrossVmObjectPath.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x180119C80 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
+ *     AVrfOpenCurrentUserImageFileOptionsKey @ 0x1800DA40C (AVrfOpenCurrentUserImageFileOptionsKey.c)
+ *     AVrfpLoadAndInitializeProvider @ 0x1800DAD68 (AVrfpLoadAndInitializeProvider.c)
+ *     WerEscalationLazyInit @ 0x1800DE178 (WerEscalationLazyInit.c)
+ *     LdrpMUIEtwOutput @ 0x1800E146C (LdrpMUIEtwOutput.c)
+ *     RtlpConstructCrossVmObjectPath @ 0x1800F5B9C (RtlpConstructCrossVmObjectPath.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x180119C20 (OpenGlobalizationUserSettingsKey_ForMua.c)
  * Callees:
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
-__int64 __fastcall RtlAppendUnicodeToString(unsigned __int16 *a1, _WORD *a2)
+NTSTATUS __cdecl RtlAppendUnicodeToString(PUNICODE_STRING Destination, PCWSTR Source)
 {
   unsigned __int64 v3; // rax
   unsigned int v4; // esi
-  void *v5; // r14
+  wchar_t *v5; // r14
 
-  if ( !a2 )
-    return 0LL;
+  if ( !Source )
+    return 0;
   v3 = -1LL;
   do
     ++v3;
-  while ( a2[v3] );
+  while ( Source[v3] );
   if ( v3 <= 0x7FFE )
   {
     v4 = (unsigned __int16)(2 * v3);
-    if ( *a1 + v4 <= a1[1] )
+    if ( Destination->Length + v4 <= Destination->MaximumLength )
     {
-      v5 = (void *)(*((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)*a1 >> 1));
-      memmove(v5, a2, (unsigned __int16)(2 * v3));
-      *a1 += v4;
-      if ( (unsigned int)*a1 + 1 < a1[1] )
-        *((_WORD *)v5 + ((unsigned __int64)v4 >> 1)) = 0;
-      return 0LL;
+      v5 = &Destination->Buffer[(unsigned __int64)Destination->Length >> 1];
+      memmove(v5, Source, (unsigned __int16)(2 * v3));
+      Destination->Length += v4;
+      if ( (unsigned int)Destination->Length + 1 < Destination->MaximumLength )
+        v5[(unsigned __int64)v4 >> 1] = 0;
+      return 0;
     }
   }
-  return 3221225507LL;
+  return -1073741789;
 }

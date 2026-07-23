@@ -1,18 +1,18 @@
 /*
- * XREFs of NtAlertMultipleThreadByThreadId @ 0x1407FF500
+ * XREFs of NtAlertMultipleThreadByThreadId @ 0x140804F30
  * Callers:
- *     DifNtAlertMultipleThreadByThreadIdWrapper @ 0x14066AC50 (DifNtAlertMultipleThreadByThreadIdWrapper.c)
+ *     DifNtAlertMultipleThreadByThreadIdWrapper @ 0x14066E830 (DifNtAlertMultipleThreadByThreadIdWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlULongLongMult @ 0x1404655A0 (RtlULongLongMult.c)
- *     PsGetCurrentThreadProcess @ 0x1404AA5F0 (PsGetCurrentThreadProcess.c)
- *     KeAlertMultipleThreadByThreadId @ 0x1405EBEAC (KeAlertMultipleThreadByThreadId.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     PsLookupThreadByThreadId @ 0x140A10B70 (PsLookupThreadByThreadId.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlULongLongMult @ 0x14045E560 (RtlULongLongMult.c)
+ *     PsGetCurrentThreadProcess @ 0x1404A3C80 (PsGetCurrentThreadProcess.c)
+ *     KeAlertMultipleThreadByThreadId @ 0x1405EE81C (KeAlertMultipleThreadByThreadId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     PsLookupThreadByThreadId @ 0x140A0FD60 (PsLookupThreadByThreadId.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtAlertMultipleThreadByThreadId(volatile void *Address, ULONGLONG ullMultiplicand, char *a3, int a4)

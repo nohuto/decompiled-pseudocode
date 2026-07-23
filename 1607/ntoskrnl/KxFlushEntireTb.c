@@ -1,16 +1,16 @@
 /*
- * XREFs of KxFlushEntireTb @ 0x14013CFFC
+ * XREFs of KxFlushEntireTb @ 0x14013D56C
  * Callers:
- *     KeFlushTb @ 0x14001DDEC (KeFlushTb.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     KeFlushEntireTb @ 0x14013CFC0 (KeFlushEntireTb.c)
- *     MmProtectSystemCacheView @ 0x1401E6EC4 (MmProtectSystemCacheView.c)
+ *     KeFlushTb @ 0x14001D96C (KeFlushTb.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     KeFlushEntireTb @ 0x14013D530 (KeFlushEntireTb.c)
+ *     MmProtectSystemCacheView @ 0x1401E6CF0 (MmProtectSystemCacheView.c)
  * Callees:
- *     KiIpiSendRequestEx @ 0x140030DC0 (KiIpiSendRequestEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x140030FBC (KeRemoveProcessorAffinityEx.c)
- *     KeCopyAffinityEx @ 0x140030FF0 (KeCopyAffinityEx.c)
- *     KxSetTimeStampBusy @ 0x14009D6A8 (KxSetTimeStampBusy.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KiIpiSendRequestEx @ 0x140030940 (KiIpiSendRequestEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140030B3C (KeRemoveProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x140030B70 (KeCopyAffinityEx.c)
+ *     KxSetTimeStampBusy @ 0x14009CEA8 (KxSetTimeStampBusy.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KxFlushEntireTb(int a1)

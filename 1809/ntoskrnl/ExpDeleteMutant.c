@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpDeleteMutant @ 0x14012AEF0
+ * XREFs of ExpDeleteMutant @ 0x14012AFC0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseMutant @ 0x1400BFA10 (KeReleaseMutant.c)
+ *     KeReleaseMutant @ 0x1400BF950 (KeReleaseMutant.c)
  */
 
 LONG __fastcall ExpDeleteMutant(struct _KMUTANT *a1)

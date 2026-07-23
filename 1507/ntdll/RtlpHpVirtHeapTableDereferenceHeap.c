@@ -13,61 +13,59 @@
  *     RtlpHpVirtHeapTableFindEntry @ 0x1800EAEDC (RtlpHpVirtHeapTableFindEntry.c)
  */
 
-signed __int64 __fastcall RtlpHpVirtHeapTableDereferenceHeap(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall RtlpHpVirtHeapTableDereferenceHeap(__int64 a1)
 {
-  _QWORD *Entry; // rbx
-  _QWORD *v7; // rdx
-  signed __int64 result; // rax
-  __int64 v9; // [rsp+50h] [rbp+8h]
+  unsigned __int64 Entry; // rbx
+  _QWORD *v4; // rdx
+  __int64 v5; // [rsp+50h] [rbp+8h]
 
-  RtlAcquireSRWLockExclusive(&RtlpHpVirtGlobalCtx, a2, a3, a4);
-  Entry = (_QWORD *)RtlpHpVirtHeapTableFindEntry(*(_QWORD *)(a1 + 136), 0LL, a1);
-  if ( Entry[2]-- == 1LL )
+  RtlAcquireSRWLockExclusive(&RtlpHpVirtGlobalCtx);
+  Entry = RtlpHpVirtHeapTableFindEntry(*(_QWORD *)(a1 + 136), 0LL, a1);
+  if ( (*(_QWORD *)(Entry + 16))-- == 1LL )
   {
-    v9 = Entry[1] & (-1LL << (dword_18014484C & 0x1F));
-    v7 = (_QWORD *)(qword_180144850
+    v5 = *(_QWORD *)(Entry + 8) & (-1LL << (dword_18014484C & 0x1F));
+    v4 = (_QWORD *)(qword_180144850
                   + 8LL
                   * ((37
-                    * (BYTE6(v9)
+                    * (BYTE6(v5)
                      + 37
-                     * (BYTE5(v9)
+                     * (BYTE5(v5)
                       + 37
-                      * (BYTE4(v9)
-                       + 37 * (BYTE3(v9) + 37 * (BYTE2(v9) + 37 * (BYTE1(v9) + 37 * ((unsigned __int8)v9 + 11623883)))))))
-                    + HIBYTE(v9)) & (((unsigned int)dword_18014484C >> 5) - 1)));
-    if ( (*Entry & 0x8000000000000002uLL) == 0x8000000000000002uLL )
-      v7 = (_QWORD *)(qword_180144850
+                      * (BYTE4(v5)
+                       + 37 * (BYTE3(v5) + 37 * (BYTE2(v5) + 37 * (BYTE1(v5) + 37 * ((unsigned __int8)v5 + 11623883)))))))
+                    + HIBYTE(v5)) & (((unsigned int)dword_18014484C >> 5) - 1)));
+    if ( (*(_QWORD *)Entry & 0x8000000000000002uLL) == 0x8000000000000002uLL )
+      v4 = (_QWORD *)(qword_180144850
                     + 8LL
                     * ((37
-                      * (BYTE6(v9)
+                      * (BYTE6(v5)
                        + 37
-                       * (BYTE5(v9)
+                       * (BYTE5(v5)
                         + 37
-                        * (BYTE4(v9)
+                        * (BYTE4(v5)
                          + 37
-                         * (BYTE3(v9) + 37 * (BYTE2(v9) + 37 * (BYTE1(v9) + 37 * ((unsigned __int8)v9 + 11623883)))))))
-                      + HIBYTE(v9)) & (((unsigned int)dword_18014484C >> 5) - 1)));
-    while ( (*v7 & 1) == 0 )
+                         * (BYTE3(v5) + 37 * (BYTE2(v5) + 37 * (BYTE1(v5) + 37 * ((unsigned __int8)v5 + 11623883)))))))
+                      + HIBYTE(v5)) & (((unsigned int)dword_18014484C >> 5) - 1)));
+    while ( (*v4 & 1) == 0 )
     {
-      if ( (_QWORD *)*v7 == Entry )
+      if ( *v4 == Entry )
       {
-        *v7 = *Entry;
+        *v4 = *(_QWORD *)Entry;
         --dword_180144848;
-        *Entry |= 0x8000000000000002uLL;
+        *(_QWORD *)Entry |= 0x8000000000000002uLL;
         break;
       }
-      v7 = (_QWORD *)*v7;
+      v4 = (_QWORD *)*v4;
     }
   }
   else
   {
     Entry = 0LL;
   }
-  result = RtlReleaseSRWLockExclusive(&RtlpHpVirtGlobalCtx);
+  RtlReleaseSRWLockExclusive(&RtlpHpVirtGlobalCtx);
   if ( Entry )
   {
-    RtlDestroyHeap(Entry[5]);
-    return RtlpHpMetadataFree((unsigned __int64)Entry);
+    RtlDestroyHeap(*(PVOID *)(Entry + 40));
+    RtlpHpMetadataFree(Entry);
   }
-  return result;
 }

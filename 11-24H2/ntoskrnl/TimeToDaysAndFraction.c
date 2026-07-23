@@ -1,7 +1,7 @@
 /*
- * XREFs of TimeToDaysAndFraction @ 0x14044B500
+ * XREFs of TimeToDaysAndFraction @ 0x140442640
  * Callers:
- *     RtlTimeToElapsedTimeFields @ 0x14077DCA0 (RtlTimeToElapsedTimeFields.c)
+ *     RtlTimeToElapsedTimeFields @ 0x14077DBD0 (RtlTimeToElapsedTimeFields.c)
  * Callees:
  *     <none>
  */

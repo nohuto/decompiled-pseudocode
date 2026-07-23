@@ -10,31 +10,15 @@
  *     <none>
  */
 
-__int64 __fastcall RtlMapGenericMask(_DWORD *a1, _DWORD *a2)
+void __cdecl RtlMapGenericMask(PACCESS_MASK AccessMask, PGENERIC_MAPPING GenericMapping)
 {
-  __int64 result; // rax
-
-  result = (unsigned int)*a1;
-  if ( (int)result < 0 )
-  {
-    result = *a2 | (unsigned int)result;
-    *a1 = result;
-  }
-  if ( (*a1 & 0x40000000) != 0 )
-  {
-    result = (unsigned int)a2[1];
-    *a1 |= result;
-  }
-  if ( (*a1 & 0x20000000) != 0 )
-  {
-    result = (unsigned int)a2[2];
-    *a1 |= result;
-  }
-  if ( (*a1 & 0x10000000) != 0 )
-  {
-    result = (unsigned int)a2[3];
-    *a1 |= result;
-  }
-  *a1 &= 0xFFFFFFFu;
-  return result;
+  if ( (*AccessMask & 0x80000000) != 0 )
+    *AccessMask |= GenericMapping->GenericRead;
+  if ( (*AccessMask & 0x40000000) != 0 )
+    *AccessMask |= GenericMapping->GenericWrite;
+  if ( (*AccessMask & 0x20000000) != 0 )
+    *AccessMask |= GenericMapping->GenericExecute;
+  if ( (*AccessMask & 0x10000000) != 0 )
+    *AccessMask |= GenericMapping->GenericAll;
+  *AccessMask &= 0xFFFFFFFu;
 }

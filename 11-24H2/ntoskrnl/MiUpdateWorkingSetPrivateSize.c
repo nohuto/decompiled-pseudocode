@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateWorkingSetPrivateSize @ 0x1402C49A0
+ * XREFs of MiUpdateWorkingSetPrivateSize @ 0x140219A20
  * Callers:
- *     MiBuildForkPte @ 0x1402C53E8 (MiBuildForkPte.c)
- *     MiCopyOnWrite @ 0x1402E47DC (MiCopyOnWrite.c)
- *     MiCombineInitialInstance @ 0x14036C3E0 (MiCombineInitialInstance.c)
- *     MiDemoteCombinedPte @ 0x1403FABBC (MiDemoteCombinedPte.c)
+ *     MiBuildForkPte @ 0x1402687D0 (MiBuildForkPte.c)
+ *     MiCombineInitialInstance @ 0x140294F94 (MiCombineInitialInstance.c)
+ *     MiDemoteCombinedPte @ 0x140296374 (MiDemoteCombinedPte.c)
+ *     MiCopyOnWrite @ 0x140346A74 (MiCopyOnWrite.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1402C4AD0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402DFAA0 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140219B50 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140241380 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  */
 
 char __fastcall MiUpdateWorkingSetPrivateSize(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4)
@@ -22,12 +22,12 @@ char __fastcall MiUpdateWorkingSetPrivateSize(__int64 a1, unsigned __int64 a2, u
   char result; // al
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
-  v4 = (volatile signed __int32 *)&unk_140E38780;
+  v4 = (volatile signed __int32 *)&unk_140E388C0;
   v7 = a2;
   if ( !a4 )
   {
     if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
-      v9 = &unk_140E38780;
+      v9 = &unk_140E388C0;
     else
       v9 = (_DWORD *)(a1 + 256);
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )

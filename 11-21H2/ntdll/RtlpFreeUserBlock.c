@@ -19,7 +19,7 @@
  *     RtlpLogHeapSubSegmentFreeCached @ 0x1801173FC (RtlpLogHeapSubSegmentFreeCached.c)
  */
 
-__int16 __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2, unsigned int a3)
+__int16 __fastcall RtlpFreeUserBlock(__int64 a1, unsigned __int8 *a2, unsigned int a3)
 {
   __int64 v3; // rdi
   __int64 v5; // rdx
@@ -39,18 +39,18 @@ __int16 __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2, unsigned int a3)
   unsigned __int64 v20; // r14
   __int64 v21; // rdi
   signed __int32 v23; // r15d
-  __int64 DeferredCriticalSectionEvent; // rbp
+  void *DeferredCriticalSectionEvent; // rbp
   __int64 v26; // [rsp+68h] [rbp+10h]
   unsigned int v27; // [rsp+70h] [rbp+18h] BYREF
 
   v27 = a3;
   v3 = *(_QWORD *)(a1 + 24);
-  v5 = *a2;
+  v5 = *(_QWORD *)a2;
   v26 = v5;
-  v7 = (volatile signed __int32 *)(a1 + 48 * (*((unsigned __int8 *)a2 + 16) - 5LL));
+  v7 = (volatile signed __int32 *)(a1 + 48 * (a2[16] - 5LL));
   if ( *(_WORD *)(v3 + 416) && (*(_BYTE *)(v3 + 112) & 1) == 0 )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(v3 + 352));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(v3 + 352));
     v21 = *(_QWORD *)(v3 + 352);
     if ( (*(_DWORD *)(v21 + 12))-- == 1 )
     {
@@ -60,9 +60,9 @@ __int16 __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2, unsigned int a3)
       {
         if ( (*(_BYTE *)(v21 + 8) & 1) != 0 )
           RtlpNotOwnerCriticalSection(v21);
-        DeferredCriticalSectionEvent = *(_QWORD *)(v21 + 24);
+        DeferredCriticalSectionEvent = *(void **)(v21 + 24);
         if ( !DeferredCriticalSectionEvent )
-          DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(v21);
+          DeferredCriticalSectionEvent = (void *)RtlpCreateDeferredCriticalSectionEvent(v21);
         v27 = 0;
         while ( v23 != _InterlockedCompareExchange((volatile signed __int32 *)(v21 + 8), (v23 & 2 | 1) + v23, v23) )
         {
@@ -79,7 +79,7 @@ __int16 __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2, unsigned int a3)
   v8 = *(unsigned __int16 *)v7;
   if ( v8 <= *((_DWORD *)v7 + 5) || v8 <= *((_DWORD *)v7 + 4) >> *((_DWORD *)v7 + 6) )
   {
-    v9 = 1LL << *((_BYTE *)a2 + 16);
+    v9 = 1LL << a2[16];
     if ( v9 > 0xF0000 )
       v9 = 983040LL;
     v10 = v9 + *((unsigned __int16 *)a2 + 9);
@@ -97,12 +97,12 @@ __int16 __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2, unsigned int a3)
   }
   else
   {
-    v14 = 1LL << *((_BYTE *)a2 + 16);
+    v14 = 1LL << a2[16];
     if ( v14 > 0xF0000 )
       v14 = 983040LL;
     v15 = v14 + *((unsigned __int16 *)a2 + 9);
-    RtlpFreeUserBlockToHeap(*(_QWORD *)(a1 + 24), a2);
-    LODWORD(v13) = (unsigned int)RtlGetCurrentServiceSessionId();
+    RtlpFreeUserBlockToHeap(*(PVOID *)(a1 + 24), a2);
+    LODWORD(v13) = RtlGetCurrentServiceSessionId();
     v16 = 2147353472LL;
     if ( (_DWORD)v13 )
     {
@@ -131,8 +131,8 @@ __int16 __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2, unsigned int a3)
           v19 = 983040LL;
         v20 = v19 + WORD1(v13[1].Next);
         _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), -(__int64)v20);
-        RtlpFreeUserBlockToHeap(*(_QWORD *)(a1 + 24), v13);
-        LODWORD(v13) = (unsigned int)RtlGetCurrentServiceSessionId();
+        RtlpFreeUserBlockToHeap(*(PVOID *)(a1 + 24), v13);
+        LODWORD(v13) = RtlGetCurrentServiceSessionId();
         if ( (_DWORD)v13 )
         {
           v13 = (PSLIST_ENTRY)NtCurrentPeb();

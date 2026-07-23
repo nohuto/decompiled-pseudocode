@@ -35,7 +35,7 @@ char __fastcall CcAsyncCopyRead(
   struct _KTHREAD *CurrentThread; // rdi
   _SLIST_ENTRY *PoolWithTag; // rax
   _SLIST_ENTRY *v17; // rsi
-  int v18; // ebp
+  NTSTATUS v18; // ebp
   volatile signed __int64 *DeepFreezeStartTime; // rcx
   unsigned __int64 OldIrql; // rbp
   PSLIST_ENTRY v21; // rdx
@@ -60,20 +60,20 @@ char __fastcall CcAsyncCopyRead(
   if ( (signed __int64)(*a2 + a3) > *(_QWORD *)(v13 + 8) )
     KeBugCheckEx(0x34u, 0x393uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   if ( !a5 )
-    RtlRaiseStatus(3221225704LL);
+    RtlRaiseStatus(-1073741592);
   CurrentThread = a7;
   if ( CcEnableReadAheadInAsyncRead && ((__int64)Next->Next & 0x20000) != 0 )
     CcScheduleReadAheadEx(Object);
   PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 8uLL, 0x73416343u);
   v17 = PoolWithTag;
   if ( !PoolWithTag )
-    RtlRaiseStatus(3221225626LL);
+    RtlRaiseStatus(-1073741670);
   PoolWithTag->Next = 0LL;
   v18 = CcAllocateWorkQueueEntry(Partition, &ListEntry);
   if ( v18 < 0 )
   {
     ExFreePoolWithTag(v17, 0x73416343u);
-    RtlRaiseStatus((unsigned int)v18);
+    RtlRaiseStatus(v18);
   }
   if ( !CurrentThread )
     CurrentThread = KeGetCurrentThread();

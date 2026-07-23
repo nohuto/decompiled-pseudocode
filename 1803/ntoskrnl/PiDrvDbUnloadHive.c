@@ -8,17 +8,17 @@
  *     ZwUnloadKeyEx @ 0x1401AACE0 (ZwUnloadKeyEx.c)
  */
 
-NTSTATUS __fastcall PiDrvDbUnloadHive(UNICODE_STRING *a1, void *a2, __int64 a3)
+NTSTATUS __fastcall PiDrvDbUnloadHive(UNICODE_STRING *a1, void *a2)
 {
-  OBJECT_ATTRIBUTES v4; // [rsp+20h] [rbp-38h] BYREF
+  OBJECT_ATTRIBUTES v3; // [rsp+20h] [rbp-38h] BYREF
 
-  v4.RootDirectory = 0LL;
-  v4.ObjectName = a1;
-  v4.Length = 48;
-  v4.Attributes = 576;
-  *(_OWORD *)&v4.SecurityDescriptor = 0LL;
+  v3.RootDirectory = 0LL;
+  v3.ObjectName = a1;
+  v3.Length = 48;
+  v3.Attributes = 576;
+  *(_OWORD *)&v3.SecurityDescriptor = 0LL;
   if ( a2 )
-    return ZwUnloadKeyEx(&v4, a2);
+    return ZwUnloadKeyEx(&v3, a2);
   else
-    return ZwUnloadKey2((__int64)&v4, 0LL, a3);
+    return ZwUnloadKey2(&v3, 0);
 }

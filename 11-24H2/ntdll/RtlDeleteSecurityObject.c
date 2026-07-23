@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlDeleteSecurityObject @ 0x1800F1E20
+ * XREFs of RtlDeleteSecurityObject @ 0x1800ECAA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlDeleteSecurityObject(unsigned __int64 *a1)
+NTSTATUS __cdecl RtlDeleteSecurityObject(PSECURITY_DESCRIPTOR *ObjectDescriptor)
 {
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *a1);
-  return 0LL;
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *ObjectDescriptor);
+  return 0;
 }

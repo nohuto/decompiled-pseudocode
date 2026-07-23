@@ -8,5 +8,5 @@
 
 __int64 EmpRemoveBadS3PageWorker()
 {
-  return WheaPersistOfflinedPage((unsigned int)EmpBadS3Page);
+  return WheaPersistOfflinedPage((UNICODE_STRING *)(unsigned int)EmpBadS3Page);
 }

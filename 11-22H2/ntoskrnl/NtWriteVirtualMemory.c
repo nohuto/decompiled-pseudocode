@@ -6,7 +6,12 @@
  *     MiReadWriteVirtualMemory @ 0x1407AEAA0 (MiReadWriteVirtualMemory.c)
  */
 
-__int64 __fastcall NtWriteVirtualMemory(ULONG_PTR a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl NtWriteVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesWritten)
 {
-  return MiReadWriteVirtualMemory(a1, a5, 32, 0);
+  return MiReadWriteVirtualMemory((ULONG_PTR)ProcessHandle, (__int64)NumberOfBytesWritten, 32, 0);
 }

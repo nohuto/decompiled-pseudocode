@@ -1,7 +1,7 @@
 /*
- * XREFs of EmonWriteCounter @ 0x14051E800
+ * XREFs of EmonWriteCounter @ 0x14051ED50
  * Callers:
- *     EmonRestartProfiling @ 0x140A971F0 (EmonRestartProfiling.c)
+ *     EmonRestartProfiling @ 0x140A97060 (EmonRestartProfiling.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of HalDmaAllocateCrashDumpRegistersEx @ 0x14053DAB0
+ * XREFs of HalDmaAllocateCrashDumpRegistersEx @ 0x14053B3B0
  * Callers:
- *     DifHalDmaAllocateCrashDumpRegistersExWrapper @ 0x140622320 (DifHalDmaAllocateCrashDumpRegistersExWrapper.c)
+ *     DifHalDmaAllocateCrashDumpRegistersExWrapper @ 0x1406208E0 (DifHalDmaAllocateCrashDumpRegistersExWrapper.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     HalpDmaAllocateMapRegisters @ 0x14038E95C (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaFreeMapRegisters @ 0x1403908D4 (HalpDmaFreeMapRegisters.c)
- *     HalpIsHvPresent @ 0x1404A5710 (HalpIsHvPresent.c)
- *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1404AEAC4 (HalpDmaExtractFromVerifierShadowAdapter.c)
- *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x14054EED8 (HalpDmaAllocateMapRegistersAtHighLevel.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14038829C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaFreeMapRegisters @ 0x14038A214 (HalpDmaFreeMapRegisters.c)
+ *     HalpIsHvPresent @ 0x1404A04A0 (HalpIsHvPresent.c)
+ *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1404A93D4 (HalpDmaExtractFromVerifierShadowAdapter.c)
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x14054C818 (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalDmaAllocateCrashDumpRegistersEx(
@@ -54,14 +54,9 @@ __int64 __fastcall HalDmaAllocateCrashDumpRegistersEx(
   _QWORD *v36; // rdx
   _QWORD *v37; // rax
   __int64 *v38; // [rsp+40h] [rbp-48h]
-  __int128 v39; // [rsp+48h] [rbp-40h] BYREF
-  __int64 v40; // [rsp+58h] [rbp-30h]
-  int v41; // [rsp+90h] [rbp+8h]
-  int v42; // [rsp+90h] [rbp+8h]
+  int v39; // [rsp+90h] [rbp+8h]
 
   v5 = a2;
-  LODWORD(v40) = 0;
-  v39 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   v8 = (__int64 *)a1;
   if ( *(_DWORD *)(a1 + 16) != 1634550870 )
@@ -91,14 +86,14 @@ LABEL_44:
         if ( i - 36 == (__int64 *)v14 )
           goto LABEL_54;
       }
-      v33 = (_QWORD *)qword_140FC30E8;
+      v33 = (_QWORD *)qword_140FC3348;
       v34 = (_QWORD *)(v14 + 288);
-      if ( *(__int64 **)qword_140FC30E8 == &HalpDmaHibernateAdapters )
+      if ( *(__int64 **)qword_140FC3348 == &HalpDmaHibernateAdapters )
       {
         *v34 = &HalpDmaHibernateAdapters;
         v34[1] = v33;
         *v33 = v34;
-        qword_140FC30E8 = (__int64)v34;
+        qword_140FC3348 = (__int64)v34;
 LABEL_54:
         if ( !CurrentIrql )
           KeReleaseSpinLock(&HalpDmaHibernateAdaptersLock, 0);
@@ -111,14 +106,14 @@ LABEL_54:
           if ( j - 4 == v8 )
             goto LABEL_65;
         }
-        v36 = (_QWORD *)qword_140FC30F8;
+        v36 = (_QWORD *)qword_140FC3358;
         v37 = v8 + 4;
-        if ( *(__int64 **)qword_140FC30F8 == &HalpDmaShadowDumpAdapters )
+        if ( *(__int64 **)qword_140FC3358 == &HalpDmaShadowDumpAdapters )
         {
           *v37 = &HalpDmaShadowDumpAdapters;
           v8[5] = (__int64)v36;
           *v36 = v37;
-          qword_140FC30F8 = (__int64)(v8 + 4);
+          qword_140FC3358 = (__int64)(v8 + 4);
 LABEL_65:
           if ( !CurrentIrql )
             KeReleaseSpinLock(&HalpDmaShadowDumpAdaptersLock, 0);
@@ -201,43 +196,35 @@ LABEL_43:
       *(_DWORD *)(v14 + 4 * v15 + 272) = v5;
       if ( *(_DWORD *)(v14 + 520) == 3 )
       {
-        v41 = guard_dispatch_icall_no_overrides(*(_QWORD *)(*(_QWORD *)(v14 + 512) + 40LL), v5 << 12, 0LL, 0LL);
-        if ( v41 < 0 )
-          goto LABEL_27;
+        v39 = guard_dispatch_icall_no_overrides(*(_QWORD *)(*(_QWORD *)(v14 + 512) + 40LL), v5 << 12);
+        if ( v39 < 0 )
+        {
+LABEL_24:
+          HalpDmaFreeMapRegisters(v14, v18, v5);
+          return (unsigned int)v39;
+        }
         if ( HalpIsHvPresent() )
         {
-          LODWORD(v39) = 2;
-          v40 = v5;
           v21 = HalpMmAllocCtxAlloc(v20, 8 * v5);
           v22 = v21;
-          if ( v21 )
+          if ( !v21 )
+            goto LABEL_24;
+          v23 = 0LL;
+          v24 = (_QWORD *)v18;
+          do
           {
-            *((_QWORD *)&v39 + 1) = v21;
-            v23 = 0LL;
-            v24 = (_QWORD *)v18;
-            do
-            {
-              *(_QWORD *)(v21 + 8 * v23) = *v24 >> 12;
-              v23 = (unsigned int)(v23 + 1);
-              v24 = (_QWORD *)v24[1];
-            }
-            while ( v24 );
-            v42 = guard_dispatch_icall_no_overrides(*(_QWORD *)(v18 + 24), 0LL, 3LL, &v39);
-            HalpMmAllocCtxFree(v25, v22);
-            if ( v42 < 0 )
-            {
-              HalpDmaFreeMapRegisters(v14, v18, v5);
-              return (unsigned int)v42;
-            }
-            *(_BYTE *)(v18 + 64) = 1;
-            goto LABEL_26;
+            *(_QWORD *)(v21 + 8 * v23) = *v24 >> 12;
+            v23 = (unsigned int)(v23 + 1);
+            v24 = (_QWORD *)v24[1];
           }
-LABEL_27:
-          HalpDmaFreeMapRegisters(v14, v18, v5);
-          return (unsigned int)v41;
+          while ( v24 );
+          v39 = guard_dispatch_icall_no_overrides(*(_QWORD *)(v18 + 24), 0LL);
+          HalpMmAllocCtxFree(v25, v22);
+          if ( v39 < 0 )
+            goto LABEL_24;
+          *(_BYTE *)(v18 + 64) = 1;
         }
       }
-LABEL_26:
       *a5 = v5;
       *(_QWORD *)a4 = *(_QWORD *)(v14 + 8 * v15 + 256);
       goto LABEL_43;

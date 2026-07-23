@@ -8,7 +8,7 @@
  *     RtlpInterlockedPushEntrySList @ 0x1406A8600 (RtlpInterlockedPushEntrySList.c)
  */
 
-void __fastcall EtwpFinalizePendingApc(unsigned int **a1, struct _SLIST_ENTRY *a2)
+void __fastcall EtwpFinalizePendingApc(unsigned int **a1, _SLIST_ENTRY *a2)
 {
   _InterlockedDecrement((volatile signed __int32 *)a1 + 44);
   RtlpInterlockedPushEntrySList((PSLIST_HEADER)a1 + 2, a2 + 7);

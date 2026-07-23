@@ -1,10 +1,10 @@
 /*
- * XREFs of KiRemoveEntryTimer @ 0x1401318CC
+ * XREFs of KiRemoveEntryTimer @ 0x14013199C
  * Callers:
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
  *     KiInsertTimerTable @ 0x1400581E0 (KiInsertTimerTable.c)
- *     KiExpireTimerTable @ 0x140156D30 (KiExpireTimerTable.c)
- *     KiAdjustTimerDueTimes @ 0x14016FBEC (KiAdjustTimerDueTimes.c)
+ *     KiExpireTimerTable @ 0x140156E30 (KiExpireTimerTable.c)
+ *     KiAdjustTimerDueTimes @ 0x14016FCEC (KiAdjustTimerDueTimes.c)
  * Callees:
  *     <none>
  */
@@ -41,7 +41,7 @@ _QWORD *__fastcall KiRemoveEntryTimer(__int64 a1, __int64 a2, unsigned int a3)
     }
     result = (_QWORD *)v7;
     _interlockedbittestandreset64(
-      (volatile signed __int32 *)(qword_1405424C8[2 * *(unsigned __int8 *)(a1 - 13744)] + v8),
+      (volatile signed __int32 *)(qword_1405434C8[2 * *(unsigned __int8 *)(a1 - 13744)] + v8),
       v7);
   }
   return result;

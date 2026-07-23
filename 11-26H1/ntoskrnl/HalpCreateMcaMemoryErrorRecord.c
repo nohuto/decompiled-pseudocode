@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpCreateMcaMemoryErrorRecord @ 0x140454498
+ * XREFs of HalpCreateMcaMemoryErrorRecord @ 0x14044C5C8
  * Callers:
- *     HalpCreateMachineCheckErrorRecord @ 0x140452620 (HalpCreateMachineCheckErrorRecord.c)
+ *     HalpCreateMachineCheckErrorRecord @ 0x14044A750 (HalpCreateMachineCheckErrorRecord.c)
  * Callees:
- *     WheaInitializeRecordHeader @ 0x140451C20 (WheaInitializeRecordHeader.c)
- *     HalpGetCpuVendor @ 0x140453A00 (HalpGetCpuVendor.c)
- *     HalpAddMcaToProcessorGenericSection @ 0x140454300 (HalpAddMcaToProcessorGenericSection.c)
- *     HalpAddMcaExtendedLogToMemoryErrorSection @ 0x14057A898 (HalpAddMcaExtendedLogToMemoryErrorSection.c)
- *     HalpAddMcaToMemoryErrorSection @ 0x14057A914 (HalpAddMcaToMemoryErrorSection.c)
- *     HalpAddPrmAddressTranslationToMemoryExtAmdSection @ 0x14057E140 (HalpAddPrmAddressTranslationToMemoryExtAmdSection.c)
- *     HalpAddPrmAddressTranslationToMemoryExtIntelSection @ 0x14057E2B8 (HalpAddPrmAddressTranslationToMemoryExtIntelSection.c)
- *     HalpGetMcaVendorSpecificSections @ 0x14057E714 (HalpGetMcaVendorSpecificSections.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     WheaInitializeRecordHeader @ 0x140449D50 (WheaInitializeRecordHeader.c)
+ *     HalpGetCpuVendor @ 0x14044BB30 (HalpGetCpuVendor.c)
+ *     HalpAddMcaToProcessorGenericSection @ 0x14044C430 (HalpAddMcaToProcessorGenericSection.c)
+ *     HalpAddMcaExtendedLogToMemoryErrorSection @ 0x14057CDC8 (HalpAddMcaExtendedLogToMemoryErrorSection.c)
+ *     HalpAddMcaToMemoryErrorSection @ 0x14057CE44 (HalpAddMcaToMemoryErrorSection.c)
+ *     HalpAddPrmAddressTranslationToMemoryExtAmdSection @ 0x140580660 (HalpAddPrmAddressTranslationToMemoryExtAmdSection.c)
+ *     HalpAddPrmAddressTranslationToMemoryExtIntelSection @ 0x1405807D8 (HalpAddPrmAddressTranslationToMemoryExtIntelSection.c)
+ *     HalpGetMcaVendorSpecificSections @ 0x140580C34 (HalpGetMcaVendorSpecificSections.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpCreateMcaMemoryErrorRecord(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

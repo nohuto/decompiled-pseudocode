@@ -1,54 +1,60 @@
 /*
- * XREFs of NtConvertBetweenAuxiliaryCounterAndPerformanceCounter @ 0x1408DA100
+ * XREFs of NtConvertBetweenAuxiliaryCounterAndPerformanceCounter @ 0x1408DB3C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtConvertBetweenAuxiliaryCounterAndPerformanceCounter(
-        char a1,
-        unsigned __int64 a2,
-        _QWORD *a3,
-        _QWORD *a4)
+NTSTATUS __cdecl NtConvertBetweenAuxiliaryCounterAndPerformanceCounter(
+        BOOLEAN ConvertAuxiliaryToPerformanceCounter,
+        PLARGE_INTEGER PerformanceOrAuxiliaryCounterValue,
+        PLARGE_INTEGER ConvertedValue,
+        PLARGE_INTEGER ConversionError)
 {
-  __int64 v7; // r14
+  LONGLONG QuadPart; // r14
   __int64 (__fastcall *v8)(); // rax
-  int v9; // ecx
+  NTSTATUS v9; // ecx
   __int64 (__fastcall *v10)(); // rax
-  __int64 v12; // [rsp+20h] [rbp-28h] BYREF
+  LONGLONG v12; // [rsp+20h] [rbp-28h] BYREF
   _QWORD v13[4]; // [rsp+28h] [rbp-20h] BYREF
 
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( (a2 & 3) != 0 )
+    if ( ((unsigned __int8)PerformanceOrAuxiliaryCounterValue & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( a2 + 8 > 0x7FFFFFFF0000LL || a2 + 8 < a2 )
+    if ( (unsigned __int64)&PerformanceOrAuxiliaryCounterValue[1] > 0x7FFFFFFF0000LL
+      || &PerformanceOrAuxiliaryCounterValue[1] < PerformanceOrAuxiliaryCounterValue )
+    {
       MEMORY[0x7FFFFFFF0000] = 0;
-    v7 = *(_QWORD *)a2;
-    v13[1] = *(_QWORD *)a2;
-    ProbeForWrite(a3, 8uLL, 4u);
-    if ( a4 )
-      ProbeForWrite(a4, 8uLL, 4u);
-    v8 = off_1403FE668[0];
-    if ( !a1 )
-      v8 = off_1403FE660[0];
-    v9 = ((__int64 (__fastcall *)(__int64, __int64 *, _QWORD *))v8)(v7, &v12, v13);
+    }
+    QuadPart = PerformanceOrAuxiliaryCounterValue->QuadPart;
+    v13[1] = PerformanceOrAuxiliaryCounterValue->QuadPart;
+    ProbeForWrite(ConvertedValue, 8uLL, 4u);
+    if ( ConversionError )
+      ProbeForWrite(ConversionError, 8uLL, 4u);
+    v8 = off_1403FF668[0];
+    if ( !ConvertAuxiliaryToPerformanceCounter )
+      v8 = off_1403FF660[0];
+    v9 = ((__int64 (__fastcall *)(LONGLONG, LONGLONG *, _QWORD *))v8)(QuadPart, &v12, v13);
     if ( v9 >= 0 )
     {
-      *a3 = v12;
-      if ( a4 )
-        *a4 = v13[0];
+      ConvertedValue->QuadPart = v12;
+      if ( ConversionError )
+        *ConversionError = (LARGE_INTEGER)v13[0];
     }
   }
   else
   {
-    v10 = off_1403FE668[0];
-    if ( !a1 )
-      v10 = off_1403FE660[0];
-    return ((unsigned int (__fastcall *)(_QWORD, _QWORD *, _QWORD *))v10)(*(_QWORD *)a2, a3, a4);
+    v10 = off_1403FF668[0];
+    if ( !ConvertAuxiliaryToPerformanceCounter )
+      v10 = off_1403FF660[0];
+    return ((__int64 (__fastcall *)(LONGLONG, PLARGE_INTEGER, PLARGE_INTEGER))v10)(
+             PerformanceOrAuxiliaryCounterValue->QuadPart,
+             ConvertedValue,
+             ConversionError);
   }
-  return (unsigned int)v9;
+  return v9;
 }

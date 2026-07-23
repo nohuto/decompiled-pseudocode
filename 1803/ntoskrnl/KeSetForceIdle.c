@@ -13,10 +13,10 @@ __int64 KeSetForceIdle()
 {
   struct _KPRCB *CurrentPrcb; // rbx
   int v1; // edi
-  __int64 v2; // rbx
+  LARGE_INTEGER v2; // rbx
   __int64 result; // rax
   int v4; // [rsp+30h] [rbp+8h] BYREF
-  LARGE_INTEGER v5; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
   _disable();
   CurrentPrcb = KeGetCurrentPrcb();
@@ -34,12 +34,13 @@ __int64 KeSetForceIdle()
   if ( !KiForceIdleDisabled )
   {
     v1 = KiForceIdleState;
-    v2 = RtlGetInterruptTimePrecise(&v5) + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
+    v2.QuadPart = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter)
+                + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
     if ( !v1 )
     {
       KiSetForceIdleState(2LL);
 LABEL_11:
-      KiForceIdleStartTime = v2;
+      KiForceIdleStartTime = v2.QuadPart;
       goto LABEL_12;
     }
     if ( v1 == 3 )

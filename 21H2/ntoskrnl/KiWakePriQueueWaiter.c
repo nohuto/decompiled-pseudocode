@@ -1,18 +1,18 @@
 /*
- * XREFs of KiWakePriQueueWaiter @ 0x14029F81C
+ * XREFs of KiWakePriQueueWaiter @ 0x14021CD7C
  * Callers:
- *     KeInsertPriQueue @ 0x14023BF70 (KeInsertPriQueue.c)
- *     KiActivateWaiterPriQueue @ 0x14029F6C4 (KiActivateWaiterPriQueue.c)
+ *     KiActivateWaiterPriQueue @ 0x14021CC24 (KiActivateWaiterPriQueue.c)
+ *     KeInsertPriQueue @ 0x1402E07C0 (KeInsertPriQueue.c)
  * Callees:
- *     KiTryUnwaitThreadWithPriority @ 0x140242960 (KiTryUnwaitThreadWithPriority.c)
+ *     KiTryUnwaitThreadWithPriority @ 0x1402E71B0 (KiTryUnwaitThreadWithPriority.c)
  */
 
-__int64 __fastcall KiWakePriQueueWaiter(__int64 a1, __int64 a2, __int64 a3, int a4)
+__int64 __fastcall KiWakePriQueueWaiter(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   _QWORD *v4; // rdi
   _QWORD *v6; // rbx
   _QWORD *v9; // rax
-  __int64 v10; // rdx
+  _QWORD *v10; // rdx
   _QWORD *v11; // rcx
   __int64 result; // rax
 
@@ -21,9 +21,9 @@ __int64 __fastcall KiWakePriQueueWaiter(__int64 a1, __int64 a2, __int64 a3, int 
   do
   {
     v9 = (_QWORD *)*v6;
-    v10 = (__int64)v6;
+    v10 = v6;
     v6 = v9;
-    if ( v9[1] != v10 || (v11 = *(_QWORD **)(v10 + 8), *v11 != v10) )
+    if ( (_QWORD *)v9[1] != v10 || (v11 = (_QWORD *)v10[1], (_QWORD *)*v11 != v10) )
       __fastfail(3u);
     *v11 = v9;
     v9[1] = v11;

@@ -1,10 +1,10 @@
 /*
  * XREFs of __guard_retpoline_exit_indirect_rax @ 0x140AF93A0
  * Callers:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     __guard_retpoline_indirect_cfg_rax @ 0x140AF92A0 (__guard_retpoline_indirect_cfg_rax.c)
  * Callees:
- *     EtwTraceRetpolineExit @ 0x1405FD440 (EtwTraceRetpolineExit.c)
+ *     EtwTraceRetpolineExit @ 0x1405FD9B0 (EtwTraceRetpolineExit.c)
  *     __guard_retpoline_exit @ 0x140AF9580 (__guard_retpoline_exit.c)
  */
 

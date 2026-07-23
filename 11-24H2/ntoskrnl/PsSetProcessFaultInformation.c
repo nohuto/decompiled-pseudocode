@@ -1,97 +1,97 @@
 /*
- * XREFs of PsSetProcessFaultInformation @ 0x14093B330
+ * XREFs of PsSetProcessFaultInformation @ 0x140A55880
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     ExGetExtensionTable @ 0x1403AA530 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x14044FE80 (ExReleaseExtensionTable.c)
- *     EtwTelemetryCoverageReport @ 0x140457F60 (EtwTelemetryCoverageReport.c)
- *     PspLockProcessExclusive @ 0x14045AB10 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x140462E74 (PspUnlockProcessExclusive.c)
- *     TelemetryCoverageStringHashInternal @ 0x1404CA964 (TelemetryCoverageStringHashInternal.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PspRecordCrashedProcessIntoBlackbox @ 0x1409393D4 (PspRecordCrashedProcessIntoBlackbox.c)
- *     PsSetProcessTelemetryAppState @ 0x1409394B0 (PsSetProcessTelemetryAppState.c)
+ *     ExGetExtensionTable @ 0x140398F94 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1404450F0 (ExReleaseExtensionTable.c)
+ *     EtwTelemetryCoverageReport @ 0x14044D270 (EtwTelemetryCoverageReport.c)
+ *     PspLockProcessExclusive @ 0x14044FF38 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x140458484 (PspUnlockProcessExclusive.c)
+ *     TelemetryCoverageStringHashInternal @ 0x1404C3E84 (TelemetryCoverageStringHashInternal.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PspRecordCrashedProcessIntoBlackbox @ 0x1408F3AA4 (PspRecordCrashedProcessIntoBlackbox.c)
+ *     PsSetProcessTelemetryAppState @ 0x1408F3B80 (PsSetProcessTelemetryAppState.c)
  */
 
-__int64 __fastcall PsSetProcessFaultInformation(__int64 a1, _DWORD *a2)
+__int64 __fastcall PsSetProcessFaultInformation(struct _EX_RUNDOWN_REF *PROCESS, char *a2)
 {
-  __int64 v4; // r9
-  signed __int32 v6; // eax
-  signed __int32 v7; // ett
-  char *v8; // rdx
-  int v9; // ecx
-  char v10; // al
-  int v11; // [rsp+38h] [rbp+10h] BYREF
+  char *v2; // rsi
+  signed __int32 Ptr_high; // eax
+  signed __int32 v6; // ett
+  int v7; // ecx
+  char v8; // al
+  int v9; // [rsp+38h] [rbp+10h] BYREF
 
-  if ( (*a2 & 1) != 0 )
+  v2 = a2;
+  if ( (*(_DWORD *)a2 & 1) != 0 )
   {
-    _m_prefetchw((const void *)(a1 + 1532));
-    v6 = *(_DWORD *)(a1 + 1532);
+    _m_prefetchw((char *)&PROCESS[191].Ptr + 4);
+    Ptr_high = HIDWORD(PROCESS[191].Ptr);
     do
     {
-      v7 = v6;
-      v6 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 1532), v6 | 4, v6);
+      v6 = Ptr_high;
+      Ptr_high = _InterlockedCompareExchange((volatile signed __int32 *)&PROCESS[191].Ptr + 1, Ptr_high | 4, Ptr_high);
     }
-    while ( v7 != v6 );
-    if ( (v6 & 4) == 0 )
+    while ( v6 != Ptr_high );
+    if ( (Ptr_high & 4) == 0 )
     {
-      if ( (unsigned int)dword_140E08604 < MEMORY[0xFFFFF7800000037C] )
+      if ( (unsigned int)dword_140E0868C < MEMORY[0xFFFFF7800000037C] )
       {
-        if ( !dword_140E08600 )
+        if ( !dword_140E08688 )
         {
-          v8 = off_140E085F8;
-          v9 = -2128831035;
-          v10 = *off_140E085F8;
-          if ( !*off_140E085F8 )
+          a2 = off_140E08680;
+          v7 = -2128831035;
+          v8 = *off_140E08680;
+          if ( !*off_140E08680 )
             goto LABEL_19;
           do
           {
-            ++v8;
-            v9 = v10 + 16777619 * v9;
-            v10 = *v8;
+            ++a2;
+            v7 = v8 + 16777619 * v7;
+            v8 = *a2;
           }
-          while ( *v8 );
-          dword_140E08600 = 1;
-          if ( v9 )
+          while ( *a2 );
+          dword_140E08688 = 1;
+          if ( v7 )
 LABEL_19:
-            dword_140E08600 = v9;
+            dword_140E08688 = v7;
         }
-        EtwTelemetryCoverageReport(&off_140E085F8);
+        EtwTelemetryCoverageReport((__int64)&off_140E08680, (__int64)a2);
       }
-      PspRecordCrashedProcessIntoBlackbox(a1);
-      PsSetProcessTelemetryAppState((PRKPROCESS)a1, 4);
+      PspRecordCrashedProcessIntoBlackbox((__int64)PROCESS);
+      PsSetProcessTelemetryAppState(PROCESS, 4);
     }
   }
-  if ( (*a2 & 2) != 0 )
+  if ( (*(_DWORD *)v2 & 2) != 0 )
   {
-    if ( (unsigned int)dword_140E0861C < MEMORY[0xFFFFF7800000037C] )
+    if ( (unsigned int)dword_140E08674 < MEMORY[0xFFFFF7800000037C] )
     {
-      if ( !dword_140E08618 )
-        dword_140E08618 = TelemetryCoverageStringHashInternal(off_140E08610, &v11);
-      EtwTelemetryCoverageReport(&off_140E08610);
+      if ( !dword_140E08670 )
+        dword_140E08670 = TelemetryCoverageStringHashInternal(off_140E08668, &v9);
+      EtwTelemetryCoverageReport((__int64)&off_140E08668, (__int64)a2);
     }
-    PspLockProcessExclusive(a1, (__int64)KeGetCurrentThread());
-    if ( (*(_BYTE *)(a1 + 1531) & 7) != 7 )
-      *(_BYTE *)(a1 + 1531) ^= (*(_BYTE *)(a1 + 1531) ^ (*(_BYTE *)(a1 + 1531) + 1)) & 7;
-    PspUnlockProcessExclusive(a1);
+    PspLockProcessExclusive((__int64)PROCESS, (__int64)KeGetCurrentThread());
+    if ( (BYTE3(PROCESS[191].Ptr) & 7) != 7 )
+      BYTE3(PROCESS[191].Ptr) ^= (BYTE3(PROCESS[191].Ptr) ^ (BYTE3(PROCESS[191].Ptr) + 1)) & 7;
+    PspUnlockProcessExclusive((__int64)PROCESS);
   }
-  if ( (*a2 & 4) != 0 )
+  if ( (*(_DWORD *)v2 & 4) != 0 )
   {
-    PspLockProcessExclusive(a1, (__int64)KeGetCurrentThread());
-    if ( (*(_BYTE *)(a1 + 1531) & 0x38u) < 0x38 )
-      *(_BYTE *)(a1 + 1531) ^= (*(_BYTE *)(a1 + 1531) ^ (*(_BYTE *)(a1 + 1531) + 8)) & 0x38;
-    PspUnlockProcessExclusive(a1);
+    PspLockProcessExclusive((__int64)PROCESS, (__int64)KeGetCurrentThread());
+    if ( (BYTE3(PROCESS[191].Ptr) & 0x38u) < 0x38 )
+      BYTE3(PROCESS[191].Ptr) ^= (BYTE3(PROCESS[191].Ptr) ^ (BYTE3(PROCESS[191].Ptr) + 8)) & 0x38;
+    PspUnlockProcessExclusive((__int64)PROCESS);
   }
-  if ( (*a2 & 8) != 0 )
+  if ( (*(_DWORD *)v2 & 8) != 0 )
   {
-    PspLockProcessExclusive(a1, (__int64)KeGetCurrentThread());
-    *(_BYTE *)(a1 + 1531) |= 0x40u;
-    PspUnlockProcessExclusive(a1);
+    PspLockProcessExclusive((__int64)PROCESS, (__int64)KeGetCurrentThread());
+    BYTE3(PROCESS[191].Ptr) |= 0x40u;
+    PspUnlockProcessExclusive((__int64)PROCESS);
   }
   if ( ExGetExtensionTable((struct _EX_RUNDOWN_REF *)PspHwTraceExtensionHost) )
   {
-    guard_dispatch_icall_no_overrides(a1, KeGetCurrentThread(), a2, v4);
+    guard_dispatch_icall_no_overrides(PROCESS, KeGetCurrentThread());
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)PspHwTraceExtensionHost);
   }
   return 0LL;

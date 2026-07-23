@@ -1,26 +1,26 @@
 /*
- * XREFs of MiMapMdlCommon @ 0x1404F0304
+ * XREFs of MiMapMdlCommon @ 0x1404EDDA4
  * Callers:
- *     MmMapLockedPagesWithReservedMapping @ 0x140410510 (MmMapLockedPagesWithReservedMapping.c)
- *     MmMapLockedRestartPages @ 0x1407E81C0 (MmMapLockedRestartPages.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x14041D8B0 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmMapLockedRestartPages @ 0x1407E8790 (MmMapLockedRestartPages.c)
  * Callees:
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MiReferenceIoPages @ 0x140283108 (MiReferenceIoPages.c)
- *     MiLockNestedPageTable @ 0x140285190 (MiLockNestedPageTable.c)
- *     MiIncreaseUsedPtes @ 0x14028A180 (MiIncreaseUsedPtes.c)
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1402E3A1C (MiLockWorkingSetSharedAtDpc.c)
- *     MiMakeProtectionPfnCompatible @ 0x140313770 (MiMakeProtectionPfnCompatible.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     MiAssignInitialPageAttribute @ 0x1403A6FA4 (MiAssignInitialPageAttribute.c)
- *     MiLookupIoPageNode @ 0x1403D0238 (MiLookupIoPageNode.c)
- *     MiIoSpaceGetBounds @ 0x1403D0398 (MiIoSpaceGetBounds.c)
- *     MiShowBadMapper @ 0x1403D0830 (MiShowBadMapper.c)
- *     MiMapMdlWithLargePages @ 0x1404C71D0 (MiMapMdlWithLargePages.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiLockNestedPageTable @ 0x140201F50 (MiLockNestedPageTable.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x14020BF58 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiReferenceIoPages @ 0x140238698 (MiReferenceIoPages.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiAssignInitialPageAttribute @ 0x14026C070 (MiAssignInitialPageAttribute.c)
+ *     MiShowBadMapper @ 0x140275730 (MiShowBadMapper.c)
+ *     MiIncreaseUsedPtes @ 0x140299D80 (MiIncreaseUsedPtes.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiLookupIoPageNode @ 0x14038F750 (MiLookupIoPageNode.c)
+ *     MiIoSpaceGetBounds @ 0x14038F8B0 (MiIoSpaceGetBounds.c)
+ *     MiMakeProtectionPfnCompatible @ 0x1403F26B0 (MiMakeProtectionPfnCompatible.c)
+ *     MiMapMdlWithLargePages @ 0x1404C0630 (MiMapMdlWithLargePages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiMapMdlCommon(char *a1, unsigned __int64 a2, __int64 a3, char a4, int a5)
@@ -31,11 +31,11 @@ __int64 __fastcall MiMapMdlCommon(char *a1, unsigned __int64 a2, __int64 a3, cha
   __int64 v8; // r9
   char *v9; // rdi
   __int64 v10; // r10
-  unsigned __int64 v11; // r9
-  _DWORD *v12; // r10
+  __int64 v11; // r9
+  volatile LONG *v12; // r10
   BOOL v13; // ebx
   unsigned __int64 v14; // r15
-  int v15; // esi
+  unsigned int v15; // esi
   __int64 CurrentIrql; // rcx
   unsigned __int64 v17; // rdx
   int v18; // r12d
@@ -74,7 +74,7 @@ __int64 __fastcall MiMapMdlCommon(char *a1, unsigned __int64 a2, __int64 a3, cha
   __int128 v51; // [rsp+58h] [rbp-21h] BYREF
   __int64 v52; // [rsp+68h] [rbp-11h]
   __int64 v53; // [rsp+70h] [rbp-9h]
-  unsigned __int64 v54; // [rsp+78h] [rbp-1h] BYREF
+  volatile LONG *v54; // [rsp+78h] [rbp-1h] BYREF
   __int64 v55; // [rsp+80h] [rbp+7h]
   char *BugCheckParameter2; // [rsp+E0h] [rbp+67h]
   __int64 v58; // [rsp+E8h] [rbp+6Fh]
@@ -111,12 +111,12 @@ __int64 __fastcall MiMapMdlCommon(char *a1, unsigned __int64 a2, __int64 a3, cha
     while ( 1 )
     {
       v20 = v19[1];
-      if ( v20 <= qword_140E2DBE0 )
+      if ( v20 <= qword_140E2DD20 )
       {
         if ( ((*(_QWORD *)(48 * v20 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
         {
           v21 = 48 * v20 - 0x220000000000LL;
-          if ( !(unsigned __int16)*(_DWORD *)(v21 + 32) && dword_140E3004C == (_DWORD)v12 )
+          if ( !(unsigned __int16)*(_DWORD *)(v21 + 32) && dword_140E3018C == (_DWORD)v12 )
             MiShowBadMapper(v19[1], 2uLL, 3);
           if ( (HIWORD(*(_DWORD *)(v21 + 32)) & 0xC0) == 0xC0 )
             MiAssignInitialPageAttribute(48 * v20 - 0x220000000000LL, a5);
@@ -177,7 +177,7 @@ __int64 __fastcall MiMapMdlCommon(char *a1, unsigned __int64 a2, __int64 a3, cha
             v28 = *v27;
             if ( *v27 != *(v27 - 1) + 1
               || (v28 & 0x1FF) == 0
-              || v28 <= qword_140E2DBE0 && ((*(_QWORD *)(48 * v28 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+              || v28 <= qword_140E2DD20 && ((*(_QWORD *)(48 * v28 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
             {
               break;
             }
@@ -194,16 +194,14 @@ __int64 __fastcall MiMapMdlCommon(char *a1, unsigned __int64 a2, __int64 a3, cha
       if ( v29 >= 0 )
       {
 LABEL_41:
-        v15 = (*(_DWORD *)(v54
-                         + 4
-                         * ((unsigned __int64)(2
-                                             * (((unsigned int)v20 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2DB38
-                                                                                           - 12))
-                                                                    - 1))
-                                              - *(_DWORD *)(v54 + 24))) >> 5)
-                         + 44) >> ((2
-                                  * ((v20 & ((1LL << ((unsigned __int8)dword_140E2DB38 - 12)) - 1))
-                                   - *(_BYTE *)(v54 + 24))) & 0x1F)) & 3;
+        v15 = ((unsigned int)v54[((unsigned __int64)(2
+                                                   * (((unsigned int)v20 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2DC78
+                                                                                                 - 12))
+                                                                          - 1))
+                                                    - *((_DWORD *)v54 + 6))) >> 5)
+                               + 11] >> ((2
+                                        * ((v20 & ((1LL << ((unsigned __int8)dword_140E2DC78 - 12)) - 1))
+                                         - *((_BYTE *)v54 + 24))) & 0x1F)) & 3;
       }
       else
       {
@@ -277,7 +275,7 @@ LABEL_56:
     }
     else
     {
-      v47 = MiLockWorkingSetShared(a3);
+      v47 = MiLockWorkingSetShared(a3, v17, a3, v11);
     }
     LODWORD(v12) = 0;
   }
@@ -298,7 +296,7 @@ LABEL_56:
       {
         if ( v32 )
         {
-          MiIncreaseUsedPtes(CurrentIrql, v31, v32, 2);
+          MiIncreaseUsedPtes(CurrentIrql, v31, v32, 2LL);
           v32 = 0;
         }
         MiUnlockPageTableInternal(v58, v31);
@@ -310,7 +308,7 @@ LABEL_73:
     }
     v36 = *(_QWORD *)&v34[v35 + 48];
     v37 = (int)v12;
-    if ( v36 <= qword_140E2DBE0 )
+    if ( v36 <= qword_140E2DD20 )
     {
       CurrentIrql = 6 * v36;
       if ( ((*(_QWORD *)(48 * v36 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
@@ -383,7 +381,7 @@ LABEL_97:
         CurrentIrql = 0x4000000000LL;
         if ( (unsigned __int64)BugCheckParameter2 >= 0xFFFFF6C000000000uLL )
         {
-          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)BugCheckParameter2, v44, 128);
+          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)BugCheckParameter2, v44, 128LL);
           LODWORD(v12) = 0;
         }
       }
@@ -400,7 +398,7 @@ LABEL_97:
     if ( v31 )
     {
       if ( v32 )
-        MiIncreaseUsedPtes(CurrentIrql, v31, v32, 2);
+        MiIncreaseUsedPtes(CurrentIrql, v31, v32, 2LL);
       MiUnlockPageTableInternal(v58, v31);
     }
     MiUnlockWorkingSetShared(v58, v47);

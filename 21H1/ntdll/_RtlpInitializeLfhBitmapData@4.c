@@ -13,10 +13,12 @@ void *__thiscall RtlpInitializeLfhBitmapData(unsigned int *this)
   void *v2; // edi
   void *result; // eax
   char v4; // cl
+  size_t v5; // [esp-4h] [ebp-Ch]
 
   v1 = *this;
   v2 = (void *)this[1];
-  result = memset(v2, 0, (*this + 7) >> 3);
+  LODWORD(v5) = (*this + 7) >> 3;
+  result = memset(v2, 0, v5);
   v4 = v1 & 0x1F;
   if ( (v1 & 0x1F) != 0 )
   {

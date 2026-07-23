@@ -1,10 +1,10 @@
 /*
- * XREFs of ?KiComputeNewPriorityStacking@@YAJPEAU_KTHREAD@@CE@Z @ 0x1405C931C
+ * XREFs of ?KiComputeNewPriorityStacking@@YAJPEAU_KTHREAD@@CE@Z @ 0x1405C6A4C
  * Callers:
- *     KiComputeNewPriority @ 0x1404EA2E0 (KiComputeNewPriority.c)
+ *     KiComputeNewPriority @ 0x1404E1290 (KiComputeNewPriority.c)
  * Callees:
- *     KiComputeThreadPriority @ 0x14024FA80 (KiComputeThreadPriority.c)
- *     KiClearForegroundBoost @ 0x140452610 (KiClearForegroundBoost.c)
+ *     KiComputeThreadPriority @ 0x140280090 (KiComputeThreadPriority.c)
+ *     KiClearForegroundBoost @ 0x1404476C0 (KiClearForegroundBoost.c)
  */
 
 __int64 __fastcall KiComputeNewPriorityStacking(struct _KTHREAD *a1, __int64 a2, char a3)

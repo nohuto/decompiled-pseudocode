@@ -1,14 +1,14 @@
 /*
- * XREFs of KeIsEmptyGroupMask @ 0x14040B460
+ * XREFs of KeIsEmptyGroupMask @ 0x140404550
  * Callers:
- *     PpmHeteroHgsCpuSupportedForContainment @ 0x14060AC14 (PpmHeteroHgsCpuSupportedForContainment.c)
- *     PspSelectNodeForProcessNoRestrictions @ 0x1407F2E5C (PspSelectNodeForProcessNoRestrictions.c)
- *     KeInitializeProcess @ 0x140963BE4 (KeInitializeProcess.c)
- *     PspReadIFEONodeOptions @ 0x14096635C (PspReadIFEONodeOptions.c)
- *     PspBuildCreateProcessContext @ 0x140A00BC4 (PspBuildCreateProcessContext.c)
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
- *     KiConfigureProcessorBlock @ 0x140BF3A10 (KiConfigureProcessorBlock.c)
- *     KiComputeNumaCosts @ 0x140CC93EC (KiComputeNumaCosts.c)
+ *     PpmHeteroHgsCpuSupportedForContainment @ 0x14060D87C (PpmHeteroHgsCpuSupportedForContainment.c)
+ *     PspSelectNodeForProcessNoRestrictions @ 0x1407F89BC (PspSelectNodeForProcessNoRestrictions.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
+ *     PspReadIFEONodeOptions @ 0x140A78470 (PspReadIFEONodeOptions.c)
+ *     PspBuildCreateProcessContext @ 0x140A79424 (PspBuildCreateProcessContext.c)
+ *     KeInitializeProcess @ 0x140B58704 (KeInitializeProcess.c)
+ *     KiConfigureProcessorBlock @ 0x140BF9A10 (KiConfigureProcessorBlock.c)
+ *     KiComputeNumaCosts @ 0x140CCF47C (KiComputeNumaCosts.c)
  * Callees:
  *     <none>
  */

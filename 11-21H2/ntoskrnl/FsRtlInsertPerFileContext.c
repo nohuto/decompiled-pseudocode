@@ -5,7 +5,7 @@
  * Callees:
  *     ExAcquireAutoExpandPushLockExclusive @ 0x1402A3C30 (ExAcquireAutoExpandPushLockExclusive.c)
  *     ExReleaseAutoExpandPushLockExclusive @ 0x1402AC890 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
@@ -43,7 +43,7 @@ NTSTATUS __stdcall FsRtlInsertPerFileContext(PVOID *PerFileContextPointer, PFSRT
     }
   }
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)v4, 0LL);
   v9 = v4 + 1;
   Flink = v4[1].Flink;
@@ -54,6 +54,6 @@ NTSTATUS __stdcall FsRtlInsertPerFileContext(PVOID *PerFileContextPointer, PFSRT
   Flink->Blink = &Ptr->Links;
   v9->Flink = &Ptr->Links;
   ExReleaseAutoExpandPushLockExclusive((ULONG_PTR)v4, 0LL);
-  KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
+  sub_1402F9540(KeGetCurrentThread());
   return 0;
 }

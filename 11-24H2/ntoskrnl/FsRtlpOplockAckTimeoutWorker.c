@@ -1,18 +1,18 @@
 /*
- * XREFs of FsRtlpOplockAckTimeoutWorker @ 0x140581220
+ * XREFs of FsRtlpOplockAckTimeoutWorker @ 0x14057E5E0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14024A9C0 (ExFreeToNPagedLookasideList.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     FsRtlpOplockCleanup @ 0x1404E3BFC (FsRtlpOplockCleanup.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402E4C00 (ExFreeToNPagedLookasideList.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlpOplockCleanup @ 0x1403CDA80 (FsRtlpOplockCleanup.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall FsRtlpOplockAckTimeoutWorker(PVOID Entry)
@@ -21,30 +21,28 @@ void __fastcall FsRtlpOplockAckTimeoutWorker(PVOID Entry)
   char v3; // di
   __int64 v4; // rcx
   __int64 v5; // r8
-  char v6; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v7; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v8; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v9; // [rsp+48h] [rbp-B8h] BYREF
-  _BYTE v10[48]; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v11; // [rsp+80h] [rbp-80h]
-  _BYTE v12[32]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 *v13; // [rsp+C0h] [rbp-40h]
-  int v14; // [rsp+C8h] [rbp-38h]
-  int v15; // [rsp+CCh] [rbp-34h]
-  char *v16; // [rsp+D0h] [rbp-30h]
-  int v17; // [rsp+D8h] [rbp-28h]
-  int v18; // [rsp+DCh] [rbp-24h]
-  __int64 *v19; // [rsp+E0h] [rbp-20h]
-  int v20; // [rsp+E8h] [rbp-18h]
-  int v21; // [rsp+ECh] [rbp-14h]
-  __int64 *v22; // [rsp+F0h] [rbp-10h]
-  int v23; // [rsp+F8h] [rbp-8h]
-  int v24; // [rsp+FCh] [rbp-4h]
+  char v6; // [rsp+30h] [rbp-39h] BYREF
+  __int64 v7; // [rsp+38h] [rbp-31h] BYREF
+  __int64 v8; // [rsp+40h] [rbp-29h] BYREF
+  __int64 v9; // [rsp+48h] [rbp-21h] BYREF
+  _BYTE v10[32]; // [rsp+50h] [rbp-19h] BYREF
+  __int64 *v11; // [rsp+70h] [rbp+7h]
+  int v12; // [rsp+78h] [rbp+Fh]
+  int v13; // [rsp+7Ch] [rbp+13h]
+  char *v14; // [rsp+80h] [rbp+17h]
+  int v15; // [rsp+88h] [rbp+1Fh]
+  int v16; // [rsp+8Ch] [rbp+23h]
+  __int64 *v17; // [rsp+90h] [rbp+27h]
+  int v18; // [rsp+98h] [rbp+2Fh]
+  int v19; // [rsp+9Ch] [rbp+33h]
+  __int64 *v20; // [rsp+A0h] [rbp+37h]
+  int v21; // [rsp+A8h] [rbp+3Fh]
+  int v22; // [rsp+ACh] [rbp+43h]
 
   memset_0(v10, 0, 0x48uLL);
-  v11 = *((_QWORD *)Entry + 21);
-  v10[0] = 18;
+  v14 = (char *)*((_QWORD *)Entry + 21);
   CurrentThread = KeGetCurrentThread();
+  v10[0] = 18;
   --CurrentThread->KernelApcDisable;
   ExAcquireFastMutexUnsafe(*(PFAST_MUTEX *)(*((_QWORD *)Entry + 20) + 152LL));
   v3 = *((_BYTE *)Entry + 181);
@@ -57,23 +55,23 @@ void __fastcall FsRtlpOplockAckTimeoutWorker(PVOID Entry)
   KeLeaveCriticalRegion();
   if ( (unsigned int)dword_140E06C30 > 5 && tlgKeywordOn((__int64)&dword_140E06C30, 0x400000000000LL) )
   {
-    v15 = 0;
-    v18 = 0;
-    v21 = 0;
-    v24 = 0;
-    v13 = &v7;
-    v16 = &v6;
+    v13 = 0;
+    v16 = 0;
+    v19 = 0;
+    v22 = 0;
+    v11 = &v7;
+    v14 = &v6;
     v8 = g_OplockAckTimeoutMs;
-    v19 = &v8;
-    v22 = &v9;
-    v14 = 8;
-    v20 = 8;
-    v23 = 8;
+    v17 = &v8;
+    v20 = &v9;
+    v12 = 8;
+    v18 = 8;
+    v21 = 8;
     v7 = 1LL;
     v6 = v3;
-    v17 = 1;
+    v15 = 1;
     v9 = 0x1000000LL;
-    tlgWriteAgg((__int64)&dword_140E06C30, (unsigned __int8 *)&word_140043946, v5, 6u, (__int64)v12);
+    tlgWriteAgg((__int64)&dword_140E06C30, (unsigned __int8 *)&word_140043D46, v5, 6u, (__int64)v10);
   }
   ExFreeToNPagedLookasideList(&g_OplockAckTimeoutLookaside, Entry);
 }

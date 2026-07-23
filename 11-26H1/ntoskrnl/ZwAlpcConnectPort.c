@@ -1,17 +1,28 @@
 /*
- * XREFs of ZwAlpcConnectPort @ 0x140724350
+ * XREFs of ZwAlpcConnectPort @ 0x140728F20
  * Callers:
- *     DifZwAlpcConnectPortWrapper @ 0x14069A620 (DifZwAlpcConnectPortWrapper.c)
- *     IopConnectLinkTrackingPort @ 0x1407945D0 (IopConnectLinkTrackingPort.c)
- *     SepRmLsaConnectRequest @ 0x140AF0D9C (SepRmLsaConnectRequest.c)
- *     DbgkRegisterErrorPort @ 0x140B581C4 (DbgkRegisterErrorPort.c)
+ *     DifZwAlpcConnectPortWrapper @ 0x14069E200 (DifZwAlpcConnectPortWrapper.c)
+ *     IopConnectLinkTrackingPort @ 0x140797100 (IopConnectLinkTrackingPort.c)
+ *     SepRmLsaConnectRequest @ 0x140AF39DC (SepRmLsaConnectRequest.c)
+ *     DbgkRegisterErrorPort @ 0x140B5AFE4 (DbgkRegisterErrorPort.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcConnectPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        ULONG Flags,
+        PSID RequiredServerSid,
+        PPORT_MESSAGE ConnectionMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES OutMessageAttributes,
+        PALPC_MESSAGE_ATTRIBUTES InMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

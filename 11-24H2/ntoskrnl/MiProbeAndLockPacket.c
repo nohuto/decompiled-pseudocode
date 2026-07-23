@@ -1,19 +1,19 @@
 /*
- * XREFs of MiProbeAndLockPacket @ 0x140282730
+ * XREFs of MiProbeAndLockPacket @ 0x140237CC0
  * Callers:
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     MiProbeAndLockPages @ 0x140420120 (MiProbeAndLockPages.c)
- *     IopProbeAndLockPages_0 @ 0x140438384 (IopProbeAndLockPages_0.c)
- *     MmLockPhysicalPagesByVa @ 0x1407EA9A0 (MmLockPhysicalPagesByVa.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     MiProbeAndLockPages @ 0x140415B10 (MiProbeAndLockPages.c)
+ *     IopProbeAndLockPages_0 @ 0x14042AF44 (IopProbeAndLockPages_0.c)
+ *     MmLockPhysicalPagesByVa @ 0x1407EAF70 (MmLockPhysicalPagesByVa.c)
  * Callees:
- *     MiProbeLockFrame @ 0x140282AC0 (MiProbeLockFrame.c)
- *     MiLockPageLeafPageTable @ 0x140283A60 (MiLockPageLeafPageTable.c)
- *     MiProbeLeafPteAccess @ 0x140283F40 (MiProbeLeafPteAccess.c)
- *     MiSetProbePagesAhead @ 0x140284570 (MiSetProbePagesAhead.c)
- *     MiFaultInProbeAddress @ 0x1402C3798 (MiFaultInProbeAddress.c)
- *     MiLockProbePacketWorkingSet @ 0x1402C3B90 (MiLockProbePacketWorkingSet.c)
- *     MiUnlockProbePacketWorkingSet @ 0x1402E1C10 (MiUnlockProbePacketWorkingSet.c)
- *     MiProbePacketContended @ 0x1403CFF40 (MiProbePacketContended.c)
+ *     MiFaultInProbeAddress @ 0x14020ABF4 (MiFaultInProbeAddress.c)
+ *     MiLockProbePacketWorkingSet @ 0x14020AFF0 (MiLockProbePacketWorkingSet.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x14020BCC0 (MiUnlockProbePacketWorkingSet.c)
+ *     MiProbeLockFrame @ 0x140238050 (MiProbeLockFrame.c)
+ *     MiLockPageLeafPageTable @ 0x140238FF0 (MiLockPageLeafPageTable.c)
+ *     MiProbeLeafPteAccess @ 0x1402394D0 (MiProbeLeafPteAccess.c)
+ *     MiSetProbePagesAhead @ 0x140239B00 (MiSetProbePagesAhead.c)
+ *     MiProbePacketContended @ 0x140391364 (MiProbePacketContended.c)
  */
 
 __int64 __fastcall MiProbeAndLockPacket(__int64 a1)
@@ -90,7 +90,7 @@ __int64 __fastcall MiProbeAndLockPacket(__int64 a1)
         v11 = v7 + ((*(_QWORD *)(a1 + 8) - *(_QWORD *)(a1 + 152)) >> 12);
       }
       *(_QWORD *)(a1 + 136) = v11;
-      if ( v11 > qword_140E2DBE0 || (*(_QWORD *)(48 * v11 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0 )
+      if ( v11 > qword_140E2DD20 || (*(_QWORD *)(48 * v11 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0 )
       {
         v12 = *(_QWORD *)(a1 + 160) + 1LL;
         if ( *(_QWORD *)(a1 + 16) <= v12 )
@@ -178,7 +178,7 @@ LABEL_39:
       result = MiFaultInProbeAddress(a1);
       if ( (int)result < 0 )
       {
-        ++dword_140E30104;
+        ++dword_140E30244;
         return result;
       }
     }

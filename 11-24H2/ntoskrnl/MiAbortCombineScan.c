@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAbortCombineScan @ 0x140265104
+ * XREFs of MiAbortCombineScan @ 0x1403A9DB0
  * Callers:
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiCopyPage @ 0x1402254C0 (MiCopyPage.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x140264F54 (MiUpdateSlabPagePlaceholderState.c)
- *     MiChangePageAttributeBatch @ 0x1402668E4 (MiChangePageAttributeBatch.c)
- *     MiCreateSlabEntry @ 0x1403A112C (MiCreateSlabEntry.c)
- *     MiInitializeMdlPfn @ 0x140413588 (MiInitializeMdlPfn.c)
- *     MiCompleteSecureProcessFault @ 0x140435C20 (MiCompleteSecureProcessFault.c)
- *     MiInitializeDynamicPfns @ 0x14066D8BC (MiInitializeDynamicPfns.c)
+ *     MiCreateSlabEntry @ 0x140217C8C (MiCreateSlabEntry.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     MiCopyPage @ 0x140252870 (MiCopyPage.c)
+ *     MiInitializeMdlPfn @ 0x1403954E8 (MiInitializeMdlPfn.c)
+ *     MiChangePageAttributeBatch @ 0x1403A8860 (MiChangePageAttributeBatch.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x1403A9C00 (MiUpdateSlabPagePlaceholderState.c)
+ *     MiCompleteSecureProcessFault @ 0x1404286A0 (MiCompleteSecureProcessFault.c)
+ *     MiInitializeDynamicPfns @ 0x14066EA90 (MiInitializeDynamicPfns.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiFlushSingleTbEntry @ 0x14022A7E0 (MiFlushSingleTbEntry.c)
+ *     MiFlushSingleTbEntry @ 0x1402FDA50 (MiFlushSingleTbEntry.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
  */
 
 void __fastcall MiAbortCombineScan(__int64 a1)
@@ -22,10 +22,10 @@ void __fastcall MiAbortCombineScan(__int64 a1)
   _QWORD *i; // rbx
   _QWORD *v5; // rcx
 
-  if ( dword_140E2FE04 )
+  if ( dword_140E2FF44 )
   {
-    v2 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
-    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E2FE00);
+    v2 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E2FF40);
     v3 = (_QWORD *)(v2 + 16992);
     for ( i = (_QWORD *)*v3; i != v3; i = (_QWORD *)*i )
     {
@@ -39,6 +39,6 @@ void __fastcall MiAbortCombineScan(__int64 a1)
         }
       }
     }
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2FE00);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2FF40);
   }
 }

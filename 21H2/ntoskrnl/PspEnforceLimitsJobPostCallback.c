@@ -1,37 +1,37 @@
 /*
- * XREFs of PspEnforceLimitsJobPostCallback @ 0x140618320
+ * XREFs of PspEnforceLimitsJobPostCallback @ 0x140681F80
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PspSendJobNotification @ 0x1402C3DCC (PspSendJobNotification.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PspRemoveProcessFromJobChain @ 0x140616398 (PspRemoveProcessFromJobChain.c)
- *     PspRateControlLimitFlag @ 0x14061665C (PspRateControlLimitFlag.c)
- *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x140618774 (PspLockJobExclusive.c)
- *     PspLockJobShared @ 0x14061879C (PspLockJobShared.c)
- *     PspGetEffectiveNoWakeCharge @ 0x1406187C4 (PspGetEffectiveNoWakeCharge.c)
- *     PspAddAccountingValues @ 0x1406188DC (PspAddAccountingValues.c)
- *     PspUnlockJobMemoryLimitsShared @ 0x14061893C (PspUnlockJobMemoryLimitsShared.c)
- *     PspGetJobMemoryUsageNotificationViolations @ 0x140618998 (PspGetJobMemoryUsageNotificationViolations.c)
- *     PspLockJobMemoryLimitsShared @ 0x1406189EC (PspLockJobMemoryLimitsShared.c)
- *     PspSendReliableJobNotification @ 0x14068163C (PspSendReliableJobNotification.c)
- *     PspTerminateAllProcessesInJobHierarchy @ 0x1406B5B68 (PspTerminateAllProcessesInJobHierarchy.c)
- *     PspSendNoWakeChargeLimitNotification @ 0x140909314 (PspSendNoWakeChargeLimitNotification.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PspSendJobNotification @ 0x14024234C (PspSendJobNotification.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PspSendReliableJobNotification @ 0x1405DC67C (PspSendReliableJobNotification.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x140615028 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     PspRemoveProcessFromJobChain @ 0x14067FFF8 (PspRemoveProcessFromJobChain.c)
+ *     PspRateControlLimitFlag @ 0x1406802BC (PspRateControlLimitFlag.c)
+ *     PspUnlockJob @ 0x140682390 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406823D4 (PspLockJobExclusive.c)
+ *     PspLockJobShared @ 0x1406823FC (PspLockJobShared.c)
+ *     PspGetEffectiveNoWakeCharge @ 0x140682424 (PspGetEffectiveNoWakeCharge.c)
+ *     PspAddAccountingValues @ 0x14068253C (PspAddAccountingValues.c)
+ *     PspUnlockJobMemoryLimitsShared @ 0x14068259C (PspUnlockJobMemoryLimitsShared.c)
+ *     PspGetJobMemoryUsageNotificationViolations @ 0x1406825F8 (PspGetJobMemoryUsageNotificationViolations.c)
+ *     PspLockJobMemoryLimitsShared @ 0x14068264C (PspLockJobMemoryLimitsShared.c)
+ *     PspSendNoWakeChargeLimitNotification @ 0x140909474 (PspSendNoWakeChargeLimitNotification.c)
  */
 
-__int64 __fastcall PspEnforceLimitsJobPostCallback(PRKEVENT Event, __int64 a2)
+__int64 __fastcall PspEnforceLimitsJobPostCallback(_QWORD *Object, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rdi
   int v4; // r13d
   __int64 v6; // rax
-  struct _LIST_ENTRY *Blink; // rax
-  LIST_ENTRY WaitListHead; // xmm1
-  struct _LIST_ENTRY *Flink; // rsi
-  struct _LIST_ENTRY *v10; // r14
-  struct _LIST_ENTRY *v11; // r12
+  __int64 v7; // rax
+  __int128 v8; // xmm1
+  __int64 v9; // rsi
+  __int64 v10; // r14
+  __int64 v11; // r12
   __int128 v12; // xmm0
   __int128 v13; // xmm1
   __int128 v14; // xmm1
@@ -46,9 +46,9 @@ __int64 __fastcall PspEnforceLimitsJobPostCallback(PRKEVENT Event, __int64 a2)
   __int64 v23; // rcx
   unsigned __int64 v24; // rdx
   bool v25; // zf
-  struct _LIST_ENTRY *v26; // rcx
+  __int64 v26; // rcx
   struct _KTHREAD *v27; // rdx
-  struct _LIST_ENTRY *v28; // rcx
+  _QWORD *v28; // rcx
   __int128 v30; // xmm1
   __int128 v31; // xmm0
   __int128 v32; // xmm1
@@ -73,18 +73,18 @@ __int64 __fastcall PspEnforceLimitsJobPostCallback(PRKEVENT Event, __int64 a2)
   int v51; // [rsp+20h] [rbp-E0h]
   struct _KTHREAD *v52; // [rsp+28h] [rbp-D8h]
   int v53; // [rsp+30h] [rbp-D0h]
-  struct _LIST_ENTRY *v54; // [rsp+38h] [rbp-C8h]
+  unsigned __int64 v54; // [rsp+38h] [rbp-C8h]
   __int64 v55; // [rsp+40h] [rbp-C0h] BYREF
   unsigned __int64 v56; // [rsp+48h] [rbp-B8h] BYREF
-  struct _LIST_ENTRY *v57; // [rsp+50h] [rbp-B0h]
+  __int64 v57; // [rsp+50h] [rbp-B0h]
   _QWORD v58[3]; // [rsp+58h] [rbp-A8h] BYREF
   __int128 v59; // [rsp+70h] [rbp-90h]
-  LIST_ENTRY v60; // [rsp+80h] [rbp-80h]
+  __int128 v60; // [rsp+80h] [rbp-80h]
   __int128 v61; // [rsp+90h] [rbp-70h]
   __int128 v62; // [rsp+A0h] [rbp-60h]
-  LIST_ENTRY v63; // [rsp+B0h] [rbp-50h]
+  __int128 v63; // [rsp+B0h] [rbp-50h]
   __int128 v64; // [rsp+C0h] [rbp-40h]
-  struct _LIST_ENTRY *v65; // [rsp+D0h] [rbp-30h]
+  __int64 v65; // [rsp+D0h] [rbp-30h]
   _OWORD v66[4]; // [rsp+E0h] [rbp-20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
@@ -92,8 +92,8 @@ __int64 __fastcall PspEnforceLimitsJobPostCallback(PRKEVENT Event, __int64 a2)
   v52 = CurrentThread;
   v56 = 0LL;
   v55 = 0LL;
-  PspLockJobShared(Event, CurrentThread);
-  v6 = *(_QWORD *)&Event[41].Header.Lock;
+  PspLockJobShared(Object, CurrentThread);
+  v6 = Object[123];
   if ( v6 )
   {
     v30 = *(_OWORD *)(v6 + 24);
@@ -108,58 +108,54 @@ __int64 __fastcall PspEnforceLimitsJobPostCallback(PRKEVENT Event, __int64 a2)
   {
     memset(v66, 0, sizeof(v66));
   }
-  Blink = Event[7].Header.WaitListHead.Blink;
-  WaitListHead = Event[47].Header.WaitListHead;
-  Flink = Event[21].Header.WaitListHead.Flink;
-  v10 = Event[21].Header.WaitListHead.Blink;
-  v11 = Event[6].Header.WaitListHead.Blink;
-  v59 = *(_OWORD *)&Event[46].Header.WaitListHead.Blink;
-  v12 = *(_OWORD *)&Event[48].Header.Lock;
-  v57 = Blink;
-  LODWORD(Blink) = HIDWORD(Event[18].Header.WaitListHead.Blink);
-  v60 = WaitListHead;
-  v13 = *(_OWORD *)&Event[48].Header.WaitListHead.Blink;
-  v53 = (int)Blink;
-  LODWORD(Blink) = Event[10].Header.WaitListHead.Blink;
+  v7 = Object[23];
+  v8 = *((_OWORD *)Object + 71);
+  v9 = Object[64];
+  v10 = Object[65];
+  v11 = Object[20];
+  v59 = *((_OWORD *)Object + 70);
+  v12 = *((_OWORD *)Object + 72);
+  v57 = v7;
+  LODWORD(v7) = *((_DWORD *)Object + 113);
+  v60 = v8;
+  v13 = *((_OWORD *)Object + 73);
+  v53 = v7;
+  LODWORD(v7) = *((_DWORD *)Object + 64);
   v61 = v12;
   v62 = v13;
-  v14 = *(_OWORD *)&Event[50].Header.Lock;
-  v63 = Event[49].Header.WaitListHead;
-  v65 = Event[50].Header.WaitListHead.Blink;
+  v14 = *((_OWORD *)Object + 75);
+  v63 = *((_OWORD *)Object + 74);
+  v65 = Object[152];
   v64 = v14;
-  if ( ((unsigned __int8)Blink & 4) != 0 )
-    v54 = Event[9].Header.WaitListHead.Blink;
+  if ( (v7 & 4) != 0 )
+    v54 = Object[29];
   else
     v54 = 0LL;
-  PspGetEffectiveNoWakeCharge(Event, &v56, &v55);
+  PspGetEffectiveNoWakeCharge(Object, &v56, &v55);
   PspUnlockJob(v15, CurrentThread);
   v16 = 0x10000LL;
   v51 = 0;
   if ( *(_QWORD *)&v66[0] )
   {
-    if ( (unsigned __int64)Flink + (unsigned __int64)v63.Flink > *(_QWORD *)&v66[0] )
+    if ( (unsigned __int64)(v9 + v63) > *(_QWORD *)&v66[0] )
       v4 = 0x10000;
     v51 = v4;
   }
-  if ( *((_QWORD *)&v66[0] + 1) && (unsigned __int64)v10 + (unsigned __int64)v63.Blink > *((_QWORD *)&v66[0] + 1) )
+  if ( *((_QWORD *)&v66[0] + 1) && (unsigned __int64)(v10 + *((_QWORD *)&v63 + 1)) > *((_QWORD *)&v66[0] + 1) )
   {
     v4 |= 0x20000u;
     v51 = v4;
   }
-  if ( *(_QWORD *)&v66[1] && (unsigned __int64)v11 + *((_QWORD *)&v59 + 1) > *(_QWORD *)&v66[1] )
+  if ( *(_QWORD *)&v66[1] && (unsigned __int64)(v11 + *((_QWORD *)&v59 + 1)) > *(_QWORD *)&v66[1] )
   {
     v4 |= 4u;
     v51 = v4;
   }
   if ( *(_OWORD *)((char *)&v66[1] + 8) != 0LL )
   {
-    PspLockJobMemoryLimitsShared(Event, CurrentThread);
-    v51 = PspGetJobMemoryUsageNotificationViolations(
-            Event,
-            Event[40].Header.WaitListHead.Blink,
-            (char *)Event[40].Header.WaitListHead.Blink + (unsigned __int64)Event[55].Header.WaitListHead.Blink,
-            33280LL) | v4;
-    PspUnlockJobMemoryLimitsShared(Event, CurrentThread);
+    PspLockJobMemoryLimitsShared(Object, CurrentThread);
+    v51 = PspGetJobMemoryUsageNotificationViolations(Object, Object[122], Object[122] + Object[167], 33280LL) | v4;
+    PspUnlockJobMemoryLimitsShared(Object, CurrentThread);
   }
   v17 = DWORD2(v66[2]);
   v18 = DWORD1(v66[3]);
@@ -189,12 +185,12 @@ __int64 __fastcall PspEnforceLimitsJobPostCallback(PRKEVENT Event, __int64 a2)
   }
   if ( v19 )
   {
-    PspLockJobExclusive(Event, v52);
-    v33 = *(_QWORD *)&Event[41].Header.Lock;
+    PspLockJobExclusive(Object, v52);
+    v33 = Object[123];
     if ( v33 )
     {
       *(_DWORD *)(v33 + 4) |= v51;
-      v34 = *(_QWORD **)&Event[41].Header.Lock;
+      v34 = (_QWORD *)Object[123];
       if ( (v51 & 0x10000) != 0 )
         v34[9] = *(_QWORD *)&v66[0];
       if ( (v51 & 0x20000) != 0 )
@@ -225,13 +221,9 @@ __int64 __fastcall PspEnforceLimitsJobPostCallback(PRKEVENT Event, __int64 a2)
         *(_DWORD *)(v42 + 132) = v22;
       }
     }
-    if ( *(_QWORD *)&Event[19].Header.Lock
-      && (HIDWORD(Event[36].Header.WaitListHead.Flink) & 0x800) != 0
-      && (Event[55].Header.LockNV & 4) == 0 )
-    {
-      PspSendReliableJobNotification(Event);
-    }
-    PspUnlockJob(Event, v52);
+    if ( Object[57] && (*((_DWORD *)Object + 219) & 0x800) != 0 && (Object[165] & 4) == 0 )
+      PspSendReliableJobNotification(Object, 0xBu);
+    PspUnlockJob(Object, v52);
   }
   v23 = *(_QWORD *)(a2 + 16);
   if ( v23 )
@@ -248,40 +240,36 @@ __int64 __fastcall PspEnforceLimitsJobPostCallback(PRKEVENT Event, __int64 a2)
     }
     HalPutDmaAdapter((PADAPTER_OBJECT)v23);
   }
-  if ( v54 && (struct _LIST_ENTRY *)((char *)v57 + *((_QWORD *)&v59 + 1)) > v54 )
+  if ( v54 && *((_QWORD *)&v59 + 1) + v57 > v54 )
   {
     if ( v53 )
     {
       if ( v53 != 1 )
         goto LABEL_17;
       v50 = v52;
-      PspLockJobShared(Event, v52);
-      if ( !*(_QWORD *)&Event[19].Header.Lock || (HIDWORD(Event[36].Header.WaitListHead.Flink) & 2) == 0 )
+      PspLockJobShared(Object, v52);
+      if ( !Object[57] || (*((_DWORD *)Object + 219) & 2) == 0 )
       {
-        PspUnlockJob(Event, v52);
-        PspTerminateAllProcessesInJobHierarchy(Event);
+        PspUnlockJob(Object, v52);
+        PspTerminateAllProcessesInJobHierarchy((volatile signed __int32 *)Object, 0xC0000044, 1);
         goto LABEL_17;
       }
-      if ( (int)PspSendJobNotification((__int64)Event, 1LL, 0, 0) >= 0 )
+      if ( (int)PspSendJobNotification((__int64)Object, 1LL, 0, 0) >= 0 )
       {
-        LODWORD(Event[10].Header.WaitListHead.Blink) &= ~4u;
-        Event[9].Header.WaitListHead.Blink = 0LL;
+        *((_DWORD *)Object + 64) &= ~4u;
+        Object[29] = 0LL;
       }
     }
     else
     {
-      if ( !(unsigned __int8)PspTerminateAllProcessesInJobHierarchy(Event) )
+      if ( !PspTerminateAllProcessesInJobHierarchy((volatile signed __int32 *)Object, 0xC0000044, 1) )
         goto LABEL_17;
       v50 = v52;
-      PspLockJobExclusive(Event, v52);
-      if ( !Event[9].Header.LockNV
-        && *(_QWORD *)&Event[19].Header.Lock
-        && (HIDWORD(Event[36].Header.WaitListHead.Flink) & 2) != 0 )
-      {
-        PspSendJobNotification((__int64)Event, 1LL, 0, 0);
-      }
+      PspLockJobExclusive(Object, v52);
+      if ( !*((_DWORD *)Object + 54) && Object[57] && (*((_DWORD *)Object + 219) & 2) != 0 )
+        PspSendJobNotification((__int64)Object, 1LL, 0, 0);
     }
-    PspUnlockJob(Event, v50);
+    PspUnlockJob(Object, v50);
   }
 LABEL_17:
   v24 = *(_QWORD *)(a2 + 24) + v55;
@@ -296,26 +284,26 @@ LABEL_17:
     }
     else if ( v56 >= (unsigned int)PspJobNoWakeChargeLimit )
     {
-      PspSendNoWakeChargeLimitNotification(Event, v24, v16);
+      PspSendNoWakeChargeLimitNotification(Object, v24, v16);
     }
   }
-  v26 = Event[44].Header.WaitListHead.Blink;
+  v26 = Object[134];
   if ( v26 )
   {
     PspLockJobExclusive(v26, v52);
-    PspLockJobExclusive(Event, v52);
-    PspAddAccountingValues(&Event[44].Header.WaitListHead.Blink[70], &Event[46].Header.WaitListHead.Blink);
-    memset(&Event[46].Header.WaitListHead.Blink, 0, 0x68uLL);
-    PspUnlockJob(Event, v52);
-    v28 = Event[44].Header.WaitListHead.Blink;
+    PspLockJobExclusive(Object, v52);
+    PspAddAccountingValues(Object[134] + 1120LL, Object + 140);
+    memset(Object + 140, 0, 0x68uLL);
+    PspUnlockJob(Object, v52);
+    v28 = (_QWORD *)Object[134];
     v27 = v52;
   }
   else
   {
-    PspLockJobExclusive(Event, v52);
-    memset(&Event[46].Header.WaitListHead.Blink, 0, 0x68uLL);
+    PspLockJobExclusive(Object, v52);
+    memset(Object + 140, 0, 0x68uLL);
     v27 = v52;
-    v28 = (struct _LIST_ENTRY *)Event;
+    v28 = Object;
   }
   PspUnlockJob(v28, v27);
   return 0LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptRsakeyWipe @ 0x14055ABCC
+ * XREFs of SymCryptRsakeyWipe @ 0x14055D0E0
  * Callers:
- *     HashpVerifyPkcs1Signature @ 0x1408ABEDC (HashpVerifyPkcs1Signature.c)
+ *     HashpVerifyPkcs1Signature @ 0x1408B2320 (HashpVerifyPkcs1Signature.c)
  * Callees:
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
  */
 
 __int64 __fastcall SymCryptRsakeyWipe(__int64 a1)

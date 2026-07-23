@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpVsChunkComputeCost @ 0x18006E790
+ * XREFs of RtlpHpVsChunkComputeCost @ 0x18006E780
  * Callers:
- *     RtlpHpVsFreeChunkInsert @ 0x18006E608 (RtlpHpVsFreeChunkInsert.c)
- *     RtlpHpVsFreeChunkRemove @ 0x18006E724 (RtlpHpVsFreeChunkRemove.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x18006E5F8 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x18006E714 (RtlpHpVsFreeChunkRemove.c)
  * Callees:
  *     <none>
  */

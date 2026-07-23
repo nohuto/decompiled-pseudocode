@@ -1,9 +1,9 @@
 /*
- * XREFs of IommuDomainDetachPasidDevice @ 0x140703CE0
+ * XREFs of IommuDomainDetachPasidDevice @ 0x1407018A0
  * Callers:
  *     <none>
  * Callees:
- *     IommupDomainDetachPasidDevice @ 0x14054E420 (IommupDomainDetachPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14054BD54 (IommupDomainDetachPasidDevice.c)
  */
 
 __int64 __fastcall IommuDomainDetachPasidDevice(__int64 a1)

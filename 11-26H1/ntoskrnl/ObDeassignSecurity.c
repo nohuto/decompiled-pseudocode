@@ -1,15 +1,15 @@
 /*
- * XREFs of ObDeassignSecurity @ 0x140A301F0
+ * XREFs of ObDeassignSecurity @ 0x140A42070
  * Callers:
- *     WmipSecurityMethod @ 0x140A2FD20 (WmipSecurityMethod.c)
+ *     WmipSecurityMethod @ 0x140A41BA0 (WmipSecurityMethod.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObDeassignSecurity(__int64 *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -29,10 +29,6 @@ __int64 __fastcall ObDeassignSecurity(__int64 *a1, __int64 a2, __int64 a3, struc
   AutoBoost *v17; // r14
   signed __int64 v18; // rax
   _QWORD *i; // rcx
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  __int64 v22; // rdx
-  __int64 v23; // r8
 
   v4 = *a1;
   v5 = *a1;
@@ -75,7 +71,7 @@ __int64 __fastcall ObDeassignSecurity(__int64 *a1, __int64 a2, __int64 a3, struc
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)v13);
     KeAbPostRelease((unsigned __int64)v13);
-    KeLeaveCriticalRegionThread((__int64)CurrentThread, v22, v23);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
   }
   else
   {
@@ -87,7 +83,7 @@ __int64 __fastcall ObDeassignSecurity(__int64 *a1, __int64 a2, __int64 a3, struc
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)v13);
     KeAbPostRelease((unsigned __int64)v13);
-    KeLeaveCriticalRegionThread((__int64)CurrentThread, v20, v21);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
     ExFreePoolWithTag(v7, 0x6353624Fu);
   }
   return 0LL;

@@ -1,13 +1,13 @@
 /*
  * XREFs of VslpIumInitializeTelemetry @ 0x1407BC73C
  * Callers:
- *     VslpIumPhase4Initialize @ 0x14014C270 (VslpIumPhase4Initialize.c)
+ *     VslpIumPhase4Initialize @ 0x14014C7E0 (VslpIumPhase4Initialize.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     TraceLoggingRegisterEx @ 0x140546994 (TraceLoggingRegisterEx.c)
- *     EtwUnregister @ 0x1405488B0 (EtwUnregister.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     TraceLoggingRegisterEx @ 0x140546ED4 (TraceLoggingRegisterEx.c)
+ *     EtwUnregister @ 0x140548DF0 (EtwUnregister.c)
  */
 
 char VslpIumInitializeTelemetry()
@@ -50,7 +50,7 @@ char VslpIumInitializeTelemetry()
       v9 = 2;
       v12[0] = v4;
       v14 = 4;
-      result = TlgWrite(&stru_1402F38A0, &unk_14027B8E6, 0LL, 0LL, 5u, &pData);
+      result = TlgWrite(&stru_1402F38A0, &unk_14027B9E6, 0LL, 0LL, 5u, &pData);
     }
   }
   if ( stru_1402F38A0.LevelPlus1 > 5 )
@@ -62,7 +62,7 @@ char VslpIumInitializeTelemetry()
       v6[0] = (unsigned __int8)VslVsmEnabled;
       v8 = v6;
       v9 = 4;
-      result = TlgWrite(&stru_1402F38A0, &unk_14027B8C1, 0LL, 0LL, 3u, &pData);
+      result = TlgWrite(&stru_1402F38A0, &unk_14027B9C1, 0LL, 0LL, 3u, &pData);
     }
   }
 LABEL_5:

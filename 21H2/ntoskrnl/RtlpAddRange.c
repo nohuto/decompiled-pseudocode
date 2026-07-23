@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpAddRange @ 0x1407644B4
+ * XREFs of RtlpAddRange @ 0x140764674
  * Callers:
- *     RtlAddRange @ 0x140764410 (RtlAddRange.c)
- *     RtlpDeleteFromMergedRange @ 0x1407C5424 (RtlpDeleteFromMergedRange.c)
- *     RtlMergeRangeLists @ 0x14090FDF0 (RtlMergeRangeLists.c)
+ *     RtlAddRange @ 0x1407645D0 (RtlAddRange.c)
+ *     RtlpDeleteFromMergedRange @ 0x1407C5944 (RtlpDeleteFromMergedRange.c)
+ *     RtlMergeRangeLists @ 0x14090FF50 (RtlMergeRangeLists.c)
  * Callees:
- *     RtlpAddIntersectingRanges @ 0x1407BC984 (RtlpAddIntersectingRanges.c)
+ *     RtlpAddIntersectingRanges @ 0x1407BD114 (RtlpAddIntersectingRanges.c)
  */
 
 __int64 __fastcall RtlpAddRange(_QWORD *a1, __int64 *a2, unsigned int a3)

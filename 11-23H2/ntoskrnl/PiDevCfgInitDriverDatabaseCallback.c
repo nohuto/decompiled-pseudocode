@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDevCfgInitDriverDatabaseCallback @ 0x14095E648
+ * XREFs of PiDevCfgInitDriverDatabaseCallback @ 0x14095E848
  * Callers:
- *     PiDrvDbEnumNodes @ 0x14096FED0 (PiDrvDbEnumNodes.c)
+ *     PiDrvDbEnumNodes @ 0x1409700D0 (PiDrvDbEnumNodes.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE0C4 (_CmOpenDeviceRegKey.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x1407C7C88 (_CmGetMatchingFilteredDeviceList.c)
- *     _CmCreateDevice @ 0x1407D76A4 (_CmCreateDevice.c)
- *     _PnpCtxOpenMachine @ 0x140854C94 (_PnpCtxOpenMachine.c)
- *     PiDevCfgCopyObjectProperties @ 0x14087C3F4 (PiDevCfgCopyObjectProperties.c)
- *     _PnpCtxCloseMachine @ 0x140A60770 (_PnpCtxCloseMachine.c)
- *     _CmDeleteDevice @ 0x140A614A0 (_CmDeleteDevice.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1406CE0F4 (_CmOpenDeviceRegKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x1407C7F58 (_CmGetMatchingFilteredDeviceList.c)
+ *     _CmCreateDevice @ 0x1407D7974 (_CmCreateDevice.c)
+ *     _PnpCtxOpenMachine @ 0x140854F94 (_PnpCtxOpenMachine.c)
+ *     PiDevCfgCopyObjectProperties @ 0x14087C634 (PiDevCfgCopyObjectProperties.c)
+ *     _PnpCtxCloseMachine @ 0x140A60A20 (_PnpCtxCloseMachine.c)
+ *     _CmDeleteDevice @ 0x140A61750 (_CmDeleteDevice.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

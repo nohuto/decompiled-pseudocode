@@ -1,23 +1,23 @@
 /*
- * XREFs of MiUnlockLoaderEntry @ 0x1402E74F0
+ * XREFs of MiUnlockLoaderEntry @ 0x140298840
  * Callers:
- *     MiSetPagingOfDriver @ 0x14026DB1C (MiSetPagingOfDriver.c)
- *     MiMakeDriverPagesPrivate @ 0x1402E6EF4 (MiMakeDriverPagesPrivate.c)
- *     MiFindDriverNonPagedSections @ 0x14075CA84 (MiFindDriverNonPagedSections.c)
- *     MiLockdownSections @ 0x14075E564 (MiLockdownSections.c)
- *     MiFreeInitializationCode @ 0x14075EC6C (MiFreeInitializationCode.c)
+ *     MiSetPagingOfDriver @ 0x14025BABC (MiSetPagingOfDriver.c)
+ *     MiMakeDriverPagesPrivate @ 0x140298244 (MiMakeDriverPagesPrivate.c)
+ *     MiFindDriverNonPagedSections @ 0x14075CC44 (MiFindDriverNonPagedSections.c)
+ *     MiLockdownSections @ 0x14075E724 (MiLockdownSections.c)
+ *     MiFreeInitializationCode @ 0x14075EE2C (MiFreeInitializationCode.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x1402A22D0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14021F710 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlockLoaderEntry(__int64 a1, int a2)
@@ -32,7 +32,10 @@ __int64 __fastcall MiUnlockLoaderEntry(__int64 a1, int a2)
   __int64 v9; // rcx
   __int64 v10; // rsi
   __int64 v11; // rdx
-  __int64 v12; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // r9
 
   CurrentThread = KeGetCurrentThread();
   v3 = a1 + 104;
@@ -80,7 +83,7 @@ __int64 __fastcall MiUnlockLoaderEntry(__int64 a1, int a2)
           {
             *(_BYTE *)(v10 + 32) |= 2u;
             if ( *(__int64 *)(v10 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v10);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v10);
             *(_DWORD *)(v10 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v10 + 25) &= ~1u;
             *(_QWORD *)(v10 + 32) = 0LL;
@@ -102,7 +105,7 @@ LABEL_18:
     KiAbThreadRemoveBoosts((ULONG_PTR)v4);
     v8 = v4->SpecialApcDisable++ == -1;
     if ( v8 && ($C459BD0D405E8E46662177FB3D0A143F *)v4->ApcState.ApcListHead[0].Flink != &v4->152 )
-      KiCheckForKernelApcDelivery(v12);
+      KiCheckForKernelApcDelivery(v13, v12, v14, v15);
   }
   return KiLeaveGuardedRegionUnsafe(CurrentThread);
 }

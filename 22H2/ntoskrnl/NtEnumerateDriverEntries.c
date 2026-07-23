@@ -19,16 +19,16 @@
  *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2)
+NTSTATUS __cdecl NtEnumerateDriverEntries(PVOID Buffer, PULONG BufferLength)
 {
-  _DWORD *v2; // r14
+  PULONG v2; // r14
   unsigned int *v4; // r15
-  __int64 result; // rax
+  NTSTATUS result; // eax
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v7; // rcx
   unsigned int v8; // edi
   _DWORD *v9; // rsi
-  unsigned int v10; // ebx
+  NTSTATUS v10; // ebx
   _DWORD *v11; // r13
   struct _KTHREAD *v12; // rax
   int v13; // r12d
@@ -56,7 +56,7 @@ __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2
   unsigned int v35; // [rsp+40h] [rbp-98h]
   unsigned int v36; // [rsp+44h] [rbp-94h]
   unsigned int v37; // [rsp+48h] [rbp-90h]
-  unsigned int v38; // [rsp+4Ch] [rbp-8Ch]
+  NTSTATUS v38; // [rsp+4Ch] [rbp-8Ch]
   unsigned int v39; // [rsp+50h] [rbp-88h]
   _DWORD *v40; // [rsp+58h] [rbp-80h] BYREF
   PVOID P; // [rsp+60h] [rbp-78h] BYREF
@@ -67,34 +67,35 @@ __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2
   struct _KTHREAD *CurrentThread; // [rsp+98h] [rbp-40h]
   SIZE_T NumberOfBytes; // [rsp+F8h] [rbp+20h] BYREF
 
-  v2 = a2;
+  v2 = BufferLength;
   v40 = 0LL;
   P = 0LL;
   v4 = 0LL;
   if ( dword_140C197B0 != 2 )
-    return 3221225474LL;
-  if ( (Address & 0xFFFFFFFFFFFFFFFCuLL) != Address )
-    return 3221225485LL;
+    return -1073741822;
+  if ( (PVOID)((unsigned __int64)Buffer & 0xFFFFFFFFFFFFFFFCuLL) != Buffer )
+    return -1073741811;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a2;
+    if ( (unsigned __int64)BufferLength < 0x7FFFFFFF0000LL )
+      v7 = (__int64)BufferLength;
     *(_DWORD *)v7 = *(_DWORD *)v7;
-    v8 = Address != 0 ? *a2 : 0;
+    v8 = Buffer != 0LL ? *BufferLength : 0;
     if ( v8 )
-      ProbeForWrite((volatile void *)Address, v8, 4u);
+      ProbeForWrite(Buffer, v8, 4u);
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v8 = Address != 0 ? *a2 : 0;
+    v8 = Buffer != 0LL ? *BufferLength : 0;
   }
   if ( !v8
-    || (result = ExLockUserBuffer(Address, v8, PreviousMode, IoWriteAccess, &v40, (struct _MDL **)&P), (int)result >= 0) )
+    || (result = ExLockUserBuffer((unsigned __int64)Buffer, v8, PreviousMode, IoWriteAccess, &v40, (struct _MDL **)&P),
+        result >= 0) )
   {
     v9 = v40;
     v10 = 0;
@@ -145,7 +146,7 @@ LABEL_49:
       v32 = *v15;
       if ( !(_DWORD)v32 )
       {
-        v2 = a2;
+        v2 = BufferLength;
         if ( v11 )
           *v11 = 0;
 LABEL_53:

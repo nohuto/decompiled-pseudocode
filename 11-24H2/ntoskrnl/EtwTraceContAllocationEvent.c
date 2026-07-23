@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceContAllocationEvent @ 0x14041138C
+ * XREFs of EtwTraceContAllocationEvent @ 0x1403960E8
  * Callers:
- *     MiAllocateContiguousMemory @ 0x14041182C (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x140395A6C (MiAllocateContiguousMemory.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwpGetDurationSince @ 0x1404114E0 (EtwpGetDurationSince.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwpGetDurationSince @ 0x14039623C (EtwpGetDurationSince.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTraceContAllocationEvent(

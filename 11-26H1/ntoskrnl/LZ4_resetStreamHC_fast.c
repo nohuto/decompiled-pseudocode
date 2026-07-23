@@ -1,9 +1,9 @@
 /*
- * XREFs of LZ4_resetStreamHC_fast @ 0x14063510C
+ * XREFs of LZ4_resetStreamHC_fast @ 0x140638114
  * Callers:
- *     LZ4_compress_HC_extStateHC_fastReset @ 0x140635084 (LZ4_compress_HC_extStateHC_fastReset.c)
+ *     LZ4_compress_HC_extStateHC_fastReset @ 0x14063808C (LZ4_compress_HC_extStateHC_fastReset.c)
  * Callees:
- *     LZ4_initStreamHC @ 0x14052EA44 (LZ4_initStreamHC.c)
+ *     LZ4_initStreamHC @ 0x140530F64 (LZ4_initStreamHC.c)
  */
 
 _WORD *__fastcall LZ4_resetStreamHC_fast(__int64 a1)

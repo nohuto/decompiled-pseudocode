@@ -1,22 +1,22 @@
 /*
- * XREFs of MiCombineCandidate @ 0x1401F7E78
+ * XREFs of MiCombineCandidate @ 0x1401F7CA4
  * Callers:
- *     MiCapturePfnVm @ 0x1401F7D38 (MiCapturePfnVm.c)
- *     MiCombineWorkingSet @ 0x1401F80D0 (MiCombineWorkingSet.c)
- *     MiCrcStillIntact @ 0x1401F94D4 (MiCrcStillIntact.c)
- *     MiMapArbitraryPage @ 0x1401FA03C (MiMapArbitraryPage.c)
- *     MiRecheckCombineVm @ 0x1401FA240 (MiRecheckCombineVm.c)
- *     MiSharePages @ 0x1401FA8E4 (MiSharePages.c)
- *     MiCombineAllPhysicalMemory @ 0x140663718 (MiCombineAllPhysicalMemory.c)
+ *     MiCapturePfnVm @ 0x1401F7B64 (MiCapturePfnVm.c)
+ *     MiCombineWorkingSet @ 0x1401F7EFC (MiCombineWorkingSet.c)
+ *     MiCrcStillIntact @ 0x1401F9300 (MiCrcStillIntact.c)
+ *     MiMapArbitraryPage @ 0x1401F9E68 (MiMapArbitraryPage.c)
+ *     MiRecheckCombineVm @ 0x1401FA06C (MiRecheckCombineVm.c)
+ *     MiSharePages @ 0x1401FA710 (MiSharePages.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406637FC (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MI_IS_RESET_PTE @ 0x14001EDB0 (MI_IS_RESET_PTE.c)
- *     MiIsPfnCommitNotCharged @ 0x14004F140 (MiIsPfnCommitNotCharged.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiIsSessionMetadata @ 0x1400C0158 (MiIsSessionMetadata.c)
- *     MiGetPagePrivilege @ 0x1400E3730 (MiGetPagePrivilege.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInvalidPteConforms @ 0x1401F26C4 (MiInvalidPteConforms.c)
- *     MiValidCombineProtection @ 0x1401FB5F0 (MiValidCombineProtection.c)
+ *     MI_IS_RESET_PTE @ 0x14001E930 (MI_IS_RESET_PTE.c)
+ *     MiIsPfnCommitNotCharged @ 0x14004ECC0 (MiIsPfnCommitNotCharged.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiIsSessionMetadata @ 0x1400BDFE8 (MiIsSessionMetadata.c)
+ *     MiGetPagePrivilege @ 0x1400E15D0 (MiGetPagePrivilege.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInvalidPteConforms @ 0x1401F24F0 (MiInvalidPteConforms.c)
+ *     MiValidCombineProtection @ 0x1401FB41C (MiValidCombineProtection.c)
  */
 
 __int64 __fastcall MiCombineCandidate(__int64 a1, __int64 a2)
@@ -43,7 +43,7 @@ __int64 __fastcall MiCombineCandidate(__int64 a1, __int64 a2)
   v15 = v2;
   v16 = v3;
   v5 = MiPartitionIdToPointer(*(__int16 *)((_BYTE *)&_mm_srli_si128(v3, 8).m128i_i16[2] + 1) & 0x3FF);
-  if ( v5 != *v7 && v7 != (int **)&unk_140326E18 )
+  if ( v5 != *v7 && v7 != (int **)&unk_140326E58 )
     return 0LL;
   if ( (v6 & 0x200000000000000LL) != 0 )
     return 0LL;
@@ -72,9 +72,9 @@ __int64 __fastcall MiCombineCandidate(__int64 a1, __int64 a2)
   v11 = (__int64)(v4 << 25) >> 16;
   if ( v4 > 0xFFFFF6BFFFFFFF78uLL )
   {
-    if ( v11 < qword_140327F30 || v11 >= qword_140327F30 + 0xF8000000000LL )
+    if ( v11 < qword_140327F70 || v11 >= qword_140327F70 + 0xF8000000000LL )
     {
-      if ( v11 < qword_140326910 || v11 >= qword_140326910 + 0x8000000000LL || MiIsSessionMetadata(v11) )
+      if ( v11 < qword_140326950 || v11 >= qword_140326950 + 0x8000000000LL || MiIsSessionMetadata(v11) )
         return 0LL;
       v12 = 3LL;
     }

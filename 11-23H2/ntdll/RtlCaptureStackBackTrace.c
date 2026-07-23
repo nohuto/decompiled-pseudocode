@@ -7,11 +7,11 @@
  *     RtlActivateActivationContextEx @ 0x1800755B0 (RtlActivateActivationContextEx.c)
  *     LdrpCgLogFailure @ 0x1800DA860 (LdrpCgLogFailure.c)
  *     RtlGetCallersAddress @ 0x1800FA2A0 (RtlGetCallersAddress.c)
- *     RtlpHeapTrkTrackStack @ 0x18010CEDC (RtlpHeapTrkTrackStack.c)
- *     RtlStdLogStackTrace @ 0x18010F5F0 (RtlStdLogStackTrace.c)
- *     RtlpHpHeapHandleError @ 0x1801169C0 (RtlpHpHeapHandleError.c)
- *     RtlpHpStackTraceAddStack @ 0x180116E80 (RtlpHpStackTraceAddStack.c)
- *     RtlpStackTraceDatabaseLogPrefix @ 0x1801195D0 (RtlpStackTraceDatabaseLogPrefix.c)
+ *     RtlpHeapTrkTrackStack @ 0x18010CEAC (RtlpHeapTrkTrackStack.c)
+ *     RtlStdLogStackTrace @ 0x18010F5C0 (RtlStdLogStackTrace.c)
+ *     RtlpHpHeapHandleError @ 0x180116990 (RtlpHpHeapHandleError.c)
+ *     RtlpHpStackTraceAddStack @ 0x180116E50 (RtlpHpStackTraceAddStack.c)
+ *     RtlpStackTraceDatabaseLogPrefix @ 0x1801195A0 (RtlpStackTraceDatabaseLogPrefix.c)
  * Callees:
  *     RtlWalkFrameChain @ 0x18007A460 (RtlWalkFrameChain.c)
  */

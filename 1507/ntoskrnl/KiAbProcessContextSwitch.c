@@ -117,14 +117,14 @@ char __fastcall KiAbProcessContextSwitch(__int64 a1, int a2)
           goto LABEL_43;
       }
     }
-    LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v10, 1LL, v31);
+    LockedHeadEntry = KiAbEntryGetLockedHeadEntry((PRTL_BALANCED_NODE)v10);
     v12 = LockedHeadEntry;
     if ( !LockedHeadEntry )
       goto LABEL_43;
     if ( (*(_BYTE *)(v10 + 25) & 1) == 0 )
     {
       if ( v10 != LockedHeadEntry )
-        KiAbEntryUpdateOwnerTreePosition(v10, LockedHeadEntry);
+        KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v10);
       KiAbDetermineMaxWaiterPriority(v12, &v33);
       if ( v33
         && (unsigned int)KiAbSetMinimumThreadPriority(
@@ -135,12 +135,12 @@ char __fastcall KiAbProcessContextSwitch(__int64 a1, int a2)
                            p_AbSelfIoBoostsList)
         && v10 != v12 )
       {
-        KiAbEntryUpdateOwnerTreePosition(v10, v12);
+        KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v10);
       }
       goto LABEL_57;
     }
     if ( v10 != LockedHeadEntry )
-      KiAbEntryUpdateWaiterTreePosition(v10, LockedHeadEntry);
+      KiAbEntryUpdateWaiterTreePosition((PRTL_BALANCED_NODE)v10);
     v13 = 0;
     if ( *(_WORD *)(v12 + 90) )
       v13 = 2;

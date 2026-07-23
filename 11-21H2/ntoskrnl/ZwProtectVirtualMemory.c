@@ -1,18 +1,23 @@
 /*
  * XREFs of ZwProtectVirtualMemory @ 0x14041C160
  * Callers:
- *     CmSiProtectViewOfSection @ 0x14020B57C (CmSiProtectViewOfSection.c)
- *     KiOpPatchCode @ 0x14057B748 (KiOpPatchCode.c)
- *     DifZwProtectVirtualMemoryWrapper @ 0x140623670 (DifZwProtectVirtualMemoryWrapper.c)
- *     MiCheckForUserStackOverflow @ 0x1406B42F4 (MiCheckForUserStackOverflow.c)
+ *     sub_14020B57C @ 0x14020B57C (sub_14020B57C.c)
+ *     sub_14057B748 @ 0x14057B748 (sub_14057B748.c)
+ *     sub_140623670 @ 0x140623670 (sub_140623670.c)
+ *     sub_1406B42F4 @ 0x1406B42F4 (sub_1406B42F4.c)
  *     sub_140A0EC90 @ 0x140A0EC90 (sub_140A0EC90.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwProtectVirtualMemory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwProtectVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        ULONG NewProtect,
+        PULONG OldProtect)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(ProcessHandle, BaseAddress);
 }

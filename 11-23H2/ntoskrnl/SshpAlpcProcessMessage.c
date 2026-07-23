@@ -1,11 +1,11 @@
 /*
- * XREFs of SshpAlpcProcessMessage @ 0x14084C708
+ * XREFs of SshpAlpcProcessMessage @ 0x14084CA08
  * Callers:
- *     SshpAlpcProcessAlpcMessage @ 0x14084C57C (SshpAlpcProcessAlpcMessage.c)
+ *     SshpAlpcProcessAlpcMessage @ 0x14084C87C (SshpAlpcProcessAlpcMessage.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14032D320 (SSHSupportReleasePushLockExclusive.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x14032D5B0 (SSHSupportReleasePushLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall SshpAlpcProcessMessage(__int64 a1)
@@ -31,8 +31,8 @@ __int64 __fastcall SshpAlpcProcessMessage(__int64 a1)
     }
     else
     {
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C38548, 0LL);
-      v3 = &dword_140C38558[48 * v2];
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C384E8, 0LL);
+      v3 = &dword_140C384F8[48 * v2];
       if ( *v3 && !*((_BYTE *)v3 + 4) )
       {
         *((_BYTE *)v3 + 4) = 1;
@@ -48,12 +48,12 @@ __int64 __fastcall SshpAlpcProcessMessage(__int64 a1)
           *(_QWORD *)(v7 + 8) = v4;
           v5[1] = v5;
           *v5 = v5;
-          SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C38548);
+          SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C384E8);
           ((void (__fastcall *)(_QWORD))v5[2])(v5[3]);
-          ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C38548, 0LL);
+          ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C384E8, 0LL);
         }
       }
-      SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C38548);
+      SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140C384E8);
     }
   }
   return v1;

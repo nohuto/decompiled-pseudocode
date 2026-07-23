@@ -1,24 +1,24 @@
 /*
- * XREFs of PopEtAggregateGet @ 0x140619EA8
+ * XREFs of PopEtAggregateGet @ 0x140683B08
  * Callers:
- *     PopEtEnergyTrackerUpdateAggregate @ 0x140619394 (PopEtEnergyTrackerUpdateAggregate.c)
+ *     PopEtEnergyTrackerUpdateAggregate @ 0x140682FF4 (PopEtEnergyTrackerUpdateAggregate.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     PopEtAggregateFind @ 0x14061A1A4 (PopEtAggregateFind.c)
- *     PopEtAggregateKeyCleanup @ 0x14069936C (PopEtAggregateKeyCleanup.c)
- *     PopEtAggregateKeyCopy @ 0x1406993B4 (PopEtAggregateKeyCopy.c)
- *     PopEtBucketsAllocate @ 0x140773B2C (PopEtBucketsAllocate.c)
- *     PopEtBucketsFree @ 0x140773BAC (PopEtBucketsFree.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopEtAggregateKeyCleanup @ 0x1405F805C (PopEtAggregateKeyCleanup.c)
+ *     PopEtAggregateKeyCopy @ 0x1405F80A4 (PopEtAggregateKeyCopy.c)
+ *     PopEtAggregateFind @ 0x140683E04 (PopEtAggregateFind.c)
+ *     PopEtBucketsAllocate @ 0x140773CEC (PopEtBucketsAllocate.c)
+ *     PopEtBucketsFree @ 0x140773D6C (PopEtBucketsFree.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall PopEtAggregateGet(__int64 a1, __int64 a2, __int64 *a3)
+void __fastcall PopEtAggregateGet(__int64 a1, _OWORD *a2, __int64 *a3)
 {
   __int64 v6; // rax
   unsigned __int64 v7; // rsi
-  _QWORD *PoolWithTag; // rax
-  _QWORD *v9; // r15
+  __int64 *PoolWithTag; // rax
+  __int64 *v9; // r15
   unsigned int v10; // ecx
   __int64 v11; // rbx
   char *v12; // rax
@@ -78,7 +78,7 @@ LABEL_34:
     }
     return;
   }
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x54456F50u);
+  PoolWithTag = (__int64 *)ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x54456F50u);
   v9 = PoolWithTag;
   if ( !PoolWithTag )
     goto LABEL_34;
@@ -148,7 +148,7 @@ LABEL_34:
     *(_DWORD *)(a1 + 52) = v10;
     if ( v25 )
     {
-      PopEtBucketsFree(v25, 0LL);
+      PopEtBucketsFree(v25, 0LL, v13, 0LL);
       v10 = *(_DWORD *)(a1 + 52);
     }
     goto LABEL_23;

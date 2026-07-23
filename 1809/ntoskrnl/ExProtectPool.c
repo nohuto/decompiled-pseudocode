@@ -1,8 +1,8 @@
 /*
  * XREFs of ExProtectPool @ 0x14000DEB8
  * Callers:
- *     HvpProtectBin @ 0x1405A2584 (HvpProtectBin.c)
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
+ *     HvpProtectBin @ 0x1405A3584 (HvpProtectBin.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
  * Callees:
  *     ExProtectPoolEx @ 0x14000DED8 (ExProtectPoolEx.c)
  */

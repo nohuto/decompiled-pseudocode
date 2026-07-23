@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryProcessorTotalCyclesImprecise @ 0x140458270
+ * XREFs of KeQueryProcessorTotalCyclesImprecise @ 0x14044D580
  * Callers:
  *     <none>
  * Callees:

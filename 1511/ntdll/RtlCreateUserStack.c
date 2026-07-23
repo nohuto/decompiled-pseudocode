@@ -9,110 +9,117 @@
  *     NtSetInformationProcess @ 0x1800A5440 (NtSetInformationProcess.c)
  */
 
-__int64 __fastcall RtlCreateUserStack(
-        unsigned __int64 a1,
-        unsigned __int64 a2,
-        __int64 a3,
-        unsigned __int64 a4,
-        unsigned __int64 a5,
-        _QWORD *a6)
+NTSTATUS __cdecl RtlCreateUserStack(
+        SIZE_T CommittedStackSize,
+        SIZE_T MaximumStackSize,
+        ULONG_PTR ZeroBits,
+        SIZE_T PageSize,
+        ULONG_PTR ReserveAlignment,
+        PINITIAL_TEB InitialTeb)
 {
-  unsigned __int64 v6; // r15
-  unsigned __int64 v7; // rsi
-  unsigned __int64 v8; // r14
-  unsigned __int64 v9; // r12
+  SIZE_T v6; // r15
+  ULONG_PTR v7; // rsi
+  ULONG_PTR v8; // r14
+  ULONG_PTR v9; // r12
   struct _PEB *v10; // r13
-  unsigned __int64 v11; // rdi
-  unsigned __int64 v12; // rbx
-  __int64 v13; // rax
-  __int64 result; // rax
+  SIZE_T SizeOfStackCommit; // rdi
+  SIZE_T SizeOfStackReserve; // rbx
+  PIMAGE_NT_HEADERS v13; // rax
+  NTSTATUS result; // eax
   __int64 v15; // rcx
-  unsigned __int64 v16; // rdi
+  ULONG_PTR v16; // rdi
   __int64 v17; // rdx
   unsigned __int64 v18; // rbx
-  _QWORD *v19; // rsi
-  __int64 v20; // rcx
-  BOOL v21; // r14d
+  PINITIAL_TEB v19; // rsi
+  char *v20; // rcx
+  _BOOL8 v21; // r14
   int v22; // ebx
-  unsigned __int64 v23; // rax
-  unsigned __int64 v24; // [rsp+30h] [rbp-78h] BYREF
-  unsigned __int64 v25; // [rsp+38h] [rbp-70h] BYREF
-  unsigned __int64 MinimumStackCommit; // [rsp+40h] [rbp-68h]
-  _DWORD v27[4]; // [rsp+48h] [rbp-60h] BYREF
+  char *v23; // rax
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp-78h] BYREF
+  ULONG_PTR v25; // [rsp+38h] [rbp-70h] BYREF
+  ULONG_PTR MinimumStackCommit; // [rsp+40h] [rbp-68h]
+  _DWORD ProcessInformation[4]; // [rsp+48h] [rbp-60h] BYREF
   unsigned __int64 v28; // [rsp+58h] [rbp-50h]
-  __int64 v29; // [rsp+60h] [rbp-48h]
-  __int64 v30; // [rsp+68h] [rbp-40h]
-  __int64 v33; // [rsp+C0h] [rbp+18h]
-  unsigned __int64 v34; // [rsp+C8h] [rbp+20h] BYREF
+  ULONG_PTR v29; // [rsp+60h] [rbp-48h]
+  char *v30; // [rsp+68h] [rbp-40h]
+  ULONG_PTR v33; // [rsp+C0h] [rbp+18h]
+  PVOID BaseAddress; // [rsp+C8h] [rbp+20h] BYREF
 
-  v33 = a3;
-  v6 = HIBYTE(a4);
-  v7 = a4 & 0xFFFFFFFFFFFFFFLL;
-  if ( HIBYTE(a4) > 0x40u )
-    return 3221225485LL;
+  v33 = ZeroBits;
+  v6 = HIBYTE(PageSize);
+  v7 = PageSize & 0xFFFFFFFFFFFFFFLL;
+  if ( HIBYTE(PageSize) > 0x40u )
+    return -1073741811;
   if ( !v7 )
-    return 3221225485LL;
-  v8 = a5;
-  if ( !a5 || a5 < v7 )
-    return 3221225485LL;
+    return -1073741811;
+  v8 = ReserveAlignment;
+  if ( !ReserveAlignment || ReserveAlignment < v7 )
+    return -1073741811;
   v9 = 3 * v7;
   v10 = NtCurrentPeb();
-  v11 = a1;
-  v12 = a2;
-  if ( !a1 || !a2 )
+  SizeOfStackCommit = CommittedStackSize;
+  SizeOfStackReserve = MaximumStackSize;
+  if ( !CommittedStackSize || !MaximumStackSize )
   {
-    v13 = RtlImageNtHeader((__int64)v10->ImageBaseAddress);
+    v13 = RtlImageNtHeader(v10->ImageBaseAddress);
     if ( !v13 )
-      return 3221225595LL;
-    if ( !a1 )
-      v11 = *(_QWORD *)(v13 + 104);
-    if ( !a2 )
-      v12 = *(_QWORD *)(v13 + 96);
-    a3 = v33;
+      return -1073741701;
+    if ( !CommittedStackSize )
+      SizeOfStackCommit = v13->OptionalHeader.SizeOfStackCommit;
+    if ( !MaximumStackSize )
+      SizeOfStackReserve = v13->OptionalHeader.SizeOfStackReserve;
+    ZeroBits = v33;
   }
-  if ( !v11 )
-    v11 = 0x4000LL;
-  if ( v11 >= v12 )
-    v12 = (v11 + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL;
+  if ( !SizeOfStackCommit )
+    SizeOfStackCommit = 0x4000LL;
+  if ( SizeOfStackCommit >= SizeOfStackReserve )
+    SizeOfStackReserve = (SizeOfStackCommit + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL;
   v15 = ~(v7 - 1);
-  v16 = v15 & (v7 + v11 - 1);
+  v16 = v15 & (v7 + SizeOfStackCommit - 1);
   v17 = ~(v8 - 1);
-  v18 = v17 & (v8 + v12 - 1);
+  v18 = v17 & (v8 + SizeOfStackReserve - 1);
   MinimumStackCommit = v10->MinimumStackCommit;
   if ( MinimumStackCommit && v16 < MinimumStackCommit )
   {
     v16 = v15 & (v7 + MinimumStackCommit - 1);
     v18 = v17 & (((v16 + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL) + v8 - 1);
   }
-  v27[0] = v6;
-  v27[1] = 0;
-  v27[3] = 0;
-  v27[2] = 0;
+  ProcessInformation[0] = v6;
+  ProcessInformation[1] = 0;
+  ProcessInformation[3] = 0;
+  ProcessInformation[2] = 0;
   v28 = v18;
-  v29 = a3;
-  result = NtSetInformationProcess(-1LL, 41LL, v27, 40LL);
-  if ( (int)result >= 0 )
+  v29 = ZeroBits;
+  result = NtSetInformationProcess(
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             ProcessThreadStackAllocation,
+             ProcessInformation,
+             0x28u);
+  if ( result >= 0 )
   {
-    v19 = a6;
-    *a6 = 0LL;
-    v19[1] = 0LL;
+    v19 = InitialTeb;
+    InitialTeb->OldInitialTeb.OldStackBase = 0LL;
+    v19->OldInitialTeb.OldStackLimit = 0LL;
     v20 = v30;
-    v19[4] = v30;
-    v19[2] = v20 + v18;
-    v34 = v18 + v20 - v16;
+    v19->StackAllocationBase = v30;
+    v19->StackBase = &v20[v18];
+    BaseAddress = &v20[v18 - v16];
     v21 = v18 - v16 >= v9;
-    v24 = v16;
-    v22 = ZwAllocateVirtualMemory(-1LL, &v34, 0LL, &v24, 4096, 4);
+    RegionSize = v16;
+    v22 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
     if ( v22 < 0
-      || (v23 = v34, v19[3] = v34, v21)
-      && (v34 = v23 - v9, v25 = v9, v22 = ZwAllocateVirtualMemory(-1LL, &v34, 0LL, &v25, 4096, 260), v22 < 0) )
+      || (v23 = (char *)BaseAddress, v19->StackLimit = BaseAddress, v21)
+      && (BaseAddress = &v23[-v9],
+          v25 = v9,
+          v22 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &v25, 0x1000u, 0x104u),
+          v22 < 0) )
     {
-      RtlFreeUserStack(v19[4]);
-      return (unsigned int)v22;
+      RtlFreeUserStack(v19->StackAllocationBase);
+      return v22;
     }
     else
     {
-      return 0LL;
+      return 0;
     }
   }
   return result;

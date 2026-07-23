@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlNumberOfClearBitsEx @ 0x1801414D0
+ * XREFs of RtlNumberOfClearBitsEx @ 0x1801413D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlNumberOfSetBitsEx @ 0x180107230 (RtlNumberOfSetBitsEx.c)
+ *     RtlNumberOfSetBitsEx @ 0x180106C30 (RtlNumberOfSetBitsEx.c)
  */
 
 unsigned __int64 __fastcall RtlNumberOfClearBitsEx(unsigned __int64 *a1)

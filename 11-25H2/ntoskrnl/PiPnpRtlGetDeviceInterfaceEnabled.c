@@ -6,15 +6,15 @@
  *     ZwPlugPlayControl @ 0x14069D8E0 (ZwPlugPlayControl.c)
  */
 
-__int64 __fastcall PiPnpRtlGetDeviceInterfaceEnabled(__int64 a1, __int128 *a2, _BYTE *a3, unsigned int a4)
+NTSTATUS __fastcall PiPnpRtlGetDeviceInterfaceEnabled(__int64 a1, __int128 *a2, _BYTE *a3, unsigned int a4)
 {
-  __int64 result; // rax
-  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
+  NTSTATUS result; // eax
+  __int128 PnPControlData; // [rsp+20h] [rbp-28h] BYREF
   __int64 v7; // [rsp+30h] [rbp-18h]
 
-  v6 = *a2;
+  PnPControlData = *a2;
   v7 = a4;
-  result = ZwPlugPlayControl(23LL, (__int64)&v6);
+  result = ZwPlugPlayControl(PlugPlayControlGetDeviceInterfaceEnabled, &PnPControlData, 0x18u);
   *a3 = BYTE4(v7);
   return result;
 }

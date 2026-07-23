@@ -1,24 +1,24 @@
 /*
- * XREFs of ObDestroyHandleRevocationBlock @ 0x140A64720
+ * XREFs of ObDestroyHandleRevocationBlock @ 0x140A5D020
  * Callers:
- *     SepDeleteLogonSessionTrack @ 0x140A64520 (SepDeleteLogonSessionTrack.c)
- *     SepDeReferenceLogonSession @ 0x140AD8BA4 (SepDeReferenceLogonSession.c)
+ *     SepDeleteLogonSessionTrack @ 0x140A5CE20 (SepDeleteLogonSessionTrack.c)
+ *     SepDeReferenceLogonSession @ 0x140AD7224 (SepDeReferenceLogonSession.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 void __fastcall ObDestroyHandleRevocationBlock(struct _EX_RUNDOWN_REF *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *p_Count; // rbx
-  _QWORD *v4; // rax
-  _QWORD *v5; // rsi
+  char *v4; // rax
+  char *v5; // rsi
   struct _EX_RUNDOWN_REF *Count; // r14
   signed __int64 v7; // rax
   signed __int64 v8; // rdx
@@ -30,12 +30,12 @@ void __fastcall ObDestroyHandleRevocationBlock(struct _EX_RUNDOWN_REF *a1)
   CurrentThread = KeGetCurrentThread();
   p_Count = &a1[2].Count;
   --CurrentThread->KernelApcDisable;
-  v4 = KeAbPreAcquire((__int64)&a1[2], 0LL);
+  v4 = (char *)KeAbPreAcquire((__int64)&a1[2], 0LL);
   v5 = v4;
   if ( _interlockedbittestandset64((volatile signed __int32 *)p_Count, 0LL) )
-    ExfAcquirePushLockExclusiveEx(p_Count, (__int64)v4, (__int64)p_Count);
+    ExfAcquirePushLockExclusiveEx(p_Count, v4, (__int64)p_Count);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
+    v5[10] = 1;
   Count = (struct _EX_RUNDOWN_REF *)a1->Count;
   while ( Count != a1 )
   {

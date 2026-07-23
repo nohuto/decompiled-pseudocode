@@ -1,18 +1,18 @@
 /*
- * XREFs of WheaAttemptPhysicalPageOffline @ 0x1407C72F0
+ * XREFs of WheaAttemptPhysicalPageOffline @ 0x1407C7790
  * Callers:
- *     HalpMemoryErrorDeferredHandler @ 0x14055542C (HalpMemoryErrorDeferredHandler.c)
- *     HalpPmemErrorDeferredHandler @ 0x1405555F0 (HalpPmemErrorDeferredHandler.c)
- *     KiAltContextProcessMcheckAltReturn @ 0x1405C9A50 (KiAltContextProcessMcheckAltReturn.c)
- *     KiMcheckAlternateReturn @ 0x1405C9C80 (KiMcheckAlternateReturn.c)
- *     WheapExecuteRowFailureCheck @ 0x1407C8EE8 (WheapExecuteRowFailureCheck.c)
- *     WheapPfaMemoryCheck @ 0x1407C9224 (WheapPfaMemoryCheck.c)
- *     WheapPredictiveFailureAnalysis @ 0x140A45940 (WheapPredictiveFailureAnalysis.c)
+ *     HalpMemoryErrorDeferredHandler @ 0x140552D6C (HalpMemoryErrorDeferredHandler.c)
+ *     HalpPmemErrorDeferredHandler @ 0x140552F30 (HalpPmemErrorDeferredHandler.c)
+ *     KiAltContextProcessMcheckAltReturn @ 0x1405C7180 (KiAltContextProcessMcheckAltReturn.c)
+ *     KiMcheckAlternateReturn @ 0x1405C73B0 (KiMcheckAlternateReturn.c)
+ *     WheapExecuteRowFailureCheck @ 0x1407C93D8 (WheapExecuteRowFailureCheck.c)
+ *     WheapPfaMemoryCheck @ 0x1407C9714 (WheapPfaMemoryCheck.c)
+ *     WheapPredictiveFailureAnalysis @ 0x140A3B4F0 (WheapPredictiveFailureAnalysis.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1407C791C (WheapAttemptPhysicalPageOffline.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1407C7DBC (WheapAttemptPhysicalPageOffline.c)
  */
 
 __int64 __fastcall WheaAttemptPhysicalPageOffline(__int64 a1, char a2, char a3, char a4, __int64 a5)

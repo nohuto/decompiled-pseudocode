@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwCompareTokens()
+NTSTATUS __cdecl ZwCompareTokens(HANDLE FirstTokenHandle, HANDLE SecondTokenHandle, PBOOLEAN Equal)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 150LL;
+  result = 150;
   __asm { syscall; Low latency system call }
   return result;
 }

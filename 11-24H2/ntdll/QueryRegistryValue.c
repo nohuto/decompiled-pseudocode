@@ -1,31 +1,36 @@
 /*
- * XREFs of QueryRegistryValue @ 0x1800B3204
+ * XREFs of QueryRegistryValue @ 0x18007FAA4
  * Callers:
- *     _GetOverlayPackagePathFromKey @ 0x1800B2E64 (_GetOverlayPackagePathFromKey.c)
+ *     _GetOverlayPackagePathFromKey @ 0x18007F704 (_GetOverlayPackagePathFromKey.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     NtQueryValueKey @ 0x180161F70 (NtQueryValueKey.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     NtQueryValueKey @ 0x180160330 (NtQueryValueKey.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall QueryRegistryValue(__int64 a1, __int64 a2, _DWORD *a3, void *a4, unsigned int *a5)
+__int64 __fastcall QueryRegistryValue(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        _DWORD *a3,
+        void *a4,
+        unsigned int *a5)
 {
-  unsigned int v9; // ebx
+  ULONG Length; // ebx
   _DWORD *Heap; // rdi
-  int ValueKey; // eax
+  NTSTATUS ValueKey; // eax
   unsigned int v12; // ebx
   unsigned int v13; // eax
-  _DWORD v15[10]; // [rsp+30h] [rbp-28h] BYREF
+  ULONG ResultLength[10]; // [rsp+30h] [rbp-28h] BYREF
 
-  v15[0] = 0;
+  ResultLength[0] = 0;
   if ( !a5 )
     return 3221225485LL;
-  v9 = *a5 + 12;
-  Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v9);
+  Length = *a5 + 12;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Length);
   if ( Heap )
   {
-    ValueKey = NtQueryValueKey(a1, a2, 2LL, Heap, v9, v15);
+    ValueKey = NtQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, Heap, Length, ResultLength);
     v12 = ValueKey;
     if ( ValueKey < 0 )
     {
@@ -39,7 +44,7 @@ __int64 __fastcall QueryRegistryValue(__int64 a1, __int64 a2, _DWORD *a3, void *
       {
         v12 = -1073741811;
 LABEL_12:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
         return v12;
       }
       if ( v13 <= *a5 )

@@ -1,24 +1,24 @@
 /*
- * XREFs of KeInitThread @ 0x140C07424
+ * XREFs of KeInitThread @ 0x140C0D634
  * Callers:
- *     KiAllocatePrcbThread @ 0x1405EC38C (KiAllocatePrcbThread.c)
- *     KiInitializeAndStartInitialThread @ 0x1405F685C (KiInitializeAndStartInitialThread.c)
- *     PspAllocateThread @ 0x140A01BF0 (PspAllocateThread.c)
+ *     KiAllocatePrcbThread @ 0x1405EECFC (KiAllocatePrcbThread.c)
+ *     KiInitializeAndStartInitialThread @ 0x1405F921C (KiInitializeAndStartInitialThread.c)
+ *     PspAllocateThread @ 0x140A7A6A8 (PspAllocateThread.c)
  * Callees:
- *     KiAllocateXStateStack @ 0x1403D0CB4 (KiAllocateXStateStack.c)
- *     MmCreateKernelStack @ 0x1403D0D34 (MmCreateKernelStack.c)
- *     KiInitializeContextThread @ 0x1403D4E4C (KiInitializeContextThread.c)
- *     MmDeleteKernelStack @ 0x1404162AC (MmDeleteKernelStack.c)
- *     KeInitializeApc @ 0x140457520 (KeInitializeApc.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     KeInitializeTimer @ 0x140483D00 (KeInitializeTimer.c)
- *     KiAbInitializeThreadState @ 0x140497B24 (KiAbInitializeThreadState.c)
- *     KeCopyXfdMaskToTeb @ 0x1404EA0C8 (KeCopyXfdMaskToTeb.c)
- *     KeGetIdealNodeNumberProcess @ 0x1404F0804 (KeGetIdealNodeNumberProcess.c)
- *     KiInitializeKThreadExtension @ 0x140520C4C (KiInitializeKThreadExtension.c)
- *     KiDeleteXStateStack @ 0x1405EC5C4 (KiDeleteXStateStack.c)
- *     KiDeleteKernelShadowStack @ 0x140A03950 (KiDeleteKernelShadowStack.c)
- *     KiCreateKernelShadowStack @ 0x140A8BB80 (KiCreateKernelShadowStack.c)
+ *     KiAllocateXStateStack @ 0x1403D3C80 (KiAllocateXStateStack.c)
+ *     MmCreateKernelStack @ 0x1403D3D00 (MmCreateKernelStack.c)
+ *     KiInitializeContextThread @ 0x1403D7E1C (KiInitializeContextThread.c)
+ *     MmDeleteKernelStack @ 0x14040A8BC (MmDeleteKernelStack.c)
+ *     KeInitializeApc @ 0x14044ED90 (KeInitializeApc.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     KeInitializeTimer @ 0x14047D670 (KeInitializeTimer.c)
+ *     KiAbInitializeThreadState @ 0x140491674 (KiAbInitializeThreadState.c)
+ *     KeCopyXfdMaskToTeb @ 0x1404E3478 (KeCopyXfdMaskToTeb.c)
+ *     KeGetIdealNodeNumberProcess @ 0x1404E9DE4 (KeGetIdealNodeNumberProcess.c)
+ *     KiInitializeKThreadExtension @ 0x1405232F0 (KiInitializeKThreadExtension.c)
+ *     KiDeleteXStateStack @ 0x1405EEF34 (KiDeleteXStateStack.c)
+ *     KiDeleteKernelShadowStack @ 0x140A7BD54 (KiDeleteKernelShadowStack.c)
+ *     KiCreateKernelShadowStack @ 0x140A90E48 (KiCreateKernelShadowStack.c)
  */
 
 __int64 __fastcall KeInitThread(__int64 a1, __int64 a2)
@@ -102,7 +102,7 @@ __int64 __fastcall KeInitThread(__int64 a1, __int64 a2)
   KeInitializeEvent((PRKEVENT)(a1 + 736), NotificationEvent, 1u);
   KeInitializeTimer((PKTIMER)(a1 + 256));
   *(_QWORD *)(a1 + 304) = KiWaitNever ^ __ROR8__(
-                                          (a1 + 256) ^ _byteswap_uint64((unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink),
+                                          (a1 + 256) ^ _byteswap_uint64((unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink),
                                           KiWaitNever);
   v9 = (_QWORD *)(a1 + 464);
   *(_DWORD *)(a1 + 480) = 16909313;

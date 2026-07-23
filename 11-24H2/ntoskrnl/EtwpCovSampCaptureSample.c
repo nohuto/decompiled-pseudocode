@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpCovSampCaptureSample @ 0x140651D44
+ * XREFs of EtwpCovSampCaptureSample @ 0x140650444
  * Callers:
- *     EtwpCovSampProfileInterrupt @ 0x140651F30 (EtwpCovSampProfileInterrupt.c)
- *     EtwpCoverageSamplerContextSwap @ 0x140652108 (EtwpCoverageSamplerContextSwap.c)
- *     EtwpCoverageSamplerPageFault @ 0x140652298 (EtwpCoverageSamplerPageFault.c)
- *     EtwpCoverageSamplerReadyThread @ 0x140652474 (EtwpCoverageSamplerReadyThread.c)
+ *     EtwpCovSampProfileInterrupt @ 0x140650630 (EtwpCovSampProfileInterrupt.c)
+ *     EtwpCoverageSamplerContextSwap @ 0x140650808 (EtwpCoverageSamplerContextSwap.c)
+ *     EtwpCoverageSamplerPageFault @ 0x140650998 (EtwpCoverageSamplerPageFault.c)
+ *     EtwpCoverageSamplerReadyThread @ 0x140650B74 (EtwpCoverageSamplerReadyThread.c)
  * Callees:
- *     EtwpCovSampCaptureBufferQueue @ 0x14043EC48 (EtwpCovSampCaptureBufferQueue.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x14043EF30 (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampSafeForUserAddressCapture @ 0x14044BFEC (EtwpCovSampSafeForUserAddressCapture.c)
- *     EtwpCovSampCaptureBufferAddIP @ 0x14045ACF0 (EtwpCovSampCaptureBufferAddIP.c)
- *     EtwpCovSampCaptureBufferGet @ 0x1404EF638 (EtwpCovSampCaptureBufferGet.c)
- *     EtwpCovSampCaptureKernelStack @ 0x140651A48 (EtwpCovSampCaptureKernelStack.c)
- *     EtwpCovSampCaptureQueueApc @ 0x140651B10 (EtwpCovSampCaptureQueueApc.c)
- *     EtwpCovSampCaptureUserAddresses @ 0x1409003C4 (EtwpCovSampCaptureUserAddresses.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x1404347FC (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x140434AE4 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampSafeForUserAddressCapture @ 0x14044312C (EtwpCovSampSafeForUserAddressCapture.c)
+ *     EtwpCovSampCaptureBufferAddIP @ 0x140450120 (EtwpCovSampCaptureBufferAddIP.c)
+ *     EtwpCovSampCaptureBufferGet @ 0x1404ECF6C (EtwpCovSampCaptureBufferGet.c)
+ *     EtwpCovSampCaptureKernelStack @ 0x140650148 (EtwpCovSampCaptureKernelStack.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x140650210 (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x140922CA4 (EtwpCovSampCaptureUserAddresses.c)
  */
 
 char __fastcall EtwpCovSampCaptureSample(unsigned __int64 a1, unsigned int a2)
 {
   struct _KTHREAD *CurrentThread; // rbx
-  struct _SLIST_ENTRY *v4; // rdi
+  _SLIST_ENTRY *v4; // rdi
   __int64 v5; // rsi
   unsigned int v7; // eax
   unsigned int v8; // ecx
@@ -32,11 +32,11 @@ char __fastcall EtwpCovSampCaptureSample(unsigned __int64 a1, unsigned int a2)
 
   CurrentThread = KeGetCurrentThread();
   v4 = 0LL;
-  v5 = qword_140EFEC88;
+  v5 = qword_140EFEFA8;
   v14 = 0;
-  v7 = ((unsigned int)*(_QWORD *)(qword_140EFEC88 + 8) >> 13) & 0x3FFFF;
+  v7 = ((unsigned int)*(_QWORD *)(qword_140EFEFA8 + 8) >> 13) & 0x3FFFF;
   _BitScanReverse(&v8, v7);
-  v9 = ((unsigned int)*(_QWORD *)(qword_140EFEC88 + 8) >> 4) & 0x1FF;
+  v9 = ((unsigned int)*(_QWORD *)(qword_140EFEFA8 + 8) >> 4) & 0x1FF;
   v10 = v7 ^ (1 << v8);
   v15 = v8;
   v11 = *((_QWORD *)KeGetCurrentPrcb()->ExSaPageArray + v8 - 2);
@@ -50,8 +50,8 @@ char __fastcall EtwpCovSampCaptureSample(unsigned __int64 a1, unsigned int a2)
     LOBYTE(v11) = a1 - 1;
     if ( a1 - 1 > 0xFFFF7FFFFFFFFFFEuLL )
     {
-      v11 = (__int64)EtwpCovSampCaptureBufferGet(qword_140EFEC88);
-      v4 = (struct _SLIST_ENTRY *)v11;
+      v11 = (__int64)EtwpCovSampCaptureBufferGet(qword_140EFEFA8);
+      v4 = (_SLIST_ENTRY *)v11;
       if ( v11 )
       {
         EtwpCovSampCaptureBufferAddIP(v11, a1);

@@ -1,8 +1,8 @@
 /*
- * XREFs of PopPowerRequestIsExecutionRequiredStatusHeld @ 0x14067BCD0
+ * XREFs of PopPowerRequestIsExecutionRequiredStatusHeld @ 0x14066F410
  * Callers:
- *     PopHandleConvergedPowerRequestUpdate @ 0x140679D14 (PopHandleConvergedPowerRequestUpdate.c)
- *     PopEnableExecutionRequiredPowerRequests @ 0x1407D4228 (PopEnableExecutionRequiredPowerRequests.c)
+ *     PopHandleConvergedPowerRequestUpdate @ 0x14066D454 (PopHandleConvergedPowerRequestUpdate.c)
+ *     PopEnableExecutionRequiredPowerRequests @ 0x1407D4398 (PopEnableExecutionRequiredPowerRequests.c)
  * Callees:
  *     <none>
  */

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtGetCurrentProcessorNumberEx()
+ULONG __cdecl NtGetCurrentProcessorNumberEx(PPROCESSOR_NUMBER ProcessorNumber)
 {
-  __int64 result; // rax
+  ULONG result; // eax
 
-  result = 229LL;
+  result = 229;
   __asm { syscall; Low latency system call }
   return result;
 }

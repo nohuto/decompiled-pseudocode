@@ -1,15 +1,15 @@
 /*
- * XREFs of EmonRemoveProfileSource @ 0x140596260
+ * XREFs of EmonRemoveProfileSource @ 0x1405989E0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     HalpRemoveProfileSourceFromList @ 0x1405807B8 (HalpRemoveProfileSourceFromList.c)
- *     EmonIsProfileSourceInUse @ 0x1405959B8 (EmonIsProfileSourceInUse.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpRemoveProfileSourceFromList @ 0x140582CD8 (HalpRemoveProfileSourceFromList.c)
+ *     EmonIsProfileSourceInUse @ 0x140598138 (EmonIsProfileSourceInUse.c)
  */
 
 __int64 __fastcall EmonRemoveProfileSource(__int64 a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of PspIsSetJobIoAttribution @ 0x1407D84D8
+ * XREFs of PspIsSetJobIoAttribution @ 0x1407D87A8
  * Callers:
  *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
- *     PspSetJobIoAttribution @ 0x1407D82E4 (PspSetJobIoAttribution.c)
+ *     PspSetJobIoAttribution @ 0x1407D85B4 (PspSetJobIoAttribution.c)
  * Callees:
  *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */

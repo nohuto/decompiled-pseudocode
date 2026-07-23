@@ -7,18 +7,22 @@
  *     KiBugCheckDispatch @ 0x1406B3980 (KiBugCheckDispatch.c)
  */
 
-__int64 __fastcall KiSystemServiceHandler(int *a1, ULONG_PTR a2, int *a3, __int64 a4)
+__int64 __fastcall KiSystemServiceHandler(
+        PEXCEPTION_RECORD ExceptionRecord,
+        PVOID TargetFrame,
+        PCONTEXT ContextRecord,
+        __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rax
   _KTRAP_FRAME *TrapFrame; // rcx
 
-  if ( (a1[1] & 0x66) != 0 )
+  if ( (ExceptionRecord->ExceptionFlags & 0x66) != 0 )
   {
-    if ( (a1[1] & 0x20) == 0 )
+    if ( (ExceptionRecord->ExceptionFlags & 0x20) == 0 )
     {
       CurrentThread = KeGetCurrentThread();
       if ( CurrentThread->PreviousMode )
-        KiBugCheckDispatch(58LL, a2, a3, a4);
+        KiBugCheckDispatch(58LL, TargetFrame, ContextRecord, a4);
       TrapFrame = CurrentThread->TrapFrame;
       CurrentThread->TrapFrame = (_KTRAP_FRAME *)TrapFrame->TrapFrame;
       CurrentThread->PreviousMode = TrapFrame->PreviousMode;
@@ -26,14 +30,24 @@ __int64 __fastcall KiSystemServiceHandler(int *a1, ULONG_PTR a2, int *a3, __int6
   }
   else
   {
-    if ( &KiSystemServiceGdiTebAccess == *((_UNKNOWN **)a1 + 2)
-      || (unsigned __int64)&KiSystemServiceCopyStart <= *((_QWORD *)a1 + 2)
-      && (unsigned __int64)&KiSystemServiceCopyEnd > *((_QWORD *)a1 + 2) )
+    if ( &KiSystemServiceGdiTebAccess == ExceptionRecord->ExceptionAddress
+      || &KiSystemServiceCopyStart <= ExceptionRecord->ExceptionAddress
+      && &KiSystemServiceCopyEnd > ExceptionRecord->ExceptionAddress )
     {
-      RtlUnwindEx(a2, (__int64)&KiSystemServiceExit, a1, (unsigned int)*a1, a3, 0LL);
+      RtlUnwindEx(
+        TargetFrame,
+        &KiSystemServiceExit,
+        ExceptionRecord,
+        (PVOID)(unsigned int)ExceptionRecord->ExceptionCode,
+        ContextRecord,
+        0LL);
     }
     if ( KeGetCurrentThread()->PreviousMode )
-      KiBugCheckDispatch(59LL, (unsigned int)*a1, *((_QWORD *)a1 + 2), a3);
+      KiBugCheckDispatch(
+        59LL,
+        (unsigned int)ExceptionRecord->ExceptionCode,
+        ExceptionRecord->ExceptionAddress,
+        ContextRecord);
   }
   return 1LL;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlRaiseException @ 0x140211E04
+ * XREFs of RtlRaiseException @ 0x140211C30
  * Callers:
- *     RaiseException @ 0x1401514D8 (RaiseException.c)
- *     HvlpGetRegister128 @ 0x1401C1340 (HvlpGetRegister128.c)
- *     HvlpGetRegister64 @ 0x1401C13BC (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x1401C1460 (HvlpSetRegister64.c)
- *     RtlpAllocateHeapRaiseException @ 0x140213778 (RtlpAllocateHeapRaiseException.c)
+ *     RaiseException @ 0x140151A90 (RaiseException.c)
+ *     HvlpGetRegister128 @ 0x1401C1224 (HvlpGetRegister128.c)
+ *     HvlpGetRegister64 @ 0x1401C12A0 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1401C1344 (HvlpSetRegister64.c)
+ *     RtlpAllocateHeapRaiseException @ 0x1402135A4 (RtlpAllocateHeapRaiseException.c)
  * Callees:
- *     RtlVirtualUnwind @ 0x1400B3138 (RtlVirtualUnwind.c)
- *     RtlDispatchException @ 0x1400F4D00 (RtlDispatchException.c)
- *     RtlLookupFunctionEntry @ 0x1400F6220 (RtlLookupFunctionEntry.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwRaiseException @ 0x14015C6E0 (ZwRaiseException.c)
- *     RtlpCaptureContext @ 0x140166F00 (RtlpCaptureContext.c)
+ *     RtlVirtualUnwind @ 0x1400B0FB8 (RtlVirtualUnwind.c)
+ *     RtlDispatchException @ 0x1400F2B50 (RtlDispatchException.c)
+ *     RtlLookupFunctionEntry @ 0x1400F4070 (RtlLookupFunctionEntry.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwRaiseException @ 0x14015CC50 (ZwRaiseException.c)
+ *     RtlpCaptureContext @ 0x140167470 (RtlpCaptureContext.c)
  */
 
 void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)

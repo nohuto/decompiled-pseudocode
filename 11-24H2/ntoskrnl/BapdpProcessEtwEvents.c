@@ -1,13 +1,13 @@
 /*
- * XREFs of BapdpProcessEtwEvents @ 0x140652CA4
+ * XREFs of BapdpProcessEtwEvents @ 0x140651404
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140BDE52C (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140BE052C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     BapdWriteEtwEvents @ 0x1404A4884 (BapdWriteEtwEvents.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     BapdpQueryData @ 0x140C3F83C (BapdpQueryData.c)
+ *     BapdWriteEtwEvents @ 0x14049F614 (BapdWriteEtwEvents.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x140C4198C (BapdpQueryData.c)
  */
 
 void __fastcall BapdpProcessEtwEvents(__int64 a1)
@@ -40,7 +40,7 @@ void __fastcall BapdpProcessEtwEvents(__int64 a1)
     {
       if ( Pool2 )
         ExFreePoolWithTag(Pool2, 0);
-      Pool2 = (void *)ExAllocatePool2(0x40uLL);
+      Pool2 = (void *)ExAllocatePool2(0x40uLL, v6, 0x64506142u);
       if ( !Pool2 )
         return;
       v1 = v6;

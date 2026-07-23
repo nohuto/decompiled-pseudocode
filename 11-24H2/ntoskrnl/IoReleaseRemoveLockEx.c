@@ -1,21 +1,21 @@
 /*
- * XREFs of IoReleaseRemoveLockEx @ 0x140270610
+ * XREFs of IoReleaseRemoveLockEx @ 0x140225BA0
  * Callers:
- *     PoFxPrepareDevice @ 0x14048E428 (PoFxPrepareDevice.c)
- *     PopFxAcpiForwardPepAcpiNotifyRequest @ 0x1404BC5A4 (PopFxAcpiForwardPepAcpiNotifyRequest.c)
- *     PopFxAcpiForwardPepWorkRequest @ 0x1404F588C (PopFxAcpiForwardPepWorkRequest.c)
- *     PopFxReleaseAcpiRefDevice @ 0x1405D1CF4 (PopFxReleaseAcpiRefDevice.c)
- *     PopFxAcpiForwardNotification @ 0x1405DC4B4 (PopFxAcpiForwardNotification.c)
- *     DifIoReleaseRemoveLockExWrapper @ 0x14062A800 (DifIoReleaseRemoveLockExWrapper.c)
- *     ViFilterDeviceUsageNotificationCompletion @ 0x140B9CF10 (ViFilterDeviceUsageNotificationCompletion.c)
- *     ViFilterGenericCompletionRoutine @ 0x140B9D440 (ViFilterGenericCompletionRoutine.c)
- *     ViFilterStartCompletionRoutine @ 0x140B9D540 (ViFilterStartCompletionRoutine.c)
+ *     PoFxPrepareDevice @ 0x140488860 (PoFxPrepareDevice.c)
+ *     PopFxAcpiForwardPepAcpiNotifyRequest @ 0x1404B770C (PopFxAcpiForwardPepAcpiNotifyRequest.c)
+ *     PopFxAcpiForwardPepWorkRequest @ 0x1404F318C (PopFxAcpiForwardPepWorkRequest.c)
+ *     PopFxReleaseAcpiRefDevice @ 0x1405CF414 (PopFxReleaseAcpiRefDevice.c)
+ *     PopFxAcpiForwardNotification @ 0x1405D9384 (PopFxAcpiForwardNotification.c)
+ *     DifIoReleaseRemoveLockExWrapper @ 0x140628DC0 (DifIoReleaseRemoveLockExWrapper.c)
+ *     ViFilterDeviceUsageNotificationCompletion @ 0x140B9EF10 (ViFilterDeviceUsageNotificationCompletion.c)
+ *     ViFilterGenericCompletionRoutine @ 0x140B9F440 (ViFilterGenericCompletionRoutine.c)
+ *     ViFilterStartCompletionRoutine @ 0x140B9F540 (ViFilterStartCompletionRoutine.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     VfRemLockReportBadReleaseTag @ 0x140B928C8 (VfRemLockReportBadReleaseTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     VfRemLockReportBadReleaseTag @ 0x140B948C8 (VfRemLockReportBadReleaseTag.c)
  */
 
 void __stdcall IoReleaseRemoveLockEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULONG RemlockSize)

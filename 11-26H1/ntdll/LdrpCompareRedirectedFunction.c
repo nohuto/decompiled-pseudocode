@@ -1,24 +1,24 @@
 /*
- * XREFs of LdrpCompareRedirectedFunction @ 0x180084A0C
+ * XREFs of LdrpCompareRedirectedFunction @ 0x18007BDAC
  * Callers:
- *     LdrpCheckRedirection @ 0x1800838D8 (LdrpCheckRedirection.c)
- *     LdrpAddRedirectedFunction @ 0x18015DEAC (LdrpAddRedirectedFunction.c)
+ *     LdrpCheckRedirection @ 0x18007AC78 (LdrpCheckRedirection.c)
+ *     LdrpAddRedirectedFunction @ 0x18015DDB0 (LdrpAddRedirectedFunction.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x180083D00 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x18007B0A0 (RtlCompareUnicodeStrings.c)
  */
 
-__int64 __fastcall LdrpCompareRedirectedFunction(__int64 a1, __int64 a2)
+LONG __fastcall LdrpCompareRedirectedFunction(__int64 a1, __int64 a2)
 {
-  __int64 result; // rax
+  LONG result; // eax
   char *v4; // rax
   __int64 v5; // rdx
   char v6; // r8
 
-  result = (unsigned int)(*(_DWORD *)(a2 + 24) - *(_DWORD *)a1);
-  if ( !(_DWORD)result )
+  result = *(_DWORD *)(a2 + 24) - *(_DWORD *)a1;
+  if ( !result )
   {
-    result = (unsigned int)(*(_DWORD *)(a2 + 28) - *(_DWORD *)(a1 + 4));
-    if ( !(_DWORD)result )
+    result = *(_DWORD *)(a2 + 28) - *(_DWORD *)(a1 + 4);
+    if ( !result )
     {
       v4 = *(char **)(a2 + 32);
       v5 = *(_QWORD *)(a1 + 8) - (_QWORD)v4;
@@ -30,19 +30,19 @@ __int64 __fastcall LdrpCompareRedirectedFunction(__int64 a1, __int64 a2)
         ++v4;
         if ( !v6 )
         {
-          result = 0LL;
+          result = 0;
           goto LABEL_7;
         }
       }
       result = (unsigned __int8)*v4 < (unsigned __int8)v4[v5] ? -1 : 1;
 LABEL_7:
-      if ( !(_DWORD)result )
+      if ( !result )
         return RtlCompareUnicodeStrings(
-                 *(unsigned __int16 **)(a2 + 48),
+                 *(PCWCH *)(a2 + 48),
                  (unsigned __int64)*(unsigned __int16 *)(a2 + 40) >> 1,
-                 *(_BYTE **)(a1 + 24),
+                 *(PCWCH *)(a1 + 24),
                  (unsigned __int64)*(unsigned __int16 *)(a1 + 16) >> 1,
-                 1);
+                 1u);
     }
   }
   return result;

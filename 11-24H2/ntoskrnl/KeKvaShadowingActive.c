@@ -1,12 +1,12 @@
 /*
- * XREFs of KeKvaShadowingActive @ 0x1404A925C
+ * XREFs of KeKvaShadowingActive @ 0x1404A367C
  * Callers:
- *     sub_14051AA08 @ 0x14051AA08 (sub_14051AA08.c)
- *     KeQueryKvaShadowInformation @ 0x14073C9A0 (KeQueryKvaShadowInformation.c)
- *     PsCreateMinimalProcess @ 0x1407797C4 (PsCreateMinimalProcess.c)
- *     PspDisablePrimaryTokenExchange @ 0x1408FEB00 (PspDisablePrimaryTokenExchange.c)
- *     KeQuerySpeculationControlInformation @ 0x140AC3E38 (KeQuerySpeculationControlInformation.c)
- *     sub_140C08E44 @ 0x140C08E44 (sub_140C08E44.c)
+ *     sub_1405182C8 @ 0x1405182C8 (sub_1405182C8.c)
+ *     KeQueryKvaShadowInformation @ 0x14073A8D0 (KeQueryKvaShadowInformation.c)
+ *     PsCreateMinimalProcess @ 0x1407798C4 (PsCreateMinimalProcess.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1409213E0 (PspDisablePrimaryTokenExchange.c)
+ *     KeQuerySpeculationControlInformation @ 0x140AC167C (KeQuerySpeculationControlInformation.c)
+ *     sub_140C0AE44 @ 0x140C0AE44 (sub_140C0AE44.c)
  * Callees:
  *     <none>
  */

@@ -25,7 +25,7 @@ __int64 __fastcall sub_1800FEF2C(__int64 a1, __int64 a2, __int64 a3)
   if ( *(_QWORD *)(a1 + 8) == -1LL )
   {
     v3 = 1;
-    RtlAcquireSRWLockShared(&qword_18015C2A0);
+    RtlAcquireSRWLockShared(&stru_18015C2A0);
     if ( (dword_18015C2A8 & 1) == 0 || (dword_18015C2A8 & 2) == 0 )
     {
       v6 = -1073741811;
@@ -47,7 +47,7 @@ LABEL_14:
     if ( !v3 )
       return (unsigned int)v6;
 LABEL_15:
-    RtlReleaseSRWLockShared(&qword_18015C2A0);
+    RtlReleaseSRWLockShared(&stru_18015C2A0);
     return (unsigned int)v6;
   }
   return (unsigned int)sub_1800FF018();

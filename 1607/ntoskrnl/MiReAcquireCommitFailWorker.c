@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReAcquireCommitFailWorker @ 0x1401E0600
+ * XREFs of MiReAcquireCommitFailWorker @ 0x1401E042C
  * Callers:
  *     <none>
  * Callees:
- *     KeForceResumeProcess @ 0x1400C8E70 (KeForceResumeProcess.c)
- *     PsTerminateProcess @ 0x1404EC470 (PsTerminateProcess.c)
+ *     KeForceResumeProcess @ 0x1400C6D10 (KeForceResumeProcess.c)
+ *     PsTerminateProcess @ 0x1404CE4F8 (PsTerminateProcess.c)
  */
 
 LONG_PTR __fastcall MiReAcquireCommitFailWorker(void *a1)

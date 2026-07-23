@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpBuildScatterGatherList @ 0x14050F900
+ * XREFs of HalpBuildScatterGatherList @ 0x14050FE50
  * Callers:
- *     HalGetScatterGatherList @ 0x1403D0E00 (HalGetScatterGatherList.c)
- *     HalBuildScatterGatherListEx @ 0x14050ED50 (HalBuildScatterGatherListEx.c)
- *     HalBuildScatterGatherListV3 @ 0x14050EE10 (HalBuildScatterGatherListV3.c)
- *     HalGetScatterGatherListEx @ 0x14050F1E0 (HalGetScatterGatherListEx.c)
+ *     HalGetScatterGatherList @ 0x1403D0FE0 (HalGetScatterGatherList.c)
+ *     HalBuildScatterGatherListEx @ 0x14050F2A0 (HalBuildScatterGatherListEx.c)
+ *     HalBuildScatterGatherListV3 @ 0x14050F360 (HalBuildScatterGatherListV3.c)
+ *     HalGetScatterGatherListEx @ 0x14050F730 (HalGetScatterGatherListEx.c)
  * Callees:
- *     HalGetDmaTransferInfoInternal @ 0x14045BABC (HalGetDmaTransferInfoInternal.c)
- *     HalpAllocateAdapterCallbackV3 @ 0x14050F3A0 (HalpAllocateAdapterCallbackV3.c)
- *     HalpAllocateAdapterChannel @ 0x140514CC0 (HalpAllocateAdapterChannel.c)
+ *     HalGetDmaTransferInfoInternal @ 0x14045BEBC (HalGetDmaTransferInfoInternal.c)
+ *     HalpAllocateAdapterCallbackV3 @ 0x14050F8F0 (HalpAllocateAdapterCallbackV3.c)
+ *     HalpAllocateAdapterChannel @ 0x140515210 (HalpAllocateAdapterChannel.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -4,11 +4,11 @@
  *     CmUnloadKey @ 0x140698DD8 (CmUnloadKey.c)
  * Callees:
  *     SeConvertStringSidToSid @ 0x14020BA20 (SeConvertStringSidToSid.c)
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExpWnfInvalidateDataStores @ 0x140682B5C (ExpWnfInvalidateDataStores.c)
- *     RtlPrefixUnicodeString @ 0x1406D9E20 (RtlPrefixUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x1406D9E50 (RtlPrefixUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

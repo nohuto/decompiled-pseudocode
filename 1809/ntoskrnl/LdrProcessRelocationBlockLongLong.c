@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrProcessRelocationBlockLongLong @ 0x14072A838
+ * XREFs of LdrProcessRelocationBlockLongLong @ 0x14072BA28
  * Callers:
- *     LdrRelocateImageWithBias @ 0x14072A758 (LdrRelocateImageWithBias.c)
+ *     LdrRelocateImageWithBias @ 0x14072B948 (LdrRelocateImageWithBias.c)
  * Callees:
- *     LdrpGenericProcessRelocation @ 0x14017ED50 (LdrpGenericProcessRelocation.c)
- *     LdrpArmProcessRelocation @ 0x1402F5374 (LdrpArmProcessRelocation.c)
- *     LdrpThumbProcessRelocation @ 0x1402F544C (LdrpThumbProcessRelocation.c)
+ *     LdrpGenericProcessRelocation @ 0x14017EE90 (LdrpGenericProcessRelocation.c)
+ *     LdrpArmProcessRelocation @ 0x1402F5564 (LdrpArmProcessRelocation.c)
+ *     LdrpThumbProcessRelocation @ 0x1402F563C (LdrpThumbProcessRelocation.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -15,14 +15,14 @@ PIMAGE_BASE_RELOCATION __stdcall LdrProcessRelocationBlockLongLong(
         PUSHORT TypeOffset,
         LONGLONG Delta)
 {
-  struct _IMAGE_BASE_RELOCATION *v4; // rbx
+  IMAGE_BASE_RELOCATION *v4; // rbx
   __int64 v5; // rsi
   __int16 v6; // r14
   unsigned __int64 v7; // rbp
   unsigned int v8; // eax
   __int64 v10; // [rsp+50h] [rbp+28h]
 
-  v4 = (struct _IMAGE_BASE_RELOCATION *)Delta;
+  v4 = (IMAGE_BASE_RELOCATION *)Delta;
   v5 = *(_QWORD *)&Count;
   v6 = Address;
   v7 = Delta + 2LL * (unsigned int)TypeOffset;
@@ -41,7 +41,7 @@ PIMAGE_BASE_RELOCATION __stdcall LdrProcessRelocationBlockLongLong(
 LABEL_4:
     if ( !v8 )
       return 0LL;
-    v4 = (struct _IMAGE_BASE_RELOCATION *)((char *)v4 + 2 * v8);
+    v4 = (IMAGE_BASE_RELOCATION *)((char *)v4 + 2 * v8);
     if ( (unsigned __int64)v4 >= v7 )
       return v4;
   }

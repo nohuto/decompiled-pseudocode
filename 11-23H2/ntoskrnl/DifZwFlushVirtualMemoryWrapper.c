@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwFlushVirtualMemoryWrapper @ 0x1405F07D0
+ * XREFs of DifZwFlushVirtualMemoryWrapper @ 0x1405F0D40
  * Callers:
  *     <none>
  * Callees:
- *     ZwFlushVirtualMemory @ 0x14041CBA0 (ZwFlushVirtualMemory.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwFlushVirtualMemory @ 0x14041CF30 (ZwFlushVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwFlushVirtualMemoryWrapper(

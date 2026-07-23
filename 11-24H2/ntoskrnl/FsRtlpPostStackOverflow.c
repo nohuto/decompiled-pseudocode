@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlpPostStackOverflow @ 0x1405821AC
+ * XREFs of FsRtlpPostStackOverflow @ 0x14057F52C
  * Callers:
- *     FsRtlPostPagingFileStackOverflow @ 0x140582050 (FsRtlPostPagingFileStackOverflow.c)
- *     FsRtlPostStackOverflow @ 0x140582070 (FsRtlPostStackOverflow.c)
+ *     FsRtlPostPagingFileStackOverflow @ 0x14057F3D0 (FsRtlPostPagingFileStackOverflow.c)
+ *     FsRtlPostStackOverflow @ 0x14057F3F0 (FsRtlPostStackOverflow.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiWakeQueueWaiter @ 0x140324B20 (KiWakeQueueWaiter.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KiWakeOtherQueueWaiters @ 0x1403BE270 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x1403BE4C8 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1403BE4F4 (EtwTraceEnqueueWork.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiWakeQueueWaiter @ 0x1402CD6B0 (KiWakeQueueWaiter.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KiWakeOtherQueueWaiters @ 0x1403ACF00 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x1403AD158 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1403AD184 (EtwTraceEnqueueWork.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall FsRtlpPostStackOverflow(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)
@@ -30,7 +30,7 @@ void __fastcall FsRtlpPostStackOverflow(__int64 a1, __int64 a2, __int64 a3, unsi
   char **v16; // rcx
 
   v5 = a4;
-  Pool2 = (char *)ExAllocatePool2(0x42uLL);
+  Pool2 = (char *)ExAllocatePool2(0x42uLL, 0x38uLL, 0x73725346u);
   if ( !Pool2 )
   {
     if ( !(_BYTE)v5 )

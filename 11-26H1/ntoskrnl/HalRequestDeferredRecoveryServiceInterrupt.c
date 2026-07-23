@@ -1,9 +1,9 @@
 /*
- * XREFs of HalRequestDeferredRecoveryServiceInterrupt @ 0x14057EF10
+ * XREFs of HalRequestDeferredRecoveryServiceInterrupt @ 0x140581430
  * Callers:
- *     WheaRequestDeferredRecovery @ 0x1406D6D20 (WheaRequestDeferredRecovery.c)
+ *     WheaRequestDeferredRecovery @ 0x1406DAE00 (WheaRequestDeferredRecovery.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x140230DF0 (HalpInterruptSendIpi.c)
+ *     HalpInterruptSendIpi @ 0x140232750 (HalpInterruptSendIpi.c)
  */
 
 __int64 HalRequestDeferredRecoveryServiceInterrupt()

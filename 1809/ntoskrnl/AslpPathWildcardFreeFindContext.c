@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpPathWildcardFreeFindContext @ 0x1408EBA0C
+ * XREFs of AslpPathWildcardFreeFindContext @ 0x1408ECCCC
  * Callers:
- *     AslPathWildcardFindClose @ 0x1408EA4A8 (AslPathWildcardFindClose.c)
- *     AslPathWildcardFindFirst @ 0x1408EA4E8 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindClose @ 0x1408EB768 (AslPathWildcardFindClose.c)
+ *     AslPathWildcardFindFirst @ 0x1408EB7A8 (AslPathWildcardFindFirst.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ULongLongMult @ 0x14026D7E8 (ULongLongMult.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AslpPathWildcardFreeMatchNode @ 0x1408EBAEC (AslpPathWildcardFreeMatchNode.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ULongLongMult @ 0x14026D9D8 (ULongLongMult.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     AslpPathWildcardFreeMatchNode @ 0x1408ECDAC (AslpPathWildcardFreeMatchNode.c)
  */
 
 void __fastcall AslpPathWildcardFreeFindContext(_QWORD **a1)

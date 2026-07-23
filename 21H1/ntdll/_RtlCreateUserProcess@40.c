@@ -6,23 +6,32 @@
  *     _RtlCreateUserProcessEx@20 @ 0x4B33FC60 (_RtlCreateUserProcessEx@20.c)
  */
 
-int __stdcall RtlCreateUserProcess(int a1, int a2, int a3, int a4, int a5, int a6, char a7, int a8, int a9, void *a10)
+NTSTATUS __cdecl RtlCreateUserProcess(
+        PUNICODE_STRING NtImagePathName,
+        ULONG AttributesDeprecated,
+        PRTL_USER_PROCESS_PARAMETERS ProcessParameters,
+        PSECURITY_DESCRIPTOR ProcessSecurityDescriptor,
+        PSECURITY_DESCRIPTOR ThreadSecurityDescriptor,
+        HANDLE ParentProcess,
+        BOOLEAN InheritHandles,
+        HANDLE DebugPort,
+        HANDLE TokenHandle,
+        PRTL_USER_PROCESS_INFORMATION ProcessInformation)
 {
-  int v11; // [esp+0h] [ebp-1Ch] BYREF
-  int v12; // [esp+4h] [ebp-18h]
-  int v13; // [esp+8h] [ebp-14h]
-  int v14; // [esp+Ch] [ebp-10h]
-  int v15; // [esp+10h] [ebp-Ch]
-  int v16; // [esp+14h] [ebp-8h]
-  int v17; // [esp+18h] [ebp-4h]
+  _RTL_USER_PROCESS_EXTENDED_PARAMETERS ProcessExtendedParameters; // [esp+0h] [ebp-1Ch] BYREF
 
-  v17 = 0;
-  LOWORD(v11) = 1;
-  HIWORD(v11) = HIWORD(a2);
-  v12 = a4;
-  v13 = a5;
-  v14 = a6;
-  v15 = a8;
-  v16 = a9;
-  return RtlCreateUserProcessEx(a1, a3, a7, (int)&v11, a10);
+  ProcessExtendedParameters.JobHandle = 0;
+  ProcessExtendedParameters.Version = 1;
+  ProcessExtendedParameters.NodeNumber = HIWORD(AttributesDeprecated);
+  ProcessExtendedParameters.ProcessSecurityDescriptor = ProcessSecurityDescriptor;
+  ProcessExtendedParameters.ThreadSecurityDescriptor = ThreadSecurityDescriptor;
+  ProcessExtendedParameters.ParentProcess = ParentProcess;
+  ProcessExtendedParameters.DebugPort = DebugPort;
+  ProcessExtendedParameters.TokenHandle = TokenHandle;
+  return RtlCreateUserProcessEx(
+           NtImagePathName,
+           ProcessParameters,
+           InheritHandles,
+           &ProcessExtendedParameters,
+           ProcessInformation);
 }

@@ -3,38 +3,32 @@
  * Callers:
  *     Phase1InitializationIoReady @ 0x140B4DC38 (Phase1InitializationIoReady.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreatePort @ 0x14041C4E0 (ZwCreatePort.c)
- *     PsCreateSystemThread @ 0x1407B8100 (PsCreateSystemThread.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140821DDC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140841E14 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreatePort @ 0x14041C870 (ZwCreatePort.c)
+ *     PsCreateSystemThread @ 0x1407B83E0 (PsCreateSystemThread.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408220DC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140842114 (AuthzBasepInitializeSystemSecurityAttributes.c)
  *     SepAdtInitializeAuditingOptions @ 0x140B60D40 (SepAdtInitializeAuditingOptions.c)
  */
 
 char SeRmInitPhase1()
 {
-  __int64 v0; // rcx
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  _QWORD v4[3]; // [rsp+40h] [rbp-38h] BYREF
-  int v5; // [rsp+58h] [rbp-20h]
-  int v6; // [rsp+5Ch] [rbp-1Ch]
-  __int128 v7; // [rsp+60h] [rbp-18h]
+  __int64 v0; // rdx
+  __int64 v1; // rcx
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-38h] BYREF
 
-  v6 = 0;
-  v4[1] = 0LL;
-  v5 = 0;
-  v4[0] = 48LL;
-  v4[2] = L" \"";
-  v7 = 0LL;
-  if ( (int)ZwCreatePort((__int64)&Handle, (__int64)v4) < 0 )
+  ObjectAttributes.RootDirectory = 0LL;
+  memset(&ObjectAttributes.Attributes, 0, 24);
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)L" \"";
+  if ( ZwCreatePort(&Handle, &ObjectAttributes, 4u, 0x200u, 0x4000u) < 0 )
     return 0;
-  SepAdtInitializeAuditingOptions(v0);
+  SepAdtInitializeAuditingOptions();
   if ( PsCreateSystemThread(&ThreadHandle, 0x38u, 0LL, 0LL, 0LL, (PKSTART_ROUTINE)SepRmCommandServerThread, 0LL) < 0 )
     return 0;
-  AuthzBasepInitializeSystemSecurityAttributes(v2, v1);
+  AuthzBasepInitializeSystemSecurityAttributes(v1, v0);
   ZwClose(ThreadHandle);
   ThreadHandle = 0LL;
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C06590, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C06550, 0LL, 0LL);
   return 1;
 }

@@ -19,81 +19,89 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall RtlCheckTokenCapability(void *a1, void *a2, _BYTE *a3)
+NTSTATUS __cdecl RtlCheckTokenCapability(HANDLE TokenHandle, PSID CapabilitySidToCheck, PBOOLEAN HasCapability)
 {
   HANDLE v3; // eax
   int v4; // esi
-  HANDLE v6; // [esp+10h] [ebp-188h] BYREF
-  HANDLE Handle; // [esp+14h] [ebp-184h] BYREF
-  int v8; // [esp+18h] [ebp-180h] BYREF
-  void *v9; // [esp+1Ch] [ebp-17Ch]
-  int v10; // [esp+20h] [ebp-178h] BYREF
-  int v11; // [esp+24h] [ebp-174h] BYREF
-  int v12; // [esp+28h] [ebp-170h] BYREF
-  _DWORD v13[6]; // [esp+2Ch] [ebp-16Ch] BYREF
-  _DWORD v14[5]; // [esp+44h] [ebp-154h] BYREF
-  void *Src; // [esp+58h] [ebp-140h] BYREF
+  HANDLE ClientToken; // [esp+10h] [ebp-188h] BYREF
+  HANDLE ExistingTokenHandle; // [esp+14h] [ebp-184h] BYREF
+  ULONG ReturnLength; // [esp+18h] [ebp-180h] BYREF
+  PSID Sid; // [esp+1Ch] [ebp-17Ch]
+  ULONG PrivilegeSetLength; // [esp+20h] [ebp-178h] BYREF
+  NTSTATUS AccessStatus; // [esp+24h] [ebp-174h] BYREF
+  ACCESS_MASK GrantedAccess; // [esp+28h] [ebp-170h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+2Ch] [ebp-16Ch] BYREF
+  _BYTE SecurityDescriptor[20]; // [esp+44h] [ebp-154h] BYREF
+  unsigned __int8 *TokenInformation; // [esp+58h] [ebp-140h] BYREF
   _DWORD v16[2]; // [esp+ACh] [ebp-ECh] BYREF
   __int16 v17; // [esp+B4h] [ebp-E4h]
-  _BYTE v18[164]; // [esp+B8h] [ebp-E0h] BYREF
-  _BYTE v19[56]; // [esp+15Ch] [ebp-3Ch] BYREF
+  ACL Acl; // [esp+B8h] [ebp-E0h] BYREF
+  _PRIVILEGE_SET PrivilegeSet; // [esp+15Ch] [ebp-3Ch] BYREF
 
-  v6 = 0;
-  v9 = a2;
-  *a3 = 0;
-  if ( !RtlIsCapabilitySid((int)a2) )
+  ClientToken = 0;
+  Sid = CapabilitySidToCheck;
+  *HasCapability = 0;
+  if ( !RtlIsCapabilitySid(CapabilitySidToCheck) )
   {
     v4 = -1073741811;
     goto LABEL_9;
   }
-  if ( a1 )
+  if ( TokenHandle )
   {
-    v3 = a1;
-    v6 = a1;
+    v3 = TokenHandle;
+    ClientToken = TokenHandle;
     goto LABEL_4;
   }
-  v4 = NtOpenThreadTokenEx(-2, 8, 1, 0, &v6);
+  v4 = NtOpenThreadTokenEx((HANDLE)0xFFFFFFFE, 8u, 1u, 0, &ClientToken);
   if ( v4 == -1073741700 )
   {
-    v4 = ZwOpenProcessTokenEx(-1, 10, 0, &Handle);
+    v4 = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFF, 0xAu, 0, &ExistingTokenHandle);
     if ( v4 < 0 )
       goto LABEL_17;
-    v13[0] = 24;
-    v13[5] = v16;
-    memset(&v13[1], 0, 16);
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.SecurityQualityOfService = v16;
+    memset(&ObjectAttributes.RootDirectory, 0, 16);
     v16[0] = 12;
     v16[1] = 2;
     v17 = 1;
-    v4 = NtDuplicateToken(Handle, 8, v13, 0, 2, &v6);
-    NtClose(Handle);
+    v4 = NtDuplicateToken(ExistingTokenHandle, 8u, &ObjectAttributes, 0, TokenImpersonation, &ClientToken);
+    NtClose(ExistingTokenHandle);
   }
   if ( v4 >= 0 )
   {
-    v3 = v6;
+    v3 = ClientToken;
 LABEL_4:
-    v8 = 76;
-    ZwQueryInformationToken(v3, 1, &Src, 76, &v8);
-    RtlCreateSecurityDescriptor(v14, 1);
-    RtlSetOwnerSecurityDescriptor((int)v14, (int)Src, 0);
-    RtlSetGroupSecurityDescriptor((int)v14, (int)Src, 0);
-    RtlCreateAcl((int)v18, 0xA0u, 2u);
-    RtlpAddKnownAce((int)v18, 2u, 0, 65537, (unsigned __int8 *)Src, 0);
-    RtlpAddKnownAce((int)v18, 2u, 0, 65537, (unsigned __int8 *)v9, 0);
-    RtlSetDaclSecurityDescriptor((int)v14, 1, (int)v18, 0);
-    v10 = 56;
-    v4 = NtAccessCheck(v14, v6, 65537, RtlpCheckTokenCapabilityGenericMapping, v19, &v10, &v12, &v11);
+    ReturnLength = 76;
+    ZwQueryInformationToken(v3, 1u, &TokenInformation, 0x4Cu, &ReturnLength);
+    RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
+    RtlSetOwnerSecurityDescriptor(SecurityDescriptor, TokenInformation, 0);
+    RtlSetGroupSecurityDescriptor(SecurityDescriptor, TokenInformation, 0);
+    RtlCreateAcl(&Acl, 0xA0u, 2u);
+    RtlpAddKnownAce(&Acl, 2u, 0, 65537, TokenInformation, 0);
+    RtlpAddKnownAce(&Acl, 2u, 0, 65537, (unsigned __int8 *)Sid, 0);
+    RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
+    PrivilegeSetLength = 56;
+    v4 = NtAccessCheck(
+           SecurityDescriptor,
+           ClientToken,
+           0x10001u,
+           (PGENERIC_MAPPING)&RtlpCheckTokenCapabilityGenericMapping,
+           &PrivilegeSet,
+           &PrivilegeSetLength,
+           &GrantedAccess,
+           &AccessStatus);
     if ( v4 >= 0 )
     {
-      if ( !v11 && v12 == 65537 )
-        *a3 = 1;
+      if ( !AccessStatus && GrantedAccess == 65537 )
+        *HasCapability = 1;
       v4 = 0;
     }
 LABEL_9:
-    if ( a1 )
+    if ( TokenHandle )
       return v4;
   }
 LABEL_17:
-  if ( v6 )
-    NtClose(v6);
+  if ( ClientToken )
+    NtClose(ClientToken);
   return v4;
 }

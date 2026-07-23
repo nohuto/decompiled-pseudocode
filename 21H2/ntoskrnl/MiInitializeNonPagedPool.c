@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeNonPagedPool @ 0x140A4E39C
+ * XREFs of MiInitializeNonPagedPool @ 0x140A4F39C
  * Callers:
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     MiSystemVaToDynamicBitmap @ 0x1402B407C (MiSystemVaToDynamicBitmap.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiBuildDynamicRegion @ 0x1403B5F84 (MiBuildDynamicRegion.c)
- *     MiInitializeNonPagedPoolThresholds @ 0x1403B6100 (MiInitializeNonPagedPoolThresholds.c)
- *     MiAddExpansionNonPagedPool @ 0x1403B6234 (MiAddExpansionNonPagedPool.c)
+ *     MiSystemVaToDynamicBitmap @ 0x14023222C (MiSystemVaToDynamicBitmap.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiBuildDynamicRegion @ 0x1403B60F4 (MiBuildDynamicRegion.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x1403B6270 (MiInitializeNonPagedPoolThresholds.c)
+ *     MiAddExpansionNonPagedPool @ 0x1403B63A4 (MiAddExpansionNonPagedPool.c)
  *     MiConvertEntireLargePageToSmall @ 0x1403F5C28 (MiConvertEntireLargePageToSmall.c)
- *     MiInitializeSystemWorkingSetList @ 0x1407867BC (MiInitializeSystemWorkingSetList.c)
+ *     MiInitializeSystemWorkingSetList @ 0x14078697C (MiInitializeSystemWorkingSetList.c)
  */
 
 __int64 MiInitializeNonPagedPool()
@@ -39,22 +39,22 @@ __int64 MiInitializeNonPagedPool()
   __int64 v21; // [rsp+60h] [rbp+8h] BYREF
 
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(5);
-  if ( !(unsigned int)MiInitializeSystemWorkingSetList(&MiSystemPartition, (__int64)AnyMultiplexedVm, 7u, 0LL) )
+  if ( !(unsigned int)MiInitializeSystemWorkingSetList(&MiSystemPartition, (__int64)AnyMultiplexedVm, 7, 0LL) )
     return 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
   v2 = CurrentPrcb->KeSystemCalls ^ CurrentPrcb->InterruptTime ^ MEMORY[0xFFFFF78000000018] ^ __rdtsc() ^ ((unsigned __int64)MEMORY[0xFFFFF78000000014] << 32);
   v3 = (unsigned __int64)(unsigned int)ExGenRandom(0) << 32;
   v4 = ExGenRandom(0);
-  v5 = qword_140C4FAC8[0];
+  v5 = qword_140C4FB08[0];
   v6 = v3 | v4;
   v7 = 0;
   v8 = v6 ^ v2;
   if ( !v8 )
     v8 = 1LL;
-  qword_140C4EEC8 = v8;
+  qword_140C4EF08 = v8;
   v9 = MmPfnDatabase + (MxPfnAllocation << 12);
   v10 = ((_DWORD)MmPfnDatabase + ((_DWORD)MxPfnAllocation << 12)) & 0x1FFFFF;
-  qword_140C4EF30 = 0x100000000LL;
+  qword_140C4EF70 = 0x100000000LL;
   v11 = (0x200000 - v10) & -(__int64)(v10 != 0);
   v12 = (0x800000uLL / (unsigned __int16)KeNumberNodes) << 21;
   if ( KeNumberNodes )

@@ -1,41 +1,41 @@
 /*
- * XREFs of CcInitializeCacheMapInternal @ 0x1403E1230
+ * XREFs of CcInitializeCacheMapInternal @ 0x1403E4420
  * Callers:
- *     CcInitializeCacheMap @ 0x1403E11D0 (CcInitializeCacheMap.c)
- *     CcInitializeCacheMapEx2 @ 0x1403E1200 (CcInitializeCacheMapEx2.c)
- *     CcInitializeCacheMapEx @ 0x1405B07E0 (CcInitializeCacheMapEx.c)
+ *     CcInitializeCacheMap @ 0x1403E43C0 (CcInitializeCacheMap.c)
+ *     CcInitializeCacheMapEx2 @ 0x1403E43F0 (CcInitializeCacheMapEx2.c)
+ *     CcInitializeCacheMapEx @ 0x1405B2FF0 (CcInitializeCacheMapEx.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402B4630 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     FsRtlIsNtstatusExpected @ 0x1402E2870 (FsRtlIsNtstatusExpected.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     PsGetPagePriorityThread @ 0x1403825F0 (PsGetPagePriorityThread.c)
- *     CcInitializeVolumeCacheMap @ 0x14038538C (CcInitializeVolumeCacheMap.c)
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     CcDeleteSharedCacheMap @ 0x14039BBF0 (CcDeleteSharedCacheMap.c)
- *     CcFreeSharedCacheMapIgnoreNull @ 0x14039C0D4 (CcFreeSharedCacheMapIgnoreNull.c)
- *     CcGetPrivateVolumeCacheMap @ 0x14039C140 (CcGetPrivateVolumeCacheMap.c)
- *     CcFreePrivateCacheMapIgnoreNull @ 0x14039CBEC (CcFreePrivateCacheMapIgnoreNull.c)
- *     CcNotifyWriteBehindInternal @ 0x1403E07DC (CcNotifyWriteBehindInternal.c)
- *     CcNotifyWriteBehindVolume @ 0x1403E0844 (CcNotifyWriteBehindVolume.c)
- *     ExAllocateFromLookasideListEx @ 0x1403E1EE0 (ExAllocateFromLookasideListEx.c)
- *     CcGetPartitionWithCreate @ 0x1403E1F28 (CcGetPartitionWithCreate.c)
- *     CcCreatePrivateVolumeCacheMap @ 0x1403E1FBC (CcCreatePrivateVolumeCacheMap.c)
- *     MmDisableModifiedWriteOfSection @ 0x1403E22F0 (MmDisableModifiedWriteOfSection.c)
- *     CcInsertIntoCleanSharedCacheMapList @ 0x1403E305C (CcInsertIntoCleanSharedCacheMapList.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObDeleteCapturedInsertInfo @ 0x14097B2C0 (ObDeleteCapturedInsertInfo.c)
- *     MmCreateCacheManagerSection @ 0x1409BA478 (MmCreateCacheManagerSection.c)
- *     CcCreateVacbArray @ 0x140A814E8 (CcCreateVacbArray.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C4930 (FsRtlIsNtstatusExpected.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402FF300 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PsGetPagePriorityThread @ 0x1403843A0 (PsGetPagePriorityThread.c)
+ *     CcInitializeVolumeCacheMap @ 0x14038713C (CcInitializeVolumeCacheMap.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     CcDeleteSharedCacheMap @ 0x14039D950 (CcDeleteSharedCacheMap.c)
+ *     CcFreeSharedCacheMapIgnoreNull @ 0x14039DE34 (CcFreeSharedCacheMapIgnoreNull.c)
+ *     CcGetPrivateVolumeCacheMap @ 0x14039DEA0 (CcGetPrivateVolumeCacheMap.c)
+ *     CcFreePrivateCacheMapIgnoreNull @ 0x14039E94C (CcFreePrivateCacheMapIgnoreNull.c)
+ *     CcNotifyWriteBehindInternal @ 0x1403E39CC (CcNotifyWriteBehindInternal.c)
+ *     CcNotifyWriteBehindVolume @ 0x1403E3A34 (CcNotifyWriteBehindVolume.c)
+ *     ExAllocateFromLookasideListEx @ 0x1403E50D0 (ExAllocateFromLookasideListEx.c)
+ *     CcGetPartitionWithCreate @ 0x1403E5118 (CcGetPartitionWithCreate.c)
+ *     CcCreatePrivateVolumeCacheMap @ 0x1403E51AC (CcCreatePrivateVolumeCacheMap.c)
+ *     MmDisableModifiedWriteOfSection @ 0x1403E54E0 (MmDisableModifiedWriteOfSection.c)
+ *     CcInsertIntoCleanSharedCacheMapList @ 0x1403E624C (CcInsertIntoCleanSharedCacheMapList.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObDeleteCapturedInsertInfo @ 0x14093D2D0 (ObDeleteCapturedInsertInfo.c)
+ *     MmCreateCacheManagerSection @ 0x14098B458 (MmCreateCacheManagerSection.c)
+ *     CcCreateVacbArray @ 0x140A87358 (CcCreateVacbArray.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall CcInitializeCacheMapInternal(
@@ -50,7 +50,7 @@ void __fastcall CcInitializeCacheMapInternal(
   struct _KTHREAD *CurrentThread; // r8
   int v9; // ecx
   _DWORD *v10; // r14
-  int PrivateVolumeCacheMap; // esi
+  NTSTATUS PrivateVolumeCacheMap; // esi
   __int64 v12; // rbx
   void *v13; // r13
   __m128i v14; // xmm1
@@ -194,7 +194,7 @@ LABEL_76:
     }
     v13 = v75;
     ObDeleteCapturedInsertInfo(v75);
-    v12 = CcGetPartitionWithCreate(*(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock
+    v12 = CcGetPartitionWithCreate(*(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock
                                                          + 8LL
                                                          * (*(_DWORD *)(**(_QWORD **)(Object + 40) + 60LL) & 0x3FF))
                                              + 256LL));
@@ -461,7 +461,7 @@ LABEL_33:
             KeReleaseInStackQueuedSpinLock(&v73);
             KeReleaseInStackQueuedSpinLock(&LockHandle);
 LABEL_67:
-            Entry = ExAllocateFromLookasideListEx(&CcPrivateCacheMapLookasideList);
+            Entry = ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&CcPrivateCacheMapLookasideList);
             if ( !Entry )
             {
               Entry = 0LL;

@@ -1,5 +1,5 @@
 /*
- * XREFs of DbgkpLkmdSnapKernelStackSegmentCallback @ 0x1401B7824
+ * XREFs of DbgkpLkmdSnapKernelStackSegmentCallback @ 0x1401B7708
  * Callers:
  *     <none>
  * Callees:

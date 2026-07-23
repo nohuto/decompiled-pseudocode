@@ -1,31 +1,31 @@
 /*
- * XREFs of DbgkCreateThread @ 0x140459228
+ * XREFs of DbgkCreateThread @ 0x1404580F8
  * Callers:
- *     PspUserThreadStartup @ 0x140459060 (PspUserThreadStartup.c)
+ *     PspUserThreadStartup @ 0x140457F30 (PspUserThreadStartup.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x14000F690 (ObFastDereferenceObject.c)
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PsCallImageNotifyRoutines @ 0x140429240 (PsCallImageNotifyRoutines.c)
- *     PsQuerySystemDllInfo @ 0x14045A7D4 (PsQuerySystemDllInfo.c)
- *     PspReferenceSystemDll @ 0x14046C06C (PspReferenceSystemDll.c)
- *     PsReferenceProcessFilePointer @ 0x14046EFC0 (PsReferenceProcessFilePointer.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     PsWow64GetProcessMachine @ 0x14051AA00 (PsWow64GetProcessMachine.c)
- *     DbgkSendSystemDllMessages @ 0x140617E98 (DbgkSendSystemDllMessages.c)
- *     DbgkpPostModuleMessages @ 0x140618B20 (DbgkpPostModuleMessages.c)
- *     DbgkpSendApiMessage @ 0x14061A30C (DbgkpSendApiMessage.c)
- *     DbgkpSectionToFileHandle @ 0x14061ACB4 (DbgkpSectionToFileHandle.c)
+ *     ObFastDereferenceObject @ 0x14000F210 (ObFastDereferenceObject.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PsCallImageNotifyRoutines @ 0x140428110 (PsCallImageNotifyRoutines.c)
+ *     PsQuerySystemDllInfo @ 0x1404596A4 (PsQuerySystemDllInfo.c)
+ *     PspReferenceSystemDll @ 0x14046AF3C (PspReferenceSystemDll.c)
+ *     PsReferenceProcessFilePointer @ 0x14046DE90 (PsReferenceProcessFilePointer.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     PsWow64GetProcessMachine @ 0x1404FDDF0 (PsWow64GetProcessMachine.c)
+ *     DbgkSendSystemDllMessages @ 0x140617F4C (DbgkSendSystemDllMessages.c)
+ *     DbgkpPostModuleMessages @ 0x140618BD4 (DbgkpPostModuleMessages.c)
+ *     DbgkpSendApiMessage @ 0x14061A3C0 (DbgkpSendApiMessage.c)
+ *     DbgkpSectionToFileHandle @ 0x14061AD68 (DbgkpSectionToFileHandle.c)
  */
 
 __int64 __fastcall DbgkCreateThread(_QWORD *a1)
 {
   unsigned __int64 v1; // rbp
-  ULONG_PTR v3; // rdi
+  __int64 v3; // rdi
   bool v4; // r13
   signed __int32 v5; // eax
   int v6; // ecx
@@ -131,7 +131,7 @@ __int64 __fastcall DbgkCreateThread(_QWORD *a1)
         *(_DWORD *)(((unsigned __int64)&v19 & 0xFFFFFFFFFFFFFFC0uLL) + 0x70) = 4194328;
         *(_DWORD *)(((unsigned __int64)&v19 & 0xFFFFFFFFFFFFFFC0uLL) + 0x74) = 8;
         *(_DWORD *)(((unsigned __int64)&v19 & 0xFFFFFFFFFFFFFFC0uLL) + 0x98) = 1;
-        DbgkpSendApiMessage(v3);
+        DbgkpSendApiMessage((PVOID)v3);
       }
     }
     else
@@ -159,7 +159,7 @@ __int64 __fastcall DbgkCreateThread(_QWORD *a1)
       *(_DWORD *)(((unsigned __int64)&v19 & 0xFFFFFFFFFFFFFFC0uLL) + 0x70) = 6291512;
       *(_DWORD *)(((unsigned __int64)&v19 & 0xFFFFFFFFFFFFFFC0uLL) + 0x74) = 8;
       *(_DWORD *)(((unsigned __int64)&v19 & 0xFFFFFFFFFFFFFFC0uLL) + 0x98) = 2;
-      DbgkpSendApiMessage(v3);
+      DbgkpSendApiMessage((PVOID)v3);
       v18 = *(void **)(((unsigned __int64)&v19 & 0xFFFFFFFFFFFFFFC0uLL) + 0xA8);
       if ( v18 )
         ObCloseHandle(v18, 0);

@@ -1,13 +1,13 @@
 /*
- * XREFs of VfAllocateCrashDumpRegisters @ 0x1409CAD90
+ * XREFs of VfAllocateCrashDumpRegisters @ 0x1409CBD90
  * Callers:
  *     <none>
  * Callees:
- *     HalAllocateCrashDumpRegisters @ 0x1404B8D40 (HalAllocateCrashDumpRegisters.c)
- *     VfDisableHalVerifier @ 0x1405A0F98 (VfDisableHalVerifier.c)
- *     ADD_MAP_REGISTERS @ 0x1409C9BC0 (ADD_MAP_REGISTERS.c)
- *     VF_ASSERT_IRQL @ 0x1409CA0EC (VF_ASSERT_IRQL.c)
- *     ViGetAdapterInformationInternal @ 0x1409CE748 (ViGetAdapterInformationInternal.c)
+ *     HalAllocateCrashDumpRegisters @ 0x1404B8F80 (HalAllocateCrashDumpRegisters.c)
+ *     VfDisableHalVerifier @ 0x1405A11C8 (VfDisableHalVerifier.c)
+ *     ADD_MAP_REGISTERS @ 0x1409CABC0 (ADD_MAP_REGISTERS.c)
+ *     VF_ASSERT_IRQL @ 0x1409CB0EC (VF_ASSERT_IRQL.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CF748 (ViGetAdapterInformationInternal.c)
  */
 
 __int64 __fastcall VfAllocateCrashDumpRegisters(PADAPTER_OBJECT AdapterObject, PULONG NumberOfMapRegisters)

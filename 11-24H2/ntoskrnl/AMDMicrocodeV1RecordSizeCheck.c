@@ -1,7 +1,7 @@
 /*
- * XREFs of AMDMicrocodeV1RecordSizeCheck @ 0x1406653B0
+ * XREFs of AMDMicrocodeV1RecordSizeCheck @ 0x140663CA0
  * Callers:
- *     AMDMicrocodeRecordSizeCheck @ 0x1406652D0 (AMDMicrocodeRecordSizeCheck.c)
+ *     AMDMicrocodeRecordSizeCheck @ 0x140663BC0 (AMDMicrocodeRecordSizeCheck.c)
  * Callees:
  *     <none>
  */

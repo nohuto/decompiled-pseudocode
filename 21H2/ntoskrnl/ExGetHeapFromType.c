@@ -1,9 +1,9 @@
 /*
- * XREFs of ExGetHeapFromType @ 0x14029554C
+ * XREFs of ExGetHeapFromType @ 0x14021720C
  * Callers:
- *     ExAllocateContiguousHeapPool @ 0x140295320 (ExAllocateContiguousHeapPool.c)
- *     ExAllocateHeapPages @ 0x1403756C8 (ExAllocateHeapPages.c)
- *     ExAllocateHeapSpecialPool @ 0x1405B9D7C (ExAllocateHeapSpecialPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x140216FE0 (ExAllocateContiguousHeapPool.c)
+ *     ExAllocateHeapPages @ 0x140375218 (ExAllocateHeapPages.c)
+ *     ExAllocateHeapSpecialPool @ 0x1405B9FAC (ExAllocateHeapSpecialPool.c)
  * Callees:
  *     <none>
  */
@@ -16,11 +16,11 @@ __int64 __fastcall ExGetHeapFromType(int a1, unsigned int a2, int a3)
 
   if ( a2 == 0x80000000 )
     a2 = KeGetCurrentPrcb()->ParentNode->Affinity.Reserved[0];
-  v3 = &qword_140C580C0[1048 * (a2 < dword_140C58090 ? a2 : 0)];
+  v3 = &qword_140C58100[1048 * (a2 < dword_140C580D0 ? a2 : 0)];
   if ( a1 < 0 )
   {
     if ( a3 )
-      return qword_140CDB0D8;
+      return qword_140CDB118;
     else
       return v3[3];
   }
@@ -39,7 +39,7 @@ __int64 __fastcall ExGetHeapFromType(int a1, unsigned int a2, int a3)
     else
       v4 = (a1 & 0x200) != 0;
     if ( a3 )
-      return qword_140CDB0C0[v4];
+      return qword_140CDB100[v4];
     else
       return v3[v4];
   }

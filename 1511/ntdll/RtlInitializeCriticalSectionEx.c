@@ -17,57 +17,57 @@
  *     NtTraceEvent @ 0x1800A5C70 (NtTraceEvent.c)
  */
 
-__int64 __fastcall RtlInitializeCriticalSectionEx(__int64 a1, int a2, int a3)
+NTSTATUS __cdecl RtlInitializeCriticalSectionEx(PRTL_CRITICAL_SECTION CriticalSection, ULONG SpinCount, ULONG Flags)
 {
   char v5; // cl
-  _BYTE v6[6]; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE Fields[6]; // [rsp+20h] [rbp-48h] BYREF
   __int16 v7; // [rsp+26h] [rbp-42h]
-  __int64 v8; // [rsp+40h] [rbp-28h]
-  __int64 v9; // [rsp+48h] [rbp-20h]
+  unsigned __int64 v8; // [rsp+40h] [rbp-28h]
+  PRTL_CRITICAL_SECTION v9; // [rsp+48h] [rbp-20h]
 
-  if ( (a3 & 0xE0000000) != 0 || (a3 & 0x11000000) == 0x11000000 )
-    return 3221225713LL;
-  if ( (a2 & 0xFF000000) != 0 )
-    return 3221225712LL;
-  if ( (a3 & 0x4000000) == 0 )
+  if ( (Flags & 0xE0000000) != 0 || (Flags & 0x11000000) == 0x11000000 )
+    return -1073741583;
+  if ( (SpinCount & 0xFF000000) != 0 )
+    return -1073741584;
+  if ( (Flags & 0x4000000) == 0 )
   {
-    *(_DWORD *)(a1 + 8) = -1;
+    CriticalSection->LockCount = -1;
     v5 = 1;
-    *(_DWORD *)(a1 + 12) = 0;
-    *(_QWORD *)(a1 + 16) = 0LL;
-    *(_QWORD *)(a1 + 24) = 0LL;
+    CriticalSection->RecursionCount = 0;
+    CriticalSection->OwningThread = 0LL;
+    CriticalSection->LockSemaphore = 0LL;
     if ( NtCurrentPeb()->NumberOfProcessors <= 1 )
     {
-      *(_QWORD *)(a1 + 32) = 0LL;
+      CriticalSection->SpinCount = 0LL;
     }
-    else if ( (a3 & 0x2000000) != 0 || !a2 )
+    else if ( (Flags & 0x2000000) != 0 || !SpinCount )
     {
-      *(_QWORD *)(a1 + 32) = 33556432LL;
+      CriticalSection->SpinCount = 33556432LL;
     }
     else
     {
-      *(_QWORD *)(a1 + 32) = a2 & 0xFFFFFF;
+      CriticalSection->SpinCount = SpinCount & 0xFFFFFF;
     }
-    *(_QWORD *)(a1 + 32) |= a3 & 0x9000000;
-    if ( (a3 & 0x10000000) == 0 && !RtlpForceCSDebugInfoCreation )
+    CriticalSection->SpinCount |= Flags & 0x9000000;
+    if ( (Flags & 0x10000000) == 0 && !RtlpForceCSDebugInfoCreation )
       v5 = 0;
-    *(_QWORD *)a1 = -1LL;
+    CriticalSection->DebugInfo = (_RTL_CRITICAL_SECTION_DEBUG *)-1LL;
     if ( v5 )
     {
-      RtlpAddDebugInfoToCriticalSection(a1);
-      if ( *(_QWORD *)a1 == -1LL )
-        *(_QWORD *)(a1 + 32) |= 0x1000000uLL;
+      RtlpAddDebugInfoToCriticalSection((__int64)CriticalSection);
+      if ( CriticalSection->DebugInfo == (_RTL_CRITICAL_SECTION_DEBUG *)-1LL )
+        CriticalSection->SpinCount |= 0x1000000uLL;
     }
     if ( MEMORY[0x7FFE0382] )
     {
       if ( (NtCurrentPeb()->TracingFlags & 2) != 0 )
       {
         v7 = 5923;
-        v8 = *(_QWORD *)(a1 + 32);
-        v9 = a1;
-        NtTraceEvent(MEMORY[0x7FFE0382], 66562LL, 16LL, v6);
+        v8 = CriticalSection->SpinCount;
+        v9 = CriticalSection;
+        NtTraceEvent((HANDLE)MEMORY[0x7FFE0382], 0x10402u, 0x10u, Fields);
       }
     }
   }
-  return 0LL;
+  return 0;
 }

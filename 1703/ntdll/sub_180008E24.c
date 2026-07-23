@@ -9,15 +9,15 @@
  *     <none>
  */
 
-PSLIST_ENTRY __fastcall sub_180008E24(PSLIST_ENTRY ListEntry)
+LOGICAL __fastcall sub_180008E24(PSLIST_ENTRY ListEntry)
 {
   if ( LOWORD(ListHead.Alignment) >= 0xAu
     && (&unk_180159BE0 > (_UNKNOWN *)ListEntry || ListEntry >= (PSLIST_ENTRY)&dword_180159D60) )
   {
-    return (PSLIST_ENTRY)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, ListEntry);
   }
   else
   {
-    return RtlInterlockedPushEntrySList_0(&ListHead, ListEntry);
+    return (unsigned int)RtlInterlockedPushEntrySList_0(&ListHead, ListEntry);
   }
 }

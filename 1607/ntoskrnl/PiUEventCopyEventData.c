@@ -1,11 +1,11 @@
 /*
- * XREFs of PiUEventCopyEventData @ 0x14048CC98
+ * XREFs of PiUEventCopyEventData @ 0x14048D2AC
  * Callers:
- *     PiUEventHandleGetEvent @ 0x14048CB44 (PiUEventHandleGetEvent.c)
+ *     PiUEventHandleGetEvent @ 0x14048D158 (PiUEventHandleGetEvent.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x1400C4760 (RtlStringCchLengthW.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     _CmSetDeviceInterfacePathFormat @ 0x1404F6DE0 (_CmSetDeviceInterfacePathFormat.c)
+ *     RtlStringCchLengthW @ 0x1400C2600 (RtlStringCchLengthW.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x1404D9D6C (_CmSetDeviceInterfacePathFormat.c)
  */
 
 __int64 __fastcall PiUEventCopyEventData(__int64 a1, unsigned int a2, __int64 a3)

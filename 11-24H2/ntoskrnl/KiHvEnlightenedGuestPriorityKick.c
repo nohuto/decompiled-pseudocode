@@ -1,15 +1,15 @@
 /*
- * XREFs of KiHvEnlightenedGuestPriorityKick @ 0x14043E030
+ * XREFs of KiHvEnlightenedGuestPriorityKick @ 0x140432720
  * Callers:
- *     KiSetPriorityThread @ 0x14024FBBC (KiSetPriorityThread.c)
- *     KiRemoveBoostThread @ 0x1403230A4 (KiRemoveBoostThread.c)
- *     KiInsertTimer2 @ 0x1403C08C4 (KiInsertTimer2.c)
- *     KiExpireTimer2 @ 0x1403C0A90 (KiExpireTimer2.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     KiIpiEnlightenedGuestPriorityKick @ 0x14044C950 (KiIpiEnlightenedGuestPriorityKick.c)
- *     KiApplyForegroundBoostThread @ 0x1404F6D4C (KiApplyForegroundBoostThread.c)
+ *     KiSetPriorityThread @ 0x1402801CC (KiSetPriorityThread.c)
+ *     KiRemoveBoostThread @ 0x1402CBC34 (KiRemoveBoostThread.c)
+ *     KiInsertTimer2 @ 0x1403AF484 (KiInsertTimer2.c)
+ *     KiExpireTimer2 @ 0x1403AF650 (KiExpireTimer2.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     KiIpiEnlightenedGuestPriorityKick @ 0x140443850 (KiIpiEnlightenedGuestPriorityKick.c)
+ *     KiApplyForegroundBoostThread @ 0x1404F4630 (KiApplyForegroundBoostThread.c)
  * Callees:
- *     EtwTraceXSchedulerPriorityKickSend @ 0x1404F9C1C (EtwTraceXSchedulerPriorityKickSend.c)
+ *     EtwTraceXSchedulerPriorityKickSend @ 0x1404F74FC (EtwTraceXSchedulerPriorityKickSend.c)
  */
 
 __int64 __fastcall KiHvEnlightenedGuestPriorityKick(__int64 a1, __int64 a2, int a3)
@@ -34,7 +34,7 @@ __int64 __fastcall KiHvEnlightenedGuestPriorityKick(__int64 a1, __int64 a2, int 
     if ( v5 )
       LODWORD(v7) = (unsigned __int8)HvlpVirtualProcessorMapping[2 * (unsigned int)v7 + 1] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * v7] << 6);
     *(_DWORD *)(v6 + 8) = v7;
-    if ( (BYTE4(xmmword_140FC5B10) & 0x20) != 0 )
+    if ( (BYTE4(xmmword_140FC6B50) & 0x20) != 0 )
       EtwTraceXSchedulerPriorityKickSend(*(unsigned int *)(result + 36), 2LL);
     result = (unsigned int)v7;
     __writemsr(0x400000C2u, (unsigned int)v7);

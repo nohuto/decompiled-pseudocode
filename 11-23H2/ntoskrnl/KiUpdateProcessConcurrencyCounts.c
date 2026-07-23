@@ -1,15 +1,15 @@
 /*
- * XREFs of KiUpdateProcessConcurrencyCounts @ 0x1402C33C0
+ * XREFs of KiUpdateProcessConcurrencyCounts @ 0x1402C3650
  * Callers:
- *     KiIdealProcessorRebalancerWorker @ 0x140356750 (KiIdealProcessorRebalancerWorker.c)
+ *     KiIdealProcessorRebalancerWorker @ 0x1403568F0 (KiIdealProcessorRebalancerWorker.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KiUpdateProcessConcurrencyCount @ 0x1402C30C0 (KiUpdateProcessConcurrencyCount.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     HalpTimerScaleCounter @ 0x1403C4524 (HalpTimerScaleCounter.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PsGetNextProcess @ 0x1407441B0 (PsGetNextProcess.c)
+ *     KiUpdateProcessConcurrencyCount @ 0x1402C3350 (KiUpdateProcessConcurrencyCount.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     HalpTimerScaleCounter @ 0x1403C4704 (HalpTimerScaleCounter.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PsGetNextProcess @ 0x1407443A0 (PsGetNextProcess.c)
  */
 
 __int64 KiUpdateProcessConcurrencyCounts()

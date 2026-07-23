@@ -3,8 +3,8 @@
  * Callers:
  *     VfTriageSystem @ 0x140B69CCC (VfTriageSystem.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     TriageGetLoaderEntry @ 0x140679848 (TriageGetLoaderEntry.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     TriageGetLoaderEntry @ 0x140679D98 (TriageGetLoaderEntry.c)
  *     TriageGetDriverCount @ 0x140B9C05C (TriageGetDriverCount.c)
  */
 

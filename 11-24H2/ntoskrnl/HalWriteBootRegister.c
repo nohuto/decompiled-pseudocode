@@ -1,10 +1,10 @@
 /*
- * XREFs of HalWriteBootRegister @ 0x140B50AB0
+ * XREFs of HalWriteBootRegister @ 0x140B52B00
  * Callers:
- *     HalpResetSBF @ 0x140B4B158 (HalpResetSBF.c)
- *     HalpSetupAcpiPhase0 @ 0x140C137FC (HalpSetupAcpiPhase0.c)
+ *     HalpResetSBF @ 0x140B4D058 (HalpResetSBF.c)
+ *     HalpSetupAcpiPhase0 @ 0x140C157FC (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpSetCmosData @ 0x140425294 (HalpSetCmosData.c)
+ *     HalpSetCmosData @ 0x140419144 (HalpSetCmosData.c)
  */
 
 __int64 __fastcall HalWriteBootRegister(unsigned __int8 a1)

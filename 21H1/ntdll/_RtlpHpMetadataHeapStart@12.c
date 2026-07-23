@@ -6,14 +6,10 @@
  *     _RtlRunOnceExecuteOnce@16 @ 0x4B2B0F70 (_RtlRunOnceExecuteOnce@16.c)
  */
 
-int __thiscall RtlpHpMetadataHeapStart(_DWORD *this, char a2, int a3)
+NTSTATUS __thiscall RtlpHpMetadataHeapStart(_RTL_RUN_ONCE *this, char Parameter, int a3)
 {
-  if ( *this )
+  if ( this->Value )
     return 0;
   else
-    return RtlRunOnceExecuteOnce(
-             (int)(this + 1),
-             (int (__stdcall *)(int, int, int))RtlpHpMetadataHeapCreate,
-             (int)&a2,
-             0);
+    return RtlRunOnceExecuteOnce(this + 1, (PRTL_RUN_ONCE_INIT_FN)RtlpHpMetadataHeapCreate, &Parameter, 0);
 }

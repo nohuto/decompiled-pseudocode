@@ -1,11 +1,11 @@
 /*
- * XREFs of IoRegisterBootDriverCallback @ 0x140580D50
+ * XREFs of IoRegisterBootDriverCallback @ 0x1405811FC
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ExRegisterCallback @ 0x14012FD34 (ExRegisterCallback.c)
- *     ExCreateCallback @ 0x1404EADFC (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x1401302A4 (ExRegisterCallback.c)
+ *     ExCreateCallback @ 0x1404CCE20 (ExCreateCallback.c)
  */
 
 PVOID __fastcall IoRegisterBootDriverCallback(PCALLBACK_FUNCTION CallbackFunction, PVOID CallbackContext)

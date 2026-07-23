@@ -1,20 +1,20 @@
 /*
- * XREFs of IopReassignSystemRoot @ 0x1409DB7D0
+ * XREFs of IopReassignSystemRoot @ 0x1409DC7D0
  * Callers:
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     NtQuerySymbolicLinkObject @ 0x140625E20 (NtQuerySymbolicLinkObject.c)
- *     RtlUnicodeStringToAnsiString @ 0x14067BAD0 (RtlUnicodeStringToAnsiString.c)
- *     NtOpenSymbolicLinkObject @ 0x140691BB0 (NtOpenSymbolicLinkObject.c)
- *     NtCreateSymbolicLinkObject @ 0x1406B6F00 (NtCreateSymbolicLinkObject.c)
- *     NtMakeTemporaryObject @ 0x1406C7350 (NtMakeTemporaryObject.c)
+ *     RtlStringCchPrintfW @ 0x1400922E8 (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     NtQuerySymbolicLinkObject @ 0x140626E40 (NtQuerySymbolicLinkObject.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14067CC90 (RtlUnicodeStringToAnsiString.c)
+ *     NtOpenSymbolicLinkObject @ 0x140692D70 (NtOpenSymbolicLinkObject.c)
+ *     NtCreateSymbolicLinkObject @ 0x1406B81A0 (NtCreateSymbolicLinkObject.c)
+ *     NtMakeTemporaryObject @ 0x1406C85F0 (NtMakeTemporaryObject.c)
  */
 
-char __fastcall IopReassignSystemRoot(__int64 a1, STRING *a2)
+char __fastcall IopReassignSystemRoot(__int64 a1, _STRING *a2)
 {
   __int64 v2; // r9
   NTSTATUS v4; // eax

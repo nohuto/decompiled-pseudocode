@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoFreeControllerWrapper @ 0x1405DF1F0
+ * XREFs of DifIoFreeControllerWrapper @ 0x1405DF760
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     IoFreeController @ 0x140556850 (IoFreeController.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     IoFreeController @ 0x140556F10 (IoFreeController.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifIoFreeControllerWrapper(PCONTROLLER_OBJECT ControllerObject)

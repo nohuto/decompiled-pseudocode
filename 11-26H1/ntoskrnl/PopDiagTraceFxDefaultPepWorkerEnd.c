@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceFxDefaultPepWorkerEnd @ 0x1402558F8
+ * XREFs of PopDiagTraceFxDefaultPepWorkerEnd @ 0x14025727C
  * Callers:
- *     PopPepWork @ 0x1403AE7D0 (PopPepWork.c)
+ *     PopPepWork @ 0x1403B84E0 (PopPepWork.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x140255F60 (EtwpLevelKeywordEnabled.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402578F0 (EtwpLevelKeywordEnabled.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, __int64 a4, int a5)
@@ -16,19 +16,19 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, _
   unsigned __int64 v5; // rax
   int v6; // esi
   int v7; // ebx
-  __int64 v10; // rdx
+  REGHANDLE v10; // rdx
   __int64 v11; // r8
   __int64 v12; // rcx
-  __int64 v13; // rdx
+  REGHANDLE v13; // rdx
   __int64 v14; // rcx
-  __int64 v15; // rdx
+  REGHANDLE v15; // rdx
   __int64 v16; // rcx
   __int64 v17; // rcx
   __int64 v18; // rcx
   char v19; // al
   const EVENT_DESCRIPTOR *v20; // rdx
   int v21; // r8d
-  char *v22; // rdx
+  __int16 *v22; // rdx
   int v23; // ett
   int ActivityId; // [rsp+28h] [rbp-91h]
   int RelatedActivityId; // [rsp+30h] [rbp-89h]
@@ -59,13 +59,13 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, _
   v7 = a4;
   if ( (_DWORD)a4 == 2 )
   {
-    if ( (unsigned int)dword_140E07598 <= 5 )
+    if ( (unsigned int)dword_140E07560 <= 5 )
       goto LABEL_3;
-    LOBYTE(v5) = tlgKeywordOn(&dword_140E07598, 0x400000000000LL);
+    LOBYTE(v5) = tlgKeywordOn(&dword_140E07560, 0x400000000000LL);
     if ( !(_BYTE)v5 )
       goto LABEL_3;
     v41 = &v31;
-    v22 = byte_14004B3A1;
+    v22 = word_14004BACA;
     UserDataCount = 3;
   }
   else
@@ -82,14 +82,14 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, _
     while ( v23 != (_DWORD)v5 );
     if ( !(_DWORD)v5 )
       goto LABEL_3;
-    if ( (unsigned int)dword_140E07598 <= 5 )
+    if ( (unsigned int)dword_140E07560 <= 5 )
       goto LABEL_3;
-    LOBYTE(v5) = tlgKeywordOn(&dword_140E07598, 0x400000000000LL);
+    LOBYTE(v5) = tlgKeywordOn(&dword_140E07560, 0x400000000000LL);
     if ( !(_BYTE)v5 )
       goto LABEL_3;
     v32 = 0x1000000LL;
     v41 = &v31;
-    v22 = (char *)&byte_14004B3E0;
+    v22 = (__int16 *)&byte_14004BB09;
     v44 = 8LL;
     v43 = &v32;
     UserDataCount = 4;
@@ -97,7 +97,7 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, _
   v31 = v6;
   v42 = 4LL;
   LOBYTE(v5) = tlgWriteEx_EtwWriteEx(
-                 (int)&dword_140E07598,
+                 (int)&dword_140E07560,
                  (int)v22,
                  v21,
                  1,
@@ -106,13 +106,13 @@ char __fastcall PopDiagTraceFxDefaultPepWorkerEnd(__int64 a1, int a2, char a3, _
                  UserDataCount,
                  (__int64)v40);
 LABEL_3:
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    v10 = *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16];
+    v10 = PopDiagHandle;
     v11 = 256LL;
-    if ( *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] )
+    if ( PopDiagHandle )
     {
-      v12 = *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 32LL);
+      v12 = *(_QWORD *)(PopDiagHandle + 32);
       if ( *(_DWORD *)(v12 + 96) )
       {
         LOBYTE(v5) = *(_BYTE *)(v12 + 100);
@@ -127,22 +127,18 @@ LABEL_3:
           }
         }
       }
-      if ( *(_WORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 102LL) )
+      if ( *(_WORD *)(PopDiagHandle + 102) )
       {
         LOBYTE(v10) = 4;
-        LOBYTE(v5) = EtwpLevelKeywordEnabled(
-                       *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 40LL) + 96LL,
-                       v10,
-                       256LL,
-                       a4);
+        LOBYTE(v5) = EtwpLevelKeywordEnabled(*(_QWORD *)(PopDiagHandle + 40) + 96LL, v10, 256LL, a4);
         if ( (_BYTE)v5 )
           goto LABEL_29;
       }
     }
-    v13 = *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16];
-    if ( *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] )
+    v13 = PopDiagHandle;
+    if ( PopDiagHandle )
     {
-      v14 = *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 32LL);
+      v14 = *(_QWORD *)(PopDiagHandle + 32);
       if ( *(_DWORD *)(v14 + 96) )
       {
         v5 = *(unsigned int *)(v14 + 112);
@@ -154,31 +150,23 @@ LABEL_3:
             goto LABEL_29;
         }
       }
-      if ( *(_WORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 102LL) )
+      if ( *(_WORD *)(PopDiagHandle + 102) )
       {
         LOBYTE(v13) = 1;
-        LOBYTE(v5) = EtwpLevelKeywordEnabled(
-                       *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 40LL) + 96LL,
-                       v13,
-                       v11,
-                       a4);
+        LOBYTE(v5) = EtwpLevelKeywordEnabled(*(_QWORD *)(PopDiagHandle + 40) + 96LL, v13, v11, a4);
         if ( (_BYTE)v5 )
           goto LABEL_29;
       }
     }
-    v15 = *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16];
-    if ( *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] )
+    v15 = PopDiagHandle;
+    if ( PopDiagHandle )
     {
-      if ( (v16 = *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 32LL), *(_DWORD *)(v16 + 96))
+      if ( (v16 = *(_QWORD *)(PopDiagHandle + 32), *(_DWORD *)(v16 + 96))
         && (v5 = *(unsigned int *)(v16 + 112), (v5 & v11) != 0)
         && (v18 = *(_QWORD *)(v16 + 120), LOBYTE(v5) = v11 & v18, (v11 & v18) == v18)
-        || *(_WORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 102LL)
+        || *(_WORD *)(PopDiagHandle + 102)
         && (LOBYTE(v15) = 1,
-            LOBYTE(v5) = EtwpLevelKeywordEnabled(
-                           *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 40LL) + 96LL,
-                           v15,
-                           v11,
-                           a4),
+            LOBYTE(v5) = EtwpLevelKeywordEnabled(*(_QWORD *)(PopDiagHandle + 40) + 96LL, v15, v11, a4),
             (_BYTE)v5) )
       {
 LABEL_29:
@@ -210,12 +198,10 @@ LABEL_29:
         v35 = 1LL;
         v37 = 1LL;
         v39 = 1LL;
-        LOBYTE(v5) = EtwEventEnabled(
-                       *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                       &POP_ETW_EVENT_DEFAULT_PEP_WORKER_END);
+        LOBYTE(v5) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEFAULT_PEP_WORKER_END);
         if ( (_BYTE)v5 )
           LOBYTE(v5) = EtwWriteEx(
-                         *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
+                         PopDiagHandle,
                          &POP_ETW_EVENT_DEFAULT_PEP_WORKER_END,
                          0LL,
                          1u,
@@ -225,9 +211,7 @@ LABEL_29:
                          &UserData);
         if ( v7 == 2 )
         {
-          LOBYTE(v5) = EtwEventEnabled(
-                         *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                         &POP_ETW_EVENT_DEFAULT_PEP_WORKER_DEVICE_RECOVERED);
+          LOBYTE(v5) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEFAULT_PEP_WORKER_DEVICE_RECOVERED);
           if ( !(_BYTE)v5 )
             return v5;
           v20 = &POP_ETW_EVENT_DEFAULT_PEP_WORKER_DEVICE_RECOVERED;
@@ -235,22 +219,12 @@ LABEL_29:
         }
         if ( v7 == 3 )
         {
-          LOBYTE(v5) = EtwEventEnabled(
-                         *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                         &POP_ETW_EVENT_DEFAULT_PEP_WORKER_DEVICE_ORPHANED);
+          LOBYTE(v5) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DEFAULT_PEP_WORKER_DEVICE_ORPHANED);
           if ( (_BYTE)v5 )
           {
             v20 = &POP_ETW_EVENT_DEFAULT_PEP_WORKER_DEVICE_ORPHANED;
 LABEL_39:
-            LOBYTE(v5) = EtwWriteEx(
-                           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                           v20,
-                           0LL,
-                           1u,
-                           0LL,
-                           0LL,
-                           4u,
-                           &UserData);
+            LOBYTE(v5) = EtwWriteEx(PopDiagHandle, v20, 0LL, 1u, 0LL, 0LL, 4u, &UserData);
           }
         }
       }

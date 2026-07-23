@@ -6,20 +6,20 @@
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
  *     MiReleaseWsSwapReservationPfn @ 0x14021B4A4 (MiReleaseWsSwapReservationPfn.c)
  *     MiSetPfnKernelStack @ 0x14021B4D8 (MiSetPfnKernelStack.c)
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiPrefetchVirtualMemory @ 0x1402EE1C8 (MiPrefetchVirtualMemory.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFlushAllFilesystemPages @ 0x140629294 (MiFlushAllFilesystemPages.c)
- *     MiDeleteKernelStackNode @ 0x14062CCEC (MiDeleteKernelStackNode.c)
- *     MiKernelStackVaToStackNode @ 0x14062D23C (MiKernelStackVaToStackNode.c)
- *     MiLogKernelStackEvent @ 0x140644F04 (MiLogKernelStackEvent.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiPrefetchVirtualMemory @ 0x1402EE458 (MiPrefetchVirtualMemory.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiFlushAllFilesystemPages @ 0x1406297E4 (MiFlushAllFilesystemPages.c)
+ *     MiDeleteKernelStackNode @ 0x14062D23C (MiDeleteKernelStackNode.c)
+ *     MiKernelStackVaToStackNode @ 0x14062D78C (MiKernelStackVaToStackNode.c)
+ *     MiLogKernelStackEvent @ 0x140645454 (MiLogKernelStackEvent.c)
  */
 
 void *__fastcall MiInPageSingleKernelStack(ULONG_PTR a1, _QWORD *a2)
@@ -160,10 +160,13 @@ LABEL_12:
         if ( v22 == MI_READ_PTE_LOCK_FREE(v8) )
           break;
         _InterlockedAnd64((volatile signed __int64 *)(v23 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v24 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v24 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -181,10 +184,10 @@ LABEL_12:
       *(_BYTE *)(v23 + 35) = *(_BYTE *)(v23 + 35) & 0xF8 | 5;
       v25 = MiReleaseWsSwapReservationPfn(v23);
       _InterlockedAnd64((volatile signed __int64 *)(v23 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v33 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)v24 <= 0xFu && v33 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)v24 <= 0xFu && v33 >= 2u )
         {
           v34 = KeGetCurrentPrcb();
           v35 = v34->SchedulerAssist;

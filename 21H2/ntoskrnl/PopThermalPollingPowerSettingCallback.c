@@ -1,12 +1,12 @@
 /*
- * XREFs of PopThermalPollingPowerSettingCallback @ 0x1403CF970
+ * XREFs of PopThermalPollingPowerSettingCallback @ 0x1403CFAE0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     IoCancelIrp @ 0x1402BB2C0 (IoCancelIrp.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     IoCancelIrp @ 0x1402394D0 (IoCancelIrp.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 PopThermalPollingPowerSettingCallback()
@@ -16,7 +16,7 @@ __int64 PopThermalPollingPowerSettingCallback()
   PIRP i; // rbx
 
   PopAcquireRwLockExclusive((ULONG_PTR)&PopThermalLock);
-  v0 = !PopPdcIdleResiliency || dword_140C23E8C != 1;
+  v0 = !PopPdcIdleResiliency || dword_140C2332C != 1;
   if ( PopThermalPollingMode && PopThermalPollingWakesAllowed != v0 )
   {
     PopThermalPollingWakesAllowed = v0;

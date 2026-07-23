@@ -1,8 +1,8 @@
 /*
- * XREFs of MiVaRegionSessionSpecialPool @ 0x1401EC9AC
+ * XREFs of MiVaRegionSessionSpecialPool @ 0x1401EC7D8
  * Callers:
- *     MiExpandSpecialPool @ 0x1401EB618 (MiExpandSpecialPool.c)
- *     MiRemoveSpecialPoolRange @ 0x1401EB91C (MiRemoveSpecialPoolRange.c)
+ *     MiExpandSpecialPool @ 0x1401EB444 (MiExpandSpecialPool.c)
+ *     MiRemoveSpecialPoolRange @ 0x1401EB748 (MiRemoveSpecialPoolRange.c)
  * Callees:
  *     <none>
  */

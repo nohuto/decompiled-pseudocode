@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSelectIdealProcessor @ 0x1403B289C
+ * XREFs of KeSelectIdealProcessor @ 0x1403A10AC
  * Callers:
- *     KiSetAffinityThread @ 0x1403B1A08 (KiSetAffinityThread.c)
- *     KiReselectIdealProcessorAfterAffinityChange @ 0x1403B3584 (KiReselectIdealProcessorAfterAffinityChange.c)
- *     KeSelectInitialIdealProcessorForThread @ 0x1403B3DF4 (KeSelectInitialIdealProcessorForThread.c)
- *     ?KiAdaptThreadIdealProcessorForProcessIdealSetChange@@YAXPEAU_KPROCESS@@PEAU_KTHREAD@@PEAU_KAFFINITY_EX@@2PEAE3PEAK@Z @ 0x1404A5B9C (-KiAdaptThreadIdealProcessorForProcessIdealSetChange@@YAXPEAU_KPROCESS@@PEAU_KTHREAD@@PEAU_KAFFI.c)
- *     ExpWorkQueueManagerInitialize @ 0x1407C021C (ExpWorkQueueManagerInitialize.c)
- *     ExpNodeCreateSystemThread @ 0x140A2236C (ExpNodeCreateSystemThread.c)
+ *     KiSetAffinityThread @ 0x1403A0218 (KiSetAffinityThread.c)
+ *     KiReselectIdealProcessorAfterAffinityChange @ 0x1403A1D94 (KiReselectIdealProcessorAfterAffinityChange.c)
+ *     KeSelectInitialIdealProcessorForThread @ 0x1403A2604 (KeSelectInitialIdealProcessorForThread.c)
+ *     ?KiAdaptThreadIdealProcessorForProcessIdealSetChange@@YAXPEAU_KPROCESS@@PEAU_KTHREAD@@PEAU_KAFFINITY_EX@@2PEAE3PEAK@Z @ 0x1404A092C (-KiAdaptThreadIdealProcessorForProcessIdealSetChange@@YAXPEAU_KPROCESS@@PEAU_KTHREAD@@PEAU_KAFFI.c)
+ *     ExpWorkQueueManagerInitialize @ 0x1407C066C (ExpWorkQueueManagerInitialize.c)
+ *     ExpNodeCreateSystemThread @ 0x1408F8B1C (ExpNodeCreateSystemThread.c)
  * Callees:
  *     <none>
  */
@@ -88,7 +88,7 @@ __int64 __fastcall KeSelectIdealProcessor(__int64 a1, _WORD *a2, __int64 a3, uns
     }
     else
     {
-      v21 = *((_DWORD *)qword_140F21E78 + 64 * v20 + (unsigned __int8)v19);
+      v21 = *((_DWORD *)qword_140F22998 + 64 * v20 + (unsigned __int8)v19);
       if ( !v21 )
         LOWORD(v21) = -1;
       return (unsigned __int16)v21;

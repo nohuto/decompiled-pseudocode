@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpGetObjectRefInfo @ 0x140744D80
+ * XREFs of ObpGetObjectRefInfo @ 0x140743070
  * Callers:
- *     ObpPushRefDerefInfo @ 0x140745228 (ObpPushRefDerefInfo.c)
- *     ObpRegisterObject @ 0x140AB735C (ObpRegisterObject.c)
+ *     ObpPushRefDerefInfo @ 0x140743518 (ObpPushRefDerefInfo.c)
+ *     ObpRegisterObject @ 0x140AB162C (ObpRegisterObject.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpGetObjectRefInfo(__int64 a1, unsigned __int16 **a2)
@@ -16,6 +16,7 @@ __int64 __fastcall ObpGetObjectRefInfo(__int64 a1, unsigned __int16 **a2)
   unsigned __int16 *v5; // rsi
   unsigned __int16 *i; // rbx
   unsigned __int16 *v7; // rdi
+  __int64 v8; // rax
 
   v3 = (((unsigned int)(a1 + 48) >> 4) & 0xFFFFF) % 0x191;
   v4 = (unsigned int)v3;
@@ -25,9 +26,10 @@ __int64 __fastcall ObpGetObjectRefInfo(__int64 a1, unsigned __int16 **a2)
     v7 = i;
     if ( *(_QWORD *)i == a1 )
     {
-      if ( i[16] == i[17] )
+      v8 = i[17];
+      if ( i[16] == (_WORD)v8 )
       {
-        i = (unsigned __int16 *)ExAllocatePool2(0x40uLL);
+        i = (unsigned __int16 *)ExAllocatePool2(0x40uLL, 12 * v8 + 6184, 0x7452624Fu);
         if ( !i )
           return 3221225495LL;
         memmove(i, v7, 12LL * v7[16] + 40);

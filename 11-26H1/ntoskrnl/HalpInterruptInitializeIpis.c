@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptInitializeIpis @ 0x14057F394
+ * XREFs of HalpInterruptInitializeIpis @ 0x1405818B4
  * Callers:
- *     HalpInitializeInterruptsPn @ 0x14057D1EC (HalpInitializeInterruptsPn.c)
- *     HalpInitializeInterrupts @ 0x140CADD98 (HalpInitializeInterrupts.c)
+ *     HalpInitializeInterruptsPn @ 0x14057F70C (HalpInitializeInterruptsPn.c)
+ *     HalpInitializeInterrupts @ 0x140CB3DD8 (HalpInitializeInterrupts.c)
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1404289E0 (KeGetProcessorNumberFromIndex.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140202CC0 (KeGetProcessorNumberFromIndex.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 NTSTATUS HalpInterruptInitializeIpis()
@@ -29,7 +29,7 @@ NTSTATUS HalpInterruptInitializeIpis()
   unsigned __int16 Group; // ax
   __int64 v15; // rcx
   __int64 v16; // rax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
 
   ProcNumber = 0;
   if ( HalpInterruptIpiLines )
@@ -104,9 +104,7 @@ LABEL_11:
             *(_WORD *)(v13 + 16) = Group;
           }
           v16 = *(_QWORD *)(v13 + 8);
-          _bittestandset64(
-            &v16,
-            *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * i) & 0x3F);
+          _bittestandset64(&v16, *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + i) & 0x3F);
           *(_QWORD *)(v13 + 8) = v16;
         }
       }

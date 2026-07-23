@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpTransGetTransPtr @ 0x140872D9C
+ * XREFs of CmpTransGetTransPtr @ 0x140872EFC
  * Callers:
- *     CmpTransIsTransActive @ 0x1404ECA5C (CmpTransIsTransActive.c)
+ *     CmpTransIsTransActive @ 0x1404ECC9C (CmpTransIsTransActive.c)
  * Callees:
  *     <none>
  */

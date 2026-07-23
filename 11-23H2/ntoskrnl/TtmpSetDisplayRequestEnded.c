@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpSetDisplayRequestEnded @ 0x1409A5B60
+ * XREFs of TtmpSetDisplayRequestEnded @ 0x1409A5D60
  * Callers:
- *     TtmpUpdateDisplayRequiredPowerRequest @ 0x1409A5D4C (TtmpUpdateDisplayRequiredPowerRequest.c)
+ *     TtmpUpdateDisplayRequiredPowerRequest @ 0x1409A5F4C (TtmpUpdateDisplayRequiredPowerRequest.c)
  * Callees:
- *     TtmiScheduleSessionWorker @ 0x1409A4AA4 (TtmiScheduleSessionWorker.c)
- *     TtmpFindPowerRequestEntryById @ 0x1409A5298 (TtmpFindPowerRequestEntryById.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
- *     TtmiGetTerminalById @ 0x1409AB060 (TtmiGetTerminalById.c)
+ *     TtmiScheduleSessionWorker @ 0x1409A4CA4 (TtmiScheduleSessionWorker.c)
+ *     TtmpFindPowerRequestEntryById @ 0x1409A5498 (TtmpFindPowerRequestEntryById.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
+ *     TtmiGetTerminalById @ 0x1409AB260 (TtmiGetTerminalById.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

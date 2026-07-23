@@ -1,13 +1,13 @@
 /*
- * XREFs of KeQueryWakeSource @ 0x1405146AC
+ * XREFs of KeQueryWakeSource @ 0x1405148EC
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1402C6DB0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiGetPastDueIRTimerInfo @ 0x140523A74 (KiGetPastDueIRTimerInfo.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiGetPastDueIRTimerInfo @ 0x140523CB4 (KiGetPastDueIRTimerInfo.c)
  */
 
 __int64 __fastcall KeQueryWakeSource(int *a1, _BYTE *a2)
@@ -26,15 +26,15 @@ __int64 __fastcall KeQueryWakeSource(int *a1, _BYTE *a2)
   _DWORD *v15; // r8
   int v16; // eax
   bool v17; // zf
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   int v19; // r10d
   unsigned int v20; // [rsp+20h] [rbp-10h] BYREF
-  LARGE_INTEGER v21; // [rsp+28h] [rbp-8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+28h] [rbp-8h] BYREF
   char v22; // [rsp+60h] [rbp+30h] BYREF
   char v23; // [rsp+68h] [rbp+38h] BYREF
 
   v20 = 0;
-  v21.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v22 = 0;
   v23 = 0;
   memset(a2, 0, 0x88uLL);
@@ -96,8 +96,11 @@ __int64 __fastcall KeQueryWakeSource(int *a1, _BYTE *a2)
     }
     else
     {
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v21);
-      if ( (unsigned int)KiGetPastDueIRTimerInfo(InterruptTimePrecise, &v22, &v23) )
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+      if ( (unsigned int)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))KiGetPastDueIRTimerInfo)(
+                           (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+                           &v22,
+                           &v23) )
       {
         v19 = 6;
         *a2 = v22;

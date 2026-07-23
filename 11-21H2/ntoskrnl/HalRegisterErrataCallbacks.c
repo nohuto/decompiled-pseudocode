@@ -1,7 +1,7 @@
 /*
  * XREFs of HalRegisterErrataCallbacks @ 0x140B0B970
  * Callers:
- *     EmInitSystem @ 0x140B0B630 (EmInitSystem.c)
+ *     sub_140B0B630 @ 0x140B0B630 (sub_140B0B630.c)
  * Callees:
  *     EmpProviderRegister @ 0x14082D070 (EmpProviderRegister.c)
  */

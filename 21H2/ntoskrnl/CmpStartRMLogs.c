@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpStartRMLogs @ 0x140767364
+ * XREFs of CmpStartRMLogs @ 0x140767524
  * Callers:
- *     CmpTransInitializeTransaction @ 0x1407670BC (CmpTransInitializeTransaction.c)
+ *     CmpTransInitializeTransaction @ 0x14076727C (CmpTransInitializeTransaction.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     CmpLockRegistryFreezeAware @ 0x1406726F0 (CmpLockRegistryFreezeAware.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpUuidCreate @ 0x1407167B4 (CmpUuidCreate.c)
- *     CmpStartRMLog @ 0x14077D4E4 (CmpStartRMLog.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     CmpLockRegistryFreezeAware @ 0x140667920 (CmpLockRegistryFreezeAware.c)
+ *     CmpUuidCreate @ 0x1406C4E04 (CmpUuidCreate.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpStartRMLog @ 0x14077D6A4 (CmpStartRMLog.c)
  */
 
 __int64 __fastcall CmpStartRMLogs(__int64 a1)

@@ -10,46 +10,41 @@
  *     sub_18006E3A0 @ 0x18006E3A0 (sub_18006E3A0.c)
  */
 
-__int64 __fastcall RtlGetProcessPreferredUILanguages(int a1, int *a2, _DWORD *a3, _DWORD *a4)
+NTSTATUS __cdecl RtlGetProcessPreferredUILanguages(
+        ULONG Flags,
+        PULONG NumberOfLanguages,
+        PZZWSTR Languages,
+        PULONG ReturnLength)
 {
   unsigned __int8 v7; // bl
-  __int64 result; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rsi
-  unsigned int v14; // ebx
-  __int64 v15; // [rsp+78h] [rbp+20h] BYREF
+  NTSTATUS result; // eax
+  __int64 v9; // rsi
+  NTSTATUS v10; // ebx
+  __int64 v11; // [rsp+78h] [rbp+20h] BYREF
 
-  v15 = 0LL;
-  v7 = a1;
-  if ( !a4 || !a2 || !a3 && *a4 )
-    return 3221225485LL;
-  if ( !a1 )
+  v11 = 0LL;
+  v7 = Flags;
+  if ( !ReturnLength || !NumberOfLanguages || !Languages && *ReturnLength )
+    return -1073741811;
+  if ( !Flags )
   {
     v7 = 8;
     goto LABEL_8;
   }
-  if ( (a1 & 0xFFFFFFF3) != 0 || (a1 & 0xC) == 12 )
-    return 3221225485LL;
+  if ( (Flags & 0xFFFFFFF3) != 0 || (Flags & 0xC) == 12 )
+    return -1073741811;
 LABEL_8:
-  result = RtlpCreateProcessRegistryInfo(&v15);
-  if ( (int)result >= 0 )
+  result = RtlpCreateProcessRegistryInfo(&v11);
+  if ( result >= 0 )
   {
-    v13 = v15;
-    if ( *(_QWORD *)(v15 + 72) )
-    {
-      sub_18006E3A0(v10, v9, v11, v12);
-      RtlEnterCriticalSection((__int64)&unk_180159BA0);
-      v14 = sub_180040E28(*(_QWORD *)(v13 + 72), v13, a3, a4, v7, 0, a2);
-      RtlLeaveCriticalSection((__int64)&unk_180159BA0);
-    }
-    else
-    {
-      return (unsigned int)sub_180040E28(0LL, v15, a3, a4, v7, 0, a2);
-    }
-    return v14;
+    v9 = v11;
+    if ( !*(_QWORD *)(v11 + 72) )
+      return sub_180040E28(0LL, v11, Languages, ReturnLength, v7, 0, (int *)NumberOfLanguages);
+    sub_18006E3A0();
+    RtlEnterCriticalSection(&stru_180159BA0);
+    v10 = sub_180040E28(*(_QWORD *)(v9 + 72), v9, Languages, ReturnLength, v7, 0, (int *)NumberOfLanguages);
+    RtlLeaveCriticalSection(&stru_180159BA0);
+    return v10;
   }
   return result;
 }

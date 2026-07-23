@@ -1,12 +1,12 @@
 /*
- * XREFs of SepInitializeSingletonAttributesStructures @ 0x140C3AED4
+ * XREFs of SepInitializeSingletonAttributesStructures @ 0x140C3D02C
  * Callers:
- *     SepInitializationPhase1 @ 0x14078EEE0 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x14078EEB0 (SepInitializationPhase1.c)
  * Callees:
- *     RtlpCreateHashTable @ 0x140481260 (RtlpCreateHashTable.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlpCreateHashTable @ 0x14047C520 (RtlpCreateHashTable.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 SepInitializeSingletonAttributesStructures()

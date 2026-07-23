@@ -12,7 +12,7 @@
  *     RtlBeginReadTickLock @ 0x1400AB028 (RtlBeginReadTickLock.c)
  */
 
-__int64 RtlGetSystemTimePrecise()
+LARGE_INTEGER RtlGetSystemTimePrecise(void)
 {
   __int64 TickLock; // rax
   unsigned __int64 v1; // rbp
@@ -47,5 +47,5 @@ __int64 RtlGetSystemTimePrecise()
       v10 <<= v5;
     v9 = ((unsigned __int64)v10 * (unsigned __int128)v2) >> 64;
   }
-  return v7 + v9;
+  return (LARGE_INTEGER)(v7 + v9);
 }

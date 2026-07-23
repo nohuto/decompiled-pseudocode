@@ -1,15 +1,15 @@
 /*
- * XREFs of PopSleepstudyCaptureSessionStatistics @ 0x140878564
+ * XREFs of PopSleepstudyCaptureSessionStatistics @ 0x1408787A4
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140878644 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyStartNextSession @ 0x140878884 (PopSleepstudyStartNextSession.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopCaptureSleepStudyStatistics @ 0x1403C7F00 (PopCaptureSleepStudyStatistics.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SshSessionManagerTraceCsEnterReason @ 0x1408783D8 (SshSessionManagerTraceCsEnterReason.c)
- *     SshSessionManagerTraceCsExitReason @ 0x1409A17DC (SshSessionManagerTraceCsExitReason.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C80E0 (PopCaptureSleepStudyStatistics.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SshSessionManagerTraceCsEnterReason @ 0x140878618 (SshSessionManagerTraceCsEnterReason.c)
+ *     SshSessionManagerTraceCsExitReason @ 0x1409A19DC (SshSessionManagerTraceCsExitReason.c)
  */
 
 struct _KTHREAD *__fastcall PopSleepstudyCaptureSessionStatistics(
@@ -35,7 +35,7 @@ struct _KTHREAD *__fastcall PopSleepstudyCaptureSessionStatistics(
     v8 = a2[1] - *(_QWORD *)NullGuid.Data4;
   if ( v8 )
   {
-    SshSessionManagerTraceCsEnterReason((__int64)&unk_140C3BCD0 + 104 * (unsigned int)dword_140C3BCC8);
+    SshSessionManagerTraceCsEnterReason((__int64)&unk_140C3BC90 + 104 * (unsigned int)dword_140C3BC88);
     goto LABEL_5;
   }
   v10 = 0LL;
@@ -43,7 +43,7 @@ struct _KTHREAD *__fastcall PopSleepstudyCaptureSessionStatistics(
   v12 = 1;
   while ( 1 )
   {
-    v13 = (char *)&unk_140C3BCD0 + 104 * (((unsigned __int8)dword_140C3BCC8 - (unsigned __int8)v12) & 7);
+    v13 = (char *)&unk_140C3BC90 + 104 * (((unsigned __int8)dword_140C3BC88 - (unsigned __int8)v12) & 7);
     v14 = (*((_QWORD *)v13 + 3) - *((_QWORD *)v13 + 2)) / 0xAuLL;
     if ( *(_DWORD *)v13 != 2 )
       break;
@@ -67,7 +67,7 @@ LABEL_11:
   *((_DWORD *)a5 + 73) = *((_DWORD *)v13 + 11);
   *((_DWORD *)a5 + 75) = *((_DWORD *)v13 + 13);
 LABEL_12:
-  v15 = (_DWORD *)((char *)&unk_140C3BCD0 + 104 * (unsigned int)dword_140C3BCC8);
+  v15 = (_DWORD *)((char *)&unk_140C3BC90 + 104 * (unsigned int)dword_140C3BC88);
   SshSessionManagerTraceCsExitReason(v10, v11, v15);
   if ( *v15 == 3 && qword_140C6AFB8 )
     qword_140C6AFB8();

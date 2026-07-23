@@ -1,12 +1,12 @@
 /*
- * XREFs of MiObtainSystemCharges @ 0x14033AAF0
+ * XREFs of MiObtainSystemCharges @ 0x14033CB70
  * Callers:
- *     MiGetPageTablePages @ 0x140339E00 (MiGetPageTablePages.c)
- *     MiGetLargePagesForSystemMapping @ 0x140B4CC00 (MiGetLargePagesForSystemMapping.c)
+ *     MiGetPageTablePages @ 0x14033BE80 (MiGetPageTablePages.c)
+ *     MiGetLargePagesForSystemMapping @ 0x140B4E990 (MiGetLargePagesForSystemMapping.c)
  * Callees:
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiChargeResident @ 0x1403185A0 (MiChargeResident.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x14031A5D0 (MiChargeResident.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
  */
 
 __int64 __fastcall MiObtainSystemCharges(ULONG *a1, unsigned __int64 a2, int a3)
@@ -26,9 +26,9 @@ __int64 __fastcall MiObtainSystemCharges(ULONG *a1, unsigned __int64 a2, int a3)
   if ( a3 != 1 )
   {
     if ( a3 == 3 )
-      _InterlockedAdd64((volatile signed __int64 *)&stru_140E36558.WaitBlock[0].Thread, a2);
+      _InterlockedAdd64((volatile signed __int64 *)&stru_140E366D8.WaitBlock[0].Thread, a2);
     else
-      _InterlockedAdd64((volatile signed __int64 *)&stru_140E36558.WaitBlock[0].WaitListEntry.Blink, a2);
+      _InterlockedAdd64((volatile signed __int64 *)&stru_140E366D8.WaitBlock[0].WaitListEntry.Blink, a2);
   }
   return 1LL;
 }

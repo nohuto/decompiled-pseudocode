@@ -1,7 +1,7 @@
 /*
- * XREFs of PiCMConvertDeviceKeyType @ 0x140AA1D4C
+ * XREFs of PiCMConvertDeviceKeyType @ 0x140AA3810
  * Callers:
- *     PiCMDeleteDeviceKey @ 0x140B66CDC (PiCMDeleteDeviceKey.c)
+ *     PiCMDeleteDeviceKey @ 0x140B69C68 (PiCMDeleteDeviceKey.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogQueueHandleOpened @ 0x140884964
+ * XREFs of TtmiLogQueueHandleOpened @ 0x140885BC4
  * Callers:
- *     TtmpOpenQueueHandle @ 0x140882820 (TtmpOpenQueueHandle.c)
+ *     TtmpOpenQueueHandle @ 0x140883A80 (TtmpOpenQueueHandle.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void TtmiLogQueueHandleOpened()
@@ -24,9 +24,9 @@ void TtmiLogQueueHandleOpened()
   int *v11; // [rsp+90h] [rbp+37h]
   __int64 v12; // [rsp+98h] [rbp+3Fh]
 
-  if ( stru_14096D820.LevelPlus1 > 5 )
+  if ( stru_14096E820.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_14096D820, 1uLL) )
+    if ( TlgKeywordOn(&stru_14096E820, 1uLL) )
     {
       v4 = v2;
       v7 = &v4;
@@ -37,7 +37,7 @@ void TtmiLogQueueHandleOpened()
       v8 = 8LL;
       v10 = 8LL;
       v12 = 4LL;
-      TlgWrite(&stru_14096D820, &unk_140371A9D, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_14096E820, &unk_140372972, 0LL, 0LL, 5u, &pData);
     }
   }
 }

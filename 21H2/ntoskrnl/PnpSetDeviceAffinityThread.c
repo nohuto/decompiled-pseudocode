@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpSetDeviceAffinityThread @ 0x140361E70
+ * XREFs of PnpSetDeviceAffinityThread @ 0x1402F7538
  * Callers:
- *     PnpSendIrp @ 0x140361DC8 (PnpSendIrp.c)
- *     PnpCallAddDevice @ 0x14073E92C (PnpCallAddDevice.c)
+ *     PnpSendIrp @ 0x1402F7490 (PnpSendIrp.c)
+ *     PnpCallAddDevice @ 0x14073EAEC (PnpCallAddDevice.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     KeAndGroupAffinityEx @ 0x1403746A0 (KeAndGroupAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402942D0 (KeQueryNodeActiveAffinity.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     KeAndGroupAffinityEx @ 0x1403741F0 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall PnpSetDeviceAffinityThread(__int64 a1, struct _GROUP_AFFINITY *a2)
+__int64 __fastcall PnpSetDeviceAffinityThread(__int64 a1, _GROUP_AFFINITY *a2)
 {
   unsigned int v3; // r8d
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-28h] BYREF
 
   Affinity = 0LL;
   if ( a1 )

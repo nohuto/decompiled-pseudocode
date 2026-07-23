@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptIsMsiSupported @ 0x1404B778C
+ * XREFs of HalpInterruptIsMsiSupported @ 0x1404B1F6C
  * Callers:
- *     HalGetInterruptTargetInformation @ 0x1404B7620 (HalGetInterruptTargetInformation.c)
- *     HalpTimerConfigureInterrupt @ 0x140547380 (HalpTimerConfigureInterrupt.c)
- *     HalpIommuConfigureInterrupt @ 0x140552024 (HalpIommuConfigureInterrupt.c)
+ *     HalGetInterruptTargetInformation @ 0x1404B1E00 (HalGetInterruptTargetInformation.c)
+ *     HalpTimerConfigureInterrupt @ 0x140544C40 (HalpTimerConfigureInterrupt.c)
+ *     HalpIommuConfigureInterrupt @ 0x14054F964 (HalpIommuConfigureInterrupt.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x14048CB70 (HalpGetCpuInfo.c)
- *     EmClientQueryRuleState @ 0x140B682E0 (EmClientQueryRuleState.c)
+ *     HalpGetCpuInfo @ 0x140487890 (HalpGetCpuInfo.c)
+ *     EmClientQueryRuleState @ 0x140B6A420 (EmClientQueryRuleState.c)
  */
 
 char __fastcall HalpInterruptIsMsiSupported(char a1)

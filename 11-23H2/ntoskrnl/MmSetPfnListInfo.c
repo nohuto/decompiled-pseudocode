@@ -1,24 +1,24 @@
 /*
- * XREFs of MmSetPfnListInfo @ 0x14038C2D0
+ * XREFs of MmSetPfnListInfo @ 0x14038C4B0
  * Callers:
- *     PfpPfnPrioRequest @ 0x14075DD48 (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x14075DF38 (PfpPfnPrioRequest.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiIdentifyPfn @ 0x14023E4C0 (MiIdentifyPfn.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiRelinkStandbyPage @ 0x14025A760 (MiRelinkStandbyPage.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     MiColdPageSizeSupported @ 0x140347930 (MiColdPageSizeSupported.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiAddPageToHeatRanges @ 0x140653CF4 (MiAddPageToHeatRanges.c)
- *     MiNotifyPageHeat @ 0x1406545FC (MiNotifyPageHeat.c)
- *     MiSetActivePfnHeat @ 0x1406548B8 (MiSetActivePfnHeat.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MiIdentifyPfn @ 0x14023E590 (MiIdentifyPfn.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiRelinkStandbyPage @ 0x14025A9F0 (MiRelinkStandbyPage.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     MiColdPageSizeSupported @ 0x140347BC0 (MiColdPageSizeSupported.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiAddPageToHeatRanges @ 0x140654244 (MiAddPageToHeatRanges.c)
+ *     MiNotifyPageHeat @ 0x140654B4C (MiNotifyPageHeat.c)
+ *     MiSetActivePfnHeat @ 0x140654E08 (MiSetActivePfnHeat.c)
  */
 
 __int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 *a2, int a3)
@@ -137,7 +137,7 @@ __int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 *a2, int a3)
         *((_QWORD *)&v50 + 1) = v17;
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           v27 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 2 )
@@ -178,10 +178,10 @@ __int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 *a2, int a3)
                     *(_BYTE *)(v18 + 35) = v23 | v22 & 0xF8;
                 }
                 _InterlockedAnd64((volatile signed __int64 *)(v18 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   v31 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
                   {
                     v32 = KeGetCurrentPrcb();
                     v33 = v32->SchedulerAssist;
@@ -208,7 +208,7 @@ __int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 *a2, int a3)
                 {
                   MiSetActivePfnHeat(v18, 1LL);
                   _InterlockedAnd64((volatile signed __int64 *)(v18 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     v38 = KeGetCurrentIrql();
                     if ( ((unsigned __int8)KiIrqlFlags & v37) != 0 && v38 <= 0xFu && CurrentIrql <= 0xFu && v38 >= 2u )
@@ -232,10 +232,10 @@ __int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 *a2, int a3)
           }
         }
         _InterlockedAnd64((volatile signed __int64 *)(v18 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v42 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v42 <= 0xFu && CurrentIrql <= 0xFu && v42 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v42 <= 0xFu && CurrentIrql <= 0xFu && v42 >= 2u )
           {
             v43 = KeGetCurrentPrcb();
             v44 = v43->SchedulerAssist;

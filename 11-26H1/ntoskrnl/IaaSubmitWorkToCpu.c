@@ -1,11 +1,11 @@
 /*
- * XREFs of IaaSubmitWorkToCpu @ 0x1406E1748
+ * XREFs of IaaSubmitWorkToCpu @ 0x1406E59C8
  * Callers:
- *     AccelpSiovInternalOperationHandler @ 0x140511B88 (AccelpSiovInternalOperationHandler.c)
+ *     AccelpSiovInternalOperationHandler @ 0x14050B5F8 (AccelpSiovInternalOperationHandler.c)
  * Callees:
- *     RtlDecompressBufferEx @ 0x14046A3B0 (RtlDecompressBufferEx.c)
- *     RtlCompressBuffer @ 0x14046A480 (RtlCompressBuffer.c)
- *     crc32 @ 0x1404843B4 (crc32.c)
+ *     RtlDecompressBufferEx @ 0x140463B30 (RtlDecompressBufferEx.c)
+ *     RtlCompressBuffer @ 0x140463C00 (RtlCompressBuffer.c)
+ *     crc32 @ 0x14047DD24 (crc32.c)
  */
 
 __int64 __fastcall IaaSubmitWorkToCpu(__int64 a1, char *a2, __int64 a3)
@@ -21,13 +21,13 @@ __int64 __fastcall IaaSubmitWorkToCpu(__int64 a1, char *a2, __int64 a3)
   char v13; // cl
   ULONG v14; // r8d
   __int64 v15; // rdx
-  unsigned __int8 v16; // cl
+  USHORT v16; // cx
   char v17; // al
   char v18; // al
-  ULONG FinalCompressedSize; // [rsp+50h] [rbp+8h] BYREF
+  ULONG FinalUncompressedSize; // [rsp+50h] [rbp+8h] BYREF
 
   v5 = *a2 & 0xC1;
-  FinalCompressedSize = 0;
+  FinalUncompressedSize = 0;
   v6 = v5 | 1;
   v7 = 0;
   *a2 = v6;
@@ -65,7 +65,7 @@ __int64 __fastcall IaaSubmitWorkToCpu(__int64 a1, char *a2, __int64 a3)
                 *(PUCHAR *)(a1 + 24),
                 *(_DWORD *)(a1 + 48),
                 0x1000u,
-                &FinalCompressedSize,
+                &FinalUncompressedSize,
                 *(PVOID *)(a3 + 64));
         v13 = *a2;
         v7 = v12;
@@ -82,7 +82,7 @@ __int64 __fastcall IaaSubmitWorkToCpu(__int64 a1, char *a2, __int64 a3)
           }
           return v7;
         }
-        *((_DWORD *)a2 + 6) = FinalCompressedSize;
+        *((_DWORD *)a2 + 6) = FinalUncompressedSize;
         *a2 = v13 & 0xC0 | 1;
         v14 = *(_DWORD *)(a1 + 32);
         v15 = *(_QWORD *)(a1 + 16);
@@ -102,12 +102,19 @@ LABEL_16:
       {
         v16 = 0;
       }
-      v7 = RtlDecompressBufferEx(v16, *(_QWORD *)(a1 + 24), *(_DWORD *)(a1 + 48));
+      v7 = RtlDecompressBufferEx(
+             v16,
+             *(PUCHAR *)(a1 + 24),
+             *(_DWORD *)(a1 + 48),
+             *(PUCHAR *)(a1 + 16),
+             *(_DWORD *)(a1 + 32),
+             &FinalUncompressedSize,
+             *(PVOID *)(a3 + 64));
       v17 = *a2;
       if ( (v7 & 0x80000000) == 0 )
       {
-        v14 = FinalCompressedSize;
-        *((_DWORD *)a2 + 6) = FinalCompressedSize;
+        v14 = FinalUncompressedSize;
+        *((_DWORD *)a2 + 6) = FinalUncompressedSize;
         *a2 = v17 & 0xC0 | 1;
         v15 = *(_QWORD *)(a1 + 24);
         goto LABEL_16;

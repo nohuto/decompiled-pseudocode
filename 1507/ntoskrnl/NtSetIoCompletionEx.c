@@ -8,19 +8,37 @@
  *     ObReferenceObjectByHandle @ 0x140496770 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtSetIoCompletionEx(void *a1, void *a2, __int64 a3, __int64 a4, int a5, __int64 a6)
+NTSTATUS __cdecl NtSetIoCompletionEx(
+        HANDLE IoCompletionHandle,
+        HANDLE IoCompletionPacketHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation)
 {
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   signed __int32 v10; // eax
   PVOID v11; // rdi
   _DWORD *v12; // rsi
   PVOID v14; // [rsp+40h] [rbp-18h] BYREF
   PVOID Object; // [rsp+48h] [rbp-10h] BYREF
 
-  v9 = ObReferenceObjectByHandle(a1, 2u, IoCompletionObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  v9 = ObReferenceObjectByHandle(
+         IoCompletionHandle,
+         2u,
+         IoCompletionObjectType,
+         KeGetCurrentThread()->PreviousMode,
+         &Object,
+         0LL);
   if ( v9 < 0 )
-    return (unsigned int)v9;
-  v9 = ObReferenceObjectByHandle(a2, 2u, ObjectType, KeGetCurrentThread()->PreviousMode, &v14, 0LL);
+    return v9;
+  v9 = ObReferenceObjectByHandle(
+         IoCompletionPacketHandle,
+         2u,
+         ObjectType,
+         KeGetCurrentThread()->PreviousMode,
+         &v14,
+         0LL);
   if ( v9 < 0 )
   {
     v11 = Object;
@@ -35,7 +53,14 @@ __int64 __fastcall NtSetIoCompletionEx(void *a1, void *a2, __int64 a3, __int64 a
       v9 = -1073741584;
       goto LABEL_7;
     }
-    v9 = IoSetIoCompletionEx((__int64)Object, a3, a4, a5, a6, 0, (__int64)v14 + 8);
+    v9 = IoSetIoCompletionEx(
+           (__int64)Object,
+           (__int64)KeyContext,
+           (__int64)ApcContext,
+           IoStatus,
+           IoStatusInformation,
+           0,
+           (__int64)v14 + 8);
     if ( v9 < 0 )
     {
       *v12 = 0;
@@ -46,5 +71,5 @@ LABEL_7:
   }
   if ( v11 )
     ObfDereferenceObject(v11);
-  return (unsigned int)v9;
+  return v9;
 }

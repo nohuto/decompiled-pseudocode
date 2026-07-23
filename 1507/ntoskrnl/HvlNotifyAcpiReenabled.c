@@ -10,24 +10,24 @@
 __int64 HvlNotifyAcpiReenabled()
 {
   char v0; // si
-  union _SLIST_HEADER *CurrentPrcb; // rbx
-  struct _SLIST_ENTRY *HypercallCachedPages; // rax
+  _SLIST_HEADER *CurrentPrcb; // rbx
+  _SLIST_ENTRY *HypercallCachedPages; // rax
   _SLIST_ENTRY *Next; // rbp
-  struct _SLIST_ENTRY *v4; // r14
+  _SLIST_ENTRY *v4; // r14
   char v5; // di
   __int16 v6; // ax
   unsigned int v7; // r15d
   bool v8; // zf
   __int64 v9; // rax
   struct _KPRCB *v10; // rcx
-  union _SLIST_HEADER *v12; // [rsp+28h] [rbp-40h]
-  struct _SLIST_ENTRY *v13; // [rsp+30h] [rbp-38h]
+  _SLIST_HEADER *v12; // [rsp+28h] [rbp-40h]
+  _SLIST_ENTRY *v13; // [rsp+30h] [rbp-38h]
   _SLIST_ENTRY *v14; // [rsp+38h] [rbp-30h]
   __int16 v15; // [rsp+60h] [rbp-8h]
 
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     HypercallCachedPages = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     if ( HypercallCachedPages )
     {
@@ -44,7 +44,7 @@ __int64 HvlNotifyAcpiReenabled()
     Next = v14;
     LOBYTE(CurrentPrcb) = (v6 & 0x200) != 0;
     LOBYTE(v12) = (_BYTE)CurrentPrcb;
-    HypercallCachedPages = (struct _SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
+    HypercallCachedPages = (_SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
   }
   else
   {
@@ -53,7 +53,7 @@ __int64 HvlNotifyAcpiReenabled()
     _disable();
     LOBYTE(CurrentPrcb) = ((unsigned __int16)CurrentPrcb & 0x200) != 0;
     LOBYTE(v12) = (_BYTE)CurrentPrcb;
-    HypercallCachedPages = (struct _SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
+    HypercallCachedPages = (_SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
     Next = HypercallCachedPages[1].Next;
   }
   v4 = v13;

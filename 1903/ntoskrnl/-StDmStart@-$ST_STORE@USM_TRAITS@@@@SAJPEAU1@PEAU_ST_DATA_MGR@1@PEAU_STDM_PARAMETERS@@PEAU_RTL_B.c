@@ -20,7 +20,7 @@ NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *
   __int64 v11; // rcx
   int v12; // eax
   PVOID PoolWithTag; // rax
-  struct _RTL_BITMAP *v14; // rcx
+  _RTL_BITMAP *v14; // rcx
   PVOID v15; // rdx
   __int64 v16; // rsi
   int v17; // eax
@@ -62,14 +62,14 @@ NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *
                     0x74536D73u);
     if ( !PoolWithTag )
       return -1073741670;
-    v14 = (struct _RTL_BITMAP *)(a2 + 840);
+    v14 = (_RTL_BITMAP *)(a2 + 840);
     *(_DWORD *)(a2 + 840) = *(_DWORD *)(a1 + 12);
     *(_QWORD *)(a2 + 848) = PoolWithTag;
     v12 = *(_DWORD *)(a2 + 776);
   }
   else
   {
-    v14 = (struct _RTL_BITMAP *)(a2 + 840);
+    v14 = (_RTL_BITMAP *)(a2 + 840);
   }
   if ( (v12 & 0x40000) != 0 )
     RtlSetAllBits(v14);

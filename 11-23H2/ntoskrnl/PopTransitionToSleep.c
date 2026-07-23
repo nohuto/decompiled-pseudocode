@@ -1,18 +1,18 @@
 /*
- * XREFs of PopTransitionToSleep @ 0x140AA5340
+ * XREFs of PopTransitionToSleep @ 0x140AA51B0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     PopDiagTraceEventNoPayload @ 0x140367640 (PopDiagTraceEventNoPayload.c)
- *     MmEmptyAllWorkingSets @ 0x140635650 (MmEmptyAllWorkingSets.c)
- *     MmTrimFilePagesFromWorkingSets @ 0x14063569C (MmTrimFilePagesFromWorkingSets.c)
- *     MmFlushAllPagesEx @ 0x14063BCC8 (MmFlushAllPagesEx.c)
- *     PopEnlargeHiberFile @ 0x140988550 (PopEnlargeHiberFile.c)
- *     PopInvokeSystemStateHandler @ 0x140AA859C (PopInvokeSystemStateHandler.c)
- *     MmDuplicateMemory @ 0x140AAC84C (MmDuplicateMemory.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     PopDiagTraceEventNoPayload @ 0x1403677E0 (PopDiagTraceEventNoPayload.c)
+ *     MmEmptyAllWorkingSets @ 0x140635BA0 (MmEmptyAllWorkingSets.c)
+ *     MmTrimFilePagesFromWorkingSets @ 0x140635BEC (MmTrimFilePagesFromWorkingSets.c)
+ *     MmFlushAllPagesEx @ 0x14063C218 (MmFlushAllPagesEx.c)
+ *     PopEnlargeHiberFile @ 0x140988750 (PopEnlargeHiberFile.c)
+ *     PopInvokeSystemStateHandler @ 0x140AA840C (PopInvokeSystemStateHandler.c)
+ *     MmDuplicateMemory @ 0x140AAC6BC (MmDuplicateMemory.c)
  */
 
 LONG __fastcall PopTransitionToSleep(struct _KEVENT *a1)
@@ -35,7 +35,7 @@ LONG __fastcall PopTransitionToSleep(struct _KEVENT *a1)
   v14 = 0;
   v11 = 0LL;
   v12 = 0LL;
-  qword_140C3CE90 = (__int64)KeGetCurrentThread();
+  qword_140C3D030 = (__int64)KeGetCurrentThread();
   if ( Lock != 3 && Lock != 6 )
   {
     KeSetEvent(a1, 0, 1u);
@@ -64,7 +64,7 @@ LABEL_21:
       v8 = 1;
       v9 = v13 | 1;
     }
-    else if ( (dword_140C3D0CC & 0x20) != 0 && PopEnableMinimalHiberFile || PopForceMinimalHiberFile )
+    else if ( (dword_140C3CD8C & 0x20) != 0 && PopEnableMinimalHiberFile || PopForceMinimalHiberFile )
     {
       MmEmptyAllWorkingSets();
       v8 = 1;
@@ -78,9 +78,9 @@ LABEL_21:
         v9 = v13 | 1;
 LABEL_18:
         LODWORD(v13) = v9;
-        byte_140C3E69C = v7;
-        byte_140C3E69D = v8;
-        dword_140C3E698 = v9;
+        byte_140C3E67C = v7;
+        byte_140C3E67D = v8;
+        dword_140C3E678 = v9;
         PopDiagTraceEventNoPayload(&POP_ETW_EVENT_FLUSHALLPAGES);
         if ( v7 )
           MmFlushAllPagesEx(v8);
@@ -101,7 +101,7 @@ LABEL_18:
   KeWaitForSingleObject(&a1[1], Executive, 0, 0, 0LL);
   v4 = 0;
 LABEL_22:
-  qword_140C3D440 = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - qword_140C39450;
+  qword_140C3D400 = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - qword_140C393D0;
   a1[3].Header.SignalState = v4;
   return KeSetEvent(a1 + 2, 0, 0);
 }

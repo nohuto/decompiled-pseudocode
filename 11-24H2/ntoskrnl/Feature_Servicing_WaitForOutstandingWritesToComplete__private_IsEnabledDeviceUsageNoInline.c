@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_WaitForOutstandingWritesToComplete__private_IsEnabledDeviceUsageNoInline @ 0x140668314
+ * XREFs of Feature_Servicing_WaitForOutstandingWritesToComplete__private_IsEnabledDeviceUsageNoInline @ 0x140666C04
  * Callers:
- *     CmpDoFileWrite @ 0x140A4F8F0 (CmpDoFileWrite.c)
+ *     CmpDoFileWrite @ 0x140A466A0 (CmpDoFileWrite.c)
  * Callees:
- *     Feature_Servicing_WaitForOutstandingWritesToComplete__private_IsEnabledFallback @ 0x14066834C (Feature_Servicing_WaitForOutstandingWritesToComplete__private_IsEnabledFallback.c)
+ *     Feature_Servicing_WaitForOutstandingWritesToComplete__private_IsEnabledFallback @ 0x140666C3C (Feature_Servicing_WaitForOutstandingWritesToComplete__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_WaitForOutstandingWritesToComplete__private_IsEnabledDeviceUsageNoInline()

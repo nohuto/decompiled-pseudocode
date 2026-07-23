@@ -1,9 +1,9 @@
 /*
- * XREFs of PspDeleteMemoryPartitionContext @ 0x140908D08
+ * XREFs of PspDeleteMemoryPartitionContext @ 0x140908E68
  * Callers:
- *     PsCreateMinimalProcess @ 0x1407C6284 (PsCreateMinimalProcess.c)
+ *     PsCreateMinimalProcess @ 0x1407C65A4 (PsCreateMinimalProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall PspDeleteMemoryPartitionContext(void *a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiEmptyPteBins @ 0x1403FCDF4
+ * XREFs of MiEmptyPteBins @ 0x1403F67B4
  * Callers:
- *     MiInsertCachedPte @ 0x14028E4E0 (MiInsertCachedPte.c)
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     MiMakeSystemPtesAppear @ 0x1403FC398 (MiMakeSystemPtesAppear.c)
- *     MiOkToBinMoreLargePtes @ 0x1403FC4B4 (MiOkToBinMoreLargePtes.c)
- *     MiAdjustPteBins @ 0x1403FC540 (MiAdjustPteBins.c)
- *     MiCheckProcessorPteCache @ 0x1403FC740 (MiCheckProcessorPteCache.c)
+ *     MiInsertCachedPte @ 0x14029E0E0 (MiInsertCachedPte.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     MiMakeSystemPtesAppear @ 0x1403F5D58 (MiMakeSystemPtesAppear.c)
+ *     MiOkToBinMoreLargePtes @ 0x1403F5E74 (MiOkToBinMoreLargePtes.c)
+ *     MiAdjustPteBins @ 0x1403F5F00 (MiAdjustPteBins.c)
+ *     MiCheckProcessorPteCache @ 0x1403F6100 (MiCheckProcessorPteCache.c)
  * Callees:
- *     MiReleasePteMappings @ 0x140241200 (MiReleasePteMappings.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
+ *     MiReleasePteMappings @ 0x140209350 (MiReleasePteMappings.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
  */
 
 unsigned __int64 __fastcall MiEmptyPteBins(__int64 a1, unsigned __int64 a2, unsigned int a3)
@@ -61,7 +61,7 @@ unsigned __int64 __fastcall MiEmptyPteBins(__int64 a1, unsigned __int64 a2, unsi
   v25 = CurrentThread;
   v9 = (v3 >> 2) & 1;
   v10 = 1;
-  if ( (__int64 *)a1 == &qword_140E37568 || (_UNKNOWN *)a1 == &unk_140E35D80 )
+  if ( (__int64 *)a1 == &qword_140E376A8 || (_UNKNOWN *)a1 == &unk_140E35EC0 )
   {
     v10 = 3;
   }
@@ -97,7 +97,7 @@ unsigned __int64 __fastcall MiEmptyPteBins(__int64 a1, unsigned __int64 a2, unsi
             if ( v18 > 2 || (v16 & 1) == 0 && v18 >= 2 || (v3 & 1) != 0 )
             {
               if ( (_BYTE)CurrentIrql == 2
-                && ((__int64 *)a1 == &qword_140E37568 && v9 || (_UNKNOWN *)a1 == &unk_140E35D80 && v9) )
+                && ((__int64 *)a1 == &qword_140E376A8 && v9 || (_UNKNOWN *)a1 == &unk_140E35EC0 && v9) )
               {
                 goto LABEL_16;
               }

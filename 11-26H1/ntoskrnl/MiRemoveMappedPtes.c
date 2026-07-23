@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRemoveMappedPtes @ 0x14033FBF8
+ * XREFs of MiRemoveMappedPtes @ 0x140341C78
  * Callers:
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiLocateSubsectionNode @ 0x1402E48B0 (MiLocateSubsectionNode.c)
- *     MiOffsetToProtos @ 0x140340254 (MiOffsetToProtos.c)
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiRemoveViewsFromSection @ 0x14036D750 (MiRemoveViewsFromSection.c)
- *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
- *     MiDecrementLargeSubsections @ 0x140505D08 (MiDecrementLargeSubsections.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiLocateSubsectionNode @ 0x1402C68F0 (MiLocateSubsectionNode.c)
+ *     MiOffsetToProtos @ 0x1403422D4 (MiOffsetToProtos.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiRemoveViewsFromSection @ 0x14036F4F0 (MiRemoveViewsFromSection.c)
+ *     MiCheckControlArea @ 0x14036FA60 (MiCheckControlArea.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiDecrementLargeSubsections @ 0x1404FF5B8 (MiDecrementLargeSubsections.c)
  */
 
 __int64 __fastcall MiRemoveMappedPtes(__int64 a1, __int64 a2)
@@ -48,7 +48,7 @@ __int64 __fastcall MiRemoveMappedPtes(__int64 a1, __int64 a2)
   v20 = 0LL;
   v7 = *(_QWORD *)v2;
   v8 = *(_DWORD *)(a1 + 56);
-  v23 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)v2 + 60LL) & 0x3FF));
+  v23 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)v2 + 60LL) & 0x3FF));
   if ( (*(_DWORD *)(v7 + 56) & 0x20) != 0 )
   {
     v9 = 0LL;
@@ -87,7 +87,7 @@ __int64 __fastcall MiRemoveMappedPtes(__int64 a1, __int64 a2)
     if ( !*((_QWORD *)&v19[0] + 1) )
       v17 = *(_QWORD *)(a1 + 40);
     if ( v17 )
-      result = MiReturnCommit(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v22 + 174)), v17, 0LL);
+      result = MiReturnCommit(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v22 + 174)), v17, 0LL);
   }
   if ( v11 )
     return MiReturnCrossPartitionSectionCharges(v23, v12, v11);

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiGetPagingFileHandle @ 0x14086B908
+ * XREFs of MiGetPagingFileHandle @ 0x140871CE8
  * Callers:
- *     MiCreatePagingFile @ 0x14086B464 (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x140871844 (MiCreatePagingFile.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     ZwSetInformationFile @ 0x1407238D0 (ZwSetInformationFile.c)
- *     ZwSetSecurityObject @ 0x140726B30 (ZwSetSecurityObject.c)
- *     MiUpdateExistingPageFile @ 0x14086C380 (MiUpdateExistingPageFile.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     IopCreateFile @ 0x1409B3A58 (IopCreateFile.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     ZwSetInformationFile @ 0x1407284A0 (ZwSetInformationFile.c)
+ *     ZwSetSecurityObject @ 0x14072B700 (ZwSetSecurityObject.c)
+ *     MiUpdateExistingPageFile @ 0x140872760 (MiUpdateExistingPageFile.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     IopCreateFile @ 0x140984B18 (IopCreateFile.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall MiGetPagingFileHandle(__int64 a1)
@@ -60,7 +60,7 @@ NTSTATUS __fastcall MiGetPagingFileHandle(__int64 a1)
   if ( result >= 0 )
   {
     v3 = RtlLengthSid(SeAliasAdminsSid);
-    v4 = RtlLengthSid(*(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags) + 32 + v3;
+    v4 = RtlLengthSid(*(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4)) + 32 + v3;
     CurrentProcessorColor = MmGetCurrentProcessorColor();
     PoolMm = (ACL *)ExAllocatePoolMm(256LL, v4, 1818452292, CurrentProcessorColor | 0x80000000);
     v7 = PoolMm;
@@ -72,7 +72,7 @@ NTSTATUS __fastcall MiGetPagingFileHandle(__int64 a1)
         Acl = RtlpAddKnownAce((int)v7, 2, 0, 2032127, SeAliasAdminsSid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((int)v7, 2, 0, 2032127, *(void **)&RtlpBootStatHandleLock.WaitRegister.Flags, 0);
+          Acl = RtlpAddKnownAce((int)v7, 2, 0, 2032127, *(void **)((char *)&RtlpBootStatHandleLock.116 + 4), 0);
           if ( Acl >= 0 )
           {
             Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v7, 0);

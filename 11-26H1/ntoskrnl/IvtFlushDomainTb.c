@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtFlushDomainTb @ 0x1404267B0
+ * XREFs of IvtFlushDomainTb @ 0x1404338C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     IvtFlushTbInternal @ 0x14042706C (IvtFlushTbInternal.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     IvtFlushTbInternal @ 0x14043417C (IvtFlushTbInternal.c)
  */
 
 void __fastcall IvtFlushDomainTb(int a1, __int64 a2, __int64 a3, int a4, __int64 a5)

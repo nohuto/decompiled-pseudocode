@@ -14,5 +14,5 @@ BOOLEAN __stdcall CcCopyRead(
         PVOID Buffer,
         PIO_STATUS_BLOCK IoStatus)
 {
-  return CcCopyReadEx((_SLIST_ENTRY *)FileObject, (__int64 *)FileOffset, Length, Wait, Buffer, IoStatus, 0LL);
+  return CcCopyReadEx(FileObject, (__int64 *)FileOffset, Length, Wait, Buffer, IoStatus, 0LL);
 }

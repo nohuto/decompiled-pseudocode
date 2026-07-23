@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDqObjectActionQueueEntryCreate @ 0x140A3507C
+ * XREFs of PiDqObjectActionQueueEntryCreate @ 0x140A2908C
  * Callers:
- *     PiDqObjectManagerHandleObjectEvent @ 0x140A34F70 (PiDqObjectManagerHandleObjectEvent.c)
+ *     PiDqObjectManagerHandleObjectEvent @ 0x140A28F80 (PiDqObjectManagerHandleObjectEvent.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDqObjectActionQueueEntryCreate(volatile signed __int32 *a1, __int64 *a2)
@@ -12,7 +12,7 @@ __int64 __fastcall PiDqObjectActionQueueEntryCreate(volatile signed __int32 *a1,
   __int64 Pool2; // rax
 
   v4 = 0;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x20uLL, 0x58706E50u);
   *a2 = Pool2;
   if ( Pool2 )
   {

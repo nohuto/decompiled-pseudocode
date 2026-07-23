@@ -1,11 +1,11 @@
 /*
- * XREFs of IoProvisionCrashDumpKey @ 0x1405C73A4
+ * XREFs of IoProvisionCrashDumpKey @ 0x1405C9C74
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     SecureDump_GetSecureDumpSettings @ 0x140518534 (SecureDump_GetSecureDumpSettings.c)
- *     SecureDump_ReInitialize @ 0x1405D6FD4 (SecureDump_ReInitialize.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x140511FA4 (SecureDump_GetSecureDumpSettings.c)
+ *     SecureDump_ReInitialize @ 0x1405D97C4 (SecureDump_ReInitialize.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 IoProvisionCrashDumpKey()
@@ -33,7 +33,7 @@ __int64 IoProvisionCrashDumpKey()
     {
       if ( (_BYTE)v2 )
       {
-        if ( qword_140E65EB8 )
+        if ( qword_140E66058 )
         {
           v5 = HIDWORD(v2);
           v6 = v3;

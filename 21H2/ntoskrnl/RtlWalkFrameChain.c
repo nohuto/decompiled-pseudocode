@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlWalkFrameChain @ 0x14021CEB0
+ * XREFs of RtlWalkFrameChain @ 0x1402C17B0
  * Callers:
- *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
- *     RtlCaptureStackBackTrace @ 0x14021CE20 (RtlCaptureStackBackTrace.c)
- *     KiDpcWatchdogCaptureStack @ 0x140512020 (KiDpcWatchdogCaptureStack.c)
- *     SepGetStackTraceHash @ 0x140596110 (SepGetStackTraceHash.c)
- *     EtwpGetStackExtendedHeaderItem @ 0x1405A5D94 (EtwpGetStackExtendedHeaderItem.c)
- *     EtwpTraceStackWalk @ 0x1405A7134 (EtwpTraceStackWalk.c)
- *     EtwpCovSampCaptureKernelStack @ 0x1405AED78 (EtwpCovSampCaptureKernelStack.c)
+ *     SepCreateTokenEx @ 0x1402A6428 (SepCreateTokenEx.c)
+ *     RtlCaptureStackBackTrace @ 0x1402C1720 (RtlCaptureStackBackTrace.c)
+ *     KiDpcWatchdogCaptureStack @ 0x140512260 (KiDpcWatchdogCaptureStack.c)
+ *     SepGetStackTraceHash @ 0x140596340 (SepGetStackTraceHash.c)
+ *     EtwpGetStackExtendedHeaderItem @ 0x1405A5FC4 (EtwpGetStackExtendedHeaderItem.c)
+ *     EtwpTraceStackWalk @ 0x1405A7364 (EtwpTraceStackWalk.c)
+ *     EtwpCovSampCaptureKernelStack @ 0x1405AEFA8 (EtwpCovSampCaptureKernelStack.c)
  *     EtwTimLogRedirectionTrustPolicy @ 0x1405D09D0 (EtwTimLogRedirectionTrustPolicy.c)
- *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
- *     PoDiagCaptureUsermodeStack @ 0x1406C366C (PoDiagCaptureUsermodeStack.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
- *     EtwpCovSampCaptureUserStack @ 0x140942A28 (EtwpCovSampCaptureUserStack.c)
- *     ExpUpdateDebugInfo @ 0x14094CE04 (ExpUpdateDebugInfo.c)
+ *     PoDiagCaptureUsermodeStack @ 0x14062224C (PoDiagCaptureUsermodeStack.c)
+ *     SepFilterToken @ 0x1406CA87C (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
+ *     EtwpCovSampCaptureUserStack @ 0x140942BF8 (EtwpCovSampCaptureUserStack.c)
+ *     ExpUpdateDebugInfo @ 0x14094CFD4 (ExpUpdateDebugInfo.c)
  * Callees:
- *     RtlpWalkFrameChain @ 0x14021D250 (RtlpWalkFrameChain.c)
- *     RtlpGetStackLimits @ 0x140350450 (RtlpGetStackLimits.c)
- *     KeAreInterruptsEnabled @ 0x1403506D0 (KeAreInterruptsEnabled.c)
- *     KeGetCurrentStackPointer @ 0x1403FE5D0 (KeGetCurrentStackPointer.c)
+ *     RtlpWalkFrameChain @ 0x1402C1B50 (RtlpWalkFrameChain.c)
+ *     RtlpGetStackLimits @ 0x14035B1A0 (RtlpGetStackLimits.c)
+ *     KeAreInterruptsEnabled @ 0x14035B420 (KeAreInterruptsEnabled.c)
+ *     KeGetCurrentStackPointer @ 0x1403FE7B0 (KeGetCurrentStackPointer.c)
  */
 
 ULONG __stdcall RtlWalkFrameChain(PVOID *Callers, ULONG Count, ULONG Flags)
@@ -46,7 +46,7 @@ ULONG __stdcall RtlWalkFrameChain(PVOID *Callers, ULONG Count, ULONG Flags)
     || (CurrentThread = KeGetCurrentThread(), (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 2) != 0)
     || (void (__fastcall __noreturn *)())CurrentThread[1].ApcState.ApcListHead[0].Blink == KiExecuteDpc
     || !MmPhysicalMemoryBlock
-    || (v8 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8LL * CurrentThread->ApcState.Process[1].IdealProcessorPadding[5])
+    || (v8 = *(_QWORD *)(*(_QWORD *)(qword_140C4E688 + 8LL * CurrentThread->ApcState.Process[1].IdealProcessorPadding[5])
                        + 6848LL)) == 0
     || CurrentThread == *(struct _KTHREAD **)(v8 + 88) )
   {

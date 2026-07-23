@@ -14,7 +14,7 @@
 NTSTATUS __fastcall IopCreateSecurityDescriptorPerType(
         PSECURITY_DESCRIPTOR SecurityDescriptor,
         int a2,
-        __int64 *a3,
+        ACL **a3,
         int *a4)
 {
   char v4; // di
@@ -26,7 +26,7 @@ NTSTATUS __fastcall IopCreateSecurityDescriptorPerType(
   int v13; // edx
   unsigned __int16 v14; // bp
   ACL *Pool2; // rax
-  __int64 v16; // r15
+  ACL *v16; // r15
   int v17; // ecx
 
   v4 = 0;
@@ -67,12 +67,12 @@ LABEL_4:
   {
     v14 = 4 * (*((unsigned __int8 *)SeLowMandatorySid + 1) + 6);
     Pool2 = (ACL *)ExAllocatePool2(256LL, v14, 1699966793LL);
-    v16 = (__int64)Pool2;
+    v16 = Pool2;
     if ( !Pool2 )
       return -1073741670;
     RtlCreateAcl(Pool2, v14, 2u);
-    RtlAddMandatoryAce(v16, 2LL, 0LL, SeLowMandatorySid, 17, 1);
-    RtlSetSaclSecurityDescriptor((__int64)SecurityDescriptor, 1, v16, 0);
+    RtlAddMandatoryAce(v16, 2u, 0, SeLowMandatorySid, 0x11u, 1u);
+    RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, v16, 0);
     *a3 = v16;
   }
   result = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v10, 0);

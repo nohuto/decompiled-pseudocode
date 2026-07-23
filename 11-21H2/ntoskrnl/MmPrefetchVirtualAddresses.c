@@ -1,11 +1,11 @@
 /*
  * XREFs of MmPrefetchVirtualAddresses @ 0x1406EBFB0
  * Callers:
- *     VmpPrefetchForVirtualFault @ 0x1409DA3EC (VmpPrefetchForVirtualFault.c)
+ *     sub_1409DA3EC @ 0x1409DA3EC (sub_1409DA3EC.c)
  * Callees:
- *     MiGetEffectivePagePriorityThread @ 0x1402E670C (MiGetEffectivePagePriorityThread.c)
- *     PsGetIoPriorityThread @ 0x14033D760 (PsGetIoPriorityThread.c)
- *     MmPrefetchVirtualMemory @ 0x1406EC048 (MmPrefetchVirtualMemory.c)
+ *     sub_1402E670C @ 0x1402E670C (sub_1402E670C.c)
+ *     sub_14033D760 @ 0x14033D760 (sub_14033D760.c)
+ *     sub_1406EC048 @ 0x1406EC048 (sub_1406EC048.c)
  */
 
 __int64 __fastcall MmPrefetchVirtualAddresses(_DWORD *a1)
@@ -19,7 +19,7 @@ __int64 __fastcall MmPrefetchVirtualAddresses(_DWORD *a1)
   if ( v1 >= 8 || (v1 & 6) > 4 )
     return 3221225711LL;
   if ( (v1 & 6) != 0 && (v1 & 6) != 2 )
-    MiGetEffectivePagePriorityThread((__int64)KeGetCurrentThread());
-  PsGetIoPriorityThread((__int64)KeGetCurrentThread());
-  return MmPrefetchVirtualMemory(*(HANDLE *)(v2 + 8));
+    sub_1402E670C((__int64)KeGetCurrentThread());
+  sub_14033D760((__int64)KeGetCurrentThread());
+  return sub_1406EC048(*(HANDLE *)(v2 + 8));
 }

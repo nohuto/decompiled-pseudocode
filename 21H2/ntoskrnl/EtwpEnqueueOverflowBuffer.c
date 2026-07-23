@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpEnqueueOverflowBuffer @ 0x1402D1F88
+ * XREFs of EtwpEnqueueOverflowBuffer @ 0x140250358
  * Callers:
- *     EtwpSwitchBuffer @ 0x140265E94 (EtwpSwitchBuffer.c)
- *     EtwpDequeueFreeBuffer @ 0x140266078 (EtwpDequeueFreeBuffer.c)
+ *     EtwpSwitchBuffer @ 0x140253E34 (EtwpSwitchBuffer.c)
+ *     EtwpDequeueFreeBuffer @ 0x140254018 (EtwpDequeueFreeBuffer.c)
  * Callees:
- *     EtwpUnlockBufferList @ 0x1402662CC (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x140266318 (EtwpLockBufferList.c)
+ *     EtwpUnlockBufferList @ 0x14025426C (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x1402542B8 (EtwpLockBufferList.c)
  */
 
 __int64 __fastcall EtwpEnqueueOverflowBuffer(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
-  unsigned __int8 v5; // [rsp+30h] [rbp+8h] BYREF
+  char v5; // [rsp+30h] [rbp+8h] BYREF
 
   v5 = 0;
   _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 44), 0, 1);

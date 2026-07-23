@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnGetSectionObject @ 0x1406C8EA8
+ * XREFs of PfSnGetSectionObject @ 0x140677798
  * Callers:
- *     PfSnPopulateReadList @ 0x1406C8970 (PfSnPopulateReadList.c)
+ *     PfSnPopulateReadList @ 0x140677260 (PfSnPopulateReadList.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PfpFileCheckAttributesForPrefetch @ 0x1402D4170 (PfpFileCheckAttributesForPrefetch.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PfSnPrefetchFileMetadata @ 0x1406C6D4C (PfSnPrefetchFileMetadata.c)
- *     PfSnIsSectionPrefetchedAfterPhase @ 0x1406C9254 (PfSnIsSectionPrefetchedAfterPhase.c)
- *     PfpOpenHandleCreate @ 0x1406C94F8 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x1406C9690 (PfpOpenHandleClose.c)
- *     IopQueryXxxInformation @ 0x1406C9708 (IopQueryXxxInformation.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     NtCreateSection @ 0x1407077C0 (NtCreateSection.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PfpFileCheckAttributesForPrefetch @ 0x140272E48 (PfpFileCheckAttributesForPrefetch.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PfSnPrefetchFileMetadata @ 0x14067563C (PfSnPrefetchFileMetadata.c)
+ *     PfSnIsSectionPrefetchedAfterPhase @ 0x140677B44 (PfSnIsSectionPrefetchedAfterPhase.c)
+ *     PfpOpenHandleCreate @ 0x140677DE8 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x140677F80 (PfpOpenHandleClose.c)
+ *     IopQueryXxxInformation @ 0x140677FF8 (IopQueryXxxInformation.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     NtCreateSection @ 0x14071EBA0 (NtCreateSection.c)
  */
 
 __int64 __fastcall PfSnGetSectionObject(
@@ -24,7 +24,7 @@ __int64 __fastcall PfSnGetSectionObject(
         unsigned int a5,
         unsigned int a6,
         int a7,
-        HANDLE Handle,
+        HANDLE EventHandle,
         _QWORD *a9,
         _BYTE *a10)
 {
@@ -99,7 +99,7 @@ __int64 __fastcall PfSnGetSectionObject(
       v47[0] = 3;
       v47[1] = 1;
       if ( v38 )
-        PfSnPrefetchFileMetadata(a1, *(_QWORD *)(a2 + 32), (__int64)v47, 0, 1u, Handle);
+        PfSnPrefetchFileMetadata(a1, *(_QWORD *)(a2 + 32), (__int64)v47, 0, 1u, EventHandle);
     }
     v20 = PfpOpenHandleCreate(
             (unsigned int)&DmaAdapter,
@@ -113,7 +113,7 @@ __int64 __fastcall PfSnGetSectionObject(
     if ( v20 < 0
       || (v20 = PfpFileCheckAttributesForPrefetch(
                   (void *)DmaAdapter.m256i_i64[0],
-                  (((dword_140C502B0 & 0x10) == 0) << 14) + 4864),
+                  (((dword_140C502F0 & 0x10) == 0) << 14) + 4864),
           v20 < 0) )
     {
       v12 = DmaAdapter.m256i_i64[3];

@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogDeviceRundown @ 0x1409023AC
+ * XREFs of TtmiLogDeviceRundown @ 0x14090250C
  * Callers:
- *     TtmiDevicesRundown @ 0x1408FC200 (TtmiDevicesRundown.c)
+ *     TtmiDevicesRundown @ 0x1408FC360 (TtmiDevicesRundown.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void TtmiLogDeviceRundown()
@@ -67,7 +67,7 @@ void TtmiLogDeviceRundown()
       v25 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140D2D8C8,
-        (unsigned __int8 *)&dword_14002BB74,
+        (unsigned __int8 *)&unk_14002C1F0,
         0LL,
         0LL,
         0xAu,

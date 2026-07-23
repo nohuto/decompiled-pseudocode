@@ -37,7 +37,7 @@ __int64 __fastcall sub_18003545C(
   __int64 v14; // rax
   unsigned int v15; // ecx
   __int64 v16; // r12
-  unsigned __int64 *v17; // rbx
+  PVOID *v17; // rbx
   int v18; // ebx
   __int64 v19; // r8
   int v20; // r13d
@@ -47,9 +47,9 @@ __int64 __fastcall sub_18003545C(
   int v24; // r8d
   __int64 v25; // rax
   _BYTE *v26; // rdx
-  unsigned __int16 v27; // si
+  LANGID v27; // si
   __int64 v28; // r8
-  __int64 v29; // rsi
+  PWCH Buffer; // rsi
   __int64 *v30; // r14
   _BYTE *v31; // rdx
   _BYTE *v32; // rdx
@@ -63,26 +63,25 @@ __int64 __fastcall sub_18003545C(
   char v41; // [rsp+28h] [rbp-79h]
   char v42; // [rsp+28h] [rbp-79h]
   char v43; // [rsp+38h] [rbp-69h]
-  unsigned __int16 v44; // [rsp+3Ch] [rbp-65h] BYREF
+  LANGID InstallUILanguageId; // [rsp+3Ch] [rbp-65h] BYREF
   _WORD v45[2]; // [rsp+40h] [rbp-61h] BYREF
   __int16 v46; // [rsp+44h] [rbp-5Dh] BYREF
-  __int64 Heap; // [rsp+48h] [rbp-59h]
+  WCHAR *Heap; // [rsp+48h] [rbp-59h]
   __int16 v48; // [rsp+50h] [rbp-51h] BYREF
-  unsigned __int64 *v49; // [rsp+58h] [rbp-49h]
+  PVOID *p_BaseAddress; // [rsp+58h] [rbp-49h]
   int v50; // [rsp+60h] [rbp-41h]
   int v51; // [rsp+68h] [rbp-39h] BYREF
   __int64 v52; // [rsp+70h] [rbp-31h]
   unsigned int v53; // [rsp+78h] [rbp-29h]
   unsigned int v54; // [rsp+7Ch] [rbp-25h]
-  unsigned __int64 v55; // [rsp+80h] [rbp-21h] BYREF
+  PVOID BaseAddress; // [rsp+80h] [rbp-21h] BYREF
   int v56; // [rsp+88h] [rbp-19h]
-  __int64 v57; // [rsp+90h] [rbp-11h] BYREF
-  __int64 v58; // [rsp+98h] [rbp-9h]
-  char v59; // [rsp+E8h] [rbp+47h]
+  _UNICODE_STRING String; // [rsp+90h] [rbp-11h] BYREF
+  char v58; // [rsp+E8h] [rbp+47h]
 
-  v59 = a1;
-  v57 = 0LL;
-  v58 = 0LL;
+  v58 = a1;
+  *(_QWORD *)&String.Length = 0LL;
+  String.Buffer = 0LL;
   v54 = 0;
   v50 = 0;
   v11 = 0LL;
@@ -90,7 +89,7 @@ __int64 __fastcall sub_18003545C(
   v12 = 0LL;
   v48 = -1;
   v46 = -1;
-  v55 = 0LL;
+  BaseAddress = 0LL;
   v43 = 0;
   if ( !a3 || !*(_QWORD *)a3 || !a2 || *(_WORD *)(*(_QWORD *)a3 + 4LL) )
     return 3221225485LL;
@@ -111,19 +110,19 @@ __int64 __fastcall sub_18003545C(
   }
   v16 = 0LL;
   LODWORD(v17) = a3;
-  v49 = (unsigned __int64 *)a3;
+  p_BaseAddress = (PVOID *)a3;
   if ( !v13 && (v15 & 6) != 0 )
   {
     v43 = 1;
     v54 = HIWORD(v15);
-    v49 = &v55;
-    v18 = sub_180032B9C((__int64 *)&v55, a2, 0x19u, 0);
+    p_BaseAddress = &BaseAddress;
+    v18 = sub_180032B9C((__int64 *)&BaseAddress, a2, 0x19u, 0);
     if ( v18 < 0 )
       goto LABEL_54;
-    v17 = &v55;
+    v17 = &BaseAddress;
   }
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 340LL);
-  v19 = Heap;
+  Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x154uLL);
+  v19 = (__int64)Heap;
   if ( !Heap )
     return 3221225495LL;
   if ( !v13 && a4 && *(_WORD *)(a4 + 4) )
@@ -144,19 +143,19 @@ __int64 __fastcall sub_18003545C(
           if ( v18 < 0 )
             goto LABEL_53;
         }
-        v19 = Heap;
+        v19 = (__int64)Heap;
       }
       v11 = (unsigned int)(v11 + 1);
-      LODWORD(v17) = (_DWORD)v49;
+      LODWORD(v17) = (_DWORD)p_BaseAddress;
     }
     while ( (unsigned int)v11 < *(unsigned __int16 *)(a4 + 4) );
   }
-  v20 = (int)v49;
+  v20 = (int)p_BaseAddress;
   if ( a5 )
   {
     if ( !v13 )
     {
-      for ( i = 0; i < *(unsigned __int16 *)(a5 + 4); v19 = Heap )
+      for ( i = 0; i < *(unsigned __int16 *)(a5 + 4); v19 = (__int64)Heap )
       {
         v37 = (_WORD *)(*(_QWORD *)(a5 + 24) + 6LL * i);
         if ( *v37 )
@@ -177,8 +176,8 @@ __int64 __fastcall sub_18003545C(
       }
     }
   }
-  v56 = v59 & 0x20;
-  if ( (v59 & 0x20) != 0 && ((v21 = a6) != 0 && *(_WORD *)(a6 + 4) || (v21 = a7) != 0 && *(_WORD *)(a7 + 4)) )
+  v56 = v58 & 0x20;
+  if ( (v58 & 0x20) != 0 && ((v21 = a6) != 0 && *(_WORD *)(a6 + 4) || (v21 = a7) != 0 && *(_WORD *)(a7 + 4)) )
   {
     v16 = v21;
     if ( *(_BYTE *)(v21 + 8) )
@@ -199,12 +198,12 @@ __int64 __fastcall sub_18003545C(
         v23 = (_WORD *)(*(_QWORD *)(v16 + 24) + 6LL * v22);
         if ( *v23 )
         {
-          v52 = Heap;
+          v52 = (__int64)Heap;
           v51 = 11141120;
           if ( (int)sub_180035DEC(a2, v23, &v51) >= 0 )
           {
             LOBYTE(v24) = 1;
-            if ( (int)sub_18003645C(v20, a2, v24, (unsigned int)v45, v52) >= 0 && (v59 & 0x10) != 0 )
+            if ( (int)sub_18003645C(v20, a2, v24, (unsigned int)v45, v52) >= 0 && (v58 & 0x10) != 0 )
             {
               v25 = *(_QWORD *)(v16 + 24);
               if ( *(_WORD *)(v25 + 6LL * v22) == 2 )
@@ -221,32 +220,32 @@ __int64 __fastcall sub_18003545C(
       while ( v22 < *(unsigned __int16 *)(v16 + 4) );
     }
   }
-  v11 = Heap;
+  v11 = (unsigned __int64)Heap;
   v18 = 0;
-  v44 = 0;
+  InstallUILanguageId = 0;
   v27 = 0;
-  LODWORD(v57) = 11141120;
-  v58 = Heap + 170;
+  *(_DWORD *)&String.Length = 11141120;
+  String.Buffer = Heap + 85;
   if ( *(_WORD *)(a2 + 4) )
   {
     v27 = *(_WORD *)(a2 + 4);
   }
   else
   {
-    v18 = ZwQueryInstallUILanguage(&v44);
+    v18 = ZwQueryInstallUILanguage(&InstallUILanguageId);
     if ( v18 >= 0 )
     {
-      if ( (int)ZwIsUILanguageComitted() >= 0 )
+      if ( ZwIsUILanguageComitted() >= 0 )
       {
         sub_18008A9A4(a2, a2 + 6, a2 + 8);
-        *(_WORD *)(a2 + 4) = v44;
+        *(_WORD *)(a2 + 4) = InstallUILanguageId;
       }
-      v27 = v44;
+      v27 = InstallUILanguageId;
     }
   }
   if ( v18 < 0 )
     goto LABEL_54;
-  if ( !(unsigned __int8)RtlLCIDToCultureName(v27, &v57) )
+  if ( !RtlLCIDToCultureName(v27, &String) )
   {
     v18 = -1073741823;
     goto LABEL_54;
@@ -255,15 +254,15 @@ __int64 __fastcall sub_18003545C(
   v18 = sub_1800362CC(a2, v27, v28, &v46);
   if ( v18 >= 0 )
   {
-    v29 = v58;
-    if ( (v59 & 0x40) != 0 || a9 && v50 )
+    Buffer = String.Buffer;
+    if ( (v58 & 0x40) != 0 || a9 && v50 )
     {
-      v30 = (__int64 *)v49;
+      v30 = (__int64 *)p_BaseAddress;
     }
     else
     {
-      v30 = (__int64 *)v49;
-      v18 = sub_18003645C((_DWORD)v49, a2, 0, (unsigned int)&v48, v58);
+      v30 = (__int64 *)p_BaseAddress;
+      v18 = sub_18003645C((_DWORD)p_BaseAddress, a2, 0, (unsigned int)&v48, (__int64)String.Buffer);
       if ( v18 >= 0 )
       {
         if ( v56 )
@@ -285,9 +284,9 @@ __int64 __fastcall sub_18003545C(
       if ( v30 )
       {
         v18 = sub_1800316A8(*v30, a2, (v53 & 4) != 0, v54, a3);
-        if ( v18 >= 0 && (v59 & 0x30) == 0x30 )
+        if ( v18 >= 0 && (v58 & 0x30) == 0x30 )
         {
-          v18 = sub_18003645C(a3, a2, 0, (unsigned int)&v48, v29);
+          v18 = sub_18003645C(a3, a2, 0, (unsigned int)&v48, (__int64)Buffer);
           if ( v18 >= 0 )
           {
             v32 = (_BYTE *)(*(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL) + 28LL * v46);
@@ -302,12 +301,12 @@ __int64 __fastcall sub_18003545C(
       }
     }
 LABEL_53:
-    v11 = Heap;
+    v11 = (unsigned __int64)Heap;
   }
 LABEL_54:
-  if ( v55 )
-    sub_180032CEC(v55);
+  if ( BaseAddress )
+    sub_180032CEC(BaseAddress);
   if ( v11 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v11);
   return (unsigned int)v18;
 }

@@ -16,7 +16,7 @@ void __fastcall RtlpFlsClonePrepare(struct _RTLP_FLS_CONTEXT *a1)
   __int64 v4; // rsi
   unsigned int v5; // ecx
   unsigned int v6; // edx
-  volatile signed __int64 *v7; // rcx
+  _RTL_SRWLOCK *v7; // rcx
 
   v1 = qword_180166188;
   v2 = 1;
@@ -31,7 +31,7 @@ void __fastcall RtlpFlsClonePrepare(struct _RTLP_FLS_CONTEXT *a1)
       {
         _BitScanReverse(&v5, v3);
         v6 = v3 ^ (1 << v5);
-        v7 = (volatile signed __int64 *)*((_QWORD *)&RtlpFlsContext + v5 - 3);
+        v7 = (_RTL_SRWLOCK *)*((_QWORD *)&RtlpFlsContext + v5 - 3);
         if ( v7 )
           v7 += 2 * v6 + 1;
         RtlAcquireSRWLockExclusive(v7);
@@ -40,10 +40,10 @@ void __fastcall RtlpFlsClonePrepare(struct _RTLP_FLS_CONTEXT *a1)
       }
       while ( v4 );
     }
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    RtlAcquireSRWLockExclusive(&RtlpFlsContext);
     if ( (unsigned int)qword_180166188 <= v1 )
       break;
     v1 = qword_180166188;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    RtlReleaseSRWLockExclusive(&RtlpFlsContext);
   }
 }

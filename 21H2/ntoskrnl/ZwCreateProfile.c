@@ -1,14 +1,23 @@
 /*
- * XREFs of ZwCreateProfile @ 0x1403FBB00
+ * XREFs of ZwCreateProfile @ 0x1403FBCE0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateProfile(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateProfile(
+        PHANDLE ProfileHandle,
+        HANDLE Process,
+        PVOID ProfileBase,
+        SIZE_T ProfileSize,
+        ULONG BucketSize,
+        PULONG Buffer,
+        ULONG BufferSize,
+        KPROFILE_SOURCE ProfileSource,
+        KAFFINITY Affinity)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProfileHandle);
 }

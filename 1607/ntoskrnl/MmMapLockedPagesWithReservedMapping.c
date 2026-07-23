@@ -1,18 +1,18 @@
 /*
- * XREFs of MmMapLockedPagesWithReservedMapping @ 0x1401E4034
+ * XREFs of MmMapLockedPagesWithReservedMapping @ 0x1401E3E60
  * Callers:
- *     SmFpAllocate @ 0x14011B81C (SmFpAllocate.c)
- *     sub_140158230 @ 0x140158230 (sub_140158230.c)
- *     PnprCopyReservedMapping @ 0x1401D0094 (PnprCopyReservedMapping.c)
- *     PspIumFreePhysicalPages @ 0x140210218 (PspIumFreePhysicalPages.c)
+ *     SmFpAllocate @ 0x14011BD8C (SmFpAllocate.c)
+ *     sub_1401587A0 @ 0x1401587A0 (sub_1401587A0.c)
+ *     PnprCopyReservedMapping @ 0x1401CFEC0 (PnprCopyReservedMapping.c)
+ *     PspIumFreePhysicalPages @ 0x140210044 (PspIumFreePhysicalPages.c)
  *     PnprMapPhysicalPages @ 0x1403DBDEC (PnprMapPhysicalPages.c)
- *     EtwpSavePersistedLogger @ 0x1406AA264 (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x1406AA39C (EtwpSavePersistedLogger.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiMapMdlCommon @ 0x1401E3868 (MiMapMdlCommon.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiMapMdlCommon @ 0x1401E3694 (MiMapMdlCommon.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 PVOID __stdcall MmMapLockedPagesWithReservedMapping(
@@ -38,8 +38,8 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
   v7 = (((LODWORD(MemoryDescriptorList->StartVa) + MemoryDescriptorList->ByteOffset) & 0xFFF)
       + (unsigned __int64)MemoryDescriptorList->ByteCount
       + 4095) >> 12;
-  v9 = ExAcquireSpinLockShared(&dword_140327568);
-  v10 = qword_140327570;
+  v9 = ExAcquireSpinLockShared(&dword_1403275A8);
+  v10 = qword_1403275B0;
   v11 = (unsigned __int64)MappingAddress & 0xFFFFFFFFFFFFF000uLL;
   while ( 1 )
   {
@@ -56,7 +56,7 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
       break;
     v10 = *(_QWORD *)v10;
   }
-  ExReleaseSpinLockShared(&dword_140327568, v9);
+  ExReleaseSpinLockShared(&dword_1403275A8, v9);
   if ( *(_DWORD *)(v10 + 40) != (_DWORD)v5 )
     KeBugCheckEx(0xDAu, 0x104uLL, (ULONG_PTR)MappingAddress, v5, *(unsigned int *)(v10 + 40));
   v13 = *(_QWORD *)(v10 + 32);

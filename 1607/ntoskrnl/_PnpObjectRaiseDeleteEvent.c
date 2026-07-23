@@ -1,8 +1,8 @@
 /*
- * XREFs of _PnpObjectRaiseDeleteEvent @ 0x1406DC1D8
+ * XREFs of _PnpObjectRaiseDeleteEvent @ 0x1406DC310
  * Callers:
- *     _PnpDeleteObjectDispatch @ 0x1406DAF98 (_PnpDeleteObjectDispatch.c)
- *     _CmRaiseDeleteEvent @ 0x1406DBF64 (_CmRaiseDeleteEvent.c)
+ *     _PnpDeleteObjectDispatch @ 0x1406DB0D0 (_PnpDeleteObjectDispatch.c)
+ *     _CmRaiseDeleteEvent @ 0x1406DC09C (_CmRaiseDeleteEvent.c)
  * Callees:
  *     <none>
  */

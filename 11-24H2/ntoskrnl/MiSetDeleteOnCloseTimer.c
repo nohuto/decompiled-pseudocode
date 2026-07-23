@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSetDeleteOnCloseTimer @ 0x1403F7894
+ * XREFs of MiSetDeleteOnCloseTimer @ 0x1403ED804
  * Callers:
- *     MiDereferenceSegmentThread @ 0x1403F7700 (MiDereferenceSegmentThread.c)
+ *     MiDereferenceSegmentThread @ 0x1403ED670 (MiDereferenceSegmentThread.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
  */
 
 __int64 __fastcall MiSetDeleteOnCloseTimer(__int64 a1)

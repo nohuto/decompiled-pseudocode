@@ -1,46 +1,46 @@
 /*
- * XREFs of KiSearchForNewThreadsOnTarget @ 0x1403DD970
+ * XREFs of KiSearchForNewThreadsOnTarget @ 0x1403BD660
  * Callers:
- *     KiSearchForNewThreadsWithinSearchContext @ 0x1404E9D80 (KiSearchForNewThreadsWithinSearchContext.c)
+ *     KiSearchForNewThreadsWithinSearchContext @ 0x1404E0D30 (KiSearchForNewThreadsWithinSearchContext.c)
  * Callees:
- *     KiSendSoftwareInterruptAffinity @ 0x140254CCC (KiSendSoftwareInterruptAffinity.c)
- *     KiStartRescheduleContext @ 0x140254D50 (KiStartRescheduleContext.c)
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiSearchForNewThreadsInStandby @ 0x140293B18 (KiSearchForNewThreadsInStandby.c)
- *     KiIsIsolationUnitIdleByHandle @ 0x140293BF0 (KiIsIsolationUnitIdleByHandle.c)
- *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402979F0 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
- *     EtwTraceScheduleThread @ 0x140297C7C (EtwTraceScheduleThread.c)
- *     KiScheduleThreadToRescheduleContext @ 0x140298F10 (KiScheduleThreadToRescheduleContext.c)
- *     KiReadyDeferredReadyList @ 0x140299320 (KiReadyDeferredReadyList.c)
- *     KiCommitRescheduleContext @ 0x140299450 (KiCommitRescheduleContext.c)
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140299510 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
- *     KiDetermineNextScbForScbReadyQueueEnumerator @ 0x140299AFC (KiDetermineNextScbForScbReadyQueueEnumerator.c)
- *     KiAdvanceReadyListEnumerator @ 0x140299BE0 (KiAdvanceReadyListEnumerator.c)
- *     KiShouldPreemptionBeDeferred @ 0x140299C60 (KiShouldPreemptionBeDeferred.c)
- *     KiCheckThreadAffinity @ 0x140299C80 (KiCheckThreadAffinity.c)
- *     KiComputeThreadQos @ 0x14029A450 (KiComputeThreadQos.c)
- *     KiIsThreadConstrainedBySchedulingGroup @ 0x14029ABF0 (KiIsThreadConstrainedBySchedulingGroup.c)
- *     KiCheckForMaxOverQuotaScb @ 0x14029AC10 (KiCheckForMaxOverQuotaScb.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiRemoveCurrentThreadSharedReadyQueueEnumerator @ 0x14030D370 (KiRemoveCurrentThreadSharedReadyQueueEnumerator.c)
- *     KiRemoveThreadFromReadyQueue @ 0x14030D494 (KiRemoveThreadFromReadyQueue.c)
- *     KiRemoveCurrentThreadScbReadyQueueEnumerator @ 0x14030E650 (KiRemoveCurrentThreadScbReadyQueueEnumerator.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiEnterDeferredReadyState @ 0x140337910 (KiEnterDeferredReadyState.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiFindRankBiasedIdleSmtSet @ 0x14034A6A0 (KiFindRankBiasedIdleSmtSet.c)
- *     KiInsertDeferredReadyList @ 0x1403CBE30 (KiInsertDeferredReadyList.c)
- *     KiTryAcquirePrcbLocksForIsolationUnit @ 0x140459158 (KiTryAcquirePrcbLocksForIsolationUnit.c)
- *     KiReduceToUnderMaxQuotaSet @ 0x140469878 (KiReduceToUnderMaxQuotaSet.c)
- *     KiIsThreadRankBiased @ 0x1404F714C (KiIsThreadRankBiased.c)
- *     EtwTraceXSchedulerPriorityKickSend @ 0x1404F9C1C (EtwTraceXSchedulerPriorityKickSend.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiSendSoftwareInterruptAffinity @ 0x1402852DC (KiSendSoftwareInterruptAffinity.c)
+ *     KiStartRescheduleContext @ 0x140285360 (KiStartRescheduleContext.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiSearchForNewThreadsInStandby @ 0x1402A3718 (KiSearchForNewThreadsInStandby.c)
+ *     KiIsIsolationUnitIdleByHandle @ 0x1402A37F0 (KiIsIsolationUnitIdleByHandle.c)
+ *     EtwTraceScheduleThread @ 0x1402A6768 (EtwTraceScheduleThread.c)
+ *     KiScheduleThreadToRescheduleContext @ 0x1402A7A00 (KiScheduleThreadToRescheduleContext.c)
+ *     KiReadyDeferredReadyList @ 0x1402A7E10 (KiReadyDeferredReadyList.c)
+ *     KiCommitRescheduleContext @ 0x1402A7F40 (KiCommitRescheduleContext.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1402A8000 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     KiDetermineNextScbForScbReadyQueueEnumerator @ 0x1402A85EC (KiDetermineNextScbForScbReadyQueueEnumerator.c)
+ *     KiAdvanceReadyListEnumerator @ 0x1402A86D0 (KiAdvanceReadyListEnumerator.c)
+ *     KiShouldPreemptionBeDeferred @ 0x1402A8750 (KiShouldPreemptionBeDeferred.c)
+ *     KiCheckThreadAffinity @ 0x1402A8770 (KiCheckThreadAffinity.c)
+ *     KiComputeThreadQos @ 0x1402A8F40 (KiComputeThreadQos.c)
+ *     KiIsThreadConstrainedBySchedulingGroup @ 0x1402A96E0 (KiIsThreadConstrainedBySchedulingGroup.c)
+ *     KiCheckForMaxOverQuotaScb @ 0x1402A9700 (KiCheckForMaxOverQuotaScb.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiRemoveCurrentThreadScbReadyQueueEnumerator @ 0x1402D8A9C (KiRemoveCurrentThreadScbReadyQueueEnumerator.c)
+ *     KiRemoveCurrentThreadSharedReadyQueueEnumerator @ 0x1402D8B1C (KiRemoveCurrentThreadSharedReadyQueueEnumerator.c)
+ *     KiRemoveThreadFromReadyQueue @ 0x1402D8C40 (KiRemoveThreadFromReadyQueue.c)
+ *     KiEnterDeferredReadyState @ 0x1402DFA30 (KiEnterDeferredReadyState.c)
+ *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402E1220 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiFindRankBiasedIdleSmtSet @ 0x140368B7C (KiFindRankBiasedIdleSmtSet.c)
+ *     KiInsertDeferredReadyList @ 0x1403BC660 (KiInsertDeferredReadyList.c)
+ *     KiTryAcquirePrcbLocksForIsolationUnit @ 0x14044E208 (KiTryAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReduceToUnderMaxQuotaSet @ 0x1404623CC (KiReduceToUnderMaxQuotaSet.c)
+ *     KiIsThreadRankBiased @ 0x1404F4A2C (KiIsThreadRankBiased.c)
+ *     EtwTraceXSchedulerPriorityKickSend @ 0x1404F74FC (EtwTraceXSchedulerPriorityKickSend.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall KiSearchForNewThreadsOnTarget(
@@ -557,7 +557,7 @@ LABEL_229:
                   _BitScanReverse64(&v103, v102);
                   v104 = (unsigned int)v103 + (*(unsigned __int16 *)(v97 + 136) << 6);
                   v238 = v103;
-                  v105 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + v104)];
+                  v105 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + v104)];
                   if ( (unsigned __int8)KiTryAcquirePrcbLocksForIsolationUnit(v105, (*v101 >> 1) & 1, &v220) )
                   {
                     if ( (unsigned int)KiIsIsolationUnitIdleByHandle(&v220) )
@@ -577,7 +577,7 @@ LABEL_229:
                         v112 = 0;
                         v113 = 0;
                         v114 = 0;
-                        if ( (WORD2(xmmword_140FC5B10) & 0x400) != 0 )
+                        if ( (WORD2(xmmword_140FC6B50) & 0x400) != 0 )
                           v113 = 2;
                         if ( v111->ProcessorCount )
                         {
@@ -686,9 +686,9 @@ LABEL_199:
                                       *((_DWORD *)*p_SchedulerAssist + 3) = 2;
                                       Number = Prcb->Number;
                                       if ( v71 )
-                                        LODWORD(Number) = (unsigned __int8)byte_140FCC221[2 * Number] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * Number] << 6);
+                                        LODWORD(Number) = (unsigned __int8)byte_140FCD2A1[2 * Number] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * Number] << 6);
                                       v130[2] = Number;
-                                      if ( (BYTE4(xmmword_140FC5B10) & 0x20) != 0 )
+                                      if ( (BYTE4(xmmword_140FC6B50) & 0x20) != 0 )
                                         EtwTraceXSchedulerPriorityKickSend(Prcb->Number, 2LL);
                                       __writemsr(0x400000C2u, (unsigned int)Number);
                                     }
@@ -736,7 +736,7 @@ LABEL_219:
                 _BitScanReverse64(&v109, v92);
                 v110 = (unsigned int)v109 + (*(unsigned __int16 *)(a2 + 136) << 6);
                 v239 = v109;
-                v100 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + v110)];
+                v100 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + v110)];
                 if ( (*(_DWORD *)(v91 + 120) & 2) == 0 )
                 {
                   v78 = *(_QWORD *)(v100 + 200) | v207;
@@ -748,7 +748,7 @@ LABEL_219:
                 _BitScanReverse64(&v98, v92);
                 v99 = (unsigned int)v98 + (*(unsigned __int16 *)(v97 + 136) << 6);
                 v237 = v98;
-                v100 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + v99)];
+                v100 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + v99)];
                 if ( (*(_DWORD *)(v91 + 120) & 2) == 0 )
                 {
                   v78 |= *(_QWORD *)(v100 + 200);
@@ -865,7 +865,7 @@ LABEL_114:
         _BitScanReverse64(&v41, v40);
         v42 = (unsigned int)v41 + (*(unsigned __int16 *)(v35 + 136) << 6);
         v234 = v41;
-        v43 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + v42)];
+        v43 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + v42)];
         if ( (unsigned __int8)KiTryAcquirePrcbLocksForIsolationUnit(v43, (*(_DWORD *)(v21 + 120) >> 1) & 1, &v219) )
         {
           if ( (unsigned int)KiIsIsolationUnitIdleByHandle(&v219) )
@@ -886,7 +886,7 @@ LABEL_114:
               v53 = 0;
               v54 = 0;
               v55 = 0;
-              if ( (WORD2(xmmword_140FC5B10) & 0x400) != 0 )
+              if ( (WORD2(xmmword_140FC6B50) & 0x400) != 0 )
                 v54 = 2;
               if ( v52->ProcessorCount )
               {
@@ -989,9 +989,9 @@ LABEL_92:
                         *((_DWORD *)*v70 + 3) = 2;
                         v73 = v64->Number;
                         if ( v71 )
-                          LODWORD(v73) = (unsigned __int8)byte_140FCC221[2 * v73] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * v73] << 6);
+                          LODWORD(v73) = (unsigned __int8)byte_140FCD2A1[2 * v73] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * v73] << 6);
                         v72[2] = v73;
-                        if ( (BYTE4(xmmword_140FC5B10) & 0x20) != 0 )
+                        if ( (BYTE4(xmmword_140FC6B50) & 0x20) != 0 )
                           EtwTraceXSchedulerPriorityKickSend(v64->Number, 2LL);
                         __writemsr(0x400000C2u, (unsigned int)v73);
                       }
@@ -1031,7 +1031,7 @@ LABEL_92:
       _BitScanReverse64(&v47, v31);
       v48 = (unsigned int)v47 + (*(unsigned __int16 *)(a2 + 136) << 6);
       v230 = v47;
-      v49 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + v48)];
+      v49 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + v48)];
       if ( (*(_DWORD *)(v21 + 120) & 2) != 0 )
         v16 = *(_QWORD *)(v49 + 36448) | v206;
       else
@@ -1043,7 +1043,7 @@ LABEL_92:
       _BitScanReverse64(&v36, v31);
       v37 = (unsigned int)v36 + (*(unsigned __int16 *)(v35 + 136) << 6);
       v233 = v36;
-      v38 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + v37)];
+      v38 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + v37)];
       if ( (*(_DWORD *)(v21 + 120) & 2) != 0 )
         v16 |= *(_QWORD *)(v38 + 36448);
       else
@@ -1187,7 +1187,7 @@ LABEL_113:
       _BitScanReverse64(&v160, v208);
       v161 = *(unsigned __int16 *)(a2 + 136) << 6;
       v227 = v160;
-      v162 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + (unsigned int)(v161 + v160))];
+      v162 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + (unsigned int)(v161 + v160))];
       if ( (*(_DWORD *)(v209 + 120) & 2) != 0 )
         v144 |= *(_QWORD *)(v162 + 36448);
       else
@@ -1208,7 +1208,7 @@ LABEL_113:
       _BitScanReverse64(&v166, v163);
       v167 = (unsigned int)v166 + (*(unsigned __int16 *)(v7 + 136) << 6);
       v228 = v166;
-      v168 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + v167)];
+      v168 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + v167)];
       v169 = (*v164 >> 1) & 1;
       v243[0] = v168;
       v170 = v169 | v168 & 0xFFFFFFFFFFFFFFFEuLL;
@@ -1293,7 +1293,7 @@ LABEL_333:
           _BitScanReverse64(&v199, v208);
           v200 = *(unsigned __int16 *)(a2 + 136) << 6;
           v229 = v199;
-          v201 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + (unsigned int)(v200 + v199))];
+          v201 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + (unsigned int)(v200 + v199))];
           if ( (*(_DWORD *)(v159 + 120) & 2) != 0 )
             v144 |= *(_QWORD *)(v201 + 36448);
           else

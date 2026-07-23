@@ -1,9 +1,9 @@
 /*
- * XREFs of _wmakepath_s @ 0x1401525D4
+ * XREFs of _wmakepath_s @ 0x140152B94
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 errno_t __cdecl wmakepath_s(

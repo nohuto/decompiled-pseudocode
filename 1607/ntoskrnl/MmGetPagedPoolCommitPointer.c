@@ -1,5 +1,5 @@
 /*
- * XREFs of MmGetPagedPoolCommitPointer @ 0x1400B5FC8
+ * XREFs of MmGetPagedPoolCommitPointer @ 0x1400B3DF0
  * Callers:
  *     KdInitSystem @ 0x1406F3740 (KdInitSystem.c)
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 *MmGetPagedPoolCommitPointer()
 {
-  return &qword_140327858;
+  return &qword_140327898;
 }

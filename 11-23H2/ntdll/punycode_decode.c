@@ -7,7 +7,7 @@
  *     _wcsnicmp @ 0x180090FF0 (_wcsnicmp.c)
  *     InsertChar @ 0x1800B0C84 (InsertChar.c)
  *     ValidateStd3Range @ 0x1800B0CAA (ValidateStd3Range.c)
- *     adapt @ 0x18010D154 (adapt.c)
+ *     adapt @ 0x18010D124 (adapt.c)
  */
 
 __int64 __fastcall punycode_decode(

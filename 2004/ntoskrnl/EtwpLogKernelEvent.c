@@ -218,7 +218,7 @@ void __fastcall EtwpLogKernelEvent(
     {
       if ( (a6 & 0x10000000) != 0 )
       {
-        v48 = EtwpReserveTraceBuffer(v14, v15 + 24, (__int64)&v59, &v55, a6);
+        v48 = EtwpReserveTraceBuffer((unsigned int *)v14, v15 + 24, (__int64)&v59, &v55, a6);
         v34 = (_DWORD *)v48;
         if ( !v48 )
           goto LABEL_34;
@@ -233,7 +233,7 @@ void __fastcall EtwpLogKernelEvent(
       else
       {
         v56 = KeGetCurrentThread();
-        v47 = EtwpReserveTraceBuffer(v14, v15 + 32, (__int64)&v59, &v55, a6);
+        v47 = EtwpReserveTraceBuffer((unsigned int *)v14, v15 + 32, (__int64)&v59, &v55, a6);
         if ( !v47 )
           goto LABEL_34;
         v34 = v56;
@@ -254,7 +254,7 @@ void __fastcall EtwpLogKernelEvent(
       if ( (v32 & 0xC00) == 0 )
       {
 LABEL_17:
-        v33 = EtwpReserveTraceBuffer(v14, v15 + 16, (__int64)&v59, &v55, a6);
+        v33 = EtwpReserveTraceBuffer((unsigned int *)v14, v15 + 16, (__int64)&v59, &v55, a6);
         if ( !v33 )
           goto LABEL_34;
         *(LARGE_INTEGER *)(v33 + 8) = v55;

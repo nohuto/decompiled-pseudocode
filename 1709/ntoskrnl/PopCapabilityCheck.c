@@ -6,38 +6,45 @@
  *     RtlCapabilityCheck @ 0x1407215D0 (RtlCapabilityCheck.c)
  */
 
-char __fastcall PopCapabilityCheck(wchar_t *a1)
+BOOLEAN __fastcall PopCapabilityCheck(wchar_t *a1)
 {
-  __int64 v2; // rcx
-  wchar_t *v3; // rdx
-  __int16 v4; // ax
-  UNICODE_STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
+  char v1; // bl
+  __int64 v3; // rcx
+  wchar_t *v4; // rdx
+  __int16 v5; // ax
+  NTSTATUS v6; // eax
+  BOOLEAN v7; // cl
+  UNICODE_STRING CapabilityName; // [rsp+20h] [rbp-18h] BYREF
+  BOOLEAN HasCapability; // [rsp+40h] [rbp+8h] BYREF
 
+  v1 = 0;
+  HasCapability = 0;
   if ( a1 )
   {
-    *(_DWORD *)&SourceString.Length = 0;
-    v2 = 0x7FFFLL;
-    SourceString.Buffer = 0LL;
-    v3 = a1;
+    *(_DWORD *)&CapabilityName.Length = 0;
+    v3 = 0x7FFFLL;
+    CapabilityName.Buffer = 0LL;
+    v4 = a1;
     do
     {
-      if ( !*v3 )
+      if ( !*v4 )
         break;
-      ++v3;
-      --v2;
+      ++v4;
+      --v3;
     }
-    while ( v2 );
-    if ( v2 )
-      v4 = 0x7FFF - v2;
-    else
-      v4 = 0;
-    if ( v2 )
+    while ( v3 );
+    v5 = v3 ? 0x7FFF - v3 : 0;
+    if ( v3 )
     {
-      SourceString.Buffer = a1;
-      SourceString.Length = 2 * v4;
-      SourceString.MaximumLength = 2 * v4 + 2;
-      RtlCapabilityCheck(0LL, &SourceString);
+      CapabilityName.Buffer = a1;
+      CapabilityName.Length = 2 * v5;
+      CapabilityName.MaximumLength = 2 * v5 + 2;
+      v6 = RtlCapabilityCheck(0LL, &CapabilityName, &HasCapability);
+      v7 = HasCapability;
+      if ( v6 < 0 )
+        return 0;
+      return v7;
     }
   }
-  return 0;
+  return v1;
 }

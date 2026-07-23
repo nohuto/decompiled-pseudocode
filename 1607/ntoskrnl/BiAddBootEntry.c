@@ -1,16 +1,16 @@
 /*
- * XREFs of BiAddBootEntry @ 0x1406D338C
+ * XREFs of BiAddBootEntry @ 0x1406D34C4
  * Callers:
- *     BiCreateEfiEntry @ 0x1406D4310 (BiCreateEfiEntry.c)
+ *     BiCreateEfiEntry @ 0x1406D4448 (BiCreateEfiEntry.c)
  * Callees:
- *     ZwAddBootEntry @ 0x14015A980 (ZwAddBootEntry.c)
- *     BiReleasePrivilege @ 0x14053BD20 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x14053BD6C (BiAcquirePrivilege.c)
+ *     ZwAddBootEntry @ 0x14015AEF0 (ZwAddBootEntry.c)
+ *     BiReleasePrivilege @ 0x14053C260 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x14053C2AC (BiAcquirePrivilege.c)
  */
 
 __int64 __fastcall BiAddBootEntry(PUNICODE_STRING EntryName, PUNICODE_STRING EntryValue)
 {
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   unsigned int v6; // [rsp+40h] [rbp+18h] BYREF
 
   v4 = BiAcquirePrivilege(0x16u, (__int64)&v6);

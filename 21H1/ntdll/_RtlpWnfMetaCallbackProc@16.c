@@ -6,17 +6,17 @@
  *     _NtSetEvent@8 @ 0x4B2F2A40 (_NtSetEvent@8.c)
  */
 
-int __stdcall RtlpWnfMetaCallbackProc(int a1, int a2, _DWORD *a3, int a4)
+int __stdcall RtlpWnfMetaCallbackProc(int a1, int a2, int a3, int a4)
 {
   bool v4; // zf
 
-  if ( !a3[2] )
+  if ( !*(_DWORD *)(a3 + 8) )
   {
-    v4 = a3[1] == 0;
-    *a3 = a4;
+    v4 = *(_DWORD *)(a3 + 4) == 0;
+    *(_DWORD *)a3 = a4;
     if ( !v4 )
-      NtSetEvent(a3[1], 0);
-    a3[2] = 1;
+      NtSetEvent(*(HANDLE *)(a3 + 4), 0);
+    *(_DWORD *)(a3 + 8) = 1;
   }
   return 0;
 }

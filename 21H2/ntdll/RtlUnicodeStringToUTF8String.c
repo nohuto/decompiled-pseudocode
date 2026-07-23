@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlUnicodeStringToUTF8String @ 0x180102F60
+ * XREFs of RtlUnicodeStringToUTF8String @ 0x180102F20
  * Callers:
  *     <none>
  * Callees:
@@ -9,62 +9,73 @@
  *     NtdllpAllocateStringRoutine @ 0x18006EBE0 (NtdllpAllocateStringRoutine.c)
  */
 
-__int64 __fastcall RtlUnicodeStringToUTF8String(__int16 *a1, unsigned int **a2, char a3)
+NTSTATUS __cdecl RtlUnicodeStringToUTF8String(
+        PUTF8_STRING DestinationString,
+        PCUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   int v6; // edi
-  __int64 result; // rax
-  __int64 v8; // rax
-  unsigned __int16 v9; // cx
-  __int64 StringRoutine; // rax
-  unsigned __int16 v11; // ax
+  NTSTATUS result; // eax
+  SIZE_T v8; // rax
+  unsigned __int16 Length; // cx
+  char *StringRoutine; // rax
+  unsigned __int16 MaximumLength; // ax
   int v12; // esi
-  unsigned int v13; // [rsp+58h] [rbp+10h] BYREF
+  ULONG UTF8StringActualByteCount; // [rsp+58h] [rbp+10h] BYREF
 
   v6 = 0;
-  result = CountUnicodeToUTF8(a2[1], (unsigned int)*(unsigned __int16 *)a2 + 2, &v13);
-  if ( (int)result >= 0 )
+  result = CountUnicodeToUTF8(
+             (unsigned int *)SourceString->Buffer,
+             (unsigned int)SourceString->Length + 2,
+             &UTF8StringActualByteCount);
+  if ( result >= 0 )
   {
-    v8 = v13;
-    if ( v13 > 0xFFFF )
-      return 3221225712LL;
-    v9 = v13 - 1;
-    *a1 = v13 - 1;
-    if ( a3 )
+    v8 = UTF8StringActualByteCount;
+    if ( UTF8StringActualByteCount > 0xFFFF )
+      return -1073741584;
+    Length = UTF8StringActualByteCount - 1;
+    DestinationString->Length = UTF8StringActualByteCount - 1;
+    if ( AllocateDestinationString )
     {
-      a1[1] = v8;
-      StringRoutine = NtdllpAllocateStringRoutine(v8);
-      *((_QWORD *)a1 + 1) = StringRoutine;
+      DestinationString->MaximumLength = v8;
+      StringRoutine = (char *)NtdllpAllocateStringRoutine(v8);
+      DestinationString->Buffer = StringRoutine;
       if ( !StringRoutine )
-        return 3221225495LL;
-      v9 = *a1;
+        return -1073741801;
+      Length = DestinationString->Length;
     }
     else
     {
-      v11 = a1[1];
-      if ( v9 >= v11 )
+      MaximumLength = DestinationString->MaximumLength;
+      if ( Length >= MaximumLength )
       {
-        if ( !v11 )
-          return 2147483653LL;
-        v9 = v11 - 1;
+        if ( !MaximumLength )
+          return -2147483643;
+        Length = MaximumLength - 1;
         v6 = -2147483643;
-        *a1 = v11 - 1;
+        DestinationString->Length = MaximumLength - 1;
       }
     }
-    v12 = RtlUnicodeToUTF8N(*((_BYTE **)a1 + 1), v9, &v13, a2[1], *(unsigned __int16 *)a2);
+    v12 = RtlUnicodeToUTF8N(
+            DestinationString->Buffer,
+            Length,
+            &UTF8StringActualByteCount,
+            SourceString->Buffer,
+            SourceString->Length);
     if ( v12 < 0 )
     {
-      if ( a3 )
+      if ( AllocateDestinationString )
       {
-        NtdllpFreeStringRoutine(*((_QWORD *)a1 + 1));
-        *((_QWORD *)a1 + 1) = 0LL;
+        NtdllpFreeStringRoutine(DestinationString->Buffer);
+        DestinationString->Buffer = 0LL;
       }
     }
     else
     {
       v12 = v6;
-      *(_BYTE *)(v13 + *((_QWORD *)a1 + 1)) = 0;
+      DestinationString->Buffer[UTF8StringActualByteCount] = 0;
     }
-    return (unsigned int)v12;
+    return v12;
   }
   return result;
 }

@@ -1,0 +1,27 @@
+/*
+ * XREFs of sub_1402F70E4 @ 0x1402F70E4
+ * Callers:
+ *     sub_1402B5240 @ 0x1402B5240 (sub_1402B5240.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall sub_1402F70E4(_BYTE *a1, __int64 a2)
+{
+  __int64 v2; // rax
+  volatile signed __int32 *v3; // rcx
+
+  LOBYTE(v2) = *a1 & 0x7F;
+  if ( (_BYTE)v2 == 21 )
+  {
+    *(_DWORD *)(a2 + 540) = (unsigned __int8)*(_DWORD *)(a2 + 540);
+    v2 = *(unsigned int *)(a2 + 540);
+    v3 = (volatile signed __int32 *)&a1[4 * v2 + 536];
+  }
+  else
+  {
+    v3 = (volatile signed __int32 *)(a1 + 40);
+  }
+  _InterlockedIncrement(v3);
+  return v2;
+}

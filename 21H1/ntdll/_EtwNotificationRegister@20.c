@@ -16,106 +16,113 @@
  *     _memcmp @ 0x4B2F8860 (_memcmp.c)
  */
 
-ULONG __stdcall EtwNotificationRegister(void *Buf1, int a2, int a3, int a4, int *a5)
+ULONG __cdecl EtwNotificationRegister(
+        LPCGUID Guid,
+        ULONG Type,
+        PETW_NOTIFICATION_CALLBACK Callback,
+        PVOID Context,
+        PREGHANDLE RegHandle)
 {
   ULONG v5; // esi
-  int Registration; // eax
+  _RTL_SRWLOCK *Registration; // eax
   int v7; // ebx
-  unsigned int v8; // edi
-  unsigned int v9; // eax
+  _RTL_BALANCED_NODE *Root; // edi
+  _RTL_BALANCED_NODE *v9; // eax
   int v10; // eax
-  int v12; // [esp-4h] [ebp-24h]
-  char v13; // [esp+10h] [ebp-10h]
-  int v14; // [esp+14h] [ebp-Ch]
-  int v15; // [esp+18h] [ebp-8h] BYREF
-  __int16 v16; // [esp+1Ch] [ebp-4h]
+  size_t v12; // [esp-4h] [ebp-24h]
+  int v13; // [esp-4h] [ebp-24h]
+  BOOLEAN Right; // [esp+10h] [ebp-10h]
+  int v15; // [esp+14h] [ebp-Ch]
+  int v16; // [esp+18h] [ebp-8h] BYREF
+  __int16 v17; // [esp+1Ch] [ebp-4h]
 
-  if ( !Buf1 || !a5 )
+  if ( !Guid || !RegHandle )
   {
     v5 = 87;
     goto LABEL_25;
   }
-  if ( !memcmp(Buf1, &PrivateLoggerNotificationGuid, 0x10u) && PrivateLoggerNotificationEntry )
+  LODWORD(v12) = 16;
+  if ( !memcmp(Guid, &PrivateLoggerNotificationGuid, v12) && PrivateLoggerNotificationEntry )
   {
-    v12 = 87;
+    v13 = 87;
 LABEL_32:
-    v5 = v12;
+    v5 = v13;
 LABEL_30:
     RtlSetLastWin32Error(v5);
     return v5;
   }
-  *a5 = 0;
+  *(_DWORD *)RegHandle = 0;
   v5 = 0;
-  a5[1] = 0;
-  Registration = EtwpAllocateRegistration(a4, a2);
-  v7 = Registration;
+  *((_DWORD *)RegHandle + 1) = 0;
+  Registration = (_RTL_SRWLOCK *)EtwpAllocateRegistration(Context, Type);
+  v7 = (int)Registration;
   if ( !Registration )
   {
-    v12 = 14;
+    v13 = 14;
     goto LABEL_32;
   }
-  RtlAcquireSRWLockExclusive(Registration + 36);
+  RtlAcquireSRWLockExclusive(Registration + 9);
   *(_DWORD *)(v7 + 44) = NtCurrentTeb()->ClientId.UniqueThread;
-  if ( a2 != 10 )
+  if ( Type != 10 )
   {
-    v5 = EtwpRegisterProvider(v7, a3, a2);
+    v5 = EtwpRegisterProvider(v7, (int)Callback, Type);
     if ( v5 )
     {
       *(_DWORD *)(v7 + 44) = 0;
-      RtlReleaseSRWLockExclusive(v7 + 36);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v7 + 36));
       EtwpFreeRegistration(v7);
       goto LABEL_25;
     }
   }
-  v15 = v7 + 12;
-  v16 = *(_WORD *)(v7 + 52);
+  v16 = v7 + 12;
+  v17 = *(_WORD *)(v7 + 52);
   RtlAcquireSRWLockExclusive(&EtwpProvLock);
-  v8 = EtwpRegistrationTable;
-  if ( (dword_4B3A68B0 & 1) != 0 && EtwpRegistrationTable )
-    v8 = (unsigned int)&EtwpRegistrationTable ^ EtwpRegistrationTable;
-  v13 = 0;
-  v14 = dword_4B3A68B0 & 1;
-  if ( !v8 )
+  Root = EtwpRegistrationTable.Root;
+  if ( (*(_BYTE *)&EtwpRegistrationTable.0 & 1) != 0 && EtwpRegistrationTable.Root )
+    Root = (_RTL_BALANCED_NODE *)((unsigned int)&EtwpRegistrationTable ^ (unsigned int)EtwpRegistrationTable.Root);
+  Right = 0;
+  v15 = *(_BYTE *)&EtwpRegistrationTable.0 & 1;
+  if ( !Root )
     goto LABEL_23;
-  while ( (int)EtwpRegistrationCompare(&v15, v8) < 0 )
+  while ( (int)EtwpRegistrationCompare(&v16, Root) < 0 )
   {
-    v9 = *(_DWORD *)v8;
-    if ( v14 )
+    v9 = Root->Children[0];
+    if ( v15 )
     {
       if ( !v9 )
         goto LABEL_21;
-      v9 ^= v8;
+      v9 = (_RTL_BALANCED_NODE *)((unsigned int)Root ^ (unsigned int)v9);
     }
     if ( !v9 )
     {
 LABEL_21:
-      RtlRbInsertNodeEx(&EtwpRegistrationTable, v8, 0, v7);
+      RtlRbInsertNodeEx(&EtwpRegistrationTable, Root, 0, (PRTL_BALANCED_NODE)v7);
       goto LABEL_24;
     }
 LABEL_16:
-    v8 = v9;
+    Root = v9;
   }
-  v9 = *(_DWORD *)(v8 + 4);
-  if ( v14 )
+  v9 = Root->Children[1];
+  if ( v15 )
   {
     if ( !v9 )
       goto LABEL_22;
-    v9 ^= v8;
+    v9 = (_RTL_BALANCED_NODE *)((unsigned int)Root ^ (unsigned int)v9);
   }
   if ( v9 )
     goto LABEL_16;
 LABEL_22:
-  v13 = 1;
+  Right = 1;
 LABEL_23:
-  RtlRbInsertNodeEx(&EtwpRegistrationTable, v8, v13, v7);
+  RtlRbInsertNodeEx(&EtwpRegistrationTable, Root, Right, (PRTL_BALANCED_NODE)v7);
 LABEL_24:
   RtlReleaseSRWLockExclusive(&EtwpProvLock);
   EtwpCheckForPrivatePreEnable(v7);
   *(_DWORD *)(v7 + 44) = 0;
-  RtlReleaseSRWLockExclusive(v7 + 36);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v7 + 36));
   v10 = *(unsigned __int16 *)(v7 + 52);
-  *a5 = v7;
-  a5[1] = v10;
+  *(_DWORD *)RegHandle = v7;
+  *((_DWORD *)RegHandle + 1) = v10;
 LABEL_25:
   if ( v5 )
     goto LABEL_30;

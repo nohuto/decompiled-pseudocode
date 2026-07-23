@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReassessZeroThreads @ 0x1403515FC
+ * XREFs of MiReassessZeroThreads @ 0x14035179C
  * Callers:
- *     MiZeroLocalPages @ 0x1402CF540 (MiZeroLocalPages.c)
+ *     MiZeroLocalPages @ 0x1402CF7D0 (MiZeroLocalPages.c)
  * Callees:
  *     MiReduceZeroingThreads @ 0x140220A68 (MiReduceZeroingThreads.c)
  *     MiAddZeroingThreads @ 0x140222574 (MiAddZeroingThreads.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     MiGetDesiredZeroTime @ 0x140351908 (MiGetDesiredZeroTime.c)
- *     MiLogZeroPageDecision @ 0x140351954 (MiLogZeroPageDecision.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReplenishUltraPageTables @ 0x140661B7C (MiReplenishUltraPageTables.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     MiGetDesiredZeroTime @ 0x140351AA8 (MiGetDesiredZeroTime.c)
+ *     MiLogZeroPageDecision @ 0x140351AF4 (MiLogZeroPageDecision.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReplenishUltraPageTables @ 0x1406620CC (MiReplenishUltraPageTables.c)
  */
 
 void __fastcall MiReassessZeroThreads(__int64 a1, __int64 a2)
@@ -62,8 +62,8 @@ void __fastcall MiReassessZeroThreads(__int64 a1, __int64 a2)
     if ( (unsigned __int64)*(int *)(a1 + 140) < 0x1000 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(v3 + 200) + 23160LL));
-      v20 = KiIrqlFlags;
-      if ( KiIrqlFlags )
+      v20 = (char)KiIrqlFlags;
+      if ( (_DWORD)KiIrqlFlags )
         goto LABEL_42;
     }
     else
@@ -171,11 +171,16 @@ void __fastcall MiReassessZeroThreads(__int64 a1, __int64 a2)
         for ( i = *(volatile __int32 **)(v3 + 184); i != (volatile __int32 *)(v3 + 184); i = *(volatile __int32 **)i )
           _InterlockedExchange(i - 7, 0);
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(v3 + 200) + 23160LL));
-        if ( !KiIrqlFlags )
+        if ( !(_DWORD)KiIrqlFlags )
           goto LABEL_26;
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || (unsigned __int8)v7 > 0xFu || CurrentIrql < 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) == 0
+          || CurrentIrql > 0xFu
+          || (unsigned __int8)v7 > 0xFu
+          || CurrentIrql < 2u )
+        {
           goto LABEL_26;
+        }
 LABEL_52:
         CurrentPrcb = KeGetCurrentPrcb();
         v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
@@ -187,8 +192,8 @@ LABEL_52:
         goto LABEL_26;
       }
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(v3 + 200) + 23160LL));
-      v20 = KiIrqlFlags;
-      if ( KiIrqlFlags )
+      v20 = (char)KiIrqlFlags;
+      if ( (_DWORD)KiIrqlFlags )
       {
 LABEL_42:
         v25 = KeGetCurrentIrql();

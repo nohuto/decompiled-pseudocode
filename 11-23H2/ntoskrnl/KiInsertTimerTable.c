@@ -1,15 +1,15 @@
 /*
- * XREFs of KiInsertTimerTable @ 0x140253830
+ * XREFs of KiInsertTimerTable @ 0x1402538F0
  * Callers:
- *     KiCommitThreadWait @ 0x140241F20 (KiCommitThreadWait.c)
- *     KiSetTimerEx @ 0x140252820 (KiSetTimerEx.c)
- *     KiTimerWaitTest @ 0x140252EF0 (KiTimerWaitTest.c)
- *     KeSetTimerEx @ 0x140253590 (KeSetTimerEx.c)
- *     KiResumeThread @ 0x14030ACF8 (KiResumeThread.c)
- *     KiAdjustTimerDueTimes @ 0x14039A5E4 (KiAdjustTimerDueTimes.c)
+ *     KiCommitThreadWait @ 0x140241FF0 (KiCommitThreadWait.c)
+ *     KiSetTimerEx @ 0x1402528E0 (KiSetTimerEx.c)
+ *     KiTimerWaitTest @ 0x140252FB0 (KiTimerWaitTest.c)
+ *     KeSetTimerEx @ 0x140253650 (KeSetTimerEx.c)
+ *     KiResumeThread @ 0x14030AF88 (KiResumeThread.c)
+ *     KiAdjustTimerDueTimes @ 0x14039A7C4 (KiAdjustTimerDueTimes.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiRemoveEntryTimer @ 0x1403C2E68 (KiRemoveEntryTimer.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiRemoveEntryTimer @ 0x1403C3048 (KiRemoveEntryTimer.c)
  */
 
 _BOOL8 __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char *a5)
@@ -97,7 +97,7 @@ _BOOL8 __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigne
     v22 = *(v15 - 1);
     if ( v10 > v22 )
     {
-      if ( v10 - v22 <= (unsigned __int64)(unsigned int)KeMaximumIncrement >> 2 )
+      if ( v10 - v22 <= (unsigned __int64)KeMaximumIncrement >> 2 )
       {
         v24 = (_QWORD *)*((_QWORD *)v12 + 2);
         v14 = v15;

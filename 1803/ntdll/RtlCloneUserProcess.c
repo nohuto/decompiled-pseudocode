@@ -23,50 +23,34 @@
  *     sub_1800EBBBC @ 0x1800EBBBC (sub_1800EBBBC.c)
  */
 
-__int64 __fastcall RtlCloneUserProcess(int a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4, char *a5)
+NTSTATUS __cdecl RtlCloneUserProcess(
+        ULONG ProcessFlags,
+        PSECURITY_DESCRIPTOR ProcessSecurityDescriptor,
+        PSECURITY_DESCRIPTOR ThreadSecurityDescriptor,
+        HANDLE DebugPort,
+        PRTL_USER_PROCESS_INFORMATION ProcessInformation)
 {
-  __int64 v7; // rbp
+  PSECURITY_DESCRIPTOR v7; // rbp
   int v9; // esi
-  int v10; // r15d
-  int v11; // r14d
-  int v12; // edi
-  int v13; // ebx
-  char *v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  unsigned __int64 v17; // rdx
-  unsigned __int64 *v18; // r8
-  __int64 v19; // r9
-  char *v20; // rbx
-  __int64 v21; // rbp
-  unsigned __int64 v22; // rdx
-  unsigned __int64 *v23; // r8
-  __int64 v24; // r9
-  unsigned __int64 v25; // rdx
-  unsigned __int64 *v26; // r8
-  __int64 v27; // r9
-  unsigned __int64 v28; // rdx
-  unsigned __int64 *v29; // r8
-  __int64 v30; // r9
-  unsigned int v31; // eax
-  unsigned int v32; // ebp
-  unsigned int v33; // ebx
-  unsigned __int64 v34; // rdx
-  unsigned __int64 *v35; // r8
-  __int64 v36; // r9
-  unsigned __int64 v37; // rdx
-  unsigned __int64 *v38; // r8
-  __int64 v39; // r9
-  __int64 v40[8]; // [rsp+30h] [rbp-68h] BYREF
+  ULONG v10; // r15d
+  ULONG v11; // r14d
+  ULONG v12; // edi
+  NTSTATUS v13; // ebx
+  _RTL_SRWLOCK *v14; // rbx
+  __int64 v15; // rbp
+  NTSTATUS v16; // eax
+  NTSTATUS v17; // ebp
+  unsigned int v18; // ebx
+  _QWORD v19[8]; // [rsp+30h] [rbp-68h] BYREF
 
-  v7 = a2;
-  if ( (a1 & 0xFFFFFFF8) != 0 )
-    return 3221225711LL;
+  v7 = ProcessSecurityDescriptor;
+  if ( (ProcessFlags & 0xFFFFFFF8) != 0 )
+    return -1073741585;
   v9 = 2;
-  v10 = a1 & 1;
-  v11 = 2 * (a1 & 2);
-  v12 = a1 & 4;
-  if ( (a1 & 4) == 0 )
+  v10 = ProcessFlags & 1;
+  v11 = 2 * (ProcessFlags & 2);
+  v12 = ProcessFlags & 4;
+  if ( (ProcessFlags & 4) == 0 )
   {
     if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     {
@@ -76,93 +60,93 @@ __int64 __fastcall RtlCloneUserProcess(int a1, unsigned __int64 a2, unsigned __i
     {
       sub_1800435B4(0);
       sub_180046FBC();
-      RtlEnterCriticalSection((__int64)&unk_18015C240);
+      RtlEnterCriticalSection(&stru_18015C240);
       v13 = 0;
     }
     if ( v13 >= 0 )
     {
-      RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D260, a2, a3, a4);
+      RtlAcquireSRWLockExclusive(&stru_18015D260);
       sub_1800D1E50();
-      RtlEnterCriticalSection((__int64)&unk_18015BE80);
-      RtlAcquireSRWLockShared(&qword_18015D118, v14, v15, v16);
-      v20 = (char *)&unk_18015D128;
-      v21 = 16LL;
+      RtlEnterCriticalSection(&stru_18015BE80);
+      RtlAcquireSRWLockShared(&stru_18015D118);
+      v14 = &stru_18015D128;
+      v15 = 16LL;
       do
       {
-        RtlAcquireSRWLockExclusive((unsigned __int64)v20, v17, v18, v19);
-        v20 += 16;
-        --v21;
+        RtlAcquireSRWLockExclusive(v14);
+        v14 += 2;
+        --v15;
       }
-      while ( v21 );
-      RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D2D0, v17, v18, v19);
-      sub_1800D0C68(0, v22, v23, v24);
+      while ( v15 );
+      RtlAcquireSRWLockExclusive(&stru_18015D2D0);
+      sub_1800D0C68(0);
       v13 = sub_1800EB360();
       if ( v13 >= 0 )
       {
-        RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D258, v25, v26, v27);
-        RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D248, v28, v29, v30);
+        RtlAcquireSRWLockExclusive(&stru_18015D258);
+        RtlAcquireSRWLockExclusive(&stru_18015D248);
         v13 = 0;
         byte_18015BEB9 = 1;
       }
       else
       {
-        sub_1800D0C68(2, v25, v26, v27);
-        RtlReleaseSRWLockExclusive(&qword_18015D2D0);
+        sub_1800D0C68(2);
+        RtlReleaseSRWLockExclusive(&stru_18015D2D0);
         sub_1800D09C4(0);
-        RtlLeaveCriticalSection((__int64)&unk_18015BE80);
+        RtlLeaveCriticalSection(&stru_18015BE80);
         sub_1800D1EA8(0LL);
-        RtlReleaseSRWLockExclusive(&qword_18015D260);
+        RtlReleaseSRWLockExclusive(&stru_18015D260);
         sub_1800D0858(0);
       }
-      v7 = a2;
+      v7 = ProcessSecurityDescriptor;
     }
     if ( v13 < 0 )
-      return (unsigned int)v13;
+      return v13;
   }
-  memset(v40, 0, 0x38uLL);
-  v40[1] = v7;
-  LOWORD(v40[0]) = 1;
-  v40[2] = (__int64)a3;
-  v40[4] = a4;
-  v31 = sub_180086FA0(0LL, 0LL, v11, v10, (__int64)v40, a5);
-  v32 = v31;
+  memset(v19, 0, 0x38uLL);
+  v19[1] = v7;
+  LOWORD(v19[0]) = 1;
+  v19[2] = ThreadSecurityDescriptor;
+  v19[4] = DebugPort;
+  v16 = sub_180086FA0(0LL, 0LL, v11, v10, (__int64)v19, (HANDLE *)ProcessInformation);
+  v17 = v16;
   if ( !v12 )
   {
-    if ( v31 == 297 )
+    if ( v16 == 297 )
     {
-      qword_18015D258 = 1LL;
-      v33 = 1;
+      stru_18015D258.Ptr = (PVOID)1;
+      v18 = 1;
       v9 = 1;
-      qword_18015BE90 = (__int64)NtCurrentTeb()->ClientId.UniqueThread;
-      dword_18015BE88 = -2;
-      dword_18015BE8C = 1;
-      qword_18015BE98 = 0LL;
-      qword_18015D260 = 1LL;
+      stru_18015BE80.OwningThread = NtCurrentTeb()->ClientId.UniqueThread;
+      stru_18015BE80.LockCount = -2;
+      stru_18015BE80.RecursionCount = 1;
+      stru_18015BE80.LockSemaphore = 0LL;
+      stru_18015D260.Ptr = (PVOID)1;
     }
     else
     {
       byte_18015BEB9 = 0;
-      v33 = 0;
-      RtlReleaseSRWLockExclusive(&qword_18015D248);
+      v18 = 0;
+      RtlReleaseSRWLockExclusive(&stru_18015D248);
     }
-    RtlReleaseSRWLockExclusive(&qword_18015D258);
-    sub_1800D0C68(v9, v34, v35, v36);
+    RtlReleaseSRWLockExclusive(&stru_18015D258);
+    sub_1800D0C68(v9);
     if ( v9 == 1 )
-      qword_18015D2D0 = 1LL;
+      stru_18015D2D0.Ptr = (PVOID)1;
     else
-      RtlReleaseSRWLockExclusive(&qword_18015D2D0);
-    sub_1800EBBBC(v33);
-    sub_1800D09C4(v33);
-    RtlLeaveCriticalSection((__int64)&unk_18015BE80);
-    sub_1800D1EA8(v33);
-    RtlReleaseSRWLockExclusive(&qword_18015D260);
-    sub_1800D0858(v33);
-    if ( v33 )
+      RtlReleaseSRWLockExclusive(&stru_18015D2D0);
+    sub_1800EBBBC(v18);
+    sub_1800D09C4(v18);
+    RtlLeaveCriticalSection(&stru_18015BE80);
+    sub_1800D1EA8(v18);
+    RtlReleaseSRWLockExclusive(&stru_18015D260);
+    sub_1800D0858(v18);
+    if ( v18 )
     {
       byte_18015BEB9 = 0;
-      RtlAcquireReleaseSRWLockExclusive(&qword_18015D248, v37, v38, v39);
-      RtlWakeAllConditionVariable(&qword_18015D250);
+      RtlAcquireReleaseSRWLockExclusive(&stru_18015D248);
+      RtlWakeAllConditionVariable(&ConditionVariable);
     }
   }
-  return v32;
+  return v17;
 }

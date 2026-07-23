@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCopyOnWriteCombineCloneDereference @ 0x14036ACB0
+ * XREFs of MiCopyOnWriteCombineCloneDereference @ 0x14036CA50
  * Callers:
- *     MiDiscardPtePrototype @ 0x1405248A4 (MiDiscardPtePrototype.c)
+ *     MiDiscardPtePrototype @ 0x140526F14 (MiDiscardPtePrototype.c)
  * Callees:
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiDecrementCombinedPteEx @ 0x14036A1BC (MiDecrementCombinedPteEx.c)
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
- *     MiDecrementCloneBlockReference @ 0x1404AFB30 (MiDecrementCloneBlockReference.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiDecrementCombinedPteEx @ 0x14036BF5C (MiDecrementCombinedPteEx.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
+ *     MiDecrementCloneBlockReference @ 0x1404A91C0 (MiDecrementCloneBlockReference.c)
  */
 
 ULONG_PTR __fastcall MiCopyOnWriteCombineCloneDereference(ULONG_PTR BugCheckParameter3, char a2, ULONG *a3, __int64 a4)

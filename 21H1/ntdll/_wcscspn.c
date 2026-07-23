@@ -8,12 +8,11 @@
 
 size_t __cdecl wcscspn(const wchar_t *String, const wchar_t *Control)
 {
-  const wchar_t *v2; // edx
+  size_t result; // rax
   const wchar_t *v3; // ecx
   const wchar_t *v4; // edi
-  wchar_t v5; // ax
 
-  v2 = String;
+  HIDWORD(result) = String;
   v3 = String;
   if ( *String )
   {
@@ -24,16 +23,18 @@ size_t __cdecl wcscspn(const wchar_t *String, const wchar_t *Control)
         break;
 LABEL_6:
       if ( !*++v3 )
-        return v3 - v2;
+        goto LABEL_7;
     }
-    v5 = *Control;
-    while ( v5 != *v3 )
+    LOWORD(result) = *Control;
+    while ( (_WORD)result != *v3 )
     {
-      v5 = *++v4;
-      v2 = String;
+      LOWORD(result) = *++v4;
+      HIDWORD(result) = String;
       if ( !*v4 )
         goto LABEL_6;
     }
   }
-  return v3 - v2;
+LABEL_7:
+  LODWORD(result) = ((int)v3 - HIDWORD(result)) >> 1;
+  return result;
 }

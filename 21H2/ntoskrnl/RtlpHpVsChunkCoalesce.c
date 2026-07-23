@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpVsChunkCoalesce @ 0x14033FEF0
+ * XREFs of RtlpHpVsChunkCoalesce @ 0x14034AC40
  * Callers:
- *     RtlpHpVsChunkFree @ 0x140340140 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsChunkFree @ 0x14034AE90 (RtlpHpVsChunkFree.c)
  * Callees:
- *     RtlpHpVsFreeChunkRemove @ 0x1403400D0 (RtlpHpVsFreeChunkRemove.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x14034AE20 (RtlpHpVsFreeChunkRemove.c)
  */
 
 unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int *a4)

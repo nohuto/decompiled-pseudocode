@@ -1,10 +1,10 @@
 /*
- * XREFs of WdiUpdateSem @ 0x1405FB7E8
+ * XREFs of WdiUpdateSem @ 0x1405FBD58
  * Callers:
- *     NtTraceControl @ 0x140725BD0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140725DD0 (NtTraceControl.c)
  * Callees:
- *     WdipAccessCheck @ 0x1405FB808 (WdipAccessCheck.c)
- *     WdipSemUpdate @ 0x1409DD93C (WdipSemUpdate.c)
+ *     WdipAccessCheck @ 0x1405FBD78 (WdipAccessCheck.c)
+ *     WdipSemUpdate @ 0x1409DDB3C (WdipSemUpdate.c)
  */
 
 __int64 WdiUpdateSem()

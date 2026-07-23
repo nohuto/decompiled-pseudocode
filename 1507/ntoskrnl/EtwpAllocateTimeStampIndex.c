@@ -29,7 +29,7 @@ char __fastcall EtwpAllocateTimeStampIndex(int a1)
   }
   if ( a1 == 2 )
   {
-    v3 = EtwpGetSystemTime;
+    v3 = (__int64 (__fastcall *)())EtwpGetSystemTime;
   }
   else if ( a1 == 3 )
   {

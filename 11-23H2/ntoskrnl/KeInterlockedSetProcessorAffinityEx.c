@@ -1,15 +1,15 @@
 /*
- * XREFs of KeInterlockedSetProcessorAffinityEx @ 0x140348BA0
+ * XREFs of KeInterlockedSetProcessorAffinityEx @ 0x140348E30
  * Callers:
  *     KiProcessNMI @ 0x14020EA60 (KiProcessNMI.c)
- *     PpmIdleExecuteTransition @ 0x1402C5320 (PpmIdleExecuteTransition.c)
- *     KiComputeGroupSchedulingRank @ 0x140305838 (KiComputeGroupSchedulingRank.c)
- *     KiStartIdleThread @ 0x140382914 (KiStartIdleThread.c)
- *     KiStartProfileTarget @ 0x140574430 (KiStartProfileTarget.c)
- *     KiForceIdleParkUnparkProcessor @ 0x14057CD98 (KiForceIdleParkUnparkProcessor.c)
- *     PpmTestAndLockProcessor @ 0x140585EFC (PpmTestAndLockProcessor.c)
- *     PpmParkReportParkedCore @ 0x14059D0FC (PpmParkReportParkedCore.c)
- *     PpmParkReportSoftParkChange @ 0x14059D20C (PpmParkReportSoftParkChange.c)
+ *     PpmIdleExecuteTransition @ 0x1402C55B0 (PpmIdleExecuteTransition.c)
+ *     KiComputeGroupSchedulingRank @ 0x140305AC8 (KiComputeGroupSchedulingRank.c)
+ *     KiStartIdleThread @ 0x140382AB4 (KiStartIdleThread.c)
+ *     KiStartProfileTarget @ 0x140574970 (KiStartProfileTarget.c)
+ *     KiForceIdleParkUnparkProcessor @ 0x14057D288 (KiForceIdleParkUnparkProcessor.c)
+ *     PpmTestAndLockProcessor @ 0x1405863EC (PpmTestAndLockProcessor.c)
+ *     PpmParkReportParkedCore @ 0x14059D5EC (PpmParkReportParkedCore.c)
+ *     PpmParkReportSoftParkChange @ 0x14059D6FC (PpmParkReportSoftParkChange.c)
  * Callees:
  *     <none>
  */

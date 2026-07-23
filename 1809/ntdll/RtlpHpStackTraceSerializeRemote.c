@@ -3,74 +3,103 @@
  * Callers:
  *     RtlpHpStackTraceSerialize @ 0x180105204 (RtlpHpStackTraceSerialize.c)
  * Callees:
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     ZwMapViewOfSection @ 0x1800A07E0 (ZwMapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x1800A0820 (NtUnmapViewOfSection.c)
- *     NtCreateSection @ 0x1800A0C20 (NtCreateSection.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     ZwMapViewOfSection @ 0x1800A0800 (ZwMapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x1800A0840 (NtUnmapViewOfSection.c)
+ *     NtCreateSection @ 0x1800A0C40 (NtCreateSection.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     RtlpHeapPerformCrossProcessQuery @ 0x1800F3788 (RtlpHeapPerformCrossProcessQuery.c)
  */
 
 __int64 __fastcall RtlpHpStackTraceSerializeRemote(__int64 a1)
 {
-  int Section; // ebx
-  int v3; // eax
-  signed __int64 v4; // rax
-  __int64 v5; // rdx
-  _QWORD v7[16]; // [rsp+60h] [rbp-29h] BYREF
-  signed __int64 i; // [rsp+F0h] [rbp+67h]
-  signed __int64 v9; // [rsp+108h] [rbp+7Fh]
+  SIZE_T v1; // rsi
+  NTSTATUS v3; // ebx
+  int v4; // eax
+  HANDLE v5; // rax
+  char *v6; // rdx
+  ULONG_PTR ViewSize[2]; // [rsp+50h] [rbp-39h] BYREF
+  HANDLE Buffer[16]; // [rsp+60h] [rbp-29h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+F0h] [rbp+67h] BYREF
+  PVOID BaseAddress; // [rsp+F8h] [rbp+6Fh] BYREF
+  HANDLE SectionHandle; // [rsp+100h] [rbp+77h] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+108h] [rbp+7Fh] BYREF
 
-  for ( i = 0x10000LL; ; i = (v7[4] + 0xFFFFLL) & 0xFFFFFFFFFFFF0000uLL )
+  SectionHandle = 0LL;
+  v1 = 0x10000LL;
+  BaseAddress = 0LL;
+  for ( MaximumSize.QuadPart = 0x10000LL;
+        ;
+        MaximumSize.QuadPart = ((unsigned __int64)Buffer[4] + 0xFFFF) & 0xFFFFFFFFFFFF0000uLL )
   {
-    memset(v7, 0, 0x60uLL);
+    memset(Buffer, 0, 0x60uLL);
     if ( *(_BYTE *)(a1 + 32) == 2 )
     {
-      Section = NtCreateSection();
-      if ( Section < 0 )
-        return (unsigned int)Section;
-      v7[0] = 0LL;
-      v7[1] = i;
-      LODWORD(v7[3]) = 0x20000000;
+      v3 = NtCreateSection(&SectionHandle, 0xF001Fu, 0LL, &MaximumSize, 4u, 0x8000000u, 0LL);
+      if ( v3 < 0 )
+        goto LABEL_22;
+      Buffer[0] = SectionHandle;
+      Buffer[1] = (HANDLE)MaximumSize.QuadPart;
+      LODWORD(Buffer[3]) = 0x20000000;
     }
     else
     {
-      LODWORD(v7[3]) = 0x8000000;
+      LODWORD(Buffer[3]) = 0x8000000;
     }
-    v3 = RtlpHeapPerformCrossProcessQuery(*(_QWORD *)(a1 + 8), (__int64)v7);
-    Section = v3;
-    if ( v3 >= 0 )
+    v4 = RtlpHeapPerformCrossProcessQuery(*(HANDLE *)(a1 + 8), Buffer);
+    v3 = v4;
+    if ( v4 >= 0 )
       break;
-    if ( v3 != -1073741789 )
-      return (unsigned int)Section;
-    NtClose(0LL);
+    if ( v4 != -1073741789 )
+      goto LABEL_22;
+    NtClose(SectionHandle);
   }
-  if ( (v7[11] & 1) != 0 )
+  if ( ((__int64)Buffer[11] & 1) != 0 )
     *(_BYTE *)(a1 + 33) |= 1u;
   if ( *(_BYTE *)(a1 + 32) != 1 )
   {
-    v9 = 0LL;
-    if ( i > 0 )
+    SectionOffset.QuadPart = 0LL;
+    ViewSize[0] = 0x10000LL;
+    if ( MaximumSize.QuadPart > 0 )
     {
-      v4 = 0LL;
-      while ( (unsigned __int64)v4 < v7[4] )
+      v5 = 0LL;
+      while ( v5 < Buffer[4] )
       {
-        Section = ZwMapViewOfSection();
-        if ( Section < 0 )
-          return (unsigned int)Section;
-        v5 = (unsigned __int64)(v9 + 0x10000) <= v7[4] ? 0x10000LL : v7[4] - v9;
-        Section = (*(__int64 (__fastcall **)(_QWORD, __int64, _QWORD))(a1 + 16))(0LL, v5, *(_QWORD *)(a1 + 24));
-        if ( Section < 0 )
-          return (unsigned int)Section;
-        NtUnmapViewOfSection();
-        v4 = v9 + 0x10000;
-        v9 = v4;
-        if ( v4 >= i )
+        v3 = ZwMapViewOfSection(
+               SectionHandle,
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               &BaseAddress,
+               0LL,
+               v1,
+               &SectionOffset,
+               ViewSize,
+               ViewUnmap,
+               0,
+               4u);
+        if ( v3 < 0 )
+          goto LABEL_22;
+        v6 = (HANDLE)(SectionOffset.QuadPart + ViewSize[0]) <= Buffer[4]
+           ? (char *)ViewSize[0]
+           : (char *)Buffer[4] - SectionOffset.QuadPart;
+        v3 = (*(__int64 (__fastcall **)(PVOID, char *, _QWORD))(a1 + 16))(BaseAddress, v6, *(_QWORD *)(a1 + 24));
+        if ( v3 < 0 )
+          goto LABEL_22;
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+        v1 = ViewSize[0];
+        BaseAddress = 0LL;
+        v5 = (HANDLE)(ViewSize[0] + SectionOffset.QuadPart);
+        SectionOffset.QuadPart = (__int64)v5;
+        if ( (__int64)v5 >= MaximumSize.QuadPart )
           break;
       }
     }
-    return 0;
+    v3 = 0;
   }
-  return (unsigned int)Section;
+LABEL_22:
+  if ( BaseAddress )
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+  if ( SectionHandle )
+    NtClose(SectionHandle);
+  return (unsigned int)v3;
 }

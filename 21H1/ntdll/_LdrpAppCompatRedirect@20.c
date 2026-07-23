@@ -9,16 +9,16 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __fastcall LdrpAppCompatRedirect(_DWORD *a1, _DWORD *a2, int a3, int a4, int a5)
+int __fastcall LdrpAppCompatRedirect(int a1, int a2, PUNICODE_STRING DestinationString, int a4, int a5)
 {
   int v6; // edi
-  _DWORD *v8; // eax
-  void (__thiscall *v9)(_DWORD, int *, char *, _DWORD *); // esi
+  int v8; // eax
+  void (__thiscall *v9)(_DWORD, int *, _BYTE *, int); // esi
   _DWORD *v10; // esi
-  _DWORD *v11; // ecx
+  POBJECT_BOUNDARY_DESCRIPTOR *v11; // ecx
   int v12[2]; // [esp+10h] [ebp-14h] BYREF
-  _DWORD *v13; // [esp+18h] [ebp-Ch]
-  char v14[5]; // [esp+1Fh] [ebp-5h] BYREF
+  int v13; // [esp+18h] [ebp-Ch]
+  _BYTE v14[5]; // [esp+1Fh] [ebp-5h] BYREF
 
   v13 = a2;
   if ( !g_ShimsEnabled && !g_ShimsLoading )
@@ -26,21 +26,21 @@ int __fastcall LdrpAppCompatRedirect(_DWORD *a1, _DWORD *a2, int a3, int a4, int
   v6 = a5;
   v14[0] = 0;
   v8 = v13;
-  v9 = (void (__thiscall *)(_DWORD, int *, char *, _DWORD *))(MEMORY[0x7FFE0330] ^ __ROR4__(
-                                                                                     g_pfnSE_LdrResolveDllName,
-                                                                                     32 - (MEMORY[0x7FFE0330] & 0x1F)));
+  v9 = (void (__thiscall *)(_DWORD, int *, _BYTE *, int))(MEMORY[0x7FFE0330] ^ __ROR4__(
+                                                                                 g_pfnSE_LdrResolveDllName,
+                                                                                 32 - (MEMORY[0x7FFE0330] & 0x1F)));
   if ( a5 < 0 )
     v8 = a1;
   v9(v9, v12, v14, v8);
   if ( v14[0] )
   {
-    v10 = v13;
-    v11 = v13;
-    a1[4] |= 0x10000u;
+    v10 = (_DWORD *)v13;
+    v11 = (POBJECT_BOUNDARY_DESCRIPTOR *)v13;
+    *(_DWORD *)(a1 + 16) |= 0x10000u;
     LdrpFreeUnicodeString(v11);
     *(_WORD *)a4 = 0;
     **(_WORD **)(a4 + 4) = 0;
-    return LdrpResolveDllName(v12, (int *)a4, a3, v10, a1[4]);
+    return LdrpResolveDllName(v12, (int *)a4, DestinationString, v10, *(_DWORD *)(a1 + 16));
   }
   return v6;
 }

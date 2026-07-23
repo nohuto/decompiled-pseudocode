@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlPrivateInsertLock @ 0x140248AA0
+ * XREFs of FsRtlPrivateInsertLock @ 0x1402E2CE0
  * Callers:
- *     FsRtlPrivateCheckWaitingLocks @ 0x14024ACAC (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1402E4EEC (FsRtlPrivateCheckWaitingLocks.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     FsRtlPrivateInsertSharedLock @ 0x140248CD8 (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlPrivateInsertExclusiveLock @ 0x1402490B4 (FsRtlPrivateInsertExclusiveLock.c)
- *     ExFreeToNPagedLookasideList @ 0x14024A9C0 (ExFreeToNPagedLookasideList.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x1402E2F18 (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlPrivateInsertExclusiveLock @ 0x1402E32F4 (FsRtlPrivateInsertExclusiveLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402E4C00 (ExFreeToNPagedLookasideList.c)
  */
 
 char __fastcall FsRtlPrivateInsertLock(_QWORD *a1, __int64 a2, _OWORD *a3)
@@ -30,7 +30,7 @@ char __fastcall FsRtlPrivateInsertLock(_QWORD *a1, __int64 a2, _OWORD *a3)
     }
     return 0;
   }
-  v6 = (char *)ExAllocateFromNPagedLookasideList(&FsRtlSharedLockLookasideList);
+  v6 = (char *)ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlSharedLockLookasideList);
   v7 = v6;
   if ( !v6 )
     return 0;
@@ -40,7 +40,7 @@ char __fastcall FsRtlPrivateInsertLock(_QWORD *a1, __int64 a2, _OWORD *a3)
   *(_OWORD *)(v6 + 40) = a3[2];
   if ( !(unsigned __int8)FsRtlPrivateInsertSharedLock(a1 + 3, v6) )
   {
-    ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, v7);
+    ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlSharedLockLookasideList, v7);
     return 0;
   }
 LABEL_4:

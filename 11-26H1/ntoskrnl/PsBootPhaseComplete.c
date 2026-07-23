@@ -1,19 +1,19 @@
 /*
- * XREFs of PsBootPhaseComplete @ 0x1407EDCC0
+ * XREFs of PsBootPhaseComplete @ 0x1407F3820
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14084E49C (CmCompleteRegistryInitialization.c)
- *     CmpFinishSystemHivesLoad @ 0x140B4D840 (CmpFinishSystemHivesLoad.c)
+ *     CmCompleteRegistryInitialization @ 0x1408547AC (CmCompleteRegistryInitialization.c)
+ *     CmpFinishSystemHivesLoad @ 0x140B500D0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline @ 0x14051205C (Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     PspIsDfssEnabled @ 0x1407EE2A4 (PspIsDfssEnabled.c)
- *     PspQueryForwardersEnabled @ 0x1407F08E0 (PspQueryForwardersEnabled.c)
- *     RtlQueryImageFileExecutionOptions @ 0x140800D60 (RtlQueryImageFileExecutionOptions.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline @ 0x14050BACC (Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     PspIsDfssEnabled @ 0x1407F3E04 (PspIsDfssEnabled.c)
+ *     PspQueryForwardersEnabled @ 0x1407F6440 (PspQueryForwardersEnabled.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x140806800 (RtlQueryImageFileExecutionOptions.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
  */
 
 __int64 __fastcall PsBootPhaseComplete(__int64 a1, __int64 a2, __int64 a3)
@@ -72,14 +72,14 @@ __int64 __fastcall PsBootPhaseComplete(__int64 a1, __int64 a2, __int64 a3)
   if ( (int)RtlQueryImageFileExecutionOptions(a1, L"DevOverrideEnable", a3, &ResultLength[1]) >= 0 )
   {
     v3 = ResultLength[1] != 0;
-    PspSiloMonitorLock.CurrentRunTime = v3 | PspSiloMonitorLock.CurrentRunTime & 0xFFFFFFFE;
+    HIDWORD(PspSiloMonitorLock.CycleTime) = v3 | HIDWORD(PspSiloMonitorLock.CycleTime) & 0xFFFFFFFE;
   }
-  RtlQueryImageFileExecutionOptions(v3, L"MaxLoaderThreads", v4, &PspSiloMonitorLock.SchedulerApcFill5[72]);
+  RtlQueryImageFileExecutionOptions(v3, L"MaxLoaderThreads", v4, &PspSiloMonitorLock.SchedulerApcFill5[64]);
   RtlQueryImageFileExecutionOptions(
     v5,
     L"NoRemoteThreadBeforeProcessInit",
     v6,
-    &PspSiloMonitorLock.SchedulerApcFill5[68]);
+    &PspSiloMonitorLock.SchedulerApcFill5[72]);
   v7 = 0;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)v16;
   ObjectAttributes.Length = 48;
@@ -146,7 +146,7 @@ __int64 __fastcall PsBootPhaseComplete(__int64 a1, __int64 a2, __int64 a3)
   v11 = HalSystemVectorDispatchEntry();
   ServerSiloGlobals = PsGetServerSiloGlobals(v11);
   ServerSiloGlobals[1016] = PspQueryForwardersEnabled();
-  result = PspSiloMonitorLock.CurrentRunTime & 0xFFFFFFF3 | 4;
-  PspSiloMonitorLock.CurrentRunTime = PspSiloMonitorLock.CurrentRunTime & 0xFFFFFFF3 | 4;
+  result = HIDWORD(PspSiloMonitorLock.CycleTime) & 0xFFFFFFF3 | 4;
+  HIDWORD(PspSiloMonitorLock.CycleTime) = HIDWORD(PspSiloMonitorLock.CycleTime) & 0xFFFFFFF3 | 4;
   return result;
 }

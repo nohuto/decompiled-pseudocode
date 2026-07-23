@@ -1,8 +1,8 @@
 /*
- * XREFs of ExBuildPasidMsrForThread @ 0x14050472C
+ * XREFs of ExBuildPasidMsrForThread @ 0x1404FDEF0
  * Callers:
- *     KiInitializeContextThread @ 0x1403D4E4C (KiInitializeContextThread.c)
- *     ExSvmUpdateThreadPasidMsrApc @ 0x140840E50 (ExSvmUpdateThreadPasidMsrApc.c)
+ *     KiInitializeContextThread @ 0x1403D7E1C (KiInitializeContextThread.c)
+ *     ExSvmUpdateThreadPasidMsrApc @ 0x140847090 (ExSvmUpdateThreadPasidMsrApc.c)
  * Callees:
  *     <none>
  */

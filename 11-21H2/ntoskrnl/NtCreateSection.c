@@ -1,10 +1,10 @@
 /*
  * XREFs of NtCreateSection @ 0x1406FD0D0
  * Callers:
- *     PfpFileBuildReadSupport @ 0x1407DEE78 (PfpFileBuildReadSupport.c)
- *     PfSnGetSectionObject @ 0x1407DF794 (PfSnGetSectionObject.c)
+ *     sub_1407DEE78 @ 0x1407DEE78 (sub_1407DEE78.c)
+ *     sub_1407DF794 @ 0x1407DF794 (sub_1407DF794.c)
  * Callees:
- *     MiCreateSectionCommon @ 0x1406FD140 (MiCreateSectionCommon.c)
+ *     sub_1406FD140 @ 0x1406FD140 (sub_1406FD140.c)
  */
 
 NTSTATUS __stdcall NtCreateSection(
@@ -33,7 +33,7 @@ NTSTATUS __stdcall NtCreateSection(
     Address = &v11;
     v8 = 1;
   }
-  return MiCreateSectionCommon(
+  return sub_1406FD140(
            (int)SectionHandle,
            DesiredAccess,
            (int)ObjectAttributes,

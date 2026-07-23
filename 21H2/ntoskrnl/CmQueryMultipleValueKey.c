@@ -1,26 +1,26 @@
 /*
- * XREFs of CmQueryMultipleValueKey @ 0x140669674
+ * XREFs of CmQueryMultipleValueKey @ 0x14065E494
  * Callers:
- *     NtQueryMultipleValueKey @ 0x1406A1E20 (NtQueryMultipleValueKey.c)
+ *     NtQueryMultipleValueKey @ 0x140601D50 (NtQueryMultipleValueKey.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     CmpLockTwoKcbsShared @ 0x1405F38C0 (CmpLockTwoKcbsShared.c)
- *     CmpUnlockTwoKcbs @ 0x1405F3950 (CmpUnlockTwoKcbs.c)
- *     CmpGetValueData @ 0x1405F8410 (CmpGetValueData.c)
- *     CmpUpdateKeyNodeAccessBits @ 0x1406662E0 (CmpUpdateKeyNodeAccessBits.c)
- *     CmpFindNameInList @ 0x1406695F8 (CmpFindNameInList.c)
- *     CmpFindValueByName @ 0x14066963C (CmpFindValueByName.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x1406A3094 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x1406FC600 (CmpIsKeyDeletedForKeyBody.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x14086C548 (CmQueryMultipleValueForLayeredKey.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1405DED94 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpUpdateKeyNodeAccessBits @ 0x14065B100 (CmpUpdateKeyNodeAccessBits.c)
+ *     CmpFindNameInList @ 0x14065E418 (CmpFindNameInList.c)
+ *     CmpFindValueByName @ 0x14065E45C (CmpFindValueByName.c)
+ *     CmpLockTwoKcbsShared @ 0x1406E3020 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1406E30B0 (CmpUnlockTwoKcbs.c)
+ *     CmpGetValueData @ 0x1406E7B70 (CmpGetValueData.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1407139E0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x14086C6A8 (CmQueryMultipleValueForLayeredKey.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmQueryMultipleValueKey(
@@ -33,9 +33,9 @@ __int64 __fastcall CmQueryMultipleValueKey(
         unsigned int *a7)
 {
   int v8; // r12d
-  ULONG_PTR v11; // r14
+  __int64 v11; // r14
   ULONG_PTR v12; // rsi
-  __int64 v13; // r12
+  ULONG_PTR v13; // r12
   volatile signed __int64 *v14; // rdi
   __int64 v15; // rax
   __int64 v16; // rdi
@@ -52,12 +52,12 @@ __int64 __fastcall CmQueryMultipleValueKey(
   unsigned int v27; // r12d
   unsigned int v28; // ecx
   unsigned int v29; // r8d
-  __int64 v30; // rdx
+  unsigned int v30; // edx
   __int64 v31; // r15
   __int64 v32; // rcx
   __int64 v33; // rdx
   unsigned int v34; // edx
-  __int64 v35; // r15
+  ULONG_PTR v35; // r15
   __int64 v36; // rdx
   __int64 v37; // rcx
   unsigned int MultipleValueForLayeredKey; // ebx
@@ -83,7 +83,7 @@ __int64 __fastcall CmQueryMultipleValueKey(
   __int64 v59; // [rsp+68h] [rbp-C0h] BYREF
   unsigned int Size; // [rsp+70h] [rbp-B8h] BYREF
   int Size_4; // [rsp+74h] [rbp-B4h]
-  __int64 v62; // [rsp+78h] [rbp-B0h]
+  ULONG_PTR v62; // [rsp+78h] [rbp-B0h]
   void *Src; // [rsp+80h] [rbp-A8h] BYREF
   _DWORD v64[2]; // [rsp+88h] [rbp-A0h] BYREF
   __int64 v65; // [rsp+90h] [rbp-98h]
@@ -91,11 +91,11 @@ __int64 __fastcall CmQueryMultipleValueKey(
   _DWORD v67[2]; // [rsp+A0h] [rbp-88h] BYREF
   __int64 v68; // [rsp+A8h] [rbp-80h]
   _DWORD v69[2]; // [rsp+B0h] [rbp-78h] BYREF
-  ULONG_PTR v70; // [rsp+B8h] [rbp-70h]
+  __int64 v70; // [rsp+B8h] [rbp-70h]
   __int64 v71; // [rsp+C0h] [rbp-68h]
   __int64 v72; // [rsp+C8h] [rbp-60h]
   __int64 v73; // [rsp+D0h] [rbp-58h]
-  __int64 v74; // [rsp+D8h] [rbp-50h]
+  ULONG_PTR v74; // [rsp+D8h] [rbp-50h]
   ULONG_PTR v75; // [rsp+E0h] [rbp-48h]
   char v76; // [rsp+130h] [rbp+8h] BYREF
   __int64 v77; // [rsp+140h] [rbp+18h]
@@ -147,7 +147,7 @@ LABEL_51:
       return (unsigned int)(v42 - 1073741444);
     }
     CmpUnlockKcb(v12);
-    v48 = CmpTransSearchAddTransFromKeyBody(a1, &v59);
+    v48 = CmpTransSearchAddTransFromKeyBody((_QWORD *)a1, &v59);
     if ( v48 < 0 )
     {
       CmpUnlockRegistry(v47, v46);
@@ -178,7 +178,7 @@ LABEL_50:
   v74 = v13;
   v14 = (volatile signed __int64 *)(v13 + 72);
   ExAcquirePushLockSharedEx(v13 + 72, 0LL);
-  v15 = (*(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *))(v13 + 8))(v13, *(unsigned int *)(v12 + 40), v66);
+  v15 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, _DWORD *))(v13 + 8))(v13, *(unsigned int *)(v12 + 40), v66);
   v72 = v15;
   if ( !v15 )
   {
@@ -210,7 +210,7 @@ LABEL_50:
   v65 = v17;
   if ( !v17 )
   {
-    (*(void (__fastcall **)(__int64, _DWORD *))(v13 + 16))(v13, v66);
+    (*(void (__fastcall **)(ULONG_PTR, _DWORD *))(v13 + 16))(v13, v66);
 LABEL_60:
     CmpUnlockTwoKcbs(v11, v12);
     CmpUnlockRegistry(v50, v49);
@@ -310,7 +310,14 @@ LABEL_40:
     {
       v30 = ValueByName;
       v31 = v57;
-      if ( !CmpGetValueData(v57, v30, v26, &Size, (__int64)&Src, (__int64)&v76, (__int64)v67) )
+      if ( !(unsigned __int8)CmpGetValueData(
+                               v57,
+                               v30,
+                               v26,
+                               (unsigned int)&Size,
+                               (__int64)&Src,
+                               (__int64)&v76,
+                               (__int64)v67) )
       {
         v19 = -1073741670;
         v35 = v62;
@@ -350,7 +357,7 @@ LABEL_41:
     (*(void (__fastcall **)(__int64, _DWORD *, __int64, __int64))(v25 + 16))(v25, v64, v18, v17);
   if ( v65 )
     (*(void (__fastcall **)(__int64, _DWORD *, __int64, __int64))(v68 + 16))(v68, v69, v18, v17);
-  (*(void (__fastcall **)(__int64, _DWORD *, __int64, __int64))(v35 + 16))(v35, v66, v18, v17);
+  (*(void (__fastcall **)(ULONG_PTR, _DWORD *, __int64, __int64))(v35 + 16))(v35, v66, v18, v17);
   CmpUnlockTwoKcbs(v11, v12);
   CmpUnlockRegistry(v37, v36);
   return (unsigned int)v19;

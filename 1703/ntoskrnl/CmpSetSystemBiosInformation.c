@@ -41,12 +41,12 @@ void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
   UNICODE_STRING ValueName; // [rsp+68h] [rbp-98h] BYREF
   LARGE_INTEGER SectionOffset; // [rsp+78h] [rbp-88h] BYREF
   UNICODE_STRING String2; // [rsp+80h] [rbp-80h] BYREF
-  STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
+  _STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
   ULONG_PTR ViewSize; // [rsp+A0h] [rbp-60h] BYREF
   __int64 v24; // [rsp+A8h] [rbp-58h]
   PVOID Data; // [rsp+B0h] [rbp-50h]
   HANDLE KeyHandle; // [rsp+B8h] [rbp-48h]
-  char SourceString[128]; // [rsp+C0h] [rbp-40h] BYREF
+  CHAR SourceString[128]; // [rsp+C0h] [rbp-40h] BYREF
 
   v24 = a1;
   KeyHandle = a3;

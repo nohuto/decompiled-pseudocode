@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPurgePartitionStandby @ 0x140151E1C
+ * XREFs of MiPurgePartitionStandby @ 0x140151F1C
  * Callers:
- *     MiFinishResume @ 0x140151910 (MiFinishResume.c)
- *     MiTrimAllSystemPagableMemory @ 0x1402B3B90 (MiTrimAllSystemPagableMemory.c)
- *     MmPerformMemoryListCommand @ 0x14056EA20 (MmPerformMemoryListCommand.c)
+ *     MiFinishResume @ 0x140151A10 (MiFinishResume.c)
+ *     MiTrimAllSystemPagableMemory @ 0x1402B3D80 (MiTrimAllSystemPagableMemory.c)
+ *     MmPerformMemoryListCommand @ 0x14056FA20 (MmPerformMemoryListCommand.c)
  * Callees:
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiIsFreeZeroPfnCold @ 0x140082370 (MiIsFreeZeroPfnCold.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x140151F20 (MiRemoveLowestPriorityStandbyPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiIsFreeZeroPfnCold @ 0x140082360 (MiIsFreeZeroPfnCold.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140152020 (MiRemoveLowestPriorityStandbyPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPurgePartitionStandby(__int64 a1, unsigned int a2)

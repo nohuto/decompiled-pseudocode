@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerLimitTelemetryWorker @ 0x1404276D8
+ * XREFs of PopPowerLimitTelemetryWorker @ 0x14041B868
  * Callers:
- *     PopThermalTelemetryWorker @ 0x1405D3F40 (PopThermalTelemetryWorker.c)
+ *     PopThermalTelemetryWorker @ 0x1405D1700 (PopThermalTelemetryWorker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopUpdatePowerLimitTimeTracking @ 0x1405CF8EC (PopUpdatePowerLimitTimeTracking.c)
- *     PopTracePowerLimitHistogram @ 0x1405D620C (PopTracePowerLimitHistogram.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopUpdatePowerLimitTimeTracking @ 0x1405CD00C (PopUpdatePowerLimitTimeTracking.c)
+ *     PopTracePowerLimitHistogram @ 0x1405D3820 (PopTracePowerLimitHistogram.c)
  */
 
 __int64 PopPowerLimitTelemetryWorker()
@@ -33,5 +33,5 @@ __int64 PopPowerLimitTelemetryWorker()
       PopReleaseRwLock((signed __int64 *)(i + 32));
     }
   }
-  return PopReleaseRwLock((signed __int64 *)&PopPowerLimitExtensionLock);
+  return PopReleaseRwLock(&PopPowerLimitExtensionLock);
 }

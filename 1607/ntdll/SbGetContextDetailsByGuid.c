@@ -1,8 +1,8 @@
 /*
- * XREFs of SbGetContextDetailsByGuid @ 0x18002E958
+ * XREFs of SbGetContextDetailsByGuid @ 0x18002E948
  * Callers:
- *     SbpDetermineDllContext @ 0x18002E304 (SbpDetermineDllContext.c)
- *     SbUpdateSwitchContextBasedOnDll @ 0x18002E6EC (SbUpdateSwitchContextBasedOnDll.c)
+ *     SbpDetermineDllContext @ 0x18002E2F4 (SbpDetermineDllContext.c)
+ *     SbUpdateSwitchContextBasedOnDll @ 0x18002E6DC (SbUpdateSwitchContextBasedOnDll.c)
  * Callees:
  *     <none>
  */

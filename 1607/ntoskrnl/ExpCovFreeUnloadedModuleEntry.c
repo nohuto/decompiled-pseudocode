@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpCovFreeUnloadedModuleEntry @ 0x1406B6DF8
+ * XREFs of ExpCovFreeUnloadedModuleEntry @ 0x1406B6F30
  * Callers:
- *     ExpCovCreateUnloadedModuleEntry @ 0x1406B6B08 (ExpCovCreateUnloadedModuleEntry.c)
- *     ExpCovDeleteUnloadedModuleEntry @ 0x1406B6D84 (ExpCovDeleteUnloadedModuleEntry.c)
+ *     ExpCovCreateUnloadedModuleEntry @ 0x1406B6C40 (ExpCovCreateUnloadedModuleEntry.c)
+ *     ExpCovDeleteUnloadedModuleEntry @ 0x1406B6EBC (ExpCovDeleteUnloadedModuleEntry.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall ExpCovFreeUnloadedModuleEntry(UNICODE_STRING *P)

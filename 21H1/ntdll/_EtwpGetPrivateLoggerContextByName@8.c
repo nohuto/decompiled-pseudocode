@@ -8,7 +8,7 @@
  *     _EtwpDemuxUmTraceHandle@8 @ 0x4B381562 (_EtwpDemuxUmTraceHandle@8.c)
  */
 
-int __fastcall EtwpGetPrivateLoggerContextByName(unsigned __int16 *a1, _DWORD *a2)
+int __fastcall EtwpGetPrivateLoggerContextByName(_UNICODE_STRING *a1, _DWORD *a2)
 {
   int v3; // esi
   unsigned int v4; // ecx
@@ -43,7 +43,7 @@ LABEL_9:
     goto LABEL_4;
   }
   v6 = *(_DWORD *)(EtwpLoggerArray + 8 * v4);
-  if ( !RtlEqualUnicodeString((unsigned __int16 *)(v6 + 108), a1, 1) )
+  if ( !RtlEqualUnicodeString((PUNICODE_STRING)(v6 + 108), a1, 1u) )
   {
     _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * v3 + 4));
     goto LABEL_4;

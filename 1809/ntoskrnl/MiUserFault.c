@@ -16,36 +16,36 @@
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiResolvePrivateZeroFault @ 0x140047430 (MiResolvePrivateZeroFault.c)
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiGetPageTableLockBuffer @ 0x14006CE80 (MiGetPageTableLockBuffer.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MiCheckFatalAccessViolation @ 0x1400963AC (MiCheckFatalAccessViolation.c)
- *     MiShouldLockPteDirectly @ 0x1400986C0 (MiShouldLockPteDirectly.c)
- *     MiInPagePageTable @ 0x1400987E0 (MiInPagePageTable.c)
- *     MiCheckProtoAccess @ 0x140098C10 (MiCheckProtoAccess.c)
- *     MiValidFault @ 0x1400B6DF0 (MiValidFault.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiUpdatePageTableUseCount @ 0x14010FBF8 (MiUpdatePageTableUseCount.c)
- *     MiAllowGuardFault @ 0x140117CB8 (MiAllowGuardFault.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x140128BF8 (MiEmptyDeferredWorkingSetEntries.c)
- *     MiWaitForRotateToComplete @ 0x140139C0C (MiWaitForRotateToComplete.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B7468 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiIsVadEligibleForCommitRelease @ 0x1402A3F30 (MiIsVadEligibleForCommitRelease.c)
- *     MiPrefetchJumpVad @ 0x1402AF1C4 (MiPrefetchJumpVad.c)
- *     MiCheckHoldFaultForHotPatch @ 0x1402B926C (MiCheckHoldFaultForHotPatch.c)
- *     MiLargePageFault @ 0x1402BC3D8 (MiLargePageFault.c)
- *     MiWaitForAvailablePages @ 0x1402CB398 (MiWaitForAvailablePages.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiCheckForUserStackOverflow @ 0x1406A3A0C (MiCheckForUserStackOverflow.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiGetPageTableLockBuffer @ 0x14006CE70 (MiGetPageTableLockBuffer.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MiLockTransitionLeafPage @ 0x140095684 (MiLockTransitionLeafPage.c)
+ *     MiCheckFatalAccessViolation @ 0x1400962EC (MiCheckFatalAccessViolation.c)
+ *     MiShouldLockPteDirectly @ 0x140098600 (MiShouldLockPteDirectly.c)
+ *     MiInPagePageTable @ 0x140098720 (MiInPagePageTable.c)
+ *     MiCheckProtoAccess @ 0x140098B50 (MiCheckProtoAccess.c)
+ *     MiValidFault @ 0x1400B6D30 (MiValidFault.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7820 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     PsGetCurrentProcess @ 0x1400F13B0 (PsGetCurrentProcess.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiUpdatePageTableUseCount @ 0x14010FC78 (MiUpdatePageTableUseCount.c)
+ *     MiAllowGuardFault @ 0x140117D28 (MiAllowGuardFault.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140128CC8 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiWaitForRotateToComplete @ 0x140139D0C (MiWaitForRotateToComplete.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B75C8 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x1402A4120 (MiIsVadEligibleForCommitRelease.c)
+ *     MiPrefetchJumpVad @ 0x1402AF3B4 (MiPrefetchJumpVad.c)
+ *     MiCheckHoldFaultForHotPatch @ 0x1402B945C (MiCheckHoldFaultForHotPatch.c)
+ *     MiLargePageFault @ 0x1402BC5C8 (MiLargePageFault.c)
+ *     MiWaitForAvailablePages @ 0x1402CB588 (MiWaitForAvailablePages.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C354 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiCheckForUserStackOverflow @ 0x1406A4CAC (MiCheckForUserStackOverflow.c)
  */
 
 __int64 __fastcall MiUserFault(unsigned __int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
@@ -188,13 +188,13 @@ __int64 __fastcall MiUserFault(unsigned __int64 a1, __int64 a2, unsigned __int64
     goto LABEL_14;
   if ( (Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )
     goto LABEL_14;
-  v7 = *(_QWORD *)(qword_14043A748 + 8LL * *((unsigned __int16 *)&Process[1].SecureState.Flags + 3));
+  v7 = *(_QWORD *)(qword_14043B808 + 8LL * *((unsigned __int16 *)&Process[1].SecureState.Flags + 3));
   if ( *(_DWORD *)(v7 + 1144) )
   {
     if ( *(_KPROCESS **)(v7 + 1264) == Process )
       goto LABEL_14;
   }
-  v8 = *(_QWORD *)(qword_14043A748 + 8LL * *((unsigned __int16 *)&Process[1].SecureState.Flags + 3));
+  v8 = *(_QWORD *)(qword_14043B808 + 8LL * *((unsigned __int16 *)&Process[1].SecureState.Flags + 3));
   a4 = *(_QWORD *)(v7 + 7680);
   if ( (unsigned __int16)KeNumberNodes <= 1u
     || (v9 = (_QWORD *)(*(_QWORD *)(v8 + 16) + 1984LL * KeGetCurrentPrcb()->ParentNode->Affinity.Reserved[0]),
@@ -208,7 +208,7 @@ __int64 __fastcall MiUserFault(unsigned __int64 a1, __int64 a2, unsigned __int64
   if ( a3 >= 0x420 || a4 < 0x4000 && (a3 >>= 4, a4 < a3) )
   {
 LABEL_14:
-    if ( !dword_14043ADA8 )
+    if ( !dword_14043BE68 )
       goto LABEL_21;
     v12 = 3;
   }
@@ -223,13 +223,13 @@ LABEL_14:
   if ( v12 == 1 )
   {
     MiWaitForAvailablePages(
-      *(_QWORD *)(qword_14043A748 + 8LL * *((unsigned __int16 *)&v13[1].SecureState.Flags + 3)),
+      *(_QWORD *)(qword_14043B808 + 8LL * *((unsigned __int16 *)&v13[1].SecureState.Flags + 3)),
       &MiHalfSecond);
   }
   else if ( v12 == 2 )
   {
     MiWaitForAvailablePages(
-      *(_QWORD *)(qword_14043A748 + 8LL * *((unsigned __int16 *)&v13[1].SecureState.Flags + 3)),
+      *(_QWORD *)(qword_14043B808 + 8LL * *((unsigned __int16 *)&v13[1].SecureState.Flags + 3)),
       &Mi30Milliseconds);
   }
   else
@@ -237,12 +237,12 @@ LABEL_14:
     KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&Mi10Milliseconds);
   }
 LABEL_21:
-  v14 = &dword_14043B700;
+  v14 = &dword_14043C7C0;
   v15 = (__int64)Process[2].Header.WaitListHead.Flink & 7;
   if ( v15 < 6u )
   {
     if ( v15 == 2 )
-      p_Blink = &dword_14043B700;
+      p_Blink = &dword_14043C7C0;
     else
       p_Blink = (LONG *)&Process[2].Header.WaitListHead.Blink;
     CurrentIrql = KeGetCurrentIrql();
@@ -452,7 +452,7 @@ LABEL_159:
                 v62 = v56 & 0x7FFFFFFFF000LL;
                 if ( (v56 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
                 {
-                  v63 = qword_140439FF8;
+                  v63 = qword_14043B0B8;
                   v64 = 1;
                   LOBYTE(v50) = v117;
 LABEL_218:
@@ -476,7 +476,7 @@ LABEL_219:
                       {
                         if ( (unsigned int)MiPteHasShadow(v77, v76) )
                         {
-                          if ( !HIBYTE(word_14043A1AC) && (v76 & 1) != 0 )
+                          if ( !HIBYTE(word_14043B26C) && (v76 & 1) != 0 )
                             v76 |= 0x8000000000000000uLL;
                           *v58 = v76;
                           MiWritePteShadow(v58);
@@ -548,9 +548,9 @@ LABEL_163:
                   MiResolveSharedZeroFault(&v117);
                   goto LABEL_243;
                 }
-                if ( v62 == qword_14043A008 && v62 )
+                if ( v62 == qword_14043B0C8 && v62 )
                 {
-                  v63 = qword_14043A000;
+                  v63 = qword_14043B0C0;
                   v64 = 1;
                   LOBYTE(v50) = v117;
                   goto LABEL_218;
@@ -592,16 +592,16 @@ LABEL_180:
               v69 = v56 & 0x7FFFFFFFF000LL;
               if ( (v56 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
               {
-                v63 = qword_140439FF8;
+                v63 = qword_14043B0B8;
                 v64 = 1;
-                ProtoPteAddress = qword_140439FF8;
+                ProtoPteAddress = qword_14043B0B8;
                 goto LABEL_213;
               }
-              if ( v69 == qword_14043A008 && v69 )
+              if ( v69 == qword_14043B0C8 && v69 )
               {
-                v63 = qword_14043A000;
+                v63 = qword_14043B0C0;
                 v64 = 1;
-                ProtoPteAddress = qword_14043A000;
+                ProtoPteAddress = qword_14043B0C0;
               }
               else
               {
@@ -768,7 +768,7 @@ LABEL_263:
               {
                 if ( (unsigned int)MiPteHasShadow(v101, v100) )
                 {
-                  if ( !HIBYTE(word_14043A1AC) && (v99 & 1) != 0 )
+                  if ( !HIBYTE(word_14043B26C) && (v99 & 1) != 0 )
                     v99 |= 0x8000000000000000uLL;
                   *(_QWORD *)v43 = v99;
                   MiWritePteShadow(v43);
@@ -793,7 +793,7 @@ LABEL_263:
             {
               if ( (unsigned int)MiPteHasShadow(v96, v95) )
               {
-                if ( !HIBYTE(word_14043A1AC) && (v97 & 1) != 0 )
+                if ( !HIBYTE(word_14043B26C) && (v97 & 1) != 0 )
                   v97 |= 0x8000000000000000uLL;
                 *(_QWORD *)v43 = v97;
                 MiWritePteShadow(v43);

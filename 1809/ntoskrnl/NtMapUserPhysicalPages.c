@@ -1,22 +1,22 @@
 /*
- * XREFs of NtMapUserPhysicalPages @ 0x1408513C0
+ * XREFs of NtMapUserPhysicalPages @ 0x140852620
  * Callers:
  *     <none>
  * Callees:
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
- *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiFreePhysicalPageChain @ 0x1402B05BC (MiFreePhysicalPageChain.c)
- *     MiGetAweNode @ 0x1402B0D18 (MiGetAweNode.c)
- *     MiLockAwePagesShared @ 0x1402B12B8 (MiLockAwePagesShared.c)
- *     MiLockAweVadsShared @ 0x1402B1314 (MiLockAweVadsShared.c)
- *     MiUnlockAweVadsShared @ 0x1402B20E0 (MiUnlockAweVadsShared.c)
- *     MiWriteAwePtes @ 0x1402B2278 (MiWriteAwePtes.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiCaptureUlongPtrArray @ 0x14084F6FC (MiCaptureUlongPtrArray.c)
- *     MiReferenceIncomingPhysicalPages @ 0x14084FF3C (MiReferenceIncomingPhysicalPages.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     ExGetCallBackBlockRoutine @ 0x140088BA0 (ExGetCallBackBlockRoutine.c)
+ *     PsGetHostSilo @ 0x140091BB0 (PsGetHostSilo.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiFreePhysicalPageChain @ 0x1402B07AC (MiFreePhysicalPageChain.c)
+ *     MiGetAweNode @ 0x1402B0F08 (MiGetAweNode.c)
+ *     MiLockAwePagesShared @ 0x1402B14A8 (MiLockAwePagesShared.c)
+ *     MiLockAweVadsShared @ 0x1402B1504 (MiLockAweVadsShared.c)
+ *     MiUnlockAweVadsShared @ 0x1402B22D0 (MiUnlockAweVadsShared.c)
+ *     MiWriteAwePtes @ 0x1402B2468 (MiWriteAwePtes.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiCaptureUlongPtrArray @ 0x14085095C (MiCaptureUlongPtrArray.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x14085119C (MiReferenceIncomingPhysicalPages.c)
  */
 
 NTSTATUS __stdcall NtMapUserPhysicalPages(PVOID VirtualAddresses, ULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)

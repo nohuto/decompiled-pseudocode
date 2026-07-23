@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage @ 0x14040FAB4
+ * XREFs of Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage @ 0x14040FC94
  * Callers:
  *     CcInitializeCacheManager @ 0x140B49A88 (CcInitializeCacheManager.c)
  * Callees:
- *     Feature_CcImprovementsForReFS__private_IsEnabledFallback @ 0x14040FAEC (Feature_CcImprovementsForReFS__private_IsEnabledFallback.c)
+ *     Feature_CcImprovementsForReFS__private_IsEnabledFallback @ 0x14040FCCC (Feature_CcImprovementsForReFS__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage()

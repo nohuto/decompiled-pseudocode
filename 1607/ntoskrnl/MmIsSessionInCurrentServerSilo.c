@@ -1,13 +1,13 @@
 /*
- * XREFs of MmIsSessionInCurrentServerSilo @ 0x1401ECA54
+ * XREFs of MmIsSessionInCurrentServerSilo @ 0x1401EC880
  * Callers:
- *     PopGetSettingNotificationName @ 0x14051FCC4 (PopGetSettingNotificationName.c)
+ *     PopGetSettingNotificationName @ 0x140502D2C (PopGetSettingNotificationName.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     MmGetSessionId @ 0x140014160 (MmGetSessionId.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     PsGetEffectiveServerSilo @ 0x140076688 (PsGetEffectiveServerSilo.c)
- *     PspGetJobSilo @ 0x140076728 (PspGetJobSilo.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     MmGetSessionId @ 0x140013CE0 (MmGetSessionId.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PsGetEffectiveServerSilo @ 0x140076708 (PsGetEffectiveServerSilo.c)
+ *     PspGetJobSilo @ 0x1400767A8 (PspGetJobSilo.c)
  */
 
 char __fastcall MmIsSessionInCurrentServerSilo(unsigned int a1)
@@ -29,8 +29,8 @@ char __fastcall MmIsSessionInCurrentServerSilo(unsigned int a1)
   else
     JobSilo = *(_QWORD *)&CurrentThread[1].WaitBlockFill11[160];
   EffectiveServerSilo = PsGetEffectiveServerSilo(JobSilo);
-  KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
-  v7 = (_QWORD *)qword_140326920;
+  KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
+  v7 = (_QWORD *)qword_140326960;
   while ( v7 )
   {
     v8 = *((_DWORD *)v7 - 38);

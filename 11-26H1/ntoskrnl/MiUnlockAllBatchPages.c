@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockAllBatchPages @ 0x140299000
+ * XREFs of MiUnlockAllBatchPages @ 0x140298560
  * Callers:
- *     MiUnlinkProtoPages @ 0x140297A00 (MiUnlinkProtoPages.c)
- *     MiFinishUnlinkBatch @ 0x1402990A0 (MiFinishUnlinkBatch.c)
- *     MiAcquirePageListSynchronization @ 0x14029A450 (MiAcquirePageListSynchronization.c)
- *     MiCachedPageFinish @ 0x1402A0710 (MiCachedPageFinish.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiPurgeFinish @ 0x140309E40 (MiPurgeFinish.c)
+ *     MiUnlinkProtoPages @ 0x140296F60 (MiUnlinkProtoPages.c)
+ *     MiFinishUnlinkBatch @ 0x140298600 (MiFinishUnlinkBatch.c)
+ *     MiAcquirePageListSynchronization @ 0x1402999B0 (MiAcquirePageListSynchronization.c)
+ *     MiCachedPageFinish @ 0x14029FC60 (MiCachedPageFinish.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiPurgeFinish @ 0x1402EBEC0 (MiPurgeFinish.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUpdateNonAttributedCpuTimeReference @ 0x140576858
+ * XREFs of PopUpdateNonAttributedCpuTimeReference @ 0x140576A98
  * Callers:
- *     PpmUpdateIdleVeto @ 0x140567FD0 (PpmUpdateIdleVeto.c)
- *     PopFxPlatformStateAvailable @ 0x14056BA8C (PopFxPlatformStateAvailable.c)
- *     PopPdcIdleResiliencyCallback @ 0x1408F004C (PopPdcIdleResiliencyCallback.c)
+ *     PpmUpdateIdleVeto @ 0x140568210 (PpmUpdateIdleVeto.c)
+ *     PopFxPlatformStateAvailable @ 0x14056BCCC (PopFxPlatformStateAvailable.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1408F01AC (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopAccumulateNonActivatedCpuTime @ 0x14057648C (PopAccumulateNonActivatedCpuTime.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x1405766CC (PopAccumulateNonActivatedCpuTime.c)
  */
 
 __int64 __fastcall PopUpdateNonAttributedCpuTimeReference(char a1)
@@ -20,22 +20,22 @@ __int64 __fastcall PopUpdateNonAttributedCpuTimeReference(char a1)
   _DWORD *SchedulerAssist; // r9
   bool v7; // zf
 
-  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140C50088);
+  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140C500C8);
   if ( a1 )
   {
-    if ( ++dword_140C50084 == 1 )
+    if ( ++dword_140C500C4 == 1 )
     {
       v3 = 0;
 LABEL_6:
-      PopAccumulateNonActivatedCpuTime(v3, &qword_140C4FF78, &qword_140C4FF80);
+      PopAccumulateNonActivatedCpuTime(v3, &qword_140C4FFB8, &qword_140C4FFC0);
     }
   }
-  else if ( !--dword_140C50084 )
+  else if ( !--dword_140C500C4 )
   {
     v3 = 1;
     goto LABEL_6;
   }
-  KxReleaseSpinLock(&qword_140C50088);
+  KxReleaseSpinLock(&qword_140C500C8);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

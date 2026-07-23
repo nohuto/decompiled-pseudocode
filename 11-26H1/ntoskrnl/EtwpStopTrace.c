@@ -1,27 +1,27 @@
 /*
- * XREFs of EtwpStopTrace @ 0x140A6F2F8
+ * XREFs of EtwpStopTrace @ 0x140AB2D10
  * Callers:
- *     EtwWmitraceWorker @ 0x14082C2B8 (EtwWmitraceWorker.c)
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
- *     EtwShutdown @ 0x140B362AC (EtwShutdown.c)
+ *     EtwWmitraceWorker @ 0x1408324F8 (EtwWmitraceWorker.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
+ *     EtwShutdown @ 0x140B384BC (EtwShutdown.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140218100 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140257080 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     ObReferenceObjectByPointer @ 0x14045F750 (ObReferenceObjectByPointer.c)
- *     EtwpAcquireLoggerContext @ 0x14091EE28 (EtwpAcquireLoggerContext.c)
- *     EtwpValidateLoggerInfo @ 0x14091F33C (EtwpValidateLoggerInfo.c)
- *     EtwpReleaseLoggerContext @ 0x14093D918 (EtwpReleaseLoggerContext.c)
- *     EtwpStopLoggerInstance @ 0x140A15968 (EtwpStopLoggerInstance.c)
- *     EtwpFreeLoggerContext @ 0x140A6CBB4 (EtwpFreeLoggerContext.c)
- *     EtwpCheckLoggerControlAccess @ 0x140A6FAA4 (EtwpCheckLoggerControlAccess.c)
- *     EtwpGetLoggerInfoFromContext @ 0x140A6FDA8 (EtwpGetLoggerInfoFromContext.c)
- *     EtwpEventWriteTemplateSession @ 0x140A7010C (EtwpEventWriteTemplateSession.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x140218430 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140258A10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     ObReferenceObjectByPointer @ 0x140458E50 (ObReferenceObjectByPointer.c)
+ *     EtwpReleaseLoggerContext @ 0x1409194B8 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContext @ 0x140979888 (EtwpAcquireLoggerContext.c)
+ *     EtwpValidateLoggerInfo @ 0x140979D9C (EtwpValidateLoggerInfo.c)
+ *     EtwpCheckLoggerControlAccess @ 0x14097A438 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x14097A694 (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpStopLoggerInstance @ 0x140A14B5C (EtwpStopLoggerInstance.c)
+ *     EtwpFreeLoggerContext @ 0x140A16604 (EtwpFreeLoggerContext.c)
+ *     EtwpEventWriteTemplateSession @ 0x140AB32A0 (EtwpEventWriteTemplateSession.c)
  */
 
 __int64 __fastcall EtwpStopTrace(__int64 a1, _DWORD *a2, char a3)
@@ -40,7 +40,11 @@ __int64 __fastcall EtwpStopTrace(__int64 a1, _DWORD *a2, char a3)
   __int64 v17; // rdx
   __int64 v18; // r8
   struct _KLOCK_ENTRIES *v19; // r9
-  __int64 v20; // rcx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // r9
   LARGE_INTEGER Timeout; // [rsp+30h] [rbp-38h] BYREF
   PVOID P; // [rsp+88h] [rbp+20h] BYREF
 
@@ -66,7 +70,7 @@ __int64 __fastcall EtwpStopTrace(__int64 a1, _DWORD *a2, char a3)
         LoggerInfoFromContext = -1073741535;
         goto LABEL_26;
       }
-      LoggerInfoFromContext = EtwpCheckLoggerControlAccess(0x80u);
+      LoggerInfoFromContext = EtwpCheckLoggerControlAccess(0x80u, (__int64)P);
       if ( LoggerInfoFromContext >= 0 )
       {
 LABEL_4:
@@ -102,12 +106,12 @@ LABEL_4:
               while ( KeWaitForSingleObject(v13 + 114, Executive, 0, 0, &Timeout) == 258 )
                 ;
             }
-            LoggerInfoFromContext = EtwpGetLoggerInfoFromContext(a2, v13);
+            LoggerInfoFromContext = EtwpGetLoggerInfoFromContext((__int64)a2, (__int64)v13, v20, v21);
             if ( LoggerInfoFromContext >= 0 )
             {
               LoggerInfoFromContext = v13[10];
-              if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_STOP_TRACE) )
-                EtwpEventWriteTemplateSession(v20, &ETW_EVENT_STOP_TRACE, v13);
+              if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_STOP_TRACE) )
+                EtwpEventWriteTemplateSession(v22, &ETW_EVENT_STOP_TRACE, v13);
             }
             ExReleaseRundownProtectionCacheAwareEx(
               *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(a1 + 704) + 8 * v16),
@@ -123,7 +127,7 @@ LABEL_4:
         EtwpReleaseLoggerContext(v13, 1);
         if ( LoggerInfoFromContext >= 0 )
         {
-          LoggerInfoFromContext = EtwpGetLoggerInfoFromContext(a2, v13);
+          LoggerInfoFromContext = EtwpGetLoggerInfoFromContext((__int64)a2, (__int64)v13, v23, v24);
           EtwpFreeLoggerContext((char *)v13);
         }
       }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PipFindDependencyNodePath @ 0x1403B33DC
+ * XREFs of PipFindDependencyNodePath @ 0x1403B35BC
  * Callers:
- *     IoTestDependency @ 0x1403B3380 (IoTestDependency.c)
+ *     IoTestDependency @ 0x1403B3560 (IoTestDependency.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PipDependencyGraphDepthFirstSearch @ 0x1403B3474 (PipDependencyGraphDepthFirstSearch.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PipDependencyGraphDepthFirstSearch @ 0x1403B3654 (PipDependencyGraphDepthFirstSearch.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PipFindDependencyNodePath(__int64 a1, __int64 a2, _DWORD *a3, __int64 a4)
@@ -26,10 +26,13 @@ __int64 __fastcall PipFindDependencyNodePath(__int64 a1, __int64 a2, _DWORD *a3,
   PipDependencyGraphDepthFirstSearch(a1, a2, v15, a4);
   KxReleaseSpinLock((volatile signed __int64 *)&PiDependencyEdgeWriteLock);
   result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

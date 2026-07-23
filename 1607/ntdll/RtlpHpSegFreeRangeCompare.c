@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpSegFreeRangeCompare @ 0x18003EC84
+ * XREFs of RtlpHpSegFreeRangeCompare @ 0x18003EC74
  * Callers:
- *     RtlpHpSegPageRangeShrink @ 0x18003E92C (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpSegPageRangeAllocate @ 0x18003EA8C (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeShrink @ 0x18003E91C (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x18003EA7C (RtlpHpSegPageRangeAllocate.c)
  * Callees:
  *     <none>
  */

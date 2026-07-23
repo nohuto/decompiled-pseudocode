@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsMultiUsersInSessionSku @ 0x180086830
+ * XREFs of RtlIsMultiUsersInSessionSku @ 0x180086840
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool RtlIsMultiUsersInSessionSku()
+BOOLEAN RtlIsMultiUsersInSessionSku(void)
 {
   return (MEMORY[0x7FFE02F0] & 0x200) != 0;
 }

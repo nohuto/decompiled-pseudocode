@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetJobUIRestrictionsClass @ 0x1400B2DD8
+ * XREFs of PsGetJobUIRestrictionsClass @ 0x1400B0D24
  * Callers:
  *     <none>
  * Callees:

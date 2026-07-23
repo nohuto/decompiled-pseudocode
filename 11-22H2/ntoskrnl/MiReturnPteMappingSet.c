@@ -23,10 +23,10 @@ __int64 __fastcall MiReturnPteMappingSet(__int64 a1)
   result = (__int64)KeGetCurrentPrcb();
   *(_QWORD *)(*(_QWORD *)(result + 33592) + 12344LL) = 0LL;
   v2 = *(unsigned __int8 *)(a1 + 8);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

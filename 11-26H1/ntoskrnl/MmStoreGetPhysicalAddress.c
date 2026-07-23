@@ -1,12 +1,12 @@
 /*
- * XREFs of MmStoreGetPhysicalAddress @ 0x14052FCB8
+ * XREFs of MmStoreGetPhysicalAddress @ 0x1405321B8
  * Callers:
- *     SmHpBufferProtectEx @ 0x14024CCB0 (SmHpBufferProtectEx.c)
- *     SmHpChunkUnprotect @ 0x14024D5B0 (SmHpChunkUnprotect.c)
- *     SmGetPhysicalAddress @ 0x1405056B8 (SmGetPhysicalAddress.c)
- *     MmStoreLogDecompressionFailure @ 0x14070AFC0 (MmStoreLogDecompressionFailure.c)
+ *     SmHpBufferProtectEx @ 0x14024E610 (SmHpBufferProtectEx.c)
+ *     SmHpChunkUnprotect @ 0x14024EF10 (SmHpChunkUnprotect.c)
+ *     SmGetPhysicalAddress @ 0x1404FEF68 (SmGetPhysicalAddress.c)
+ *     MmStoreLogDecompressionFailure @ 0x14070FC70 (MmStoreLogDecompressionFailure.c)
  * Callees:
- *     MiGetVirtualAddressState @ 0x14024D274 (MiGetVirtualAddressState.c)
+ *     MiGetVirtualAddressState @ 0x14024EBD4 (MiGetVirtualAddressState.c)
  */
 
 __int64 __fastcall MmStoreGetPhysicalAddress(unsigned __int64 a1)

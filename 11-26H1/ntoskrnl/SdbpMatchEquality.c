@@ -1,10 +1,10 @@
 /*
- * XREFs of SdbpMatchEquality @ 0x140714520
+ * XREFs of SdbpMatchEquality @ 0x140719210
  * Callers:
  *     <none>
  * Callees:
- *     SdbpMatchList @ 0x1408850CC (SdbpMatchList.c)
- *     SdbFindFirstTag @ 0x1409E8510 (SdbFindFirstTag.c)
+ *     SdbpMatchList @ 0x14088B4CC (SdbpMatchList.c)
+ *     SdbFindFirstTag @ 0x1409D4F20 (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbpMatchEquality(_DWORD *a1, int a2, __int64 a3, __int64 a4, unsigned int a5, __int64 a6)

@@ -7,38 +7,38 @@
  *     _PsspCaptureHandleTrace@8 @ 0x4B387016 (_PsspCaptureHandleTrace@8.c)
  */
 
-int __fastcall PsspCaptureProcessInformation(int a1, int a2, char a3)
+NTSTATUS __fastcall PsspCaptureProcessInformation(_DWORD *a1, void *a2, char a3)
 {
-  int result; // eax
+  NTSTATUS result; // eax
 
-  *(_DWORD *)(a1 + 12) = 32;
-  result = ZwQueryInformationProcess(a2, 0, a1 + 12, 32, 0);
+  a1[3] = 32;
+  result = ZwQueryInformationProcess(a2, ProcessBasicInformation, a1 + 3, 0x20u, 0);
   if ( result >= 0 )
   {
-    result = ZwQueryInformationProcess(a2, 4, a1 + 48, 32, 0);
+    result = ZwQueryInformationProcess(a2, ProcessTimes, a1 + 12, 0x20u, 0);
     if ( result >= 0 )
     {
-      result = ZwQueryInformationProcess(a2, 18, a1 + 80, 2, 0);
+      result = ZwQueryInformationProcess(a2, ProcessPriorityClass, a1 + 20, 2u, 0);
       if ( result >= 0 )
       {
-        result = ZwQueryInformationProcess(a2, 3, a1 + 88, 64, 0);
+        result = ZwQueryInformationProcess(a2, ProcessVmCounters, a1 + 22, 0x40u, 0);
         if ( result >= 0 )
         {
-          if ( ZwQueryInformationProcess(a2, 69, a1 + 152, 40, 0) >= 0 )
-            *(_DWORD *)(a1 + 4) |= 8u;
-          if ( ZwQueryInformationProcess(a2, 34, a1 + 192, 4, 0) < 0 )
-            *(_DWORD *)(a1 + 192) = 0;
-          if ( ZwQueryInformationProcess(a2, 36, a1 + 196, 4, 0) < 0 )
-            *(_DWORD *)(a1 + 196) = 0;
+          if ( ZwQueryInformationProcess(a2, ProcessJobMemoryInformation, a1 + 38, 0x28u, 0) >= 0 )
+            a1[1] |= 8u;
+          if ( ZwQueryInformationProcess(a2, ProcessExecuteFlags, a1 + 48, 4u, 0) < 0 )
+            a1[48] = 0;
+          if ( ZwQueryInformationProcess(a2, ProcessCookie, a1 + 49, 4u, 0) < 0 )
+            a1[49] = 0;
           if ( (a3 & 0x40) != 0 )
-            PsspCaptureHandleTrace((_DWORD *)a1, a2);
-          *(_WORD *)(a1 + 200) = 0;
-          *(_WORD *)(a1 + 202) = 256;
-          *(_DWORD *)(a1 + 204) = a1 + 208;
-          if ( ZwQueryInformationProcess(a2, 43, a1 + 200, 264, 0) < 0 )
+            PsspCaptureHandleTrace(a1, a2);
+          *((_WORD *)a1 + 100) = 0;
+          *((_WORD *)a1 + 101) = 256;
+          a1[51] = a1 + 52;
+          if ( ZwQueryInformationProcess(a2, ProcessImageFileNameWin32, a1 + 50, 0x108u, 0) < 0 )
           {
-            *(_DWORD *)(a1 + 200) = 0;
-            *(_DWORD *)(a1 + 204) = 0;
+            a1[50] = 0;
+            a1[51] = 0;
           }
           return 0;
         }

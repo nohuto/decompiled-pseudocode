@@ -7,18 +7,12 @@
  *     ZwCreateEvent @ 0x18009CFE0 (ZwCreateEvent.c)
  */
 
-__int64 sub_18007D01C()
+int sub_18007D01C()
 {
-  __int64 result; // rax
-  char v1; // [rsp+20h] [rbp-18h]
-  int v2; // [rsp+20h] [rbp-18h]
+  int result; // eax
 
-  v1 = 0;
-  result = ZwCreateEvent(&qword_180165280, 2031619LL, 0LL, 1LL, v1);
-  if ( (int)result >= 0 )
-  {
-    LOBYTE(v2) = 0;
-    return ZwCreateEvent(&qword_1801652B0, 2031619LL, 0LL, 1LL, v2);
-  }
+  result = ZwCreateEvent(&Handle, 0x1F0003u, 0LL, SynchronizationEvent, 0);
+  if ( result >= 0 )
+    return ZwCreateEvent(&EventHandle, 0x1F0003u, 0LL, SynchronizationEvent, 0);
   return result;
 }

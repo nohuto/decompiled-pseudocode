@@ -1,10 +1,10 @@
 /*
- * XREFs of MmValidateUserCallTarget @ 0x1406617CC
+ * XREFs of MmValidateUserCallTarget @ 0x1406618B0
  * Callers:
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
- *     MmCheckForSafeExecution @ 0x14065B60C (MmCheckForSafeExecution.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
+ *     MmCheckForSafeExecution @ 0x14065B6F0 (MmCheckForSafeExecution.c)
  * Callees:
- *     MiIsProcessCfgEnabled @ 0x140014304 (MiIsProcessCfgEnabled.c)
+ *     MiIsProcessCfgEnabled @ 0x140013E84 (MiIsProcessCfgEnabled.c)
  */
 
 __int64 MmValidateUserCallTarget()
@@ -16,8 +16,8 @@ __int64 MmValidateUserCallTarget()
   if ( !MiIsProcessCfgEnabled() )
     return 1LL;
   if ( v0 )
-    v3 = (const signed __int64 **)(qword_140327F90 + 276840688);
+    v3 = (const signed __int64 **)(qword_140327FD0 + 276840688);
   else
-    v3 = (const signed __int64 **)(qword_140327F90 + 276840664);
+    v3 = (const signed __int64 **)(qword_140327FD0 + 276840664);
   return MiValidateUserCallTarget(v1, v3);
 }

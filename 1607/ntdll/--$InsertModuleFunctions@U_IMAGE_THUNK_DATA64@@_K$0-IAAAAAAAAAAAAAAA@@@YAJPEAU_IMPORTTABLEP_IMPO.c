@@ -1,38 +1,38 @@
 /*
- * XREFs of ??$InsertModuleFunctions@U_IMAGE_THUNK_DATA64@@_K$0?IAAAAAAAAAAAAAAA@@@YAJPEAU_IMPORTTABLEP_IMPORTTABLEP_SORTED_LIST_ENTRY@@PEAXPEAU_IMAGE_NT_HEADERS64@@PEFAU_IMAGE_IMPORT_DESCRIPTOR@@@Z @ 0x1800DB41C
+ * XREFs of ??$InsertModuleFunctions@U_IMAGE_THUNK_DATA64@@_K$0?IAAAAAAAAAAAAAAA@@@YAJPEAU_IMPORTTABLEP_IMPORTTABLEP_SORTED_LIST_ENTRY@@PEAXPEAU_IMAGE_NT_HEADERS64@@PEFAU_IMAGE_IMPORT_DESCRIPTOR@@@Z @ 0x1800DB4DC
  * Callers:
- *     RtlComputeImportTableHash @ 0x1800DB660 (RtlComputeImportTableHash.c)
+ *     RtlComputeImportTableHash @ 0x1800DB720 (RtlComputeImportTableHash.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlAddressInSectionTable @ 0x180080BF0 (RtlAddressInSectionTable.c)
- *     ImportTablepInsertFunctionSorted @ 0x1800DB5D4 (ImportTablepInsertFunctionSorted.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlAddressInSectionTable @ 0x180080BE0 (RtlAddressInSectionTable.c)
+ *     ImportTablepInsertFunctionSorted @ 0x1800DB694 (ImportTablepInsertFunctionSorted.c)
  */
 
 __int64 __fastcall InsertModuleFunctions<_IMAGE_THUNK_DATA64,unsigned __int64,-9223372036854775808>(
         __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned int *a4)
+        void *a2,
+        _IMAGE_NT_HEADERS64 *a3,
+        ULONG *a4)
 {
-  unsigned int *v7; // rbx
-  __int64 v8; // rax
-  __int64 v9; // rdi
+  ULONG *v7; // rbx
+  char *v8; // rax
+  char *v9; // rdi
   _QWORD *Heap; // rax
 
-  v7 = (unsigned int *)RtlAddressInSectionTable(a3, a2, *a4);
+  v7 = (ULONG *)RtlAddressInSectionTable(a3, a2, *a4);
   if ( v7 )
   {
     while ( *(_QWORD *)v7 )
     {
       if ( *(__int64 *)v7 >= 0 )
       {
-        v8 = RtlAddressInSectionTable(a3, a2, *v7);
+        v8 = (char *)RtlAddressInSectionTable(a3, a2, *v7);
         if ( !v8 )
           return 3221225611LL;
         v9 = v8 + 2;
-        if ( v8 == -2 )
+        if ( v8 == (char *)-2LL )
           return 3221225611LL;
-        Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 0x10uLL);
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x10uLL);
         if ( !Heap )
           return 3221225495LL;
         *Heap = 0LL;

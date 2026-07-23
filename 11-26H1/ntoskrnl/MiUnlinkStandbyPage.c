@@ -1,19 +1,19 @@
 /*
- * XREFs of MiUnlinkStandbyPage @ 0x1402F9C20
+ * XREFs of MiUnlinkStandbyPage @ 0x1402DBCA0
  * Callers:
- *     MiRemoveLowestPriorityStandbyPage @ 0x1402FA410 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x1402DC490 (MiRemoveLowestPriorityStandbyPage.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiSearchChannelTable @ 0x1402CBEE8 (MiSearchChannelTable.c)
- *     MiUpdateLargePageCandidateValue @ 0x1402DD890 (MiUpdateLargePageCandidateValue.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecreaseAvailablePages @ 0x1402F8CD0 (MiDecreaseAvailablePages.c)
- *     MiRestoreTransitionPte @ 0x1402F8F60 (MiRestoreTransitionPte.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiUnlinkProtectedStandbyPfn @ 0x14046229C (MiUnlinkProtectedStandbyPfn.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiSearchChannelTable @ 0x1402ADCA8 (MiSearchChannelTable.c)
+ *     MiUpdateLargePageCandidateValue @ 0x1402BF650 (MiUpdateLargePageCandidateValue.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecreaseAvailablePages @ 0x1402DAD50 (MiDecreaseAvailablePages.c)
+ *     MiRestoreTransitionPte @ 0x1402DAFE0 (MiRestoreTransitionPte.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiUnlinkProtectedStandbyPfn @ 0x14045B25C (MiUnlinkProtectedStandbyPfn.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlinkStandbyPage(__int64 a1, char *a2, ULONG_PTR a3, ULONG_PTR a4, int a5)
@@ -76,11 +76,11 @@ __int64 __fastcall MiUnlinkStandbyPage(__int64 a1, char *a2, ULONG_PTR a3, ULONG
   _InterlockedDecrement64((volatile signed __int64 *)(a3 + 16));
   if ( (a5 & 0x400000) != 0 )
     goto LABEL_9;
-  if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 1 )
+  if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 1 )
   {
     v42 = a4 & 0x1F;
     LOBYTE(v43) = 1;
-    v44 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (a4 >> 5);
+    v44 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (a4 >> 5);
     if ( v42 + 1 > 0x20 )
     {
       if ( (a4 & 0x1F) == 0 )
@@ -109,11 +109,11 @@ LABEL_50:
     }
     goto LABEL_9;
   }
-  if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 3 )
+  if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 3 )
   {
     v10 = a4 & 0x1F;
     LOBYTE(v11) = 1;
-    v12 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (a4 >> 5);
+    v12 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (a4 >> 5);
     if ( v10 + 1 > 0x20 )
     {
       if ( (a4 & 0x1F) != 0 )
@@ -183,7 +183,7 @@ LABEL_9:
   BugCheckParameter2 = v6 / 48;
   v52 = 48 * (v6 / 48);
   v51 = v52 - 0x220000000000LL;
-  v54 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v52 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
+  v54 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v52 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
   v21 = MiPageToNode(v6 / 48);
   v22 = *(_DWORD *)(v52 - 0x220000000000LL + 32);
   v23 = v21;
@@ -195,7 +195,7 @@ LABEL_17:
     v24 = HIBYTE(v22) & 7;
     goto LABEL_18;
   }
-  if ( v51 < 0xFFFFDE0000000000uLL || v51 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL || MiIsDecayPfn(v52 / 48) )
+  if ( v51 < 0xFFFFDE0000000000uLL || v51 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL || MiIsDecayPfn(v52 / 48) )
   {
 LABEL_58:
     v24 = 5;
@@ -207,7 +207,7 @@ LABEL_58:
     v24 = 5;
   }
 LABEL_18:
-  if ( qword_140E2D6E8 )
+  if ( qword_140E2D868 )
     v25 = *((_BYTE *)MiSearchChannelTable(BugCheckParameter2) + 12);
   else
     v25 = 0;
@@ -291,7 +291,7 @@ LABEL_18:
       a2[96] = 0;
     }
     v37 = (volatile signed __int32 *)(a3 + 32);
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd(v37, 0xBFFFFFFF);
       _InterlockedDecrement(v37);

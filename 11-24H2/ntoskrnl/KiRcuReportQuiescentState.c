@@ -1,19 +1,19 @@
 /*
- * XREFs of KiRcuReportQuiescentState @ 0x14033D364
+ * XREFs of KiRcuReportQuiescentState @ 0x14031C844
  * Callers:
- *     KiRcuCheckQuiescent @ 0x140206480 (KiRcuCheckQuiescent.c)
- *     KiCheckWaitNext @ 0x1402092E0 (KiCheckWaitNext.c)
- *     KiRetireDpcList @ 0x140251EB0 (KiRetireDpcList.c)
- *     KeRemoveQueueEx @ 0x1402A49D0 (KeRemoveQueueEx.c)
- *     KeClockInterruptNotify @ 0x14033A5E0 (KeClockInterruptNotify.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KiRcuCheckQuiescentForIdle @ 0x1404D5594 (KiRcuCheckQuiescentForIdle.c)
+ *     KiRetireDpcList @ 0x1402824C0 (KiRetireDpcList.c)
+ *     KeRemoveQueueEx @ 0x1402D4100 (KeRemoveQueueEx.c)
+ *     KeClockInterruptNotify @ 0x140319AC0 (KeClockInterruptNotify.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KiRcuCheckQuiescent @ 0x14032DA60 (KiRcuCheckQuiescent.c)
+ *     KiCheckWaitNext @ 0x1403308C0 (KiCheckWaitNext.c)
+ *     KiRcuCheckQuiescentForIdle @ 0x1404CE9DC (KiRcuCheckQuiescentForIdle.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KxTryToAcquireSpinLock @ 0x1404633C8 (KxTryToAcquireSpinLock.c)
- *     KiSrcuCompareGraceSequence @ 0x1404D3F60 (KiSrcuCompareGraceSequence.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x140459EB8 (KxTryToAcquireSpinLock.c)
+ *     KiSrcuCompareGraceSequence @ 0x1404CD170 (KiSrcuCompareGraceSequence.c)
  */
 
 __int64 __fastcall KiRcuReportQuiescentState(unsigned __int64 *a1, signed __int64 a2)
@@ -117,9 +117,9 @@ LABEL_18:
     v3 = *(_QWORD *)(v3 + 8);
     v6 = 0;
   }
-  while ( (int)KiSrcuCompareGraceSequence(a2, qword_140F20C40) > 0 )
+  while ( (int)KiSrcuCompareGraceSequence(a2, qword_140F205C0) > 0 )
   {
-    if ( v22 == _InterlockedCompareExchange64(&qword_140F20C40, a2, v22) )
+    if ( v22 == _InterlockedCompareExchange64(&qword_140F205C0, a2, v22) )
       return v2;
   }
   return 0;

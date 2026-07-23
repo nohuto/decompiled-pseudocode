@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnCcAccessLog @ 0x140379C6C
+ * XREFs of MiReturnCcAccessLog @ 0x14044B208
  * Callers:
- *     MiCheckAndProcessCcAccessLog @ 0x140379B9C (MiCheckAndProcessCcAccessLog.c)
- *     MmPrefetchForCacheManager @ 0x1409561A4 (MmPrefetchForCacheManager.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x14044B1B4 (MiCheckAndProcessCcAccessLog.c)
+ *     MmPrefetchForCacheManager @ 0x140939B54 (MmPrefetchForCacheManager.c)
  * Callees:
- *     MiQueuePageAccessLog @ 0x140244A68 (MiQueuePageAccessLog.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14025E950 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiQueuePageAccessLog @ 0x14020D250 (MiQueuePageAccessLog.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14028EF60 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiReturnCcAccessLog(__int64 a1, __int64 a2, int a3)

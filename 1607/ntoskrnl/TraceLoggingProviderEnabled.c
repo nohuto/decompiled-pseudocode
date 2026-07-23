@@ -1,17 +1,17 @@
 /*
- * XREFs of TraceLoggingProviderEnabled @ 0x140088D10
+ * XREFs of TraceLoggingProviderEnabled @ 0x14010CF00
  * Callers:
- *     CmpLogTransactionAbortedWithChildName @ 0x1400B4B50 (CmpLogTransactionAbortedWithChildName.c)
- *     EtwTraceProcess @ 0x14045D50C (EtwTraceProcess.c)
- *     EtwTraceAppStateChange @ 0x1404A3048 (EtwTraceAppStateChange.c)
- *     PopNotifyTelemetryOsState @ 0x14053056C (PopNotifyTelemetryOsState.c)
- *     PopTransitionTelemetryOsState @ 0x140545DA0 (PopTransitionTelemetryOsState.c)
- *     EtwpWriteAppStateChangeSummary @ 0x14054A9D8 (EtwpWriteAppStateChangeSummary.c)
- *     PnpTraceDeviceRemovalForResetComplete @ 0x140648E78 (PnpTraceDeviceRemovalForResetComplete.c)
- *     PnpTraceRebalanceResult @ 0x140649328 (PnpTraceRebalanceResult.c)
- *     EtwTraceDeniedTokenCreation @ 0x1406A133C (EtwTraceDeniedTokenCreation.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1400B2988 (CmpLogTransactionAbortedWithChildName.c)
+ *     EtwTraceProcess @ 0x14045C3DC (EtwTraceProcess.c)
+ *     EtwTraceAppStateChange @ 0x14051B448 (EtwTraceAppStateChange.c)
+ *     PopNotifyTelemetryOsState @ 0x140530AAC (PopNotifyTelemetryOsState.c)
+ *     PopTransitionTelemetryOsState @ 0x1405462E0 (PopTransitionTelemetryOsState.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x14054AF18 (EtwpWriteAppStateChangeSummary.c)
+ *     PnpTraceDeviceRemovalForResetComplete @ 0x140648F5C (PnpTraceDeviceRemovalForResetComplete.c)
+ *     PnpTraceRebalanceResult @ 0x14064940C (PnpTraceRebalanceResult.c)
+ *     EtwTraceDeniedTokenCreation @ 0x1406A1474 (EtwTraceDeniedTokenCreation.c)
  * Callees:
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
  */
 
 BOOLEAN __stdcall TraceLoggingProviderEnabled(

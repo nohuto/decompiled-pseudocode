@@ -1,38 +1,44 @@
 /*
- * XREFs of RtlApplyRXact @ 0x1800E63E0
+ * XREFs of RtlApplyRXact @ 0x1800E63A0
  * Callers:
  *     <none>
  * Callees:
  *     RtlInitUnicodeString @ 0x18003BA40 (RtlInitUnicodeString.c)
  *     RtlAbortRXact @ 0x180080980 (RtlAbortRXact.c)
  *     RXactpCommit @ 0x1800809C8 (RXactpCommit.c)
- *     ZwSetValueKey @ 0x18009E230 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x18009F110 (ZwDeleteValueKey.c)
- *     ZwFlushKey @ 0x18009F370 (ZwFlushKey.c)
+ *     ZwSetValueKey @ 0x18009E1F0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x18009F0D0 (ZwDeleteValueKey.c)
+ *     ZwFlushKey @ 0x18009F330 (ZwFlushKey.c)
  */
 
-__int64 __fastcall RtlApplyRXact(__int64 *a1)
+NTSTATUS __fastcall RtlApplyRXact(__int64 a1)
 {
-  __int64 result; // rax
-  int v3; // edi
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  void *v1; // rbx
+  NTSTATUS result; // eax
+  int v4; // edi
+  void *v5; // rcx
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
+  v1 = *(void **)(a1 + 8);
   RtlInitUnicodeString(&DestinationString, L"Log");
-  result = ZwSetValueKey();
-  if ( (int)result >= 0 )
+  result = ZwSetValueKey(v1, &DestinationString, 0, 3u, *(PVOID *)(a1 + 24), *(_DWORD *)(*(_QWORD *)(a1 + 24) + 8LL));
+  if ( result >= 0 )
   {
-    v3 = ZwFlushKey();
-    if ( v3 < 0 || (v3 = RXactpCommit(a1), v3 < 0) )
+    v4 = ZwFlushKey(v1);
+    if ( v4 < 0 )
     {
-      ZwDeleteValueKey();
-      return (unsigned int)v3;
+      v5 = v1;
+LABEL_4:
+      ZwDeleteValueKey(v5, &DestinationString);
+      return v4;
     }
-    else
-    {
-      ZwDeleteValueKey();
-      RtlAbortRXact((__int64)a1);
-      return 0LL;
-    }
+    v4 = RXactpCommit((__int64 *)a1);
+    v5 = v1;
+    if ( v4 < 0 )
+      goto LABEL_4;
+    ZwDeleteValueKey(v1, &DestinationString);
+    RtlAbortRXact(a1);
+    return 0;
   }
   return result;
 }

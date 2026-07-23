@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlEqualPrefixSid @ 0x1408E50AC
+ * XREFs of RtlEqualPrefixSid @ 0x1408EB66C
  * Callers:
- *     RtlpCopyEffectiveAce @ 0x1408E4350 (RtlpCopyEffectiveAce.c)
+ *     RtlpCopyEffectiveAce @ 0x1408EA910 (RtlpCopyEffectiveAce.c)
  * Callees:
  *     <none>
  */

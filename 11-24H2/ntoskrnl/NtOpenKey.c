@@ -1,13 +1,13 @@
 /*
- * XREFs of NtOpenKey @ 0x140A4A090
+ * XREFs of NtOpenKey @ 0x140A40DB0
  * Callers:
- *     IopProtectSystemPartition @ 0x140C1E3BC (IopProtectSystemPartition.c)
- *     ExpWatchProductTypeInitialization @ 0x140C416CC (ExpWatchProductTypeInitialization.c)
+ *     IopProtectSystemPartition @ 0x140C203FC (IopProtectSystemPartition.c)
+ *     ExpWatchProductTypeInitialization @ 0x140C4381C (ExpWatchProductTypeInitialization.c)
  * Callees:
- *     NtOpenKeyEx @ 0x140A4A0B0 (NtOpenKeyEx.c)
+ *     NtOpenKeyEx @ 0x140A40DD0 (NtOpenKeyEx.c)
  */
 
-__int64 __fastcall NtOpenKey(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl NtOpenKey(PHANDLE KeyHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  return NtOpenKeyEx(a1, a2, a3, 0LL);
+  return NtOpenKeyEx(KeyHandle, DesiredAccess, ObjectAttributes, 0);
 }

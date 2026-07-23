@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDevCfgQueryResolveValue @ 0x1405622C8
+ * XREFs of PiDevCfgQueryResolveValue @ 0x140562988
  * Callers:
- *     PiDevCfgVerifyDeviceAllowed @ 0x140878E1C (PiDevCfgVerifyDeviceAllowed.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x14087CAA4 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x14087905C (PiDevCfgVerifyDeviceAllowed.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x14087CCE4 (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     PnpValidateStringData @ 0x1403CE270 (PnpValidateStringData.c)
- *     PiDevCfgParseVariableName @ 0x1403CE72C (PiDevCfgParseVariableName.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     PnpValidateStringData @ 0x1403CE450 (PnpValidateStringData.c)
+ *     PiDevCfgParseVariableName @ 0x1403CE90C (PiDevCfgParseVariableName.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     PiDevCfgResolveVariable @ 0x14087EC00 (PiDevCfgResolveVariable.c)
+ *     PiDevCfgResolveVariable @ 0x14087EE40 (PiDevCfgResolveVariable.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

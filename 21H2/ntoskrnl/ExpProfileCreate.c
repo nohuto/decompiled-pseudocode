@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpProfileCreate @ 0x14095A55C
+ * XREFs of ExpProfileCreate @ 0x14095A72C
  * Callers:
- *     NtCreateProfile @ 0x14095AC10 (NtCreateProfile.c)
- *     NtCreateProfileEx @ 0x14095ACF0 (NtCreateProfileEx.c)
+ *     NtCreateProfile @ 0x14095ADE0 (NtCreateProfile.c)
+ *     NtCreateProfileEx @ 0x14095AEC0 (NtCreateProfileEx.c)
  * Callees:
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeVerifyGroupAffinity @ 0x1403781B4 (KeVerifyGroupAffinity.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     ExIsRestrictedCaller @ 0x1406A18B0 (ExIsRestrictedCaller.c)
- *     ObInsertObject @ 0x1406D41C0 (ObInsertObject.c)
- *     ObCreateObject @ 0x1406D4AE0 (ObCreateObject.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeVerifyGroupAffinity @ 0x140377D04 (KeVerifyGroupAffinity.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExIsRestrictedCaller @ 0x1406017E4 (ExIsRestrictedCaller.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     ObInsertObject @ 0x1406AB4A0 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1406ABDC0 (ObCreateObject.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140707F60 (ObReferenceObjectByHandleWithTag.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall ExpProfileCreate(

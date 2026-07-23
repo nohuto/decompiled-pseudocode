@@ -1,10 +1,10 @@
 /*
  * XREFs of RtlStdLogStackTrace @ 0x1800F2850
  * Callers:
- *     RtlLogStackBackTraceEx @ 0x18002B208 (RtlLogStackBackTraceEx.c)
+ *     RtlLogStackBackTraceEx @ 0x18002B1F8 (RtlLogStackBackTraceEx.c)
  *     RtlLogStackTrace @ 0x1800F2580 (RtlLogStackTrace.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1800325B0 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x1800325A0 (RtlCaptureStackBackTrace.c)
  *     RtlpStdLogCapturedStackTrace @ 0x1800F2E18 (RtlpStdLogCapturedStackTrace.c)
  */
 

@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefSizeofIntFromDigits @ 0x140405B7C
+ * XREFs of SymCryptFdefSizeofIntFromDigits @ 0x140405D5C
  * Callers:
- *     SymCryptSizeofIntFromDigits @ 0x1403F9A70 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F9C50 (SymCryptSizeofIntFromDigits.c)
  * Callees:
  *     <none>
  */

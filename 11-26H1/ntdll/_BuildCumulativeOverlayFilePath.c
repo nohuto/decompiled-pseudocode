@@ -1,13 +1,13 @@
 /*
- * XREFs of _BuildCumulativeOverlayFilePath @ 0x1800333EC
+ * XREFs of _BuildCumulativeOverlayFilePath @ 0x18001E54C
  * Callers:
- *     GetOverlayFilePathUsingChecksum @ 0x1800327F0 (GetOverlayFilePathUsingChecksum.c)
+ *     GetOverlayFilePathUsingChecksum @ 0x18001D950 (GetOverlayFilePathUsingChecksum.c)
  * Callees:
- *     _StartPathWithLongPathPrefixIfNeeded @ 0x1800E5DE4 (_StartPathWithLongPathPrefixIfNeeded.c)
- *     wcscat_s @ 0x180134290 (wcscat_s.c)
- *     wcsncat_s @ 0x1801343C0 (wcsncat_s.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     _StartPathWithLongPathPrefixIfNeeded @ 0x1800E3FF4 (_StartPathWithLongPathPrefixIfNeeded.c)
+ *     wcscat_s @ 0x180134000 (wcscat_s.c)
+ *     wcsncat_s @ 0x180134130 (wcsncat_s.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall BuildCumulativeOverlayFilePath(

@@ -9,14 +9,14 @@
  *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall AdtpBuildIPv6Strings(__int64 a1, __int64 a2, _BYTE *a3, __int64 a4, _BYTE *a5)
+__int64 __fastcall AdtpBuildIPv6Strings(_WORD *a1, __int64 a2, _BYTE *a3, __int64 a4, _BYTE *a5)
 {
   unsigned int v9; // ebx
   PVOID PoolWithTag; // rax
   PVOID v11; // rax
   __int64 v12; // rax
 
-  if ( *(_WORD *)a1 != 23 )
+  if ( *a1 != 23 )
   {
     v9 = -1073741503;
     goto LABEL_13;
@@ -35,7 +35,7 @@ LABEL_6:
     *a3 = 1;
     *(_WORD *)a2 = 2
                  * ((__int64)((unsigned int)RtlIpv6AddressToStringW(
-                                              (const struct in6_addr *)(a1 + 8),
+                                              (const struct in6_addr *)(a1 + 4),
                                               *(PWSTR *)(a2 + 8))
                             - *(_DWORD *)(a2 + 8)) >> 1);
   }
@@ -47,7 +47,7 @@ LABEL_6:
   if ( !v11 )
     goto LABEL_6;
   *a5 = 1;
-  if ( StringCchPrintfW(*(STRSAFE_LPWSTR *)(a4 + 8), 8uLL, L"%d", (unsigned __int16)__ROL2__(*(_WORD *)(a1 + 2), 8)) >= 0 )
+  if ( StringCchPrintfW(*(STRSAFE_LPWSTR *)(a4 + 8), 8uLL, L"%d", (unsigned __int16)__ROL2__(a1[1], 8)) >= 0 )
   {
     v12 = -1LL;
     do

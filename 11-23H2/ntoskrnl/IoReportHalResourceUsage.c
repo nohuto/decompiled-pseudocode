@@ -3,12 +3,12 @@
  * Callers:
  *     HalpReportResourceUsage @ 0x140B40B3C (HalpReportResourceUsage.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     IopCreateRegistryKeyEx @ 0x1407DA498 (IopCreateRegistryKeyEx.c)
- *     IopWriteResourceList @ 0x140818978 (IopWriteResourceList.c)
- *     HeadlessTerminalAddResources @ 0x14081B628 (HeadlessTerminalAddResources.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     IopCreateRegistryKeyEx @ 0x1407DA768 (IopCreateRegistryKeyEx.c)
+ *     IopWriteResourceList @ 0x140818C48 (IopWriteResourceList.c)
+ *     HeadlessTerminalAddResources @ 0x14081B8F8 (HeadlessTerminalAddResources.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

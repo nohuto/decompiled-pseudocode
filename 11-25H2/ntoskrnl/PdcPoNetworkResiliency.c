@@ -14,7 +14,7 @@
  *     PopReleasePolicyLock @ 0x140B57ED0 (PopReleasePolicyLock.c)
  */
 
-__int64 __fastcall PdcPoNetworkResiliency(__int64 a1, __int64 a2)
+NTSTATUS __fastcall PdcPoNetworkResiliency(__int64 a1, __int64 a2)
 {
   char v2; // di
   __int64 v3; // r8
@@ -27,7 +27,7 @@ __int64 __fastcall PdcPoNetworkResiliency(__int64 a1, __int64 a2)
   __int64 v10; // r8
   __int64 v11; // r9
   __int64 v13; // [rsp+20h] [rbp-28h]
-  BOOL v14; // [rsp+50h] [rbp+8h] BYREF
+  BOOL Buffer; // [rsp+50h] [rbp+8h] BYREF
 
   v2 = a1;
   PopAcquirePolicyLock(a1, a2);
@@ -41,7 +41,7 @@ __int64 __fastcall PdcPoNetworkResiliency(__int64 a1, __int64 a2)
     v7 = 10000000LL * (unsigned int)PopStandbyConnectivityGracePeriod;
     if ( MEMORY[0xFFFFF78000000008] < (unsigned __int64)(qword_140E279C8 + v7) )
       v5 = v7 + qword_140E279C8 - MEMORY[0xFFFFF78000000008];
-    KeSetTimer2((__int64)&PopNetEvaluationTimer, -v5, 0LL, 0LL);
+    KeSetTimer2((__int64)&PopNetEvaluationTimer, (LARGE_INTEGER)-v5, 0LL, 0LL);
   }
   else
   {
@@ -55,7 +55,7 @@ __int64 __fastcall PdcPoNetworkResiliency(__int64 a1, __int64 a2)
   PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock);
   if ( (_DWORD)xmmword_140F08290 == 1 && BYTE11(xmmword_140F082A0) )
     v6 = v2 == 0;
-  v14 = v6;
+  Buffer = v6;
   PopReleaseRwLock(&PopPowerAggregatorLock);
-  return ZwUpdateWnfStateData((__int64)&WNF_PO_BLUETOOTH_STANDBY_POLICY, (__int64)&v14);
+  return ZwUpdateWnfStateData(&WNF_PO_BLUETOOTH_STANDBY_POLICY, &Buffer, 4u, 0LL, 0LL, 0, 0);
 }

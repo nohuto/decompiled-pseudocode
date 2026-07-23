@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIcParseInstruction @ 0x140C560E8
+ * XREFs of RtlIcParseInstruction @ 0x140C5C0E8
  * Callers:
- *     KiTpSetupCompletion @ 0x1407BC660 (KiTpSetupCompletion.c)
+ *     KiTpSetupCompletion @ 0x1407BF6C0 (KiTpSetupCompletion.c)
  * Callees:
- *     KiTpReadImageData @ 0x1407BC570 (KiTpReadImageData.c)
- *     RtlpIcParseInstruction @ 0x140C574F8 (RtlpIcParseInstruction.c)
+ *     KiTpReadImageData @ 0x1407BF5D0 (KiTpReadImageData.c)
+ *     RtlpIcParseInstruction @ 0x140C5D4F8 (RtlpIcParseInstruction.c)
  */
 
 __int64 __fastcall RtlIcParseInstruction(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

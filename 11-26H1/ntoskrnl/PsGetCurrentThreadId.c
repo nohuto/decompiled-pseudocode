@@ -1,10 +1,10 @@
 /*
- * XREFs of PsGetCurrentThreadId @ 0x140464C40
+ * XREFs of PsGetCurrentThreadId @ 0x14045DC00
  * Callers:
- *     PoShutdownBugCheck @ 0x1407D0FB0 (PoShutdownBugCheck.c)
- *     EtwpCovSampContextPruneModules @ 0x14093DA40 (EtwpCovSampContextPruneModules.c)
- *     HalpNotifyActorIfPmuAvailable @ 0x140B110C8 (HalpNotifyActorIfPmuAvailable.c)
- *     HalpRequestPmuAccess @ 0x140B5BF20 (HalpRequestPmuAccess.c)
+ *     PoShutdownBugCheck @ 0x1407D4050 (PoShutdownBugCheck.c)
+ *     EtwpCovSampContextPruneModules @ 0x140A30B58 (EtwpCovSampContextPruneModules.c)
+ *     HalpNotifyActorIfPmuAvailable @ 0x140B12E48 (HalpNotifyActorIfPmuAvailable.c)
+ *     HalpRequestPmuAccess @ 0x140B5F240 (HalpRequestPmuAccess.c)
  * Callees:
  *     <none>
  */

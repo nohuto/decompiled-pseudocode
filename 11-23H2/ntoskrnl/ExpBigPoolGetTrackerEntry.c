@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpBigPoolGetTrackerEntry @ 0x1403136D4
+ * XREFs of ExpBigPoolGetTrackerEntry @ 0x140313964
  * Callers:
- *     ExpStampBigPoolEntry @ 0x140313608 (ExpStampBigPoolEntry.c)
+ *     ExpStampBigPoolEntry @ 0x140313898 (ExpStampBigPoolEntry.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpBigPoolGetTrackerEntry(ULONG_PTR BugCheckParameter2, int a2, _QWORD *a3, __int64 *a4, _QWORD *a5)

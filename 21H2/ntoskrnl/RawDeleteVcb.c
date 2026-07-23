@@ -1,11 +1,11 @@
 /*
- * XREFs of RawDeleteVcb @ 0x14071B46C
+ * XREFs of RawDeleteVcb @ 0x1406C98D8
  * Callers:
- *     RawInitiateDeleteVolume @ 0x140360A2C (RawInitiateDeleteVolume.c)
- *     RawCheckForDeleteVolume @ 0x140395244 (RawCheckForDeleteVolume.c)
+ *     RawInitiateDeleteVolume @ 0x1402A592C (RawInitiateDeleteVolume.c)
+ *     RawCheckForDeleteVolume @ 0x140395394 (RawCheckForDeleteVolume.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IoDeleteDevice @ 0x1402A5DF0 (IoDeleteDevice.c)
  */
 
 void __fastcall RawDeleteVcb(__int64 a1)

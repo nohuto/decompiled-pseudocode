@@ -1,26 +1,26 @@
 /*
  * XREFs of RtlFindSetBits @ 0x1402E4EE0
  * Callers:
- *     MiFindDriverNonPagedSections @ 0x140760A2C (MiFindDriverNonPagedSections.c)
- *     HvpRemoveFreeCellHint @ 0x14079C290 (HvpRemoveFreeCellHint.c)
- *     HvpFindFreeCell @ 0x14079CC20 (HvpFindFreeCell.c)
- *     EtwQueryPerformanceTraceInformation @ 0x14081C05C (EtwQueryPerformanceTraceInformation.c)
- *     SmcStorePlacementGet @ 0x1409D847C (SmcStorePlacementGet.c)
+ *     sub_140760A2C @ 0x140760A2C (sub_140760A2C.c)
+ *     sub_14079C290 @ 0x14079C290 (sub_14079C290.c)
+ *     sub_14079CC20 @ 0x14079CC20 (sub_14079CC20.c)
+ *     sub_14081C05C @ 0x14081C05C (sub_14081C05C.c)
+ *     sub_1409D847C @ 0x1409D847C (sub_1409D847C.c)
  * Callees:
  *     <none>
  */
 
 ULONG __stdcall RtlFindSetBits(PRTL_BITMAP BitMapHeader, ULONG NumberToFind, ULONG HintIndex)
 {
-  unsigned int SizeOfBitMap; // ebp
-  unsigned int *Buffer; // rsi
+  ULONG SizeOfBitMap; // ebp
+  PULONG Buffer; // rsi
   ULONG v6; // r10d
-  unsigned int v8; // eax
+  ULONG v8; // eax
   int v9; // ebx
   __int64 v10; // r12
-  unsigned int v11; // edx
+  ULONG v11; // edx
   ULONG v12; // ecx
-  unsigned int *v13; // rdi
+  ULONG *v13; // rdi
   ULONG v14; // r15d
   unsigned __int64 v15; // r11
   __int64 *v16; // rax

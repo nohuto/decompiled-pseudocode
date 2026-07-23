@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgUiStopDebugging @ 0x1800CCC20
+ * XREFs of DbgUiStopDebugging @ 0x1800CCBE0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 DbgUiStopDebugging()
+NTSTATUS __cdecl DbgUiStopDebugging(HANDLE Process)
 {
-  return ZwRemoveProcessDebug();
+  return ZwRemoveProcessDebug(Process, NtCurrentTeb()->DbgSsReserved[1]);
 }

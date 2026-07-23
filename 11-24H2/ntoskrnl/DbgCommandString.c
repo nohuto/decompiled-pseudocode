@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgCommandString @ 0x1405E74C0
+ * XREFs of DbgCommandString @ 0x1405E4AB0
  * Callers:
  *     <none>
  * Callees:
- *     DebugService2 @ 0x1404FC860 (DebugService2.c)
+ *     DebugService2 @ 0x1404FA120 (DebugService2.c)
  */
 
 __int64 __fastcall DbgCommandString(__int64 a1, __int64 a2)

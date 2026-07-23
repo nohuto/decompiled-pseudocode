@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTiAsyncVadQueryEventWrite @ 0x1403D3748
+ * XREFs of EtwpTiAsyncVadQueryEventWrite @ 0x140262F9C
  * Callers:
- *     EtwpTiVadQueryEventWrite @ 0x1403D3680 (EtwpTiVadQueryEventWrite.c)
+ *     EtwpTiVadQueryEventWrite @ 0x140262ED4 (EtwpTiVadQueryEventWrite.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     EtwpTiAllocVadQueryEventWriteWorkItemContext @ 0x1403D38AC (EtwpTiAllocVadQueryEventWriteWorkItemContext.c)
- *     EtwpTiGetHashedBitNumbers @ 0x1403D3A3C (EtwpTiGetHashedBitNumbers.c)
- *     EtwpTiTestBloomFilter @ 0x1403D3AEC (EtwpTiTestBloomFilter.c)
+ *     EtwpTiAllocVadQueryEventWriteWorkItemContext @ 0x140263100 (EtwpTiAllocVadQueryEventWriteWorkItemContext.c)
+ *     EtwpTiGetHashedBitNumbers @ 0x140263290 (EtwpTiGetHashedBitNumbers.c)
+ *     EtwpTiTestBloomFilter @ 0x140263340 (EtwpTiTestBloomFilter.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
  */
 
 void __fastcall EtwpTiAsyncVadQueryEventWrite(
@@ -42,12 +42,12 @@ void __fastcall EtwpTiAsyncVadQueryEventWrite(
     v22 = 0;
     EtwpTiGetHashedBitNumbers(&v21, v13, v12);
     v14 = HIDWORD(v21);
-    *(_BYTE *)(qword_140EFEC48 + ((unsigned __int64)(unsigned int)v21 >> 3)) |= 1 << (v21 & 7);
-    v15 = (_BYTE *)(qword_140EFEC48 + ((unsigned __int64)v14 >> 3));
+    *(_BYTE *)(qword_140EFEF68 + ((unsigned __int64)(unsigned int)v21 >> 3)) |= 1 << (v21 & 7);
+    v15 = (_BYTE *)(qword_140EFEF68 + ((unsigned __int64)v14 >> 3));
     v16 = (char)*v15 | (1 << (v14 & 7));
     v17 = v22;
     *v15 = v16;
-    v18 = (_BYTE *)(qword_140EFEC48 + ((unsigned __int64)v17 >> 3));
+    v18 = (_BYTE *)(qword_140EFEF68 + ((unsigned __int64)v17 >> 3));
     v19 = (char)*v18 | (1 << (v17 & 7));
     v20 = WorkItem;
     *v18 = v19;

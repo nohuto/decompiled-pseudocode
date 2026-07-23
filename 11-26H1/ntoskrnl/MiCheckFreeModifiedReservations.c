@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCheckFreeModifiedReservations @ 0x140406B68
+ * XREFs of MiCheckFreeModifiedReservations @ 0x1403FFC58
  * Callers:
- *     MiModifiedPageWriter @ 0x1404064D0 (MiModifiedPageWriter.c)
+ *     MiModifiedPageWriter @ 0x1403FF5C0 (MiModifiedPageWriter.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInitializePagefileBitmapsCache @ 0x14044D030 (MiInitializePagefileBitmapsCache.c)
- *     MiFreeModifiedReservations @ 0x1404DC3E4 (MiFreeModifiedReservations.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInitializePagefileBitmapsCache @ 0x140445150 (MiInitializePagefileBitmapsCache.c)
+ *     MiFreeModifiedReservations @ 0x1404D5AC4 (MiFreeModifiedReservations.c)
  */
 
 unsigned __int64 __fastcall MiCheckFreeModifiedReservations(__int64 a1)
@@ -50,7 +50,7 @@ LABEL_6:
       if ( v7 >= 0x40 )
       {
         result = *(_DWORD *)(a1 + 968) / v7;
-        if ( (unsigned int)result < (unsigned int)dword_140FBE21C >> 3 )
+        if ( (unsigned int)result < (unsigned int)dword_140FBF21C >> 3 )
         {
           result = *(unsigned int *)(a1 + 22296);
           v8 = 3 * (v1 >> 2);
@@ -72,7 +72,7 @@ LABEL_6:
                   {
                     *(_BYTE *)(v11 + 175) = v13 | 1;
                     MiInitializePagefileBitmapsCache(v11);
-                    *(_DWORD *)(v11 + 92) = dword_140FBE21C;
+                    *(_DWORD *)(v11 + 92) = dword_140FBF21C;
                   }
                   v15 = (volatile LONG *)(v11 + 200);
                   if ( v14 == 17 )

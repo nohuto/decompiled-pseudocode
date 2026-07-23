@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpGetMcaVendorSpecificSections @ 0x14057E714
+ * XREFs of HalpGetMcaVendorSpecificSections @ 0x140580C34
  * Callers:
- *     HalpCreateMcaMemoryErrorRecord @ 0x140454498 (HalpCreateMcaMemoryErrorRecord.c)
- *     HalpCorrectErrSrc @ 0x140BE9AC0 (HalpCorrectErrSrc.c)
+ *     HalpCreateMcaMemoryErrorRecord @ 0x14044C5C8 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpCorrectErrSrc @ 0x140BEFAC0 (HalpCorrectErrSrc.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x140453A00 (HalpGetCpuVendor.c)
+ *     HalpGetCpuVendor @ 0x14044BB30 (HalpGetCpuVendor.c)
  */
 
 __int64 HalpGetMcaVendorSpecificSections()

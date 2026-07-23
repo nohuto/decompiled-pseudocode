@@ -1,12 +1,12 @@
 /*
- * XREFs of KeModifySystemAllowedCpuSets @ 0x1405F3CC8
+ * XREFs of KeModifySystemAllowedCpuSets @ 0x1405F6688
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
- *     KiInitializeReservedCpuSets @ 0x140CCB790 (KiInitializeReservedCpuSets.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
+ *     KiInitializeReservedCpuSets @ 0x140CD18F0 (KiInitializeReservedCpuSets.c)
  * Callees:
- *     KiAcquireCpuPartitionLock @ 0x1404D74BC (KiAcquireCpuPartitionLock.c)
- *     KiReleaseCpuPartitionLock @ 0x1404E0640 (KiReleaseCpuPartitionLock.c)
- *     KiModifySystemAllowedCpuSetsWithLock @ 0x1405F4548 (KiModifySystemAllowedCpuSetsWithLock.c)
+ *     KiAcquireCpuPartitionLock @ 0x1404D0C8C (KiAcquireCpuPartitionLock.c)
+ *     KiReleaseCpuPartitionLock @ 0x1404D9D20 (KiReleaseCpuPartitionLock.c)
+ *     KiModifySystemAllowedCpuSetsWithLock @ 0x1405F6F08 (KiModifySystemAllowedCpuSetsWithLock.c)
  */
 
 __int64 __fastcall KeModifySystemAllowedCpuSets(int a1, int a2, __int64 a3, int a4, unsigned __int8 a5)

@@ -11,55 +11,56 @@
  *     RtlpTpIoLookup @ 0x1800900AC (RtlpTpIoLookup.c)
  */
 
-__int64 __fastcall RtlSetIoCompletionCallback(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlSetIoCompletionCallback(HANDLE FileHandle, APC_CALLBACK_FUNCTION CompletionProc, ULONG Flags)
 {
-  unsigned __int64 v5; // rdx
-  int v6; // ebx
-  unsigned __int64 *v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rdx
-  char v10; // al
-  __int64 v12; // [rsp+28h] [rbp-10h] BYREF
-  HANDLE v13; // [rsp+58h] [rbp+20h] BYREF
+  int v5; // ebx
+  __int64 v6; // rdx
+  char v7; // al
+  __int64 v9; // [rsp+28h] [rbp-10h] BYREF
+  HANDLE v10; // [rsp+58h] [rbp+20h] BYREF
 
-  v13 = 0LL;
-  v12 = 0LL;
+  v10 = 0LL;
+  v9 = 0LL;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return 3221225473LL;
-  if ( !a1 || (_DWORD)a3 )
-    return 3221225485LL;
-  v6 = RtlpTpRevertCapture(&v13, 0, a3);
-  if ( v6 >= 0 )
+    return -1073741823;
+  if ( !FileHandle || Flags )
+    return -1073741811;
+  v5 = RtlpTpRevertCapture(&v10, 0);
+  if ( v5 >= 0 )
   {
     if ( RtlpTpIoRegistered )
       goto LABEL_6;
-    RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpTpIoRegisteredLock, v5, v7, v8);
+    RtlAcquireSRWLockExclusive(&RtlpTpIoRegisteredLock);
     if ( RtlpTpIoRegistered )
     {
-      v6 = 0;
+      v5 = 0;
     }
     else
     {
-      v6 = LdrRegisterDllNotification(0, (__int64)RtlpTpIoDllNotification, 0LL, &RtlpTpIoDllNotificationCookie);
-      v10 = RtlpTpIoRegistered;
-      if ( v6 >= 0 )
-        v10 = 1;
-      RtlpTpIoRegistered = v10;
+      v5 = LdrRegisterDllNotification(
+             0,
+             (PLDR_DLL_NOTIFICATION_FUNCTION)RtlpTpIoDllNotification,
+             0LL,
+             &RtlpTpIoDllNotificationCookie);
+      v7 = RtlpTpIoRegistered;
+      if ( v5 >= 0 )
+        v7 = 1;
+      RtlpTpIoRegistered = v7;
     }
     RtlReleaseSRWLockExclusive(&RtlpTpIoRegisteredLock);
-    if ( v6 >= 0 )
+    if ( v5 >= 0 )
     {
 LABEL_6:
-      v6 = RtlpTpIoLookup(&v12, a2, a1);
-      if ( v6 >= 0 )
+      v5 = RtlpTpIoLookup(&v9, CompletionProc, FileHandle);
+      if ( v5 >= 0 )
       {
-        v9 = v12;
-        *(_QWORD *)(v12 + 160) = NtCurrentTeb()->SubProcessTag;
-        *(_GUID *)(v9 + 168) = NtCurrentTeb()->ActivityId;
-        v6 = 0;
+        v6 = v9;
+        *(_QWORD *)(v9 + 160) = NtCurrentTeb()->SubProcessTag;
+        *(_GUID *)(v6 + 168) = NtCurrentTeb()->ActivityId;
+        v5 = 0;
       }
     }
   }
-  RtlpTpResumeImpersonation(v13);
-  return (unsigned int)v6;
+  RtlpTpResumeImpersonation(v10);
+  return v5;
 }

@@ -6,7 +6,12 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwUnlockFile(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl ZwUnlockFile(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PLARGE_INTEGER ByteOffset,
+        PLARGE_INTEGER Length,
+        ULONG Key)
 {
   return Wow64SystemServiceCall();
 }

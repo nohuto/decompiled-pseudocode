@@ -1,37 +1,37 @@
 /*
- * XREFs of MiLargePageFault @ 0x1403F38B4
+ * XREFs of MiLargePageFault @ 0x1404C1204
  * Callers:
- *     MiResolvePageTablePage @ 0x1402D86D0 (MiResolvePageTablePage.c)
- *     MiInPagePageTable @ 0x1403F2FCC (MiInPagePageTable.c)
+ *     MiResolvePageTablePage @ 0x140239FB0 (MiResolvePageTablePage.c)
+ *     MiInPagePageTable @ 0x140391778 (MiInPagePageTable.c)
  * Callees:
- *     MiWriteValidPteNewProtection @ 0x140219260 (MiWriteValidPteNewProtection.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushSingleTbEntry @ 0x14022A7E0 (MiFlushSingleTbEntry.c)
- *     MiNoFaultFound @ 0x140233220 (MiNoFaultFound.c)
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiInsertLargeTbFlushEntry @ 0x1403A4A2C (MiInsertLargeTbFlushEntry.c)
- *     MiValidVirtualizationFault @ 0x1404359DC (MiValidVirtualizationFault.c)
- *     MiGetVirtualFaultPageInfo @ 0x140435B70 (MiGetVirtualFaultPageInfo.c)
- *     MiCheckSystemNxFault @ 0x140499024 (MiCheckSystemNxFault.c)
- *     MiCanGrantExecute @ 0x1404A3418 (MiCanGrantExecute.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiNoFaultFound @ 0x140203670 (MiNoFaultFound.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x14021C25C (MiInsertLargeTbFlushEntry.c)
+ *     MiWriteValidPteNewProtection @ 0x140245FB0 (MiWriteValidPteNewProtection.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiFlushSingleTbEntry @ 0x1402FDA50 (MiFlushSingleTbEntry.c)
+ *     MiValidVirtualizationFault @ 0x14042845C (MiValidVirtualizationFault.c)
+ *     MiGetVirtualFaultPageInfo @ 0x1404285F0 (MiGetVirtualFaultPageInfo.c)
+ *     MiCheckSystemNxFault @ 0x1404939B0 (MiCheckSystemNxFault.c)
+ *     MiCanGrantExecute @ 0x14049E378 (MiCanGrantExecute.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
-__int64 __fastcall MiLargePageFault(_QWORD *a1, unsigned __int64 a2)
+__int64 __fastcall MiLargePageFault(__int64 a1, unsigned __int64 a2)
 {
   int v4; // ebp
   unsigned __int64 v5; // rcx
   signed __int64 v6; // rax
-  __int64 v7; // r9
-  __int64 v8; // rbx
-  unsigned __int64 v9; // rax
-  __int64 v10; // rsi
-  _BYTE *v11; // rsi
-  __int64 v12; // r8
-  __int64 v13; // r9
-  unsigned __int64 *VirtualFaultPageInfo; // r11
+  __int64 v7; // r8
+  __int64 v8; // r9
+  signed __int64 v9; // rbx
+  __int64 v10; // r8
+  unsigned __int64 v11; // rax
+  __int64 v12; // rsi
+  _BYTE *v13; // rsi
+  _QWORD *VirtualFaultPageInfo; // r11
   __int64 v15; // rbx
   unsigned __int64 v16; // r10
   unsigned __int64 v17; // r10
@@ -49,17 +49,17 @@ __int64 __fastcall MiLargePageFault(_QWORD *a1, unsigned __int64 a2)
     ++v4;
   }
   v6 = MI_READ_PTE_LOCK_FREE(a2);
-  v7 = a1[2];
-  v8 = v6;
-  if ( (v7 & 1) != 0 && *(_BYTE *)(v7 & 0xFFFFFFFFFFFFFFFEuLL) == 1 )
+  v8 = *(_QWORD *)(a1 + 16);
+  v9 = v6;
+  if ( (v8 & 1) != 0 && *(_BYTE *)(v8 & 0xFFFFFFFFFFFFFFFEuLL) == 1 )
     return 0LL;
-  if ( (*((_DWORD *)a1 + 20) & 0x80u) == 0 )
+  if ( (*(_DWORD *)(a1 + 80) & 0x80u) == 0 )
   {
-    if ( (a1[1] & 2) != 0 )
+    if ( (*(_BYTE *)(a1 + 8) & 2) != 0 )
     {
       if ( (v6 & 0x800) == 0 )
         return 3221225477LL;
-      if ( (unsigned int)MiNoFaultFound((__int64)a1, (volatile signed __int64 *)a2, *a1, v7, 0, v6) )
+      if ( (unsigned int)MiNoFaultFound(a1, (volatile signed __int64 *)a2, *(_QWORD *)a1, v8, 0, v6) )
       {
         MiInitializeTbFlushList(
           (__int64)v22,
@@ -71,19 +71,19 @@ __int64 __fastcall MiLargePageFault(_QWORD *a1, unsigned __int64 a2)
         MiFlushTbList((__int64)v22);
       }
     }
-    if ( (a1[1] & 0x10) == 0 )
+    if ( (*(_BYTE *)(a1 + 8) & 0x10) == 0 )
     {
 LABEL_25:
-      v10 = a1[2];
-      if ( (v10 & 1) != 0 )
+      v12 = *(_QWORD *)(a1 + 16);
+      if ( (v12 & 1) != 0 )
       {
-        v11 = (_BYTE *)(v10 & 0xFFFFFFFFFFFFFFFEuLL);
-        if ( *v11 == 5 )
+        v13 = (_BYTE *)(v12 & 0xFFFFFFFFFFFFFFFEuLL);
+        if ( *v13 == 5 )
         {
-          if ( (unsigned int)MiValidVirtualizationFault(a1, v11, a2) )
+          if ( (unsigned int)MiValidVirtualizationFault((_QWORD *)a1, (__int64)v13, a2, v8) )
           {
-            VirtualFaultPageInfo = (unsigned __int64 *)MiGetVirtualFaultPageInfo(v11, *a1, v12, v13);
-            v15 = ((unsigned __int64)v8 >> 12) & 0xFFFFFFFFFFLL;
+            VirtualFaultPageInfo = (_QWORD *)MiGetVirtualFaultPageInfo((__int64)v13, *(_QWORD *)a1);
+            v15 = ((unsigned __int64)v9 >> 12) & 0xFFFFFFFFFFLL;
             v17 = v16 >> 12;
             for ( i = 1LL; v4; --v4 )
             {
@@ -99,23 +99,23 @@ LABEL_25:
       }
       return 0LL;
     }
-    if ( v8 >= 0 )
+    if ( v9 >= 0 )
     {
-      if ( !_bittest((const signed __int32 *)a1 + 20, 8u) )
-        MiCheckSystemNxFault(a1, v8, 7LL);
+      if ( !_bittest((const signed __int32 *)(a1 + 80), 8u) )
+        MiCheckSystemNxFault(a1, v9, 7u);
       goto LABEL_25;
     }
-    if ( (unsigned int)MiCanGrantExecute(KeGetCurrentThread()->ApcState.Process, *a1) )
+    if ( (unsigned int)MiCanGrantExecute((__int64)KeGetCurrentThread()->ApcState.Process, *(_QWORD *)a1, v7, v8) )
     {
-      v9 = ((unsigned __int64)v8 >> 12) & 0xFFFFFFFFFFLL;
-      if ( v9 <= qword_140E2DBE0 && ((*(_QWORD *)(48 * v9 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+      v11 = ((unsigned __int64)v9 >> 12) & 0xFFFFFFFFFFLL;
+      if ( v11 <= qword_140E2DD20 && ((*(_QWORD *)(48 * v11 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
       {
-        v8 &= ~0x8000000000000000uLL;
+        v9 &= ~0x8000000000000000uLL;
         if ( (MiFlags & 0x100) != 0 || (MiFlags & 0x200) != 0 )
-          v8 |= 0x20uLL;
-        MiWriteValidPteNewProtection(a2, v8);
+          v9 |= 0x20uLL;
+        MiWriteValidPteNewProtection(a2, v9, v10);
         if ( (MiFlags & 0x100) == 0 && (MiFlags & 0x200) == 0 )
-          MiFlushSingleTbEntry(*a1, 0, 32);
+          MiFlushSingleTbEntry(*(_QWORD *)a1, 0, 32);
         goto LABEL_25;
       }
     }

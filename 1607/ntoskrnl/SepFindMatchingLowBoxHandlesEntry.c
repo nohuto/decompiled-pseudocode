@@ -1,12 +1,12 @@
 /*
- * XREFs of SepFindMatchingLowBoxHandlesEntry @ 0x14007FA58
+ * XREFs of SepFindMatchingLowBoxHandlesEntry @ 0x14007FAD8
  * Callers:
- *     SepGetLowBoxHandlesEntry @ 0x140475930 (SepGetLowBoxHandlesEntry.c)
+ *     SepGetLowBoxHandlesEntry @ 0x140474800 (SepGetLowBoxHandlesEntry.c)
  * Callees:
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     RtlLookupEntryHashTable @ 0x14007FAE0 (RtlLookupEntryHashTable.c)
- *     RtlGetNextEntryHashTable @ 0x1400976C0 (RtlGetNextEntryHashTable.c)
- *     SepComputeSidSignature @ 0x140476D50 (SepComputeSidSignature.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     RtlLookupEntryHashTable @ 0x14007FB60 (RtlLookupEntryHashTable.c)
+ *     RtlGetNextEntryHashTable @ 0x140096EC0 (RtlGetNextEntryHashTable.c)
+ *     SepComputeSidSignature @ 0x140475C20 (SepComputeSidSignature.c)
  */
 
 __int64 __fastcall SepFindMatchingLowBoxHandlesEntry(
@@ -17,7 +17,7 @@ __int64 __fastcall SepFindMatchingLowBoxHandlesEntry(
   ULONG_PTR v6; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v8; // rbx
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&Context, 0, sizeof(Context));
   v6 = SepComputeSidSignature(Sid1);

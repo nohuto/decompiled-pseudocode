@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpShutdownWorkerFactory @ 0x14027F9D8
+ * XREFs of ExpShutdownWorkerFactory @ 0x14026DC18
  * Callers:
- *     NtShutdownWorkerFactory @ 0x1402C9E60 (NtShutdownWorkerFactory.c)
- *     ExpCloseWorkerFactory @ 0x1406775F0 (ExpCloseWorkerFactory.c)
+ *     NtShutdownWorkerFactory @ 0x140248750 (NtShutdownWorkerFactory.c)
+ *     ExpCloseWorkerFactory @ 0x14066AD30 (ExpCloseWorkerFactory.c)
  * Callees:
- *     ExpLeaveWorkerFactoryAwayMode @ 0x140202E08 (ExpLeaveWorkerFactoryAwayMode.c)
- *     KeDeregisterObjectNotification @ 0x140202E60 (KeDeregisterObjectNotification.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     IoSetIoCompletionEx2 @ 0x140246230 (IoSetIoCompletionEx2.c)
- *     KeCancelTimer2 @ 0x14027FB40 (KeCancelTimer2.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeCancelTimer2 @ 0x14026DD80 (KeCancelTimer2.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x1402A7748 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     KeDeregisterObjectNotification @ 0x1402A77A0 (KeDeregisterObjectNotification.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     IoSetIoCompletionEx2 @ 0x1402EAA80 (IoSetIoCompletionEx2.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall ExpShutdownWorkerFactory(char *Object)
+__int64 __fastcall ExpShutdownWorkerFactory(_QWORD *Object)
 {
   KSPIN_LOCK *v2; // rcx
   PVOID *v3; // rdi
@@ -30,12 +30,12 @@ __int64 __fastcall ExpShutdownWorkerFactory(char *Object)
   bool v13; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-28h] BYREF
 
-  v2 = (KSPIN_LOCK *)*((_QWORD *)Object + 2);
+  v2 = (KSPIN_LOCK *)Object[2];
   memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(v2, &LockHandle);
-  v3 = (PVOID *)(Object + 72);
+  v3 = (PVOID *)(Object + 9);
   v4 = 4LL;
-  *((_DWORD *)Object + 78) = *((_DWORD *)Object + 78) & 0xFFFFFFF8 | 4;
+  *((_DWORD *)Object + 78) = Object[39] & 0xFFFFFFF8 | 4;
   do
   {
     if ( *v3 )
@@ -47,15 +47,12 @@ __int64 __fastcall ExpShutdownWorkerFactory(char *Object)
     --v4;
   }
   while ( v4 );
-  if ( (*((_DWORD *)Object + 78) & 0x200) != 0 )
+  if ( (Object[39] & 0x200) != 0 )
     ExpLeaveWorkerFactoryAwayMode(Object);
-  if ( *((char **)Object + 62) == Object + 328
-    && KeDeregisterObjectNotification((volatile signed __int32 *)Object + 82, (__int64 *)Object + 58) )
-  {
+  if ( (_QWORD *)Object[62] == Object + 41 && (unsigned __int8)KeDeregisterObjectNotification(Object + 41) )
     ObfDereferenceObjectWithTag(Object, 0x746C6644u);
-  }
-  *(_BYTE *)(*((_QWORD *)Object + 2) + 33LL) = 1;
-  v5 = *((_QWORD *)Object + 2);
+  *(_BYTE *)(Object[2] + 33LL) = 1;
+  v5 = Object[2];
   *((_DWORD *)Object + 71) = 0;
   *((_DWORD *)Object + 70) = 0;
   if ( !*(_DWORD *)(v5 + 28) || *(_BYTE *)(v5 + 32) )
@@ -87,16 +84,8 @@ __int64 __fastcall ExpShutdownWorkerFactory(char *Object)
     }
   }
   __writecr8(OldIrql);
-  result = KeCancelTimer2(Object + 328, 0LL);
+  result = KeCancelTimer2(Object + 41, 0LL);
   if ( v6 )
-    return IoSetIoCompletionEx2(
-             *(_QWORD *)(*((_QWORD *)Object + 2) + 8LL),
-             0LL,
-             0LL,
-             0,
-             0LL,
-             0,
-             *(_QWORD *)(*((_QWORD *)Object + 2) + 16LL),
-             0);
+    return IoSetIoCompletionEx2(*(_QWORD *)(Object[2] + 8LL), 0, 0, 0, 0LL, 0, *(_QWORD *)(Object[2] + 16LL), 0);
   return result;
 }

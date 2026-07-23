@@ -1,29 +1,29 @@
 /*
- * XREFs of VmpFaultEntryInsert @ 0x1406C0E28
+ * XREFs of VmpFaultEntryInsert @ 0x1406C4A08
  * Callers:
- *     VmpAccessFaultBatch @ 0x1406C09D0 (VmpAccessFaultBatch.c)
+ *     VmpAccessFaultBatch @ 0x1406C45B0 (VmpAccessFaultBatch.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
  */
 
-void __fastcall VmpFaultEntryInsert(__int64 a1, unsigned __int64 a2, unsigned int a3)
+void __fastcall VmpFaultEntryInsert(__int64 a1, _RTL_BALANCED_NODE *a2, unsigned int a3)
 {
   volatile LONG *v3; // rbx
-  unsigned __int64 v5; // rdi
+  _RTL_BALANCED_NODE *v5; // rdi
   unsigned __int64 v6; // rbp
   KIRQL v7; // r14
   unsigned __int64 *v8; // rbx
   unsigned __int64 v9; // rdx
-  bool v10; // r8
+  BOOLEAN v10; // r8
   unsigned __int64 v11; // rax
 
   v3 = (volatile LONG *)(a1 + 112);
   v5 = a2;
-  v6 = a2 + 48LL * a3;
+  v6 = (unsigned __int64)&a2[2 * a3];
   v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 112));
-  if ( v5 < v6 )
+  if ( (unsigned __int64)v5 < v6 )
   {
     v8 = (unsigned __int64 *)(a1 + 96);
     do
@@ -44,7 +44,7 @@ void __fastcall VmpFaultEntryInsert(__int64 a1, unsigned __int64 a2, unsigned in
       {
         while ( 1 )
         {
-          if ( (*(_QWORD *)(v5 + 24) & 0xFFFFFFFFFFFFFuLL) >= (*(_QWORD *)(v9 + 24) & 0xFFFFFFFFFFFFFuLL) )
+          if ( ((unsigned __int64)v5[1].Children[0] & 0xFFFFFFFFFFFFFLL) >= (*(_QWORD *)(v9 + 24) & 0xFFFFFFFFFFFFFuLL) )
           {
             v11 = *(_QWORD *)(v9 + 8);
             if ( (*(_BYTE *)(a1 + 104) & 1) != 0 )
@@ -75,10 +75,10 @@ LABEL_20:
           v9 = v11;
         }
       }
-      RtlRbInsertNodeEx(a1 + 96, v9, v10, v5);
-      v5 += 48LL;
+      RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v9, v10, v5);
+      v5 += 2;
     }
-    while ( v5 < v6 );
+    while ( (unsigned __int64)v5 < v6 );
     v3 = (volatile LONG *)(a1 + 112);
   }
   ExReleaseSpinLockExclusive(v3, v7);

@@ -1,42 +1,47 @@
 /*
- * XREFs of RtlAllocateAndInitializeSidEx @ 0x18013CBE0
+ * XREFs of RtlAllocateAndInitializeSidEx @ 0x18013CA90
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlLengthRequiredSid @ 0x1800CE750 (RtlLengthRequiredSid.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlLengthRequiredSid @ 0x1800CBEC0 (RtlLengthRequiredSid.c)
  */
 
-__int64 __fastcall RtlAllocateAndInitializeSidEx(__int64 a1, unsigned __int8 a2, _DWORD *a3, __int64 *a4)
+NTSTATUS __cdecl RtlAllocateAndInitializeSidEx(
+        PSID_IDENTIFIER_AUTHORITY IdentifierAuthority,
+        UCHAR SubAuthorityCount,
+        PULONG SubAuthorities,
+        PSID *Sid)
 {
   __int64 v4; // rdi
-  __int64 Heap_0; // rax
-  __int64 v10; // r8
-  __int64 v11; // rdx
+  ULONG v9; // eax
+  char *Heap_0; // rax
+  __int64 v11; // r8
+  signed __int64 v12; // rdx
 
-  v4 = a2;
-  if ( a2 > 0xFu )
-    return 3221225485LL;
-  RtlLengthRequiredSid(a2);
-  Heap_0 = RtlAllocateHeap_0();
+  v4 = SubAuthorityCount;
+  if ( SubAuthorityCount > 0xFu )
+    return -1073741811;
+  v9 = RtlLengthRequiredSid(SubAuthorityCount);
+  Heap_0 = (char *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v9);
   if ( !Heap_0 )
-    return 3221225495LL;
-  *(_BYTE *)Heap_0 = 1;
-  *(_DWORD *)(Heap_0 + 2) = *(_DWORD *)a1;
-  *(_WORD *)(Heap_0 + 6) = *(_WORD *)(a1 + 4);
-  *(_BYTE *)(Heap_0 + 1) = v4;
+    return -1073741801;
+  *Heap_0 = 1;
+  *(_DWORD *)(Heap_0 + 2) = *(_DWORD *)IdentifierAuthority->Value;
+  *((_WORD *)Heap_0 + 3) = *(_WORD *)&IdentifierAuthority->Value[4];
+  Heap_0[1] = v4;
   if ( (_BYTE)v4 )
   {
-    v10 = v4;
-    v11 = Heap_0 - (_QWORD)a3;
+    v11 = v4;
+    v12 = Heap_0 - (char *)SubAuthorities;
     do
     {
-      *(_DWORD *)((char *)a3 + v11 + 8) = *a3;
-      ++a3;
-      --v10;
+      *(PULONG)((char *)SubAuthorities + v12 + 8) = *SubAuthorities;
+      ++SubAuthorities;
+      --v11;
     }
-    while ( v10 );
+    while ( v11 );
   }
-  *a4 = Heap_0;
-  return 0LL;
+  *Sid = Heap_0;
+  return 0;
 }

@@ -13,21 +13,22 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpLogHeapFreeEvent(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall RtlpLogHeapFreeEvent(__int64 a1, __int64 a2, int a3)
 {
-  __int64 v4; // rcx
-  _OWORD v6[2]; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v7; // [rsp+40h] [rbp-28h]
-  __int64 v8; // [rsp+48h] [rbp-20h]
-  int v9; // [rsp+50h] [rbp-18h]
+  __int64 v3; // rcx
+  _OWORD Fields[2]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v6; // [rsp+40h] [rbp-28h]
+  __int64 v7; // [rsp+48h] [rbp-20h]
+  int v8; // [rsp+50h] [rbp-18h]
 
-  v9 = a3;
-  v7 = a1;
-  v8 = a2;
-  v6[1] = 0LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2, a3, a4, 0x1024000000000000LL, 0LL, 0LL) )
-    v4 = (__int64)NtCurrentPeb()->SharedData + 550;
+  v8 = a3;
+  v6 = a1;
+  memset(Fields, 0, sizeof(Fields));
+  v7 = a2;
+  WORD3(Fields[0]) = 4132;
+  if ( RtlGetCurrentServiceSessionId() )
+    v3 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
-    v4 = 2147353472LL;
-  return NtTraceEvent(*(unsigned __int8 *)v4, 132098LL, 20LL, v6);
+    v3 = 2147353472LL;
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v3, 0x20402u, 0x14u, Fields);
 }

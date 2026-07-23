@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwGetNotificationResourceManager(
         HANDLE ResourceManagerHandle,
         PTRANSACTION_NOTIFICATION TransactionNotification,
@@ -18,5 +17,5 @@ NTSTATUS __stdcall ZwGetNotificationResourceManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ResourceManagerHandle, TransactionNotification, *(_QWORD *)&NotificationLength);
+  return KiServiceInternal(ResourceManagerHandle);
 }

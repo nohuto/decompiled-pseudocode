@@ -1,37 +1,37 @@
 /*
- * XREFs of KeInitSystem @ 0x1409C4988
+ * XREFs of KeInitSystem @ 0x1409C5988
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
- *     Phase1InitializationIoReady @ 0x1409C4788 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
+ *     Phase1InitializationIoReady @ 0x1409C5788 (Phase1InitializationIoReady.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     KeExpandKernelStackAndCalloutEx @ 0x1400C99D0 (KeExpandKernelStackAndCalloutEx.c)
- *     KeInitializeCatRegisters @ 0x1401438E0 (KeInitializeCatRegisters.c)
- *     HviIsAnyHypervisorPresent @ 0x140176BB0 (HviIsAnyHypervisorPresent.c)
- *     KdEncodeDataBlock @ 0x140181490 (KdEncodeDataBlock.c)
- *     KiInitMachineDependent @ 0x1401815A0 (KiInitMachineDependent.c)
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF208 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
- *     KiDetectTsx @ 0x1401B4294 (KiDetectTsx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlSetupPhysicalFaultNotificationQueue @ 0x140271734 (HvlSetupPhysicalFaultNotificationQueue.c)
- *     KeRelaxTimingConstraints @ 0x14028D0D4 (KeRelaxTimingConstraints.c)
- *     KiEpfDrainCompletionQueue @ 0x14029BE54 (KiEpfDrainCompletionQueue.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     KiInitializeProcessor @ 0x14057302C (KiInitializeProcessor.c)
- *     ExRegisterHost @ 0x1407275BC (ExRegisterHost.c)
- *     KeInitializeTimerTable @ 0x140729BC8 (KeInitializeTimerTable.c)
- *     KiStartDpcThread @ 0x1407364E8 (KiStartDpcThread.c)
- *     KeFreeInitializationCode @ 0x14098EB24 (KeFreeInitializationCode.c)
- *     KeInitializeSchedulerAssist @ 0x1409AB188 (KeInitializeSchedulerAssist.c)
- *     KiInitializeVelocity @ 0x1409C4FA8 (KiInitializeVelocity.c)
- *     MmFreeLoaderBlock @ 0x1409C5164 (MmFreeLoaderBlock.c)
- *     KiIntSteerInit @ 0x1409C5AB0 (KiIntSteerInit.c)
- *     KiComputeNumaCosts @ 0x1409C5C3C (KiComputeNumaCosts.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x1400C9AB0 (KeExpandKernelStackAndCalloutEx.c)
+ *     KeInitializeCatRegisters @ 0x1401439E0 (KeInitializeCatRegisters.c)
+ *     HviIsAnyHypervisorPresent @ 0x140176CB0 (HviIsAnyHypervisorPresent.c)
+ *     KdEncodeDataBlock @ 0x1401815D0 (KdEncodeDataBlock.c)
+ *     KiInitMachineDependent @ 0x1401816E0 (KiInitMachineDependent.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF348 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     KiDetectTsx @ 0x1401B43D4 (KiDetectTsx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlSetupPhysicalFaultNotificationQueue @ 0x140271924 (HvlSetupPhysicalFaultNotificationQueue.c)
+ *     KeRelaxTimingConstraints @ 0x14028D2C4 (KeRelaxTimingConstraints.c)
+ *     KiEpfDrainCompletionQueue @ 0x14029C044 (KiEpfDrainCompletionQueue.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     KiInitializeProcessor @ 0x14057402C (KiInitializeProcessor.c)
+ *     ExRegisterHost @ 0x14072885C (ExRegisterHost.c)
+ *     KeInitializeTimerTable @ 0x14072ADB8 (KeInitializeTimerTable.c)
+ *     KiStartDpcThread @ 0x1407376D8 (KiStartDpcThread.c)
+ *     KeFreeInitializationCode @ 0x14098FB24 (KeFreeInitializationCode.c)
+ *     KeInitializeSchedulerAssist @ 0x1409AC188 (KeInitializeSchedulerAssist.c)
+ *     KiInitializeVelocity @ 0x1409C5FA8 (KiInitializeVelocity.c)
+ *     MmFreeLoaderBlock @ 0x1409C6164 (MmFreeLoaderBlock.c)
+ *     KiIntSteerInit @ 0x1409C6AB0 (KiIntSteerInit.c)
+ *     KiComputeNumaCosts @ 0x1409C6C3C (KiComputeNumaCosts.c)
  */
 
 char __fastcall KeInitSystem(int a1)
@@ -93,10 +93,10 @@ char __fastcall KeInitSystem(int a1)
           }
           while ( v22 );
           LODWORD(KiEpfCompletionDpc) = 275;
-          qword_14041B1B8 = (__int64)KiEpfCompletionDpcRoutine;
-          qword_14041B1C0 = 0LL;
-          qword_14041B1D8 = 0LL;
-          qword_14041B1B0 = 0LL;
+          qword_14041C258 = (__int64)KiEpfCompletionDpcRoutine;
+          qword_14041C260 = 0LL;
+          qword_14041C278 = 0LL;
+          qword_14041C250 = 0LL;
           if ( (int)HvlSetupPhysicalFaultNotificationQueue(&v28, &v27) >= 0 )
           {
             KiEpfCompletionQueueSize = (unsigned int)(v27 - 16) >> 3;
@@ -119,8 +119,8 @@ char __fastcall KeInitSystem(int a1)
       KeFreeInitializationCode();
       return 1;
     }
-    _InterlockedOr(dword_14055BD40, 0x8000u);
-    _InterlockedOr(dword_14055C10C, 0x400000u);
+    _InterlockedOr(dword_14055CD40, 0x8000u);
+    _InterlockedOr(dword_14055D10C, 0x400000u);
     if ( !(_BYTE)KdDebuggerNotPresent )
     {
       memset(v26, 0, sizeof(v26));
@@ -230,7 +230,7 @@ char __fastcall KeInitSystem(int a1)
             if ( v9 - (unsigned int)v13 > v11 )
               KiDpcWatchdogProfileSingleDpcThreshold = 0;
             KiDpcWatchdogProfileArrayLength = 3328 * (v11 / 0x3E8);
-            dword_14054038C = 3328 * (v11 / 0x3E8);
+            dword_14054138C = 3328 * (v11 / 0x3E8);
           }
         }
       }
@@ -264,7 +264,7 @@ LABEL_58:
       {
         memset(v25, 0, sizeof(v25));
         LODWORD(v25[0]) = 65548;
-        v25[2] = off_140355B40;
+        v25[2] = off_140356B40;
         WORD2(v25[0]) = 0;
         LODWORD(v25[1]) = 512;
         v25[3] = 0LL;

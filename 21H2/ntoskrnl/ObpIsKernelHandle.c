@@ -1,22 +1,22 @@
 /*
- * XREFs of ObpIsKernelHandle @ 0x1403488C0
+ * XREFs of ObpIsKernelHandle @ 0x140353610
  * Callers:
- *     ObIsKernelHandle @ 0x14035B910 (ObIsKernelHandle.c)
- *     ObWaitForMultipleObjects @ 0x1405FCDC0 (ObWaitForMultipleObjects.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     ObpCloseHandle @ 0x14061ABC0 (ObpCloseHandle.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x14062792C (SepAdtPrivilegeObjectAuditAlarm.c)
- *     ObQueryObjectAuditingByHandle @ 0x140684FE0 (ObQueryObjectAuditingByHandle.c)
- *     ObSetHandleAttributes @ 0x1406918A0 (ObSetHandleAttributes.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x14091D34C (SeAdtRegistryValueChangedAuditAlarm.c)
- *     SeAuditHandleDuplication @ 0x14091DACC (SeAuditHandleDuplication.c)
- *     SeOperationAuditAlarm @ 0x14091E7BC (SeOperationAuditAlarm.c)
- *     SepAdtCloseObjectAuditAlarm @ 0x14091EAF8 (SepAdtCloseObjectAuditAlarm.c)
- *     SepAdtDeleteObjectAuditAlarm @ 0x14091ED24 (SepAdtDeleteObjectAuditAlarm.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14091F498 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14091FF5C (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x140920200 (SepAdtStagingEvent.c)
+ *     ObIsKernelHandle @ 0x1402A06B0 (ObIsKernelHandle.c)
+ *     ObQueryObjectAuditingByHandle @ 0x1405E2BC0 (ObQueryObjectAuditingByHandle.c)
+ *     ObSetHandleAttributes @ 0x1405F1710 (ObSetHandleAttributes.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     ObpCloseHandle @ 0x140684820 (ObpCloseHandle.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x140693A3C (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     ObWaitForMultipleObjects @ 0x1406EC520 (ObWaitForMultipleObjects.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x14091D4AC (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeAuditHandleDuplication @ 0x14091DC2C (SeAuditHandleDuplication.c)
+ *     SeOperationAuditAlarm @ 0x14091E91C (SeOperationAuditAlarm.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x14091EC58 (SepAdtCloseObjectAuditAlarm.c)
+ *     SepAdtDeleteObjectAuditAlarm @ 0x14091EE84 (SepAdtDeleteObjectAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F5F8 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409200BC (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x140920360 (SepAdtStagingEvent.c)
  * Callees:
  *     <none>
  */

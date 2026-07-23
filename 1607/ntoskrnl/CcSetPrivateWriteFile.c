@@ -1,16 +1,16 @@
 /*
- * XREFs of CcSetPrivateWriteFile @ 0x1401B240C
+ * XREFs of CcSetPrivateWriteFile @ 0x1401B22F0
  * Callers:
- *     HvViewMapStart @ 0x14060FCB4 (HvViewMapStart.c)
+ *     HvViewMapStart @ 0x14060FD68 (HvViewMapStart.c)
  * Callees:
- *     CcUnmapVacbArray @ 0x140017FC0 (CcUnmapVacbArray.c)
- *     CcFlushCache @ 0x14008F434 (CcFlushCache.c)
- *     MmDisableModifiedWriteOfSection @ 0x1400AA6AC (MmDisableModifiedWriteOfSection.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     CcWaitForCurrentLazyWriterActivity @ 0x14010F010 (CcWaitForCurrentLazyWriterActivity.c)
- *     FsRtlAcquireFileExclusive @ 0x14042DE48 (FsRtlAcquireFileExclusive.c)
- *     FsRtlReleaseFile @ 0x14042DE60 (FsRtlReleaseFile.c)
+ *     CcUnmapVacbArray @ 0x140017B40 (CcUnmapVacbArray.c)
+ *     CcFlushCache @ 0x14008EB94 (CcFlushCache.c)
+ *     MmDisableModifiedWriteOfSection @ 0x1400A8C2C (MmDisableModifiedWriteOfSection.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcWaitForCurrentLazyWriterActivity @ 0x14010F574 (CcWaitForCurrentLazyWriterActivity.c)
+ *     FsRtlAcquireFileExclusive @ 0x14042CD18 (FsRtlAcquireFileExclusive.c)
+ *     FsRtlReleaseFile @ 0x14042CD30 (FsRtlReleaseFile.c)
  */
 
 char __fastcall CcSetPrivateWriteFile(PFILE_OBJECT FileObject)

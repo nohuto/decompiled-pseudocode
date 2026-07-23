@@ -1,10 +1,10 @@
 /*
- * XREFs of MmFillEtwNodeInformation @ 0x1403D4214
+ * XREFs of MmFillEtwNodeInformation @ 0x140262194
  * Callers:
- *     EtwpLogMemNodeInfo @ 0x1403D3EBC (EtwpLogMemNodeInfo.c)
+ *     EtwpLogMemNodeInfo @ 0x140261E3C (EtwpLogMemNodeInfo.c)
  * Callees:
- *     MiGetPartitionNodeInformation @ 0x1403D4C28 (MiGetPartitionNodeInformation.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiGetPartitionNodeInformation @ 0x1402636C4 (MiGetPartitionNodeInformation.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MmFillEtwNodeInformation(unsigned __int16 **a1, __int64 a2, unsigned int a3, _DWORD *a4)

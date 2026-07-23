@@ -1,13 +1,13 @@
 /*
- * XREFs of HashpHashBytes @ 0x1408300C8
+ * XREFs of HashpHashBytes @ 0x1408308F8
  * Callers:
- *     HashpHashMemory @ 0x14082FB0C (HashpHashMemory.c)
+ *     HashpHashMemory @ 0x140830304 (HashpHashMemory.c)
  * Callees:
- *     SymCryptSha256Append @ 0x14051AE40 (SymCryptSha256Append.c)
- *     SymCryptSha384Append @ 0x140525724 (SymCryptSha384Append.c)
- *     SymCryptSha512Append @ 0x140525820 (SymCryptSha512Append.c)
- *     SymCryptSha1Append @ 0x140526F40 (SymCryptSha1Append.c)
- *     SymCryptMd5Append @ 0x140528260 (SymCryptMd5Append.c)
+ *     SymCryptSha256Append @ 0x140518710 (SymCryptSha256Append.c)
+ *     SymCryptSha384Append @ 0x14052303C (SymCryptSha384Append.c)
+ *     SymCryptSha512Append @ 0x140523138 (SymCryptSha512Append.c)
+ *     SymCryptSha1Append @ 0x140524860 (SymCryptSha1Append.c)
+ *     SymCryptMd5Append @ 0x140525B80 (SymCryptMd5Append.c)
  */
 
 __int64 __fastcall HashpHashBytes(_DWORD *a1, char *a2, unsigned int a3)

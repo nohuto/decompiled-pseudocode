@@ -1,10 +1,10 @@
 /*
- * XREFs of StEtaStart @ 0x1404956FC
+ * XREFs of StEtaStart @ 0x14048FFBC
  * Callers:
- *     ?StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z @ 0x140495634 (-StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z.c)
+ *     ?StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z @ 0x14048FEF4 (-StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall StEtaStart(__int64 a1, int **a2, _QWORD *a3)
@@ -53,7 +53,7 @@ __int64 __fastcall StEtaStart(__int64 a1, int **a2, _QWORD *a3)
           }
           while ( *v10 != -1 );
         }
-        Pool2 = ExAllocatePool2(0x40uLL);
+        Pool2 = ExAllocatePool2(0x40uLL, 32 * v11, 0x74496D73u);
         v13 = (int *)Pool2;
         if ( !Pool2 )
           return (unsigned int)-1073741670;

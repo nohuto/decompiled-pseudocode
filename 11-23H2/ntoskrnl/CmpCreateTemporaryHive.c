@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpCreateTemporaryHive @ 0x140A0C270
+ * XREFs of CmpCreateTemporaryHive @ 0x140A0C520
  * Callers:
- *     CmSaveKey @ 0x140A0B990 (CmSaveKey.c)
- *     CmSaveMergedKeys @ 0x140A0BD84 (CmSaveMergedKeys.c)
+ *     CmSaveKey @ 0x140A0BC40 (CmSaveKey.c)
+ *     CmSaveMergedKeys @ 0x140A0C034 (CmSaveMergedKeys.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     CmpCreateHive @ 0x1407023CC (CmpCreateHive.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CmpCreateHive @ 0x1407025DC (CmpCreateHive.c)
  */
 
 ULONG_PTR __fastcall CmpCreateTemporaryHive(_OWORD *a1, _OWORD *a2)

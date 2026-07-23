@@ -30,7 +30,7 @@ __int64 __fastcall sub_18006DC8C(__int64 a1, unsigned int a2)
   if ( a2 == 1 && *(_QWORD *)(a1 + 64) || *(_QWORD *)(a1 + 56) && !a2 )
     return 0LL;
   sub_18006E3A0();
-  RtlEnterCriticalSection((__int64)&unk_180159BA0);
+  RtlEnterCriticalSection(&stru_180159BA0);
   if ( (!*(_QWORD *)(a1 + 64) || a2 != 1) && (!*(_QWORD *)(a1 + 56) || a2) )
   {
     v4 = sub_18006DDE4(a1, v6, a2, 3, (__int64)&v9, (__int64)&v10);
@@ -65,6 +65,6 @@ __int64 __fastcall sub_18006DC8C(__int64 a1, unsigned int a2)
       }
     }
   }
-  RtlLeaveCriticalSection((__int64)&unk_180159BA0);
+  RtlLeaveCriticalSection(&stru_180159BA0);
   return (unsigned int)v4;
 }

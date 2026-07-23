@@ -1,22 +1,22 @@
 /*
- * XREFs of MiValidateInPage @ 0x1400267B0
+ * XREFs of MiValidateInPage @ 0x140026330
  * Callers:
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
  * Callees:
- *     MiFlushEntireTbDueToAttributeChange @ 0x14001DD98 (MiFlushEntireTbDueToAttributeChange.c)
- *     MmUnmapLockedPages @ 0x140025D10 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     MiMarkPfnVerified @ 0x14010A2D4 (MiMarkPfnVerified.c)
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F25B8 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiRelocateImagePfn @ 0x140447780 (MiRelocateImagePfn.c)
- *     MiValidateImagePfn @ 0x14052685C (MiValidateImagePfn.c)
- *     SeValidateImageData @ 0x140526A80 (SeValidateImageData.c)
- *     SeGetStrongImageReference @ 0x14068C978 (SeGetStrongImageReference.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14001D918 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MmUnmapLockedPages @ 0x140025890 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiMarkPfnVerified @ 0x140108054 (MiMarkPfnVerified.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F23E4 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiRelocateImagePfn @ 0x140446650 (MiRelocateImagePfn.c)
+ *     MiValidateImagePfn @ 0x1405098BC (MiValidateImagePfn.c)
+ *     SeValidateImageData @ 0x140509AE0 (SeValidateImageData.c)
+ *     SeGetStrongImageReference @ 0x14068CA5C (SeGetStrongImageReference.c)
  */
 
 __int64 __fastcall MiValidateInPage(__int64 a1)
@@ -156,7 +156,7 @@ __int64 __fastcall MiValidateInPage(__int64 a1)
   for ( i = 0LL; ; i += 8LL )
   {
     v28 = 48 * *v7 - 0x58000000000LL;
-    if ( v28 != qword_140327690 )
+    if ( v28 != qword_1403276D0 )
     {
       if ( v3 )
       {

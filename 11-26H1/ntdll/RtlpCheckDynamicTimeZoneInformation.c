@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpCheckDynamicTimeZoneInformation @ 0x18005ABA0
+ * XREFs of RtlpCheckDynamicTimeZoneInformation @ 0x180045120
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x180059934 (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     RtlpFindRegTziForCurrentYear @ 0x1801005AC (RtlpFindRegTziForCurrentYear.c)
- *     RtlpRegTziFormatToTzi @ 0x180107388 (RtlpRegTziFormatToTzi.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memcmp @ 0x1801649D0 (memcmp.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x180043EB4 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x1800FFCFC (RtlpFindRegTziForCurrentYear.c)
+ *     RtlpRegTziFormatToTzi @ 0x180106D88 (RtlpRegTziFormatToTzi.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memcmp @ 0x1801648D0 (memcmp.c)
  */
 
 char __fastcall RtlpCheckDynamicTimeZoneInformation(_OWORD *Buf2, unsigned __int16 a2)

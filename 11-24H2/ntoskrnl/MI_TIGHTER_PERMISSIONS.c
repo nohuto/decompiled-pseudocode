@@ -1,10 +1,10 @@
 /*
- * XREFs of MI_TIGHTER_PERMISSIONS @ 0x140436740
+ * XREFs of MI_TIGHTER_PERMISSIONS @ 0x1404291C0
  * Callers:
- *     MmSetAddressRangeModifiedEx @ 0x140240600 (MmSetAddressRangeModifiedEx.c)
- *     MmProtectPool @ 0x1403889FC (MmProtectPool.c)
- *     MiSetSystemCodeProtection @ 0x140435F3C (MiSetSystemCodeProtection.c)
- *     MiProtectEnclavePages @ 0x1404CACEC (MiProtectEnclavePages.c)
+ *     MmSetAddressRangeModifiedEx @ 0x140208750 (MmSetAddressRangeModifiedEx.c)
+ *     MmProtectPool @ 0x14038233C (MmProtectPool.c)
+ *     MiSetSystemCodeProtection @ 0x1404289BC (MiSetSystemCodeProtection.c)
+ *     MiProtectEnclavePages @ 0x1404C420C (MiProtectEnclavePages.c)
  * Callees:
  *     <none>
  */

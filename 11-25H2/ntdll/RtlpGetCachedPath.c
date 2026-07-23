@@ -20,7 +20,6 @@ __int64 __fastcall RtlpGetCachedPath(__int64 *a1, __int64 (__fastcall *a2)(__int
   __int64 result; // rax
   __int64 v11; // rdi
   bool v12; // zf
-  __int64 v13; // r9
 
   if ( a3 || a4 )
   {
@@ -30,7 +29,7 @@ __int64 __fastcall RtlpGetCachedPath(__int64 *a1, __int64 (__fastcall *a2)(__int
   else
   {
     v8 = 1;
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpCachedPathLock);
+    RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
     v9 = *a1;
     if ( *a1
       && *(_QWORD *)(v9 + 96) == LdrpAppPackagesPathVersion
@@ -60,7 +59,7 @@ __int64 __fastcall RtlpGetCachedPath(__int64 *a1, __int64 (__fastcall *a2)(__int
     *(_QWORD *)(result + 80) = 1LL;
     if ( !v8 )
       return v11;
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpCachedPathLock);
+    RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
     if ( *a1 != v9
       || (*a1 = v11, ++*(_QWORD *)(v11 + 80), !v9)
       || (v12 = *(_QWORD *)(v9 + 80) == 1LL, --*(_QWORD *)(v9 + 80), !v12) )
@@ -69,7 +68,7 @@ __int64 __fastcall RtlpGetCachedPath(__int64 *a1, __int64 (__fastcall *a2)(__int
       return v11;
     }
     RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9, v13);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v9);
     return v11;
   }
   return result;

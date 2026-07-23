@@ -6,7 +6,7 @@
  *     KeTestAlertThread @ 0x14030CF00 (KeTestAlertThread.c)
  */
 
-__int64 NtTestAlert()
+NTSTATUS NtTestAlert(void)
 {
   return KeTestAlertThread(KeGetCurrentThread()->PreviousMode) != 0 ? 0x101 : 0;
 }

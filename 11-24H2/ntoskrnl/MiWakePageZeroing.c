@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWakePageZeroing @ 0x1403C7110
+ * XREFs of MiWakePageZeroing @ 0x140412D50
  * Callers:
- *     MiInsertHugeRangeInList @ 0x1404F0CC0 (MiInsertHugeRangeInList.c)
+ *     MiInsertHugeRangeInList @ 0x1404EE760 (MiInsertHugeRangeInList.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiWakeZeroingThreads @ 0x1403C7310 (MiWakeZeroingThreads.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiWakeZeroingThreads @ 0x140412F50 (MiWakeZeroingThreads.c)
  */
 
 __int64 __fastcall MiWakePageZeroing(__int64 a1, unsigned __int64 a2, char a3)

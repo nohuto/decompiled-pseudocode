@@ -1,33 +1,33 @@
 /*
- * XREFs of EtwUnregister @ 0x1407601D0
+ * XREFs of EtwUnregister @ 0x140760390
  * Callers:
- *     BapdWriteEtwEvents @ 0x14039B028 (BapdWriteEtwEvents.c)
- *     HvlPhase2Initialize @ 0x1403CF0B8 (HvlPhase2Initialize.c)
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
- *     WmipGECleanup @ 0x140772700 (WmipGECleanup.c)
- *     PopBootLoaderTraceProcess @ 0x14077A118 (PopBootLoaderTraceProcess.c)
- *     WmipLegacyEtwWorker @ 0x1407C4FC0 (WmipLegacyEtwWorker.c)
- *     WmipProcessLegacyEtwRegister @ 0x1407C5120 (WmipProcessLegacyEtwRegister.c)
- *     TraceLoggingUnregister_EtwUnregister @ 0x140882730 (TraceLoggingUnregister_EtwUnregister.c)
- *     DbgkpStartSystemErrorHandler @ 0x140887850 (DbgkpStartSystemErrorHandler.c)
- *     DbgkCaptureLiveDump @ 0x140887D1C (DbgkCaptureLiveDump.c)
- *     SSHSupportEtwUnregister @ 0x1408FBAB8 (SSHSupportEtwUnregister.c)
- *     PsShutdownSystem @ 0x14090A9F4 (PsShutdownSystem.c)
- *     BapdRecordFirmwareBootStats @ 0x140999260 (BapdRecordFirmwareBootStats.c)
- *     BapdpRecordIumStatus @ 0x140A41AAC (BapdpRecordIumStatus.c)
- *     PerfDiagInitialize @ 0x140A42BBC (PerfDiagInitialize.c)
- *     VslpIumInitializeTelemetry @ 0x140A72D90 (VslpIumInitializeTelemetry.c)
- *     SshpUninitialize @ 0x140A935A4 (SshpUninitialize.c)
+ *     BapdWriteEtwEvents @ 0x14039B178 (BapdWriteEtwEvents.c)
+ *     HvlPhase2Initialize @ 0x1403CF228 (HvlPhase2Initialize.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
+ *     WmipGECleanup @ 0x1407728C0 (WmipGECleanup.c)
+ *     PopBootLoaderTraceProcess @ 0x14077A2D8 (PopBootLoaderTraceProcess.c)
+ *     WmipLegacyEtwWorker @ 0x1407C54E0 (WmipLegacyEtwWorker.c)
+ *     WmipProcessLegacyEtwRegister @ 0x1407C5640 (WmipProcessLegacyEtwRegister.c)
+ *     TraceLoggingUnregister_EtwUnregister @ 0x140882890 (TraceLoggingUnregister_EtwUnregister.c)
+ *     DbgkpStartSystemErrorHandler @ 0x1408879B0 (DbgkpStartSystemErrorHandler.c)
+ *     DbgkCaptureLiveDump @ 0x140887E7C (DbgkCaptureLiveDump.c)
+ *     SSHSupportEtwUnregister @ 0x1408FBC18 (SSHSupportEtwUnregister.c)
+ *     PsShutdownSystem @ 0x14090AB54 (PsShutdownSystem.c)
+ *     BapdRecordFirmwareBootStats @ 0x14099A260 (BapdRecordFirmwareBootStats.c)
+ *     BapdpRecordIumStatus @ 0x140A42AAC (BapdpRecordIumStatus.c)
+ *     PerfDiagInitialize @ 0x140A43BBC (PerfDiagInitialize.c)
+ *     VslpIumInitializeTelemetry @ 0x140A73D90 (VslpIumInitializeTelemetry.c)
+ *     SshpUninitialize @ 0x140A945A4 (SshpUninitialize.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
- *     EtwpReleaseProviderTraitsReference @ 0x140699A88 (EtwpReleaseProviderTraitsReference.c)
- *     EtwpEventWriteTemplateSessAndProv @ 0x140939DA0 (EtwpEventWriteTemplateSessAndProv.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     EtwpReleaseProviderTraitsReference @ 0x1405F8C48 (EtwpReleaseProviderTraitsReference.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406ECBA8 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpEventWriteTemplateSessAndProv @ 0x140939F70 (EtwpEventWriteTemplateSessAndProv.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall EtwUnregister(REGHANDLE RegHandle)
@@ -40,7 +40,7 @@ NTSTATUS __stdcall EtwUnregister(REGHANDLE RegHandle)
   __int64 v7; // rax
   __int64 v8; // rcx
   __int64 v9; // r8
-  __int64 *v10; // rcx
+  volatile signed __int64 *v10; // rcx
   struct _KTHREAD *CurrentThread; // rax
 
   if ( !RegHandle )
@@ -86,8 +86,8 @@ NTSTATUS __stdcall EtwUnregister(REGHANDLE RegHandle)
       1LL,
       0LL,
       *(_QWORD *)(RegHandle + 32) + 40LL);
-  EtwpUnreferenceGuidEntry(*(__int64 **)(RegHandle + 32));
-  v10 = *(__int64 **)(RegHandle + 40);
+  EtwpUnreferenceGuidEntry(*(volatile signed __int64 **)(RegHandle + 32));
+  v10 = *(volatile signed __int64 **)(RegHandle + 40);
   if ( v10 )
     EtwpUnreferenceGuidEntry(v10);
   EtwpReleaseProviderTraitsReference(RegHandle);

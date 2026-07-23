@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventHgsActiveWorkloadClass @ 0x14041F84C
+ * XREFs of PpmEventHgsActiveWorkloadClass @ 0x14041708C
  * Callers:
- *     PpmPerfRecordMostActiveWorkloadClass @ 0x14041F2F4 (PpmPerfRecordMostActiveWorkloadClass.c)
+ *     PpmPerfRecordMostActiveWorkloadClass @ 0x140416B34 (PpmPerfRecordMostActiveWorkloadClass.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventHgsActiveWorkloadClass(__int64 a1, ULONGLONG a2, ULONGLONG a3, int a4)
@@ -39,9 +39,7 @@ void __fastcall PpmEventHgsActiveWorkloadClass(__int64 a1, ULONGLONG a2, ULONGLO
     v17 = PpmHeteroWorkloadClasses;
     if ( PpmEtwRegistered )
     {
-      if ( EtwEventEnabled(
-             (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-             &PPM_ETW_WPS_HETERO_ACTIVE_WORKLOAD_CLASS) )
+      if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_WPS_HETERO_ACTIVE_WORKLOAD_CLASS) )
       {
         PpmEventAddAffinityMaskAsSubset(
           0,
@@ -75,15 +73,7 @@ void __fastcall PpmEventHgsActiveWorkloadClass(__int64 a1, ULONGLONG a2, ULONGLO
         v16 = v8 + 5;
         UserData[v16].Ptr = (ULONGLONG)&v23;
         *(_QWORD *)&UserData[v16].Size = 4LL;
-        EtwWriteEx(
-          (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-          &PPM_ETW_WPS_HETERO_ACTIVE_WORKLOAD_CLASS,
-          0LL,
-          0,
-          0LL,
-          0LL,
-          v8 + 6,
-          UserData);
+        EtwWriteEx(PpmEtwHandle, &PPM_ETW_WPS_HETERO_ACTIVE_WORKLOAD_CLASS, 0LL, 0, 0LL, 0LL, v8 + 6, UserData);
       }
     }
   }

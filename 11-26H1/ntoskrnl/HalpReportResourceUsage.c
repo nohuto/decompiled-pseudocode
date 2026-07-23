@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpReportResourceUsage @ 0x140CAE8F8
+ * XREFs of HalpReportResourceUsage @ 0x140CB4938
  * Callers:
- *     HalReportResourceUsage @ 0x140CAD650 (HalReportResourceUsage.c)
+ *     HalReportResourceUsage @ 0x140CB3690 (HalReportResourceUsage.c)
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     HalTranslateBusAddress @ 0x140488030 (HalTranslateBusAddress.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpClaimDebugResource @ 0x140580AE8 (HalpClaimDebugResource.c)
- *     RtlCmEncodeMemIoResource @ 0x14061A0F0 (RtlCmEncodeMemIoResource.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     HalpGetResourceSortValue @ 0x140CAE8A8 (HalpGetResourceSortValue.c)
- *     IoReportHalResourceUsage @ 0x140CC4140 (IoReportHalResourceUsage.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     HalTranslateBusAddress @ 0x140481B70 (HalTranslateBusAddress.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpClaimDebugResource @ 0x140583008 (HalpClaimDebugResource.c)
+ *     RtlCmEncodeMemIoResource @ 0x14061D140 (RtlCmEncodeMemIoResource.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     HalpGetResourceSortValue @ 0x140CB48E8 (HalpGetResourceSortValue.c)
+ *     IoReportHalResourceUsage @ 0x140CCA220 (IoReportHalResourceUsage.c)
  */
 
 void __fastcall HalpReportResourceUsage(__int64 a1)
@@ -113,7 +113,7 @@ void __fastcall HalpReportResourceUsage(__int64 a1)
   v8 = v3 + 1;
   v58 = v4 + 4;
   v9 = HalpIDTUsageFlags;
-  v10 = byte_140FFBC11;
+  v10 = byte_140FFCC11;
   do
   {
     if ( (*v9 & 1) == 0 )
@@ -230,7 +230,7 @@ LABEL_37:
       {
         *(_QWORD *)&v65.Count = 2097153LL;
         memset_0(&v65.8, 0, sizeof(v65.8));
-        RtlpCopyAffinityEx(&v65, v65.Size, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
+        RtlpCopyAffinityEx(&v65, v65.Size, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
         *(_WORD *)&Descriptor_8.Type = 514;
         v15 = HalpIDTUsageFlags[v47] & 2;
         Descriptor_8.Flags = v15 != 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of HsaBuildDefaultDomain @ 0x1405A911C
+ * XREFs of HsaBuildDefaultDomain @ 0x1405AB92C
  * Callers:
- *     HsaAttachDeviceDomainInternal @ 0x1405A8F88 (HsaAttachDeviceDomainInternal.c)
- *     HsaSetDevicePasidTable @ 0x1405AA810 (HsaSetDevicePasidTable.c)
+ *     HsaAttachDeviceDomainInternal @ 0x1405AB798 (HsaAttachDeviceDomainInternal.c)
+ *     HsaSetDevicePasidTable @ 0x1405AD020 (HsaSetDevicePasidTable.c)
  * Callees:
- *     IommupGetTranslationTypeFromPolicy @ 0x14058C078 (IommupGetTranslationTypeFromPolicy.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     IommupGetTranslationTypeFromPolicy @ 0x14058E7F8 (IommupGetTranslationTypeFromPolicy.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HsaBuildDefaultDomain(__int64 a1, int *a2, char a3)

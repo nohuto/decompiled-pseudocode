@@ -1,24 +1,24 @@
 /*
- * XREFs of MiLoadDataIntoVsmEnclave @ 0x140876584
+ * XREFs of MiLoadDataIntoVsmEnclave @ 0x14087C968
  * Callers:
- *     NtLoadEnclaveData @ 0x140AEE740 (NtLoadEnclaveData.c)
+ *     NtLoadEnclaveData @ 0x140AF16E0 (NtLoadEnclaveData.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiComputePageCommitment @ 0x140311CE0 (MiComputePageCommitment.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiProbeAndLockPages @ 0x1403A016C (MiProbeAndLockPages.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MmSizeOfMdl @ 0x140488370 (MmSizeOfMdl.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     PsLoadVsmEnclaveData @ 0x140616BD8 (PsLoadVsmEnclaveData.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     MiDecommitRegion @ 0x14095FDBC (MiDecommitRegion.c)
- *     MiCommitExistingVad @ 0x1409C7300 (MiCommitExistingVad.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiComputePageCommitment @ 0x140313D10 (MiComputePageCommitment.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiProbeAndLockPages @ 0x1403A1ECC (MiProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MmSizeOfMdl @ 0x140481EB0 (MmSizeOfMdl.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     PsLoadVsmEnclaveData @ 0x140619BC8 (PsLoadVsmEnclaveData.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     MiCommitExistingVad @ 0x1409982E0 (MiCommitExistingVad.c)
+ *     MiDecommitRegion @ 0x140A0567C (MiDecommitRegion.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiLoadDataIntoVsmEnclave(

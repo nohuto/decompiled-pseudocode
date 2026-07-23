@@ -1,10 +1,10 @@
 /*
- * XREFs of HaliInitializePlatformDebugTriggers @ 0x1404DCF70
+ * XREFs of HaliInitializePlatformDebugTriggers @ 0x1404DD1B0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     HalpAcquirePccInterface @ 0x140866824 (HalpAcquirePccInterface.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     HalpAcquirePccInterface @ 0x140866984 (HalpAcquirePccInterface.c)
  */
 
 void HaliInitializePlatformDebugTriggers()
@@ -32,7 +32,7 @@ void HaliInitializePlatformDebugTriggers()
       do
       {
         v4 = v2++;
-        *(_QWORD *)(136 * v4 + qword_140C50AA8) = v3;
+        *(_QWORD *)(136 * v4 + qword_140C50AE8) = v3;
         v3 += 2LL;
         v5 = *(unsigned __int8 *)(v0 + 36);
       }
@@ -42,8 +42,8 @@ void HaliInitializePlatformDebugTriggers()
         do
         {
           v6 = 136LL * v1;
-          v7 = v6 + qword_140C50AA8 + 8;
-          LOBYTE(v6) = **(_BYTE **)(v6 + qword_140C50AA8);
+          v7 = v6 + qword_140C50AE8 + 8;
+          LOBYTE(v6) = **(_BYTE **)(v6 + qword_140C50AE8);
           HalpAcquirePccInterface(v6, &DestinationString, v7);
           ++v1;
         }

@@ -1,26 +1,26 @@
 /*
- * XREFs of SmpKeyedStoreEntryGet @ 0x1402457A0
+ * XREFs of SmpKeyedStoreEntryGet @ 0x14020DF80
  * Callers:
- *     SmpKeyedStoreReference @ 0x1402451D4 (SmpKeyedStoreReference.c)
- *     ?SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z @ 0x14024555C (-SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z.c)
- *     SmStoreExistsForProcess @ 0x140245744 (SmStoreExistsForProcess.c)
- *     SmGetStoreOwnerProcessId @ 0x14060EE3C (SmGetStoreOwnerProcessId.c)
- *     SmpKeyedStoreCreate @ 0x140A42B64 (SmpKeyedStoreCreate.c)
- *     SmStoreCompressionStop @ 0x140A4CBCC (SmStoreCompressionStop.c)
- *     SmStoreCompressionStart @ 0x140A4CD20 (SmStoreCompressionStart.c)
- *     SmSwapStore @ 0x140A4CF64 (SmSwapStore.c)
- *     SmProcessDeleteNotification @ 0x140A51570 (SmProcessDeleteNotification.c)
- *     SmProcessStoreMemoryPriorityRequest @ 0x140A5FA44 (SmProcessStoreMemoryPriorityRequest.c)
+ *     SmpKeyedStoreReference @ 0x14020D9B4 (SmpKeyedStoreReference.c)
+ *     ?SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z @ 0x14020DD3C (-SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z.c)
+ *     SmStoreExistsForProcess @ 0x14020DF24 (SmStoreExistsForProcess.c)
+ *     SmGetStoreOwnerProcessId @ 0x14060D3FC (SmGetStoreOwnerProcessId.c)
+ *     SmpKeyedStoreCreate @ 0x140A383F4 (SmpKeyedStoreCreate.c)
+ *     SmStoreCompressionStop @ 0x140A4375C (SmStoreCompressionStop.c)
+ *     SmStoreCompressionStart @ 0x140A438B0 (SmStoreCompressionStart.c)
+ *     SmSwapStore @ 0x140A43AF4 (SmSwapStore.c)
+ *     SmProcessDeleteNotification @ 0x140A4863C (SmProcessDeleteNotification.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x140A57F94 (SmProcessStoreMemoryPriorityRequest.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmpKeyedStoreEntryGet(ULONG_PTR BugCheckParameter2, _QWORD *a2, int a3, int a4)
@@ -154,7 +154,7 @@ LABEL_13:
   {
     if ( (unsigned int)v17 < 4 )
       v17 = 4LL;
-    Pool2 = (char *)ExAllocatePool2(0x40uLL);
+    Pool2 = (char *)ExAllocatePool2(0x40uLL, 8LL * (unsigned int)v17, 0x54486D73u);
     if ( Pool2 )
     {
       if ( (((_DWORD)v17 - 1) & (unsigned int)v17) != 0 )

@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpPmemErrorDeferredRecovery @ 0x1405556E4
+ * XREFs of HalpPmemErrorDeferredRecovery @ 0x140553024
  * Callers:
- *     HalpGenericErrorSourceRecovery @ 0x14055525C (HalpGenericErrorSourceRecovery.c)
+ *     HalpGenericErrorSourceRecovery @ 0x140552B9C (HalpGenericErrorSourceRecovery.c)
  * Callees:
- *     HalpAcquireDrsPool @ 0x1405550F8 (HalpAcquireDrsPool.c)
- *     HalpFreeDrsPool @ 0x14055522C (HalpFreeDrsPool.c)
- *     WheaRequestDeferredRecovery @ 0x14065DC00 (WheaRequestDeferredRecovery.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     HalpAcquireDrsPool @ 0x140552A38 (HalpAcquireDrsPool.c)
+ *     HalpFreeDrsPool @ 0x140552B6C (HalpFreeDrsPool.c)
+ *     WheaRequestDeferredRecovery @ 0x14065C320 (WheaRequestDeferredRecovery.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpPmemErrorDeferredRecovery(_DWORD *Src)
 {
   unsigned int v2; // ebx
   __int64 v3; // rdi
-  size_t v4; // r14
+  ULONG_PTR v4; // r14
   void *Pool2; // rax
   void *v6; // rsi
 
@@ -24,7 +24,7 @@ __int64 __fastcall HalpPmemErrorDeferredRecovery(_DWORD *Src)
   if ( v3 )
   {
     v4 = (unsigned int)(24 * Src[21] + 88);
-    Pool2 = (void *)ExAllocatePool2(0x40uLL);
+    Pool2 = (void *)ExAllocatePool2(0x40uLL, v4, 0x576C6148u);
     v6 = Pool2;
     if ( Pool2 )
     {

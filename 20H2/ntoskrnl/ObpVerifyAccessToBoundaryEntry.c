@@ -18,26 +18,26 @@
 
 _BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(int *a1, __int64 a2)
 {
-  void *Src; // rsi
+  void *v4; // rsi
   int v5; // eax
   void **v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rdx
-  __int64 v9; // r9
-  PSID *v11; // rdx
-  int v12; // eax
-  __int64 v13; // rdx
-  __int64 v14; // rdx
+  ULONG v7; // edx
+  __int64 v8; // r9
+  PSID *v10; // rdx
+  int v11; // eax
+  ULONG v12; // edx
+  UCHAR AceType; // [rsp+20h] [rbp-E0h]
+  UCHAR AceTypea; // [rsp+20h] [rbp-E0h]
   int v15; // [rsp+60h] [rbp-A0h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+68h] [rbp-98h] BYREF
   __int64 v17; // [rsp+88h] [rbp-78h]
-  ACL v18[12]; // [rsp+90h] [rbp-70h] BYREF
+  ACL Sacl[12]; // [rsp+90h] [rbp-70h] BYREF
   ACL Acl[20]; // [rsp+F0h] [rbp-10h] BYREF
 
   memset(Acl, 0, sizeof(Acl));
   v15 = 0;
-  memset(v18, 0, 0x54uLL);
-  Src = a1 + 2;
+  memset(Sacl, 0, 0x54uLL);
+  v4 = a1 + 2;
   v17 = 0LL;
   v5 = *a1;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
@@ -52,33 +52,31 @@ _BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(int *a1, __int64 a2)
       }
       return 1LL;
     }
-    RtlCreateAcl(v18, 0x54u, 2u);
-    RtlAddMandatoryAce(v18, v13, 0LL, Src);
+    RtlCreateAcl(Sacl, 0x54u, 2u);
+    RtlAddMandatoryAce(Sacl, v12, 0, v4, AceType, 7u);
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
-    LOBYTE(v14) = 1;
-    RtlSetSaclSecurityDescriptor(SecurityDescriptor, v14, v18, 0LL);
+    RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, Sacl, 0);
     goto LABEL_6;
   }
-  if ( !(unsigned __int8)RtlIsPackageSid(Src) )
+  if ( !RtlIsPackageSid(v4) )
   {
     RtlCreateAcl(Acl, 0xA0u, 2u);
-    RtlpAddKnownAce((int)Acl, 2, 0, 983055, Src, 0);
+    RtlpAddKnownAce(Acl, v4, 0);
     v6 = *(void ***)(a2 + 32);
     if ( v6 )
-      RtlpAddKnownAce((int)Acl, 2, 0, 983055, *v6, 0);
-    RtlCreateAcl(v18, 0x54u, 2u);
-    RtlAddMandatoryAce(v18, v7, 0LL, *(_QWORD *)(a2 + 40));
+      RtlpAddKnownAce(Acl, *v6, 0);
+    RtlCreateAcl(Sacl, 0x54u, 2u);
+    RtlAddMandatoryAce(Sacl, v7, 0, *(PSID *)(a2 + 40), AceTypea, 7u);
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, Acl, 0);
-    LOBYTE(v8) = 1;
-    RtlSetSaclSecurityDescriptor(SecurityDescriptor, v8, v18, 0LL);
+    RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, Sacl, 0);
 LABEL_6:
-    LOBYTE(v9) = 1;
+    LOBYTE(v8) = 1;
     return (unsigned __int8)SeAccessCheckWithHint(
                               (__int64)SecurityDescriptor,
                               1LL,
                               a2,
-                              v9,
+                              v8,
                               983055,
                               0,
                               0LL,
@@ -87,18 +85,18 @@ LABEL_6:
                               (__int64)&v15,
                               a2 + 48) != 0;
   }
-  v11 = *(PSID **)(a2 + 32);
-  if ( v11 && !RtlEqualSid(Src, *v11) )
+  v10 = *(PSID **)(a2 + 32);
+  if ( v10 && !RtlEqualSid(v4, *v10) )
   {
     *(_DWORD *)(a2 + 48) = -1073741790;
     return 0LL;
   }
-  v12 = *(_DWORD *)(a2 + 52);
-  if ( (v12 & 1) != 0 )
+  v11 = *(_DWORD *)(a2 + 52);
+  if ( (v11 & 1) != 0 )
   {
     *(_DWORD *)(a2 + 48) = -1073741811;
     return 0LL;
   }
-  *(_DWORD *)(a2 + 52) = v12 | 1;
+  *(_DWORD *)(a2 + 52) = v11 | 1;
   return 1LL;
 }

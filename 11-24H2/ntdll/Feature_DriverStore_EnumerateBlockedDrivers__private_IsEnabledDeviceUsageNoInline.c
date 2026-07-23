@@ -1,7 +1,7 @@
 /*
- * XREFs of Feature_DriverStore_EnumerateBlockedDrivers__private_IsEnabledDeviceUsageNoInline @ 0x18013679C
+ * XREFs of Feature_DriverStore_EnumerateBlockedDrivers__private_IsEnabledDeviceUsageNoInline @ 0x1801349CC
  * Callers:
- *     ApiSetpIsFeatureEnabled @ 0x180136718 (ApiSetpIsFeatureEnabled.c)
+ *     ApiSetpIsFeatureEnabled @ 0x180134948 (ApiSetpIsFeatureEnabled.c)
  * Callees:
  *     <none>
  */

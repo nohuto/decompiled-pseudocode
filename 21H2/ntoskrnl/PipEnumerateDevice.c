@@ -1,19 +1,19 @@
 /*
- * XREFs of PipEnumerateDevice @ 0x140746E28
+ * XREFs of PipEnumerateDevice @ 0x140746FE8
  * Callers:
- *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1407413C4 (PipProcessDevNodeTree.c)
  * Callees:
- *     PnpDiagnosticTraceObject @ 0x140364C6C (PnpDiagnosticTraceObject.c)
- *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x14036F938 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
- *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
- *     PoFxIdleDevice @ 0x14036FB34 (PoFxIdleDevice.c)
- *     PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x14036FC28 (PnpDeviceCompletionQueueRemoveCompletedRequest.c)
- *     PoFxActivateDevice @ 0x14036FCB4 (PoFxActivateDevice.c)
- *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x14036FE8C (PnpDeviceCompletionQueueAddDispatchedRequest.c)
- *     PipClearDevNodeFlags @ 0x140746A74 (PipClearDevNodeFlags.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x140746AF0 (PnpDeviceCompletionProcessCompletedRequest.c)
- *     PnpQueryDeviceRelations @ 0x140746F38 (PnpQueryDeviceRelations.c)
- *     PnpDeviceCompletionRequestCreate @ 0x140746FAC (PnpDeviceCompletionRequestCreate.c)
+ *     PnpDiagnosticTraceObject @ 0x140364E1C (PnpDiagnosticTraceObject.c)
+ *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x14036FAE8 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
+ *     PipSetDevNodeState @ 0x14036FB98 (PipSetDevNodeState.c)
+ *     PoFxIdleDevice @ 0x14036FCE4 (PoFxIdleDevice.c)
+ *     PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x14036FDD8 (PnpDeviceCompletionQueueRemoveCompletedRequest.c)
+ *     PoFxActivateDevice @ 0x14036FE64 (PoFxActivateDevice.c)
+ *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x14037003C (PnpDeviceCompletionQueueAddDispatchedRequest.c)
+ *     PipClearDevNodeFlags @ 0x140746C34 (PipClearDevNodeFlags.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x140746CB0 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpQueryDeviceRelations @ 0x1407470F8 (PnpQueryDeviceRelations.c)
+ *     PnpDeviceCompletionRequestCreate @ 0x14074716C (PnpDeviceCompletionRequestCreate.c)
  */
 
 __int64 __fastcall PipEnumerateDevice(__int64 a1, int a2, int a3)
@@ -31,7 +31,7 @@ __int64 __fastcall PipEnumerateDevice(__int64 a1, int a2, int a3)
   if ( a2
     || (PnpAsyncOptions & 2) == 0
     || (*(_DWORD *)(a1 + 396) & 0x800000) != 0
-    || (_DWORD)InitSafeBootMode
+    || InitSafeBootMode
     || (v5 = PnpDeviceCompletionRequestCreate(a1, 781LL)) == 0 )
   {
     if ( a3 && (*(_DWORD *)(a1 + 396) & 0x800000) != 0 )

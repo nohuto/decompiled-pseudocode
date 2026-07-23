@@ -1,14 +1,14 @@
 /*
- * XREFs of MUIInitializeResourceLock @ 0x140A21948
+ * XREFs of MUIInitializeResourceLock @ 0x1408F80F8
  * Callers:
- *     NtFlushInstallUILanguage @ 0x1407C2F70 (NtFlushInstallUILanguage.c)
- *     NtMapCMFModule @ 0x1407C3080 (NtMapCMFModule.c)
- *     NtGetMUIRegistryInfo @ 0x140A215C0 (NtGetMUIRegistryInfo.c)
+ *     NtFlushInstallUILanguage @ 0x1407C41A0 (NtFlushInstallUILanguage.c)
+ *     NtMapCMFModule @ 0x1407C42B0 (NtMapCMFModule.c)
+ *     NtGetMUIRegistryInfo @ 0x1408F7D70 (NtGetMUIRegistryInfo.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x1402CD920 (ExDeleteResourceLite.c)
- *     ExInitializeResourceLite @ 0x1403655E0 (ExInitializeResourceLite.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExDeleteResourceLite @ 0x1402E55A0 (ExDeleteResourceLite.c)
+ *     ExInitializeResourceLite @ 0x1403EAC90 (ExInitializeResourceLite.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MUIInitializeResourceLock(volatile signed __int64 *a1)
@@ -25,7 +25,7 @@ __int64 __fastcall MUIInitializeResourceLock(volatile signed __int64 *a1)
     }
     else
     {
-      Pool2 = (struct _ERESOURCE *)ExAllocatePool2(0x40uLL);
+      Pool2 = (struct _ERESOURCE *)ExAllocatePool2(0x40uLL, 0x68uLL, 0x6D756950u);
       v4 = Pool2;
       if ( Pool2 )
       {

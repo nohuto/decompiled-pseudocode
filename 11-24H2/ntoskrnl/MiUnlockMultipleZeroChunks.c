@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlockMultipleZeroChunks @ 0x14020AF10
+ * XREFs of MiUnlockMultipleZeroChunks @ 0x140332CF0
  * Callers:
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     MiDereferenceHugeContext @ 0x1404CFD8C (MiDereferenceHugeContext.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     MiDereferenceHugeContext @ 0x1404C8E3C (MiDereferenceHugeContext.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiUnlockMultipleZeroChunks(unsigned __int8 *a1)
@@ -44,7 +44,7 @@ LABEL_24:
   if ( v8 && *(_BYTE *)(v8 + 324) )
   {
     v9 = 0;
-    v10 = qword_140E2FFC0 + 8 * ((v7 >> 12) & 0x3FFFFF);
+    v10 = qword_140E30100 + 8 * ((v7 >> 12) & 0x3FFFFF);
   }
   else
   {
@@ -64,8 +64,8 @@ LABEL_24:
   if ( !v9 )
   {
     _InterlockedAnd(
-      (volatile signed __int32 *)(qword_140E2FFC8 + 4 * ((((v10 - qword_140E2FFC0) >> 3) & 0x3FFFFFuLL) >> 5)),
-      ~(1 << (((v10 - qword_140E2FFC0) >> 3) & 0x1F)));
+      (volatile signed __int32 *)(qword_140E30108 + 4 * ((((v10 - qword_140E30100) >> 3) & 0x3FFFFFuLL) >> 5)),
+      ~(1 << (((v10 - qword_140E30100) >> 3) & 0x1F)));
     goto LABEL_22;
   }
   if ( v1 )
@@ -83,7 +83,7 @@ LABEL_28:
     if ( (v11 & 1) != 0 || *(_DWORD *)(v3 + 576) == 512 )
       MiDereferenceHugeContext(*((_QWORD *)a1 + 5));
     MiReleaseSpinLockExclusive(
-      57216LL * *((unsigned int *)a1 + 4) + *(_QWORD *)(*((_QWORD *)a1 + 4) + 16LL) + 15224LL,
+      (_DWORD *)(57216LL * *((unsigned int *)a1 + 4) + *(_QWORD *)(*((_QWORD *)a1 + 4) + 16LL) + 15224LL),
       a1[1]);
 LABEL_23:
     if ( !v1 )

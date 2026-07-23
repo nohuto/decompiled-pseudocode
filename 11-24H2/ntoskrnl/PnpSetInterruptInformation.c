@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpSetInterruptInformation @ 0x1407247EC
+ * XREFs of PnpSetInterruptInformation @ 0x14072237C
  * Callers:
- *     PnpSetDevicePropertyData @ 0x1408B8314 (PnpSetDevicePropertyData.c)
+ *     PnpSetDevicePropertyData @ 0x1408B5C84 (PnpSetDevicePropertyData.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpSetInterruptInformation(__int64 a1, const void *a2, unsigned int a3)
@@ -17,7 +17,7 @@ __int64 __fastcall PnpSetInterruptInformation(__int64 a1, const void *a2, unsign
   void *v10; // rcx
 
   v3 = a3;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, a3 + 4, 0x47706E50u);
   v7 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

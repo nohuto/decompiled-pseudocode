@@ -1,10 +1,10 @@
 /*
- * XREFs of KiHeteroAttemptPreemptionSwap @ 0x14041FD78
+ * XREFs of KiHeteroAttemptPreemptionSwap @ 0x14041576C
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14031ED40 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x1402C78D0 (KiDeferredReadySingleThread.c)
  * Callees:
- *     KiIsThreadEligibleForPreemptionSwap @ 0x14041FF10 (KiIsThreadEligibleForPreemptionSwap.c)
- *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041FF3C (KiHeteroAttemptPreemptionSwapOnSubNode.c)
+ *     KiIsThreadEligibleForPreemptionSwap @ 0x140415900 (KiIsThreadEligibleForPreemptionSwap.c)
+ *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041592C (KiHeteroAttemptPreemptionSwapOnSubNode.c)
  */
 
 __int64 __fastcall KiHeteroAttemptPreemptionSwap(__int64 a1, _QWORD *a2, int a3, __int64 a4, __int64 a5)

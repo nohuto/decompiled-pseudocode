@@ -10,7 +10,7 @@ _DWORD *RtlpMuiRegCreateRegistryInfo()
 {
   _DWORD *result; // rax
 
-  result = (_DWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0xA8uLL);
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xA8uLL);
   if ( result )
     *result |= 0x400u;
   return result;

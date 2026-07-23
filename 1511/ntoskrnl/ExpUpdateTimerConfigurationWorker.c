@@ -13,12 +13,11 @@
 __int64 __fastcall ExpUpdateTimerConfigurationWorker(__int64 a1, __int64 a2)
 {
   KIRQL v3; // si
-  __int64 v4; // r8
-  int v5; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  unsigned int *v8; // rax
-  char *v9; // rax
+  int v4; // ebx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  unsigned int *v7; // rax
+  char *v8; // rax
   __int64 result; // rax
 
   v3 = KeAcquireSpinLockRaiseToDpc(&ExpKernelResolutionLock);
@@ -26,17 +25,17 @@ __int64 __fastcall ExpUpdateTimerConfigurationWorker(__int64 a1, __int64 a2)
   *(_DWORD *)(a2 + 24) = 0;
   if ( *(_QWORD *)a2 )
   {
-    v5 = KiSetClockInterval(ExpLastRequestedTime, (__int64)&ExpClockIntervalRequest, v4);
-    KiSendClockInterruptToClockOwner(v7, v6);
-    **(_DWORD **)a2 = v5;
+    v4 = KiSetClockInterval(ExpLastRequestedTime, (__int64)&ExpClockIntervalRequest);
+    KiSendClockInterruptToClockOwner(v6, v5);
+    **(_DWORD **)a2 = v4;
   }
   KeReleaseSpinLock(&ExpKernelResolutionLock, 0xFu);
-  v8 = *(unsigned int **)(a2 + 8);
+  v7 = *(unsigned int **)(a2 + 8);
+  if ( v7 )
+    *(_DWORD *)(a2 + 24) = KeSetTimeAdjustment(*v7);
+  v8 = *(char **)(a2 + 16);
   if ( v8 )
-    *(_DWORD *)(a2 + 24) = KeSetTimeAdjustment(*v8);
-  v9 = *(char **)(a2 + 16);
-  if ( v9 )
-    KeTimeSynchronization = *v9;
+    KeTimeSynchronization = *v8;
   result = v3;
   __writecr8(v3);
   return result;

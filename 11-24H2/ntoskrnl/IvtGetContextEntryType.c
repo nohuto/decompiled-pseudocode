@@ -1,7 +1,7 @@
 /*
- * XREFs of IvtGetContextEntryType @ 0x1404FA990
+ * XREFs of IvtGetContextEntryType @ 0x1404F8270
  * Callers:
- *     IvtInitializeIommu @ 0x140B51B90 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x140B53BE0 (IvtInitializeIommu.c)
  * Callees:
  *     <none>
  */

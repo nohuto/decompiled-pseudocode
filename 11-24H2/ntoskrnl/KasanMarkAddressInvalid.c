@@ -1,10 +1,10 @@
 /*
- * XREFs of KasanMarkAddressInvalid @ 0x1403F51E0
+ * XREFs of KasanMarkAddressInvalid @ 0x1403E81D0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KasanMarkAddressInvalid(
@@ -16,7 +16,7 @@ __int64 __fastcall KasanMarkAddressInvalid(
   void *v4; // rcx
   size_t v5; // rdx
 
-  if ( byte_140FCDC28 )
+  if ( byte_140FCECA8 )
   {
     if ( BugCheckParameter3 < 0xFFFF800000000000uLL )
       KeBugCheckEx(0x1F1u, 2uLL, 1uLL, BugCheckParameter3, 0LL);

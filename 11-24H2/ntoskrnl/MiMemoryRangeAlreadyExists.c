@@ -1,8 +1,8 @@
 /*
- * XREFs of MiMemoryRangeAlreadyExists @ 0x14066E040
+ * XREFs of MiMemoryRangeAlreadyExists @ 0x14066F214
  * Callers:
- *     MiAddPartitionHugeRange @ 0x14066F778 (MiAddPartitionHugeRange.c)
- *     MiAddPhysicalMemory @ 0x1407E866C (MiAddPhysicalMemory.c)
+ *     MiAddPartitionHugeRange @ 0x140670948 (MiAddPartitionHugeRange.c)
+ *     MiAddPhysicalMemory @ 0x1407E8C3C (MiAddPhysicalMemory.c)
  * Callees:
  *     <none>
  */

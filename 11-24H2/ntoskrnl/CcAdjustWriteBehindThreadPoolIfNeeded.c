@@ -1,16 +1,16 @@
 /*
- * XREFs of CcAdjustWriteBehindThreadPoolIfNeeded @ 0x1404A08EC
+ * XREFs of CcAdjustWriteBehindThreadPoolIfNeeded @ 0x14049AF6C
  * Callers:
- *     CcChargeDirtyPagesInternal @ 0x14044B950 (CcChargeDirtyPagesInternal.c)
- *     CcCanIWrite @ 0x1404DBAA0 (CcCanIWrite.c)
- *     CcQueueLazyWriteScanThread @ 0x14057A5C0 (CcQueueLazyWriteScanThread.c)
+ *     CcChargeDirtyPagesInternal @ 0x140442A90 (CcChargeDirtyPagesInternal.c)
+ *     CcCanIWrite @ 0x1404D54C0 (CcCanIWrite.c)
+ *     CcQueueLazyWriteScanThread @ 0x140577A50 (CcQueueLazyWriteScanThread.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x1402A7D0C (CcIsWriteBehindThreadpoolAtLowPriority.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     CcGetCurrentNumaNode @ 0x14048B15C (CcGetCurrentNumaNode.c)
- *     CcBoostLowPriorityWorkerThread @ 0x1404DAE88 (CcBoostLowPriorityWorkerThread.c)
- *     CcAdjustWriteBehindThreadPool @ 0x14057A394 (CcAdjustWriteBehindThreadPool.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x140279B04 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcGetCurrentNumaNode @ 0x140485F8C (CcGetCurrentNumaNode.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x1404D48A8 (CcBoostLowPriorityWorkerThread.c)
+ *     CcAdjustWriteBehindThreadPool @ 0x140577824 (CcAdjustWriteBehindThreadPool.c)
  */
 
 void __fastcall CcAdjustWriteBehindThreadPoolIfNeeded(__int64 a1, char a2)
@@ -25,7 +25,7 @@ void __fastcall CcAdjustWriteBehindThreadPoolIfNeeded(__int64 a1, char a2)
 
   v2 = 0;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( CcEnablePerVolumeLazyWriter || (unsigned int)CcNumberNumaNodes > 1 || (_BYTE)dword_140FC421C )
+  if ( CcEnablePerVolumeLazyWriter || (unsigned int)CcNumberNumaNodes > 1 || (_BYTE)dword_140FC521C )
     return;
   CurrentNumaNode = CcGetCurrentNumaNode(a1, 0LL);
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v5 + 832), &LockHandle);

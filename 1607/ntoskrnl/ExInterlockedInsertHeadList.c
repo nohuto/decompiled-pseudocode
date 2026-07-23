@@ -1,20 +1,20 @@
 /*
- * XREFs of ExInterlockedInsertHeadList @ 0x1400A7B70
+ * XREFs of ExInterlockedInsertHeadList @ 0x1400A60E8
  * Callers:
- *     CcCanIWrite @ 0x1400209F0 (CcCanIWrite.c)
- *     CcDeferWrite @ 0x1401B1A08 (CcDeferWrite.c)
- *     ViAllocateMapRegisterFile @ 0x1407087CC (ViAllocateMapRegisterFile.c)
- *     ViHookDmaAdapter @ 0x140709C74 (ViHookDmaAdapter.c)
- *     ViScatterGatherCallback @ 0x14070A358 (ViScatterGatherCallback.c)
- *     ViSpecialAllocateCommonBuffer @ 0x14070A3DC (ViSpecialAllocateCommonBuffer.c)
+ *     CcCanIWrite @ 0x140020570 (CcCanIWrite.c)
+ *     CcDeferWrite @ 0x1401B18EC (CcDeferWrite.c)
+ *     ViAllocateMapRegisterFile @ 0x1407087FC (ViAllocateMapRegisterFile.c)
+ *     ViHookDmaAdapter @ 0x140709CA4 (ViHookDmaAdapter.c)
+ *     ViScatterGatherCallback @ 0x14070A388 (ViScatterGatherCallback.c)
+ *     ViSpecialAllocateCommonBuffer @ 0x14070A40C (ViSpecialAllocateCommonBuffer.c)
  * Callees:
- *     ExpAcquireSpinLockDisabled @ 0x1400A7BD4 (ExpAcquireSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1400A614C (ExpAcquireSpinLockDisabled.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedInsertHeadList(PLIST_ENTRY ListHead, PLIST_ENTRY ListEntry, PKSPIN_LOCK Lock)
 {
   char v6; // al
-  struct _LIST_ENTRY *Blink; // rcx
+  _LIST_ENTRY *Blink; // rcx
   char v8; // dl
   PLIST_ENTRY result; // rax
 

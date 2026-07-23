@@ -1,16 +1,14 @@
 /*
- * XREFs of ZwExtendSection @ 0x1401B9D10
+ * XREFs of ZwExtendSection @ 0x1401B9E70
  * Callers:
- *     CmSiExtendSection @ 0x140139970 (CmSiExtendSection.c)
+ *     CmSiExtendSection @ 0x140139A70 (CmSiExtendSection.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall ZwExtendSection(HANDLE SectionHandle, PLARGE_INTEGER NewMaximumSize)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(SectionHandle, NewMaximumSize, v2);
+  return KiServiceInternal(SectionHandle);
 }

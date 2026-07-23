@@ -1,12 +1,12 @@
 /*
- * XREFs of WdtpArmTimer @ 0x1403AA03C
+ * XREFs of WdtpArmTimer @ 0x1403B3C4C
  * Callers:
- *     WdtpTimerCallback @ 0x140719C80 (WdtpTimerCallback.c)
- *     PnpWatchdogTimerStart @ 0x1409DCA2C (PnpWatchdogTimerStart.c)
+ *     WdtpTimerCallback @ 0x14071E910 (WdtpTimerCallback.c)
+ *     PnpWatchdogTimerStart @ 0x140A19CDC (PnpWatchdogTimerStart.c)
  * Callees:
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     ExpCheckForFreedEnhancedTimer @ 0x1403AA888 (ExpCheckForFreedEnhancedTimer.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     ExpCheckForFreedEnhancedTimer @ 0x1403B4498 (ExpCheckForFreedEnhancedTimer.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall WdtpArmTimer(__int64 a1, unsigned int a2)

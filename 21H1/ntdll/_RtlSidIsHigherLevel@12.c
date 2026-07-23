@@ -7,15 +7,21 @@
  *     _memcmp @ 0x4B2F8860 (_memcmp.c)
  */
 
-int __stdcall RtlSidIsHigherLevel(int a1, int a2, bool *a3)
+NTSTATUS __cdecl RtlSidIsHigherLevel(PSID Sid1, PSID Sid2, PBOOLEAN HigherLevel)
 {
+  size_t v4; // [esp-4h] [ebp-1Ch]
+  size_t v5; // [esp-4h] [ebp-1Ch]
   int Buf2; // [esp+Ch] [ebp-Ch] BYREF
-  __int16 v5; // [esp+10h] [ebp-8h]
+  __int16 v7; // [esp+10h] [ebp-8h]
 
   Buf2 = 0;
-  v5 = 4096;
-  if ( memcmp((const void *)(a1 + 2), &Buf2, 6u) || memcmp((const void *)(a2 + 2), &Buf2, 6u) )
+  LODWORD(v4) = 6;
+  v7 = 4096;
+  if ( memcmp((char *)Sid1 + 2, &Buf2, v4) )
     return -1073741811;
-  *a3 = *(_DWORD *)(a1 + 8) > *(_DWORD *)(a2 + 8);
+  LODWORD(v5) = 6;
+  if ( memcmp((char *)Sid2 + 2, &Buf2, v5) )
+    return -1073741811;
+  *HigherLevel = *((_DWORD *)Sid1 + 2) > *((_DWORD *)Sid2 + 2);
   return 0;
 }

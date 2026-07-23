@@ -1,31 +1,31 @@
 /*
- * XREFs of MiValidateSectionCreate @ 0x140526D8C
+ * XREFs of MiValidateSectionCreate @ 0x140509DEC
  * Callers:
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
- *     MiCreateNewSection @ 0x140522048 (MiCreateNewSection.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
+ *     MiCreateNewSection @ 0x1405050A8 (MiCreateNewSection.c)
  * Callees:
- *     MiFlushEntireTbDueToAttributeChange @ 0x14001DD98 (MiFlushEntireTbDueToAttributeChange.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     PsSetSystemPagePriorityThread @ 0x1400FD0E0 (PsSetSystemPagePriorityThread.c)
- *     PsRevertToUserPagePriorityThread @ 0x1400FDEC0 (PsRevertToUserPagePriorityThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KeZeroSinglePage @ 0x140161E10 (KeZeroSinglePage.c)
- *     KeCopyPage @ 0x140161F20 (KeCopyPage.c)
- *     MiImageCantMove @ 0x1401F6F08 (MiImageCantMove.c)
- *     MiStrongCodeImage @ 0x1401F7194 (MiStrongCodeImage.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14001D918 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     PsSetSystemPagePriorityThread @ 0x1400FAE60 (PsSetSystemPagePriorityThread.c)
+ *     PsRevertToUserPagePriorityThread @ 0x1400FBC40 (PsRevertToUserPagePriorityThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KeZeroSinglePage @ 0x140162380 (KeZeroSinglePage.c)
+ *     KeCopyPage @ 0x140162490 (KeCopyPage.c)
+ *     MiImageCantMove @ 0x1401F6D34 (MiImageCantMove.c)
+ *     MiStrongCodeImage @ 0x1401F6FC0 (MiStrongCodeImage.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiMapImageInSystemSpace @ 0x140525CC8 (MiMapImageInSystemSpace.c)
- *     MiUnmapImageInSystemSpace @ 0x140525DFC (MiUnmapImageInSystemSpace.c)
- *     MiPerformFixups @ 0x140526B60 (MiPerformFixups.c)
- *     SeValidateImageHeader @ 0x140527544 (SeValidateImageHeader.c)
- *     MiRelocateAmount @ 0x14052762C (MiRelocateAmount.c)
- *     MiPrefetchControlArea @ 0x140527654 (MiPrefetchControlArea.c)
- *     SeReleaseImageValidationContext @ 0x1405278E0 (SeReleaseImageValidationContext.c)
- *     MiCaptureSecureImageBaseAddress @ 0x14066167C (MiCaptureSecureImageBaseAddress.c)
- *     MiCreatePerSessionProtos @ 0x140661B60 (MiCreatePerSessionProtos.c)
- *     MiDereferencePerSessionProtos @ 0x140661CF8 (MiDereferencePerSessionProtos.c)
+ *     MiMapImageInSystemSpace @ 0x140508D28 (MiMapImageInSystemSpace.c)
+ *     MiUnmapImageInSystemSpace @ 0x140508E5C (MiUnmapImageInSystemSpace.c)
+ *     MiPerformFixups @ 0x140509BC0 (MiPerformFixups.c)
+ *     SeValidateImageHeader @ 0x14050A5A4 (SeValidateImageHeader.c)
+ *     MiRelocateAmount @ 0x14050A68C (MiRelocateAmount.c)
+ *     MiPrefetchControlArea @ 0x14050A6B4 (MiPrefetchControlArea.c)
+ *     SeReleaseImageValidationContext @ 0x14050A940 (SeReleaseImageValidationContext.c)
+ *     MiCaptureSecureImageBaseAddress @ 0x140661760 (MiCaptureSecureImageBaseAddress.c)
+ *     MiCreatePerSessionProtos @ 0x140661C44 (MiCreatePerSessionProtos.c)
+ *     MiDereferencePerSessionProtos @ 0x140661DDC (MiDereferencePerSessionProtos.c)
  */
 
 __int64 __fastcall MiValidateSectionCreate(ULONG_PTR a1, __int64 *a2, unsigned int a3, ULONG_PTR a4, int a5, char a6)
@@ -112,7 +112,7 @@ __int64 __fastcall MiValidateSectionCreate(ULONG_PTR a1, __int64 *a2, unsigned i
     a5 |= 0x40u;
   if ( (a5 & 0x40000000) != 0 && !a2[18] )
   {
-    dword_140326780 = 22;
+    dword_1403267C0 = 22;
     return 3221225595LL;
   }
   if ( (a5 & 5) != 0 )
@@ -336,7 +336,7 @@ LABEL_83:
             result = MiCaptureSecureImageBaseAddress(a2);
             if ( (int)result < 0 )
             {
-              dword_140326780 = 60;
+              dword_1403267C0 = 60;
               return result;
             }
           }
@@ -345,7 +345,7 @@ LABEL_83:
         LODWORD(v10) = result;
         if ( (int)result < 0 )
         {
-          dword_140326780 = 59;
+          dword_1403267C0 = 59;
           return result;
         }
         v38 = v40 & 0xFFFFFFFFFFFFFFFCuLL;
@@ -364,7 +364,7 @@ LABEL_83:
     }
     if ( (_DWORD)v10 != -1073741789 || v41 == *(_DWORD *)(*a2 + 8) )
     {
-      dword_140326780 = 4;
+      dword_1403267C0 = 4;
       return (unsigned int)v10;
     }
     v7 = v31 | 1;

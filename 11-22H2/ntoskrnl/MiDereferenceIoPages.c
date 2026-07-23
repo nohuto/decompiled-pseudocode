@@ -88,7 +88,7 @@ __int64 __fastcall MiDereferenceIoPages(int a1, __int64 a2, ULONG_PTR a3)
   BugCheckParameter2 = v5;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v29) = 4;
@@ -100,7 +100,7 @@ __int64 __fastcall MiDereferenceIoPages(int a1, __int64 a2, ULONG_PTR a3)
   v11 = *((_QWORD *)&v43 + 1);
   if ( HIDWORD(v44) != 3 && v9 == v10 && v5 + a3 - 1 <= *((_QWORD *)&v43 + 1) )
   {
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_83;
     v30 = KeGetCurrentIrql();
     if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v10) == 0 || v30 > 0xFu || CurrentIrql > 0xFu || v30 < 2u )
@@ -260,10 +260,10 @@ LABEL_34:
       ExQueueWorkItem(&stru_140C696F8, DelayedWorkQueue);
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C696E0);
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_83;
     v33 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || v33 > 0xFu || CurrentIrql > 0xFu || v33 < 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v33 > 0xFu || CurrentIrql > 0xFu || v33 < 2u )
       goto LABEL_83;
     v31 = CurrentIrql + 1;
     goto LABEL_81;

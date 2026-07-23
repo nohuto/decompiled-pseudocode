@@ -1,20 +1,20 @@
 /*
- * XREFs of PopFanWorker @ 0x140A83710
+ * XREFs of PopFanWorker @ 0x140A7E230
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     IoReuseIrp @ 0x14031A320 (IoReuseIrp.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopFanSetNoiseImpact @ 0x14075CF3C (PopFanSetNoiseImpact.c)
- *     PopPrepareIoctl @ 0x140A5D1E8 (PopPrepareIoctl.c)
- *     PopFanSetupRpmBuckets @ 0x140A83C8C (PopFanSetupRpmBuckets.c)
- *     PopFanUpdateSpeed @ 0x140A9414C (PopFanUpdateSpeed.c)
- *     PopFanUpdateRunningState @ 0x140AB9518 (PopFanUpdateRunningState.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     IoReuseIrp @ 0x1402C2EB0 (IoReuseIrp.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopFanSetNoiseImpact @ 0x14075BEDC (PopFanSetNoiseImpact.c)
+ *     PopPrepareIoctl @ 0x140A54F18 (PopPrepareIoctl.c)
+ *     PopFanSetupRpmBuckets @ 0x140A7E7AC (PopFanSetupRpmBuckets.c)
+ *     PopFanUpdateSpeed @ 0x140A908FC (PopFanUpdateSpeed.c)
+ *     PopFanUpdateRunningState @ 0x140AB45D8 (PopFanUpdateRunningState.c)
  */
 
 __int64 __fastcall PopFanWorker(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall PopFanWorker(__int64 a1)
   int v8; // ecx
   int v9; // ecx
   __int64 *v10; // rax
-  unsigned __int8 *v11; // rdx
+  char *v11; // rdx
   char v12; // al
   IRP *v13; // rbx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
@@ -67,7 +67,7 @@ LABEL_3:
   Status = v1->IoStatus.Status;
   if ( Status >= 0 )
   {
-    if ( (unsigned int)dword_140E076F0 > 5 )
+    if ( (unsigned int)dword_140E07680 > 5 )
     {
       v18 = a1;
       v23 = &v18;
@@ -75,16 +75,16 @@ LABEL_3:
       v24 = 8LL;
       v25 = (__int64 *)&v20;
       v26 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)word_14004CD42, 0LL, 0LL, 4u, v22);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)word_14004D55A, 0LL, 0LL, 4u, v22);
     }
     v6 = *(unsigned __int8 *)(a1 + 64);
     if ( !*(_BYTE *)(a1 + 64) )
     {
-      if ( (unsigned int)dword_140E076F0 <= 2 )
+      if ( (unsigned int)dword_140E07680 <= 2 )
         goto LABEL_47;
       v19 = a1;
       v10 = &v19;
-      v11 = (unsigned __int8 *)&unk_14004CD80;
+      v11 = byte_14004D94D;
       goto LABEL_32;
     }
     v8 = v6 - 1;
@@ -98,27 +98,27 @@ LABEL_3:
         {
           if ( (_DWORD)v6 == 1 )
           {
-            if ( (unsigned int)dword_140E076F0 <= 2 )
+            if ( (unsigned int)dword_140E07680 <= 2 )
               goto LABEL_47;
             v18 = a1;
             v10 = &v18;
-            v11 = (unsigned __int8 *)byte_14004CC71;
+            v11 = (char *)&word_14004D926;
           }
           else
           {
-            if ( (unsigned int)dword_140E076F0 <= 2 )
+            if ( (unsigned int)dword_140E07680 <= 2 )
               goto LABEL_47;
             v18 = a1;
             v10 = &v18;
-            v11 = (unsigned __int8 *)word_14004CC42;
+            v11 = &byte_14004D8F7;
           }
 LABEL_32:
           v23 = v10;
           v24 = 8LL;
-          tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, v11, 0LL, 0LL, 3u, v22);
+          tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)v11, 0LL, 0LL, 3u, v22);
           goto LABEL_47;
         }
-        if ( (unsigned int)dword_140E076F0 > 5 )
+        if ( (unsigned int)dword_140E07680 > 5 )
         {
           v19 = a1;
           v23 = &v19;
@@ -130,8 +130,8 @@ LABEL_32:
           v26 = 4LL;
           v28 = 4LL;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140E076F0,
-            (unsigned __int8 *)word_14004CDAA,
+            (__int64)&dword_140E07680,
+            (unsigned __int8 *)&byte_14004D977,
             0LL,
             0LL,
             5u,
@@ -141,7 +141,7 @@ LABEL_32:
         *(_DWORD *)(a1 + 104) = *(_DWORD *)(a1 + 96);
         goto LABEL_43;
       }
-      if ( (unsigned int)dword_140E076F0 > 5 )
+      if ( (unsigned int)dword_140E07680 > 5 )
       {
         v19 = a1;
         v23 = &v19;
@@ -153,8 +153,8 @@ LABEL_32:
         v26 = 4LL;
         v28 = 4LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E076F0,
-          (unsigned __int8 *)&word_14004CD06,
+          (__int64)&dword_140E07680,
+          (unsigned __int8 *)&word_14004D51E,
           0LL,
           0LL,
           5u,
@@ -192,7 +192,7 @@ LABEL_43:
   }
   else
   {
-    if ( (unsigned int)dword_140E076F0 > 5 )
+    if ( (unsigned int)dword_140E07680 > 5 )
     {
       v19 = a1;
       v23 = &v19;
@@ -200,7 +200,7 @@ LABEL_43:
       v24 = 8LL;
       v25 = &v18;
       v26 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)byte_14004CCCB, 0LL, 0LL, 4u, v22);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)word_14004DA6A, 0LL, 0LL, 4u, v22);
     }
     if ( *(_BYTE *)(a1 + 64) == 1 )
       goto LABEL_42;
@@ -209,14 +209,14 @@ LABEL_43:
       goto LABEL_3;
     if ( *(_BYTE *)(a1 + 64) == 3 )
     {
-      if ( (unsigned int)dword_140E076F0 > 2 )
+      if ( (unsigned int)dword_140E07680 > 2 )
       {
         v19 = a1;
         v23 = &v19;
         v24 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E076F0,
-          (unsigned __int8 *)&unk_14004CC98,
+          (__int64)&dword_140E07680,
+          (unsigned __int8 *)byte_14004DA37,
           0LL,
           0LL,
           3u,
@@ -228,7 +228,7 @@ LABEL_42:
     }
   }
 LABEL_47:
-  if ( (unsigned int)dword_140E076F0 > 5 )
+  if ( (unsigned int)dword_140E07680 > 5 )
   {
     v23 = &v19;
     v19 = a1;
@@ -236,7 +236,7 @@ LABEL_47:
     v24 = 8LL;
     LODWORD(v18) = v3;
     v26 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)&dword_14004D104, 0LL, 0LL, 4u, v22);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)byte_14004DA01, 0LL, 0LL, 4u, v22);
   }
   switch ( v3 )
   {
@@ -265,7 +265,7 @@ LABEL_58:
       IofCallDriver(v16, v1);
       goto LABEL_59;
   }
-  if ( (unsigned int)dword_140E076F0 > 2 )
+  if ( (unsigned int)dword_140E07680 > 2 )
   {
     v19 = a1;
     v23 = &v19;
@@ -273,7 +273,7 @@ LABEL_58:
     v24 = 8LL;
     v25 = &v18;
     v26 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)&dword_14004D0C4, 0LL, 0LL, 4u, v22);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)byte_14004D9C1, 0LL, 0LL, 4u, v22);
   }
 LABEL_59:
   if ( v5 )

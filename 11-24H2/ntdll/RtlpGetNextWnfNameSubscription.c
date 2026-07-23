@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpGetNextWnfNameSubscription @ 0x180113D10
+ * XREFs of RtlpGetNextWnfNameSubscription @ 0x18010F010
  * Callers:
- *     RtlpWnfCalculateAndSetNextTimer @ 0x180113AC4 (RtlpWnfCalculateAndSetNextTimer.c)
- *     RtlpWnfRetryTimerCallback @ 0x180113BB0 (RtlpWnfRetryTimerCallback.c)
+ *     RtlpWnfCalculateAndSetNextTimer @ 0x18010EDC4 (RtlpWnfCalculateAndSetNextTimer.c)
+ *     RtlpWnfRetryTimerCallback @ 0x18010EEB0 (RtlpWnfRetryTimerCallback.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxRequestWorker @ 0x140605A30
+ * XREFs of PopFxRequestWorker @ 0x140608530
  * Callers:
  *     <none>
  * Callees:
- *     PopFxRequestWorkerInternal @ 0x1403B1FE4 (PopFxRequestWorkerInternal.c)
+ *     PopFxRequestWorkerInternal @ 0x1403BBCF4 (PopFxRequestWorkerInternal.c)
  */
 
 char __fastcall PopFxRequestWorker(__int64 a1)

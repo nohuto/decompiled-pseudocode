@@ -1,24 +1,24 @@
 /*
- * XREFs of KiInsertSchedulingGroupQueue @ 0x140308B4C
+ * XREFs of KiInsertSchedulingGroupQueue @ 0x140308DDC
  * Callers:
- *     KiResortScbQueue @ 0x140305700 (KiResortScbQueue.c)
- *     KiInsertNonMaxOverQuotaScb @ 0x140308AEC (KiInsertNonMaxOverQuotaScb.c)
+ *     KiResortScbQueue @ 0x140305990 (KiResortScbQueue.c)
+ *     KiInsertNonMaxOverQuotaScb @ 0x140308D7C (KiInsertNonMaxOverQuotaScb.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x14024CCC0 (RtlRbInsertNodeEx.c)
+ *     RtlRbInsertNodeEx @ 0x14024CD90 (RtlRbInsertNodeEx.c)
  */
 
-char __fastcall KiInsertSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)
+BOOLEAN __fastcall KiInsertSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)
 {
   __int64 v3; // r9
   __int64 v4; // rax
   __int64 v7; // rcx
-  unsigned __int64 v8; // rdx
-  bool v9; // r8
+  __int64 v8; // rdx
+  BOOLEAN v9; // r8
   int v10; // r11d
   int v11; // eax
   unsigned int v12; // eax
-  unsigned __int64 v13; // rax
-  char result; // al
+  __int64 v13; // rax
+  BOOLEAN result; // al
   unsigned int v15; // r8d
   int v16; // r10d
   int v17; // eax
@@ -91,7 +91,7 @@ LABEL_19:
     goto LABEL_20;
   }
 LABEL_15:
-  result = RtlRbInsertNodeEx((unsigned __int64 *)v7, v8, v9, a2 + 88);
+  result = RtlRbInsertNodeEx((PRTL_RB_TREE)v7, (PRTL_BALANCED_NODE)v8, v9, (PRTL_BALANCED_NODE)(a2 + 88));
   if ( a3 )
   {
     result = MEMORY[0xFFFFF78000000008];

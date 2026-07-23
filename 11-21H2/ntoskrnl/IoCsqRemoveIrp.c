@@ -3,35 +3,33 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
 PIRP __stdcall IoCsqRemoveIrp(PIO_CSQ Csq, PIO_CSQ_IRP_CONTEXT Context)
 {
-  PIO_CSQ_ACQUIRE_LOCK CsqAcquireLock; // rax
-  __int64 v5; // rdx
+  __int64 v4; // rdx
   PIRP Irp; // rdi
-  __int64 v7; // rdx
-  char v9; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v6; // rdx
+  char v8; // [rsp+30h] [rbp+8h] BYREF
 
-  CsqAcquireLock = Csq->CsqAcquireLock;
   Csq->ReservePointer = 0LL;
-  v9 = 0;
-  ((void (__fastcall *)(PIO_CSQ, char *))CsqAcquireLock)(Csq, &v9);
+  v8 = 0;
+  sub_14042A5E0(Csq, &v8);
   Irp = Context->Irp;
   if ( Irp && _InterlockedExchange64((volatile __int64 *)&Irp->CancelRoutine, 0LL) )
   {
-    ((void (__fastcall *)(PIO_CSQ, PIRP))Csq->CsqRemoveIrp)(Csq, Irp);
+    sub_14042A5E0(Csq, Irp);
     Context->Irp = 0LL;
     Irp->Tail.Overlay.DriverContext[3] = 0LL;
-    LOBYTE(v7) = v9;
-    ((void (__fastcall *)(PIO_CSQ, __int64))Csq->CsqReleaseLock)(Csq, v7);
+    LOBYTE(v6) = v8;
+    sub_14042A5E0(Csq, v6);
     return Irp;
   }
   else
   {
-    LOBYTE(v5) = v9;
-    ((void (__fastcall *)(PIO_CSQ, __int64))Csq->CsqReleaseLock)(Csq, v5);
+    LOBYTE(v4) = v8;
+    sub_14042A5E0(Csq, v4);
     return 0LL;
   }
 }

@@ -6,7 +6,7 @@
  *     _RtlpGetTokenNamedObjectPath@16 @ 0x4B348B45 (_RtlpGetTokenNamedObjectPath@16.c)
  */
 
-int __stdcall RtlGetTokenNamedObjectPath(int a1, char a2, int a3)
+NTSTATUS __cdecl RtlGetTokenNamedObjectPath(HANDLE TokenHandle, PSID Sid, PUNICODE_STRING ObjectPath)
 {
-  return RtlpGetTokenNamedObjectPath(a1, 0, a2 != 0, a3);
+  return RtlpGetTokenNamedObjectPath(TokenHandle, 0, (_BYTE)Sid != 0, ObjectPath);
 }

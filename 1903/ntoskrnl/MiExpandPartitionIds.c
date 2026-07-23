@@ -17,9 +17,9 @@
 __int64 MiExpandPartitionIds()
 {
   unsigned int v0; // ebx
-  struct _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *PoolWithTag; // rax
   __int64 v2; // rsi
-  struct _RTL_BITMAP *v3; // rdi
+  _RTL_BITMAP *v3; // rdi
   ULONG_PTR v5; // rax
   unsigned __int64 v6; // rbx
   __int64 PteAddress; // rbp
@@ -36,10 +36,10 @@ __int64 MiExpandPartitionIds()
   }
   else
   {
-    PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                          NonPagedPoolNx,
-                                          8 * ((v0 >> 6) + ((v0 & 0x3F) != 0) + 2),
-                                          0x20206D4Du);
+    PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                                   NonPagedPoolNx,
+                                   8 * ((v0 >> 6) + ((v0 & 0x3F) != 0) + 2),
+                                   0x20206D4Du);
     v2 = 0LL;
     v3 = PoolWithTag;
     if ( !PoolWithTag )

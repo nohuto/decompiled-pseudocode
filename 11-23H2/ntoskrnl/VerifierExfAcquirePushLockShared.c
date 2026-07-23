@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExfAcquirePushLockShared @ 0x140ADD310
+ * XREFs of VerifierExfAcquirePushLockShared @ 0x140ADD300
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierExfAcquirePushLockShared()

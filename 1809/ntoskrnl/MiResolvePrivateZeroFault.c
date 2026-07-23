@@ -9,9 +9,9 @@
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiCompletePrivateZeroFault @ 0x140047940 (MiCompletePrivateZeroFault.c)
  *     MiGetPageChain @ 0x140049670 (MiGetPageChain.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400947A4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiComputeZeroClusterMaximum @ 0x14010FA84 (MiComputeZeroClusterMaximum.c)
- *     MiGetClusterPage @ 0x1402C67BC (MiGetClusterPage.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400946E4 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiComputeZeroClusterMaximum @ 0x14010FB04 (MiComputeZeroClusterMaximum.c)
+ *     MiGetClusterPage @ 0x1402C69AC (MiGetClusterPage.c)
  */
 
 __int64 __fastcall MiResolvePrivateZeroFault(int *a1)
@@ -93,7 +93,7 @@ LABEL_2:
     return 3221225495LL;
   v5 = *((_QWORD *)a1 + 1);
   v6 = *(_QWORD *)(v5 + 56);
-  v7 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(v6 + 174));
+  v7 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(v6 + 174));
   if ( (v1 & 0x40) != 0 )
   {
     v8 = (struct _KTHREAD *)KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[10];
@@ -242,7 +242,7 @@ LABEL_43:
         {
           MiInitializePageColorBase(v6, v12, (__int64)&v40);
           v28 = v42;
-          v12 = v42 >> byte_14043A049;
+          v12 = v42 >> byte_14043B109;
           v29 = _InterlockedExchangeAdd(v40, 1u);
           PageChain = MiGet64KPage(v7, a1[8], v28 | (unsigned int)(unsigned __int16)(v29 & v41), 0LL);
           if ( PageChain )
@@ -301,7 +301,7 @@ LABEL_37:
 LABEL_7:
   v14 = *((_QWORD *)a1 + 9);
   if ( v14 )
-    v7 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(v14 + 544) + 1454LL));
+    v7 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(*(_QWORD *)(v14 + 544) + 1454LL));
   if ( !PageChain )
   {
     PageChain = MiGetPageChain(v7, v6, v12, a1[8], 258, -1LL, (__int64)&v52);

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopBsdFlushWorker @ 0x140A6B8F0
+ * XREFs of PopBsdFlushWorker @ 0x140A64E50
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopOkayToQueueNextWorkItem @ 0x1404A4D54 (PopOkayToQueueNextWorkItem.c)
- *     PopBsdFlush @ 0x140A6B984 (PopBsdFlush.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopOkayToQueueNextWorkItem @ 0x14049FAE4 (PopOkayToQueueNextWorkItem.c)
+ *     PopBsdFlush @ 0x140A64EE4 (PopBsdFlush.c)
  */
 
 __int64 PopBsdFlushWorker()
 {
-  PopAcquireRwLockExclusive(&PopBsdUpdateLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopBsdUpdateLock);
   PopBsdFlush(7LL);
-  PopReleaseRwLock((signed __int64 *)&PopBsdUpdateLock);
+  PopReleaseRwLock(&PopBsdUpdateLock);
   return PopOkayToQueueNextWorkItem((__int64)&PopBsdFlushWorkItem);
 }

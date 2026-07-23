@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRemoveVad @ 0x1402C5120
+ * XREFs of MiRemoveVad @ 0x1402C5310
  * Callers:
- *     MiRemovePlaceholderVad @ 0x1402C4EBC (MiRemovePlaceholderVad.c)
+ *     MiRemovePlaceholderVad @ 0x1402C50AC (MiRemovePlaceholderVad.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     MiVadMapsLargeImage @ 0x140074A10 (MiVadMapsLargeImage.c)
+ *     MiVadMapsLargeImage @ 0x140074A00 (MiVadMapsLargeImage.c)
  */
 
 __int64 __fastcall MiRemoveVad(__int64 a1, __int64 a2)

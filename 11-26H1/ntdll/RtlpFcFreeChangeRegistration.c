@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpFcFreeChangeRegistration @ 0x180064B0C
+ * XREFs of RtlpFcFreeChangeRegistration @ 0x180084F5C
  * Callers:
- *     RtlUnregisterFeatureConfigurationChangeNotification @ 0x1800ED4D0 (RtlUnregisterFeatureConfigurationChangeNotification.c)
+ *     RtlUnregisterFeatureConfigurationChangeNotification @ 0x1800EC970 (RtlUnregisterFeatureConfigurationChangeNotification.c)
  * Callees:
- *     TpReleaseWork @ 0x180064C60 (TpReleaseWork.c)
- *     TpWaitForWork @ 0x180064D50 (TpWaitForWork.c)
+ *     TpReleaseWork @ 0x1800850B0 (TpReleaseWork.c)
+ *     TpWaitForWork @ 0x1800851A0 (TpWaitForWork.c)
  */
 
-__int64 __fastcall RtlpFcFreeChangeRegistration(__int64 a1)
+LOGICAL __fastcall RtlpFcFreeChangeRegistration(PVOID BaseAddress)
 {
-  __int64 v2; // rcx
+  _TP_WORK *v2; // rcx
 
-  v2 = *(_QWORD *)(a1 + 40);
+  v2 = (_TP_WORK *)*((_QWORD *)BaseAddress + 5);
   if ( v2 )
   {
-    TpWaitForWork(v2, 1LL);
-    TpReleaseWork(*(_QWORD *)(a1 + 40));
+    TpWaitForWork(v2, 1u);
+    TpReleaseWork(*((PTP_WORK *)BaseAddress + 5));
   }
-  return RtlFreeHeap_0();
+  return RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
 }

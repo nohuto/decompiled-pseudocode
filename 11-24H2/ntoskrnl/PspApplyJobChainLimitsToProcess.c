@@ -1,16 +1,16 @@
 /*
- * XREFs of PspApplyJobChainLimitsToProcess @ 0x1408E7DA0
+ * XREFs of PspApplyJobChainLimitsToProcess @ 0x1408D85E4
  * Callers:
- *     PspImplicitAssignProcessToJob @ 0x1408E7184 (PspImplicitAssignProcessToJob.c)
- *     PspAssignProcessToJob @ 0x140A173D0 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x1408D79EC (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x140A105B0 (PspAssignProcessToJob.c)
  * Callees:
- *     PspNotifyProcessEffectiveIoLimitChanged @ 0x1403EF8F4 (PspNotifyProcessEffectiveIoLimitChanged.c)
- *     PsUpdateComponentPower @ 0x14042D9F0 (PsUpdateComponentPower.c)
- *     KeSetProcessSchedulingGroup @ 0x14047C244 (KeSetProcessSchedulingGroup.c)
- *     RtlInterlockedSetClearBits @ 0x14048B890 (RtlInterlockedSetClearBits.c)
- *     PspComputeExecutionState @ 0x1408E7EA8 (PspComputeExecutionState.c)
- *     PspApplyJobLimitsToProcess @ 0x1408E7EF8 (PspApplyJobLimitsToProcess.c)
- *     PspSetProcessSchedulingGroup @ 0x1408E8064 (PspSetProcessSchedulingGroup.c)
+ *     KeSetProcessSchedulingGroup @ 0x1402D6F08 (KeSetProcessSchedulingGroup.c)
+ *     PspNotifyProcessEffectiveIoLimitChanged @ 0x1403E2874 (PspNotifyProcessEffectiveIoLimitChanged.c)
+ *     PsUpdateComponentPower @ 0x14041F720 (PsUpdateComponentPower.c)
+ *     RtlInterlockedSetClearBits @ 0x140486664 (RtlInterlockedSetClearBits.c)
+ *     PspComputeExecutionState @ 0x1408D86EC (PspComputeExecutionState.c)
+ *     PspApplyJobLimitsToProcess @ 0x1408D873C (PspApplyJobLimitsToProcess.c)
+ *     PspSetProcessSchedulingGroup @ 0x1408D88A8 (PspSetProcessSchedulingGroup.c)
  */
 
 __int64 __fastcall PspApplyJobChainLimitsToProcess(__int64 a1, __int64 a2, __int64 a3)

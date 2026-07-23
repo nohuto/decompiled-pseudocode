@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertLargeTbFlushEntry @ 0x14008B9B4
+ * XREFs of MiInsertLargeTbFlushEntry @ 0x14008B0B4
  * Callers:
- *     MiZeroPageWorkMapping @ 0x14008B8A0 (MiZeroPageWorkMapping.c)
- *     MiUnmapMdlCommon @ 0x1401E3CF0 (MiUnmapMdlCommon.c)
- *     MiUnmapLargeUserPages @ 0x1401F5AE0 (MiUnmapLargeUserPages.c)
+ *     MiZeroPageWorkMapping @ 0x14008AFA0 (MiZeroPageWorkMapping.c)
+ *     MiUnmapMdlCommon @ 0x1401E3B1C (MiUnmapMdlCommon.c)
+ *     MiUnmapLargeUserPages @ 0x1401F590C (MiUnmapLargeUserPages.c)
  * Callees:
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
  */
 
 __int64 __fastcall MiInsertLargeTbFlushEntry(__int64 a1, unsigned int a2, __int64 a3)

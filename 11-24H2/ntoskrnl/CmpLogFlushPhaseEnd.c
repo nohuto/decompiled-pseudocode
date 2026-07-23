@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogFlushPhaseEnd @ 0x14097C1A0
+ * XREFs of CmpLogFlushPhaseEnd @ 0x1409649B0
  * Callers:
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
  * Callees:
- *     EtwWriteTransfer @ 0x14041C2C0 (EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteTransfer @ 0x140410100 (EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CmpLogFlushPhaseEnd(__int64 a1, char a2, int a3)
@@ -22,7 +22,7 @@ NTSTATUS __fastcall CmpLogFlushPhaseEnd(__int64 a1, char a2, int a3)
   _DWORD *v13; // [rsp+80h] [rbp+37h]
   __int64 v14; // [rsp+88h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140E09EE8 > 4 )
+  if ( (unsigned int)dword_140E09F58 > 4 )
   {
     v4 = a2;
     v11 = &v4;
@@ -30,17 +30,17 @@ NTSTATUS __fastcall CmpLogFlushPhaseEnd(__int64 a1, char a2, int a3)
     EventDescriptor.Keyword = 0LL;
     v13 = v5;
     *(_DWORD *)&EventDescriptor.Level = 516;
-    UserData.Ptr = (ULONGLONG)off_140E09EF0;
+    UserData.Ptr = (ULONGLONG)off_140E09F60;
     v5[0] = a3;
     v14 = 4LL;
     *(_DWORD *)&EventDescriptor.Id = 184549376;
-    UserData.Size = *(unsigned __int16 *)off_140E09EF0;
-    v8 = &dword_14005475C;
+    UserData.Size = *(unsigned __int16 *)off_140E09F60;
+    v8 = &dword_14005521C;
     v10 = 1;
     UserData.Reserved = 2;
     v9 = 35;
     v5[1] = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
-    return EtwWriteTransfer(qword_140E09F08, &EventDescriptor, 0LL, 0LL, 4u, &UserData);
+    return EtwWriteTransfer(qword_140E09F78, &EventDescriptor, 0LL, 0LL, 4u, &UserData);
   }
   return result;
 }

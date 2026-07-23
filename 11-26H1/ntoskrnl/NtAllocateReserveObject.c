@@ -1,53 +1,56 @@
 /*
- * XREFs of NtAllocateReserveObject @ 0x140B07F50
+ * XREFs of NtAllocateReserveObject @ 0x140B0A080
  * Callers:
- *     DifNtAllocateReserveObjectWrapper @ 0x14066B230 (DifNtAllocateReserveObjectWrapper.c)
+ *     DifNtAllocateReserveObjectWrapper @ 0x14066EE10 (DifNtAllocateReserveObjectWrapper.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
  */
 
-__int64 __fastcall NtAllocateReserveObject(_QWORD *a1, __int64 a2, int a3)
+NTSTATUS __cdecl NtAllocateReserveObject(
+        PHANDLE MemoryReserveHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        MEMORY_RESERVE_TYPE Type)
 {
   __int64 v3; // r14
   char PreviousMode; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _DWORD *v8; // rbx
-  int inserted; // ebx
+  NTSTATUS inserted; // ebx
   __int64 ULong64FromUser; // rax
   __int64 v11; // [rsp+20h] [rbp-68h]
   void *v12; // [rsp+58h] [rbp-30h] BYREF
-  __int64 v13; // [rsp+60h] [rbp-28h] BYREF
+  void *v13; // [rsp+60h] [rbp-28h] BYREF
 
-  v3 = a3;
+  v3 = Type;
   v13 = 0LL;
   v12 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
+    ULong64FromUser = RtlReadULong64FromUser(MemoryReserveHandle);
+    RtlWriteULong64ToUser(MemoryReserveHandle, ULong64FromUser);
   }
   if ( (unsigned int)v3 > 1 )
-    return 3221225485LL;
+    return -1073741811;
   result = ObCreateObjectEx(
              PreviousMode,
-             (_DWORD *)stru_140FC01F0.SchedulerApc.Reserved[v3],
-             a2,
+             *((_DWORD **)&stru_140FC11F0.SchedulerApc.ApcListEntry.Blink + v3),
+             (__int64)ObjectAttributes,
              PreviousMode,
              v11,
-             *((_DWORD *)&ExpPlatformBinaryLock.UserAffinityPrimaryGroup + 2 * v3),
+             *((_DWORD *)&ExpPlatformBinaryLock.AffinityPrimaryGroup + 2 * v3),
              0,
              0,
              &v12,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v8 = v12;
-    memset_0(v12, 0, *((_QWORD *)&ExpPlatformBinaryLock.UserAffinityPrimaryGroup + v3));
+    memset_0(v12, 0, *((_QWORD *)&ExpPlatformBinaryLock.AffinityPrimaryGroup + v3));
     if ( (_DWORD)v3 == 1 )
     {
       v8[6] = 4;
@@ -55,16 +58,16 @@ __int64 __fastcall NtAllocateReserveObject(_QWORD *a1, __int64 a2, int a3)
       *((_QWORD *)v8 + 9) = v8;
       *((_BYTE *)v8 + 80) = 0;
     }
-    inserted = ObInsertObjectEx((char *)v8, 0LL, 0xF0003u, 0, 0, 0LL, &v13);
+    inserted = ObInsertObjectEx((char *)v8, 0LL, 983043, 0, 0, 0LL, &v13);
     LODWORD(v12) = inserted;
     if ( inserted >= 0 )
     {
       if ( PreviousMode )
-        RtlWriteULong64ToUser(a1, v13);
+        RtlWriteULong64ToUser(MemoryReserveHandle, (__int64)v13);
       else
-        *a1 = v13;
+        *MemoryReserveHandle = v13;
     }
-    return (unsigned int)inserted;
+    return inserted;
   }
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepMemAlloc @ 0x14000F2A0
+ * XREFs of AuthzBasepMemAlloc @ 0x14000EE20
  * Callers:
- *     AuthzBasepAllocateSecurityAttributeValue @ 0x14000F268 (AuthzBasepAllocateSecurityAttributeValue.c)
- *     AuthzBasepUnicodeStringFromOperandValue @ 0x1400A0238 (AuthzBasepUnicodeStringFromOperandValue.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AC934 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x140146050 (AuthzBasepAllocateSecurityAttributesList.c)
- *     AuthzBasepAllocateClaimCollectionNoLists @ 0x1406C9C70 (AuthzBasepAllocateClaimCollectionNoLists.c)
+ *     AuthzBasepAllocateSecurityAttributeValue @ 0x14000EDE8 (AuthzBasepAllocateSecurityAttributeValue.c)
+ *     AuthzBasepUnicodeStringFromOperandValue @ 0x14009EB60 (AuthzBasepUnicodeStringFromOperandValue.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AAE9C (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x1401465C0 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     AuthzBasepAllocateClaimCollectionNoLists @ 0x1406C9DA8 (AuthzBasepAllocateClaimCollectionNoLists.c)
  * Callees:
  *     <none>
  */

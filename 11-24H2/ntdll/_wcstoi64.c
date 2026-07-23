@@ -1,9 +1,9 @@
 /*
- * XREFs of _wcstoi64 @ 0x180122F10
+ * XREFs of _wcstoi64 @ 0x180121140
  * Callers:
- *     _wtoi64 @ 0x1801232C0 (_wtoi64.c)
+ *     _wtoi64 @ 0x1801214F0 (_wtoi64.c)
  * Callees:
- *     wcstoxq @ 0x180122F74 (wcstoxq.c)
+ *     wcstoxq @ 0x1801211A4 (wcstoxq.c)
  */
 
 __int64 __cdecl wcstoi64(const wchar_t *String, wchar_t **EndPtr, int Radix)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreateSlabAllocationsFromLoaderBlock @ 0x1409B9674
+ * XREFs of MiCreateSlabAllocationsFromLoaderBlock @ 0x1409BA674
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiCreateSlabEntriesFromLoaderSlab @ 0x1409F745C (MiCreateSlabEntriesFromLoaderSlab.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiCreateSlabEntriesFromLoaderSlab @ 0x1409F845C (MiCreateSlabEntriesFromLoaderSlab.c)
  */
 
 __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)
   _BYTE v8[8]; // [rsp+30h] [rbp-88h] BYREF
   __int64 v9; // [rsp+38h] [rbp-80h]
 
-  if ( (dword_14043C944 & 8) != 0 )
+  if ( (dword_14043DA04 & 8) != 0 )
   {
     v3 = (__int64 *)(a1 + 32);
     for ( i = *(__int64 **)(a1 + 32); i != v3; i = (__int64 *)*i )
@@ -32,7 +32,7 @@ __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)
         v7 = i[3];
         if ( ((v7 | v6) & 0x1FF) != 0 || !v7 || !v6 || v6 + v7 < v7 || v6 + v7 - 1 > 0xFFFFFFFFFLL )
           KeBugCheckEx(0x1Au, 0x3030310uLL, v7, v6, 0LL);
-        SlabEntriesFromLoaderSlab = MiCreateSlabEntriesFromLoaderSlab(&qword_14043E1C8, i[3], i[4]);
+        SlabEntriesFromLoaderSlab = MiCreateSlabEntriesFromLoaderSlab(&qword_14043F288, i[3], i[4]);
         if ( SlabEntriesFromLoaderSlab < 0 )
           return (unsigned int)SlabEntriesFromLoaderSlab;
       }
@@ -41,7 +41,7 @@ __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)
   SlabEntriesFromLoaderSlab = 0;
   if ( (MiFlags & 0x8000) != 0 )
   {
-    v9 = ((unsigned int)dword_14043C944 >> 3) & 1;
+    v9 = ((unsigned int)dword_14043DA04 >> 3) & 1;
     return (unsigned int)VslpEnterIumSecureMode(2u, 219LL, 0, (__int64)v8);
   }
   return (unsigned int)SlabEntriesFromLoaderSlab;

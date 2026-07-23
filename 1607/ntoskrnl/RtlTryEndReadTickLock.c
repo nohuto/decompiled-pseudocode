@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlTryEndReadTickLock @ 0x1400F21E0
+ * XREFs of RtlTryEndReadTickLock @ 0x1400F0030
  * Callers:
- *     KeQueryCpuSetInformation @ 0x140578728 (KeQueryCpuSetInformation.c)
+ *     KeQueryCpuSetInformation @ 0x140578C68 (KeQueryCpuSetInformation.c)
  * Callees:
  *     <none>
  */

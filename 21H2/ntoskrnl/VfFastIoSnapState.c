@@ -1,21 +1,21 @@
 /*
- * XREFs of VfFastIoSnapState @ 0x1409C9A8C
+ * XREFs of VfFastIoSnapState @ 0x1409CAA8C
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x140360FD0 (IopCompleteUnloadOrDelete.c)
+ *     IopCompleteUnloadOrDelete @ 0x1402A6030 (IopCompleteUnloadOrDelete.c)
  *     IopReadFile @ 0x1405CE318 (IopReadFile.c)
  *     IopWriteFile @ 0x1405CEB78 (IopWriteFile.c)
- *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
- *     IopGetBasicInformationFile @ 0x1406088E8 (IopGetBasicInformationFile.c)
- *     IopQueryInformation @ 0x1406886C0 (IopQueryInformation.c)
- *     NtUnlockFile @ 0x14068F570 (NtUnlockFile.c)
- *     IopCloseFile @ 0x1406FCA20 (IopCloseFile.c)
- *     IopXxxControlFile @ 0x1406FE010 (IopXxxControlFile.c)
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
- *     NtLockFile @ 0x140708790 (NtLockFile.c)
+ *     IopQueryInformation @ 0x1405E7B50 (IopQueryInformation.c)
+ *     NtUnlockFile @ 0x1405EF3E0 (NtUnlockFile.c)
+ *     IopGetBasicInformationFile @ 0x140698398 (IopGetBasicInformationFile.c)
+ *     NtQueryInformationFile @ 0x1406EA600 (NtQueryInformationFile.c)
+ *     IopCloseFile @ 0x140713E00 (IopCloseFile.c)
+ *     IopXxxControlFile @ 0x1407153F0 (IopXxxControlFile.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
+ *     NtLockFile @ 0x14071FB70 (NtLockFile.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1403506D0 (KeAreInterruptsEnabled.c)
- *     ViIoCallbackSnapState @ 0x1409C9B84 (ViIoCallbackSnapState.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     KeAreInterruptsEnabled @ 0x14035B420 (KeAreInterruptsEnabled.c)
+ *     ViIoCallbackSnapState @ 0x1409CAB84 (ViIoCallbackSnapState.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 VfFastIoSnapState()

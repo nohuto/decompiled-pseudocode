@@ -3,15 +3,16 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
-__int64 NtCompareSigningLevels()
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtCompareSigningLevels(SE_SIGNING_LEVEL FirstSigningLevel, SE_SIGNING_LEVEL SecondSigningLevel)
 {
-  int v0; // eax
+  int v2; // eax
 
-  v0 = 0;
+  v2 = 0;
   if ( qword_140C1B8E0 )
-    v0 = ((__int64 (*)(void))qword_140C1B8E0)();
-  return v0 == 0 ? 0xC0000428 : 0;
+    v2 = sub_14042A5E0(FirstSigningLevel, SecondSigningLevel);
+  return v2 == 0 ? 0xC0000428 : 0;
 }

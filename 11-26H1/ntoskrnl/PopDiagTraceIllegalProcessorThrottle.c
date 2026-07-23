@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceIllegalProcessorThrottle @ 0x140608EC4
+ * XREFs of PopDiagTraceIllegalProcessorThrottle @ 0x14060BA84
  * Callers:
- *     PpmPerfCheckForIllegalProcessorThrottle @ 0x140254020 (PpmPerfCheckForIllegalProcessorThrottle.c)
+ *     PpmPerfCheckForIllegalProcessorThrottle @ 0x140255980 (PpmPerfCheckForIllegalProcessorThrottle.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceIllegalProcessorThrottle(int a1, __int64 a2, _QWORD *a3)
@@ -28,17 +28,10 @@ void __fastcall PopDiagTraceIllegalProcessorThrottle(int a1, __int64 a2, _QWORD 
   v15 = a1;
   v3 = 1;
   v4 = 1;
-  if ( !byte_140E67628
-    || !EtwEventEnabled(
-          *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-          &POP_ETW_EVENT_ILLEGAL_PROCESSOR_THROTTLE_DIAGNOSTIC) )
-  {
+  if ( !PopDiagHandleRegistered || !EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_ILLEGAL_PROCESSOR_THROTTLE_DIAGNOSTIC) )
     v3 = 0;
-  }
-  if ( !byte_140E67628
-    || !EtwEventEnabled(
-          *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-          &POP_ETW_EVENT_ILLEGAL_PROCESSOR_THROTTLE_OPERATIONAL) )
+  if ( !PopDiagHandleRegistered
+    || !EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_ILLEGAL_PROCESSOR_THROTTLE_OPERATIONAL) )
   {
     v4 = 0;
   }
@@ -49,7 +42,7 @@ void __fastcall PopDiagTraceIllegalProcessorThrottle(int a1, __int64 a2, _QWORD 
     v9 = &v16;
     *(_QWORD *)&UserData.Size = 4LL;
     if ( *a3 )
-      v6 = (unsigned int)KeMaximumIncrement * (MEMORY[0xFFFFF78000000320] - *a3) / 10000000LL;
+      v6 = KeMaximumIncrement * (MEMORY[0xFFFFF78000000320] - *a3) / 10000000LL;
     else
       LODWORD(v6) = 0;
     v7 = v6;
@@ -59,24 +52,8 @@ void __fastcall PopDiagTraceIllegalProcessorThrottle(int a1, __int64 a2, _QWORD 
     v12 = 4LL;
     v14 = 4LL;
     if ( v3 )
-      EtwWriteEx(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_ILLEGAL_PROCESSOR_THROTTLE_DIAGNOSTIC,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        4u,
-        &UserData);
+      EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_ILLEGAL_PROCESSOR_THROTTLE_DIAGNOSTIC, 0LL, 0, 0LL, 0LL, 4u, &UserData);
     if ( v4 )
-      EtwWriteEx(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_ILLEGAL_PROCESSOR_THROTTLE_OPERATIONAL,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        4u,
-        &UserData);
+      EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_ILLEGAL_PROCESSOR_THROTTLE_OPERATIONAL, 0LL, 0, 0LL, 0LL, 4u, &UserData);
   }
 }

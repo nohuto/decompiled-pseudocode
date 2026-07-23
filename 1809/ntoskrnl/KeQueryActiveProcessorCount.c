@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryActiveProcessorCount @ 0x14028FD00
+ * XREFs of KeQueryActiveProcessorCount @ 0x14028FEF0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
  */
 
 ULONG __stdcall KeQueryActiveProcessorCount(PKAFFINITY ActiveProcessors)
@@ -13,8 +13,8 @@ ULONG __stdcall KeQueryActiveProcessorCount(PKAFFINITY ActiveProcessors)
 
   if ( ActiveProcessors )
   {
-    v1 = qword_1405416A8[0];
-    *ActiveProcessors = qword_1405416A8[0];
+    v1 = qword_1405426A8[0];
+    *ActiveProcessors = qword_1405426A8[0];
     return (0x101010101010101LL
           * ((((v1 - ((v1 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
             + (((v1 - ((v1 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
