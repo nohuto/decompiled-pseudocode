@@ -1,0 +1,41 @@
+/*
+ * XREFs of NdisMDeregisterDmaChannel @ 0x140170F00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x14001DD50 (WPP_RECORDER_SF_.c)
+ *     ?ndisReferencePackage@@YAXPEAU_PKG_REF@@@Z @ 0x14002E9A0 (-ndisReferencePackage@@YAXPEAU_PKG_REF@@@Z.c)
+ *     ?ndisDereferenceDmaAdapter@@YAXPEAU_NDIS_SG_DMA_BLOCK@@@Z @ 0x140049E20 (-ndisDereferenceDmaAdapter@@YAXPEAU_NDIS_SG_DMA_BLOCK@@@Z.c)
+ *     ?ndisDereferencePackage@@YAXPEAU_PKG_REF@@@Z @ 0x14004B9E0 (-ndisDereferencePackage@@YAXPEAU_PKG_REF@@@Z.c)
+ *     _guard_dispatch_icall @ 0x1400E7130 (_guard_dispatch_icall.c)
+ */
+
+void __stdcall NdisMDeregisterDmaChannel(NDIS_HANDLE MiniportDmaHandle)
+{
+  __int64 v1; // rsi
+  KIRQL v3; // di
+
+  v1 = *((_QWORD *)MiniportDmaHandle + 5);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4,
+      1,
+      39,
+      (struct _GUID *)&WPP_61ca6882386639ff5ded6eed385a297b_Traceguids);
+  ndisReferencePackage((struct _PKG_REF *)&ndisPkgs);
+  v3 = KfRaiseIrql(2u);
+  (*(void (**)(void))(*(_QWORD *)(*((_QWORD *)MiniportDmaHandle + 4) + 8LL) + 48LL))();
+  if ( v3 != 2 )
+    KeLowerIrql(v3);
+  ndisDereferenceDmaAdapter(*(struct _NDIS_SG_DMA_BLOCK **)(v1 + 504));
+  ndisDereferencePackage((PVOID *)&ndisPkgs);
+  ExFreePoolWithTag(MiniportDmaHandle, 0);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4,
+      1,
+      40,
+      (struct _GUID *)&WPP_61ca6882386639ff5ded6eed385a297b_Traceguids);
+}

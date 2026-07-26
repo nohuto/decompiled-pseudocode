@@ -1,0 +1,96 @@
+/*
+ * XREFs of ?ndisNotifyWmiBindUnbind@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_PROTOCOL_BLOCK@@E@Z @ 0x140051FC0
+ * Callers:
+ *     ?ndisOpenAdapterLegacyProtocol@@YAXPEAH0PEAPEAXPEAIPEAW4_NDIS_MEDIUM@@IPEAX4PEAU_UNICODE_STRING@@IPEAU_STRING@@0@Z @ 0x140084490 (-ndisOpenAdapterLegacyProtocol@@YAXPEAH0PEAPEAXPEAIPEAW4_NDIS_MEDIUM@@IPEAX4PEAU_UNICODE_STRING@.c)
+ *     ?ndisBindNdis6Protocol@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_PROTOCOL_BLOCK@@@Z @ 0x140153580 (-ndisBindNdis6Protocol@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_PROTOCOL_BLOCK@@@Z.c)
+ *     ?ndisMQueuedFinishClose@@YAXPEAX@Z @ 0x140162170 (-ndisMQueuedFinishClose@@YAXPEAX@Z.c)
+ *     ?ndisBindLegacyProtocol@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_PROTOCOL_BLOCK@@PEAUNDIS_BIND_PROTOCOL_LINK@@@Z @ 0x14016BDD0 (-ndisBindLegacyProtocol@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_PROTOCOL_BLOCK@@PEAUNDIS_BIND_PR.c)
+ *     ?ndisUnbindProtocolOpen@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OPEN_BLOCK@@@Z @ 0x140182FC0 (-ndisUnbindProtocolOpen@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OPEN_BLOCK@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1400075C0 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_qql @ 0x14002BC80 (WPP_RECORDER_SF_qql.c)
+ *     ?ndisSetupWmiNode@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEBU_UNICODE_STRING@@KPEAXPEAPEAUtagWNODE_SINGLE_INSTANCE@@@Z @ 0x1400523E0 (-ndisSetupWmiNode@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEBU_UNICODE_STRING@@KPEAXPEAPEAUtagWNODE_SINGLE.c)
+ *     McTemplateK0qqq_EtwWriteTransfer @ 0x140092FAC (McTemplateK0qqq_EtwWriteTransfer.c)
+ *     memmove @ 0x1400E7200 (memmove.c)
+ */
+
+void __fastcall ndisNotifyWmiBindUnbind(
+        struct _NDIS_MINIPORT_BLOCK *a1,
+        struct _NDIS_PROTOCOL_BLOCK *a2,
+        unsigned __int8 a3)
+{
+  int v6; // ebp
+  GUID *v7; // r9
+  int v8; // r15d
+  PVOID v9; // r14
+  char *v10; // rbx
+  int v11; // edx
+  int v12; // ecx
+  NTSTATUS v13; // ebx
+  __int64 v14; // [rsp+38h] [rbp-30h]
+  PVOID Argument1; // [rsp+70h] [rbp+8h] BYREF
+
+  v6 = a3;
+  Argument1 = 0LL;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qql(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0xDu,
+      0x6Eu,
+      (struct _GUID *)&WPP_ae366525395e343a98801eaac4c5345b_Traceguids,
+      (char)a1,
+      (char)a2,
+      a3);
+  v7 = &GUID_NDIS_NOTIFY_BIND;
+  v8 = v6;
+  if ( !a3 )
+    v7 = &GUID_NDIS_NOTIFY_UNBIND;
+  ndisSetupWmiNode(
+    a1,
+    a1->pAdapterInstanceName,
+    a1->BindPaths->Paths[0].Length + a2->Name.Length + 4,
+    v7,
+    (struct tagWNODE_SINGLE_INSTANCE **)&Argument1);
+  v9 = Argument1;
+  if ( Argument1 )
+  {
+    v10 = (char *)Argument1 + *((unsigned int *)Argument1 + 14);
+    memmove(v10, a2->Name.Buffer, a2->Name.Length);
+    memmove(&v10[a2->Name.Length + 2], a1->BindPaths->Paths[0].Buffer, a1->BindPaths->Paths[0].Length);
+    if ( ndisBindUnbindCallbackObject )
+      ExNotifyCallback(ndisBindUnbindCallbackObject, v9, 0LL);
+    v13 = IoWMIWriteEvent(v9);
+    if ( v13 < 0 )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v11) = 2;
+        WPP_RECORDER_SF_d(
+          *((_QWORD *)WPP_GLOBAL_Control + 8),
+          v11,
+          13,
+          111,
+          (struct _GUID *)&WPP_ae366525395e343a98801eaac4c5345b_Traceguids,
+          v13);
+      }
+      if ( (byte_14011B101 & 0x10) != 0 )
+        McTemplateK0qqq_EtwWriteTransfer(v12, (unsigned int)&IoWMIWriteEventFailed, (_DWORD)a1 + 4008, v13, 4, 0);
+      ExFreePoolWithTag(v9, 0);
+      v8 = v6;
+    }
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LODWORD(v14) = v8;
+    WPP_RECORDER_SF_qql(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0xDu,
+      0x70u,
+      (struct _GUID *)&WPP_ae366525395e343a98801eaac4c5345b_Traceguids,
+      (char)a1,
+      (char)a2,
+      v14);
+  }
+}

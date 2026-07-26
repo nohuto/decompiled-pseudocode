@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?GetSubkeyName@KRegKey@@QEAAJKAEAV?$unique_ptr@UKString@Rtl@@U?$default_delete@UKString@Rtl@@@wistd@@@wistd@@@Z @ 0x1C0108918
+ * Callers:
+ *     netsetupEnumerateObjectIds__lambda_86c1c4c730e7c498c85e738815d56adf___ @ 0x1C01087A0 (netsetupEnumerateObjectIds__lambda_86c1c4c730e7c498c85e738815d56adf___.c)
+ *     ?ndisWdfUpdateAddDeviceParameters@@YAJAEAVKRegKey@@AEAUNDIS_MINIPORT_CREATION_CONFIG@@@Z @ 0x1C0115E5C (-ndisWdfUpdateAddDeviceParameters@@YAJAEAVKRegKey@@AEAUNDIS_MINIPORT_CREATION_CONFIG@@@Z.c)
+ *     ??$netsetupEnumerateObjectIds@P6AJAEBU_GUID@@@Z@@YAJW4_NETSETUP_OBJECT_TYPE@@W4NetSetupStoreType@@P6AJAEBU_GUID@@@Z@Z @ 0x1C012363C (--$netsetupEnumerateObjectIds@P6AJAEBU_GUID@@@Z@@YAJW4_NETSETUP_OBJECT_TYPE@@W4NetSetupStoreType.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C003DA60 (__security_check_cookie.c)
+ *     memset @ 0x1C00403C0 (memset.c)
+ *     ?Initialize@KString@Rtl@@SAPEAU12@PEBU_UNICODE_STRING@@@Z @ 0x1C0101144 (-Initialize@KString@Rtl@@SAPEAU12@PEBU_UNICODE_STRING@@@Z.c)
+ */
+
+NTSTATUS __fastcall KRegKey::GetSubkeyName(void **a1, ULONG a2, void **a3)
+{
+  void *v6; // rcx
+  NTSTATUS result; // eax
+  struct Rtl::KString *v8; // rax
+  void *v9; // rcx
+  ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
+  struct _UNICODE_STRING v11; // [rsp+38h] [rbp-C8h] BYREF
+  _DWORD KeyInformation[136]; // [rsp+50h] [rbp-B0h] BYREF
+
+  memset(KeyInformation, 0, 0x218uLL);
+  v6 = *a1;
+  ResultLength = 0;
+  result = ZwEnumerateKey(v6, a2, KeyBasicInformation, KeyInformation, 0x218u, &ResultLength);
+  if ( result >= 0 )
+  {
+    if ( KeyInformation[3] > 0x200u )
+    {
+      return -1073741562;
+    }
+    else
+    {
+      *(_DWORD *)(&v11.MaximumLength + 1) = 0;
+      *((_WORD *)&KeyInformation[4] + ((unsigned __int64)KeyInformation[3] >> 1)) = 0;
+      v11.Length = KeyInformation[3];
+      v11.MaximumLength = LOWORD(KeyInformation[3]) + 2;
+      v11.Buffer = (wchar_t *)&KeyInformation[4];
+      v8 = Rtl::KString::Initialize(&v11);
+      v9 = *a3;
+      *a3 = v8;
+      if ( v9 )
+      {
+        ExFreePoolWithTag(v9, 0x7274534Bu);
+        v8 = (struct Rtl::KString *)*a3;
+      }
+      return v8 == 0LL ? 0xC000009A : 0;
+    }
+  }
+  return result;
+}

@@ -1,0 +1,201 @@
+/*
+ * XREFs of ndisLWM5IndicateReceive @ 0x1C0069D14
+ * Callers:
+ *     EthIndicateReceive @ 0x1C00699F0 (EthIndicateReceive.c)
+ * Callees:
+ *     NdisFreePacket @ 0x1C0015C20 (NdisFreePacket.c)
+ *     NdisAllocatePacket @ 0x1C0015CD0 (NdisAllocatePacket.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0025E10 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0025E40 (memmove.c)
+ *     NdisAllocateBuffer @ 0x1C0051050 (NdisAllocateBuffer.c)
+ *     ExFreeToNPagedLookasideList @ 0x1C0054428 (ExFreeToNPagedLookasideList.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1C0069A2C (ExAllocateFromNPagedLookasideList.c)
+ */
+
+void __fastcall ndisLWM5IndicateReceive(
+        __int64 a1,
+        __int64 a2,
+        void *a3,
+        unsigned int a4,
+        void *a5,
+        unsigned int a6,
+        size_t Size)
+{
+  __int64 v7; // r13
+  struct _NPAGED_LOOKASIDE_LIST *v8; // r14
+  size_t v9; // r15
+  size_t v10; // r12
+  SIZE_T v11; // rbx
+  struct _MDL *PoolWithTag; // rax
+  unsigned int v13; // eax
+  struct _MDL *v14; // rsi
+  SIZE_T v15; // rax
+  MDL *v16; // r8
+  __int64 v17; // rax
+  int v18; // edi
+  PNDIS_BUFFER v19; // rdi
+  unsigned int v20; // edx
+  _MDL *Head; // r15
+  MDL *v22; // rax
+  __int64 v23; // rbx
+  ULONG ByteCount; // edi
+  _MDL *v25; // rcx
+  PNDIS_PACKET v26; // r10
+  unsigned int v27; // ecx
+  _MDL *v28; // rbx
+  PNDIS_PACKET v29; // r9
+  unsigned int v30; // r10d
+  PNDIS_PACKET v31; // rcx
+  int v32; // [rsp+40h] [rbp-28h] BYREF
+  PNDIS_PACKET Packet; // [rsp+48h] [rbp-20h] BYREF
+  PNDIS_BUFFER Buffer; // [rsp+50h] [rbp-18h] BYREF
+  int Status; // [rsp+B0h] [rbp+48h] BYREF
+  __int64 v36; // [rsp+B8h] [rbp+50h]
+  void *Src; // [rsp+C0h] [rbp+58h]
+  size_t v38; // [rsp+C8h] [rbp+60h]
+
+  LODWORD(v38) = a4;
+  Src = a3;
+  v36 = a2;
+  v7 = *(_QWORD *)(a1 + 296);
+  Packet = 0LL;
+  v8 = 0LL;
+  v9 = a4;
+  Status = 0;
+  if ( (*(_DWORD *)(v7 + 120) & 0x20000000) == 0 )
+    return;
+  v10 = (unsigned int)Size;
+  v11 = a4 + (unsigned int)Size;
+  if ( (unsigned int)v11 < (unsigned int)Size )
+    return;
+  if ( (unsigned int)v11 >= 0x64 )
+  {
+    if ( (unsigned int)v11 >= 0x5EA )
+    {
+      v13 = v11 + ((MmSizeOfMdl((PVOID)0xFFF, (unsigned int)v11) + 7) & 0xFFFFFFF8);
+      if ( v13 < (unsigned int)v11 )
+        return;
+      PoolWithTag = (struct _MDL *)ExAllocatePoolWithTag(NonPagedPoolNx, v13, 0x7254444Eu);
+      goto LABEL_10;
+    }
+    v8 = &ndisRcv1514BytesLL;
+  }
+  else
+  {
+    v8 = &ndisRcv100BytesLL;
+  }
+  PoolWithTag = (struct _MDL *)ExAllocateFromNPagedLookasideList(v8);
+LABEL_10:
+  v14 = PoolWithTag;
+  if ( !PoolWithTag )
+    return;
+  v15 = MmSizeOfMdl((PVOID)0xFFF, v11);
+  v14->Next = 0LL;
+  v14->MdlFlags = 0;
+  v14->ByteCount = v11;
+  v16 = (struct _MDL *)((char *)v14 + ((v15 + 7) & 0xFFFFFFFFFFFFFFF8uLL));
+  Buffer = v16;
+  v17 = ((_WORD)v14 + (((_WORD)v15 + 7) & 0xFFF8)) & 0xFFF;
+  v14->ByteOffset = v17;
+  v14->StartVa = (PVOID)((unsigned __int64)v16 & 0xFFFFFFFFFFFFF000uLL);
+  v14->Size = 8 * (((v17 + v11 + 4095) >> 12) + 6);
+  MmBuildMdlForNonPagedPool(v14);
+  NdisAllocatePacket(&Status, &Packet, ndisRecvPacketPool);
+  v18 = Status;
+  if ( Status )
+    goto LABEL_32;
+  Status = 0;
+  Packet->Private.Head = v14;
+  Packet->Private.Tail = v14;
+  *(_QWORD *)Packet->MiniportReserved = v8;
+  LODWORD(Packet[-1].Reserved[1]) |= 1u;
+  if ( (unsigned int)v10 <= a6 )
+  {
+    v19 = Buffer;
+    memmove(Buffer, Src, v9);
+    memmove((char *)v19 + v9, a5, v10);
+    goto LABEL_27;
+  }
+  v32 = 0;
+  v20 = ++*(_DWORD *)Packet[-1].ProtocolReserved;
+  if ( v20 >= 3 * ndisPacketStackSize )
+  {
+    *(_DWORD *)Packet[-1].ProtocolReserved = v20 - 1;
+LABEL_33:
+    v31 = Packet;
+LABEL_34:
+    if ( v31 )
+    {
+      LODWORD(v31[-1].Reserved[1]) &= ~1u;
+      NdisFreePacket(Packet);
+    }
+    if ( (v14->MdlFlags & 0x20) != 0 )
+      MmUnmapLockedPages(v14->MappedSystemVa, v14);
+    if ( v8 )
+      ExFreeToNPagedLookasideList(v8, v14);
+    else
+      ExFreePoolWithTag(v14, 0);
+    return;
+  }
+  Head = Packet->Private.Head;
+  v22 = (MDL *)((Head->MdlFlags & 5) != 0 ? Head->MappedSystemVa : MmMapLockedPages(Head, 0));
+  v23 = (unsigned int)v38;
+  ByteCount = Head->ByteCount;
+  Buffer = v22;
+  memmove(v22, Src, (unsigned int)v38);
+  NdisAllocateBuffer(&Status, &Buffer, 0LL, (char *)Buffer + v23, ByteCount - v38);
+  v18 = Status;
+  if ( Status )
+    goto LABEL_32;
+  v25 = Buffer;
+  Buffer->Next = Head->Next;
+  Packet->Private.Head = v25;
+  *(_QWORD *)Packet->ProtocolReserved = Head;
+  v26 = Packet;
+  v27 = *(_DWORD *)Packet[-1].ProtocolReserved;
+  if ( v27 < 3 * ndisPacketStackSize )
+  {
+    *((_QWORD *)&Packet->Private.PhysicalCount + 6 * (v27 / 3 - (unsigned __int64)ndisPacketStackSize) + v27 % 3) = 0LL;
+    v26 = Packet;
+  }
+  v18 = (*(__int64 (__fastcall **)(PNDIS_PACKET, int *, _QWORD, __int64, _DWORD, _DWORD))(*(_QWORD *)(v7 + 3784) + 216LL))(
+          v26,
+          &v32,
+          *(_QWORD *)(v7 + 24),
+          v36,
+          0,
+          v10);
+  if ( v18 != 259 )
+  {
+    v28 = *(_MDL **)Packet->ProtocolReserved;
+    IoFreeMdl(Packet->Private.Head);
+    Packet->Private.Head = v28;
+    *(_QWORD *)Packet->ProtocolReserved = 0LL;
+    v29 = Packet;
+    v30 = *(_DWORD *)Packet[-1].ProtocolReserved;
+    if ( v30 < 3 * ndisPacketStackSize )
+    {
+      *((_QWORD *)&Packet->Private.PhysicalCount + 6 * (v30 / 3 - (unsigned __int64)ndisPacketStackSize) + v30 % 3) = 0LL;
+      v29 = Packet;
+    }
+    --*(_DWORD *)v29[-1].ProtocolReserved;
+  }
+  if ( v18 )
+  {
+LABEL_32:
+    if ( v18 == 259 )
+      return;
+    goto LABEL_33;
+  }
+LABEL_27:
+  *(unsigned int *)((char *)&Packet->Private.Count + Packet->Private.NdisPacketOobOffset) = 0;
+  if ( !*(_DWORD *)(v7 + 464) )
+    *(_DWORD *)((char *)&Packet->Private.Tail + Packet->Private.NdisPacketOobOffset) = 14;
+  (*(void (__fastcall **)(__int64, PNDIS_PACKET *, __int64))(v7 + 432))(v7, &Packet, 1LL);
+  if ( (*(_DWORD *)(v7 + 120) & 0x40000) == 0 )
+  {
+    v31 = Packet;
+    if ( *(unsigned int *)((char *)&Packet->Private.Count + Packet->Private.NdisPacketOobOffset) != 259 )
+      goto LABEL_34;
+  }
+}

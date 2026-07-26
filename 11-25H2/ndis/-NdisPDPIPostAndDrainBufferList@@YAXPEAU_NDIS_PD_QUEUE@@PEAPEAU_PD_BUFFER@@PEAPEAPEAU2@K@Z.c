@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?NdisPDPIPostAndDrainBufferList@@YAXPEAU_NDIS_PD_QUEUE@@PEAPEAU_PD_BUFFER@@PEAPEAPEAU2@K@Z @ 0x1400ABDB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1400EDFC0 (_guard_dispatch_icall.c)
+ */
+
+void __fastcall NdisPDPIPostAndDrainBufferList(
+        struct _NDIS_PD_QUEUE *a1,
+        struct _PD_BUFFER **a2,
+        struct _PD_BUFFER ***a3)
+{
+  (*((void (__fastcall **)(struct _NDIS_PD_QUEUE *, struct _PD_BUFFER **, struct _PD_BUFFER ***))a1->PDPlatformReserved[0]
+   + 1))(
+    a1,
+    a2,
+    a3);
+}

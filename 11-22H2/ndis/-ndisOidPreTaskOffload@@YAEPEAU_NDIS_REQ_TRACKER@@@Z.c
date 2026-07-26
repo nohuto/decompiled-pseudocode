@@ -1,0 +1,91 @@
+/*
+ * XREFs of ?ndisOidPreTaskOffload@@YAEPEAU_NDIS_REQ_TRACKER@@@Z @ 0x1C00A3A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qqDD @ 0x1C0007AF8 (WPP_RECORDER_SF_qqDD.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C000CEC0 (WPP_RECORDER_SF_qqq.c)
+ *     ?ndisAllocateOpenOffload@@YAHPEAU_NDIS_OPEN_BLOCK@@@Z @ 0x1C009BE08 (-ndisAllocateOpenOffload@@YAHPEAU_NDIS_OPEN_BLOCK@@@Z.c)
+ *     ?ndisPreTaskOffloadQuery@@YAEPEAU_NDIS_OPEN_BLOCK@@PEAU_NDIS_REQ_TRACKER@@@Z @ 0x1C00A4964 (-ndisPreTaskOffloadQuery@@YAEPEAU_NDIS_OPEN_BLOCK@@PEAU_NDIS_REQ_TRACKER@@@Z.c)
+ *     ?ndisPreTaskOffloadSet@@YAEPEAU_NDIS_REQ_TRACKER@@@Z @ 0x1C00A4B5C (-ndisPreTaskOffloadSet@@YAEPEAU_NDIS_REQ_TRACKER@@@Z.c)
+ */
+
+char __fastcall ndisOidPreTaskOffload(struct _NDIS_REQ_TRACKER *a1)
+{
+  __int64 v1; // r14
+  __int64 v3; // rbp
+  struct _NDIS_OPEN_BLOCK *v4; // rsi
+  char v5; // di
+  int OpenOffload; // eax
+  int v7; // ecx
+  int v8; // ecx
+  unsigned __int8 v9; // al
+  char v11[4]; // [rsp+40h] [rbp-28h]
+
+  v1 = *(_QWORD *)a1;
+  v3 = *((_QWORD *)a1 + 4);
+  v4 = (struct _NDIS_OPEN_BLOCK *)*((_QWORD *)a1 + 3);
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qqq(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0xBu,
+      0xB0u,
+      (struct _GUID *)&WPP_a9b9344cfcab39cb180cc205462f61f2_Traceguids,
+      v1,
+      (char)v4,
+      v3);
+  *((_DWORD *)a1 + 10) = -1073741637;
+  v5 = 1;
+  if ( (*(_DWORD *)(v3 + 88) & 0x20) != 0 )
+  {
+    if ( !v4->MiniportHandle->Offload )
+      goto LABEL_15;
+    if ( !v4->Offload )
+    {
+      OpenOffload = ndisAllocateOpenOffload(v4);
+      *((_DWORD *)a1 + 10) = OpenOffload;
+      if ( OpenOffload )
+      {
+        *((_DWORD *)a1 + 10) = -1073741670;
+        goto LABEL_15;
+      }
+    }
+  }
+  v7 = *(_DWORD *)(v3 + 4);
+  if ( !v7 )
+  {
+LABEL_13:
+    v9 = ndisPreTaskOffloadQuery(v4, a1);
+    goto LABEL_14;
+  }
+  v8 = v7 - 1;
+  if ( v8 )
+  {
+    if ( v8 != 1 )
+    {
+      *((_DWORD *)a1 + 10) = -1073741637;
+      goto LABEL_15;
+    }
+    goto LABEL_13;
+  }
+  v9 = ndisPreTaskOffloadSet(a1);
+LABEL_14:
+  v5 = v9;
+LABEL_15:
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+  {
+    *(_DWORD *)v11 = *((_DWORD *)a1 + 10);
+    WPP_RECORDER_SF_qqDD(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0xBu,
+      0xB1u,
+      (struct _GUID *)&WPP_a9b9344cfcab39cb180cc205462f61f2_Traceguids,
+      v1,
+      (char)v4,
+      v5,
+      *(_DWORD *)v11);
+  }
+  return v5;
+}

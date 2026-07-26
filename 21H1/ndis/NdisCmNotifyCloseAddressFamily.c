@@ -1,0 +1,75 @@
+/*
+ * XREFs of NdisCmNotifyCloseAddressFamily @ 0x1C00B6020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C003F3E0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C003F6C0 (memset.c)
+ *     ?ndisReferenceAf@@YAEPEAU_NDIS_CO_AF_BLOCK@@@Z @ 0x1C00B58D0 (-ndisReferenceAf@@YAEPEAU_NDIS_CO_AF_BLOCK@@@Z.c)
+ *     NdisClNotifyCloseAddressFamilyComplete @ 0x1C00B59E0 (NdisClNotifyCloseAddressFamilyComplete.c)
+ *     NdisCoRequestComplete @ 0x1C00BA3D0 (NdisCoRequestComplete.c)
+ */
+
+NDIS_STATUS __stdcall NdisCmNotifyCloseAddressFamily(NDIS_HANDLE NdisAfHandle)
+{
+  NDIS_STATUS result; // eax
+  KIRQL v3; // al
+  KSPIN_LOCK *v4; // rcx
+  KIRQL v5; // dl
+  __int64 (__fastcall *v6)(_QWORD, _QWORD, _QWORD, char *); // r14
+  NDIS_STATUS v7; // edx
+  KIRQL v8; // al
+
+  if ( !ndisReferenceAf((struct _NDIS_CO_AF_BLOCK *)NdisAfHandle) )
+    return -1073741823;
+  if ( *((_DWORD *)NdisAfHandle + 99) < 6u )
+  {
+    memset((char *)NdisAfHandle + 408, 0, 0xB0uLL);
+    *((_DWORD *)NdisAfHandle + 110) = 1;
+    *((_DWORD *)NdisAfHandle + 112) = -33554422;
+    *((_QWORD *)NdisAfHandle + 57) = 0LL;
+    *((_DWORD *)NdisAfHandle + 116) = 0;
+    v6 = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, char *))*((_QWORD *)NdisAfHandle + 10);
+    *((_QWORD *)NdisAfHandle + 62) = *((_QWORD *)NdisAfHandle + 6);
+    if ( !v6 )
+    {
+      v7 = -1073741637;
+LABEL_16:
+      NdisClNotifyCloseAddressFamilyComplete(NdisAfHandle, v7);
+      return 259;
+    }
+    v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)NdisAfHandle + 48);
+    v4 = (KSPIN_LOCK *)((char *)NdisAfHandle + 384);
+    v5 = v8;
+    if ( (*((_DWORD *)NdisAfHandle + 2) & 0x40000000) != 0 )
+    {
+      *((_QWORD *)NdisAfHandle + 73) = (char *)NdisAfHandle + 408;
+      goto LABEL_6;
+    }
+    KeReleaseSpinLock(v4, v8);
+    result = v6(*((_QWORD *)NdisAfHandle + 47), 0LL, 0LL, (char *)NdisAfHandle + 408);
+    if ( result == 259 )
+      return result;
+    NdisCoRequestComplete(result, NdisAfHandle, 0LL, 0LL, (char *)NdisAfHandle + 408);
+    result = 259;
+LABEL_14:
+    if ( result == 259 )
+      return result;
+    v7 = result;
+    goto LABEL_16;
+  }
+  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)NdisAfHandle + 48);
+  v4 = (KSPIN_LOCK *)((char *)NdisAfHandle + 384);
+  v5 = v3;
+  if ( (*((_DWORD *)NdisAfHandle + 2) & 0x40000000) == 0 )
+  {
+    KeReleaseSpinLock(v4, v3);
+    result = (*((__int64 (__fastcall **)(_QWORD))NdisAfHandle + 45))(*((_QWORD *)NdisAfHandle + 47));
+    goto LABEL_14;
+  }
+  *((_QWORD *)NdisAfHandle + 73) = 0LL;
+LABEL_6:
+  *((_BYTE *)NdisAfHandle + 592) = 1;
+  KeReleaseSpinLock(v4, v5);
+  return 259;
+}

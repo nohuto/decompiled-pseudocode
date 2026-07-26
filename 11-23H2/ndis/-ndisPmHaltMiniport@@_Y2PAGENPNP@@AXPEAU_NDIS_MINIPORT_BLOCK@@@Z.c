@@ -1,0 +1,70 @@
+/*
+ * XREFs of ?ndisPmHaltMiniport@@_Y2PAGENPNP@@AXPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C0145BC0
+ * Callers:
+ *     ?ndisSetDevicePower@@YAJPEAU_IRP@@PEAU_IO_STACK_LOCATION@@W4_DEVICE_POWER_STATE@@PEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C00165A8 (-ndisSetDevicePower@@YAJPEAU_IRP@@PEAU_IO_STACK_LOCATION@@W4_DEVICE_POWER_STATE@@PEAU_NDIS_MINIP.c)
+ * Callees:
+ *     ?NDIS_ACQUIRE_MINIPORT_SPIN_LOCK@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAE@Z @ 0x1C000301C (-NDIS_ACQUIRE_MINIPORT_SPIN_LOCK@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAE@Z.c)
+ *     ?ndisReferencePackage@@YAXPEAU_PKG_REF@@@Z @ 0x1C0003060 (-ndisReferencePackage@@YAXPEAU_PKG_REF@@@Z.c)
+ *     WPP_RECORDER_SF_q @ 0x1C000C230 (WPP_RECORDER_SF_q.c)
+ *     ?ndisMDeregisterBugCheckHandler@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C0014350 (-ndisMDeregisterBugCheckHandler@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z.c)
+ *     ?NdisTraceLoggingDeviceRemoved@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_TRACEFORMAT_REMOVAL_REASON@@@Z @ 0x1C0014384 (-NdisTraceLoggingDeviceRemoved@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_TRACEFORMAT_REMOVAL_REASON@.c)
+ *     ?ndisDereferencePackage@@YAXPEAU_PKG_REF@@@Z @ 0x1C001C58C (-ndisDereferencePackage@@YAXPEAU_PKG_REF@@@Z.c)
+ *     NdisResetEvent @ 0x1C0027260 (NdisResetEvent.c)
+ *     ?ndisMSetMiniportReadyForBinding@@YAXPEAU_NDIS_MINIPORT_BLOCK@@_NW4NDIS_DO_NOT_BIND_REASON@@W4CallRunMode@@@Z @ 0x1C01166C0 (-ndisMSetMiniportReadyForBinding@@YAXPEAU_NDIS_MINIPORT_BLOCK@@_NW4NDIS_DO_NOT_BIND_REASON@@W4Ca.c)
+ *     ?ndisMCommonHaltMiniport@@YAXPEAU_NDIS_MINIPORT_BLOCK@@K@Z @ 0x1C0145D48 (-ndisMCommonHaltMiniport@@YAXPEAU_NDIS_MINIPORT_BLOCK@@K@Z.c)
+ */
+
+void __fastcall ndisPmHaltMiniport(struct _NDIS_MINIPORT_BLOCK *a1)
+{
+  bool v2; // zf
+  unsigned __int64 *p_Lock; // rcx
+  KIRQL v4; // dl
+  unsigned int v5; // eax
+  KIRQL NewIrql; // [rsp+40h] [rbp+8h] BYREF
+
+  NewIrql = 0;
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_q(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0xEu,
+      0x2Cu,
+      (struct _GUID *)&WPP_2cfafda6ad1d3851beeb62a61158407a_Traceguids,
+      a1);
+  NdisTraceLoggingDeviceRemoved();
+  ndisReferencePackage((struct _PKG_REF *)&ndisPkgs);
+  NDIS_ACQUIRE_MINIPORT_SPIN_LOCK(a1, &NewIrql);
+  NdisResetEvent(&a1->OpenReadyEvent);
+  v2 = (a1->PnPFlags & 0x4000) == 0;
+  a1->MiniportThread = 0LL;
+  p_Lock = &a1->Lock;
+  if ( v2 )
+  {
+    KeReleaseSpinLock(p_Lock, NewIrql);
+    ndisMSetMiniportReadyForBinding(a1, 0, 2048, RunSynchronous);
+    NDIS_ACQUIRE_MINIPORT_SPIN_LOCK(a1, &NewIrql);
+    v4 = NewIrql;
+    v5 = a1->Flags & 0xFFFFFFFE;
+    a1->PnPFlags |= 0x4004u;
+    a1->MiniportThread = 0LL;
+    a1->Flags = v5 | 0x80000000;
+    KeReleaseSpinLock(&a1->Lock, v4);
+    ndisMCommonHaltMiniport(a1, ~(unsigned __int8)(a1->Flags >> 6) & 2 | 0x3C);
+    _InterlockedOr((volatile signed __int32 *)&a1->InterlockedFlags, 0x10u);
+    ndisMDeregisterBugCheckHandler(a1);
+    ndisDereferencePackage((PVOID *)&ndisPkgs);
+    if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_q(
+        *((_QWORD *)WPP_GLOBAL_Control + 8),
+        4u,
+        0xEu,
+        0x2Du,
+        (struct _GUID *)&WPP_2cfafda6ad1d3851beeb62a61158407a_Traceguids,
+        a1);
+  }
+  else
+  {
+    KeReleaseSpinLock(p_Lock, NewIrql);
+    ndisDereferencePackage((PVOID *)&ndisPkgs);
+  }
+}

@@ -1,0 +1,93 @@
+/*
+ * XREFs of ndisDriverSystemDispatch @ 0x1400A59D8
+ * Callers:
+ *     ndisDispatchRequest @ 0x14000C5E0 (ndisDispatchRequest.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qql @ 0x140023560 (WPP_RECORDER_SF_qql_ea_140023560.c)
+ *     WPP_RECORDER_SF_D @ 0x140057DA0 (WPP_RECORDER_SF_D_ea_140057DA0.c)
+ *     ndisEtwRegisterGuids @ 0x1400A5BAC (ndisEtwRegisterGuids.c)
+ */
+
+__int64 __fastcall ndisDriverSystemDispatch(char a1, __int64 a2)
+{
+  __int64 v2; // rax
+  unsigned int v3; // ebx
+  unsigned int v5; // r14d
+  _QWORD *v6; // rdi
+  unsigned __int8 *v7; // rsi
+  __int64 v8; // rcx
+  __int64 v10; // [rsp+28h] [rbp-40h]
+
+  v2 = *(_QWORD *)(a2 + 184);
+  v3 = 0;
+  v5 = *(_DWORD *)(v2 + 24);
+  v6 = *(_QWORD **)(v2 + 32);
+  v7 = (unsigned __int8 *)(v2 + 1);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qql(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      1u,
+      0xCu,
+      (struct _GUID *)&WPP_ce2236d9402e332d9fc244d3ef4316e6_Traceguids,
+      a1,
+      a2,
+      *v7);
+  switch ( *v7 )
+  {
+    case 4u:
+      if ( v5 < 0x30 || !v6 || *(_DWORD *)v6 < 0x30u )
+        goto LABEL_26;
+      v8 = v6[3] - *(_QWORD *)&ndisControlGuid.Data1;
+      if ( !v8 )
+        v8 = v6[4] - *(_QWORD *)ndisControlGuid.Data4;
+      if ( v8 )
+      {
+LABEL_26:
+        v3 = -1073741811;
+      }
+      else
+      {
+        qword_14011EF98 = v6[1];
+        byte_14011EF94 = BYTE2(qword_14011EF98);
+        ndisLogger = HIDWORD(qword_14011EF98);
+        if ( (qword_14011EF98 & 0x800000000LL) != 0 )
+          LOBYTE(dword_14011EFA0) = 1;
+        if ( (qword_14011EF98 & 0x100000000LL) != 0 )
+          BYTE1(dword_14011EFA0) = 1;
+        if ( (qword_14011EF98 & 0x200000000LL) != 0 )
+          BYTE2(dword_14011EFA0) = 1;
+        if ( (qword_14011EF98 & 0x400000000LL) != 0 )
+          HIBYTE(dword_14011EFA0) = 1;
+        if ( (qword_14011EF98 & 0x1000000000LL) != 0 )
+          LOBYTE(word_14011EFA4) = 1;
+        if ( (qword_14011EF98 & 0x2000000000LL) != 0 )
+          HIBYTE(word_14011EFA4) = 1;
+      }
+      break;
+    case 5u:
+      byte_14011EF94 = 0;
+      ndisLogger = 0;
+      qword_14011EF98 = 0LL;
+      dword_14011EFA0 = 0;
+      word_14011EFA4 = 0;
+      *(_QWORD *)(a2 + 56) = 0LL;
+      break;
+    case 0xBu:
+      v3 = ndisEtwRegisterGuids(v6);
+      *(_QWORD *)(a2 + 56) = 0LL;
+      break;
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LODWORD(v10) = v3;
+    WPP_RECORDER_SF_D(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      1u,
+      0xDu,
+      (struct _GUID *)&WPP_ce2236d9402e332d9fc244d3ef4316e6_Traceguids,
+      v10);
+  }
+  return v3;
+}

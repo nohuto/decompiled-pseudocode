@@ -1,0 +1,35 @@
+/*
+ * XREFs of PktMonClientSetCompProperty @ 0x1C00CCC8C
+ * Callers:
+ *     ?ndisPktMonFilterRegister@@YAJPEAU_NDIS_FILTER_BLOCK@@@Z @ 0x1C0109ED8 (-ndisPktMonFilterRegister@@YAJPEAU_NDIS_FILTER_BLOCK@@@Z.c)
+ *     ?ndisPktMonOpenRegister@@YAJPEAU_NDIS_OPEN_BLOCK@@@Z @ 0x1C010A034 (-ndisPktMonOpenRegister@@YAJPEAU_NDIS_OPEN_BLOCK@@@Z.c)
+ *     ?ndisPktMonMiniportRegister@@YAJPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C01129CC (-ndisPktMonMiniportRegister@@YAJPEAU_NDIS_MINIPORT_BLOCK@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0036040 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall PktMonClientSetCompProperty(__int64 a1, int a2, __int64 a3, unsigned __int16 a4)
+{
+  unsigned int v5; // ebx
+  _DWORD v7[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v8; // [rsp+28h] [rbp-20h]
+  __int64 v9; // [rsp+30h] [rbp-18h]
+
+  v7[0] = 24;
+  v7[1] = a2;
+  v8 = a3;
+  v9 = a4;
+  if ( ExAcquireRundownProtectionCacheAware(RunRefCacheAware) )
+  {
+    v5 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _DWORD *))(*((_QWORD *)&xmmword_1C00EC228 + 1) + 24LL))(
+           xmmword_1C00EC228,
+           *(_QWORD *)(a1 + 40),
+           v7);
+    ExReleaseRundownProtectionCacheAware(RunRefCacheAware);
+  }
+  else
+  {
+    return (unsigned int)-1073741661;
+  }
+  return v5;
+}

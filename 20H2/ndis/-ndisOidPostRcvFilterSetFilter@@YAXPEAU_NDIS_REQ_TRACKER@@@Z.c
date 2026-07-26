@@ -1,0 +1,65 @@
+/*
+ * XREFs of ?ndisOidPostRcvFilterSetFilter@@YAXPEAU_NDIS_REQ_TRACKER@@@Z @ 0x1C0085B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?NDIS_ACQUIRE_MINIPORT_SPIN_LOCK@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAE@Z @ 0x1C0006E48 (-NDIS_ACQUIRE_MINIPORT_SPIN_LOCK@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAE@Z.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C000E000 (WPP_RECORDER_SF_qq.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C001D018 (WPP_RECORDER_SF_qd.c)
+ *     ?ndisClearReceiveFilter@@YAHPEAU_NDIS_MINIPORT_BLOCK@@K@Z @ 0x1C0084F94 (-ndisClearReceiveFilter@@YAHPEAU_NDIS_MINIPORT_BLOCK@@K@Z.c)
+ *     ?ndisFindReceiveFilterByFilterId@@YAPEAU_NDIS_RECEIVE_FILTER_BLOCK@@PEAU_NDIS_MINIPORT_BLOCK@@KKPEAK@Z @ 0x1C0085568 (-ndisFindReceiveFilterByFilterId@@YAPEAU_NDIS_RECEIVE_FILTER_BLOCK@@PEAU_NDIS_MINIPORT_BLOCK@@KK.c)
+ */
+
+void __fastcall ndisOidPostRcvFilterSetFilter(struct _NDIS_REQ_TRACKER *a1)
+{
+  __int64 v1; // rsi
+  struct _NDIS_MINIPORT_BLOCK *v3; // rbx
+  __int64 v4; // rsi
+  unsigned int v5; // edx
+  __int64 v6; // r8
+  unsigned int *v7; // r9
+  __int64 v8; // [rsp+30h] [rbp-28h]
+  KIRQL NewIrql; // [rsp+60h] [rbp+8h] BYREF
+
+  v1 = *((_QWORD *)a1 + 4);
+  v3 = *(struct _NDIS_MINIPORT_BLOCK **)a1;
+  NewIrql = 0;
+  if ( *(int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qq(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0xBu,
+      0x16u,
+      (struct _GUID *)&WPP_8ae6292ee3d833c857d30dcfbd7b4f7f_Traceguids,
+      (char)v3,
+      v1);
+  if ( v3 && *(_DWORD *)(v1 + 48) >= 0x14u )
+  {
+    v4 = *(_QWORD *)(v1 + 40);
+    if ( *((_DWORD *)a1 + 10) )
+    {
+      v5 = *(_DWORD *)(v4 + 16);
+      if ( v5 )
+        ndisClearReceiveFilter(v3, v5);
+    }
+    else
+    {
+      NDIS_ACQUIRE_MINIPORT_SPIN_LOCK(v3, &NewIrql);
+      ndisFindReceiveFilterByFilterId(v3, *(_DWORD *)(v4 + 16), v6, v7);
+      v3->MiniportThread = 0LL;
+      KeReleaseSpinLock(&v3->Lock, NewIrql);
+    }
+  }
+  if ( *(int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+  {
+    LODWORD(v8) = *((_DWORD *)a1 + 10);
+    WPP_RECORDER_SF_qd(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0xBu,
+      0x17u,
+      (struct _GUID *)&WPP_8ae6292ee3d833c857d30dcfbd7b4f7f_Traceguids,
+      (char)v3,
+      v8);
+  }
+}

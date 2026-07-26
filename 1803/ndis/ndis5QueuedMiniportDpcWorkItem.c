@@ -1,0 +1,33 @@
+/*
+ * XREFs of ndis5QueuedMiniportDpcWorkItem @ 0x1C0062E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ndisDereferenceMiniport @ 0x1C0009F08 (ndisDereferenceMiniport.c)
+ *     ndisMDpc @ 0x1C0063004 (ndisMDpc.c)
+ *     ndisMDpcX @ 0x1C0063224 (ndisMDpcX.c)
+ */
+
+void __fastcall ndis5QueuedMiniportDpcWorkItem(__int64 a1)
+{
+  __int64 v1; // rbp
+  KIRQL v3; // si
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
+
+  v1 = *(_QWORD *)(a1 + 112);
+  v3 = KfRaiseIrql(2u);
+  KeAcquireSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 96));
+  *(_DWORD *)(a1 + 120) &= ~0x2000000u;
+  *(_QWORD *)(a1 + 520) = 0LL;
+  *(_DWORD *)(a1 + 1856) = 0;
+  KeReleaseSpinLockFromDpcLevel((PKSPIN_LOCK)(a1 + 96));
+  if ( (*(_DWORD *)(a1 + 120) & 0x40000) != 0 )
+    ndisMDpcX(v4, v1);
+  else
+    ndisMDpc(v4, v1);
+  if ( v3 != 2 )
+    KeLowerIrql(v3);
+  ndisDereferenceMiniport(a1, 0x4Eu, v5, v6);
+}

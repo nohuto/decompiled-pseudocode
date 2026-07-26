@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?ndisIfQuerySetMiniport@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OID_REQUEST@@PEAU_NDIS_FILTER_BLOCK@@@Z @ 0x1C00C3C54
+ * Callers:
+ *     ?ndisIfQueryFilterObject@@YAHPEAU_NDIS_FILTER_BLOCK@@IPEAKPEAX@Z @ 0x1C009A350 (-ndisIfQueryFilterObject@@YAHPEAU_NDIS_FILTER_BLOCK@@IPEAKPEAX@Z.c)
+ *     ?ndisIfQueryMiniportObject@@YAHPEAU_NDIS_MINIPORT_BLOCK@@IPEAKPEAX@Z @ 0x1C009AC48 (-ndisIfQueryMiniportObject@@YAHPEAU_NDIS_MINIPORT_BLOCK@@IPEAKPEAX@Z.c)
+ * Callees:
+ *     ndisReferenceMiniportByHandleForNsi @ 0x1C0009F30 (ndisReferenceMiniportByHandleForNsi.c)
+ *     ndisDereferenceMiniportForNsi @ 0x1C000A3BC (ndisDereferenceMiniportForNsi.c)
+ *     ndisQuerySetMiniport @ 0x1C000A5A0 (ndisQuerySetMiniport.c)
+ */
+
+__int64 __fastcall ndisIfQuerySetMiniport(
+        struct _NDIS_MINIPORT_BLOCK *a1,
+        struct _NDIS_OID_REQUEST *a2,
+        struct _NDIS_FILTER_BLOCK *a3)
+{
+  unsigned int SetMiniport; // ebx
+
+  SetMiniport = -1073741823;
+  if ( (unsigned __int8)ndisReferenceMiniportByHandleForNsi((__int64)a1, 4u, 0x3Du) )
+  {
+    SetMiniport = ndisQuerySetMiniport(a1, 0LL, a2, 0LL, (__int64)a3);
+    ndisDereferenceMiniportForNsi((__int64)a1, 4u, 0x3Du);
+  }
+  return SetMiniport;
+}

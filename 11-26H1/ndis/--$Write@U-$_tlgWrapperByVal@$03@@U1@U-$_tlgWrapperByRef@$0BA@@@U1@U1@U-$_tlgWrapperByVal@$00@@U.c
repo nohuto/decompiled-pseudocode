@@ -1,0 +1,56 @@
+/*
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByRef@$0BA@@@U1@U1@U?$_tlgWrapperByVal@$00@@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapperByRef@$0BA@@@33AEBU?$_tlgWrapperByVal@$00@@5@Z @ 0x140001750
+ * Callers:
+ *     ?NdisTraceLoggingDeviceInitialized@@YAXPEAU_NDIS_MINIPORT_BLOCK@@AEBVKStopwatch@@W4_NDIS_TRACEFORMAT_FAILURE_REASON@@H@Z @ 0x14008D260 (-NdisTraceLoggingDeviceInitialized@@YAXPEAU_NDIS_MINIPORT_BLOCK@@AEBVKStopwatch@@W4_NDIS_TRACEFO.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14001DD30 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1400EA060 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByRef<16>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>>(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6,
+        __int64 *a7,
+        __int64 a8,
+        __int64 a9,
+        __int64 a10,
+        __int64 a11)
+{
+  __int64 v11; // rcx
+  _BYTE v13[32]; // [rsp+30h] [rbp-A8h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-88h]
+  __int64 v15; // [rsp+58h] [rbp-80h]
+  __int64 v16; // [rsp+60h] [rbp-78h]
+  __int64 v17; // [rsp+68h] [rbp-70h]
+  __int64 v18; // [rsp+70h] [rbp-68h]
+  __int64 v19; // [rsp+78h] [rbp-60h]
+  __int64 v20; // [rsp+80h] [rbp-58h]
+  __int64 v21; // [rsp+88h] [rbp-50h]
+  __int64 v22; // [rsp+90h] [rbp-48h]
+  __int64 v23; // [rsp+98h] [rbp-40h]
+  __int64 v24; // [rsp+A0h] [rbp-38h]
+  __int64 v25; // [rsp+A8h] [rbp-30h]
+  __int64 v26; // [rsp+B0h] [rbp-28h]
+  __int64 v27; // [rsp+B8h] [rbp-20h]
+
+  v26 = a11;
+  v24 = a10;
+  v22 = a9;
+  v20 = a8;
+  v27 = 1LL;
+  v25 = 1LL;
+  v23 = 4LL;
+  v11 = *a7;
+  v16 = a6;
+  v18 = v11;
+  v21 = 4LL;
+  v19 = 16LL;
+  v17 = 4LL;
+  v14 = a5;
+  v15 = 4LL;
+  return tlgWriteTransfer_EtwWriteTransfer(&dword_14011C6F8, a2, 0LL, 0LL, 9, v13);
+}

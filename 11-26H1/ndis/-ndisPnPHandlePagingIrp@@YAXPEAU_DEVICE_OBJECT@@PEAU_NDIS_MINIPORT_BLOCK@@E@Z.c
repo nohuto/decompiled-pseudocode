@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?ndisPnPHandlePagingIrp@@YAXPEAU_DEVICE_OBJECT@@PEAU_NDIS_MINIPORT_BLOCK@@E@Z @ 0x1400A9C80
+ * Callers:
+ *     ?ndisPnPIrpDeviceUsageNotification@@YAJPEAU_DEVICE_OBJECT@@PEAU_NDIS_MINIPORT_BLOCK@@PEAU_IRP@@PEAE3@Z @ 0x1400A9F38 (-ndisPnPIrpDeviceUsageNotification@@YAJPEAU_DEVICE_OBJECT@@PEAU_NDIS_MINIPORT_BLOCK@@PEAU_IRP@@P.c)
+ * Callees:
+ *     ?ndisReferencePackage@@YAXPEAU_PKG_REF@@@Z @ 0x14000BC50 (-ndisReferencePackage@@YAXPEAU_PKG_REF@@@Z.c)
+ *     ?ndisDereferencePackage@@YAXPEAU_PKG_REF@@@Z @ 0x1400513F0 (-ndisDereferencePackage@@YAXPEAU_PKG_REF@@@Z.c)
+ */
+
+void __fastcall ndisPnPHandlePagingIrp(struct _DEVICE_OBJECT *a1, struct _NDIS_MINIPORT_BLOCK *a2, char a3)
+{
+  if ( a3 )
+  {
+    if ( _InterlockedIncrement(&a2->PagingPathCount) == 1 )
+    {
+      ndisReferencePackage((struct _PKG_REF *)&ndisPkgs);
+      a1->Flags &= ~0x2000u;
+      a2->IfBlock->ifFlags |= 0x80u;
+      a2->IfBlock->Flags |= 0x80u;
+    }
+  }
+  else if ( _InterlockedExchangeAdd(&a2->PagingPathCount, 0xFFFFFFFF) == 1 )
+  {
+    a1->Flags |= 0x2000u;
+    a2->IfBlock->ifFlags &= ~0x80u;
+    a2->IfBlock->Flags &= ~0x80u;
+    ndisDereferencePackage((PVOID *)&ndisPkgs);
+  }
+  IoInvalidateDeviceState(a2->PhysicalDeviceObject);
+}

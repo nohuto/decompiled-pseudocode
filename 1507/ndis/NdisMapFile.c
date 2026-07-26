@@ -1,0 +1,34 @@
+/*
+ * XREFs of NdisMapFile @ 0x1C00F2540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_SF_ @ 0x1C00228A0 (WPP_SF_.c)
+ *     WPP_SF_d @ 0x1C003DCF4 (WPP_SF_d.c)
+ */
+
+void __stdcall NdisMapFile(PNDIS_STATUS Status, PVOID *MappedBuffer, NDIS_HANDLE FileHandle)
+{
+  unsigned __int8 v6; // cl
+  void *v7; // rax
+
+  v6 = (unsigned __int8)ndisWppEnabledLevelPerFlag;
+  if ( (unsigned __int8)ndisWppEnabledLevelPerFlag >= 4u )
+  {
+    WPP_SF_(0x18u, &WPP_67b83ca0c3bb11ebff428113d40c1d7a_Traceguids);
+    v6 = (unsigned __int8)ndisWppEnabledLevelPerFlag;
+  }
+  if ( *((_BYTE *)FileHandle + 16) == 1 )
+  {
+    *Status = -1073676259;
+  }
+  else
+  {
+    v7 = *(void **)FileHandle;
+    *((_BYTE *)FileHandle + 16) = 1;
+    *MappedBuffer = v7;
+    *Status = 0;
+  }
+  if ( v6 >= 4u )
+    WPP_SF_d(0x19u, &WPP_67b83ca0c3bb11ebff428113d40c1d7a_Traceguids, *Status);
+}

@@ -1,0 +1,18 @@
+/*
+ * XREFs of ?NdisUnexpectedAoAcError@@YAXPEAU_NDIS_MINIPORT_BLOCK@@GJ@Z @ 0x1C0076AB4
+ * Callers:
+ *     ?ndisMSendOidPmParametersForAoAc@@YAHPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C00FCD38 (-ndisMSendOidPmParametersForAoAc@@YAHPEAU_NDIS_MINIPORT_BLOCK@@@Z.c)
+ *     ?ndisRequestNicQuiet@@YAJPEAU_NDIS_MINIPORT_BLOCK@@E@Z @ 0x1C00FD784 (-ndisRequestNicQuiet@@YAJPEAU_NDIS_MINIPORT_BLOCK@@E@Z.c)
+ * Callees:
+ *     ?NdisTraceLoggingUnexpectedAoAcError@@YAXPEAU_NDIS_MINIPORT_BLOCK@@GJ@Z @ 0x1C007E874 (-NdisTraceLoggingUnexpectedAoAcError@@YAXPEAU_NDIS_MINIPORT_BLOCK@@GJ@Z.c)
+ */
+
+void __fastcall NdisUnexpectedAoAcError(struct _NDIS_MINIPORT_BLOCK *a1, unsigned __int16 a2, int a3)
+{
+  _NDIS_MINIPORT_AOAC *AoAc; // rbx
+
+  AoAc = a1->AoAc;
+  NdisTraceLoggingUnexpectedAoAcError(a1, a2, a3);
+  AoAc->LastUnexpectedFailureLine[1] = AoAc->LastUnexpectedFailureLine[0];
+  AoAc->LastUnexpectedFailureLine[0] = a2;
+}

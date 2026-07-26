@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?ndisIssueNetEventSetPowerEvent@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_DEVICE_POWER_STATE@@E@Z @ 0x140161570
+ * Callers:
+ *     ?ndisPrepForLowPowerCommon@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_DEVICE_POWER_STATE@@@Z @ 0x140051D30 (-ndisPrepForLowPowerCommon@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_DEVICE_POWER_STATE@@@Z.c)
+ *     ndisWdfDevicePowerOn @ 0x1400822C0 (ndisWdfDevicePowerOn.c)
+ *     ?ndisPnPIrpSurpriseRemovalInner@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x140152070 (-ndisPnPIrpSurpriseRemovalInner@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z.c)
+ *     ?ndisDevicePowerDown@@YAXPEAX@Z @ 0x140180650 (-ndisDevicePowerDown@@YAXPEAX@Z.c)
+ *     ?ndisDevicePowerOn@@YAXPEAX@Z @ 0x140180E40 (-ndisDevicePowerOn@@YAXPEAX@Z.c)
+ * Callees:
+ *     ?ndisDevicePnPEventNotifyFiltersAndAllTransports@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NET_PNP_EVENT_NOTIFICATION@@@Z @ 0x140035B60 (-ndisDevicePnPEventNotifyFiltersAndAllTransports@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NET_PNP_EVEN.c)
+ *     ?ndisInitializeNetPnPEvent@@YAXPEAU_NET_PNP_EVENT_NOTIFICATION@@PEAU_KEVENT@@@Z @ 0x140055540 (-ndisInitializeNetPnPEvent@@YAXPEAU_NET_PNP_EVENT_NOTIFICATION@@PEAU_KEVENT@@@Z.c)
+ *     __security_check_cookie @ 0x1400E70B0 (__security_check_cookie.c)
+ *     memset @ 0x1400E7500 (memset.c)
+ *     ?ApplyBindChanges@BindEngine@Ndis@@QEAAXW4CallRunMode@@_N@Z @ 0x140161800 (-ApplyBindChanges@BindEngine@Ndis@@QEAAXW4CallRunMode@@_N@Z.c)
+ */
+
+void __fastcall ndisIssueNetEventSetPowerEvent(struct _NDIS_MINIPORT_BLOCK *a1, enum _DEVICE_POWER_STATE a2, char a3)
+{
+  bool v5; // r8
+  enum _DEVICE_POWER_STATE v6; // [rsp+20h] [rbp-D8h] BYREF
+  struct _NET_PNP_EVENT_NOTIFICATION v7; // [rsp+30h] [rbp-C8h] BYREF
+
+  v6 = a2;
+  memset(&v7, 0, sizeof(v7));
+  ndisInitializeNetPnPEvent(&v7, 0LL);
+  v7.NetPnPEvent.NetEvent = NetEventSetPower;
+  v7.NetPnPEvent.Buffer = &v6;
+  v7.NetPnPEvent.BufferLength = 4;
+  ndisDevicePnPEventNotifyFiltersAndAllTransports(a1, &v7);
+  v5 = v6 == PowerDeviceD0 && a3;
+  Ndis::BindEngine::ApplyBindChanges(&a1->BindEngine, RunSynchronous, v5);
+}

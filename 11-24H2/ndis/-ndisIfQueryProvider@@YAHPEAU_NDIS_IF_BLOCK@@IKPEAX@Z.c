@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?ndisIfQueryProvider@@YAHPEAU_NDIS_IF_BLOCK@@IKPEAX@Z @ 0x140151770
+ * Callers:
+ *     ndisIfUpdateExternalInterface @ 0x1400C8890 (ndisIfUpdateExternalInterface.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1400E7130 (_guard_dispatch_icall.c)
+ *     memset @ 0x1400E7500 (memset.c)
+ */
+
+__int64 __fastcall ndisIfQueryProvider(struct _NDIS_IF_BLOCK *a1, __int64 a2, unsigned int a3, char *a4)
+{
+  struct _NDIS_IF_PROVIDER_BLOCK *ProviderHandle; // rax
+  void *ProviderIfContext; // rcx
+  size_t v7; // rdi
+  __int64 (__fastcall *v8)(void *, __int64, unsigned int *); // rax
+  unsigned int v9; // ebx
+  unsigned int v11; // [rsp+50h] [rbp+18h] BYREF
+
+  ProviderHandle = a1->ProviderHandle;
+  ProviderIfContext = a1->ProviderIfContext;
+  v7 = a3;
+  v8 = (__int64 (__fastcall *)(void *, __int64, unsigned int *))*((_QWORD *)ProviderHandle + 7);
+  v11 = a3;
+  v9 = v8(ProviderIfContext, a2, &v11);
+  if ( v9 )
+  {
+    memset(a4, 0, v7);
+  }
+  else if ( v11 < (unsigned int)v7 )
+  {
+    memset(&a4[v11], 0, (unsigned int)v7 - v11);
+  }
+  return v9;
+}

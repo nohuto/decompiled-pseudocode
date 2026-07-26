@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?ForEachLink@NDIS_BIND_DRIVER_BASE@@QEAAXP6AXPEAUNDIS_BIND_LINK_BASE@@@Z@Z @ 0x1C00BF6DC
+ * Callers:
+ *     ?SetRunningDriverIsReady@NDIS_BIND_DRIVER_BASE@@IEAAX_NW4CallRunMode@@@Z @ 0x1C00BF684 (-SetRunningDriverIsReady@NDIS_BIND_DRIVER_BASE@@IEAAX_NW4CallRunMode@@@Z.c)
+ *     _lambda_727c6594aeeec297d735c04587a6780c_::_lambda_invoker_cdecl_ @ 0x1C00D1A30 (_lambda_727c6594aeeec297d735c04587a6780c_--_lambda_invoker_cdecl_.c)
+ *     NdisReEnumerateProtocolBindings @ 0x1C00EDA40 (NdisReEnumerateProtocolBindings.c)
+ * Callees:
+ *     ndisReferenceMiniport @ 0x1C0009B70 (ndisReferenceMiniport.c)
+ *     ndisDereferenceMiniport @ 0x1C0009DEC (ndisDereferenceMiniport.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0026E30 (_guard_dispatch_icall_nop.c)
+ *     ?AcquireShared@KLockHolder@@QEAAXXZ @ 0x1C00BF7A0 (-AcquireShared@KLockHolder@@QEAAXXZ.c)
+ *     ??1KLockHolder@@QEAA@XZ @ 0x1C00C2E30 (--1KLockHolder@@QEAA@XZ.c)
+ *     ?ReleaseShared@KLockHolder@@QEAAXXZ @ 0x1C00C2F88 (-ReleaseShared@KLockHolder@@QEAAXXZ.c)
+ */
+
+void __fastcall NDIS_BIND_DRIVER_BASE::ForEachLink(NDIS_BIND_DRIVER_BASE *this, void (__fastcall *a2)(_LIST_ENTRY *))
+{
+  _LIST_ENTRY *p_BindLinks; // rsi
+  _LIST_ENTRY *i; // rbx
+  __int64 Flink; // rdi
+  KLockHolder v7; // [rsp+20h] [rbp-28h] BYREF
+
+  v7.m_State = Unlocked;
+  v7.m_Lock = (KPushLockBase *)(qword_1C00A07D8 + 8);
+  v7.m_Region.m_Entered = 0;
+  KLockHolder::AcquireShared(&v7);
+  p_BindLinks = &this->BindLinks;
+  for ( i = p_BindLinks->Flink; i != p_BindLinks; i = i->Flink )
+  {
+    Flink = (__int64)i[-4].Flink;
+    if ( *(_DWORD *)(Flink + 1520) && ndisReferenceMiniport((__int64)i[-4].Flink) )
+    {
+      KLockHolder::ReleaseShared(&v7);
+      a2(i - 4);
+      KLockHolder::AcquireShared(&v7);
+      ndisDereferenceMiniport(Flink, 0x20u);
+    }
+  }
+  KLockHolder::~KLockHolder(&v7);
+}

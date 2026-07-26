@@ -1,0 +1,117 @@
+/*
+ * XREFs of WPP_RECORDER_SF_ @ 0x1C0008B64
+ * Callers:
+ *     NdisTryAcquireNicActive @ 0x1C00012B0 (NdisTryAcquireNicActive.c)
+ *     ?ndisMTopReceiveNetBufferLists@@YAXPEAXPEAU_NET_BUFFER_LIST@@KKK@Z @ 0x1C0001AA0 (-ndisMTopReceiveNetBufferLists@@YAXPEAXPEAU_NET_BUFFER_LIST@@KKK@Z.c)
+ *     ?ndisOidFreeInternalCloneRequest@@YAXPEAU_NDIS_OBJECT_HEADER@@PEAU_NDIS_OID_REQUEST@@EPEAPEAU2@@Z @ 0x1C00097A0 (-ndisOidFreeInternalCloneRequest@@YAXPEAU_NDIS_OBJECT_HEADER@@PEAU_NDIS_OID_REQUEST@@EPEAPEAU2@@.c)
+ *     NdisFOidRequestComplete @ 0x1C000F1D0 (NdisFOidRequestComplete.c)
+ *     ?ndisCreatePMRejectWorkItem@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_SINGLE_LIST_ENTRY@@H@Z @ 0x1C00171BC (-ndisCreatePMRejectWorkItem@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_SINGLE_LIST_ENTRY@@H@Z.c)
+ *     ndisNsiQueuedIfBlockRodChangeNotification @ 0x1C0018890 (ndisNsiQueuedIfBlockRodChangeNotification.c)
+ *     ?ndisMRawIndicateStatusEx@@YAXPEAUNDIS_MINIPORT_ADAPTER_HANDLE__@@PEAU_NDIS_STATUS_INDICATION@@@Z @ 0x1C001AE74 (-ndisMRawIndicateStatusEx@@YAXPEAUNDIS_MINIPORT_ADAPTER_HANDLE__@@PEAU_NDIS_STATUS_INDICATION@@@.c)
+ *     ?ndisHandleLegacyTransport@@YAJPEBU_UNICODE_STRING@@@Z @ 0x1C001DA30 (-ndisHandleLegacyTransport@@YAJPEBU_UNICODE_STRING@@@Z.c)
+ *     NdisWriteEventLogEntry @ 0x1C001E200 (NdisWriteEventLogEntry.c)
+ *     ?ndisQueryDeviceFlags@@YAXPEB_WPEA_K@Z @ 0x1C0023EC8 (-ndisQueryDeviceFlags@@YAXPEB_WPEA_K@Z.c)
+ *     ?ndisIfReadNetworkGuidFromKey@@YAJAEAVKRegKey@@PEAU_GUID@@@Z @ 0x1C0026E00 (-ndisIfReadNetworkGuidFromKey@@YAJAEAVKRegKey@@PEAU_GUID@@@Z.c)
+ *     NdisAllocateNetBufferListPool @ 0x1C0027240 (NdisAllocateNetBufferListPool.c)
+ *     NdisReadConfiguration @ 0x1C00289C0 (NdisReadConfiguration.c)
+ *     ndisCreateReceiveWorkerThreadPool @ 0x1C0028FF8 (ndisCreateReceiveWorkerThreadPool.c)
+ *     NdisOpenProtocolConfiguration @ 0x1C0029330 (NdisOpenProtocolConfiguration.c)
+ *     ?ndisPnPAddDevice@@YAJPEAU_DRIVER_OBJECT@@PEAU_DEVICE_OBJECT@@PEAXPEAPEAX@Z @ 0x1C00318D0 (-ndisPnPAddDevice@@YAJPEAU_DRIVER_OBJECT@@PEAU_DEVICE_OBJECT@@PEAXPEAPEAX@Z.c)
+ *     ndisEtwRegisterGuids @ 0x1C0032530 (ndisEtwRegisterGuids.c)
+ *     NdisAllocatePacketPoolEx @ 0x1C00326B0 (NdisAllocatePacketPoolEx.c)
+ *     ?ndisDoesSystemSupportSriov@@YAXXZ @ 0x1C00330F8 (-ndisDoesSystemSupportSriov@@YAXXZ.c)
+ *     ?ndisIfCompartmentSubsystemInitializePhase2@@YAJXZ @ 0x1C003487C (-ndisIfCompartmentSubsystemInitializePhase2@@YAJXZ.c)
+ *     ?ndisIfNetworkSubsystemInitializePhase2@@YAJXZ @ 0x1C0034D2C (-ndisIfNetworkSubsystemInitializePhase2@@YAJXZ.c)
+ *     ?ndisMDispatchReceiveNetBufferListsWithLock@@YAXPEAXPEAU_NET_BUFFER_LIST@@KKK@Z @ 0x1C0036180 (-ndisMDispatchReceiveNetBufferListsWithLock@@YAXPEAXPEAU_NET_BUFFER_LIST@@KKK@Z.c)
+ *     ?ndisCreateWoLPatternEntry@@YAPEAU_NDIS_PACKET_PATTERN_ENTRY@@PEAU_NDIS_PM_WOL_PATTERN@@K@Z @ 0x1C003BD50 (-ndisCreateWoLPatternEntry@@YAPEAU_NDIS_PACKET_PATTERN_ENTRY@@PEAU_NDIS_PM_WOL_PATTERN@@K@Z.c)
+ *     ?ndisSetOpenEthAddDeleteMulticast@@YAEPEAU_NDIS_OPEN_BLOCK@@PEAU_NDIS_OID_REQUEST@@PEAH@Z @ 0x1C003C710 (-ndisSetOpenEthAddDeleteMulticast@@YAEPEAU_NDIS_OPEN_BLOCK@@PEAU_NDIS_OID_REQUEST@@PEAH@Z.c)
+ *     ?ndisPnPCancelStopDevice@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C0060038 (-ndisPnPCancelStopDevice@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z.c)
+ *     ?ndisPnPStopDevice@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C00601EC (-ndisPnPStopDevice@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z.c)
+ *     NdisLWMDeregisterMiniportDriver @ 0x1C00609C0 (NdisLWMDeregisterMiniportDriver.c)
+ *     NdisLWMInitializeNetworkInterface @ 0x1C0060A90 (NdisLWMInitializeNetworkInterface.c)
+ *     NdisLWMRegisterMiniportDriver @ 0x1C0060BE0 (NdisLWMRegisterMiniportDriver.c)
+ *     NdisFreeSharedMemory @ 0x1C00640D0 (NdisFreeSharedMemory.c)
+ *     ?ndisGetMiniportInfo@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_MINIPORT_ADAPTER_GENERAL_ATTRIBUTES@@PEAJPEAE2@Z @ 0x1C006CEF0 (-ndisGetMiniportInfo@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_MINIPORT_ADAPTER_GENERAL_ATTRIBUTES.c)
+ *     ?ndisMIndicateQosParametersChange@@YAEPEAU_NDIS_MINIPORT_BLOCK@@HPEAXK@Z @ 0x1C006F574 (-ndisMIndicateQosParametersChange@@YAEPEAU_NDIS_MINIPORT_BLOCK@@HPEAXK@Z.c)
+ *     ?ndisMResetMiniportInternal@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_MINIPORT_RESET_REASON@@@Z @ 0x1C00735B8 (-ndisMResetMiniportInternal@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_MINIPORT_RESET_REASON@@@Z.c)
+ *     ndisMapOpenByName @ 0x1C0076520 (ndisMapOpenByName.c)
+ *     ?NdisGetVersion640Shim@@YAIXZ @ 0x1C008A5C0 (-NdisGetVersion640Shim@@YAIXZ.c)
+ *     ?ndisClonePMPatternList@@YAHPEAU_SINGLE_LIST_ENTRY@@0@Z @ 0x1C008F660 (-ndisClonePMPatternList@@YAHPEAU_SINGLE_LIST_ENTRY@@0@Z.c)
+ *     ?ndisCreatePMAddRemoveWorkItem@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_FILTER_BLOCK@@PEAU_NDIS_OID_REQUEST@@@Z @ 0x1C008F858 (-ndisCreatePMAddRemoveWorkItem@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_FILTER_BLOCK@@PEAU_NDIS_O.c)
+ *     ?ndisCreatePMPdcTaskClientWorkItem@@YAHPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C008FA28 (-ndisCreatePMPdcTaskClientWorkItem@@YAHPEAU_NDIS_MINIPORT_BLOCK@@@Z.c)
+ *     ?ndisCreatePMProtocolOffloadEntry@@YAPEAU_NDIS_PACKET_PATTERN_ENTRY@@PEAU_NDIS_PM_PROTOCOL_OFFLOAD@@K@Z @ 0x1C008FB08 (-ndisCreatePMProtocolOffloadEntry@@YAPEAU_NDIS_PACKET_PATTERN_ENTRY@@PEAU_NDIS_PM_PROTOCOL_OFFLO.c)
+ *     ?ndisCreateWakeUpPatternEntry@@YAPEAU_NDIS_PACKET_PATTERN_ENTRY@@PEAU_NDIS_PM_PACKET_PATTERN@@K@Z @ 0x1C008FBC8 (-ndisCreateWakeUpPatternEntry@@YAPEAU_NDIS_PACKET_PATTERN_ENTRY@@PEAU_NDIS_PM_PACKET_PATTERN@@K@.c)
+ *     ?ndisSetAddWakeUpPattern@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OID_REQUEST@@PEAE@Z @ 0x1C00944E0 (-ndisSetAddWakeUpPattern@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OID_REQUEST@@PEAE@Z.c)
+ *     ?ndisSetEnableWakeUp@@YAEPEAU_NDIS_REQ_TRACKER@@@Z @ 0x1C0094898 (-ndisSetEnableWakeUp@@YAEPEAU_NDIS_REQ_TRACKER@@@Z.c)
+ *     ?ndisSetOpenAddWakeUpPattern@@YAHPEAU_NDIS_OPEN_BLOCK@@PEAU_NDIS_OID_REQUEST@@PEAE@Z @ 0x1C0094C20 (-ndisSetOpenAddWakeUpPattern@@YAHPEAU_NDIS_OPEN_BLOCK@@PEAU_NDIS_OID_REQUEST@@PEAE@Z.c)
+ *     ?ndisUpdateAndIndicatePMCapabilities@@YAHPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C00952E0 (-ndisUpdateAndIndicatePMCapabilities@@YAHPEAU_NDIS_MINIPORT_BLOCK@@@Z.c)
+ *     ?ndisXlateWakeUpPatternListToWolPatternList@@YAXPEAU_NDIS_REQ_TRACKER@@@Z @ 0x1C009617C (-ndisXlateWakeUpPatternListToWolPatternList@@YAXPEAU_NDIS_REQ_TRACKER@@@Z.c)
+ *     ?ndisXlateWolPatternListToWakeUpPatternList@@YAXPEAU_NDIS_REQ_TRACKER@@@Z @ 0x1C0096468 (-ndisXlateWolPatternListToWakeUpPatternList@@YAXPEAU_NDIS_REQ_TRACKER@@@Z.c)
+ *     ?ndisMDispatchReceiveNetBufferLists@@YAXPEAXPEAU_NET_BUFFER_LIST@@KKK@Z @ 0x1C0099460 (-ndisMDispatchReceiveNetBufferLists@@YAXPEAXPEAU_NET_BUFFER_LIST@@KKK@Z.c)
+ *     ?ndisValidateQosParameters@@YAHPEAU_NDIS_MINIPORT_BLOCK@@EPEAU_NDIS_QOS_PARAMETERS@@KPEAK@Z @ 0x1C00A0FBC (-ndisValidateQosParameters@@YAHPEAU_NDIS_MINIPORT_BLOCK@@EPEAU_NDIS_QOS_PARAMETERS@@KPEAK@Z.c)
+ *     ndisDoPeriodicReceivesIndication @ 0x1C00A27C4 (ndisDoPeriodicReceivesIndication.c)
+ *     ndisKillReceiveWorkerThreadPool @ 0x1C00A2F44 (ndisKillReceiveWorkerThreadPool.c)
+ *     ndisMIndicateSplitNblChain @ 0x1C00A30D4 (ndisMIndicateSplitNblChain.c)
+ *     ?ndisEnableWppTracingCallback@@YAXPEBU_GUID@@_JEKE@Z @ 0x1C00AAE44 (-ndisEnableWppTracingCallback@@YAXPEBU_GUID@@_JEKE@Z.c)
+ *     ndisMEmitTraceRundown @ 0x1C00AB01C (ndisMEmitTraceRundown.c)
+ *     NdisRetreatNetBufferListDataStart @ 0x1C00AD0A0 (NdisRetreatNetBufferListDataStart.c)
+ *     ndisIfCreateCompartment @ 0x1C00B2688 (ndisIfCreateCompartment.c)
+ *     ndisNsiQueuedTimestampingChangeNotification @ 0x1C00B3470 (ndisNsiQueuedTimestampingChangeNotification.c)
+ *     ?ndisStopNsiProvider@@YAXXZ @ 0x1C00B59E8 (-ndisStopNsiProvider@@YAXXZ.c)
+ *     NdisCmMakeCallComplete @ 0x1C00B76C0 (NdisCmMakeCallComplete.c)
+ *     ?ndisDereferenceVcPtr@@YAXPEAU_NDIS_CO_VC_PTR_BLOCK@@@Z @ 0x1C00B8000 (-ndisDereferenceVcPtr@@YAXPEAU_NDIS_CO_VC_PTR_BLOCK@@@Z.c)
+ *     NdisCoCreateVc @ 0x1C00B85F0 (NdisCoCreateVc.c)
+ *     NdisMCmCreateVc @ 0x1C00B9550 (NdisMCmCreateVc.c)
+ *     NdisMCoRequestComplete @ 0x1C00BACA0 (NdisMCoRequestComplete.c)
+ *     ?ndisCoIndicatePromiscPacket@@YAXPEAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OPEN_BLOCK@@PEAU_NDIS_PACKET@@EE@Z @ 0x1C00BB054 (-ndisCoIndicatePromiscPacket@@YAXPEAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OPEN_BLOCK@@PEAU_NDIS_P.c)
+ *     ?ndisCoSendNetBufferListsToNdisPacket@@YAXPEAXPEAU_NET_BUFFER_LIST@@K@Z @ 0x1C00BB280 (-ndisCoSendNetBufferListsToNdisPacket@@YAXPEAXPEAU_NET_BUFFER_LIST@@K@Z.c)
+ *     ?ndisCoSendPacketsToNetBufferLists@@YAXPEAXPEAPEAU_NDIS_PACKET@@I@Z @ 0x1C00BB660 (-ndisCoSendPacketsToNetBufferLists@@YAXPEAXPEAPEAU_NDIS_PACKET@@I@Z.c)
+ *     ndisCoIndicateStatusInternal @ 0x1C00BC550 (ndisCoIndicateStatusInternal.c)
+ *     NdisMCoIndicateStatus @ 0x1C00BC820 (NdisMCoIndicateStatus.c)
+ *     NdisMCoIndicateStatusEx @ 0x1C00BC920 (NdisMCoIndicateStatusEx.c)
+ *     NdisCloseFile @ 0x1C00BD790 (NdisCloseFile.c)
+ *     NdisOpenFile @ 0x1C00BD840 (NdisOpenFile.c)
+ *     NdisUnmapFile @ 0x1C00BDD00 (NdisUnmapFile.c)
+ *     NdisInitializeWrapper @ 0x1C00C1B40 (NdisInitializeWrapper.c)
+ *     NdisTerminateWrapper @ 0x1C00C1C50 (NdisTerminateWrapper.c)
+ *     ?ndisIfNsiClientSubsystemInitialize@@YAJXZ @ 0x1C0108B94 (-ndisIfNsiClientSubsystemInitialize@@YAJXZ.c)
+ *     ?ndisStartNsiProvider@@YAJXZ @ 0x1C0108E2C (-ndisStartNsiProvider@@YAJXZ.c)
+ *     ?ndisPDReadKeywords@@YAJPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C010B03C (-ndisPDReadKeywords@@YAJPEAU_NDIS_MINIPORT_BLOCK@@@Z.c)
+ *     NdisSetAoAcOptions @ 0x1C0114CC0 (NdisSetAoAcOptions.c)
+ *     ?ndisLWMGetServiceKeyFromServiceName@@YAJPEBU_UNICODE_STRING@@AEAV?$unique_ptr@U_UNICODE_STRING@@U?$KFreePool@U_UNICODE_STRING@@@@@wistd@@@Z @ 0x1C0115804 (-ndisLWMGetServiceKeyFromServiceName@@YAJPEBU_UNICODE_STRING@@AEAV-$unique_ptr@U_UNICODE_STRING@.c)
+ *     ?ndisWdfUpdateAddDeviceParameters@@YAJAEAVKRegKey@@AEAUNDIS_MINIPORT_CREATION_CONFIG@@@Z @ 0x1C0115E5C (-ndisWdfUpdateAddDeviceParameters@@YAJAEAVKRegKey@@AEAUNDIS_MINIPORT_CREATION_CONFIG@@@Z.c)
+ *     ndisHandleLegacyBindIoctl @ 0x1C0117A54 (ndisHandleLegacyBindIoctl.c)
+ *     ?DereferenceWdi@@YAXXZ @ 0x1C01259DC (-DereferenceWdi@@YAXXZ.c)
+ *     ?ReferenceWdi@@YA_NXZ @ 0x1C0125B5C (-ReferenceWdi@@YA_NXZ.c)
+ *     ?ndisAttachFilterInner@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_FILTER_DRIVER_BLOCK@@KPEAUNDIS_BIND_FILTER_LINK@@@Z @ 0x1C012D1DC (-ndisAttachFilterInner@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_FILTER_DRIVER_BLOCK@@KPEAUNDIS_BI.c)
+ *     NdisOpenAdapterEx @ 0x1C012E610 (NdisOpenAdapterEx.c)
+ *     ?ndisPnPRemoveDevice@@YAXPEAU_NDIS_MINIPORT_BLOCK@@E@Z @ 0x1C0135680 (-ndisPnPRemoveDevice@@YAXPEAU_NDIS_MINIPORT_BLOCK@@E@Z.c)
+ *     NdisMDeregisterDmaChannel @ 0x1C0136760 (NdisMDeregisterDmaChannel.c)
+ *     ?ndisDetachFilterInner@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_FILTER_BLOCK@@@Z @ 0x1C01372DC (-ndisDetachFilterInner@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_FILTER_BLOCK@@@Z.c)
+ *     ?ndisUnbindProtocolOpen@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OPEN_BLOCK@@@Z @ 0x1C013AE00 (-ndisUnbindProtocolOpen@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OPEN_BLOCK@@@Z.c)
+ *     ?ndisCreateNotifyQueue@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OPEN_BLOCK@@PEAUCO_ADDRESS_FAMILY@@PEAPEAU_NDIS_AF_NOTIFY@@@Z @ 0x1C013B220 (-ndisCreateNotifyQueue@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OPEN_BLOCK@@PEAUCO_ADDRESS_FAMILY.c)
+ *     NdisMapFile @ 0x1C013B890 (NdisMapFile.c)
+ *     DriverEntry @ 0x1C01438F0 (DriverEntry.c)
+ *     ?ndisNblTrackerInitialize@@YAXXZ @ 0x1C0144FAC (-ndisNblTrackerInitialize@@YAXXZ.c)
+ * Callees:
+ *     ?ndisWppFastTraceMessage@@YAXPEBU_GUID@@GZZ @ 0x1C00AB4A4 (-ndisWppFastTraceMessage@@YAXPEBU_GUID@@GZZ.c)
+ */
+
+__int64 __fastcall WPP_RECORDER_SF_(
+        __int64 a1,
+        unsigned __int8 a2,
+        unsigned int a3,
+        unsigned __int16 a4,
+        struct _GUID *a5)
+{
+  unsigned __int64 v7; // rdi
+  unsigned int v9; // ebp
+  int v10; // eax
+
+  v7 = (unsigned __int64)a3 >> 16;
+  v9 = a2;
+  v10 = *((_DWORD *)WPP_GLOBAL_Control + 20 * v7 + (((a3 - 1) >> 5) & 0x7FF) + 11);
+  if ( _bittest(&v10, (a3 - 1) & 0x1F) && *((_BYTE *)WPP_GLOBAL_Control + 80 * v7 + 41) >= a2 )
+    ndisWppFastTraceMessage(a5, a4, 0LL);
+  return WppAutoLogTrace(a1, v9, a3, a5, a4, 0LL);
+}

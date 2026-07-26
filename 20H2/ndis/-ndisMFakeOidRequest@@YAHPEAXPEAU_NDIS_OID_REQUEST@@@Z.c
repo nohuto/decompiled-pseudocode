@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?ndisMFakeOidRequest@@YAHPEAXPEAU_NDIS_OID_REQUEST@@@Z @ 0x1C0015E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qDd @ 0x1C000E2D0 (WPP_RECORDER_SF_qDd.c)
+ */
+
+__int64 __fastcall ndisMFakeOidRequest(_QWORD *a1, struct _NDIS_OID_REQUEST *a2)
+{
+  __int64 v2; // rax
+  unsigned int v3; // ebx
+  char v5[4]; // [rsp+38h] [rbp-10h]
+
+  v2 = a1[2];
+  v3 = -1073741823;
+  if ( v2 )
+    v3 = *(_DWORD *)(v2 + 540);
+  if ( *(int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+  {
+    *(_DWORD *)v5 = v3;
+    WPP_RECORDER_SF_qDd(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      3u,
+      (int)a1,
+      0x57u,
+      (struct _GUID *)&WPP_60844eb21a8f3cfcca037c14d27ddc90_Traceguids,
+      (char)a1,
+      a2->DATA.QUERY_INFORMATION.Oid,
+      *(_DWORD *)v5);
+  }
+  return v3;
+}

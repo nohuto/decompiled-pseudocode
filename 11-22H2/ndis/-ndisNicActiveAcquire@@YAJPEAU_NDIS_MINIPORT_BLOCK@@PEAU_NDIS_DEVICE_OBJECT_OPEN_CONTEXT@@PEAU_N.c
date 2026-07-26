@@ -1,0 +1,136 @@
+/*
+ * XREFs of ?ndisNicActiveAcquire@@YAJPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_DEVICE_OBJECT_OPEN_CONTEXT@@PEAU_NDIS_PM_NIC_ACTIVE@@PEAU_IRP@@@Z @ 0x1C00594B4
+ * Callers:
+ *     ?ndisHandlePnPRequest@@_Y2PAGENPNP@@AJPEAU_IRP@@@Z @ 0x1C0145008 (-ndisHandlePnPRequest@@_Y2PAGENPNP@@AJPEAU_IRP@@@Z.c)
+ * Callees:
+ *     ?ndisDereferenceMiniport@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_MP_REFTAG@@@Z @ 0x1C0002F40 (-ndisDereferenceMiniport@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_MP_REFTAG@@@Z.c)
+ *     WPP_RECORDER_SF_LqZ @ 0x1C0016750 (WPP_RECORDER_SF_LqZ.c)
+ *     WPP_RECORDER_SF_Lq @ 0x1C00217BC (WPP_RECORDER_SF_Lq.c)
+ *     ?ndisAoAcActiveRefIncrement@@YAJPEAU_NDIS_MINIPORT_AOAC@@W4_NDIS_PM_COMPONENT_ID@@@Z @ 0x1C005797C (-ndisAoAcActiveRefIncrement@@YAJPEAU_NDIS_MINIPORT_AOAC@@W4_NDIS_PM_COMPONENT_ID@@@Z.c)
+ *     ?ndisAoAcActiveRefSubtract@@YAJPEAU_NDIS_MINIPORT_AOAC@@W4_NDIS_PM_COMPONENT_ID@@K@Z @ 0x1C0057A84 (-ndisAoAcActiveRefSubtract@@YAJPEAU_NDIS_MINIPORT_AOAC@@W4_NDIS_PM_COMPONENT_ID@@K@Z.c)
+ *     ?ndisAoAcCompleteQueuedIrps@@YAXPEAU_NDIS_MINIPORT_BLOCK@@J@Z @ 0x1C0057D74 (-ndisAoAcCompleteQueuedIrps@@YAXPEAU_NDIS_MINIPORT_BLOCK@@J@Z.c)
+ *     ?ndisRequestNicActive@@YAJPEAU_NDIS_MINIPORT_BLOCK@@W4CallRunMode@@@Z @ 0x1C0059FD8 (-ndisRequestNicActive@@YAJPEAU_NDIS_MINIPORT_BLOCK@@W4CallRunMode@@@Z.c)
+ *     McTemplateK0xqqq_EtwWriteTransfer @ 0x1C005B340 (McTemplateK0xqqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_DDL @ 0x1C005B5F8 (WPP_RECORDER_SF_DDL.c)
+ *     WPP_RECORDER_SF_qdL @ 0x1C005BB74 (WPP_RECORDER_SF_qdL_ea_1C005BB74.c)
+ */
+
+__int64 __fastcall ndisNicActiveAcquire(
+        struct _NDIS_MINIPORT_BLOCK *a1,
+        struct _NDIS_DEVICE_OBJECT_OPEN_CONTEXT *a2,
+        struct _NDIS_PM_NIC_ACTIVE *a3,
+        struct _IRP *a4)
+{
+  unsigned int v5; // edi
+  int *v9; // r14
+  struct _NDIS_MINIPORT_AOAC *AoAc; // rbx
+  KIRQL v11; // al
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  int v15; // r12d
+  _LIST_ENTRY *p_ListEntry; // rdx
+  _LIST_ENTRY *v17; // r8
+  unsigned int v18; // eax
+  int v19; // edx
+  KIRQL NewIrql; // [rsp+70h] [rbp+8h]
+
+  v5 = 0;
+  v9 = (int *)((char *)a3 + 16);
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_DDL(*((_QWORD *)WPP_GLOBAL_Control + 8), (_DWORD)a2, (_DWORD)a3, 16);
+  AoAc = a1->AoAc;
+  v11 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)AoAc);
+  ++*((_DWORD *)a2 + 7);
+  NewIrql = v11;
+  ndisAoAcActiveRefIncrement((__int64)AoAc, *v9);
+  if ( (unsigned int)(*((_DWORD *)AoAc + 16) - 3) <= 1 )
+  {
+    *((_DWORD *)AoAc + 16) = 0;
+    ndisAoAcActiveRefSubtract((__int64)AoAc, 0, 1);
+    if ( KeCancelTimer((PKTIMER)((char *)AoAc + 72)) )
+      ndisDereferenceMiniport(a1, 2u);
+  }
+  v14 = 0x346DC5D63886594BLL;
+  if ( *((_BYTE *)AoAc + 452) )
+  {
+    *((_BYTE *)AoAc + 452) = 0;
+    v13 = MEMORY[0xFFFFF78000000008] - *((_QWORD *)AoAc + 55);
+    v12 = v13 / 0x2710uLL;
+    if ( v13 / 0x2710uLL > ndisAoAcMaxStartToRefTime )
+      ndisAoAcMaxStartToRefTime = v13 / 0x2710uLL;
+  }
+  if ( *((_BYTE *)AoAc + 464) )
+  {
+    *((_BYTE *)AoAc + 464) = 0;
+    v13 = MEMORY[0xFFFFF78000000014] - *((_QWORD *)AoAc + 57);
+    v12 = v13 / 10000;
+    if ( v13 / 10000 > ndisAoAcMaxWakeToRefTime )
+      ndisAoAcMaxWakeToRefTime = v13 / 10000;
+  }
+  v15 = *((_DWORD *)AoAc + 13);
+  if ( (byte_1C00F7643 & 4) != 0 )
+    McTemplateK0xqqq_EtwWriteTransfer(
+      v13,
+      (unsigned int)&NicActiveAcquired,
+      (_DWORD)a1 + 4008,
+      *((_QWORD *)a3 + 1),
+      *((_DWORD *)a2 + 6),
+      *((_DWORD *)a2 + 7),
+      *((_DWORD *)AoAc + 13));
+  if ( !*((_DWORD *)AoAc + 94) || *((_DWORD *)AoAc + 95) )
+  {
+    KeReleaseSpinLock((PKSPIN_LOCK)AoAc, NewIrql);
+  }
+  else
+  {
+    if ( *((_DWORD *)AoAc + 13) == 1 && *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_LqZ(
+        *((_QWORD *)WPP_GLOBAL_Control + 8),
+        v12,
+        v14,
+        0x11u,
+        (struct _GUID *)WPP_1cdba23956c23e7115893e836b18f005_Traceguids,
+        *v9,
+        (char)a1,
+        &a1->pAdapterInstanceName->Length);
+    p_ListEntry = &a4->Tail.Overlay.ListEntry;
+    a4->Tail.Overlay.CurrentStackLocation->Control |= 1u;
+    v17 = (_LIST_ENTRY *)*((_QWORD *)AoAc + 5);
+    if ( v17->Flink != (_LIST_ENTRY *)((char *)AoAc + 32) )
+      __fastfail(3u);
+    p_ListEntry->Flink = (_LIST_ENTRY *)((char *)AoAc + 32);
+    a4->Tail.Overlay.ListEntry.Blink = v17;
+    v17->Flink = p_ListEntry;
+    *((_QWORD *)AoAc + 5) = p_ListEntry;
+    ++*((_DWORD *)AoAc + 12);
+    KeReleaseSpinLock((PKSPIN_LOCK)AoAc, NewIrql);
+    v18 = ndisRequestNicActive(a1, RunAsynchronous);
+    v5 = v18;
+    if ( v18 != 259 )
+    {
+      if ( v18 && *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_Lq(
+          *((_QWORD *)WPP_GLOBAL_Control + 8),
+          2u,
+          0xEu,
+          0x12u,
+          (struct _GUID *)WPP_1cdba23956c23e7115893e836b18f005_Traceguids,
+          v18,
+          a1);
+      ndisAoAcCompleteQueuedIrps(a1, v5);
+      v5 = 259;
+    }
+  }
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qdL(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      v19,
+      14,
+      19,
+      (struct _GUID *)WPP_1cdba23956c23e7115893e836b18f005_Traceguids,
+      (char)a1,
+      v15,
+      v5);
+  return v5;
+}

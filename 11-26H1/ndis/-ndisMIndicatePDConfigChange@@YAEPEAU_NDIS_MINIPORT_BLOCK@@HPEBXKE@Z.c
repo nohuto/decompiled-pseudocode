@@ -1,0 +1,115 @@
+/*
+ * XREFs of ?ndisMIndicatePDConfigChange@@YAEPEAU_NDIS_MINIPORT_BLOCK@@HPEBXKE@Z @ 0x1400A6CC8
+ * Callers:
+ *     ?ndisMRawIndicateStatusEx@@YAXPEAUNDIS_MINIPORT_ADAPTER_HANDLE__@@PEAU_NDIS_STATUS_INDICATION@@@Z @ 0x14005D9A0 (-ndisMRawIndicateStatusEx@@YAXPEAUNDIS_MINIPORT_ADAPTER_HANDLE__@@PEAU_NDIS_STATUS_INDICATION@@@.c)
+ * Callees:
+ *     NdisWriteErrorLogEntry @ 0x140005D80 (NdisWriteErrorLogEntry.c)
+ *     WPP_RECORDER_SF_q @ 0x140016160 (WPP_RECORDER_SF_q.c)
+ *     ?NDIS_ACQUIRE_MINIPORT_SPIN_LOCK@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAE@Z @ 0x14001BE20 (-NDIS_ACQUIRE_MINIPORT_SPIN_LOCK@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAE@Z.c)
+ *     ?ndisBugCheckEx@@YAX_K000@Z @ 0x14008C320 (-ndisBugCheckEx@@YAX_K000@Z.c)
+ *     ?ndisValidatePDConfigBuffer@@YAEKPEBU_NDIS_PD_CONFIG@@@Z @ 0x1400A7A9C (-ndisValidatePDConfigBuffer@@YAEKPEBU_NDIS_PD_CONFIG@@@Z.c)
+ *     WPP_RECORDER_SF_qdd @ 0x1400A8678 (WPP_RECORDER_SF_qdd_ea_1400A8678.c)
+ *     ?NdisTraceLoggingPacketDirectConfigChanged@@YAXPEAU_NDIS_MINIPORT_BLOCK@@EE@Z @ 0x1400B24B4 (-NdisTraceLoggingPacketDirectConfigChanged@@YAXPEAU_NDIS_MINIPORT_BLOCK@@EE@Z.c)
+ *     memmove @ 0x1400EA1C0 (memmove.c)
+ */
+
+char __fastcall ndisMIndicatePDConfigChange(
+        struct _NDIS_MINIPORT_BLOCK *a1,
+        __int64 a2,
+        const struct _NDIS_PD_CONFIG *a3,
+        unsigned int a4,
+        KIRQL NewIrql)
+{
+  struct _NDIS_PD_BLOCK *PDBlock; // rbx
+  char v6; // r14
+  size_t v7; // rsi
+  void *v10; // rcx
+  __int64 Pool2; // rax
+  void *v12; // rcx
+  int v13; // edx
+  int v14; // r8d
+  __int64 v15; // rax
+  KIRQL v16; // dl
+  int v18; // [rsp+20h] [rbp-28h]
+
+  PDBlock = a1->PDBlock;
+  v6 = 0;
+  v7 = a4;
+  NewIrql = 0;
+  if ( PDBlock )
+  {
+    if ( !ndisValidatePDConfigBuffer(a4, a3) )
+      ndisBugCheckEx(0x20uLL, 0x40020200uLL, (ULONG_PTR)a1, (ULONG_PTR)a3);
+    NDIS_ACQUIRE_MINIPORT_SPIN_LOCK(a1, &NewIrql);
+    if ( *((_DWORD *)PDBlock + 9) < (unsigned int)v7 )
+    {
+      v10 = (void *)*((_QWORD *)PDBlock + 3);
+      if ( v10 )
+      {
+        ExFreePoolWithTag(v10, 0);
+        *((_QWORD *)PDBlock + 4) = 0LL;
+      }
+      Pool2 = ExAllocatePool2(66LL, v7, 1866548302LL);
+      *((_QWORD *)PDBlock + 3) = Pool2;
+      if ( Pool2 )
+        *((_DWORD *)PDBlock + 9) = v7;
+    }
+    v12 = (void *)*((_QWORD *)PDBlock + 3);
+    if ( !v12 )
+    {
+      NdisWriteErrorLogEntry(a1, 0xC0001389, 1u, 4294967293LL);
+      goto LABEL_20;
+    }
+    memmove(v12, a3, v7);
+    *((_DWORD *)PDBlock + 8) = v7;
+    if ( !*((_BYTE *)PDBlock + 12) )
+    {
+      v15 = *((_QWORD *)PDBlock + 3);
+      if ( *(_BYTE *)(v15 + 8) == 1 )
+      {
+        *(_BYTE *)(v15 + 8) = 0;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+LABEL_18:
+          v6 = 1;
+          NdisTraceLoggingPacketDirectConfigChanged(
+            a1,
+            *(_DWORD *)(*((_QWORD *)PDBlock + 3) + 16LL) != 0,
+            *(_BYTE *)(*((_QWORD *)PDBlock + 3) + 8LL));
+LABEL_20:
+          v16 = NewIrql;
+          a1->MiniportThread = 0LL;
+          KeReleaseSpinLock(&a1->Lock, v16);
+          return v6;
+        }
+        WPP_RECORDER_SF_q(
+          *((_QWORD *)WPP_GLOBAL_Control + 8),
+          3,
+          29,
+          65,
+          (struct _GUID *)&WPP_bb899958c3b83c4be5ffe2f3031e3faa_Traceguids,
+          (char)a1);
+      }
+    }
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_qdd(
+        *((_QWORD *)WPP_GLOBAL_Control + 8),
+        v13,
+        v14,
+        66,
+        v18,
+        (char)a1,
+        a3->Enabled,
+        a3->CapabilitiesSize);
+    goto LABEL_18;
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_q(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      3,
+      29,
+      64,
+      (struct _GUID *)&WPP_bb899958c3b83c4be5ffe2f3031e3faa_Traceguids,
+      (char)a1);
+  return v6;
+}

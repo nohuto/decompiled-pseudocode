@@ -1,0 +1,203 @@
+/*
+ * XREFs of ?NdisTraceLoggingCsStateChange@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_MINIPORT_AOAC@@EPEAU_NDIS_MINIPORT_CS_SPURIOUS_WAKE_STATS@@PEAU_NDIS_MINIPORT_CS_SPURIOUS_WAKE_STATS_EX@@PEAU_NDIS_MINIPORT_CS_TRAFFIC_STATS@@4@Z @ 0x1C00C248C
+ * Callers:
+ *     ?ndisCsStateChange@@YAXPEAU_NDIS_MINIPORT_BLOCK@@EE@Z @ 0x1C00BB8C4 (-ndisCsStateChange@@YAXPEAU_NDIS_MINIPORT_BLOCK@@EE@Z.c)
+ * Callees:
+ *     _TlgWrite @ 0x1C0020F10 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x1C0031294 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C0040770 (__security_check_cookie.c)
+ *     memset @ 0x1C0041440 (memset.c)
+ */
+
+void __fastcall NdisTraceLoggingCsStateChange(
+        struct _NDIS_MINIPORT_BLOCK *a1,
+        struct _NDIS_MINIPORT_AOAC *a2,
+        unsigned __int8 a3,
+        struct _NDIS_MINIPORT_CS_SPURIOUS_WAKE_STATS *a4,
+        struct _NDIS_MINIPORT_CS_SPURIOUS_WAKE_STATS_EX *a5,
+        struct _NDIS_MINIPORT_CS_TRAFFIC_STATS *a6,
+        struct _NDIS_MINIPORT_CS_TRAFFIC_STATS *a7)
+{
+  __int64 v11; // r8
+  unsigned __int64 *v12; // rcx
+  _NDIS_AOAC_COMPONENT_REF_TIME *CsRefTimes; // rdx
+  unsigned __int64 TotalRefTime; // rax
+  __int128 v15; // xmm0
+  __int128 v16; // xmm1
+  __int128 v17; // xmm0
+  unsigned int LastUnknownWakeReason; // eax
+  const GUID *v19; // r8
+  const GUID *v20; // r9
+  _UNICODE_STRING *pAdapterInstanceName; // rax
+  int Length; // ecx
+  _NDIS_NIC_ACTIVE_STATE ActiveState; // [rsp+30h] [rbp-D0h] BYREF
+  int CsPowerTransitions; // [rsp+34h] [rbp-CCh] BYREF
+  unsigned int CsSurpriseWakes; // [rsp+38h] [rbp-C8h] BYREF
+  unsigned int CsSpuriousWakes; // [rsp+3Ch] [rbp-C4h] BYREF
+  int v27; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 Value; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned __int64 v29; // [rsp+50h] [rbp-B0h] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+60h] [rbp-A0h] BYREF
+  _GUID *p_InterfaceGuid; // [rsp+80h] [rbp-80h]
+  __int64 v32; // [rsp+88h] [rbp-78h]
+  unsigned int *p_IfIndex; // [rsp+90h] [rbp-70h]
+  __int64 v34; // [rsp+98h] [rbp-68h]
+  _NET_LUID_LH *p_NetLuid; // [rsp+A0h] [rbp-60h]
+  const GUID *v36; // [rsp+A8h] [rbp-58h]
+  _NDIS_NIC_ACTIVE_STATE *p_ActiveState; // [rsp+B0h] [rbp-50h]
+  __int64 v38; // [rsp+B8h] [rbp-48h]
+  __int64 *p_Value; // [rsp+C0h] [rbp-40h]
+  const GUID *v40; // [rsp+C8h] [rbp-38h]
+  unsigned __int64 *v41; // [rsp+D0h] [rbp-30h]
+  const GUID *v42; // [rsp+D8h] [rbp-28h]
+  unsigned __int64 *p_TotalCsActiveTime; // [rsp+E0h] [rbp-20h]
+  const GUID *v44; // [rsp+E8h] [rbp-18h]
+  int *p_CsPowerTransitions; // [rsp+F0h] [rbp-10h]
+  __int64 v46; // [rsp+F8h] [rbp-8h]
+  unsigned __int64 *p_TotalCsResiliencyTime; // [rsp+100h] [rbp+0h]
+  const GUID *v48; // [rsp+108h] [rbp+8h]
+  unsigned int *p_CsSurpriseWakes; // [rsp+110h] [rbp+10h]
+  __int64 v50; // [rsp+118h] [rbp+18h]
+  unsigned int *p_CsSpuriousWakes; // [rsp+120h] [rbp+20h]
+  __int64 v52; // [rsp+128h] [rbp+28h]
+  int *v53; // [rsp+130h] [rbp+30h]
+  __int64 v54; // [rsp+138h] [rbp+38h]
+  _DWORD *v55; // [rsp+140h] [rbp+40h]
+  __int64 v56; // [rsp+148h] [rbp+48h]
+  wchar_t *Buffer; // [rsp+150h] [rbp+50h]
+  _DWORD v58[2]; // [rsp+158h] [rbp+58h] BYREF
+  struct _NDIS_MINIPORT_CS_TRAFFIC_STATS *v59; // [rsp+160h] [rbp+60h]
+  const GUID *v60; // [rsp+168h] [rbp+68h]
+  unsigned __int64 *p_IfOutUnicastPackets; // [rsp+170h] [rbp+70h]
+  const GUID *v62; // [rsp+178h] [rbp+78h]
+  unsigned __int64 *p_IfInMulticastPackets; // [rsp+180h] [rbp+80h]
+  const GUID *v64; // [rsp+188h] [rbp+88h]
+  unsigned __int64 *p_IfOutMulticastPackets; // [rsp+190h] [rbp+90h]
+  const GUID *v66; // [rsp+198h] [rbp+98h]
+  unsigned __int64 *p_IfInBroadcastPackets; // [rsp+1A0h] [rbp+A0h]
+  const GUID *v68; // [rsp+1A8h] [rbp+A8h]
+  unsigned __int64 *p_IfOutBroadcastPackets; // [rsp+1B0h] [rbp+B0h]
+  const GUID *v70; // [rsp+1B8h] [rbp+B8h]
+  struct _NDIS_MINIPORT_CS_TRAFFIC_STATS *v71; // [rsp+1C0h] [rbp+C0h]
+  const GUID *v72; // [rsp+1C8h] [rbp+C8h]
+  unsigned __int64 *v73; // [rsp+1D0h] [rbp+D0h]
+  const GUID *v74; // [rsp+1D8h] [rbp+D8h]
+  unsigned __int64 *v75; // [rsp+1E0h] [rbp+E0h]
+  const GUID *v76; // [rsp+1E8h] [rbp+E8h]
+  unsigned __int64 *v77; // [rsp+1F0h] [rbp+F0h]
+  const GUID *v78; // [rsp+1F8h] [rbp+F8h]
+  unsigned __int64 *v79; // [rsp+200h] [rbp+100h]
+  const GUID *v80; // [rsp+208h] [rbp+108h]
+  unsigned __int64 *v81; // [rsp+210h] [rbp+110h]
+  const GUID *v82; // [rsp+218h] [rbp+118h]
+  _OWORD *v83; // [rsp+220h] [rbp+120h]
+  __int64 v84; // [rsp+228h] [rbp+128h]
+  int *ComponentRefCounts; // [rsp+230h] [rbp+130h]
+  __int64 v86; // [rsp+238h] [rbp+138h]
+  _BYTE *v87; // [rsp+240h] [rbp+140h]
+  __int64 v88; // [rsp+248h] [rbp+148h]
+  _OWORD v89[4]; // [rsp+250h] [rbp+150h] BYREF
+  _BYTE v90[144]; // [rsp+290h] [rbp+190h] BYREF
+
+  memset(&v90[8], 0, 0x80uLL);
+  memset(v89, 0, sizeof(v89));
+  v29 = (MEMORY[0xFFFFF78000000008] - ndisLastCsEntryTime) / 0x2710;
+  if ( v29 >= 0x927C0 )
+  {
+    v11 = 17LL;
+    v12 = (unsigned __int64 *)v90;
+    CsRefTimes = a2->CsRefTimes;
+    do
+    {
+      TotalRefTime = CsRefTimes->TotalRefTime;
+      ++CsRefTimes;
+      *v12++ = TotalRefTime;
+      --v11;
+    }
+    while ( v11 );
+    v15 = *(_OWORD *)&a4->WakeReasonUnspec;
+    v16 = *(_OWORD *)&a4->WakeReasonWlanNLODiscovery;
+    DWORD2(v89[2]) = a4->WakeReasonWwanUSSDReceive;
+    v89[0] = v15;
+    *(_QWORD *)&v89[2] = *(_QWORD *)&a4->WakeReasonWwanRegisterState;
+    v17 = *(_OWORD *)&a5->WakeReasonBadIndication;
+    LastUnknownWakeReason = a5->LastUnknownWakeReason;
+    v89[1] = v16;
+    *(_OWORD *)((char *)&v89[2] + 12) = v17;
+    HIDWORD(v89[3]) = LastUnknownWakeReason;
+    if ( hProvider.LevelPlus1 > 5 )
+    {
+      if ( TlgKeywordOn(&hProvider, 0x400000000000uLL) )
+      {
+        v32 = 16LL;
+        p_InterfaceGuid = &a1->InterfaceGuid;
+        v55 = v58;
+        p_IfIndex = &a1->IfIndex;
+        p_NetLuid = &a1->NetLuid;
+        ActiveState = a2->ActiveState;
+        p_ActiveState = &ActiveState;
+        Value = a2->StopFlags.Value;
+        p_Value = &Value;
+        v41 = &v29;
+        p_TotalCsActiveTime = &a2->TotalCsActiveTime;
+        CsPowerTransitions = a2->CsPowerTransitions;
+        p_CsPowerTransitions = &CsPowerTransitions;
+        p_TotalCsResiliencyTime = &a2->TotalCsResiliencyTime;
+        CsSurpriseWakes = a2->CsSurpriseWakes;
+        p_CsSurpriseWakes = &CsSurpriseWakes;
+        CsSpuriousWakes = a2->CsSpuriousWakes;
+        p_CsSpuriousWakes = &CsSpuriousWakes;
+        v27 = a3;
+        v53 = &v27;
+        pAdapterInstanceName = a1->pAdapterInstanceName;
+        v34 = 4LL;
+        v36 = v20;
+        v38 = 4LL;
+        v40 = v20;
+        v42 = v20;
+        v44 = v20;
+        v46 = 4LL;
+        v48 = v20;
+        v50 = 4LL;
+        v52 = 4LL;
+        v54 = 4LL;
+        v56 = 2LL;
+        Length = pAdapterInstanceName->Length;
+        Buffer = pAdapterInstanceName->Buffer;
+        v58[0] = Length;
+        v59 = a6;
+        v58[1] = 0;
+        v60 = v20;
+        v62 = v20;
+        p_IfOutUnicastPackets = &a6->IfOutUnicastPackets;
+        p_IfInMulticastPackets = &a6->IfInMulticastPackets;
+        p_IfOutMulticastPackets = &a6->IfOutMulticastPackets;
+        p_IfInBroadcastPackets = &a6->IfInBroadcastPackets;
+        p_IfOutBroadcastPackets = &a6->IfOutBroadcastPackets;
+        v64 = v20;
+        v66 = v20;
+        v68 = v20;
+        v73 = &a7->IfOutUnicastPackets;
+        v70 = v20;
+        v71 = a7;
+        v72 = v20;
+        v74 = v20;
+        v76 = v20;
+        v75 = &a7->IfInMulticastPackets;
+        v77 = &a7->IfOutMulticastPackets;
+        v79 = &a7->IfInBroadcastPackets;
+        v81 = &a7->IfOutBroadcastPackets;
+        v83 = v89;
+        ComponentRefCounts = a2->ComponentRefCounts;
+        v87 = v90;
+        v78 = v20;
+        v80 = v20;
+        v82 = v20;
+        v84 = 64LL;
+        v86 = 68LL;
+        v88 = 136LL;
+        TlgWrite(&hProvider, &unk_1C00D174A, v19, v20, 0x1Fu, &pData);
+      }
+    }
+  }
+}

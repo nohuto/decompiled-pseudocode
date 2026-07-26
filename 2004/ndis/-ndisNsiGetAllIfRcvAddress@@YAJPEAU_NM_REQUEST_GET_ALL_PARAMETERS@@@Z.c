@@ -1,0 +1,178 @@
+/*
+ * XREFs of ?ndisNsiGetAllIfRcvAddress@@YAJPEAU_NM_REQUEST_GET_ALL_PARAMETERS@@@Z @ 0x1C00B40D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ndisIfDereferenceMiniport@@YAXPEAU_NDIS_IF_BLOCK@@PEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_MPIF_REFTAG@@@Z @ 0x1C0009800 (-ndisIfDereferenceMiniport@@YAXPEAU_NDIS_IF_BLOCK@@PEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_MPIF_REFTAG.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C000DC70 (WPP_RECORDER_SF_qL.c)
+ *     WPP_RECORDER_SF_q @ 0x1C000DD50 (WPP_RECORDER_SF_q.c)
+ *     NdisReferenceWithTag @ 0x1C000DE10 (NdisReferenceWithTag.c)
+ *     ?ndisIfReferenceMiniport@@YAPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_IF_BLOCK@@W4_NDIS_MPIF_REFTAG@@@Z @ 0x1C000F050 (-ndisIfReferenceMiniport@@YAPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_IF_BLOCK@@W4_NDIS_MPIF_REFTAG@@@.c)
+ *     ?IFBLOCK_DECREMENT_REF@@YAXPEAU_NDIS_IF_BLOCK@@W4_NDIS_IF_REFTAG@@@Z @ 0x1C00187A4 (-IFBLOCK_DECREMENT_REF@@YAXPEAU_NDIS_IF_BLOCK@@W4_NDIS_IF_REFTAG@@@Z.c)
+ *     ?ndisIfFindInterfaceByNetLuid@@YAPEAU_NDIS_IF_BLOCK@@T_NET_LUID_LH@@@Z @ 0x1C002EEA4 (-ndisIfFindInterfaceByNetLuid@@YAPEAU_NDIS_IF_BLOCK@@T_NET_LUID_LH@@@Z.c)
+ *     memset @ 0x1C003FE40 (memset.c)
+ *     ndisIfFindNextRcvAddress @ 0x1C01277A4 (ndisIfFindNextRcvAddress.c)
+ *     ndisIfFindRcvAddress @ 0x1C0127834 (ndisIfFindRcvAddress.c)
+ *     ndisNsiGetIfRcvAddressRodInformation @ 0x1C01278B4 (ndisNsiGetIfRcvAddressRodInformation.c)
+ */
+
+__int64 __fastcall ndisNsiGetAllIfRcvAddress(struct _NM_REQUEST_GET_ALL_PARAMETERS *a1)
+{
+  _LIST_ENTRY *InterfaceByNetLuid; // rsi
+  int IfRcvAddressRodInformation; // edi
+  union _NET_LUID_LH *v4; // rax
+  union _NET_LUID_LH v5; // rbx
+  union _NET_LUID_LH *v6; // r15
+  KIRQL v7; // al
+  int v8; // ecx
+  KIRQL v9; // r14
+  int v10; // ecx
+  _LIST_ENTRY *v11; // rax
+  struct _NDIS_MINIPORT_BLOCK *v12; // rax
+  __int64 Flink; // rdx
+  int v14; // ebx
+  __int64 NextRcvAddress; // rax
+  __int64 v16; // rax
+  KIRQL v17; // bl
+  char v19[64]; // [rsp+40h] [rbp-58h] BYREF
+
+  InterfaceByNetLuid = 0LL;
+  IfRcvAddressRodInformation = 0;
+  if ( *(int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_q(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0x16u,
+      0xEu,
+      (struct _GUID *)&WPP_8f0f9622f1783245f7c6c1685f8f81bf_Traceguids,
+      a1);
+  memset(v19, 0, sizeof(v19));
+  KeEnterCriticalRegion();
+  if ( *((_DWORD *)a1 + 6) != 40 )
+  {
+    IfRcvAddressRodInformation = -1073741808;
+    goto LABEL_41;
+  }
+  v4 = (union _NET_LUID_LH *)*((_QWORD *)a1 + 2);
+  v5.Value = v4->Value;
+  v6 = v4 + 1;
+  v7 = KeAcquireSpinLockRaiseToDpc(&ndisIfListLock);
+  v8 = *((_DWORD *)a1 + 8);
+  v9 = v7;
+  if ( v8 )
+  {
+    v10 = v8 - 1;
+    if ( v10 )
+    {
+      if ( v10 != 1 )
+      {
+        IfRcvAddressRodInformation = -1073741808;
+        goto LABEL_18;
+      }
+    }
+    else if ( v5.Value == -1LL )
+    {
+      do
+      {
+        v11 = ndisIfList.Flink - 77;
+        if ( ndisIfList.Flink == &ndisIfList )
+          v11 = InterfaceByNetLuid;
+        InterfaceByNetLuid = v11;
+      }
+      while ( !v11 || !v11[80].Flink );
+      goto LABEL_16;
+    }
+  }
+  InterfaceByNetLuid = ndisIfFindInterfaceByNetLuid(v5);
+LABEL_16:
+  if ( InterfaceByNetLuid )
+  {
+    NdisReferenceWithTag((struct _NDIS_REFCOUNT_BLOCK *)InterfaceByNetLuid[89].Blink, 9u);
+    ++LODWORD(InterfaceByNetLuid[81].Blink);
+    **((_QWORD **)a1 + 2) = InterfaceByNetLuid[82].Flink;
+  }
+LABEL_18:
+  KeReleaseSpinLock(&ndisIfListLock, v9);
+  if ( IfRcvAddressRodInformation < 0 )
+    goto LABEL_39;
+  if ( !InterfaceByNetLuid )
+  {
+    IfRcvAddressRodInformation = *((_DWORD *)a1 + 8) != 0 ? -2147483622 : -1073741772;
+    goto LABEL_41;
+  }
+  v12 = ndisIfReferenceMiniport((struct _NDIS_IF_BLOCK *)InterfaceByNetLuid, 5u);
+  if ( !v12 )
+  {
+    IfRcvAddressRodInformation = 0;
+    goto LABEL_39;
+  }
+  if ( v12->EthDB )
+  {
+    v14 = *((_DWORD *)a1 + 8);
+    if ( v14 )
+    {
+      if ( v14 == 1 )
+      {
+        Flink = (__int64)InterfaceByNetLuid[80].Flink;
+        goto LABEL_33;
+      }
+      if ( v14 != 2 )
+      {
+        IfRcvAddressRodInformation = -1073741808;
+        goto LABEL_38;
+      }
+      NextRcvAddress = ndisIfFindNextRcvAddress(InterfaceByNetLuid, v6);
+    }
+    else
+    {
+      NextRcvAddress = ndisIfFindRcvAddress(InterfaceByNetLuid, v6);
+    }
+    Flink = NextRcvAddress;
+LABEL_33:
+    if ( Flink )
+    {
+      v16 = *((_QWORD *)a1 + 2);
+      *(_OWORD *)(v16 + 8) = *(_OWORD *)(Flink + 8);
+      *(_OWORD *)(v16 + 24) = *(_OWORD *)(Flink + 24);
+      if ( *((_QWORD *)a1 + 1) == 3LL )
+      {
+        *(_QWORD *)&v19[40] = *((_QWORD *)a1 + 7);
+        *(_DWORD *)&v19[48] = *((_DWORD *)a1 + 16);
+        *(_DWORD *)&v19[32] = 1;
+        IfRcvAddressRodInformation = ndisNsiGetIfRcvAddressRodInformation((char)InterfaceByNetLuid, Flink, (char)v19);
+        *((_DWORD *)a1 + 16) = *(_DWORD *)&v19[48];
+      }
+      else
+      {
+        IfRcvAddressRodInformation = -1073741811;
+      }
+    }
+    else
+    {
+      IfRcvAddressRodInformation = v14 != 0 ? -2147483622 : -1073741772;
+    }
+    goto LABEL_38;
+  }
+  IfRcvAddressRodInformation = 0;
+LABEL_38:
+  ndisIfDereferenceMiniport((struct _NDIS_IF_BLOCK *)InterfaceByNetLuid, (struct _NDIS_MINIPORT_BLOCK *)Flink, 5u);
+LABEL_39:
+  if ( InterfaceByNetLuid )
+  {
+    v17 = KeAcquireSpinLockRaiseToDpc(&ndisIfListLock);
+    IFBLOCK_DECREMENT_REF((struct _NDIS_IF_BLOCK *)InterfaceByNetLuid, 9u);
+    KeReleaseSpinLock(&ndisIfListLock, v17);
+  }
+LABEL_41:
+  KeLeaveCriticalRegion();
+  if ( *(int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qL(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0x16u,
+      0xFu,
+      (struct _GUID *)&WPP_8f0f9622f1783245f7c6c1685f8f81bf_Traceguids,
+      (char)a1,
+      IfRcvAddressRodInformation);
+  return (unsigned int)IfRcvAddressRodInformation;
+}

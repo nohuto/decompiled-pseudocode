@@ -1,0 +1,63 @@
+/*
+ * XREFs of ?ndisSwitchMiniportReceiveFunction@@YAJW4_NDIS_M_PERIODIC_RECEIVE_ACTION@@@Z @ 0x1C007D128
+ * Callers:
+ *     ?ndisConfigurePeriodicReceives@@YAXPEAU_NDIS_SET_RECEIVE_RATE@@@Z @ 0x1C0031B94 (-ndisConfigurePeriodicReceives@@YAXPEAU_NDIS_SET_RECEIVE_RATE@@@Z.c)
+ * Callees:
+ *     ?MiniportSupportsReceiveThrottle@@YAEPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C001C784 (-MiniportSupportsReceiveThrottle@@YAEPEAU_NDIS_MINIPORT_BLOCK@@@Z.c)
+ *     ?ndisReceiveQueueingOff@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C007CF50 (-ndisReceiveQueueingOff@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z.c)
+ *     ?ndisReceiveQueueingOn@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C007CFBC (-ndisReceiveQueueingOn@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z.c)
+ *     ndisTracePeriodicRcvOnOff @ 0x1C007EB8C (ndisTracePeriodicRcvOnOff.c)
+ *     ndisEmptyPeriodicReceivesQueue @ 0x1C00AE32C (ndisEmptyPeriodicReceivesQueue.c)
+ */
+
+__int64 __fastcall ndisSwitchMiniportReceiveFunction(int a1)
+{
+  struct _NDIS_MINIPORT_BLOCK *i; // rbx
+  __int64 v2; // rdx
+  bool v3; // zf
+  struct _NDIS_MINIPORT_BLOCK *Lock; // rbp
+  struct _NDIS_MINIPORT_BLOCK *NextMiniportBlock; // rdi
+
+  if ( a1 == 6 )
+  {
+    KeAcquireSpinLockAtDpcLevel(&ndisMiniportListLock);
+    for ( i = ndisMiniportList; i; i = i->NextGlobalMiniport )
+    {
+      if ( !MiniportSupportsReceiveThrottle(i) )
+      {
+        KeAcquireSpinLockAtDpcLevel(&i->PeriodicReceiveQueue.SpinLock);
+        v3 = i->MediaType == NdisMedium802_3;
+        i->PeriodicReceiveQueue.LockThread = KeGetCurrentThread();
+        if ( v3 && i->PeriodicReceiveQueue.BoundToIP && i->PeriodicReceiveQueue.State == PeriodicReceivesOff )
+          ndisReceiveQueueingOn(i, v2);
+        i->PeriodicReceiveQueue.LockThread = 0LL;
+        KeReleaseSpinLockFromDpcLevel(&i->PeriodicReceiveQueue.SpinLock);
+      }
+    }
+    KeReleaseSpinLockFromDpcLevel(&ndisMiniportListLock);
+  }
+  else
+  {
+    Lock = (struct _NDIS_MINIPORT_BLOCK *)WPP_MAIN_CB.DeviceQueue.Lock;
+    WPP_MAIN_CB.DeviceQueue.Lock = 0LL;
+    if ( Lock )
+    {
+      do
+      {
+        NextMiniportBlock = Lock->PeriodicReceiveQueue.NextMiniportBlock;
+        KeAcquireSpinLockAtDpcLevel(&Lock->PeriodicReceiveQueue.SpinLock);
+        Lock->PeriodicReceiveQueue.LockThread = KeGetCurrentThread();
+        ndisReceiveQueueingOff(Lock);
+        ndisEmptyPeriodicReceivesQueue(Lock);
+        Lock->PeriodicReceiveQueue.NextMiniportBlock = 0LL;
+        Lock->PeriodicReceiveQueue.LockThread = 0LL;
+        KeReleaseSpinLockFromDpcLevel(&Lock->PeriodicReceiveQueue.SpinLock);
+        Lock = NextMiniportBlock;
+      }
+      while ( NextMiniportBlock );
+    }
+    if ( BYTE2(dword_1C00E8098) )
+      ndisTracePeriodicRcvOnOff(0LL, 0LL, 0LL, 0LL);
+  }
+  return 0LL;
+}

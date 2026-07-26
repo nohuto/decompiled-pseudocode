@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?NdisTraceLoggingCompletedDxState@@YAXPEAU_NDIS_MINIPORT_BLOCK@@J@Z @ 0x1C001089C
+ * Callers:
+ *     ndisRequestedDevicePowerIrpComplete @ 0x1C00107B0 (ndisRequestedDevicePowerIrpComplete.c)
+ *     ndisMediaDisconnectComplete @ 0x1C005F8D0 (ndisMediaDisconnectComplete.c)
+ *     ?ndisNicQuietWaitWakeCallback@@YAXPEAU_DEVICE_OBJECT@@ET_POWER_STATE@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1C006AB20 (-ndisNicQuietWaitWakeCallback@@YAXPEAU_DEVICE_OBJECT@@ET_POWER_STATE@@PEAXPEAU_IO_STATUS_BLOCK@@.c)
+ * Callees:
+ *     _TlgWrite @ 0x1C001752C (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x1C0017668 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C0022840 (__security_check_cookie.c)
+ */
+
+void __fastcall NdisTraceLoggingCompletedDxState(const struct _TlgProvider_t *a1)
+{
+  __int64 v1; // rcx
+  const GUID *v2; // r8
+  const GUID *v3; // r9
+  int v4; // [rsp+30h] [rbp-68h] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v6; // [rsp+60h] [rbp-38h]
+  int v7; // [rsp+68h] [rbp-30h]
+  int v8; // [rsp+6Ch] [rbp-2Ch]
+  int *v9; // [rsp+70h] [rbp-28h]
+  int v10; // [rsp+78h] [rbp-20h]
+  int v11; // [rsp+7Ch] [rbp-1Ch]
+
+  if ( (unsigned int)dword_1C0084040 > 5 )
+  {
+    if ( TlgKeywordOn(a1, 0x400000000000uLL) )
+    {
+      v8 = 0;
+      v11 = 0;
+      v6 = v1 + 4064;
+      v9 = &v4;
+      v7 = 16;
+      v4 = (int)v3;
+      v10 = 4;
+      TlgWrite((TraceLoggingHProvider)4, &unk_1C0074B23, v2, v3, 4u, &pData);
+    }
+  }
+}

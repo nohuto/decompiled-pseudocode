@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?ndisVerifierAllocateMemoryWithTagPriority@@YAPEAXPEAXIKW4_EX_POOL_PRIORITY@@@Z @ 0x1C005FFA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00236D0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall ndisVerifierAllocateMemoryWithTagPriority(void *a1, unsigned int a2, __int64 a3, __int64 a4)
+{
+  void *retaddr; // [rsp+38h] [rbp+0h]
+
+  if ( !(_DWORD)a3 )
+    a3 = 1835091022LL;
+  return (*((__int64 (__fastcall **)(_QWORD, _QWORD, __int64, __int64, void *))ndisVerifierWdmDispatch + 6))(
+           (unsigned int)ndisDriverPoolType,
+           a2,
+           a3,
+           a4,
+           retaddr);
+}

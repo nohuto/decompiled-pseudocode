@@ -1,0 +1,142 @@
+/*
+ * XREFs of ?ndisIovDeleteVPort@@YAHPEAU_NDIS_VPORT_BLOCK@@@Z @ 0x1C00706FC
+ * Callers:
+ *     ?ndisIovCreateVPort@@YAEPEAU_NDIS_REQ_TRACKER@@@Z @ 0x1C006FFA4 (-ndisIovCreateVPort@@YAEPEAU_NDIS_REQ_TRACKER@@@Z.c)
+ *     ?ndisOidPostIovDeleteVPort@@YAXPEAU_NDIS_REQ_TRACKER@@@Z @ 0x1C0071D20 (-ndisOidPostIovDeleteVPort@@YAXPEAU_NDIS_REQ_TRACKER@@@Z.c)
+ * Callees:
+ *     ?NDIS_ACQUIRE_MINIPORT_SPIN_LOCK@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAE@Z @ 0x1C00060EC (-NDIS_ACQUIRE_MINIPORT_SPIN_LOCK@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAE@Z.c)
+ *     WPP_RECORDER_SF_qqL @ 0x1C000D340 (WPP_RECORDER_SF_qqL.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C000D430 (WPP_RECORDER_SF_qq.c)
+ */
+
+__int64 __fastcall ndisIovDeleteVPort(_QWORD *P)
+{
+  __int64 v1; // rbp
+  struct _NDIS_MINIPORT_BLOCK *v3; // rsi
+  __int64 v4; // r14
+  __int64 v5; // rdi
+  _QWORD *v6; // rax
+  PVOID *v7; // rcx
+  _QWORD **v8; // rcx
+  PVOID *v9; // rdx
+  _QWORD **v10; // rcx
+  PVOID *v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rcx
+  _QWORD *v14; // rdx
+  KIRQL v15; // dl
+  void *v16; // rcx
+  _QWORD **v18; // rdx
+  PVOID *v19; // r8
+  KIRQL NewIrql; // [rsp+60h] [rbp+8h] BYREF
+
+  LOBYTE(v1) = 0;
+  NewIrql = 0;
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qq(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0x1Au,
+      0x31u,
+      (struct _GUID *)&WPP_573a5358497137649e8f40cb87ceec67_Traceguids,
+      0,
+      0LL);
+  v3 = (struct _NDIS_MINIPORT_BLOCK *)P[9];
+  v4 = P[10];
+  v5 = P[11];
+  NDIS_ACQUIRE_MINIPORT_SPIN_LOCK(v3, &NewIrql);
+  if ( v3 )
+  {
+    v6 = (_QWORD *)*P;
+    if ( *(_QWORD **)(*P + 8LL) != P )
+      goto LABEL_29;
+    v7 = (PVOID *)P[1];
+    if ( *v7 != P )
+      goto LABEL_29;
+    *v7 = v6;
+    v6[1] = v7;
+    --v3->NumActiveVPorts;
+  }
+  if ( v4 )
+  {
+    v8 = (_QWORD **)P[2];
+    if ( v8[1] != P + 2 )
+      goto LABEL_29;
+    v9 = (PVOID *)P[3];
+    if ( *v9 != P + 2 )
+      goto LABEL_29;
+    *v9 = v8;
+    v8[1] = v9;
+    --*(_DWORD *)(v4 + 824);
+  }
+  if ( v5 )
+  {
+    v10 = (_QWORD **)P[4];
+    if ( v10[1] != P + 4 )
+      goto LABEL_29;
+    v11 = (PVOID *)P[5];
+    if ( *v11 != P + 4 )
+      goto LABEL_29;
+    *v11 = v10;
+    v10[1] = v11;
+    --*(_DWORD *)(v5 + 48);
+    *(_DWORD *)(v5 + 96) -= *((_DWORD *)P + 162);
+  }
+  v12 = P[12];
+  if ( (P[8] & 2) != 0 )
+  {
+    v1 = P[12];
+    if ( !v12 )
+      goto LABEL_20;
+    v13 = P[6];
+    if ( *(_QWORD **)(v13 + 8) == P + 6 )
+    {
+      v14 = (_QWORD *)P[7];
+      if ( (_QWORD *)*v14 == P + 6 )
+      {
+        *v14 = v13;
+        *(_QWORD *)(v13 + 8) = v14;
+        --*(_DWORD *)(v1 + 76);
+        goto LABEL_20;
+      }
+    }
+LABEL_29:
+    __fastfail(3u);
+  }
+  if ( v12 )
+  {
+    v18 = (_QWORD **)P[6];
+    if ( v18[1] != P + 6 )
+      goto LABEL_29;
+    v19 = (PVOID *)P[7];
+    if ( *v19 != P + 6 )
+      goto LABEL_29;
+    *v19 = v18;
+    v18[1] = v19;
+    --*(_DWORD *)(v12 + 28);
+  }
+LABEL_20:
+  v15 = NewIrql;
+  v3->MiniportThread = 0LL;
+  KeReleaseSpinLock(&v3->Lock, v15);
+  v3->AllocatedVPortIndices[(unsigned __int64)*((unsigned int *)P + 31) >> 3] &= ~(1 << (*((_BYTE *)P + 124) & 7));
+  P[112] = 0LL;
+  v16 = (void *)P[111];
+  if ( v16 )
+  {
+    ExFreePoolWithTag(v16, 0);
+    P[111] = 0LL;
+  }
+  ExFreePoolWithTag(P, 0);
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qqL(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0x1Au,
+      0x32u,
+      (struct _GUID *)&WPP_573a5358497137649e8f40cb87ceec67_Traceguids,
+      (char)v3,
+      v1,
+      0);
+  return 0LL;
+}

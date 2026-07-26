@@ -1,0 +1,61 @@
+/*
+ * XREFs of ?ndisIfDereferenceCompartmentForUser@@YAJPEAX@Z @ 0x1C00B8B4C
+ * Callers:
+ *     ndisDispatchRequest @ 0x1C0002B08 (ndisDispatchRequest.c)
+ *     ndisCmSetThreadState @ 0x1C0025720 (ndisCmSetThreadState.c)
+ *     ndisCmDeleteStateObject @ 0x1C0027180 (ndisCmDeleteStateObject.c)
+ *     NdisSetSessionCompartmentId @ 0x1C00B6E90 (NdisSetSessionCompartmentId.c)
+ *     ?ndisCmValidateCompartmentChange@@YAPEAXII@Z @ 0x1C00B811C (-ndisCmValidateCompartmentChange@@YAPEAXII@Z.c)
+ *     ?ndisCmAssignCompartmentHandleToCmState@@YAXPEAU_NDIS_CM_STATE@@PEAX@Z @ 0x1C00BA954 (-ndisCmAssignCompartmentHandleToCmState@@YAXPEAU_NDIS_CM_STATE@@PEAX@Z.c)
+ *     ?ndisCmDereferenceCompartment@@YAXPEAX@Z @ 0x1C00BA9A8 (-ndisCmDereferenceCompartment@@YAXPEAX@Z.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C000C0A0 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_Lq @ 0x1C00217BC (WPP_RECORDER_SF_Lq.c)
+ *     ndisIfDeleteCompartment @ 0x1C00B865C (ndisIfDeleteCompartment.c)
+ */
+
+__int64 __fastcall ndisIfDereferenceCompartmentForUser(_DWORD *a1)
+{
+  unsigned int v1; // edi
+  char v3; // si
+  KIRQL v4; // dl
+  int v5; // eax
+  int v6; // eax
+
+  v1 = 0;
+  v3 = 0;
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_q(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0x16u,
+      0x1Du,
+      (struct _GUID *)&WPP_44cacc4423dd306c9dbb65f5b8fbc273_Traceguids,
+      a1);
+  v4 = KeAcquireSpinLockRaiseToDpc(&ndisIfListLock);
+  v5 = a1[12];
+  if ( v5 <= 0 )
+  {
+    v1 = -1073741811;
+  }
+  else
+  {
+    v6 = v5 - 1;
+    a1[12] = v6;
+    if ( !v6 && (a1[10] & 2) != 0 )
+      v3 = 1;
+  }
+  KeReleaseSpinLock(&ndisIfListLock, v4);
+  if ( v3 )
+    ndisIfDeleteCompartment(a1[4]);
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_Lq(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0x16u,
+      0x1Eu,
+      (struct _GUID *)&WPP_44cacc4423dd306c9dbb65f5b8fbc273_Traceguids,
+      v1,
+      a1);
+  return v1;
+}

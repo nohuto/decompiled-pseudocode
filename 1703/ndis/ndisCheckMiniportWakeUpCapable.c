@@ -1,0 +1,46 @@
+/*
+ * XREFs of ndisCheckMiniportWakeUpCapable @ 0x1C002308C
+ * Callers:
+ *     ndisMIndicatePMHardwareCapabilities @ 0x1C004B280 (ndisMIndicatePMHardwareCapabilities.c)
+ *     ndisMInitializeAdapter @ 0x1C00F904C (ndisMInitializeAdapter.c)
+ * Callees:
+ *     WPP_SF_q @ 0x1C003C9C8 (WPP_SF_q.c)
+ *     Template_jqxqq @ 0x1C003F7B0 (Template_jqxqq.c)
+ */
+
+char __fastcall ndisCheckMiniportWakeUpCapable(__int64 a1)
+{
+  int v1; // eax
+  int v3; // ecx
+
+  v1 = *(_DWORD *)(a1 + 1048);
+  v3 = 2;
+  if ( ((unsigned int)(v1 - 2) <= 2
+     || (unsigned int)(*(_DWORD *)(a1 + 1040) - 2) <= 2
+     || (unsigned int)(*(_DWORD *)(a1 + 1044) - 2) <= 2
+     || (*(_BYTE *)(a1 + 1004) & 6) != 0)
+    && *(_DWORD *)(a1 + 1268)
+    && (unsigned int)(*(_DWORD *)(a1 + 1272) - 2) <= 2
+    && (*(_DWORD *)(a1 + 1228) & 0x3800) != 0 )
+  {
+    *(_DWORD *)(a1 + 124) |= 0x4000000u;
+    return 1;
+  }
+  else
+  {
+    *(_DWORD *)(a1 + 124) &= ~0x4000000u;
+    if ( (unsigned __int8)byte_1C0092615 >= 4u )
+      WPP_SF_q(123LL, &WPP_67a444f786a83633dadd9d4483e3f504_Traceguids, a1);
+    if ( (Microsoft_Windows_NDISEnableBits & 0x80000) != 0 )
+      Template_jqxqq(
+        v3,
+        (unsigned int)&InitializeAdapterInfo,
+        a1 + 4032,
+        a1 + 4032,
+        *(_DWORD *)(a1 + 4080),
+        *(_QWORD *)(a1 + 4048),
+        3,
+        0);
+    return 0;
+  }
+}

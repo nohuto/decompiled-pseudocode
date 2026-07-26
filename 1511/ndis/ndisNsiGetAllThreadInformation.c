@@ -1,0 +1,32 @@
+/*
+ * XREFs of ndisNsiGetAllThreadInformation @ 0x1C0096740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ndisCmGetThreadNetworkNamespace@@YAXPEAU_ETHREAD@@PEAI1@Z @ 0x1C000F778 (-ndisCmGetThreadNetworkNamespace@@YAXPEAU_ETHREAD@@PEAI1@Z.c)
+ */
+
+__int64 __fastcall ndisNsiGetAllThreadInformation(__int64 a1)
+{
+  int v1; // eax
+  unsigned int *v2; // rdx
+  __int64 result; // rax
+  unsigned int v4; // ecx
+
+  v1 = *(_DWORD *)(a1 + 32);
+  if ( v1 )
+  {
+    v4 = v1 - 1;
+    result = 3221225485LL;
+    if ( v4 <= 1 )
+      return 3221225474LL;
+  }
+  else
+  {
+    v2 = *(unsigned int **)(a1 + 40);
+    if ( v2 )
+      ndisCmGetThreadNetworkNamespace(KeGetCurrentThread(), v2, v2 + 1);
+    return 0LL;
+  }
+  return result;
+}

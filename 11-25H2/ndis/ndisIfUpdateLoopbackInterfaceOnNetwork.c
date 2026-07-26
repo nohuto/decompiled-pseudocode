@@ -1,0 +1,16 @@
+/*
+ * XREFs of ndisIfUpdateLoopbackInterfaceOnNetwork @ 0x1400CFD4C
+ * Callers:
+ *     ?ndisIfCreateInterface@@YAJPEAU_NDIS_IF_NETWORK_BLOCK@@EPEAU_NDIS_NSI_COMPARTMENT_RW@@PEBT_NET_LUID_LH@@PEBU_GUID@@PEBUNdisNetworkInterfacePersistedState@@PEAU_NDIS_FILTER_BLOCK@@W4NdisIfBlockSource@@@Z @ 0x14016E8A0 (-ndisIfCreateInterface@@YAJPEAU_NDIS_IF_NETWORK_BLOCK@@EPEAU_NDIS_NSI_COMPARTMENT_RW@@PEBT_NET_L.c)
+ * Callees:
+ *     ?ndisIfFindInterfaceByNetLuid@@YAPEAU_NDIS_IF_BLOCK@@T_NET_LUID_LH@@@Z @ 0x14004B090 (-ndisIfFindInterfaceByNetLuid@@YAPEAU_NDIS_IF_BLOCK@@T_NET_LUID_LH@@@Z.c)
+ */
+
+void __fastcall ndisIfUpdateLoopbackInterfaceOnNetwork(__int64 a1, union _NET_LUID_LH a2)
+{
+  KIRQL v4; // r8
+
+  KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.DeviceObjectExtension);
+  *(_QWORD *)(*(_QWORD *)(a1 + 48) + 1704LL) = ndisIfFindInterfaceByNetLuid(a2);
+  KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.DeviceObjectExtension, v4);
+}

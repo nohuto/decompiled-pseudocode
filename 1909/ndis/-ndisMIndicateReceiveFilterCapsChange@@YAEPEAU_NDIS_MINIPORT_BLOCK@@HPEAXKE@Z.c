@@ -1,0 +1,53 @@
+/*
+ * XREFs of ?ndisMIndicateReceiveFilterCapsChange@@YAEPEAU_NDIS_MINIPORT_BLOCK@@HPEAXKE@Z @ 0x1C0021C60
+ * Callers:
+ *     ndisIndicateStatusInternal @ 0x1C0015988 (ndisIndicateStatusInternal.c)
+ *     ?ndisMRawIndicateStatusEx@@YAXPEAUNDIS_MINIPORT_ADAPTER_HANDLE__@@PEAU_NDIS_STATUS_INDICATION@@@Z @ 0x1C0017430 (-ndisMRawIndicateStatusEx@@YAXPEAUNDIS_MINIPORT_ADAPTER_HANDLE__@@PEAU_NDIS_STATUS_INDICATION@@@.c)
+ * Callees:
+ *     memmove @ 0x1C0041380 (memmove.c)
+ */
+
+unsigned __int8 __fastcall ndisMIndicateReceiveFilterCapsChange(
+        struct _NDIS_MINIPORT_BLOCK *a1,
+        int a2,
+        void *a3,
+        unsigned int a4,
+        unsigned __int8 a5)
+{
+  unsigned __int8 result; // al
+  unsigned __int16 v9; // r9
+  _NDIS_RECEIVE_FILTER_CAPABILITIES *TopReceiveFilterCurrentCapabilities; // rcx
+  size_t v11; // r8
+
+  result = 0;
+  if ( a4 >= 0x38 && *(_BYTE *)a3 == 0x80 )
+  {
+    v9 = *((_WORD *)a3 + 1);
+    if ( v9 >= 0x38u )
+    {
+      if ( *((_BYTE *)a3 + 1) )
+      {
+        if ( a5 )
+          TopReceiveFilterCurrentCapabilities = a1->TopReceiveFilterCurrentCapabilities;
+        else
+          TopReceiveFilterCurrentCapabilities = a2 == 1073872912
+                                              ? a1->ReceiveFilterCurrentCapabilities
+                                              : a1->ReceiveFilterHwCapabilities;
+        if ( TopReceiveFilterCurrentCapabilities )
+        {
+          v11 = 84LL;
+          if ( v9 < 0x54u )
+            v11 = v9;
+          memmove(TopReceiveFilterCurrentCapabilities, a3, v11);
+          if ( a2 == 1073872912 )
+          {
+            a1->EnabledReceiveQueueTypes = *((_DWORD *)a3 + 3);
+            a1->EnabledReceiveFilterTypes = *((_DWORD *)a3 + 2);
+          }
+          return 1;
+        }
+      }
+    }
+  }
+  return result;
+}

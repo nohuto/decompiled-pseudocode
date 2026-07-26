@@ -1,0 +1,36 @@
+/*
+ * XREFs of wil_details_IsEnabledFallback @ 0x1C0037300
+ * Callers:
+ *     Feature_3484202299__private_IsEnabledFallback @ 0x1C0037290 (Feature_3484202299__private_IsEnabledFallback.c)
+ *     Feature_560772409__private_IsEnabledFallback @ 0x1C00372E4 (Feature_560772409__private_IsEnabledFallback.c)
+ *     Feature_Servicing_CompartmentIdReuse__private_IsEnabledFallback @ 0x1C0037F28 (Feature_Servicing_CompartmentIdReuse__private_IsEnabledFallback.c)
+ *     Feature_Servicing_CompartmentNotificationRaceCondition__private_IsEnabledFallback @ 0x1C0037F7C (Feature_Servicing_CompartmentNotificationRaceCondition__private_IsEnabledFallback.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C00364B8 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x1C0036630 (wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0036730 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ */
+
+__int64 __fastcall wil_details_IsEnabledFallback(__int64 a1, unsigned int a2, volatile signed __int32 **a3)
+{
+  char v5; // bl
+  __int64 v6; // rdi
+
+  v5 = a1;
+  if ( (a1 & 2) != 0 )
+  {
+    v6 = (unsigned int)a1;
+  }
+  else
+  {
+    v6 = wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState(*a3, a1, (__int64)a3);
+    v5 = v6;
+  }
+  if ( a2 )
+  {
+    wil_details_FeatureReporting_ReportUsageToService((__int64)a3, v6, a2);
+    if ( a2 - 3 <= 1 )
+      wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(v6, a2, (__int64)a3);
+  }
+  return v5 & 1;
+}

@@ -1,0 +1,17 @@
+/*
+ * XREFs of WPP_SF_qllq @ 0x1C004451C
+ * Callers:
+ *     ?ndisIfRegisterInterfaceEx@@YAHPEAXT_NET_LUID_LH@@0PEAU_NET_IF_INFORMATION@@W4NdisIfBlockSource@@PEAK@Z @ 0x1C001B330 (-ndisIfRegisterInterfaceEx@@YAHPEAXT_NET_LUID_LH@@0PEAU_NET_IF_INFORMATION@@W4NdisIfBlockSource@.c)
+ * Callees:
+ *     ?ndisWppFastTraceMessage@@YAXPEBU_GUID@@GZZ @ 0x1C004FBEC (-ndisWppFastTraceMessage@@YAXPEBU_GUID@@GZZ.c)
+ */
+
+void __fastcall WPP_SF_qllq(__int64 a1, __int64 a2, __int64 a3, int a4)
+{
+  __int64 v4; // [rsp+80h] [rbp+18h] BYREF
+  int v5; // [rsp+88h] [rbp+20h]
+
+  v5 = a4;
+  v4 = a3;
+  ndisWppFastTraceMessage(&WPP_af1106a9a46b3e0e2b308003762cd579_Traceguids, 0x2Bu, &v4);
+}

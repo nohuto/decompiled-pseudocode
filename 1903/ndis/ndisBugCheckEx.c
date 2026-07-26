@@ -1,0 +1,78 @@
+/*
+ * XREFs of ndisBugCheckEx @ 0x1C007E3F0
+ * Callers:
+ *     ?ndisNsiEnumerateAllInterfaceInformation@@YAJPEAU_NM_REQUEST_ENUMERATE_OBJECTS_ALL_PARAMETERS@@@Z @ 0x1C0001230 (-ndisNsiEnumerateAllInterfaceInformation@@YAJPEAU_NM_REQUEST_ENUMERATE_OBJECTS_ALL_PARAMETERS@@@.c)
+ *     ndisMTimerDpcX @ 0x1C00026B0 (ndisMTimerDpcX.c)
+ *     ndisDereferenceMiniport @ 0x1C000286C (ndisDereferenceMiniport.c)
+ *     ndisIfDereferenceMiniport @ 0x1C0002A30 (ndisIfDereferenceMiniport.c)
+ *     NdisDereferenceWithTag @ 0x1C0002EB0 (NdisDereferenceWithTag.c)
+ *     ndisFOidRequestCompleteInternal @ 0x1C0003030 (ndisFOidRequestCompleteInternal.c)
+ *     ?ndisNsiGetInterfaceInformation@@YAJPEAU_NM_REQUEST_GET_PARAMETER@@@Z @ 0x1C0003210 (-ndisNsiGetInterfaceInformation@@YAJPEAU_NM_REQUEST_GET_PARAMETER@@@Z.c)
+ *     ndisReferenceMiniportByHandleForNsi @ 0x1C0004090 (ndisReferenceMiniportByHandleForNsi.c)
+ *     ndisQueueOidRequest @ 0x1C0004470 (ndisQueueOidRequest.c)
+ *     ?ndisNsiGetAllInterfaceInformation@@YAJPEAU_NM_REQUEST_GET_ALL_PARAMETERS@@@Z @ 0x1C0004CE0 (-ndisNsiGetAllInterfaceInformation@@YAJPEAU_NM_REQUEST_GET_ALL_PARAMETERS@@@Z.c)
+ *     NdisReferenceWithTag @ 0x1C0006160 (NdisReferenceWithTag.c)
+ *     ?ndisRefCountBlockFromRefCountHandle@@YAPEAU_NDIS_REFCOUNT_BLOCK@@PEAUNDIS_REFCOUNT_HANDLE__@@@Z @ 0x1C0006570 (-ndisRefCountBlockFromRefCountHandle@@YAPEAU_NDIS_REFCOUNT_BLOCK@@PEAUNDIS_REFCOUNT_HANDLE__@@@Z.c)
+ *     ndisDereferenceMiniportForNsi @ 0x1C0006780 (ndisDereferenceMiniportForNsi.c)
+ *     ndisOidRequestComplete @ 0x1C00076F0 (ndisOidRequestComplete.c)
+ *     ndisDeviceControlHandler @ 0x1C0008BE0 (ndisDeviceControlHandler.c)
+ *     ndisQueuedCheckForHang @ 0x1C0009E80 (ndisQueuedCheckForHang.c)
+ *     ndisCreateHandler @ 0x1C000FBB0 (ndisCreateHandler.c)
+ *     ndisWmiQuerySingleInstance @ 0x1C0018CD0 (ndisWmiQuerySingleInstance.c)
+ *     ?ndisMTimerObjectDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C001E7F0 (-ndisMTimerObjectDpc@@YAXPEAU_KDPC@@PEAX11@Z.c)
+ *     ?ndisQueuedMiniportDpcWorkItem@@YAXPEAX@Z @ 0x1C001EC30 (-ndisQueuedMiniportDpcWorkItem@@YAXPEAX@Z.c)
+ *     NdisIfAddIfStackEntry @ 0x1C002A1F0 (NdisIfAddIfStackEntry.c)
+ *     ndisFreePerProcessorSlot @ 0x1C003E2F0 (ndisFreePerProcessorSlot.c)
+ *     NdisMRestartComplete @ 0x1C003F890 (NdisMRestartComplete.c)
+ *     NdisMPauseComplete @ 0x1C003FC50 (NdisMPauseComplete.c)
+ *     ndisOidPostRcvFilterClearFilter @ 0x1C005F4A0 (ndisOidPostRcvFilterClearFilter.c)
+ *     NdisIfDeregisterProvider @ 0x1C00664C0 (NdisIfDeregisterProvider.c)
+ *     ?ndisVerifySynchronousOidAfterCompletion@@YAXPEAU_NDIS_OID_REQUEST@@HPEAU_NDIS_OBJECT_HEADER@@@Z @ 0x1C00689F4 (-ndisVerifySynchronousOidAfterCompletion@@YAXPEAU_NDIS_OID_REQUEST@@HPEAU_NDIS_OBJECT_HEADER@@@Z.c)
+ *     NdisFSynchronousOidRequest @ 0x1C0068E40 (NdisFSynchronousOidRequest.c)
+ *     NdisSynchronousOidRequest @ 0x1C00692E0 (NdisSynchronousOidRequest.c)
+ *     ndisSynchronousOidRequestInternal @ 0x1C0070038 (ndisSynchronousOidRequestInternal.c)
+ *     ndisFInvokeSynchronousOidRequestComplete @ 0x1C008EE10 (ndisFInvokeSynchronousOidRequestComplete.c)
+ *     ndisMInvokeSynchronousOidRequest @ 0x1C009AFF0 (ndisMInvokeSynchronousOidRequest.c)
+ *     NdisLWMDeregisterMiniportDriver @ 0x1C009D5F0 (NdisLWMDeregisterMiniportDriver.c)
+ *     NdisLWMInitializeNetworkInterface @ 0x1C009D6C0 (NdisLWMInitializeNetworkInterface.c)
+ *     NdisLWMStartNetworkInterface @ 0x1C009DA50 (NdisLWMStartNetworkInterface.c)
+ *     NdisLWMUninitializeNetworkInterface @ 0x1C009DBC0 (NdisLWMUninitializeNetworkInterface.c)
+ *     NdisMDeregisterMiniportDriver @ 0x1C009E170 (NdisMDeregisterMiniportDriver.c)
+ *     ndisBindRequest @ 0x1C00A49B4 (ndisBindRequest.c)
+ *     datapathVerifierReportProblem @ 0x1C00A9B84 (datapathVerifierReportProblem.c)
+ *     ?ndisNblTrackerVerifyNoNblsHeld@@YAXPEAU_NDIS_NBL_TRACKER@@@Z @ 0x1C00AAC2C (-ndisNblTrackerVerifyNoNblsHeld@@YAXPEAU_NDIS_NBL_TRACKER@@@Z.c)
+ *     ?NdisPDReportECIteration@@YAXPEAUPD_EC_HANDLE__@@E@Z @ 0x1C00BF170 (-NdisPDReportECIteration@@YAXPEAUPD_EC_HANDLE__@@E@Z.c)
+ *     ?NdisPDSetupBufferFromMemoryHandle@@YAXPEAU_PD_BUFFER@@PEAUPD_MEMORY_HANDLE__@@KK@Z @ 0x1C00BF320 (-NdisPDSetupBufferFromMemoryHandle@@YAXPEAU_PD_BUFFER@@PEAUPD_MEMORY_HANDLE__@@KK@Z.c)
+ *     ?NdisPDSetupBufferFromPdBuffer@@YAXPEAU_PD_BUFFER@@PEBU1@KK@Z @ 0x1C00BF390 (-NdisPDSetupBufferFromPdBuffer@@YAXPEAU_PD_BUFFER@@PEBU1@KK@Z.c)
+ *     ?ndisTriggerPDDrainNotification@@YAXPEAUNDIS_PD_QUEUE_TRACKER@@@Z @ 0x1C00BFCEC (-ndisTriggerPDDrainNotification@@YAXPEAUNDIS_PD_QUEUE_TRACKER@@@Z.c)
+ *     NdisMTriggerPDDrainNotification @ 0x1C00C0280 (NdisMTriggerPDDrainNotification.c)
+ *     ndisMIndicatePDConfigChange @ 0x1C00C1DE8 (ndisMIndicatePDConfigChange.c)
+ *     ndisOidPostPDOpenProvider @ 0x1C00C2010 (ndisOidPostPDOpenProvider.c)
+ *     ?ndisGetRWLockVerifierContext@@YAPEAUNDIS_VERIFY_RW_LOCK_EX@@PEAU_NDIS_RW_LOCK_EX@@@Z @ 0x1C00C3CCC (-ndisGetRWLockVerifierContext@@YAPEAUNDIS_VERIFY_RW_LOCK_EX@@PEAU_NDIS_RW_LOCK_EX@@@Z.c)
+ *     ?ndisVerifyNdisAcquireRWLockWrite@@YAXPEAU_NDIS_RW_LOCK_EX@@PEAU_LOCK_STATE_EX@@E@Z @ 0x1C00C3DD0 (-ndisVerifyNdisAcquireRWLockWrite@@YAXPEAU_NDIS_RW_LOCK_EX@@PEAU_LOCK_STATE_EX@@E@Z.c)
+ *     ?ndisVerifyNdisFreeRWLock@@YAXPEAU_NDIS_RW_LOCK_EX@@@Z @ 0x1C00C3F30 (-ndisVerifyNdisFreeRWLock@@YAXPEAU_NDIS_RW_LOCK_EX@@@Z.c)
+ *     ?ndisVerifyNdisReleaseRWLock@@YAXPEAU_NDIS_RW_LOCK_EX@@PEAU_LOCK_STATE_EX@@@Z @ 0x1C00C3FA0 (-ndisVerifyNdisReleaseRWLock@@YAXPEAU_NDIS_RW_LOCK_EX@@PEAU_LOCK_STATE_EX@@@Z.c)
+ *     ?ndisVerifyNdisTryPromoteRWLockFromReadToWrite@@YAEPEAU_NDIS_RW_LOCK_EX@@PEAU_LOCK_STATE_EX@@@Z @ 0x1C00C4110 (-ndisVerifyNdisTryPromoteRWLockFromReadToWrite@@YAEPEAU_NDIS_RW_LOCK_EX@@PEAU_LOCK_STATE_EX@@@Z.c)
+ *     ?ndisVerifyValidRWLockFlags@@YAXE@Z @ 0x1C00C41B8 (-ndisVerifyValidRWLockFlags@@YAXE@Z.c)
+ *     ?ndisExecuteRSSv2DirectOid@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OID_REQUEST@@PEAU_NDIS_RSS_DPC_WORKER_CONTEXT@@U_PROCESSOR_NUMBER@@@Z @ 0x1C00C489C (-ndisExecuteRSSv2DirectOid@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OID_REQUEST@@PEAU_NDIS_RSS_DP.c)
+ *     NdisFreeRefCount @ 0x1C00C7B10 (NdisFreeRefCount.c)
+ *     ?ndisInternalDeregisterMiniportDriver@@YAXPEAX@Z @ 0x1C0117B0C (-ndisInternalDeregisterMiniportDriver@@YAXPEAX@Z.c)
+ *     ?NdisPDAssociateNotificationEvent@@YAXPEAU_NDIS_PD_QUEUE@@PEAU_KEVENT@@@Z @ 0x1C011EA30 (-NdisPDAssociateNotificationEvent@@YAXPEAU_NDIS_PD_QUEUE@@PEAU_KEVENT@@@Z.c)
+ *     ?NdisPDDeleteBMGroup@@YAXPEAUPD_BUFFER_MANAGEMENT_GROUP_HANDLE__@@@Z @ 0x1C011F0F0 (-NdisPDDeleteBMGroup@@YAXPEAUPD_BUFFER_MANAGEMENT_GROUP_HANDLE__@@@Z.c)
+ *     ?NdisPDPIRequestDrainNotification@@YAXPEAU_NDIS_PD_QUEUE@@@Z @ 0x1C0120780 (-NdisPDPIRequestDrainNotification@@YAXPEAU_NDIS_PD_QUEUE@@@Z.c)
+ *     ?NdisPDRemoveProviderFromBMGroup@@YAXPEAUNDIS_PD_PROVIDER_HANDLE__@@@Z @ 0x1C0120C10 (-NdisPDRemoveProviderFromBMGroup@@YAXPEAUNDIS_PD_PROVIDER_HANDLE__@@@Z.c)
+ *     ?NdisPDStopEC@@YAXPEAUPD_EC_HANDLE__@@@Z @ 0x1C0120F60 (-NdisPDStopEC@@YAXPEAUPD_EC_HANDLE__@@@Z.c)
+ *     ndisReportTimeoutWaitingForExternalDriver @ 0x1C0123B5C (ndisReportTimeoutWaitingForExternalDriver.c)
+ *     ndisWaitForEvent @ 0x1C0123DC4 (ndisWaitForEvent.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall __noreturn ndisBugCheckEx(
+        ULONG_PTR BugCheckParameter1,
+        ULONG_PTR BugCheckParameter2,
+        ULONG_PTR BugCheckParameter3,
+        ULONG_PTR BugCheckParameter4)
+{
+  KeBugCheckEx(0x7Cu, BugCheckParameter1, BugCheckParameter2, BugCheckParameter3, BugCheckParameter4);
+}

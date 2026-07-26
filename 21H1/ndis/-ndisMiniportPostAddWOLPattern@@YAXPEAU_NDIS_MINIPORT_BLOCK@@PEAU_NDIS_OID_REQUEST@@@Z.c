@@ -1,0 +1,46 @@
+/*
+ * XREFs of ?ndisMiniportPostAddWOLPattern@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OID_REQUEST@@@Z @ 0x1C003AD5C
+ * Callers:
+ *     ?ndisOidPostPMAddWOLPattern@@YAXPEAU_NDIS_REQ_TRACKER@@@Z @ 0x1C00174D0 (-ndisOidPostPMAddWOLPattern@@YAXPEAU_NDIS_REQ_TRACKER@@@Z.c)
+ *     ?ndisPostSetAddWakeUpPattern@@YAXPEAU_NDIS_REQ_TRACKER@@@Z @ 0x1C0092C30 (-ndisPostSetAddWakeUpPattern@@YAXPEAU_NDIS_REQ_TRACKER@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qq @ 0x1C000E000 (WPP_RECORDER_SF_qq.c)
+ *     ?ndisInsertPatternListEntry@@YAXPEAU_SINGLE_LIST_ENTRY@@PEAU_NDIS_PACKET_PATTERN_ENTRY@@@Z @ 0x1C003B698 (-ndisInsertPatternListEntry@@YAXPEAU_SINGLE_LIST_ENTRY@@PEAU_NDIS_PACKET_PATTERN_ENTRY@@@Z.c)
+ *     ?ndisGetPatternEffectivePriority@@YAKPEAU_NDIS_PACKET_PATTERN_ENTRY@@@Z @ 0x1C008F8A8 (-ndisGetPatternEffectivePriority@@YAKPEAU_NDIS_PACKET_PATTERN_ENTRY@@@Z.c)
+ */
+
+void __fastcall ndisMiniportPostAddWOLPattern(struct _NDIS_MINIPORT_BLOCK *a1, struct _NDIS_OID_REQUEST *a2)
+{
+  struct _NDIS_PACKET_PATTERN_ENTRY *OidContext; // rbx
+  _SINGLE_LIST_ENTRY *p_DupLink; // rcx
+  _SINGLE_LIST_ENTRY *Next; // r8
+  unsigned int PatternEffectivePriority; // eax
+  __int64 v7; // r8
+
+  OidContext = (struct _NDIS_PACKET_PATTERN_ENTRY *)a1->OidContext;
+  if ( *(int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qq(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0xBu,
+      0x3Du,
+      (struct _GUID *)&WPP_a3b719bb2b623bfc7123f0e495d6b1e1_Traceguids,
+      (char)a1,
+      a2);
+  a1->OidContext = 0LL;
+  p_DupLink = &OidContext->DupLink;
+  Next = OidContext->DupLink.Next;
+  if ( Next )
+  {
+    p_DupLink->Next = 0LL;
+    p_DupLink->Next = Next->Next;
+    Next->Next = p_DupLink;
+    PatternEffectivePriority = ndisGetPatternEffectivePriority((struct _NDIS_PACKET_PATTERN_ENTRY *)&Next[-1]);
+    *(_DWORD *)(v7 + 28) = PatternEffectivePriority;
+  }
+  else
+  {
+    ndisInsertPatternListEntry(&a1->WOLPatternList, OidContext);
+    OidContext->EffectivePriority = OidContext->Priority;
+  }
+}

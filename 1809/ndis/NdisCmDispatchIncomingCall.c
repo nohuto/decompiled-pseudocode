@@ -1,0 +1,57 @@
+/*
+ * XREFs of NdisCmDispatchIncomingCall @ 0x1C011BC50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0026E30 (_guard_dispatch_icall_nop.c)
+ *     NdisClIncomingCallComplete @ 0x1C011B2E0 (NdisClIncomingCallComplete.c)
+ *     ndisDereferenceSap @ 0x1C011E884 (ndisDereferenceSap.c)
+ *     ndisReferenceAf @ 0x1C011EB34 (ndisReferenceAf.c)
+ */
+
+NDIS_STATUS __stdcall NdisCmDispatchIncomingCall(
+        NDIS_HANDLE NdisSapHandle,
+        NDIS_HANDLE NdisVcHandle,
+        PCO_CALL_PARAMETERS CallParameters)
+{
+  __int64 v3; // rbx
+  char v7; // si
+  KIRQL v8; // al
+  NDIS_STATUS v10; // ebx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  NDIS_STATUS v13; // eax
+
+  v3 = *((_QWORD *)NdisSapHandle + 2);
+  v7 = 0;
+  v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)NdisSapHandle + 5);
+  if ( *((int *)NdisSapHandle + 8) >= 0 )
+  {
+    v7 = 1;
+    ++*((_DWORD *)NdisSapHandle + 9);
+  }
+  KeReleaseSpinLock((PKSPIN_LOCK)NdisSapHandle + 5, v8);
+  if ( !v7 )
+    return -1073741823;
+  if ( (unsigned __int8)ndisReferenceAf(v3) )
+  {
+    v11 = *((_QWORD *)NdisVcHandle + 3);
+    v12 = *((_QWORD *)NdisSapHandle + 1);
+    if ( *(_DWORD *)(v3 + 396) >= 6u )
+      v13 = (*(__int64 (__fastcall **)(__int64, __int64, PCO_CALL_PARAMETERS))(v3 + 320))(v12, v11, CallParameters);
+    else
+      v13 = (*(__int64 (__fastcall **)(__int64, __int64, PCO_CALL_PARAMETERS))(v3 + 168))(v12, v11, CallParameters);
+    v10 = v13;
+    if ( v13 != 259 )
+    {
+      NdisClIncomingCallComplete(v13, NdisVcHandle, CallParameters);
+      v10 = 259;
+    }
+  }
+  else
+  {
+    v10 = -1073741823;
+  }
+  ndisDereferenceSap(NdisSapHandle);
+  return v10;
+}

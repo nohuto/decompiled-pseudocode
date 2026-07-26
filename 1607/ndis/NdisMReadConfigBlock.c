@@ -1,0 +1,27 @@
+/*
+ * XREFs of NdisMReadConfigBlock @ 0x1C00D8A30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0027180 (_guard_dispatch_icall_nop.c)
+ *     WPP_SF_q @ 0x1C003C368 (WPP_SF_q.c)
+ */
+
+__int64 __fastcall NdisMReadConfigBlock(_QWORD *a1, unsigned int a2, __int64 a3, unsigned int a4)
+{
+  __int64 (__fastcall *v8)(__int64, _QWORD, __int64, _QWORD); // rax
+  __int64 v9; // rcx
+  __int64 v10; // rdx
+  unsigned int v11; // edi
+
+  if ( (unsigned __int8)byte_1C00895E1 >= 4u )
+    WPP_SF_q(0x7Du, &WPP_66e150bf10bd3961f505aba1a8a4f7d8_Traceguids, (__int64)a1);
+  v8 = (__int64 (__fastcall *)(__int64, _QWORD, __int64, _QWORD))a1[615];
+  if ( v8 && (v9 = a1[616]) != 0 && (v10 = a1[584]) != 0 && (*(_BYTE *)(v10 + 8) & 5) == 5 )
+    v11 = v8(v9, a2, a3, a4);
+  else
+    v11 = -1073741637;
+  if ( (unsigned __int8)byte_1C00895E1 >= 4u )
+    WPP_SF_q(0x7Eu, &WPP_66e150bf10bd3961f505aba1a8a4f7d8_Traceguids, (__int64)a1);
+  return v11;
+}

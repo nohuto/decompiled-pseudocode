@@ -1,0 +1,12 @@
+/*
+ * XREFs of NdisIfAllocateNetLuidIndexEx @ 0x1C0126660
+ * Callers:
+ *     ?ndisIfCreateInterface@@YAJPEAU_NDIS_IF_NETWORK_BLOCK@@EPEAU_NDIS_NSI_COMPARTMENT_RW@@PEBT_NET_LUID_LH@@PEBU_GUID@@PEBUNdisNetworkInterfacePersistedState@@PEAU_NDIS_FILTER_BLOCK@@W4NdisIfBlockSource@@@Z @ 0x1C0105778 (-ndisIfCreateInterface@@YAJPEAU_NDIS_IF_NETWORK_BLOCK@@EPEAU_NDIS_NSI_COMPARTMENT_RW@@PEBT_NET_L.c)
+ * Callees:
+ *     ?ndisIfAllocateAndVerifyNetLuidIndex@@YAHGPEAIEE@Z @ 0x1C0105EBC (-ndisIfAllocateAndVerifyNetLuidIndex@@YAHGPEAIEE@Z.c)
+ */
+
+__int64 __fastcall NdisIfAllocateNetLuidIndexEx(__int16 a1, char a2, unsigned int *a3)
+{
+  return ndisIfAllocateAndVerifyNetLuidIndex(a1, a3, 1, (a2 & 1) == 0);
+}

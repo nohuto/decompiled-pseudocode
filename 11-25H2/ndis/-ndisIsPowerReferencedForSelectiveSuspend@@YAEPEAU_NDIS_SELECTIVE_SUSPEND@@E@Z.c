@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?ndisIsPowerReferencedForSelectiveSuspend@@YAEPEAU_NDIS_SELECTIVE_SUSPEND@@E@Z @ 0x1400620F0
+ * Callers:
+ *     ?ndisWdfSetBusySync@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_SS_BUSY_REASON@@K@Z @ 0x140061E30 (-ndisWdfSetBusySync@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_SS_BUSY_REASON@@K@Z.c)
+ *     ?ndisSelectiveSuspendStop@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_SS_STOP_REASON@@@Z @ 0x1400848F0 (-ndisSelectiveSuspendStop@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_SS_STOP_REASON@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall ndisIsPowerReferencedForSelectiveSuspend(struct _NDIS_SELECTIVE_SUSPEND *a1, char a2)
+{
+  if ( a2 )
+  {
+    return (*((_DWORD *)a1 + 128)
+         || *((_DWORD *)a1 + 129)
+         || *((_DWORD *)a1 + 132)
+         || *((_DWORD *)a1 + 133)
+         || *((_DWORD *)a1 + 130)
+         || *((_DWORD *)a1 + 131)
+         || *((_DWORD *)a1 + 144)
+         || *((_DWORD *)a1 + 127))
+        && KeReadStateEvent((PRKEVENT)((char *)a1 + 272));
+  }
+  else
+  {
+    if ( (*((_DWORD *)a1 + 126) & 0x14) == 0 )
+      return 1;
+    return (*((_DWORD *)a1 + 126) & 0x200) != 0;
+  }
+}

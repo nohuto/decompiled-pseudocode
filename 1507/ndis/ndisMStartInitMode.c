@@ -1,0 +1,21 @@
+/*
+ * XREFs of ndisMStartInitMode @ 0x1C00ABF54
+ * Callers:
+ *     ndisMInitializeAdapter @ 0x1C00E9E1C (ndisMInitializeAdapter.c)
+ * Callees:
+ *     ndisReferenceMiniport @ 0x1C0019084 (ndisReferenceMiniport.c)
+ *     NdisSetTimer @ 0x1C001BBC0 (NdisSetTimer.c)
+ */
+
+void __fastcall ndisMStartInitMode(__int64 a1)
+{
+  if ( ndisReferenceMiniport(a1, 0x15u) )
+  {
+    *(_BYTE *)(a1 + 1995) = 1;
+    *(_QWORD *)(a1 + 2144) = ndisMDispatchReceiveNetBufferListsWithLock;
+    *(_QWORD *)(a1 + 2152) = ndisMDispatchReceiveNetBufferListsWithLock;
+    *(_BYTE *)(a1 + 2673) = 0;
+    KeClearEvent((PRKEVENT)(a1 + 3024));
+    NdisSetTimer((PNDIS_TIMER)(a1 + 2816), 0x7530u);
+  }
+}

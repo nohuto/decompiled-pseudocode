@@ -1,0 +1,65 @@
+/*
+ * XREFs of ndisOidPreIovOverlyingAdapterInfo @ 0x1C00B4480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qq @ 0x1C00066A0 (WPP_RECORDER_SF_qq.c)
+ *     WPP_RECORDER_SF_qDD @ 0x1C001AD38 (WPP_RECORDER_SF_qDD_ea_1C001AD38.c)
+ */
+
+char __fastcall ndisOidPreIovOverlyingAdapterInfo(__int64 *a1)
+{
+  _DWORD *v1; // rsi
+  __int64 v3; // rbp
+  char v4; // bl
+  int v5; // eax
+  char v7[4]; // [rsp+38h] [rbp-20h]
+
+  v1 = (_DWORD *)a1[4];
+  v3 = *a1;
+  v4 = 0;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qq(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4,
+      26,
+      81,
+      (struct _GUID *)&WPP_75eef42a2ecf379be2bfd46d452e97a5_Traceguids,
+      v3,
+      (char)v1);
+  if ( v1[1] == 1 )
+  {
+    *((_DWORD *)a1 + 10) = 0;
+    if ( v1[12] >= 0x14u )
+    {
+      v5 = 0;
+    }
+    else
+    {
+      v5 = -1073676268;
+      v1[14] = 20;
+      *((_DWORD *)a1 + 10) = -1073676268;
+      v4 = 1;
+    }
+  }
+  else
+  {
+    v5 = -1073741637;
+    v4 = 1;
+    *((_DWORD *)a1 + 10) = -1073741637;
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    *(_DWORD *)v7 = v5;
+    WPP_RECORDER_SF_qDD(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0x1Au,
+      0x52u,
+      (struct _GUID *)&WPP_75eef42a2ecf379be2bfd46d452e97a5_Traceguids,
+      v3,
+      v4,
+      *(_DWORD *)v7);
+  }
+  return v4;
+}

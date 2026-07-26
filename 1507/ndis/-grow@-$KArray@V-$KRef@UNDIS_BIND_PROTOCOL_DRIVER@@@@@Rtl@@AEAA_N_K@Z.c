@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?grow@?$KArray@V?$KRef@UNDIS_BIND_PROTOCOL_DRIVER@@@@@Rtl@@AEAA_N_K@Z @ 0x1C00AD754
+ * Callers:
+ *     ?ndisBindGetProtocolDriver@@YA?AV?$KRef@UNDIS_BIND_PROTOCOL_DRIVER@@@@PEAU_UNICODE_STRING@@_N@Z @ 0x1C00A596C (-ndisBindGetProtocolDriver@@YA-AV-$KRef@UNDIS_BIND_PROTOCOL_DRIVER@@@@PEAU_UNICODE_STRING@@_N@Z.c)
+ *     DriverEntry @ 0x1C01023B0 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall Rtl::KArray<KRef<NDIS_BIND_PROTOCOL_DRIVER>>::grow(__int64 a1, unsigned __int64 a2)
+{
+  unsigned __int64 v2; // r8
+
+  v2 = *(unsigned int *)(a1 + 4);
+  if ( v2 >= a2 )
+    return 1;
+  if ( a2 < 4 )
+    a2 = 4LL;
+  if ( a2 < (unsigned int)v2 + ((unsigned int)v2 >> 1) )
+    a2 = (unsigned int)v2 + ((unsigned int)v2 >> 1);
+  return Rtl::KArray<KRef<NDIS_BIND_PROTOCOL_DRIVER>>::reserve(a1, a2);
+}

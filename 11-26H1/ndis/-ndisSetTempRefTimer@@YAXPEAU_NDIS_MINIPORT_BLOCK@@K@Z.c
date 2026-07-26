@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?ndisSetTempRefTimer@@YAXPEAU_NDIS_MINIPORT_BLOCK@@K@Z @ 0x140045980
+ * Callers:
+ *     ?ndisNicActiveRequestComplete@@YAXPEAU_NDIS_MINIPORT_BLOCK@@J@Z @ 0x140045330 (-ndisNicActiveRequestComplete@@YAXPEAU_NDIS_MINIPORT_BLOCK@@J@Z.c)
+ *     ?ndisAoAcClearStop@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_SS_STOP_REASON@@@Z @ 0x1400457F0 (-ndisAoAcClearStop@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_SS_STOP_REASON@@@Z.c)
+ *     ?ndisNicActiveRelease@@YAJPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_DEVICE_OBJECT_OPEN_CONTEXT@@PEAU_NDIS_PM_NIC_ACTIVE@@@Z @ 0x140049D50 (-ndisNicActiveRelease@@YAJPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_DEVICE_OBJECT_OPEN_CONTEXT@@PEAU_N.c)
+ *     NdisReleaseNicActive @ 0x14007A6C0 (NdisReleaseNicActive.c)
+ * Callees:
+ *     ?ndisDereferenceMiniport@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_MP_REFTAG@@@Z @ 0x140015DA0 (-ndisDereferenceMiniport@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_MP_REFTAG@@@Z.c)
+ *     ?ndisReferenceMiniport@@YAEPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_MP_REFTAG@@@Z @ 0x1400177D0 (-ndisReferenceMiniport@@YAEPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_MP_REFTAG@@@Z.c)
+ */
+
+void __fastcall ndisSetTempRefTimer(struct _NDIS_MINIPORT_BLOCK *a1, int a2)
+{
+  struct _NDIS_MINIPORT_AOAC *AoAc; // rdi
+  __int64 v4; // rbx
+  KIRQL v5; // al
+  __int64 v6; // rbx
+
+  AoAc = a1->AoAc;
+  v4 = a2;
+  v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)AoAc);
+  if ( !*((_DWORD *)AoAc + 16) || *((_DWORD *)AoAc + 95) )
+  {
+    KeReleaseSpinLock((PKSPIN_LOCK)AoAc, v5);
+  }
+  else
+  {
+    KeReleaseSpinLock((PKSPIN_LOCK)AoAc, v5);
+    v6 = -10000 * v4;
+    if ( (unsigned __int8)ndisReferenceMiniport(a1, 2u) )
+    {
+      if ( KeSetCoalescableTimer((PKTIMER)((char *)AoAc + 72), (LARGE_INTEGER)v6, 0, 0, (PKDPC)((char *)AoAc + 136)) )
+        ndisDereferenceMiniport(a1, 2u);
+    }
+  }
+}

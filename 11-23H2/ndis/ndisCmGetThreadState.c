@@ -1,0 +1,36 @@
+/*
+ * XREFs of ndisCmGetThreadState @ 0x1C002F760
+ * Callers:
+ *     ndisCmSetThreadState @ 0x1C00258B0 (ndisCmSetThreadState.c)
+ *     ?ndisGetNsiClientInfoForThread@@YAXPEAU_ETHREAD@@PEAU_NDIS_NSI_CLIENT_INFO@@@Z @ 0x1C002FA40 (-ndisGetNsiClientInfoForThread@@YAXPEAU_ETHREAD@@PEAU_NDIS_NSI_CLIENT_INFO@@@Z.c)
+ *     ndisIfCreateCompartment @ 0x1C00B825C (ndisIfCreateCompartment.c)
+ * Callees:
+ *     NdisGetSessionCompartmentId @ 0x1C0006AC0 (NdisGetSessionCompartmentId.c)
+ *     ?ndisCmGetThreadSessionId@@YAKPEAU_ETHREAD@@@Z @ 0x1C002F7C8 (-ndisCmGetThreadSessionId@@YAKPEAU_ETHREAD@@@Z.c)
+ */
+
+_DWORD *__fastcall ndisCmGetThreadState(PETHREAD Thread, _DWORD *a2, _DWORD *a3)
+{
+  _DWORD *result; // rax
+  unsigned int ThreadSessionId; // eax
+
+  result = PsGetThreadProperty(Thread, 0x6D43644EuLL, 0);
+  if ( result )
+  {
+    *a2 = *result;
+    *a3 = result[1];
+    result = (_DWORD *)ObfDereferenceObject(result);
+  }
+  else
+  {
+    *a2 = 0;
+    *a3 = 0;
+  }
+  if ( !*a2 )
+  {
+    ThreadSessionId = ndisCmGetThreadSessionId(Thread);
+    result = (_DWORD *)NdisGetSessionCompartmentId(ThreadSessionId);
+    *a2 = (_DWORD)result;
+  }
+  return result;
+}

@@ -1,0 +1,62 @@
+/*
+ * XREFs of ?ndisDummyHandler@@YAJPEAU_DEVICE_OBJECT@@PEAU_NDIS_OBJECT_HEADER@@PEAU_IRP@@@Z @ 0x1C006B320
+ * Callers:
+ *     ?ndisCreateHandler@@YAJPEAU_DEVICE_OBJECT@@PEAU_NDIS_MINIPORT_BLOCK@@PEAU_IRP@@@Z @ 0x1C0006110 (-ndisCreateHandler@@YAJPEAU_DEVICE_OBJECT@@PEAU_NDIS_MINIPORT_BLOCK@@PEAU_IRP@@@Z.c)
+ *     ?ndisCloseIrpHandler@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@@Z @ 0x1C0006BD0 (-ndisCloseIrpHandler@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@@Z.c)
+ *     ndisWMIDispatch @ 0x1C0010BF0 (ndisWMIDispatch.c)
+ *     ?ndisDeviceControlHandler@@YAJPEAU_DEVICE_OBJECT@@PEAU_NDIS_MINIPORT_BLOCK@@PEAU_IRP@@@Z @ 0x1C0010F30 (-ndisDeviceControlHandler@@YAJPEAU_DEVICE_OBJECT@@PEAU_NDIS_MINIPORT_BLOCK@@PEAU_IRP@@@Z.c)
+ *     ?ndisCloseHandler@@YAJPEAU_DEVICE_OBJECT@@PEAU_NDIS_MINIPORT_BLOCK@@PEAU_IRP@@@Z @ 0x1C006B1A8 (-ndisCloseHandler@@YAJPEAU_DEVICE_OBJECT@@PEAU_NDIS_MINIPORT_BLOCK@@PEAU_IRP@@@Z.c)
+ *     ?ndisDeviceInternalDispatch@@YAJPEAU_DEVICE_OBJECT@@PEAU_NDIS_MINIPORT_BLOCK@@PEAU_IRP@@@Z @ 0x1C007FFB0 (-ndisDeviceInternalDispatch@@YAJPEAU_DEVICE_OBJECT@@PEAU_NDIS_MINIPORT_BLOCK@@PEAU_IRP@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qq @ 0x1C000E0F0 (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00400D0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall ndisDummyHandler(struct _DEVICE_OBJECT *a1, struct _NDIS_OBJECT_HEADER *a2, struct _IRP *a3)
+{
+  _IO_STACK_LOCATION *CurrentStackLocation; // rcx
+  unsigned int v7; // ebx
+  __int64 (__fastcall *v8)(struct _DEVICE_OBJECT *, struct _IRP *); // rax
+
+  if ( *(int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qq(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0xBu,
+      0x1Fu,
+      (struct _GUID *)&WPP_51efd63ed52c3a002f03851f2f400cea_Traceguids,
+      (char)a1,
+      a3);
+  CurrentStackLocation = a3->Tail.Overlay.CurrentStackLocation;
+  if ( a2->Type == 17 )
+  {
+    v7 = CurrentStackLocation->MajorFunction != 18 ? 0xC00000BB : 0;
+  }
+  else
+  {
+    if ( a2->Type == 9 )
+    {
+      v8 = *(__int64 (__fastcall **)(struct _DEVICE_OBJECT *, struct _IRP *))&a2[2 * CurrentStackLocation->MajorFunction
+                                                                               + 12].Type;
+      if ( v8 )
+      {
+        v7 = v8(a1, a3);
+        goto LABEL_10;
+      }
+    }
+    v7 = -1073741637;
+  }
+  a3->IoStatus.Status = v7;
+  IofCompleteRequest(a3, 2);
+LABEL_10:
+  if ( *(int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qq(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0xBu,
+      0x20u,
+      (struct _GUID *)&WPP_51efd63ed52c3a002f03851f2f400cea_Traceguids,
+      (char)a1,
+      a3);
+  return v7;
+}

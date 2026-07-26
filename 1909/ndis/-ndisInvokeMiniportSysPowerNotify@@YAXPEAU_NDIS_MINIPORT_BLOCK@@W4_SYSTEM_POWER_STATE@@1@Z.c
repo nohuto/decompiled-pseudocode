@@ -1,0 +1,47 @@
+/*
+ * XREFs of ?ndisInvokeMiniportSysPowerNotify@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_SYSTEM_POWER_STATE@@1@Z @ 0x1C00148EC
+ * Callers:
+ *     ndisSetSystemPower @ 0x1C00131C8 (ndisSetSystemPower.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C0006260 (WPP_RECORDER_SF_q.c)
+ *     __security_check_cookie @ 0x1C0040760 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0041350 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall ndisInvokeMiniportSysPowerNotify(struct _NDIS_MINIPORT_BLOCK *a1, int a2, enum _SYSTEM_POWER_STATE a3)
+{
+  _NDIS_M_DRIVER_BLOCK *DriverHandle; // rdi
+  int v5; // edx
+  _DWORD v6[4]; // [rsp+30h] [rbp-48h] BYREF
+
+  DriverHandle = a1->DriverHandle;
+  if ( DriverHandle->SysPowerNotifyHandler && (a1->PnPFlags & 0x4000) == 0 )
+  {
+    v6[0] = 786816;
+    v6[1] = a2;
+    v6[2] = a3;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(a2) = 4;
+      WPP_RECORDER_SF_q(
+        *((_QWORD *)WPP_GLOBAL_Control + 8),
+        a2,
+        14,
+        11,
+        (struct _GUID *)&WPP_5bf3b773190d331e3fb83968fcc6c54c_Traceguids,
+        (char)a1);
+    }
+    DriverHandle->SysPowerNotifyHandler(a1->MiniportAdapterContext, (_NDIS_MINIPORT_SYSPOWER_NOTIFY *)v6);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v5) = 4;
+      WPP_RECORDER_SF_q(
+        *((_QWORD *)WPP_GLOBAL_Control + 8),
+        v5,
+        14,
+        12,
+        (struct _GUID *)&WPP_5bf3b773190d331e3fb83968fcc6c54c_Traceguids,
+        (char)a1);
+    }
+  }
+}

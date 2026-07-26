@@ -1,0 +1,68 @@
+/*
+ * XREFs of WPP_SF_d @ 0x1C00429F8
+ * Callers:
+ *     NdisMAllocateNetBufferSGList @ 0x1C0006870 (NdisMAllocateNetBufferSGList.c)
+ *     NdisFRegisterFilterDriver @ 0x1C00141F0 (NdisFRegisterFilterDriver.c)
+ *     ndisIndicateStatusInternal @ 0x1C0016D10 (ndisIndicateStatusInternal.c)
+ *     ndisSetMiniportPacketFilter @ 0x1C0019D6C (ndisSetMiniportPacketFilter.c)
+ *     NdisAllocatePacketPoolEx @ 0x1C001C310 (NdisAllocatePacketPoolEx.c)
+ *     ?ndisInitializeNsiHelper@@YAJXZ @ 0x1C001CC6C (-ndisInitializeNsiHelper@@YAJXZ.c)
+ *     ?ndisIfInitGetNetworkList@@YAJXZ @ 0x1C001CE2C (-ndisIfInitGetNetworkList@@YAJXZ.c)
+ *     ?ndisIfInitGetCompartmentList@@YAJXZ @ 0x1C001D070 (-ndisIfInitGetCompartmentList@@YAJXZ.c)
+ *     ndisStartNsiClient @ 0x1C001D5F8 (ndisStartNsiClient.c)
+ *     ndisReceiveWorkerThread @ 0x1C001D700 (ndisReceiveWorkerThread.c)
+ *     ndisThreadPoolTimerHandler @ 0x1C0020510 (ndisThreadPoolTimerHandler.c)
+ *     ndisOidPMAddRemove @ 0x1C0025300 (ndisOidPMAddRemove.c)
+ *     ndisPMAddWOLPattern @ 0x1C0025394 (ndisPMAddWOLPattern.c)
+ *     ndisAddWoLMagicPacket @ 0x1C0025504 (ndisAddWoLMagicPacket.c)
+ *     ndisIfAliasChange @ 0x1C00432A8 (ndisIfAliasChange.c)
+ *     ndisPMAddProtocolOffload @ 0x1C004A184 (ndisPMAddProtocolOffload.c)
+ *     ndisMAllocSGList @ 0x1C004BD20 (ndisMAllocSGList.c)
+ *     ndisMAllocSGListS @ 0x1C004C100 (ndisMAllocSGListS.c)
+ *     ?ndisAoAcTraceRundown@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C004E1B4 (-ndisAoAcTraceRundown@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z.c)
+ *     ndisWnfPdcCallback @ 0x1C004FC70 (ndisWnfPdcCallback.c)
+ *     ndisMIndicateQosParametersChange @ 0x1C005DF1C (ndisMIndicateQosParametersChange.c)
+ *     NdisMAllocateSharedMemoryAsync @ 0x1C005F220 (NdisMAllocateSharedMemoryAsync.c)
+ *     ndisNotifyDevicePowerStateChange @ 0x1C009C754 (ndisNotifyDevicePowerStateChange.c)
+ *     ?ReadNetworkInterfaceListV2@BindRegistry@Ndis@@YAJXZ @ 0x1C00A15A8 (-ReadNetworkInterfaceListV2@BindRegistry@Ndis@@YAJXZ.c)
+ *     ?ndisIfAllocateAndVerifyNetLuidIndex@@YAHGPEAIEE@Z @ 0x1C00A17D0 (-ndisIfAllocateAndVerifyNetLuidIndex@@YAHGPEAIEE@Z.c)
+ *     ?ReadNetworkInterfaceV2@BindRegistry@Ndis@@YAJAEBU_GUID@@AEAVKRegKey@@PEAT_NET_LUID_LH@@PEAU_NDIS_NSI_INTERFACE_PERSIST_RW@@@Z @ 0x1C00A728C (-ReadNetworkInterfaceV2@BindRegistry@Ndis@@YAJAEBU_GUID@@AEAVKRegKey@@PEAT_NET_LUID_LH@@PEAU_NDI.c)
+ *     ndisCreateThread @ 0x1C00A86D4 (ndisCreateThread.c)
+ *     ndisNotifyWmiBindUnbind @ 0x1C00A92DC (ndisNotifyWmiBindUnbind.c)
+ *     ndisDriverSystemDispatch @ 0x1C00AD898 (ndisDriverSystemDispatch.c)
+ *     ndisEtwRegisterGuids @ 0x1C00AD930 (ndisEtwRegisterGuids.c)
+ *     ndisStartNsiProvider @ 0x1C00AE3BC (ndisStartNsiProvider.c)
+ *     NdispRegisterShim @ 0x1C00AEAAC (NdispRegisterShim.c)
+ *     ?ndisNsiClientParameterChangeHandler@@YAXPEAXPEAU_NSI_KEYSTRUCT_DESC@@PEAU_NSI_SINGLE_PARAM_DESC@@W4_NSI_NOTIFICATION@@@Z @ 0x1C00AF180 (-ndisNsiClientParameterChangeHandler@@YAXPEAXPEAU_NSI_KEYSTRUCT_DESC@@PEAU_NSI_SINGLE_PARAM_DESC.c)
+ *     ndisPowerStateCallback @ 0x1C00B04E0 (ndisPowerStateCallback.c)
+ *     ndisMiniportPreAddWoLPattern @ 0x1C00B0E54 (ndisMiniportPreAddWoLPattern.c)
+ *     ?ndisIfInitGetInterfaceList@@YAJXZ @ 0x1C00C3974 (-ndisIfInitGetInterfaceList@@YAJXZ.c)
+ *     ndisMiniportPreAddProtocolOffload @ 0x1C00C83E4 (ndisMiniportPreAddProtocolOffload.c)
+ *     ndisQueuedUpdatePMCapabilities @ 0x1C00C9EB0 (ndisQueuedUpdatePMCapabilities.c)
+ *     ndisRejectUnsupportedPMOffloads @ 0x1C00CA02C (ndisRejectUnsupportedPMOffloads.c)
+ *     ndisRejectUnsupportedWoLPatterns @ 0x1C00CA220 (ndisRejectUnsupportedWoLPatterns.c)
+ *     ndisSetAddWakeUpPattern @ 0x1C00CA460 (ndisSetAddWakeUpPattern.c)
+ *     ndisCpuHotAddHandler @ 0x1C00CC4D0 (ndisCpuHotAddHandler.c)
+ *     NdisOpenFile @ 0x1C00CD550 (NdisOpenFile.c)
+ *     NdisSetAoAcOptions @ 0x1C00DD150 (NdisSetAoAcOptions.c)
+ *     ndisMInitializeAdapter @ 0x1C00EA374 (ndisMInitializeAdapter.c)
+ *     NdisMapFile @ 0x1C00F3210 (NdisMapFile.c)
+ *     NdisMAllocateMapRegisters @ 0x1C00F45F0 (NdisMAllocateMapRegisters.c)
+ *     NdisMRegisterDmaChannel @ 0x1C00F5000 (NdisMRegisterDmaChannel.c)
+ *     NdisClCloseCall @ 0x1C00F61D0 (NdisClCloseCall.c)
+ *     NdisCmMakeCallComplete @ 0x1C00F6E50 (NdisCmMakeCallComplete.c)
+ *     NdisCoAssignInstanceName @ 0x1C00F72C0 (NdisCoAssignInstanceName.c)
+ *     NdisCoDeleteVc @ 0x1C00F7F40 (NdisCoDeleteVc.c)
+ *     ndisIfInitialize @ 0x1C0102000 (ndisIfInitialize.c)
+ *     DriverEntry @ 0x1C01027E0 (DriverEntry.c)
+ * Callees:
+ *     ?ndisWppFastTraceMessage@@YAXPEBU_GUID@@GZZ @ 0x1C004E510 (-ndisWppFastTraceMessage@@YAXPEBU_GUID@@GZZ.c)
+ */
+
+void __fastcall WPP_SF_d(unsigned __int16 a1, const struct _GUID *a2, int a3)
+{
+  int v3; // [rsp+50h] [rbp+18h] BYREF
+
+  v3 = a3;
+  ndisWppFastTraceMessage(a2, a1, &v3, 4LL, 0LL);
+}

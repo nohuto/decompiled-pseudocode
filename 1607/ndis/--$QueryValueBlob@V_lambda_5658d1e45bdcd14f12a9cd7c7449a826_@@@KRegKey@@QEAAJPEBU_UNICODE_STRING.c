@@ -1,0 +1,71 @@
+/*
+ * XREFs of ??$QueryValueBlob@V_lambda_5658d1e45bdcd14f12a9cd7c7449a826_@@@KRegKey@@QEAAJPEBU_UNICODE_STRING@@V_lambda_5658d1e45bdcd14f12a9cd7c7449a826_@@@Z @ 0x1C00A7B54
+ * Callers:
+ *     ?QueryValueGuid@KRegKey@@QEAAJPEBGPEAU_GUID@@@Z @ 0x1C00A7E2C (-QueryValueGuid@KRegKey@@QEAAJPEBGPEAU_GUID@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0026780 (__security_check_cookie.c)
+ *     ?reset@?$KPtr@EU?$KDeleteArray@E@@@@QEAAXPEAE@Z @ 0x1C00C4450 (-reset@-$KPtr@EU-$KDeleteArray@E@@@@QEAAXPEAE@Z.c)
+ */
+
+__int64 __fastcall KRegKey::QueryValueBlob<_lambda_5658d1e45bdcd14f12a9cd7c7449a826_>(
+        HANDLE *a1,
+        _UNICODE_STRING *a2,
+        _OWORD **a3)
+{
+  _BYTE *v3; // rbx
+  HANDLE v5; // rcx
+  _BYTE *v7; // rsi
+  NTSTATUS v8; // eax
+  NTSTATUS v9; // edi
+  PVOID PoolWithTag; // rax
+  ULONG ResultLength; // [rsp+30h] [rbp-148h] BYREF
+  PVOID v13; // [rsp+38h] [rbp-140h] BYREF
+  _BYTE KeyValueInformation[256]; // [rsp+40h] [rbp-138h] BYREF
+
+  v3 = 0LL;
+  v5 = *a1;
+  v13 = 0LL;
+  v7 = KeyValueInformation;
+  v8 = ZwQueryValueKey(v5, a2, KeyValuePartialInformation, KeyValueInformation, 0x100u, &ResultLength);
+  v9 = v8;
+  if ( v8 != -2147483643 )
+  {
+    if ( v8 < 0 )
+      goto LABEL_3;
+    goto LABEL_10;
+  }
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, ResultLength, 0x6E694252u);
+  KPtr<unsigned char,KDeleteArray<unsigned char>>::reset(&v13, PoolWithTag);
+  v3 = v13;
+  if ( !v13 )
+  {
+    v9 = -1073741670;
+    goto LABEL_3;
+  }
+  v9 = ZwQueryValueKey(*a1, a2, KeyValuePartialInformation, v13, ResultLength, &ResultLength);
+  if ( v9 >= 0 )
+  {
+    v7 = v3;
+LABEL_10:
+    if ( *((_DWORD *)v7 + 1) == 3 )
+    {
+      if ( *((_DWORD *)v7 + 2) == 16 )
+      {
+        v9 = 0;
+        **a3 = *(_OWORD *)(v7 + 12);
+      }
+      else
+      {
+        v9 = -1073741811;
+      }
+    }
+    else
+    {
+      v9 = -1073741788;
+    }
+  }
+LABEL_3:
+  if ( v3 )
+    ExFreePoolWithTag(v3, 0);
+  return (unsigned int)v9;
+}

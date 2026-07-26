@@ -1,0 +1,37 @@
+/*
+ * XREFs of NdisMTriggerPDDrainNotification @ 0x1C0077250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ndisBugCheckEx @ 0x1C004F1C8 (ndisBugCheckEx.c)
+ *     ?ndisTriggerPDDrainNotification@@YAXPEAUNDIS_PD_QUEUE_TRACKER@@@Z @ 0x1C0076CD0 (-ndisTriggerPDDrainNotification@@YAXPEAUNDIS_PD_QUEUE_TRACKER@@@Z.c)
+ *     WPP_SF_qS @ 0x1C00773E4 (WPP_SF_qS_ea_1C00773E4.c)
+ */
+
+void __fastcall NdisMTriggerPDDrainNotification(__int64 a1, __int64 a2)
+{
+  ULONG_PTR v2; // rbx
+  char v3; // di
+  const wchar_t *v4; // r9
+
+  v2 = *(_QWORD *)(a1 + 24);
+  v3 = a2;
+  if ( (unsigned __int8)byte_1C0098764 >= 5u )
+  {
+    v4 = L"ISR";
+    if ( !(_BYTE)a2 )
+      v4 = L" ";
+    WPP_SF_qS(a1, a2, *(_QWORD *)(v2 + 48), v4);
+  }
+  if ( v3 )
+  {
+    if ( *(_BYTE *)(v2 + 62) )
+      ndisBugCheckEx(0x23uLL, 4uLL, v2, *(_QWORD *)(*(_QWORD *)(v2 + 32) + 48LL));
+    *(_BYTE *)(v2 + 62) = 1;
+    KeInsertQueueDpc((PRKDPC)(v2 + 88), 0LL, 0LL);
+  }
+  else
+  {
+    ndisTriggerPDDrainNotification(v2);
+  }
+}

@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?NdisGetVersion640Shim@@YAIXZ @ 0x1C0088F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0006820 (WPP_RECORDER_SF_.c)
+ */
+
+__int64 NdisGetVersion640Shim(void)
+{
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      1u,
+      0xCu,
+      (struct _GUID *)&WPP_4bb37904251735b56aed9b76a1765d54_Traceguids);
+  return 393256LL;
+}

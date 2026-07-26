@@ -1,0 +1,34 @@
+/*
+ * XREFs of NdisMDeregisterInterrupt @ 0x1C00EA590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ndisWaitForDpcCompletion@@YAXPECJPECEPEAU_KEVENT@@@Z @ 0x1C00025E8 (-ndisWaitForDpcCompletion@@YAXPECJPECEPEAU_KEVENT@@@Z.c)
+ *     WPP_SF_q @ 0x1C0039450 (WPP_SF_q.c)
+ */
+
+void __stdcall NdisMDeregisterInterrupt(PNDIS_MINIPORT_INTERRUPT Interrupt)
+{
+  _NDIS_MINIPORT_BLOCK *Miniport; // rdi
+  _IO_DISCONNECT_INTERRUPT_PARAMETERS Parameters; // [rsp+20h] [rbp-18h] BYREF
+
+  Miniport = Interrupt->Miniport;
+  if ( (unsigned __int8)ndisWppEnabledLevelPerFlag >= 4u )
+    WPP_SF_q(0x10u, &WPP_89199a78c9ed372c807b20ed02a65825_Traceguids, (__int64)Miniport);
+  if ( Interrupt->InterruptObject )
+  {
+    if ( _InterlockedExchangeAdd(&Miniport->RegisteredInterrupts, 0xFFFFFFFF) == 1 )
+      Interrupt->Miniport->Flags |= 0x20u;
+    *(_QWORD *)&Parameters.Version = 0LL;
+    Parameters.ConnectionContext.Generic = Interrupt->InterruptObject;
+    Parameters.Version = 1;
+    IoDisconnectInterruptEx(&Parameters);
+    ndisWaitForDpcCompletion(
+      &Interrupt->DpcCount,
+      (volatile unsigned __int8 *)&Interrupt->8,
+      &Interrupt->DpcsCompletedEvent);
+    Interrupt->Miniport->Interrupt = 0LL;
+  }
+  if ( (unsigned __int8)ndisWppEnabledLevelPerFlag >= 4u )
+    WPP_SF_q(0x11u, &WPP_89199a78c9ed372c807b20ed02a65825_Traceguids, (__int64)Interrupt->Miniport);
+}

@@ -1,0 +1,16 @@
+/*
+ * XREFs of ndisWatchdogTimeoutDpc @ 0x1400CD550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall ndisWatchdogTimeoutDpc(
+        struct _KDPC *Dpc,
+        struct _WORK_QUEUE_ITEM *DeferredContext,
+        PVOID SystemArgument1,
+        PVOID SystemArgument2)
+{
+  ExQueueWorkItem(DeferredContext + 4, CustomPriorityWorkQueue|MaximumWorkQueue);
+}

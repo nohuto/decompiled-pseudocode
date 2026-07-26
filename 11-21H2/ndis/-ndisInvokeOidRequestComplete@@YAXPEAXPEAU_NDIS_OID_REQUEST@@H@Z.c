@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?ndisInvokeOidRequestComplete@@YAXPEAXPEAU_NDIS_OID_REQUEST@@H@Z @ 0x1C0026530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qDqd @ 0x1C000B240 (WPP_RECORDER_SF_qDqd.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C000D430 (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0036040 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall ndisInvokeOidRequestComplete(_QWORD *a1, struct _NDIS_OID_REQUEST *a2, unsigned int a3)
+{
+  __int64 v3; // rbp
+
+  v3 = a1[3];
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qDqd(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      (int)a2,
+      a3,
+      0x67u,
+      (struct _GUID *)&WPP_2fca99124a243983c47039c87b76db5a_Traceguids,
+      (char)a1,
+      a2->DATA.QUERY_INFORMATION.Oid,
+      (char)a2,
+      a3);
+  (*(void (__fastcall **)(_QWORD, struct _NDIS_OID_REQUEST *, _QWORD))(v3 + 320))(a1[4], a2, a3);
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qq(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0xBu,
+      0x68u,
+      (struct _GUID *)&WPP_2fca99124a243983c47039c87b76db5a_Traceguids,
+      (char)a1,
+      a2);
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?AddTriageBlocks@?$NblTrackerCollector@U_NDIS_MINIPORT_BLOCK@@@@SAXPEAU_NDIS_MINIPORT_BLOCK@@PEAVTriageDataArray@@PEBUBugcheckParameters@@@Z @ 0x140093330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ndisAddNblTrackerToTriageArray@@YAXPEAVTriageDataArray@@PEAUNDIS_NBL_TRACKER_HANDLE__@@@Z @ 0x1400A45D0 (-ndisAddNblTrackerToTriageArray@@YAXPEAVTriageDataArray@@PEAUNDIS_NBL_TRACKER_HANDLE__@@@Z.c)
+ */
+
+void __fastcall NblTrackerCollector<_NDIS_MINIPORT_BLOCK>::AddTriageBlocks(__int64 a1, TriageDataArray *a2)
+{
+  ndisAddNblTrackerToTriageArray(a2, *(struct NDIS_NBL_TRACKER_HANDLE__ **)(a1 + 4080));
+}

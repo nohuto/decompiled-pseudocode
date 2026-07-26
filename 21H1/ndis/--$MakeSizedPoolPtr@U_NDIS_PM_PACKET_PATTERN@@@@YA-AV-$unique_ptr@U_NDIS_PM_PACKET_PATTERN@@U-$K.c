@@ -1,0 +1,28 @@
+/*
+ * XREFs of ??$MakeSizedPoolPtr@U_NDIS_PM_PACKET_PATTERN@@@@YA?AV?$unique_ptr@U_NDIS_PM_PACKET_PATTERN@@U?$KFreePool@U_NDIS_PM_PACKET_PATTERN@@@@@wistd@@K_K@Z @ 0x1C011F204
+ * Callers:
+ *     ??$MakeExtendedPoolPtr@U_NDIS_PM_PACKET_PATTERN@@@@YA?AV?$unique_ptr@U_NDIS_PM_PACKET_PATTERN@@U?$KFreePool@U_NDIS_PM_PACKET_PATTERN@@@@@wistd@@KKPEAK@Z @ 0x1C011F0D4 (--$MakeExtendedPoolPtr@U_NDIS_PM_PACKET_PATTERN@@@@YA-AV-$unique_ptr@U_NDIS_PM_PACKET_PATTERN@@U.c)
+ * Callees:
+ *     memset @ 0x1C003F6C0 (memset.c)
+ */
+
+_QWORD *__fastcall MakeSizedPoolPtr<_NDIS_PM_PACKET_PATTERN>(_QWORD *a1, __int64 a2, SIZE_T a3)
+{
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v6; // rdi
+
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, a3, 0x7877444Eu);
+  v6 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    memset(PoolWithTag, 0, a3);
+    *(_OWORD *)v6 = 0LL;
+    v6[2] = 0LL;
+    *a1 = v6;
+  }
+  else
+  {
+    *a1 = 0LL;
+  }
+  return a1;
+}

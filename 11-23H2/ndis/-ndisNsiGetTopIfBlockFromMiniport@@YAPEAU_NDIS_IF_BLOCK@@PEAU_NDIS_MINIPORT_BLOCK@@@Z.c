@@ -1,0 +1,47 @@
+/*
+ * XREFs of ?ndisNsiGetTopIfBlockFromMiniport@@YAPEAU_NDIS_IF_BLOCK@@PEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C001F030
+ * Callers:
+ *     ?ndisNsiGetInterfaceInformation@@YAJPEAU_NM_REQUEST_GET_PARAMETER@@@Z @ 0x1C000DB10 (-ndisNsiGetInterfaceInformation@@YAJPEAU_NM_REQUEST_GET_PARAMETER@@@Z.c)
+ * Callees:
+ *     ?ndisDereferenceMiniportForNsi@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_NSI_REFTAG@@W4_NDIS_MP_REFTAG@@@Z @ 0x1C000D8D0 (-ndisDereferenceMiniportForNsi@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_NSI_REFTAG@@W4_NDIS_MP_REFT.c)
+ *     ?ndisReferenceTopMiniportByNameForNsi@@YAPEAU_NDIS_MINIPORT_BLOCK@@PEAU1@KKEW4_NDIS_NSI_REFTAG@@W4_NDIS_MP_REFTAG@@@Z @ 0x1C001F100 (-ndisReferenceTopMiniportByNameForNsi@@YAPEAU_NDIS_MINIPORT_BLOCK@@PEAU1@KKEW4_NDIS_NSI_REFTAG@@.c)
+ *     ?ndisReferenceRefEx@@YAEPEAU_REFERENCE_EX@@EPEAW4_NDIS_REFERENCE_STATUS@@@Z @ 0x1C00228F4 (-ndisReferenceRefEx@@YAEPEAU_REFERENCE_EX@@EPEAW4_NDIS_REFERENCE_STATUS@@@Z.c)
+ */
+
+struct _NDIS_MINIPORT_BLOCK *__fastcall ndisNsiGetTopIfBlockFromMiniport(
+        struct _NDIS_MINIPORT_BLOCK *a1,
+        __int64 a2,
+        unsigned int a3)
+{
+  struct _NDIS_MINIPORT_BLOCK *result; // rax
+  struct _NDIS_MINIPORT_BLOCK *v4; // rdi
+  _NDIS_FILTER_BLOCK *HighestFilter; // rbx
+  _NDIS_IF_BLOCK *IfBlock; // rbx
+  int v7; // [rsp+48h] [rbp+10h] BYREF
+
+  result = ndisReferenceTopMiniportByNameForNsi(a1, 0, a3, 0, NSIREF_IFTOP, MPREF_IF_FINDTOP);
+  v4 = result;
+  if ( result )
+  {
+    KeAcquireSpinLockAtDpcLevel(&result->Lock);
+    HighestFilter = v4->HighestFilter;
+    v4->MiniportThread = KeGetCurrentThread();
+    while ( HighestFilter )
+    {
+      v7 = 0;
+      if ( ndisReferenceRefEx(&HighestFilter->PnPRef.SpinLock, 0xBu, (enum _NDIS_REFERENCE_STATUS *)&v7) )
+      {
+        IfBlock = HighestFilter->IfBlock;
+        goto LABEL_6;
+      }
+      HighestFilter = HighestFilter->LowerFilter;
+    }
+    IfBlock = v4->IfBlock;
+LABEL_6:
+    v4->MiniportThread = 0LL;
+    KeReleaseSpinLockFromDpcLevel(&v4->Lock);
+    ndisDereferenceMiniportForNsi(v4, 2u, 0x3Cu);
+    return (struct _NDIS_MINIPORT_BLOCK *)IfBlock;
+  }
+  return result;
+}

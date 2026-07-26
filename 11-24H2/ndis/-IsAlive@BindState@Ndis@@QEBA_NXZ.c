@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?IsAlive@BindState@Ndis@@QEBA_NXZ @ 0x1401541A0
+ * Callers:
+ *     ?GarbageCollectDeadBindings@BindStack@Ndis@@QEAAXXZ @ 0x140154100 (-GarbageCollectDeadBindings@BindStack@Ndis@@QEAAXXZ.c)
+ *     ?CreateDynamicBinding@BindStack@Ndis@@QEAAPEAUNDIS_BIND_PROTOCOL_LINK@@AEAV?$KRef@UNDIS_BIND_PROTOCOL_DRIVER@@@@PEAU_NDIS_MINIPORT_BLOCK@@W4Flags@BindSource@2@@Z @ 0x14015DFA0 (-CreateDynamicBinding@BindStack@Ndis@@QEAAPEAUNDIS_BIND_PROTOCOL_LINK@@AEAV-$KRef@UNDIS_BIND_PRO.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall Ndis::BindState::IsAlive(Ndis::BindState *this)
+{
+  return this->m_bindContext.m_numElements || this->m_bindSources != 0;
+}

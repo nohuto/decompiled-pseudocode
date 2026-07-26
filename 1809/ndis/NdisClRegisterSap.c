@@ -1,0 +1,56 @@
+/*
+ * XREFs of NdisClRegisterSap @ 0x1C011B5C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0026E30 (_guard_dispatch_icall_nop.c)
+ *     NdisCmRegisterSapComplete @ 0x1C011C270 (NdisCmRegisterSapComplete.c)
+ *     ndisReferenceAf @ 0x1C011EB34 (ndisReferenceAf.c)
+ */
+
+NDIS_STATUS __stdcall NdisClRegisterSap(
+        NDIS_HANDLE NdisAfHandle,
+        NDIS_HANDLE ProtocolSapContext,
+        PCO_SAP Sap,
+        PNDIS_HANDLE NdisSapHandle)
+{
+  NDIS_STATUS result; // eax
+  PVOID PoolWithTag; // rax
+  NDIS_HANDLE *v10; // rbx
+  __int64 v11; // rax
+
+  *NdisSapHandle = 0LL;
+  if ( !(unsigned __int8)ndisReferenceAf(NdisAfHandle) )
+    return -1073741823;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x6F63444Eu);
+  v10 = (NDIS_HANDLE *)PoolWithTag;
+  if ( PoolWithTag )
+  {
+    *((_DWORD *)PoolWithTag + 8) = 0;
+    *((_DWORD *)PoolWithTag + 9) = 1;
+    KeInitializeSpinLock((PKSPIN_LOCK)PoolWithTag + 5);
+    v10[2] = NdisAfHandle;
+    v10[3] = Sap;
+    v10[1] = ProtocolSapContext;
+    if ( *((_DWORD *)NdisAfHandle + 98) >= 6u )
+      v11 = *((_QWORD *)NdisAfHandle + 4);
+    else
+      v11 = *((_QWORD *)NdisAfHandle + 3);
+    result = (*(__int64 (__fastcall **)(_QWORD, PCO_SAP, NDIS_HANDLE *, NDIS_HANDLE *))(v11 + 40))(
+               *((_QWORD *)NdisAfHandle + 6),
+               Sap,
+               v10,
+               v10);
+    if ( result != 259 )
+    {
+      NdisCmRegisterSapComplete(result, v10, *v10);
+      return 259;
+    }
+  }
+  else
+  {
+    *NdisSapHandle = 0LL;
+    return -1073741670;
+  }
+  return result;
+}

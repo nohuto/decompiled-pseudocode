@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?ndisNicAutoPowerSaverControlIdleTimer@@YAXPEAU_NDIS_MINIPORT_BLOCK@@@Z @ 0x1C0072530
+ * Callers:
+ *     ndisWnfPdcCallback @ 0x1C0051300 (ndisWnfPdcCallback.c)
+ *     ndisSubmitIdleRequest @ 0x1C0076428 (ndisSubmitIdleRequest.c)
+ * Callees:
+ *     ndisClearIdleTimer @ 0x1C0074A4C (ndisClearIdleTimer.c)
+ *     ndisSetIdleTimer @ 0x1C0075F7C (ndisSetIdleTimer.c)
+ */
+
+void __fastcall ndisNicAutoPowerSaverControlIdleTimer(struct _NDIS_MINIPORT_BLOCK *a1)
+{
+  if ( a1->AoAc
+    && (a1->PnPFlags & 0x60) == 0x60
+    && (unsigned int)(a1->DeviceCaps.DeviceWake - 2) <= 2
+    && (a1->PMHardwareCapabilities.Flags & 4) != 0
+    && a1->SelectiveSuspend )
+  {
+    if ( ndisConnectedStandby )
+      ndisSetIdleTimer();
+    else
+      ndisClearIdleTimer();
+  }
+}

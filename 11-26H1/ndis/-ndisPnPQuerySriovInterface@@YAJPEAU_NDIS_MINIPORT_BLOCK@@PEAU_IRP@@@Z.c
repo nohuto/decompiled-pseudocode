@@ -1,0 +1,81 @@
+/*
+ * XREFs of ?ndisPnPQuerySriovInterface@@YAJPEAU_NDIS_MINIPORT_BLOCK@@PEAU_IRP@@@Z @ 0x1400E5410
+ * Callers:
+ *     ?ndisPnPIrpQueryInterface@@YAJPEAU_DEVICE_OBJECT@@PEAU_NDIS_MINIPORT_BLOCK@@PEAU_IRP@@PEAE3@Z @ 0x1400AA000 (-ndisPnPIrpQueryInterface@@YAJPEAU_DEVICE_OBJECT@@PEAU_NDIS_MINIPORT_BLOCK@@PEAU_IRP@@PEAE3@Z.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x140016160 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_qL @ 0x140017020 (WPP_RECORDER_SF_qL.c)
+ *     ?ndisReferenceMiniportNoCheck@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_MP_REFTAG@@@Z @ 0x1400220A0 (-ndisReferenceMiniportNoCheck@@YAXPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_MP_REFTAG@@@Z.c)
+ */
+
+__int64 __fastcall ndisPnPQuerySriovInterface(struct _NDIS_MINIPORT_BLOCK *a1, struct _IRP *a2)
+{
+  struct _IRP *v2; // rsi
+  unsigned int v4; // ebx
+  _IO_STACK_LOCATION *CurrentStackLocation; // rcx
+  _NDIS_SRIOV_CAPABILITIES *SriovCurrentCapabilities; // rax
+  _QWORD *QuadPart; // rax
+  char v9[4]; // [rsp+30h] [rbp-18h]
+
+  v2 = a2;
+  v4 = 0;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_q(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      (int)a2,
+      26,
+      96,
+      (struct _GUID *)&WPP_50f1e73ef26b3e4eefa48131e3a19b75_Traceguids,
+      (char)a1);
+  }
+  CurrentStackLocation = v2->Tail.Overlay.CurrentStackLocation;
+  if ( CurrentStackLocation->Parameters.QueryInterface.Size >= 0x78u
+    && CurrentStackLocation->Parameters.QueryInterface.Version == 1 )
+  {
+    if ( ndisSystemSupportsSriov
+      && (SriovCurrentCapabilities = a1->SriovCurrentCapabilities) != 0LL
+      && (SriovCurrentCapabilities->SriovCapabilities & 3) == 3 )
+    {
+      QuadPart = (_QWORD *)CurrentStackLocation->Parameters.Read.ByteOffset.QuadPart;
+      QuadPart[2] = ndisSriovInterfaceReference;
+      QuadPart[3] = ndisSriovInterfaceDereference;
+      QuadPart[4] = ndisSriovInterfaceReadVFConfig;
+      QuadPart[5] = ndisSriovInterfaceWriteVFConfig;
+      QuadPart[6] = ndisSriovInterfaceReadVfConfigBlock;
+      QuadPart[7] = ndisSriovInterfaceWriteVfConfigBlock;
+      QuadPart[8] = ndisSriovInterfaceQueryProbedBars;
+      QuadPart[9] = ndisSriovInterfaceGetVendorAndDeviceIds;
+      QuadPart[10] = ndisSriovInterfaceGetDeviceLocation;
+      QuadPart[11] = ndisSriovInterfaceResetVF;
+      QuadPart[12] = ndisSriovInterfaceSetVfPowerState;
+      QuadPart[14] = ndisSriovQueryLuid;
+      QuadPart[13] = ndisSriovGetResourceForBar;
+      *QuadPart = 65656LL;
+      QuadPart[1] = a1;
+      ndisReferenceMiniportNoCheck(a1, 0x44u);
+    }
+    else
+    {
+      v4 = -1073741637;
+    }
+  }
+  else
+  {
+    v4 = -1073741811;
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    *(_DWORD *)v9 = v4;
+    WPP_RECORDER_SF_qL(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0x1Au,
+      0x61u,
+      (struct _GUID *)&WPP_50f1e73ef26b3e4eefa48131e3a19b75_Traceguids,
+      (char)a1,
+      *(_DWORD *)v9);
+  }
+  return v4;
+}

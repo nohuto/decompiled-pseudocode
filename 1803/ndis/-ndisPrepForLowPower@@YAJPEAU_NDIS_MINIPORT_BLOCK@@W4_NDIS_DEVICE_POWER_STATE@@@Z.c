@@ -1,0 +1,85 @@
+/*
+ * XREFs of ?ndisPrepForLowPower@@YAJPEAU_NDIS_MINIPORT_BLOCK@@W4_NDIS_DEVICE_POWER_STATE@@@Z @ 0x1C000F640
+ * Callers:
+ *     ndisSetDevicePower @ 0x1C000F884 (ndisSetDevicePower.c)
+ *     ndisSetSystemPower @ 0x1C00B09DC (ndisSetSystemPower.c)
+ *     ndisWdfNotifySystemPower @ 0x1C00EECC0 (ndisWdfNotifySystemPower.c)
+ * Callees:
+ *     ndisMSwapOpenHandlers @ 0x1C001CD1C (ndisMSwapOpenHandlers.c)
+ *     WPP_SF_q @ 0x1C003A83C (WPP_SF_q.c)
+ *     WPP_SF_qq @ 0x1C003A8B8 (WPP_SF_qq.c)
+ *     WPP_SF_Zq @ 0x1C004F564 (WPP_SF_Zq.c)
+ *     ?Acquire@?$KNeutralLock@W4NDIS_MINIPORT_POLICY_OWNER@@@Rtl@@QEAAXW4NDIS_MINIPORT_POLICY_OWNER@@@Z @ 0x1C00B05B0 (-Acquire@-$KNeutralLock@W4NDIS_MINIPORT_POLICY_OWNER@@@Rtl@@QEAAXW4NDIS_MINIPORT_POLICY_OWNER@@@.c)
+ *     ndisIssueNetEventSetPowerEvent @ 0x1C00B05E4 (ndisIssueNetEventSetPowerEvent.c)
+ *     ndisNotifyDevicePowerStateChange @ 0x1C00B068C (ndisNotifyDevicePowerStateChange.c)
+ *     ndisMInvokeDevicePowerNotify @ 0x1C00B07CC (ndisMInvokeDevicePowerNotify.c)
+ *     ?ApplyBindChanges@BindEngine@Ndis@@QEAAXW4CallRunMode@@_N@Z @ 0x1C00BBF78 (-ApplyBindChanges@BindEngine@Ndis@@QEAAXW4CallRunMode@@_N@Z.c)
+ *     ?EndPolicyUpdates@BindEngine@Ndis@@QEAAXXZ @ 0x1C00BC060 (-EndPolicyUpdates@BindEngine@Ndis@@QEAAXXZ.c)
+ *     ?BeginPolicyUpdates@BindEngine@Ndis@@QEAAXXZ @ 0x1C00BC164 (-BeginPolicyUpdates@BindEngine@Ndis@@QEAAXXZ.c)
+ *     ?SetPause@BindState@Ndis@@QEAA_NW4PAUSE_OR_RESTART@@W4NDIS_PAUSE_REASON@@@Z @ 0x1C00BCF40 (-SetPause@BindState@Ndis@@QEAA_NW4PAUSE_OR_RESTART@@W4NDIS_PAUSE_REASON@@@Z.c)
+ *     ndisRequestWaitWake @ 0x1C00CA3B0 (ndisRequestWaitWake.c)
+ *     ?ndisGetBindLinkNameForTracing@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAUNDIS_PNPTRACE_LOCALS@@@Z @ 0x1C00FD4F0 (-ndisGetBindLinkNameForTracing@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAUNDIS_PNPTRACE_LOCALS@@@Z.c)
+ */
+
+__int64 __fastcall ndisPrepForLowPower(struct _NDIS_MINIPORT_BLOCK *Context, unsigned int a2)
+{
+  unsigned int v4; // edi
+  unsigned int PnPFlags; // eax
+  unsigned int FilterPnPFlags; // edx
+  KIRQL v7; // al
+  __int64 v8; // rdx
+  KIRQL v9; // bp
+  __int64 v10; // r9
+  unsigned int v11; // ecx
+  _QWORD v13[20]; // [rsp+20h] [rbp-A8h] BYREF
+
+  v4 = 0;
+  ndisMInvokeDevicePowerNotify();
+  ndisNotifyDevicePowerStateChange(Context, a2);
+  PnPFlags = Context->PnPFlags;
+  if ( (PnPFlags & 0x20) != 0 )
+  {
+    ndisIssueNetEventSetPowerEvent(Context);
+    PnPFlags = Context->PnPFlags;
+  }
+  FilterPnPFlags = Context->FilterPnPFlags;
+  if ( (FilterPnPFlags & 0x80u) == 0 || (PnPFlags & 0x20) == 0 )
+  {
+    Context->FilterPnPFlags = FilterPnPFlags | 0x100;
+    Ndis::BindEngine::BeginPolicyUpdates(&Context->BindEngine);
+    if ( Ndis::BindState::SetPause(&Context->Bindings.Miniport, DatapathPaused, PauseReason_LowPower)
+      && (unsigned __int8)byte_1C0099623 >= 4u )
+    {
+      ndisGetBindLinkNameForTracing(Context, (struct NDIS_PNPTRACE_LOCALS *)v13);
+      WPP_SF_Zq(88LL, &WPP_42361dd9a74b3d276ab6054e0e6a2aa7_Traceguids, v13[1], v13[0]);
+    }
+    Ndis::BindEngine::EndPolicyUpdates(&Context->BindEngine);
+    Ndis::BindEngine::ApplyBindChanges(&Context->BindEngine, RunSynchronous, 0);
+  }
+  Rtl::KNeutralLock<enum NDIS_MINIPORT_POLICY_OWNER>::Acquire(&Context->MiniportOwner, 1LL);
+  if ( (Context->PnPFlags & 0x20) != 0 )
+  {
+    v7 = KeAcquireSpinLockRaiseToDpc(&Context->Lock);
+    LOBYTE(v8) = 4;
+    Context->MiniportThread = KeGetCurrentThread();
+    v9 = v7;
+    Context->LockDbg = 1707005;
+    ndisMSwapOpenHandlers(Context, v8);
+    if ( Context->WaitWakeIrp )
+      Context->PnPFlags &= ~0x400u;
+    Context->MiniportThread = 0LL;
+    Context->LockDbg = 0;
+    KeReleaseSpinLock(&Context->Lock, v9);
+    v11 = Context->PnPFlags;
+    if ( (v11 & 0x400) != 0 && (Context->Flags & 0x80u) == 0 )
+    {
+      Context->PnPFlags = v11 & 0xFFFFFBFF;
+      if ( (unsigned __int8)byte_1C0099615 >= 4u )
+        WPP_SF_q(89LL, &WPP_42361dd9a74b3d276ab6054e0e6a2aa7_Traceguids, Context, v10);
+      v4 = ndisRequestWaitWake(Context, ndisGenericWaitWakeCallback);
+      if ( (unsigned __int8)byte_1C0099615 >= 4u )
+        WPP_SF_qq(90LL, &WPP_42361dd9a74b3d276ab6054e0e6a2aa7_Traceguids, Context, Context->WaitWakeIrp);
+    }
+  }
+  return v4;
+}

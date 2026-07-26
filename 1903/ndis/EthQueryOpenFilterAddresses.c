@@ -1,0 +1,50 @@
+/*
+ * XREFs of EthQueryOpenFilterAddresses @ 0x1C00A2074
+ * Callers:
+ *     ndisQueryOpenEthMulticastList @ 0x1C006F5BC (ndisQueryOpenEthMulticastList.c)
+ * Callees:
+ *     NdisAcquireRWLockRead @ 0x1C000E6E0 (NdisAcquireRWLockRead.c)
+ *     NdisReleaseRWLock @ 0x1C000EBE0 (NdisReleaseRWLock.c)
+ *     memmove @ 0x1C0041100 (memmove.c)
+ */
+
+void __fastcall EthQueryOpenFilterAddresses(
+        int *a1,
+        __int64 a2,
+        __int64 a3,
+        unsigned int a4,
+        unsigned int *a5,
+        char *a6)
+{
+  unsigned int v10; // r9d
+  char *v11; // rsi
+  int v12; // ebx
+  unsigned int i; // edi
+  unsigned int *v14; // rax
+  struct _LOCK_STATE_EX LockState; // [rsp+58h] [rbp+20h] BYREF
+
+  *(_WORD *)&LockState.OldIrql = 0;
+  LockState.Flags = 0;
+  NdisAcquireRWLockRead(*(PNDIS_RW_LOCK_EX *)(a2 + 288), &LockState, 0);
+  v10 = *(_DWORD *)(a3 + 456);
+  if ( a4 < 6 * v10 )
+  {
+    v10 = 0;
+    v12 = -1073741823;
+  }
+  else
+  {
+    v11 = a6;
+    v12 = 0;
+    for ( i = 0; i < v10; ++i )
+    {
+      memmove(v11, (const void *)(*(_QWORD *)(a3 + 448) + 4 * (3LL * i + 1)), 6uLL);
+      v10 = *(_DWORD *)(a3 + 456);
+      v11 += 6;
+    }
+  }
+  v14 = a5;
+  *a1 = v12;
+  *v14 = v10;
+  NdisReleaseRWLock(*(PNDIS_RW_LOCK_EX *)(a2 + 288), &LockState);
+}

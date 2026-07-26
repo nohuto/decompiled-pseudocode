@@ -1,0 +1,60 @@
+/*
+ * XREFs of ?ndisRollbackPortDeactivation@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAKI@Z @ 0x1400A7FE8
+ * Callers:
+ *     ?ndisPnPPortDeactivation@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NET_PNP_EVENT_NOTIFICATION@@@Z @ 0x140080880 (-ndisPnPPortDeactivation@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NET_PNP_EVENT_NOTIFICATION@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qq @ 0x14000CEB0 (WPP_RECORDER_SF_qq.c)
+ *     ?ndisFindPortByPortNumber@@YAPEAU_NDIS_PORT_BLOCK@@PEAU_NDIS_MINIPORT_BLOCK@@K@Z @ 0x1400A7EE0 (-ndisFindPortByPortNumber@@YAPEAU_NDIS_PORT_BLOCK@@PEAU_NDIS_MINIPORT_BLOCK@@K@Z.c)
+ */
+
+void __fastcall ndisRollbackPortDeactivation(struct _NDIS_MINIPORT_BLOCK *a1, unsigned int *a2, int a3)
+{
+  unsigned int *v4; // rsi
+  unsigned int *v6; // r10
+  struct _NDIS_PORT_BLOCK *PortByPortNumber; // rax
+  __int64 v8; // r10
+  __int64 v9; // r11
+  char v10; // [rsp+30h] [rbp-18h]
+
+  v4 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v10 = (char)a2;
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_qq(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      (int)a2,
+      23,
+      40,
+      (struct _GUID *)&WPP_82edb36cecd534540cfb01a6d1688083_Traceguids,
+      (char)a1,
+      v10);
+  }
+  if ( a3 )
+  {
+    v6 = v4;
+    do
+    {
+      PortByPortNumber = ndisFindPortByPortNumber(a1, *v6);
+      if ( PortByPortNumber )
+      {
+        PortByPortNumber->PortPnPState = PortByPortNumber->PrevPortPnPState;
+        ++a1->NumberOfActivePorts;
+      }
+      v6 = (unsigned int *)(v8 + 4);
+    }
+    while ( v9 != 1 );
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_qq(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      (int)a2,
+      23,
+      41,
+      (struct _GUID *)&WPP_82edb36cecd534540cfb01a6d1688083_Traceguids,
+      (char)a1,
+      (char)v4);
+  }
+}

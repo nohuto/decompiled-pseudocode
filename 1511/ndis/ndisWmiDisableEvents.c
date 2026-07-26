@@ -1,0 +1,47 @@
+/*
+ * XREFs of ndisWmiDisableEvents @ 0x1C0099E28
+ * Callers:
+ *     ndisWMIDispatch @ 0x1C009EDDC (ndisWMIDispatch.c)
+ * Callees:
+ *     ndisWmiGetGuid @ 0x1C001A910 (ndisWmiGetGuid.c)
+ *     WPP_SF_q @ 0x1C00383F4 (WPP_SF_q.c)
+ *     WPP_SF_qD @ 0x1C0038424 (WPP_SF_qD.c)
+ */
+
+__int64 __fastcall ndisWmiDisableEvents(__int64 a1, _QWORD *a2)
+{
+  unsigned int v2; // ebx
+  char v5; // di
+  int v6; // eax
+  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
+
+  v2 = 0;
+  v8 = 0LL;
+  v5 = byte_1C0083719;
+  if ( (unsigned __int8)byte_1C0083719 >= 4u )
+  {
+    WPP_SF_q(0x46u, &WPP_d937986e7c9cfac467ff151df8b76bd8_Traceguids, a1);
+    v5 = byte_1C0083719;
+  }
+  ndisWmiGetGuid(&v8, a1, a2, 0);
+  if ( v8 )
+  {
+    v6 = *(_DWORD *)(v8 + 24);
+    if ( (v6 & 2) != 0 )
+      *(_DWORD *)(v8 + 24) = v6 & 0x7FFFFFFF;
+    else
+      v2 = -1073741808;
+  }
+  else
+  {
+    if ( (unsigned __int8)v5 >= 2u )
+    {
+      WPP_SF_q(0x47u, &WPP_d937986e7c9cfac467ff151df8b76bd8_Traceguids, a1);
+      v5 = byte_1C0083719;
+    }
+    v2 = -1073741811;
+  }
+  if ( (unsigned __int8)v5 >= 4u )
+    WPP_SF_qD(0x48u, &WPP_d937986e7c9cfac467ff151df8b76bd8_Traceguids, a1, v2);
+  return v2;
+}

@@ -1,0 +1,228 @@
+/*
+ * XREFs of ?ndisSplitStatisticsOids@@YAHPEAU_NDIS_USER_OPEN_CONTEXT@@PEAKK@Z @ 0x1C002E700
+ * Callers:
+ *     ?ndisQueryOidList@@YAHPEAU_NDIS_USER_OPEN_CONTEXT@@@Z @ 0x1C002E53C (-ndisQueryOidList@@YAHPEAU_NDIS_USER_OPEN_CONTEXT@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qL @ 0x1C000C8B0 (WPP_RECORDER_SF_qL.c)
+ *     WPP_RECORDER_SF_q @ 0x1C000C990 (WPP_RECORDER_SF_q.c)
+ *     ndisIsQueryAllStatsOid @ 0x1C002E6CC (ndisIsQueryAllStatsOid.c)
+ */
+
+__int64 __fastcall ndisSplitStatisticsOids(struct _NDIS_USER_OPEN_CONTEXT *a1, unsigned int *a2, unsigned int a3)
+{
+  __int64 v3; // rbx
+  unsigned int v4; // esi
+  int v5; // edi
+  __int64 v6; // r12
+  unsigned int v7; // r14d
+  int v10; // r8d
+  unsigned int *v11; // rdx
+  __int64 v12; // r9
+  unsigned int v13; // ecx
+  bool v14; // cl
+  int v15; // eax
+  int *v16; // r9
+  bool IsQueryAllStatsOid; // al
+  __int64 v18; // r10
+  int v19; // ecx
+  __int64 v20; // r9
+  __int64 v21; // r15
+  __int64 Pool2; // rax
+  unsigned int v23; // r9d
+  __int64 v24; // r10
+  unsigned int v25; // r8d
+  __int64 v27; // rdx
+
+  v3 = *((_QWORD *)a1 + 1);
+  v4 = 0;
+  v5 = 0;
+  v6 = a3;
+  v7 = 0;
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_q(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0xBu,
+      0xAu,
+      (struct _GUID *)&WPP_5eb2c2b9ff2532e0d02b0f2c9580dec3_Traceguids,
+      v3);
+  v10 = *(_DWORD *)(v3 + 3408) >> 2;
+  if ( (_DWORD)v6 )
+  {
+    v11 = a2;
+    v12 = v6;
+    do
+    {
+      v13 = *v11;
+      v14 = (*v11 & 0xFF0000) == 0x20000 && (v13 & 0xFF000000) != 0xFF000000 && v13 != 131613;
+      v15 = v5 + 1;
+      if ( !v14 )
+        v15 = v5;
+      ++v11;
+      v5 = v15;
+      --v12;
+    }
+    while ( v12 );
+  }
+  if ( v10 )
+  {
+    v16 = *(int **)(v3 + 3400);
+    do
+    {
+      IsQueryAllStatsOid = ndisIsQueryAllStatsOid(*v16);
+      v19 = v5 + 1;
+      v16 = (int *)(v20 + 4);
+      if ( !IsQueryAllStatsOid )
+        v19 = v5;
+      v5 = v19;
+    }
+    while ( v18 != 1 );
+  }
+  v21 = (unsigned int)(v10 + v6);
+  Pool2 = ExAllocatePool2(66LL, 4LL * (unsigned int)(v21 + v5) + 24, 1634681934);
+  *((_QWORD *)a1 + 2) = Pool2;
+  if ( Pool2 )
+  {
+    *(_DWORD *)(Pool2 + 4) = v21;
+    v23 = 0;
+    *(_QWORD *)(*((_QWORD *)a1 + 2) + 16LL) = *((_QWORD *)a1 + 2) + 24LL;
+    **((_DWORD **)a1 + 2) = v5;
+    *(_QWORD *)(*((_QWORD *)a1 + 2) + 8LL) = *(_QWORD *)(*((_QWORD *)a1 + 2) + 16LL) + 4 * v21;
+    if ( (_DWORD)v21 )
+    {
+      v24 = 0LL;
+      do
+      {
+        if ( v23 >= (unsigned int)v6 )
+          v25 = *(_DWORD *)(*(_QWORD *)(v3 + 3400) + 4LL * (v23 - (unsigned int)v6));
+        else
+          v25 = *a2;
+        if ( (v25 & 0xFF0000) == 0x20000 && (v25 & 0xFF000000) != 0xFF000000 && v25 != 131613 )
+        {
+          v27 = v4++;
+          *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 8LL) + 4 * v27) = v25;
+          if ( v25 <= 0x20207 )
+          {
+            if ( v25 == 131591 )
+            {
+              *(_DWORD *)(v3 + 2688) |= 0x800u;
+            }
+            else if ( v25 <= 0x20201 )
+            {
+              switch ( v25 )
+              {
+                case 0x20201u:
+                  *(_DWORD *)(v3 + 2688) |= 0x20u;
+                  break;
+                case 0x20101u:
+                  *(_DWORD *)(v3 + 2688) |= 1u;
+                  break;
+                case 0x20102u:
+                  *(_DWORD *)(v3 + 2688) |= 2u;
+                  break;
+                case 0x20103u:
+                  *(_DWORD *)(v3 + 2688) |= 4u;
+                  break;
+                case 0x20104u:
+                  *(_DWORD *)(v3 + 2688) |= 8u;
+                  break;
+                case 0x20105u:
+                  *(_DWORD *)(v3 + 2688) |= 0x10u;
+                  break;
+                case 0x20106u:
+                  *(_DWORD *)(v3 + 2688) |= 0x400000u;
+                  break;
+              }
+            }
+            else
+            {
+              switch ( v25 )
+              {
+                case 0x20202u:
+                  *(_DWORD *)(v3 + 2688) |= 0x40u;
+                  break;
+                case 0x20203u:
+                  *(_DWORD *)(v3 + 2688) |= 0x80u;
+                  break;
+                case 0x20204u:
+                  *(_DWORD *)(v3 + 2688) |= 0x100u;
+                  break;
+                case 0x20205u:
+                  *(_DWORD *)(v3 + 2688) |= 0x200u;
+                  break;
+                default:
+                  *(_DWORD *)(v3 + 2688) |= 0x400u;
+                  break;
+              }
+            }
+          }
+          else if ( v25 <= 0x2020D )
+          {
+            switch ( v25 )
+            {
+              case 0x2020Du:
+                *(_DWORD *)(v3 + 2688) |= 0x20000u;
+                break;
+              case 0x20208u:
+                *(_DWORD *)(v3 + 2688) |= 0x1000u;
+                break;
+              case 0x20209u:
+                *(_DWORD *)(v3 + 2688) |= 0x2000u;
+                break;
+              case 0x2020Au:
+                *(_DWORD *)(v3 + 2688) |= 0x4000u;
+                break;
+              case 0x2020Bu:
+                *(_DWORD *)(v3 + 2688) |= 0x8000u;
+                break;
+              default:
+                *(_DWORD *)(v3 + 2688) |= 0x10000u;
+                break;
+            }
+          }
+          else
+          {
+            switch ( v25 )
+            {
+              case 0x2020Eu:
+                *(_DWORD *)(v3 + 2688) |= 0x40000u;
+                break;
+              case 0x20219u:
+                *(_DWORD *)(v3 + 2688) |= 0x80000u;
+                break;
+              case 0x2021Au:
+                *(_DWORD *)(v3 + 2688) |= 0x100000u;
+                break;
+              case 0x2021Bu:
+                *(_DWORD *)(v3 + 2688) |= 0x200000u;
+                break;
+              case 0x2021Cu:
+                *(_DWORD *)(v3 + 2688) |= 0x8000000u;
+                break;
+            }
+          }
+        }
+        ++v23;
+        ++a2;
+        *(_DWORD *)(v24 + *(_QWORD *)(*((_QWORD *)a1 + 2) + 16LL)) = v25;
+        v24 += 4LL;
+      }
+      while ( v23 < (unsigned int)v21 );
+    }
+    *(_QWORD *)(*((_QWORD *)a1 + 1) + 1776LL) = *((_QWORD *)a1 + 2);
+  }
+  else
+  {
+    v7 = -1073741670;
+  }
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qL(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0xBu,
+      0xBu,
+      (struct _GUID *)&WPP_5eb2c2b9ff2532e0d02b0f2c9580dec3_Traceguids,
+      v3,
+      v7);
+  return v7;
+}

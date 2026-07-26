@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?ndisVBusNmrClientAttachProvider@@YAJPEAX0PEBU_NPI_REGISTRATION_INSTANCE@@@Z @ 0x1C0099ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ndisBindEnumerateProtocolDrivers@@YAXP6AXPEAXV?$KRef@UNDIS_BIND_PROTOCOL_DRIVER@@@@@Z0@Z @ 0x1C00A5984 (-ndisBindEnumerateProtocolDrivers@@YAXP6AXPEAXV-$KRef@UNDIS_BIND_PROTOCOL_DRIVER@@@@@Z0@Z.c)
+ */
+
+__int64 __fastcall ndisVBusNmrClientAttachProvider(
+        HANDLE NmrBindingHandle,
+        void *a2,
+        const struct _NPI_REGISTRATION_INSTANCE *a3)
+{
+  PNPIID NpiId; // rcx
+  __int64 v5; // rax
+  PNPI_MODULEID ModuleId; // rcx
+  __int64 v8; // rax
+  NTSTATUS v9; // ebx
+
+  if ( *(_OWORD *)&WPP_MAIN_CB.SectorSize != 0LL || a3->Version != 1 || a3->Size != 40 )
+    return 3221226169LL;
+  NpiId = a3->NpiId;
+  v5 = *(_QWORD *)&NpiId->Data1 - NPI_NDIS_VBUS_INTERFACE_ID;
+  if ( *(_QWORD *)&NpiId->Data1 == NPI_NDIS_VBUS_INTERFACE_ID )
+    v5 = *(_QWORD *)NpiId->Data4 - 0x99E71279000ADABLL;
+  if ( v5 )
+    return 3221226169LL;
+  ModuleId = a3->ModuleId;
+  v8 = *(_QWORD *)&ModuleId->Length - NPI_MS_NDIS_VBUS_MODULEID;
+  if ( *(_QWORD *)&ModuleId->Length == NPI_MS_NDIS_VBUS_MODULEID )
+  {
+    v8 = *(_QWORD *)&ModuleId->Guid.Data1 - 0x11D49B1AEB004A25LL;
+    if ( *(_QWORD *)&ModuleId->Guid.Data1 == 0x11D49B1AEB004A25LL )
+      v8 = *((_QWORD *)&ModuleId->IfLuid + 1) + 0x43A688FBAFFFDC6FLL;
+  }
+  if ( v8 || a3->Number || a3->NpiSpecificCharacteristics )
+    return 3221226169LL;
+  v9 = NmrClientAttachProvider(
+         NmrBindingHandle,
+         0LL,
+         0LL,
+         (PVOID *)&WPP_MAIN_CB.DeviceObjectExtension,
+         (const void **)&WPP_MAIN_CB.Reserved);
+  if ( v9 >= 0 )
+  {
+    *(_QWORD *)&WPP_MAIN_CB.SectorSize = NmrBindingHandle;
+    ExReInitializeRundownProtection(&RunRef);
+    *((_BYTE *)&WPP_MAIN_CB.Reserved + 8) = 1;
+    ndisBindEnumerateProtocolDrivers(lambda_45acac7420f6e2785f1f49a7cce477f4_::_helper_func_cdecl_, 0LL);
+  }
+  return (unsigned int)v9;
+}

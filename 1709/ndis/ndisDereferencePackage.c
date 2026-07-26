@@ -1,0 +1,60 @@
+/*
+ * XREFs of ndisDereferencePackage @ 0x1C00B837C
+ * Callers:
+ *     NdisDeregisterDeviceEx @ 0x1C0002690 (NdisDeregisterDeviceEx.c)
+ *     ndisIsMiniportStarted @ 0x1C0008960 (ndisIsMiniportStarted.c)
+ *     ndisCreateHandler @ 0x1C0008A80 (ndisCreateHandler.c)
+ *     ndisCleanupUserOpenContext @ 0x1C0009040 (ndisCleanupUserOpenContext.c)
+ *     ndisQuerySetMiniportEx @ 0x1C0009A50 (ndisQuerySetMiniportEx.c)
+ *     ?ndisInternalRegisterMiniportDriver@@YAHPEAU_DRIVER_OBJECT@@PEAU_UNICODE_STRING@@PEAXPEAU_NDIS_MINIPORT_DRIVER_CHARACTERISTICS@@PEAPEAX@Z @ 0x1C001BCB0 (-ndisInternalRegisterMiniportDriver@@YAHPEAU_DRIVER_OBJECT@@PEAU_UNICODE_STRING@@PEAXPEAU_NDIS_M.c)
+ *     NdisRegisterDeviceEx @ 0x1C001D3C0 (NdisRegisterDeviceEx.c)
+ *     ndisQueueFilterOnDriver @ 0x1C001E008 (ndisQueueFilterOnDriver.c)
+ *     NdisClOpenAddressFamilyEx @ 0x1C0051340 (NdisClOpenAddressFamilyEx.c)
+ *     NdisCmRegisterAddressFamilyEx @ 0x1C00519D0 (NdisCmRegisterAddressFamilyEx.c)
+ *     NdisMCmRegisterAddressFamilyEx @ 0x1C0051CE0 (NdisMCmRegisterAddressFamilyEx.c)
+ *     NdisEnumerateFilterModules @ 0x1C0058060 (NdisEnumerateFilterModules.c)
+ *     ndisOpenAdapterLegacyProtocol @ 0x1C005C364 (ndisOpenAdapterLegacyProtocol.c)
+ *     NdisMDeregisterDevice @ 0x1C0061780 (NdisMDeregisterDevice.c)
+ *     ndisDeviceInternalDispatch @ 0x1C0064D98 (ndisDeviceInternalDispatch.c)
+ *     ?Iterate@BindEngine@Ndis@@AEAA_NXZ @ 0x1C00BB0D0 (-Iterate@BindEngine@Ndis@@AEAA_NXZ.c)
+ *     ndisPnPIrpRemoveDevice @ 0x1C00FE008 (ndisPnPIrpRemoveDevice.c)
+ *     ndisPnPRemoveDevice @ 0x1C00FE208 (ndisPnPRemoveDevice.c)
+ *     ?ndisDetachFilterInner@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_FILTER_BLOCK@@@Z @ 0x1C00FE490 (-ndisDetachFilterInner@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_FILTER_BLOCK@@@Z.c)
+ *     ?ndisUnbindProtocolOpen@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OPEN_BLOCK@@@Z @ 0x1C00FE704 (-ndisUnbindProtocolOpen@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_OPEN_BLOCK@@@Z.c)
+ *     ndisMCommonHaltMiniport @ 0x1C00FE9B4 (ndisMCommonHaltMiniport.c)
+ *     ndisDeQueueMiniportOnDriver @ 0x1C00FF048 (ndisDeQueueMiniportOnDriver.c)
+ *     ndisMKillOpen @ 0x1C00FF208 (ndisMKillOpen.c)
+ *     NdisMDeregisterInterruptEx @ 0x1C00FF6A0 (NdisMDeregisterInterruptEx.c)
+ *     ndisQueueMiniportOnDriver @ 0x1C00FF834 (ndisQueueMiniportOnDriver.c)
+ *     ndisNotifyMiniports @ 0x1C0101878 (ndisNotifyMiniports.c)
+ *     ?ndisAttachFilterInner@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_FILTER_DRIVER_BLOCK@@KPEAUNDIS_BIND_FILTER_LINK@@@Z @ 0x1C01021E4 (-ndisAttachFilterInner@@YAHPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_FILTER_DRIVER_BLOCK@@KPEAUNDIS_BI.c)
+ *     NdisOpenAdapterEx @ 0x1C0103020 (NdisOpenAdapterEx.c)
+ *     ndisAddDevice @ 0x1C0103FA8 (ndisAddDevice.c)
+ *     NdisMRegisterInterruptEx @ 0x1C01049A0 (NdisMRegisterInterruptEx.c)
+ *     ndisPnPNotifyAllTransports @ 0x1C0104EDC (ndisPnPNotifyAllTransports.c)
+ *     ndisDevicePowerOn @ 0x1C01053F0 (ndisDevicePowerOn.c)
+ *     ndisDevicePowerDown @ 0x1C01058B0 (ndisDevicePowerDown.c)
+ *     ndisQueryPower @ 0x1C0105B58 (ndisQueryPower.c)
+ *     ndisFindRootDevice @ 0x1C010B0B0 (ndisFindRootDevice.c)
+ *     ndisMUnload @ 0x1C010BA80 (ndisMUnload.c)
+ *     NdisMCmRegisterAddressFamily @ 0x1C010BC70 (NdisMCmRegisterAddressFamily.c)
+ *     ndisNotifyAfRegistration @ 0x1C010C0E0 (ndisNotifyAfRegistration.c)
+ *     NdisDeregisterProtocol @ 0x1C010C1C0 (NdisDeregisterProtocol.c)
+ *     NdisMAllocateMapRegisters @ 0x1C010C5E0 (NdisMAllocateMapRegisters.c)
+ *     NdisMDeregisterDmaChannel @ 0x1C010CB60 (NdisMDeregisterDmaChannel.c)
+ *     NdisMFreeMapRegisters @ 0x1C010CC20 (NdisMFreeMapRegisters.c)
+ *     NdisMRegisterDevice @ 0x1C010CD70 (NdisMRegisterDevice.c)
+ *     NdisMRegisterDmaChannel @ 0x1C010D020 (NdisMRegisterDmaChannel.c)
+ *     ndisFindMiniportOnGlobalList @ 0x1C010D318 (ndisFindMiniportOnGlobalList.c)
+ *     ndisMFinishQueuedPendingOpen @ 0x1C010D450 (ndisMFinishQueuedPendingOpen.c)
+ *     ndisRegisterMiniportDriver @ 0x1C010D638 (ndisRegisterMiniportDriver.c)
+ *     ndisPmHaltMiniport @ 0x1C010DDEC (ndisPmHaltMiniport.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall ndisDereferencePackage(__int64 a1)
+{
+  MmUnlockPagableImageSection(*(PVOID *)(a1 + 16));
+  _InterlockedDecrement((volatile signed __int32 *)a1);
+}

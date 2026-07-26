@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?ndisInvokeStatus@@YAXPEAU_NDIS_OPEN_BLOCK@@PEAU_NDIS_STATUS_INDICATION@@@Z @ 0x140050530
+ * Callers:
+ *     ?ndisIndicateStatusInternal@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_STATUS_INDICATION@@E@Z @ 0x14007BF40 (-ndisIndicateStatusInternal@@YAXPEAU_NDIS_MINIPORT_BLOCK@@PEAU_NDIS_STATUS_INDICATION@@E@Z.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qD @ 0x140014130 (WPP_RECORDER_SF_qD.c)
+ *     _guard_dispatch_icall @ 0x1400E7130 (_guard_dispatch_icall.c)
+ */
+
+void __fastcall ndisInvokeStatus(struct _NDIS_OPEN_BLOCK *a1, struct _NDIS_STATUS_INDICATION *a2)
+{
+  int StatusCode; // esi
+  __int64 v5; // [rsp+30h] [rbp-18h]
+  int v6; // [rsp+30h] [rbp-18h]
+
+  StatusCode = a2->StatusCode;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v6 = a2->StatusCode;
+    WPP_RECORDER_SF_qD(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0x18u,
+      0x6Cu,
+      (struct _GUID *)&WPP_ae366525395e343a98801eaac4c5345b_Traceguids,
+      (char)a1,
+      v6);
+  }
+  ((void (__fastcall *)(void *, struct _NDIS_STATUS_INDICATION *))a1->StatusHandler)(a1->ProtocolBindingContext, a2);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LODWORD(v5) = StatusCode;
+    WPP_RECORDER_SF_qD(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      0x18u,
+      0x6Du,
+      (struct _GUID *)&WPP_ae366525395e343a98801eaac4c5345b_Traceguids,
+      (char)a1,
+      v5);
+  }
+}

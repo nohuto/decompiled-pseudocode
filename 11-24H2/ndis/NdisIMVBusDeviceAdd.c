@@ -1,0 +1,66 @@
+/*
+ * XREFs of NdisIMVBusDeviceAdd @ 0x1400995F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qq @ 0x14000CEB0 (WPP_RECORDER_SF_qq.c)
+ *     WPP_RECORDER_SF_qqD @ 0x1400158F0 (WPP_RECORDER_SF_qqD.c)
+ *     ?ndisIMVBusIsValidInput@@YAEPEAXPEBU_NDIS_VBUS_DEVICE_CHARACTERISTICS@@@Z @ 0x140099214 (-ndisIMVBusIsValidInput@@YAEPEAXPEBU_NDIS_VBUS_DEVICE_CHARACTERISTICS@@@Z.c)
+ *     _guard_dispatch_icall @ 0x1400E7130 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall NdisIMVBusDeviceAdd(_BYTE *a1, const struct _NDIS_VBUS_DEVICE_CHARACTERISTICS *a2)
+{
+  const struct _NDIS_VBUS_DEVICE_CHARACTERISTICS *v2; // rdi
+  unsigned int v4; // ebx
+  char v6; // [rsp+30h] [rbp-18h]
+  char v7[4]; // [rsp+38h] [rbp-10h]
+
+  v2 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v6 = (char)a2;
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_qq(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      (int)a2,
+      1,
+      38,
+      (struct _GUID *)&WPP_901e3e1acd0b36a9ab86c452924f7c21_Traceguids,
+      (char)a1,
+      v6);
+  }
+  if ( ndisIMVBusIsValidInput(a1, v2) )
+  {
+    if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)&WPP_MAIN_CB.DeviceQueue.32) )
+    {
+      v4 = ((__int64 (__fastcall *)(char *, char *, char *))WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink->Flink)(
+             (char *)v2 + 8,
+             (char *)v2 + 24,
+             (char *)v2 + 72);
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)&WPP_MAIN_CB.DeviceQueue.32);
+    }
+    else
+    {
+      v4 = -1073741661;
+    }
+  }
+  else
+  {
+    v4 = -1073741811;
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    *(_DWORD *)v7 = v4;
+    WPP_RECORDER_SF_qqD(
+      *((_QWORD *)WPP_GLOBAL_Control + 8),
+      4u,
+      1u,
+      0x27u,
+      (struct _GUID *)&WPP_901e3e1acd0b36a9ab86c452924f7c21_Traceguids,
+      (char)a1,
+      (char)v2,
+      *(_DWORD *)v7);
+  }
+  return v4;
+}
