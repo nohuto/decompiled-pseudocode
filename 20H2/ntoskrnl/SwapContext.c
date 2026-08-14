@@ -1,3 +1,5 @@
+// see https://github.com/nohuto/windbg-notes/blob/main/assets/SwapContext.c for a decompilation attempt
+
 /*
  * XREFs of SwapContext @ 0x1404041B0
  * Callers:
